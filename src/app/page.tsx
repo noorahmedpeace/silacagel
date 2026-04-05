@@ -41,6 +41,47 @@ const promises = [
   "Built around real product photos instead of generic stock visuals.",
 ];
 
+const priceGroups = [
+  {
+    title: "PP / Small Size",
+    note: "Compact retail packs",
+    items: [
+      ["0.5 gm", "Rs. 0.65"],
+      ["1 gm", "Rs. 0.85"],
+      ["1 gm XL", "Rs. 1.00"],
+      ["2 gm", "Rs. 1.45"],
+      ["3 gm", "Rs. 1.90"],
+      ["4 gm", "Rs. 2.70"],
+      ["5 gm", "Rs. 3.25"],
+    ],
+  },
+  {
+    title: "Large Paper Sachet",
+    note: "Popular sachet rates",
+    items: [
+      ["1 gm", "Rs. 0.95"],
+      ["2 gm", "Rs. 1.75"],
+      ["3 gm", "Rs. 2.20"],
+      ["10 gm", "Rs. 7.00"],
+      ["15 gm", "Rs. 13.00"],
+      ["20 gm", "Rs. 18.00"],
+    ],
+  },
+  {
+    title: "Bulk & Industrial",
+    note: "Higher-weight formats",
+    items: [
+      ["25 grams", "Rs. 20"],
+      ["50 grams", "Rs. 40"],
+      ["100 grams", "Rs. 100"],
+      ["200 grams", "Rs. 200"],
+      ["250 grams", "Rs. 250"],
+      ["500 grams", "Rs. 500"],
+      ["1 kg strip", "Rs. 950"],
+    ],
+  },
+];
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -56,6 +97,7 @@ export default function Home() {
 
           <nav className={styles.nav}>
             <a href="#collection">Collection</a>
+            <a href="#pricing">Pricing</a>
             <a href="#story">Story</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -184,6 +226,38 @@ export default function Home() {
                   <div className={styles.galleryCopy}>
                     <h3>{item.title}</h3>
                     <p>{item.detail}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="pricing" className={styles.pricingSection}>
+            <div className={styles.sectionIntro}>
+              <p className={styles.eyebrow}>PKR Pricing</p>
+              <h2>Rupees mein clear rates, aur bulk order par baat ho sakti hai.</h2>
+              <p>
+                Aapki di hui sheet ke mutabiq yahan PKR reference pricing add kar
+                di hai. Large quantity, repeat orders, aur custom sizes ke liye
+                rate phone par discuss ho sakta hai.
+              </p>
+            </div>
+
+            <div className={styles.priceGrid}>
+              {priceGroups.map((group) => (
+                <article key={group.title} className={styles.priceCard}>
+                  <div className={styles.priceCardHeader}>
+                    <span>{group.note}</span>
+                    <h3>{group.title}</h3>
+                  </div>
+
+                  <div className={styles.priceList}>
+                    {group.items.map(([size, price]) => (
+                      <div key={size} className={styles.priceRow}>
+                        <strong>{size}</strong>
+                        <span>{price}</span>
+                      </div>
+                    ))}
                   </div>
                 </article>
               ))}

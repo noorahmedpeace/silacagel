@@ -363,6 +363,7 @@
 }
 
 .collectionSection,
+.pricingSection,
 .detailSection,
 .footer {
   padding: 34px;
@@ -393,6 +394,83 @@
   grid-template-columns: 1.14fr 0.86fr 0.86fr;
   gap: 18px;
   margin-top: 28px;
+}
+
+.pricingSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.priceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.priceCard {
+  padding: 20px;
+  border-radius: 28px;
+  border: 1px solid rgba(27, 44, 34, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(243, 238, 230, 0.88));
+  box-shadow:
+    0 16px 44px rgba(41, 35, 27, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.priceCardHeader span {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5f7367;
+}
+
+.priceCardHeader h3 {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #14271f;
+}
+
+.priceList {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(27, 44, 34, 0.06);
+}
+
+.priceRow strong,
+.priceRow span {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+
+.priceRow strong {
+  color: #1d342a;
+  font-weight: 700;
+}
+
+.priceRow span {
+  color: #2e5c48;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 .galleryCard {
@@ -552,6 +630,10 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .priceGrid {
+    grid-template-columns: 1fr;
+  }
+
   .galleryCard:first-child {
     grid-row: auto;
   }
@@ -575,6 +657,7 @@
   .hero,
   .metrics,
   .collectionSection,
+  .pricingSection,
   .storyPanel,
   .darkPanel,
   .detailSection,
@@ -586,6 +669,7 @@
   .heroVisual,
   .metrics,
   .galleryGrid,
+  .priceGrid,
   .sectorList,
   .founderStrip {
     grid-template-columns: 1fr;
