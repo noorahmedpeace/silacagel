@@ -1,50 +1,67 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-const gallery = [
+const visuals = {
+  warehouse:
+    "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg?cs=srgb&dl=pexels-web-buz-29454379.jpg&fm=jpg",
+  cargo:
+    "https://images.pexels.com/photos/34106182/pexels-photo-34106182.jpeg?cs=srgb&dl=pexels-aden-deutsch-2529743-34106182.jpg&fm=jpg",
+  leather:
+    "https://images.pexels.com/photos/2057484/pexels-photo-2057484.jpeg?cs=srgb&dl=pexels-prime-cinematics-1005175-2057484.jpg&fm=jpg",
+  electronics:
+    "https://images.pexels.com/photos/12741851/pexels-photo-12741851.jpeg?cs=srgb&dl=pexels-quang-nguyen-vinh-222549-12741851.jpg&fm=jpg",
+  packaging:
+    "https://images.pexels.com/photos/4464916/pexels-photo-4464916.jpeg?cs=srgb&dl=pexels-karola-g-4464916.jpg&fm=jpg",
+};
+
+const reasons = [
   {
-    src: "/products/kraft-grid.jpeg",
-    title: "Retail-ready sachet series",
-    detail:
-      "Multi-pack kraft presentation for compact moisture-control orders and clean catalog visuals.",
+    title: "High moisture capture",
+    text: "Silica gel can adsorb up to roughly one-third of its own weight in water vapor, making it a strong desiccant choice for sensitive goods.",
   },
   {
-    src: "/products/white-pack-duo.jpeg",
-    title: "Minimal white format",
-    detail:
-      "A cleaner desiccant pack look for clients who want a more clinical, export-friendly finish.",
+    title: "Efficient vs clay",
+    text: "It is widely preferred where weight, efficiency, and cleaner protection matter, and it is often positioned as more efficient than standard desiccant clay.",
   },
   {
-    src: "/products/kraft-2g-white.jpeg",
-    title: "Single unit focus shot",
-    detail:
-      "Perfect for product pages, quotations, and close-up trust-building imagery.",
-  },
-  {
-    src: "/products/green-6g-texture.jpeg",
-    title: "Textured premium pack",
-    detail:
-      "A more tactile moisture-control visual that works well in brand storytelling and ad creatives.",
+    title: "Reusable option",
+    text: "With controlled heating and drying, silica gel can be regenerated for reuse in many storage and industrial scenarios.",
   },
 ];
 
-const sectors = [
-  "Footwear, leather, and garments",
-  "Storage, shipping, and packaging",
-  "Industrial buyers and resellers",
-  "Retail packs and recurring bulk orders",
+const useCases = [
+  {
+    title: "Electronics & circuit boards",
+    text: "Protect PCBs, devices, batteries, instruments, and technical equipment from moisture-related failure.",
+    image: visuals.electronics,
+  },
+  {
+    title: "Leather, garments & shoes",
+    text: "Keep shoes, leather goods, textiles, and packed garments dry during storage, display, and shipping.",
+    image: visuals.leather,
+  },
+  {
+    title: "Export consignments",
+    text: "Container strips and bulk desiccant formats help reduce humidity risk during cargo movement and salty environments.",
+    image: visuals.cargo,
+  },
+  {
+    title: "Warehousing & packaging",
+    text: "Use sachets, packets, woven bags, and custom packing formats to support retail and industrial packaging programs.",
+    image: visuals.warehouse,
+  },
 ];
 
-const promises = [
-  "Made in Pakistan with practical, ready-to-sell product presentation.",
-  "Suitable for catalogs, WhatsApp orders, direct calls, and repeat B2B inquiries.",
-  "Built around real product photos instead of generic stock visuals.",
+const packingFormats = [
+  "Retail sachets for compact consumer packing",
+  "Paper and non-woven packets for general packaging",
+  "Bulk gram sizes for resellers and industrial supply",
+  "Container strips for export and shipment moisture control",
 ];
 
 const priceGroups = [
   {
-    title: "PP / Small Size",
-    note: "Compact retail packs",
+    title: "Small Sizes",
     items: [
       ["0.5 gm", "Rs. 0.65"],
       ["1 gm", "Rs. 0.85"],
@@ -56,8 +73,7 @@ const priceGroups = [
     ],
   },
   {
-    title: "Large Paper Sachet",
-    note: "Popular sachet rates",
+    title: "Paper Sachet",
     items: [
       ["1 gm", "Rs. 0.95"],
       ["2 gm", "Rs. 1.75"],
@@ -68,8 +84,7 @@ const priceGroups = [
     ],
   },
   {
-    title: "Bulk & Industrial",
-    note: "Higher-weight formats",
+    title: "Bulk & Strip",
     items: [
       ["25 grams", "Rs. 20"],
       ["50 grams", "Rs. 40"],
@@ -82,23 +97,46 @@ const priceGroups = [
   },
 ];
 
+const faqs = [
+  {
+    question: "How does silica gel work?",
+    answer:
+      "Silica gel adsorbs moisture from the surrounding air. It traps water vapor before that moisture can damage packed or stored goods.",
+  },
+  {
+    question: "Why is silica gel used?",
+    answer:
+      "It helps reduce mold risk, corrosion, spoilage, and moisture damage in products such as electronics, garments, food packs, documents, leather goods, and industrial equipment.",
+  },
+  {
+    question: "Can silica gel be reused?",
+    answer:
+      "In many cases yes. Controlled drying and heating can restore performance, which makes it practical for repeat-use moisture control setups.",
+  },
+  {
+    question: "Where can it be used?",
+    answer:
+      "It is commonly used in storage containers, export shipments, packaging lines, electronics, pharmaceuticals, safes, tools, textiles, footwear, seeds, and machinery parts.",
+  },
+];
+
 export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.shell}>
-        <header className={styles.topbar}>
+        <header className={styles.header}>
           <a className={styles.brand} href="#top">
-            <span className={styles.brandMark}>SG</span>
+            <span className={styles.brandBadge}>SG</span>
             <span>
               SilacaGEL
-              <small>Premium moisture-control presentation</small>
+              <small>Factory-direct moisture control</small>
             </span>
           </a>
 
           <nav className={styles.nav}>
-            <a href="#collection">Collection</a>
+            <a href="#why">Why Use</a>
+            <a href="#applications">Applications</a>
             <a href="#pricing">Pricing</a>
-            <a href="#story">Story</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
@@ -106,151 +144,199 @@ export default function Home() {
         <main id="top" className={styles.main}>
           <section className={styles.hero}>
             <div className={styles.heroCopy}>
-              <p className={styles.eyebrow}>Premium Desiccant Presentation</p>
-              <h1>
-                This should feel like a serious product brand, not a template.
-              </h1>
+              <p className={styles.kicker}>Premium Factory Presentation</p>
+              <h1>Silica gel packed for selling, shipping, and serious industrial use.</h1>
               <p className={styles.lead}>
-                Real product photography, sharper typography, deeper contrast,
-                and a cleaner sales story for moisture-control packs, direct
-                inquiries, and bulk buyers.
+                A darker, sharper, more premium direction for your factory website,
+                focused on every packing format, PKR quotations, export use, and
+                moisture protection across real product categories.
               </p>
 
-              <div className={styles.actionRow}>
-                <a href="tel:03330223337" className={styles.primaryAction}>
+              <div className={styles.ctaRow}>
+                <a href="tel:03330223337" className={styles.primaryCta}>
                   Call 03330223337
                 </a>
-                <a href="#collection" className={styles.secondaryAction}>
-                  View Collection
+                <a href="#pricing" className={styles.secondaryCta}>
+                  View PKR Pricing
                 </a>
               </div>
 
-              <div className={styles.founderStrip}>
+              <div className={styles.personRow}>
                 <div>
-                  <span>Founder</span>
+                  <span>Owner</span>
                   <strong>Noor Ahmed Khan</strong>
                 </div>
                 <div>
-                  <span>Co-Founder</span>
+                  <span>Business Contact</span>
                   <strong>Sameer Ahmed Khan</strong>
                 </div>
               </div>
             </div>
 
             <div className={styles.heroVisual}>
-              <article className={styles.heroCardLarge}>
-                <div className={styles.heroCardCopy}>
-                  <span>Signature Visual</span>
-                  <strong>Modern product-led identity</strong>
-                </div>
-                <div className={styles.heroImageWrap}>
+              <article className={`${styles.visualCard} ${styles.visualLarge}`}>
+                <div className={styles.imageWrap}>
                   <Image
-                    src="/products/kraft-grid.jpeg"
-                    alt="Premium kraft moisture-control sachets arranged in a grid."
+                    src={visuals.warehouse}
+                    alt="Large warehouse aisle with stacked packaging boxes."
                     fill
-                    className={styles.productImage}
-                    sizes="(max-width: 900px) 100vw, 40vw"
+                    className={styles.image}
+                    sizes="(max-width: 1100px) 100vw, 42vw"
                     priority
                   />
                 </div>
+                <div className={styles.visualCaption}>
+                  <span>Storage & Inventory</span>
+                  <strong>Built for factory supply and ready dispatch</strong>
+                </div>
               </article>
 
-              <article className={styles.heroCardSmall}>
-                <div className={styles.heroImageWrap}>
+              <article className={styles.visualCard}>
+                <div className={styles.imageWrap}>
                   <Image
-                    src="/products/white-pack-duo.jpeg"
-                    alt="White desiccant packets shown in premium close-up."
+                    src={visuals.packaging}
+                    alt="Clean white packaging boxes."
                     fill
-                    className={styles.productImage}
-                    sizes="(max-width: 900px) 100vw, 22vw"
+                    className={styles.image}
+                    sizes="(max-width: 1100px) 100vw, 20vw"
                   />
                 </div>
               </article>
 
-              <article className={styles.heroCardTall}>
-                <div className={styles.heroImageWrap}>
+              <article className={styles.visualCard}>
+                <div className={styles.imageWrap}>
                   <Image
-                    src="/products/kraft-6g-white.jpeg"
-                    alt="Single kraft moisture-control packet."
+                    src={visuals.cargo}
+                    alt="Cargo ship with stacked containers."
                     fill
-                    className={styles.productImage}
-                    sizes="(max-width: 900px) 100vw, 18vw"
+                    className={styles.image}
+                    sizes="(max-width: 1100px) 100vw, 20vw"
                   />
                 </div>
               </article>
             </div>
           </section>
 
-          <section className={styles.metrics}>
-            <article>
-              <span>Look</span>
-              <strong>Editorial, sharp, premium</strong>
-            </article>
-            <article>
-              <span>Use case</span>
-              <strong>Retail + WhatsApp + bulk inquiry</strong>
-            </article>
-            <article>
-              <span>Focus</span>
-              <strong>Real product trust, not stock imagery</strong>
-            </article>
+          <section className={styles.ribbon}>
+            <p>Every kind of packing, factory supply, PKR rates, and moisture-control applications explained in a much cleaner sales format.</p>
           </section>
 
-          <section id="collection" className={styles.collectionSection}>
-            <div className={styles.sectionIntro}>
-              <p className={styles.eyebrow}>Selected Collection</p>
-              <h2>Curated with your actual product photos.</h2>
+          <section id="why" className={styles.whySection}>
+            <div className={styles.sectionHead}>
+              <p className={styles.kicker}>Why Use Silica Gel</p>
+              <h2>Moisture damage is silent. Product loss is not.</h2>
               <p>
-                Maine background edit force nahin ki, kyun ke in shots ko luxury
-                catalog framing ke saath zyada authentic premium feel mil rahi
-                hai. Is se site real business jaisi lagti hai.
+                Silica gel is widely used to protect moisture-sensitive goods by
+                controlling humidity inside packaging, storage, and shipment
+                environments. It is especially useful where product quality,
+                shelf life, and export safety matter.
               </p>
             </div>
 
-            <div className={styles.galleryGrid}>
-              {gallery.map((item, index) => (
-                <article key={item.title} className={styles.galleryCard}>
-                  <div className={styles.galleryImage}>
+            <div className={styles.reasonGrid}>
+              {reasons.map((item) => (
+                <article key={item.title} className={styles.reasonCard}>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section className={styles.featureBand}>
+            <article className={styles.featureText}>
+              <p className={styles.kicker}>How To Use</p>
+              <h2>Put the right pack size inside the right enclosed space.</h2>
+              <p>
+                Silica gel works best when placed inside sealed packaging,
+                cartons, storage containers, instrument boxes, or cargo
+                environments where humidity needs to be controlled before damage
+                begins.
+              </p>
+              <ul className={styles.bulletList}>
+                <li>Choose the gram size according to box, bag, or container volume.</li>
+                <li>Place the sachet close to the product without tearing the packet.</li>
+                <li>Replace or regenerate when the moisture-holding capacity is exhausted.</li>
+              </ul>
+            </article>
+
+            <article className={styles.featureImageCard}>
+              <div className={styles.imageWrap}>
+                <Image
+                  src={visuals.electronics}
+                  alt="Electronic board repair close-up."
+                  fill
+                  className={styles.image}
+                  sizes="(max-width: 1100px) 100vw, 32vw"
+                />
+              </div>
+            </article>
+          </section>
+
+          <section id="applications" className={styles.applicationSection}>
+            <div className={styles.sectionHead}>
+              <p className={styles.kicker}>Applications</p>
+              <h2>From electronics to leather, export cargo to warehouse packaging.</h2>
+            </div>
+
+            <div className={styles.applicationGrid}>
+              {useCases.map((item) => (
+                <article key={item.title} className={styles.applicationCard}>
+                  <div className={styles.applicationImage}>
                     <Image
-                      src={item.src}
+                      src={item.image}
                       alt={item.title}
                       fill
-                      className={styles.productImage}
-                      sizes={
-                        index === 0
-                          ? "(max-width: 900px) 100vw, 42vw"
-                          : "(max-width: 900px) 100vw, 24vw"
-                      }
+                      className={styles.image}
+                      sizes="(max-width: 1100px) 100vw, 24vw"
                     />
                   </div>
-                  <div className={styles.galleryCopy}>
+                  <div className={styles.applicationCopy}>
                     <h3>{item.title}</h3>
-                    <p>{item.detail}</p>
+                    <p>{item.text}</p>
                   </div>
                 </article>
               ))}
             </div>
           </section>
 
-          <section id="pricing" className={styles.pricingSection}>
-            <div className={styles.sectionIntro}>
-              <p className={styles.eyebrow}>PKR Pricing</p>
-              <h2>Rupees mein clear rates, aur bulk order par baat ho sakti hai.</h2>
+          <section className={styles.splitSection}>
+            <article className={styles.darkPanel}>
+              <p className={styles.kickerDark}>Packing Formats</p>
+              <h2>Your factory can sell more when the website shows packing flexibility clearly.</h2>
+              <ul className={styles.formatList}>
+                {packingFormats.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={styles.lightPanel}>
+              <p className={styles.kicker}>Commonly Protected Items</p>
+              <h2>Documents, machines, food packs, shoes, textiles, electronics, tools, and more.</h2>
               <p>
-                Aapki di hui sheet ke mutabiq yahan PKR reference pricing add kar
-                di hai. Large quantity, repeat orders, aur custom sizes ke liye
-                rate phone par discuss ho sakta hai.
+                Moisture-control use cases commonly include storage containers,
+                optical devices, machine parts, pharmaceuticals, leather
+                products, textiles, documents, collectibles, and export stock.
+              </p>
+            </article>
+          </section>
+
+          <section id="pricing" className={styles.pricingSection}>
+            <div className={styles.sectionHead}>
+              <p className={styles.kicker}>PKR Pricing</p>
+              <h2>Rupees mein pricing, aur bulk par rate discuss ho sakta hai.</h2>
+              <p>
+                Neechay reference pricing rakhi gayi hai. Wholesale, repeat orders,
+                aur custom packing formats ke liye direct call ya WhatsApp par
+                quote diya ja sakta hai.
               </p>
             </div>
 
             <div className={styles.priceGrid}>
               {priceGroups.map((group) => (
                 <article key={group.title} className={styles.priceCard}>
-                  <div className={styles.priceCardHeader}>
-                    <span>{group.note}</span>
-                    <h3>{group.title}</h3>
-                  </div>
-
+                  <h3>{group.title}</h3>
                   <div className={styles.priceList}>
                     {group.items.map(([size, price]) => (
                       <div key={size} className={styles.priceRow}>
@@ -264,75 +350,35 @@ export default function Home() {
             </div>
           </section>
 
-          <section id="story" className={styles.storySection}>
-            <article className={styles.storyPanel}>
-              <p className={styles.eyebrow}>Why This Direction</p>
-              <h2>A stronger visual hierarchy changes how the product is perceived.</h2>
-              <p>
-                Jab desiccant pack ko sirf commodity na dikhaya jaye aur usay
-                considered product identity ke saath present kiya jaye, to buyer
-                trust, margin perception, aur inquiry quality teenon better hotay
-                hain.
-              </p>
-            </article>
-
-            <article className={styles.darkPanel}>
-              <div className={styles.darkPanelHeader}>
-                <p className={styles.eyebrowDark}>Built For</p>
-                <h2>Moisture protection that sells with confidence.</h2>
-              </div>
-
-              <ul className={styles.sectorList}>
-                {sectors.map((sector) => (
-                  <li key={sector}>{sector}</li>
-                ))}
-              </ul>
-            </article>
-          </section>
-
-          <section className={styles.detailSection}>
-            <div className={styles.detailCopy}>
-              <p className={styles.eyebrow}>Brand Promise</p>
-              <h2>Simple product. Better framing. Stronger business impression.</h2>
-              <div className={styles.promiseList}>
-                {promises.map((item) => (
-                  <article key={item} className={styles.promiseCard}>
-                    <p>{item}</p>
-                  </article>
-                ))}
-              </div>
+          <section className={styles.faqSection}>
+            <div className={styles.sectionHead}>
+              <p className={styles.kicker}>FAQ</p>
+              <h2>Important buying questions answered simply.</h2>
             </div>
 
-            <div className={styles.sheetCard}>
-              <div className={styles.sheetLabel}>
-                <span>Reference Layout</span>
-                <strong>Available size language</strong>
-              </div>
-              <div className={styles.sheetImage}>
-                <Image
-                  src="/products/sku-sheet.jpeg"
-                  alt="Assorted desiccant sachet size sheet."
-                  fill
-                  className={styles.productImage}
-                  sizes="(max-width: 900px) 100vw, 28vw"
-                />
-              </div>
+            <div className={styles.faqGrid}>
+              {faqs.map((item) => (
+                <article key={item.question} className={styles.faqCard}>
+                  <h3>{item.question}</h3>
+                  <p>{item.answer}</p>
+                </article>
+              ))}
             </div>
           </section>
         </main>
 
         <footer id="contact" className={styles.footer}>
           <div className={styles.footerCopy}>
-            <p className={styles.eyebrow}>Direct Contact</p>
-            <h2>Ready for live orders, bulk inquiries, and WhatsApp selling.</h2>
+            <p className={styles.kicker}>Direct Factory Contact</p>
+            <h2>Sell it like a real manufacturing business, not a generic reseller page.</h2>
             <p>
-              Agar aap chaho to aglay step mein main WhatsApp button, inquiry
-              form, aur aur bhi refined product pages add kar deta hoon.
+              Custom packing, bulk supply, retail sachets, and export-related
+              moisture control inquiries can be handled directly on call.
             </p>
           </div>
 
           <div className={styles.contactCard}>
-            <span>Contact Line</span>
+            <span>Call / WhatsApp</span>
             <a href="tel:03330223337">03330223337</a>
             <strong>Noor Ahmed Khan</strong>
             <strong>Sameer Ahmed Khan</strong>

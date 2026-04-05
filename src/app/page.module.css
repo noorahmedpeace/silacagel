@@ -1,8 +1,10 @@
 .page {
   min-height: 100vh;
+  color: #f5f1e8;
   background:
-    radial-gradient(circle at top left, rgba(227, 196, 149, 0.28), transparent 28%),
-    linear-gradient(180deg, #f4efe7 0%, #ebe3d7 46%, #f6f1e9 100%);
+    radial-gradient(circle at 20% 0%, rgba(156, 127, 78, 0.22), transparent 26%),
+    radial-gradient(circle at 100% 10%, rgba(25, 76, 58, 0.18), transparent 26%),
+    linear-gradient(180deg, #0d1312 0%, #111a18 48%, #171e1c 100%);
 }
 
 .shell {
@@ -11,26 +13,25 @@
   padding: 18px 0 40px;
 }
 
-.topbar {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 18px 22px;
-  border: 1px solid rgba(27, 44, 34, 0.08);
-  border-radius: 28px;
-  background: rgba(255, 253, 249, 0.74);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 20px 50px rgba(35, 37, 31, 0.06);
+  border: 1px solid rgba(233, 224, 209, 0.1);
+  border-radius: 26px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  color: #173127;
+  color: #f3ede1;
   font-family: var(--font-body);
-  font-size: 0.96rem;
+  font-size: 0.94rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -39,22 +40,21 @@
 .brand small {
   display: block;
   margin-top: 4px;
-  color: #6e756e;
-  font-size: 0.7rem;
+  color: rgba(241, 232, 218, 0.64);
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 }
 
-.brandMark {
+.brandBadge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #123326, #396a54);
-  color: #f7f4ed;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #f1dfbf, #9a7843);
+  color: #18211f;
 }
 
 .nav {
@@ -63,18 +63,11 @@
   gap: 18px;
   font-family: var(--font-body);
   font-size: 0.9rem;
-  color: #536157;
-}
-
-.nav a {
-  transition:
-    color 180ms ease,
-    transform 180ms ease;
+  color: rgba(241, 232, 218, 0.72);
 }
 
 .nav a:hover {
-  color: #173127;
-  transform: translateY(-1px);
+  color: #fff7eb;
 }
 
 .main {
@@ -85,120 +78,118 @@
 }
 
 .hero,
-.metrics,
-.collectionSection,
-.storySection,
-.detailSection,
+.ribbon,
+.whySection,
+.featureBand,
+.applicationSection,
+.splitSection,
+.pricingSection,
+.faqSection,
 .footer {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(27, 44, 34, 0.08);
-  border-radius: 36px;
-  background: rgba(255, 252, 246, 0.84);
-  box-shadow: 0 24px 60px rgba(37, 34, 25, 0.08);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, 0.92fr);
-  gap: 28px;
-  padding: 38px;
+  border: 1px solid rgba(233, 224, 209, 0.09);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
 }
 
 .hero::before,
-.collectionSection::before,
-.detailSection::before,
+.whySection::before,
+.pricingSection::before,
+.faqSection::before,
 .footer::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(41, 63, 52, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(41, 63, 52, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
   background-size: 36px 36px;
-  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 75%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 80%);
   pointer-events: none;
 }
 
-.heroCopy,
-.heroVisual,
-.sectionIntro,
-.galleryGrid,
-.storyPanel,
-.darkPanel,
-.detailCopy,
-.sheetCard,
-.footerCopy,
-.contactCard {
-  position: relative;
-  z-index: 1;
+.hero,
+.whySection,
+.applicationSection,
+.pricingSection,
+.faqSection,
+.footer {
+  padding: 34px;
 }
 
-.eyebrow,
-.eyebrowDark {
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.96fr);
+  gap: 26px;
+}
+
+.kicker,
+.kickerDark {
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
 }
 
-.eyebrow {
-  color: #2e5c48;
+.kicker {
+  color: #b89a68;
 }
 
-.eyebrowDark {
-  color: rgba(235, 231, 224, 0.72);
+.kickerDark {
+  color: rgba(255, 245, 232, 0.7);
 }
 
 .hero h1,
-.sectionIntro h2,
-.storyPanel h2,
+.sectionHead h2,
+.featureText h2,
 .darkPanel h2,
-.detailCopy h2,
+.lightPanel h2,
 .footer h2 {
   font-family: var(--font-display);
   font-weight: 600;
   line-height: 0.92;
-  letter-spacing: -0.04em;
-  color: #14271f;
+  letter-spacing: -0.05em;
+  color: #fff5e7;
   text-wrap: balance;
 }
 
 .hero h1 {
   max-width: 10ch;
   margin-top: 16px;
-  font-size: clamp(3.6rem, 7vw, 7.1rem);
+  font-size: clamp(4rem, 8vw, 7.4rem);
 }
 
 .lead,
-.sectionIntro p,
-.storyPanel p,
-.detailCopy > p,
+.sectionHead p,
+.featureText p,
+.lightPanel p,
 .footerCopy p,
-.galleryCopy p,
-.promiseCard p,
-.contactCard span {
+.reasonCard p,
+.applicationCopy p,
+.faqCard p {
   font-family: var(--font-body);
-  color: #5c675f;
   font-size: 1rem;
   line-height: 1.8;
+  color: rgba(242, 233, 219, 0.72);
 }
 
 .lead {
-  max-width: 54ch;
+  max-width: 58ch;
   margin-top: 18px;
 }
 
-.actionRow {
+.ctaRow {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 30px;
+  margin-top: 28px;
 }
 
-.primaryAction,
-.secondaryAction {
+.primaryCta,
+.secondaryCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -206,389 +197,335 @@
   padding: 0 24px;
   border-radius: 999px;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    border-color 180ms ease;
 }
 
-.primaryAction {
-  background: linear-gradient(135deg, #123326, #396a54);
-  color: #f5f2eb;
-  box-shadow: 0 16px 28px rgba(18, 51, 38, 0.22);
+.primaryCta {
+  color: #121816;
+  background: linear-gradient(135deg, #f0dfc0, #b58b4c);
 }
 
-.secondaryAction {
-  border: 1px solid rgba(23, 49, 39, 0.16);
-  color: #173127;
-  background: rgba(255, 255, 255, 0.7);
+.secondaryCta {
+  color: #f7f0e3;
+  border: 1px solid rgba(247, 240, 227, 0.16);
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.primaryAction:hover,
-.secondaryAction:hover {
-  transform: translateY(-1px);
-}
-
-.founderStrip {
+.personRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   margin-top: 28px;
 }
 
-.founderStrip div,
-.metrics article,
-.promiseCard,
+.personRow div,
+.reasonCard,
+.darkPanel,
+.lightPanel,
+.priceCard,
+.faqCard,
 .contactCard,
-.sheetCard,
-.galleryCard,
-.heroCardLarge,
-.heroCardSmall,
-.heroCardTall {
-  border: 1px solid rgba(27, 44, 34, 0.08);
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow:
-    0 16px 44px rgba(41, 35, 27, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+.visualCard {
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.founderStrip div {
+.personRow div {
   padding: 18px;
-  border-radius: 24px;
+  border-radius: 22px;
 }
 
-.founderStrip span,
-.metrics span,
-.heroCardCopy span,
-.sheetLabel span {
+.personRow span,
+.visualCaption span,
+.contactCard span {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.76rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #5f7367;
+  color: rgba(242, 233, 219, 0.54);
 }
 
-.founderStrip strong,
-.metrics strong,
-.heroCardCopy strong,
-.sheetLabel strong,
+.personRow strong,
+.visualCaption strong,
 .contactCard strong {
   display: block;
   margin-top: 8px;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 600;
   line-height: 1;
-  color: #183126;
+  color: #fff5e7;
 }
 
 .heroVisual {
   display: grid;
-  grid-template-columns: 1.1fr 0.74fr;
+  grid-template-columns: 1.1fr 0.84fr;
   grid-template-rows: 1fr 1fr;
-  gap: 18px;
-  min-height: 700px;
+  gap: 16px;
+  min-height: 720px;
 }
 
-.heroCardLarge,
-.heroCardSmall,
-.heroCardTall {
-  position: relative;
-  overflow: hidden;
-  border-radius: 28px;
+.visualCard {
   padding: 16px;
+  border-radius: 28px;
 }
 
-.heroCardLarge {
+.visualLarge {
   grid-row: 1 / span 2;
-  background: linear-gradient(180deg, #f8f4ec 0%, #e8dccb 100%);
 }
 
-.heroCardSmall {
-  background: linear-gradient(180deg, #f7f2ea 0%, #ddd3c6 100%);
-}
-
-.heroCardTall {
-  background: linear-gradient(180deg, #e2ece7 0%, #cad9d0 100%);
-}
-
-.heroCardCopy {
-  position: relative;
-  z-index: 1;
-  padding: 4px 4px 14px;
-}
-
-.heroImageWrap,
-.galleryImage,
-.sheetImage {
+.imageWrap {
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 22px;
-  background: linear-gradient(180deg, #f5f1ea 0%, #e4dbcf 100%);
-}
-
-.heroCardLarge .heroImageWrap {
-  height: calc(100% - 96px);
-}
-
-.heroCardSmall .heroImageWrap,
-.heroCardTall .heroImageWrap {
   height: 100%;
+  min-height: 260px;
+  border-radius: 20px;
+  background: #1c2321;
 }
 
-.productImage {
-  object-fit: contain;
-  padding: 24px;
-  mix-blend-mode: multiply;
-  filter: saturate(1.02) contrast(1.04);
+.visualLarge .imageWrap {
+  min-height: 560px;
 }
 
-.metrics {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  padding: 18px;
+.image {
+  object-fit: cover;
 }
 
-.metrics article {
-  padding: 18px;
-  border-radius: 24px;
+.visualCaption {
+  padding: 14px 4px 4px;
 }
 
-.collectionSection,
-.pricingSection,
-.detailSection,
-.footer {
-  padding: 34px;
+.ribbon {
+  padding: 20px 24px;
 }
 
-.sectionIntro {
-  max-width: 740px;
+.ribbon p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(242, 233, 219, 0.82);
 }
 
-.sectionIntro h2,
-.storyPanel h2,
+.sectionHead {
+  max-width: 760px;
+}
+
+.sectionHead h2,
+.featureText h2,
 .darkPanel h2,
-.detailCopy h2,
+.lightPanel h2,
 .footer h2 {
   margin-top: 14px;
-  font-size: clamp(2.4rem, 4vw, 4.3rem);
+  font-size: clamp(2.5rem, 4vw, 4.4rem);
 }
 
-.sectionIntro > p:last-child,
-.storyPanel p,
-.detailCopy > p,
+.sectionHead > p:last-child,
+.featureText p,
+.lightPanel p,
 .footerCopy p {
   margin-top: 14px;
 }
 
-.galleryGrid {
+.reasonGrid,
+.applicationGrid,
+.priceGrid,
+.faqGrid {
   display: grid;
-  grid-template-columns: 1.14fr 0.86fr 0.86fr;
-  gap: 18px;
+  gap: 16px;
   margin-top: 28px;
 }
 
-.pricingSection {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.priceGrid {
-  display: grid;
+.reasonGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
 }
 
-.priceCard {
-  padding: 20px;
-  border-radius: 28px;
-  border: 1px solid rgba(27, 44, 34, 0.08);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(243, 238, 230, 0.88));
-  box-shadow:
-    0 16px 44px rgba(41, 35, 27, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+.reasonCard {
+  padding: 22px;
+  border-radius: 24px;
 }
 
-.priceCardHeader span {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: #5f7367;
-}
-
-.priceCardHeader h3 {
-  margin-top: 10px;
+.reasonCard h3,
+.applicationCopy h3,
+.priceCard h3,
+.faqCard h3 {
   font-family: var(--font-display);
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
-  color: #14271f;
+  color: #fff5e7;
+}
+
+.reasonCard p,
+.applicationCopy p,
+.faqCard p {
+  margin-top: 10px;
+}
+
+.featureBand {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
+  gap: 18px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.featureText,
+.featureImageCard {
+  border: 1px solid rgba(233, 224, 209, 0.09);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
+}
+
+.featureText {
+  padding: 34px;
+}
+
+.featureImageCard {
+  padding: 16px;
+}
+
+.featureImageCard .imageWrap {
+  min-height: 100%;
+}
+
+.bulletList,
+.formatList {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  list-style: none;
+}
+
+.bulletList li,
+.formatList li {
+  padding: 14px 16px;
+  border-radius: 18px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.bulletList li {
+  color: #efe5d7;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.applicationGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.applicationCard {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.applicationImage {
+  position: relative;
+  min-height: 280px;
+}
+
+.applicationCopy {
+  padding: 18px;
+}
+
+.splitSection {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 18px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.darkPanel,
+.lightPanel {
+  padding: 34px;
+  border-radius: 34px;
+}
+
+.darkPanel {
+  background: linear-gradient(180deg, #1c2d29 0%, #13211e 100%);
+}
+
+.lightPanel {
+  background:
+    radial-gradient(circle at top right, rgba(176, 139, 84, 0.16), transparent 26%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.formatList li {
+  color: #f5ecdd;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.priceGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.priceCard {
+  padding: 20px;
+  border-radius: 24px;
 }
 
 .priceList {
   display: grid;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 18px;
 }
 
 .priceRow {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 12px;
   padding: 12px 14px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(27, 44, 34, 0.06);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .priceRow strong,
 .priceRow span {
   font-family: var(--font-body);
-  font-size: 0.98rem;
+  font-size: 0.96rem;
   line-height: 1.4;
 }
 
 .priceRow strong {
-  color: #1d342a;
-  font-weight: 700;
+  color: #efe5d7;
 }
 
 .priceRow span {
-  color: #2e5c48;
+  color: #d8b47b;
   font-weight: 800;
   white-space: nowrap;
 }
 
-.galleryCard {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  border-radius: 28px;
-}
-
-.galleryCard:first-child {
-  grid-row: 1 / span 2;
-}
-
-.galleryImage {
-  min-height: 280px;
-}
-
-.galleryCard:first-child .galleryImage {
-  min-height: 520px;
-}
-
-.galleryCopy h3 {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 600;
-  line-height: 1;
-  color: #14271f;
-}
-
-.galleryCopy p {
-  margin-top: 10px;
-}
-
-.storySection {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: 18px;
-  border: 0;
-  box-shadow: none;
-  background: transparent;
-}
-
-.storyPanel,
-.darkPanel {
-  padding: 34px;
-  border-radius: 36px;
-}
-
-.storyPanel {
-  background:
-    radial-gradient(circle at top right, rgba(226, 198, 152, 0.28), transparent 32%),
-    rgba(255, 252, 246, 0.84);
-}
-
-.darkPanel {
-  background:
-    radial-gradient(circle at top right, rgba(216, 177, 114, 0.16), transparent 24%),
-    linear-gradient(180deg, #16241d 0%, #112018 100%);
-}
-
-.darkPanelHeader h2 {
-  color: #f2eee8;
-}
-
-.sectorList {
-  display: grid;
+.faqGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 28px;
-  list-style: none;
 }
 
-.sectorList li {
-  padding: 18px;
+.faqCard {
+  padding: 22px;
   border-radius: 22px;
-  background: rgba(245, 239, 232, 0.08);
-  border: 1px solid rgba(245, 239, 232, 0.08);
-  color: #ebe7e0;
-  font-family: var(--font-body);
-  font-size: 0.98rem;
-  line-height: 1.65;
-}
-
-.detailSection {
-  display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
-  gap: 18px;
-  align-items: start;
-}
-
-.promiseList {
-  display: grid;
-  gap: 14px;
-  margin-top: 24px;
-}
-
-.promiseCard {
-  padding: 18px 20px;
-  border-radius: 22px;
-}
-
-.sheetCard {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 16px;
-  border-radius: 30px;
-  background: linear-gradient(180deg, #f8f5ef 0%, #e7dfd4 100%);
-}
-
-.sheetImage {
-  min-height: 520px;
 }
 
 .footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.74fr);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.76fr);
   gap: 18px;
   align-items: center;
 }
@@ -596,7 +533,7 @@
 .contactCard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   padding: 26px;
   border-radius: 28px;
 }
@@ -604,10 +541,10 @@
 .contactCard a {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-size: clamp(2.6rem, 4vw, 4rem);
   font-weight: 600;
-  line-height: 0.96;
-  color: #173127;
+  line-height: 0.95;
+  color: #fff5e7;
 }
 
 .contactCard strong {
@@ -616,9 +553,11 @@
 
 @media (max-width: 1120px) {
   .hero,
-  .detailSection,
-  .footer,
-  .storySection {
+  .featureBand,
+  .applicationGrid,
+  .splitSection,
+  .priceGrid,
+  .footer {
     grid-template-columns: 1fr;
   }
 
@@ -626,20 +565,9 @@
     min-height: 580px;
   }
 
-  .galleryGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .priceGrid {
+  .reasonGrid,
+  .faqGrid {
     grid-template-columns: 1fr;
-  }
-
-  .galleryCard:first-child {
-    grid-row: auto;
-  }
-
-  .galleryCard:first-child .galleryImage {
-    min-height: 320px;
   }
 }
 
@@ -649,56 +577,42 @@
     padding-top: 10px;
   }
 
-  .topbar {
+  .header {
     flex-direction: column;
     align-items: flex-start;
   }
 
   .hero,
-  .metrics,
-  .collectionSection,
-  .pricingSection,
-  .storyPanel,
+  .whySection,
+  .featureText,
+  .featureImageCard,
+  .applicationSection,
   .darkPanel,
-  .detailSection,
+  .lightPanel,
+  .pricingSection,
+  .faqSection,
   .footer {
     padding: 22px;
     border-radius: 26px;
   }
 
-  .heroVisual,
-  .metrics,
-  .galleryGrid,
-  .priceGrid,
-  .sectorList,
-  .founderStrip {
+  .personRow {
     grid-template-columns: 1fr;
   }
 
   .heroVisual {
-    grid-template-rows: 280px 220px 220px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     min-height: unset;
   }
 
-  .heroCardLarge {
+  .visualLarge {
     grid-row: auto;
   }
 
-  .heroCardLarge .heroImageWrap {
-    height: calc(100% - 84px);
-  }
-
-  .galleryImage,
-  .galleryCard:first-child .galleryImage,
-  .sheetImage {
+  .visualLarge .imageWrap,
+  .applicationImage,
+  .featureImageCard .imageWrap {
     min-height: 280px;
-  }
-
-  .galleryCopy h3 {
-    font-size: 1.6rem;
-  }
-
-  .productImage {
-    padding: 16px;
   }
 }
