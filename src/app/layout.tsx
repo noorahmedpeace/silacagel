@@ -15,9 +15,9 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "SilacaGEL | Premium Silica Gel Solutions",
+  title: "SilacaGEL | Premium Moisture Control Packs",
   description:
-    "A premium B2B and D2C website concept for silica gel packets, bulk desiccants, and industrial moisture protection.",
+    "A premium product-led website for moisture-control packs, desiccant sachets, and direct bulk inquiries.",
 };
 
 export default function RootLayout({
