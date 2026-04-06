@@ -1,10 +1,10 @@
 :root {
-  --bg: #eee3cf;
-  --surface: rgba(255, 250, 241, 0.84);
-  --ink: #2f2213;
-  --muted: #6d5840;
-  --accent: #c49754;
-  --accent-deep: #8f6832;
+  --bg: #0b1219;
+  --surface: rgba(255, 255, 255, 0.06);
+  --ink: #f4ecdf;
+  --muted: #bdb1a1;
+  --accent: #d4a85d;
+  --accent-deep: #8ba2c4;
 }
 
 html {
@@ -40,9 +40,44 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 button,
 input,
 textarea,
 select {
   font: inherit;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

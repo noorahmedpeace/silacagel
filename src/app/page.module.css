@@ -14,14 +14,17 @@
 }
 
 .header {
+  position: sticky;
+  top: 14px;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   padding: 18px 22px;
-  border: 1px solid rgba(233, 224, 209, 0.1);
+  border: 1px solid rgba(233, 224, 209, 0.12);
   border-radius: 26px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(9, 17, 26, 0.7);
   backdrop-filter: blur(16px);
 }
 
@@ -70,6 +73,12 @@
   color: #fff7eb;
 }
 
+.nav a {
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -90,7 +99,8 @@
   overflow: hidden;
   border: 1px solid rgba(233, 224, 209, 0.09);
   border-radius: 34px;
-  background: rgba(255, 255, 255, 0.03);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.025));
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
 }
 
@@ -201,6 +211,11 @@
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
 }
 
 .primaryCta {
@@ -212,6 +227,11 @@
   color: #f7f0e3;
   border: 1px solid rgba(247, 240, 227, 0.16);
   background: rgba(255, 255, 255, 0.03);
+}
+
+.primaryCta:hover,
+.secondaryCta:hover {
+  transform: translateY(-2px);
 }
 
 .personRow {
@@ -274,6 +294,9 @@
 .visualCard {
   padding: 16px;
   border-radius: 28px;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease;
 }
 
 .visualLarge {
@@ -296,6 +319,15 @@
 
 .image {
   object-fit: cover;
+}
+
+.visualCard:hover,
+.applicationCard:hover,
+.priceCard:hover,
+.faqCard:hover,
+.reasonCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 168, 93, 0.22);
 }
 
 .visualCaption {
@@ -430,6 +462,9 @@
   border-radius: 24px;
   border: 1px solid rgba(242, 233, 219, 0.08);
   background: rgba(255, 255, 255, 0.03);
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease;
 }
 
 .applicationImage {
@@ -479,6 +514,19 @@
 .priceCard {
   padding: 20px;
   border-radius: 24px;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease;
+}
+
+.priceNote {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 233, 219, 0.54);
 }
 
 .priceList {
@@ -521,6 +569,9 @@
 .faqCard {
   padding: 22px;
   border-radius: 22px;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease;
 }
 
 .footer {

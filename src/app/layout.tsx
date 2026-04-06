@@ -15,9 +15,32 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "SilacaGEL | Premium Moisture Control Packs",
+  metadataBase: new URL("https://silacagel.vercel.app"),
+  title: "SilacaGEL | Premium Silica Gel Pakistan",
   description:
-    "A premium product-led website for moisture-control packs, desiccant sachets, and direct bulk inquiries.",
+    "Premium silica gel packs, custom packing formats, PKR pricing, and factory-direct moisture control for storage, shipping, export, leather, electronics, and packaging.",
+  keywords: [
+    "silica gel pakistan",
+    "silica gel packets",
+    "desiccant bags",
+    "moisture control",
+    "container strip",
+    "silica gel price in pakistan",
+  ],
+  openGraph: {
+    title: "SilacaGEL | Premium Silica Gel Pakistan",
+    description:
+      "Factory-direct silica gel website with premium branding, PKR pricing, applications, and direct inquiry support.",
+    url: "https://silacagel.vercel.app",
+    siteName: "SilacaGEL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SilacaGEL | Premium Silica Gel Pakistan",
+    description:
+      "Factory-direct silica gel website with premium branding, PKR pricing, applications, and direct inquiry support.",
+  },
 };
 
 export default function RootLayout({
