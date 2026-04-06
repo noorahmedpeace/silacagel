@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { displayPhone, productCatalog, whatsappNumber } from "@/lib/product-data";
+import {
+  displayPhone,
+  priceGroups,
+  productCatalog,
+  whatsappNumber,
+} from "@/lib/product-data";
 import styles from "./page.module.css";
 
 const visuals = {
@@ -70,46 +76,10 @@ const trustSignals = [
   "Direct quote flow through call and WhatsApp contact",
 ];
 
-const priceGroups = [
-  {
-    title: "Small Sizes",
-    note: "Compact retail and light packing",
-    items: [
-      ["0.5 gm", "Rs. 0.65"],
-      ["1 gm", "Rs. 0.85"],
-      ["1 gm XL", "Rs. 1.00"],
-      ["2 gm", "Rs. 1.45"],
-      ["3 gm", "Rs. 1.90"],
-      ["4 gm", "Rs. 2.70"],
-      ["5 gm", "Rs. 3.25"],
-    ],
-  },
-  {
-    title: "Paper Sachet",
-    note: "Popular sachet range",
-    items: [
-      ["1 gm", "Rs. 0.95"],
-      ["2 gm", "Rs. 1.75"],
-      ["3 gm", "Rs. 2.20"],
-      ["10 gm", "Rs. 7.00"],
-      ["15 gm", "Rs. 13.00"],
-      ["20 gm", "Rs. 18.00"],
-    ],
-  },
-  {
-    title: "Bulk & Strip",
-    note: "Industrial and shipment formats",
-    items: [
-      ["25 grams", "Rs. 20"],
-      ["50 grams", "Rs. 40"],
-      ["100 grams", "Rs. 100"],
-      ["200 grams", "Rs. 200"],
-      ["250 grams", "Rs. 250"],
-      ["500 grams", "Rs. 500"],
-      ["1 kg strip", "Rs. 950"],
-    ],
-  },
-];
+const currencyFormatter = new Intl.NumberFormat("en-PK", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2,
+});
 
 const faqs = [
   {
@@ -211,13 +181,12 @@ export default function Home() {
           <Reveal>
             <section className={styles.hero}>
               <div className={styles.heroCopy}>
-                <p className={styles.kicker}>Premium Industrial Presentation</p>
-                <h1>Premium moisture control for packaging, storage, and export protection.</h1>
+                <p className={styles.kicker}>Factory Supply Presentation</p>
+                <h1>Professional moisture protection for packaging, storage, and export.</h1>
                 <p className={styles.lead}>
-                  This is designed to feel like a serious manufacturing brand,
-                  not a generic reseller page. It presents your factory as a
-                  high-trust supplier for multiple packing formats, industrial
-                  orders, and direct quote conversations.
+                  Present your factory as a serious supplier with cleaner
+                  hierarchy, sharper sizing, clearer PKR pricing, and an easier
+                  quote path for retail, wholesale, and industrial buyers.
                 </p>
 
                 <div className={styles.ctaRow}>
@@ -480,21 +449,25 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.priceGrid}>
-                {priceGroups.map((group) => (
-                  <article key={group.title} className={styles.priceCard}>
-                    <span className={styles.priceNote}>{group.note}</span>
-                    <h3>{group.title}</h3>
-                    <div className={styles.priceList}>
-                      {group.items.map(([size, price]) => (
-                        <div key={size} className={styles.priceRow}>
-                          <strong>{size}</strong>
-                          <span>{price}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </article>
-                ))}
+              <div className={styles.pricingLayout}>
+                <div className={styles.priceGrid}>
+                  {priceGroups.map((group) => (
+                    <article key={group.title} className={styles.priceCard}>
+                      <span className={styles.priceNote}>{group.note}</span>
+                      <h3>{group.title}</h3>
+                      <div className={styles.priceList}>
+                        {group.items.map((item) => (
+                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
+                            <strong>{item.label}</strong>
+                            <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <PriceCalculator />
               </div>
             </section>
           </Reveal>

@@ -13,6 +13,18 @@ export type ProductItem = {
   featuredSizes: string[];
 };
 
+export type PriceItem = {
+  label: string;
+  unitPrice: number;
+  grams: number;
+};
+
+export type PriceGroup = {
+  title: string;
+  note: string;
+  items: PriceItem[];
+};
+
 export const whatsappNumber = "923330223337";
 export const displayPhone = "03330223337";
 
@@ -122,6 +134,56 @@ export const productCatalog: ProductItem[] = [
     featuredSizes: ["1 kg strip"],
   },
 ];
+
+export const priceGroups: PriceGroup[] = [
+  {
+    title: "Small Sizes",
+    note: "Compact retail and light packing",
+    items: [
+      { label: "0.5 gm", unitPrice: 0.65, grams: 0.5 },
+      { label: "1 gm", unitPrice: 0.85, grams: 1 },
+      { label: "1 gm XL", unitPrice: 1.0, grams: 1 },
+      { label: "2 gm", unitPrice: 1.45, grams: 2 },
+      { label: "3 gm", unitPrice: 1.9, grams: 3 },
+      { label: "4 gm", unitPrice: 2.7, grams: 4 },
+      { label: "5 gm", unitPrice: 3.25, grams: 5 },
+    ],
+  },
+  {
+    title: "Paper Sachet",
+    note: "Popular sachet range",
+    items: [
+      { label: "1 gm", unitPrice: 0.95, grams: 1 },
+      { label: "2 gm", unitPrice: 1.75, grams: 2 },
+      { label: "3 gm", unitPrice: 2.2, grams: 3 },
+      { label: "10 gm", unitPrice: 7, grams: 10 },
+      { label: "15 gm", unitPrice: 13, grams: 15 },
+      { label: "20 gm", unitPrice: 18, grams: 20 },
+    ],
+  },
+  {
+    title: "Bulk & Strip",
+    note: "Industrial and shipment formats",
+    items: [
+      { label: "25 grams", unitPrice: 20, grams: 25 },
+      { label: "50 grams", unitPrice: 40, grams: 50 },
+      { label: "100 grams", unitPrice: 100, grams: 100 },
+      { label: "200 grams", unitPrice: 200, grams: 200 },
+      { label: "250 grams", unitPrice: 250, grams: 250 },
+      { label: "500 grams", unitPrice: 500, grams: 500 },
+      { label: "1 kg strip", unitPrice: 950, grams: 1000 },
+    ],
+  },
+];
+
+export const priceOptions = priceGroups.flatMap((group) =>
+  group.items.map((item) => ({
+    ...item,
+    key: `${group.title}-${item.label}`,
+    groupTitle: group.title,
+    groupNote: group.note,
+  })),
+);
 
 export function getProductBySlug(slug: string) {
   return productCatalog.find((product) => product.slug === slug);
