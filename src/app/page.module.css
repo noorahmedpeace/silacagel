@@ -49,33 +49,12 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
   color: #f3ede1;
-  font-family: var(--font-body);
-  font-size: 0.94rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
-.brand small {
-  display: block;
-  margin-top: 4px;
-  color: rgba(241, 232, 218, 0.64);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-}
-
-.brandBadge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, #f1dfbf, #9a7843);
-  color: #18211f;
+.brandLogo {
+  width: auto;
+  height: 44px;
 }
 
 .nav {
@@ -109,8 +88,10 @@
 .whySection,
 .featureBand,
 .applicationSection,
+.productSection,
 .splitSection,
 .pricingSection,
+.quoteStage,
 .faqSection,
 .footer {
   position: relative;
@@ -141,6 +122,7 @@
 .hero,
 .whySection,
 .applicationSection,
+.productSection,
 .pricingSection,
 .faqSection,
 .footer {
@@ -341,6 +323,7 @@
 
 .visualCard:hover,
 .applicationCard:hover,
+.productCard:hover,
 .priceCard:hover,
 .faqCard:hover,
 .reasonCard:hover {
@@ -385,6 +368,7 @@
 
 .reasonGrid,
 .applicationGrid,
+.productGrid,
 .priceGrid,
 .faqGrid {
   display: grid;
@@ -475,7 +459,21 @@
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.productGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .applicationCard {
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease;
+}
+
+.productCard {
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid rgba(242, 233, 219, 0.08);
@@ -490,8 +488,70 @@
   min-height: 280px;
 }
 
+.productImage {
+  position: relative;
+  min-height: 250px;
+}
+
 .applicationCopy {
   padding: 18px;
+}
+
+.productCopy {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.productCopy p:first-child,
+.productCopy span {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(242, 233, 219, 0.56);
+}
+
+.productCopy h3 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: #fff5e7;
+}
+
+.productCopy p:last-of-type {
+  font-family: var(--font-body);
+  color: rgba(242, 233, 219, 0.72);
+  line-height: 1.7;
+}
+
+.productLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 4px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 233, 219, 0.12);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff5e7;
+  background: rgba(255, 255, 255, 0.04);
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.productLink:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 168, 93, 0.24);
 }
 
 .splitSection {
@@ -527,6 +587,31 @@
 
 .priceGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.quoteStage {
+  display: grid;
+  grid-template-columns: minmax(0, 0.94fr) minmax(320px, 1.06fr);
+  gap: 18px;
+  align-items: start;
+  padding: 34px;
+}
+
+.quoteStageCopy h2 {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 4vw, 4.2rem);
+  font-weight: 600;
+  line-height: 0.94;
+  color: #fff5e7;
+}
+
+.quoteStageCopy p:last-child {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(242, 233, 219, 0.72);
 }
 
 .priceCard {
@@ -620,12 +705,35 @@
   margin-top: 0;
 }
 
+.whatsAppFloat {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #22c55e, #159947);
+  color: #f7fff9;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 16px 34px rgba(21, 153, 71, 0.28);
+}
+
 @media (max-width: 1120px) {
   .hero,
   .featureBand,
   .applicationGrid,
+  .productGrid,
   .splitSection,
   .priceGrid,
+  .quoteStage,
   .footer {
     grid-template-columns: 1fr;
   }
@@ -656,9 +764,11 @@
   .featureText,
   .featureImageCard,
   .applicationSection,
+  .productSection,
   .darkPanel,
   .lightPanel,
   .pricingSection,
+  .quoteStage,
   .faqSection,
   .footer {
     padding: 22px;

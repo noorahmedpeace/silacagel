@@ -1,5 +1,8 @@
 import Image from "next/image";
+import Link from "next/link";
+import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
+import { displayPhone, productCatalog, whatsappNumber } from "@/lib/product-data";
 import styles from "./page.module.css";
 
 const visuals = {
@@ -185,15 +188,19 @@ export default function Home() {
         </a>
         <header className={styles.header}>
           <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
-            <span className={styles.brandBadge}>SG</span>
-            <span>
-              SilacaGEL
-              <small>Factory-direct moisture control</small>
-            </span>
+            <Image
+              src="/brand-logo.svg"
+              alt="SilacaGEL"
+              width={220}
+              height={56}
+              className={styles.brandLogo}
+              priority
+            />
           </a>
 
           <nav className={styles.nav} aria-label="Primary">
             <a href="#why">Why Use</a>
+            <a href="#products">Products</a>
             <a href="#applications">Applications</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
@@ -373,6 +380,45 @@ export default function Home() {
           </Reveal>
 
           <Reveal>
+            <section id="products" className={styles.productSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Product Lines</p>
+                <h2>Dedicated product detail pages for every major packing direction.</h2>
+                <p>
+                  Each category now has its own page so buyers can understand the
+                  format, pricing direction, use cases, and quote flow without
+                  everything being compressed into one homepage.
+                </p>
+              </div>
+
+              <div className={styles.productGrid}>
+                {productCatalog.map((product) => (
+                  <article key={product.slug} className={styles.productCard}>
+                    <div className={styles.productImage}>
+                      <Image
+                        src={product.heroImage}
+                        alt={product.name}
+                        fill
+                        className={styles.image}
+                        sizes="(max-width: 1100px) 100vw, 24vw"
+                      />
+                    </div>
+                    <div className={styles.productCopy}>
+                      <p>{product.eyebrow}</p>
+                      <h3>{product.name}</h3>
+                      <span>{product.priceBand}</span>
+                      <p>{product.summary}</p>
+                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
+                        Explore product page
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal>
             <section className={styles.whySection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Why Buyers Trust It</p>
@@ -454,6 +500,21 @@ export default function Home() {
           </Reveal>
 
           <Reveal>
+            <section className={styles.quoteStage}>
+              <div className={styles.quoteStageCopy}>
+                <p className={styles.kicker}>Quote Funnel</p>
+                <h2>Let buyers send a requirement instead of just browsing.</h2>
+                <p>
+                  This form is designed for practical conversion: product type,
+                  requirement, and city go straight into a WhatsApp-ready quote message.
+                </p>
+              </div>
+
+              <QuoteForm title="Get a fast WhatsApp quote" />
+            </section>
+          </Reveal>
+
+          <Reveal>
             <section className={styles.faqSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>FAQ</p>
@@ -486,12 +547,24 @@ export default function Home() {
 
             <div className={styles.contactCard}>
               <span>Call / WhatsApp</span>
-              <a href="tel:03330223337">03330223337</a>
+              <a href={`tel:${displayPhone}`}>{displayPhone}</a>
               <strong>Noor Ahmed Khan</strong>
               <strong>Sameer Ahmed Khan</strong>
             </div>
           </footer>
         </Reveal>
+
+        <a
+          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+            "Hello, I want a silica gel quote for my requirement.",
+          )}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.whatsAppFloat}
+          aria-label="Open WhatsApp quote chat"
+        >
+          WhatsApp Quote
+        </a>
       </div>
     </div>
   );
