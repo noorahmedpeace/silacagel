@@ -35,6 +35,13 @@ export const metadata: Metadata = {
     siteName: "SilacaGEL",
     type: "website",
   },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
   twitter: {
     card: "summary_large_image",
     title: "SilacaGEL | Premium Silica Gel Pakistan",

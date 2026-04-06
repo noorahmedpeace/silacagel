@@ -13,6 +13,24 @@
   padding: 18px 0 40px;
 }
 
+.skipLink {
+  position: absolute;
+  left: 20px;
+  top: -48px;
+  z-index: 60;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: #f0dfc0;
+  color: #0d1312;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.skipLink:focus {
+  top: 16px;
+}
+
 .header {
   position: sticky;
   top: 14px;

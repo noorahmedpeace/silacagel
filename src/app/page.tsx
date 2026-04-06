@@ -17,53 +17,60 @@ const visuals = {
 
 const reasons = [
   {
-    title: "Moisture ko control karta hai",
-    text: "Silica gel hawa se nami ko apne andar hold karta hai, jis se packed aur stored goods ko damage honay se pehle protection milti hai.",
+    title: "Controls moisture fast",
+    text: "Silica gel adsorbs moisture from enclosed air before humidity turns into corrosion, odor, mold, or packaging damage.",
   },
   {
-    title: "Product value bachata hai",
-    text: "Rust, fungus, smell, sogginess, aur moisture-related spoilage ko kam karne ke liye yeh bohat effective desiccant solution hai.",
+    title: "Protects product value",
+    text: "It helps preserve appearance, shelf life, dryness, and performance across sensitive products, storage, and shipment conditions.",
   },
   {
-    title: "Serious industrial use ke liye",
-    text: "Retail sachets se le kar container strip tak, yeh system storage, shipping, export, aur factory packing requirements ko support karta hai.",
+    title: "Built for serious supply",
+    text: "From retail sachets to container strips, the product range supports factory packing, industrial orders, repeat supply, and export logistics.",
   },
 ];
 
 const useCases = [
   {
-    title: "Electronics aur technical items",
-    text: "Circuit boards, devices, tools, instruments aur moisture-sensitive parts ko behtar dryness support milta hai.",
+    title: "Electronics and technical items",
+    text: "Protect circuit boards, instruments, tools, batteries, and moisture-sensitive equipment from humidity-related failure.",
     image: visuals.electronics,
   },
   {
-    title: "Shoes, leather aur garments",
-    text: "Footwear, leather goods aur textile packing me freshness, dryness aur shelf presentation maintain karna asaan hota hai.",
+    title: "Shoes, leather, and garments",
+    text: "Keep footwear, leather goods, and textile packaging dry, fresher-looking, and better protected during storage and display.",
     image: visuals.leather,
   },
   {
-    title: "Export cargo aur container loads",
-    text: "Transit, salty air aur humid shipment conditions me moisture risk ko reduce karne ke liye container-strip approach useful hoti hai.",
+    title: "Export cargo and container loads",
+    text: "Reduce humidity risk during transit, long-haul shipment, and container exposure with bulk formats and strip-based protection.",
     image: visuals.cargo,
   },
   {
-    title: "Warehouse aur packaging lines",
-    text: "Inventory rooms, cartons, packaged goods aur distribution workflows ke liye flexible packing formats available rehte hain.",
+    title: "Warehousing and packaging lines",
+    text: "Support inventory rooms, cartons, packaged goods, and dispatch workflows with flexible pack sizes and factory-ready supply.",
     image: visuals.warehouse,
   },
 ];
 
 const formats = [
   "Retail sachets for compact product packing",
-  "Paper aur non-woven packs for regular packaging use",
-  "Bulk gram sizes for resellers aur industrial buyers",
-  "Container strips for export aur shipment protection",
+  "Paper and non-woven packs for regular packaging use",
+  "Bulk gram sizes for resellers and industrial buyers",
+  "Container strips for export and shipment protection",
+];
+
+const trustSignals = [
+  "Factory-direct supply with multiple packing options",
+  "PKR pricing visible for faster buyer confidence",
+  "Suitable for storage, leather, electronics, and export use",
+  "Direct quote flow through call and WhatsApp contact",
 ];
 
 const priceGroups = [
   {
     title: "Small Sizes",
-    note: "Compact retail aur light packing",
+    note: "Compact retail and light packing",
     items: [
       ["0.5 gm", "Rs. 0.65"],
       ["1 gm", "Rs. 0.85"],
@@ -88,7 +95,7 @@ const priceGroups = [
   },
   {
     title: "Bulk & Strip",
-    note: "Industrial aur shipment formats",
+    note: "Industrial and shipment formats",
     items: [
       ["25 grams", "Rs. 20"],
       ["50 grams", "Rs. 40"],
@@ -103,24 +110,24 @@ const priceGroups = [
 
 const faqs = [
   {
-    question: "Silica gel kaam kaise karta hai?",
+    question: "How does silica gel work?",
     answer:
-      "Yeh hawa se moisture ko adsorb karta hai aur enclosed space ke andar humidity ko neeche laane me madad karta hai.",
+      "Silica gel adsorbs moisture from the air inside enclosed packaging, containers, storage spaces, and shipments.",
   },
   {
-    question: "Silica gel kyun use kiya jata hai?",
+    question: "Why is silica gel used?",
     answer:
-      "Moisture se bachao, product shelf life, rust reduction, mold control, aur safer shipping ke liye use kiya jata hai.",
+      "It is used to reduce moisture damage, improve storage safety, help preserve shelf life, and protect sensitive goods during handling and shipping.",
   },
   {
-    question: "Kahan kahan use hota hai?",
+    question: "Where can it be used?",
     answer:
-      "Electronics, garments, leather, tools, documents, food-related dry packing, warehouse cartons, exports, aur industrial parts me commonly use hota hai.",
+      "It is commonly used in electronics, garments, leather goods, tools, documents, dry packaging, warehouse cartons, exports, and industrial parts.",
   },
   {
-    question: "Bulk order ka rate alag ho sakta hai?",
+    question: "Can bulk order pricing be different?",
     answer:
-      "Ji haan. Reference PKR pricing website par dikhayi gayi hai, lekin repeat orders, custom packs, aur zyada quantity par rate discuss ho sakta hai.",
+      "Yes. The website shows reference PKR pricing, but repeat orders, custom packs, and larger quantities can be quoted directly.",
   },
 ];
 
@@ -173,6 +180,9 @@ export default function Home() {
       />
 
       <div className={styles.shell}>
+        <a href="#top" className={styles.skipLink}>
+          Skip to content
+        </a>
         <header className={styles.header}>
           <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
             <span className={styles.brandBadge}>SG</span>
@@ -194,20 +204,21 @@ export default function Home() {
           <Reveal>
             <section className={styles.hero}>
               <div className={styles.heroCopy}>
-                <p className={styles.kicker}>Luxury Industrial Presentation</p>
-                <h1>Har qeemti cheez ko nami se mehfooz rakhnay ka premium tareeqa.</h1>
+                <p className={styles.kicker}>Premium Industrial Presentation</p>
+                <h1>Premium moisture control for packaging, storage, and export protection.</h1>
                 <p className={styles.lead}>
-                  Yeh sirf ek product website nahin. Yeh aapki factory ka digital
-                  showroom hai jahan packing variety, industrial credibility, PKR
-                  pricing, aur direct sales confidence ek saath nazar aati hai.
+                  This is designed to feel like a serious manufacturing brand,
+                  not a generic reseller page. It presents your factory as a
+                  high-trust supplier for multiple packing formats, industrial
+                  orders, and direct quote conversations.
                 </p>
 
                 <div className={styles.ctaRow}>
                   <a href="tel:03330223337" className={styles.primaryCta}>
-                    Abhi Call Karein
+                    Request a Quote
                   </a>
                   <a href="#pricing" className={styles.secondaryCta}>
-                    Quotage Dekhein
+                    View PKR Pricing
                   </a>
                 </div>
 
@@ -237,7 +248,7 @@ export default function Home() {
                   </div>
                   <div className={styles.visualCaption}>
                     <span>Inventory Ready</span>
-                    <strong>Factory scale supply jo serious lagti bhi hai</strong>
+                    <strong>Factory-scale supply that looks premium and dependable</strong>
                   </div>
                 </article>
 
@@ -271,9 +282,9 @@ export default function Home() {
           <Reveal>
             <section className={styles.ribbon}>
               <p>
-                Premium branding, Roman Urdu sales copy, polished imagery, better
-                hierarchy, clear PKR pricing, aur direct inquiry flow. Yeh sab
-                mil kar site ko reseller jaisi nahin, brand jaisi feel dete hain.
+                Premium branding, polished imagery, stronger hierarchy, visible
+                PKR pricing, and a direct quote funnel together make the site
+                feel more like a brand and less like a catalog.
               </p>
             </section>
           </Reveal>
@@ -282,12 +293,11 @@ export default function Home() {
             <section id="why" className={styles.whySection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Why We Use It</p>
-                <h2>Moisture khamosh hoti hai, nuksan nahin.</h2>
+                <h2>Moisture damage is silent. Product loss is not.</h2>
                 <p>
-                  Silica gel un products ke liye use hota hai jo nami, fungus,
-                  corrosion, smell, ya damp storage se damage ho saktay hain.
-                  Packaging, warehousing, shipping, aur export me iski value sab se
-                  zyada samajh aati hai.
+                  Silica gel is used wherever humidity can quietly damage value:
+                  inside packaging, cartons, storage areas, export loads, and
+                  product environments where dryness directly affects quality.
                 </p>
               </div>
 
@@ -306,16 +316,16 @@ export default function Home() {
             <section className={styles.featureBand}>
               <article className={styles.featureText}>
                 <p className={styles.kicker}>How To Use</p>
-                <h2>Jitni enclosed space, utna socha samjha pack size.</h2>
+                <h2>Match the right pack size to the right enclosed space.</h2>
                 <p>
-                  Sahi result ke liye silica gel ko box, bag, instrument case,
-                  storage container, ya shipment environment ke andar rakha jata
-                  hai jahan airflow controlled aur moisture risk real ho.
+                  For the best result, place silica gel inside a sealed box, bag,
+                  instrument case, carton, or shipping environment where humidity
+                  has a real chance of affecting the product.
                 </p>
                 <ul className={styles.bulletList}>
-                  <li>Product ke size aur carton volume ke mutabiq gram size choose karein.</li>
-                  <li>Packet ko pharay baghair enclosed packing ke andar place karein.</li>
-                  <li>Long use ya heavy humidity ke baad replacement ya regeneration consider karein.</li>
+                  <li>Choose the gram size according to product volume and carton space.</li>
+                  <li>Place the packet inside the enclosed packing without tearing it open.</li>
+                  <li>Replace or regenerate the pack after long use or heavy humidity exposure.</li>
                 </ul>
               </article>
 
@@ -337,7 +347,7 @@ export default function Home() {
             <section id="applications" className={styles.applicationSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Applications</p>
-                <h2>Jahan moisture risk hai, wahan silica gel ki ahmiyat hai.</h2>
+                <h2>Wherever moisture is a risk, silica gel becomes useful.</h2>
               </div>
 
               <div className={styles.applicationGrid}>
@@ -363,10 +373,36 @@ export default function Home() {
           </Reveal>
 
           <Reveal>
+            <section className={styles.whySection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Why Buyers Trust It</p>
+                <h2>Clarity, visible pricing, and direct factory positioning matter.</h2>
+                <p>
+                  Trust grows faster when buyers immediately understand your use
+                  cases, packing flexibility, and price structure. This section
+                  turns that confidence into a stronger inquiry flow.
+                </p>
+              </div>
+
+              <div className={styles.reasonGrid}>
+                {trustSignals.map((item) => (
+                  <article key={item} className={styles.reasonCard}>
+                    <h3>{item}</h3>
+                    <p>
+                      Built to support faster product understanding and better
+                      purchase confidence for retail, wholesale, and industrial buyers.
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal>
             <section className={styles.splitSection}>
               <article className={styles.darkPanel}>
                 <p className={styles.kickerDark}>Packing Options</p>
-                <h2>Har kisam ki packing ko website par wazeh dikhana sale barhata hai.</h2>
+                <h2>Showing packing flexibility clearly makes the factory look more capable.</h2>
                 <ul className={styles.formatList}>
                   {formats.map((item) => (
                     <li key={item}>{item}</li>
@@ -376,11 +412,11 @@ export default function Home() {
 
               <article className={styles.lightPanel}>
                 <p className={styles.kicker}>Protected Products</p>
-                <h2>Documents se le kar electronics, shoes se le kar export cartons tak.</h2>
+                <h2>From documents and electronics to shoes and export cartons.</h2>
                 <p>
                   Storage boxes, garments, leather, machine parts, tools, optical
-                  items, shipping cartons, aur packaged goods me silica gel ka use
-                  ek practical risk-control solution ke taur par hota hai.
+                  items, shipping cartons, and packaged goods all benefit from a
+                  practical moisture-risk control layer.
                 </p>
               </article>
             </section>
@@ -390,11 +426,11 @@ export default function Home() {
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>PKR Pricing</p>
-                <h2>Rupees mein clear rates, aur bulk par behtar baat-cheet.</h2>
+                <h2>Clear rupee pricing, with room for stronger bulk deals.</h2>
                 <p>
-                  Neechay reference pricing hai. Repeat buyers, custom packing,
-                  resellers, aur industrial quantity ke liye direct call ya
-                  WhatsApp per custom quotage diya ja sakta hai.
+                  These are reference PKR rates. Repeat buyers, resellers, custom
+                  packing, and industrial quantities can be quoted directly by call
+                  or WhatsApp.
                 </p>
               </div>
 
@@ -421,7 +457,7 @@ export default function Home() {
             <section className={styles.faqSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>FAQ</p>
-                <h2>Jo cheezen buyer ko foran samajhni chahiyein.</h2>
+                <h2>The questions buyers usually want answered first.</h2>
               </div>
 
               <div className={styles.faqGrid}>
@@ -440,11 +476,11 @@ export default function Home() {
           <footer id="contact" className={styles.footer}>
             <div className={styles.footerCopy}>
               <p className={styles.kicker}>Direct Factory Contact</p>
-              <h2>Aap ki cheezain, hamari zimmedari.</h2>
+              <h2>Your product protection should feel as premium as your supply promise.</h2>
               <p>
-                Retail packs, bulk supply, custom packing aur serious industrial
-                inquiries ke liye seedha contact karein. Yeh site isi liye banayi
-                gayi hai ke visitor confuse nahin, convert ho.
+                Use the direct contact line for retail packs, bulk supply, custom
+                packing, and industrial inquiries. The goal is simple: less friction,
+                stronger trust, faster conversion.
               </p>
             </div>
 
