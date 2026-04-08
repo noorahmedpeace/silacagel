@@ -201,7 +201,8 @@
 }
 
 .primaryCta,
-.secondaryCta {
+.secondaryCta,
+.tertiaryCta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -231,8 +232,15 @@
   background: rgba(255, 255, 255, 0.03);
 }
 
+.tertiaryCta {
+  color: rgba(247, 240, 227, 0.92);
+  border: 1px solid rgba(212, 168, 93, 0.18);
+  background: rgba(181, 139, 76, 0.08);
+}
+
 .primaryCta:hover,
-.secondaryCta:hover {
+.secondaryCta:hover,
+.tertiaryCta:hover {
   transform: translateY(-2px);
 }
 
@@ -601,6 +609,10 @@
 
 .pricingLayout .priceGrid {
   margin-top: 0;
+}
+
+.calculatorAnchor {
+  scroll-margin-top: 120px;
 }
 
 .quoteStage {

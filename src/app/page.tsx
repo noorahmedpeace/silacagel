@@ -172,6 +172,7 @@ export default function Home() {
             <a href="#why">Why Use</a>
             <a href="#products">Products</a>
             <a href="#applications">Applications</a>
+            <a href="#purchase-calculator">Purchase</a>
             <a href="#pricing">Pricing</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -190,11 +191,14 @@ export default function Home() {
                 </p>
 
                 <div className={styles.ctaRow}>
-                  <a href="tel:03330223337" className={styles.primaryCta}>
-                    Request a Quote
+                  <a href="#purchase-calculator" className={styles.primaryCta}>
+                    Purchase Calculator
                   </a>
                   <a href="#pricing" className={styles.secondaryCta}>
                     View PKR Pricing
+                  </a>
+                  <a href="tel:03330223337" className={styles.tertiaryCta}>
+                    Request a Quote
                   </a>
                 </div>
 
@@ -467,7 +471,9 @@ export default function Home() {
                   ))}
                 </div>
 
-                <PriceCalculator />
+                <div id="purchase-calculator" className={styles.calculatorAnchor}>
+                  <PriceCalculator />
+                </div>
               </div>
             </section>
           </Reveal>
