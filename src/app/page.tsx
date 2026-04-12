@@ -236,7 +236,7 @@ export default function Home() {
               className={styles.heroVisual}
             >
               <Image
-                src="/silicagel_hero_elite_1775981490386.png"
+                src="/silicagel_hero_elite.png"
                 alt="SilacaGEL Technical Product"
                 fill
                 priority
