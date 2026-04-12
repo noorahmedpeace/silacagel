@@ -1,14 +1,14 @@
 :root {
   --bg: #FFFFFF; /* Pure White */
-  --surface: #F8FAFC; /* Subtle off-white for cards */
+  --surface: #F0F9FF; /* Very subtle ice-blue for cards to separate them loosely from bg */
   --surface-elevated: #FFFFFF; /* Solid white for elevated cards */
   --glass: rgba(255, 255, 255, 0.95); /* Solid white frosty glass */
-  --glass-border: rgba(0, 0, 0, 0.08); /* Soft subtle dark border */
-  --ink: #1E293B; /* Deep Slate text */
-  --muted: #64748B; /* Soft grey */
-  --accent: #EA580B; /* Vibrant Social Orange */
-  --accent-glow: rgba(234, 88, 11, 0.15); /* Orange glow */
-  --accent-deep: #C2410C; /* Darker orange for hover states */
+  --glass-border: rgba(37, 99, 235, 0.15); /* Soft subtle blue border */
+  --ink: #1E3A8A; /* Deep Navy Blue text */
+  --muted: #475569; /* Soft grey/blue for secondary text */
+  --accent: #2563EB; /* Vibrant Royal Blue */
+  --accent-glow: rgba(37, 99, 235, 0.15); /* Blue glow */
+  --accent-deep: #1D4ED8; /* Darker blue for hover states */
   --font-display: "Helvetica Neue", "Inter", sans-serif;
   --font-body: "Inter", sans-serif;
 }
