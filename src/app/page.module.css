@@ -592,17 +592,17 @@
   padding: 100px 80px;
   background: var(--surface-elevated);
   border: 1px solid var(--glass-border);
-  color: white;
+  color: var(--ink);
   border-radius: 40px;
 }
 
 .quoteStage h2 {
-  color: white;
+  color: var(--ink);
   font-size: 3.5rem;
 }
 
 .quoteStage p {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--muted);
 }
 
 /* FOOTER */
