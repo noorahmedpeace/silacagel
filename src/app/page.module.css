@@ -49,9 +49,9 @@
 }
 
 .brandLogo {
-  height: 60px;
-  width: auto;
-  animation: heartbeat 2s ease-in-out infinite;
+  height: auto;
+  width: 250px; /* Force it to be stretched/longer horizontally */
+  object-fit: contain;
 }
 
 .nav {
