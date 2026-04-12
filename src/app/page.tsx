@@ -163,7 +163,6 @@ export default function Home() {
 
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
-            <HeroBackgroundVideo src={heroVideo} targetId="hero" />
             <div className={styles.heroCopy}>
               <motion.p 
                 initial={{ opacity: 0, y: 10 }}
@@ -223,7 +222,30 @@ export default function Home() {
             </div>
 
             <div className={styles.heroVisual}>
-              <Hero3DShowcase />
+              <div className={styles.heroVisualInner}>
+                <HeroBackgroundVideo src={heroVideo} targetId="hero" />
+                <div className={styles.beadOverlay}>
+                  <Hero3DShowcase />
+                </div>
+              </div>
+              <div className={styles.heroVisualMetadata}>
+                <div className={styles.metaItem}>
+                  <span>Visual Feed</span>
+                  <strong>Enterprise Facility Hub</strong>
+                </div>
+                <div className={styles.metaItem}>
+                  <span>Status</span>
+                  <strong>Active Adsorption</strong>
+                </div>
+                <div className={styles.metaItem}>
+                  <span>Logistics Hub</span>
+                  <strong>Karachi Terminal 01</strong>
+                </div>
+                <div className={styles.metaItem}>
+                  <span>Compliance</span>
+                  <strong>SGS / RoHS Ready</strong>
+                </div>
+              </div>
             </div>
           </section>
 
