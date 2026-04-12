@@ -2,9 +2,6 @@
   min-height: 100vh;
   color: var(--ink);
   background: var(--bg);
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(215, 100%, 98%, 1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(210, 100%, 97%, 1) 0, transparent 50%);
 }
 
 .shell {
