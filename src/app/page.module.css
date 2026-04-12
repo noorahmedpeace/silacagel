@@ -5,9 +5,10 @@
 }
 
 .shell {
-  width: min(1400px, calc(100% - 32px));
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 0 100px;
+  padding: 0 32px 100px;
 }
 
 .announcementBar {
@@ -39,7 +40,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 60px; /* Force items to extreme edges */
+  padding: 24px 0;
   background: var(--glass);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
@@ -667,5 +668,27 @@
   
   .testimonialGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .shell {
+    padding: 0 16px 80px;
+  }
+
+  .header {
+    padding: 16px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  /* Prevent text bleed on massive headings */
+  .heroCopy h1 { font-size: 2.5rem; }
+  .sectionHead h2 { font-size: 2rem; }
+  .quoteStage h2 { font-size: 2.2rem; }
+
+  .quoteStage, .pricingSection {
+    padding: 40px 24px;
+    border-radius: 24px;
   }
 }
