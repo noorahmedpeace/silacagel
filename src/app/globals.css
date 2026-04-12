@@ -34,6 +34,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   position: relative;
+  background-image: radial-gradient(var(--accent-glow) 1.5px, transparent 1.5px);
+  background-size: 28px 28px;
 }
 
  * {
