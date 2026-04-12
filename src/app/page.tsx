@@ -222,28 +222,31 @@ export default function Home() {
         </div>
       </section>
 
-      <div className={styles.shell} ref={heroRef}>        <header className={styles.header}>
-          <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
-            <Image
-              src="/brand-logo-premium.png"
-              alt="SilacaGEL"
-              width={260}
-              height={70}
-              className={styles.brandLogo}
-              style={{ objectFit: 'contain' }}
-              priority
-            />
-          </a>
 
-          <nav className={styles.nav} aria-label="Primary">
-            <a href="#products">Products</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#purchase-calculator">Calculator</a>
-            <a href="#proof">Technical Proof</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </header>
+      <header className={styles.header}>
+        <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
+          <Image
+            src="/brand-logo-premium.png"
+            alt="SilacaGEL"
+            width={260}
+            height={70}
+            className={styles.brandLogo}
+            style={{ objectFit: 'contain' }}
+            priority
+          />
+        </a>
+
+        <nav className={styles.nav} aria-label="Primary">
+          <a href="#products">Products</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#purchase-calculator">Calculator</a>
+          <a href="#proof">Technical Proof</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <div className={styles.shell} ref={heroRef}>
 
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
