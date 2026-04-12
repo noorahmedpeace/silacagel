@@ -225,7 +225,7 @@ export default function Home() {
       <div className={styles.shell} ref={heroRef}>        <header className={styles.header}>
           <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
             <Image
-              src="/brand-logo.png"
+              src="/brand-logo-premium.png"
               alt="SilacaGEL"
               width={260}
               height={70}
