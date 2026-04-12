@@ -1,14 +1,14 @@
 :root {
-  --bg: #ffffff;
-  --surface: #f8fafc;
-  --surface-elevated: #f1f5f9;
-  --glass: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --ink: #0f172a;
-  --muted: #475569;
-  --accent: #2563eb;
-  --accent-glow: rgba(37, 99, 235, 0.1);
-  --accent-deep: #1d4ed8;
+  --bg: #0B1120;
+  --surface: rgba(15, 23, 42, 0.6);
+  --surface-elevated: rgba(30, 41, 59, 0.7);
+  --glass: rgba(15, 23, 42, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --ink: #ffffff;
+  --muted: #94a3b8;
+  --accent: #06b6d4;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --accent-deep: #0891b2;
   --font-display: var(--font-display, "Inter", sans-serif);
   --font-body: var(--font-body, "Inter", sans-serif);
 }
@@ -80,17 +80,17 @@ button {
 }
 
 .text-gradient {
-  background: linear-gradient(to right, #0f172a, #475569);
+  background: linear-gradient(to right, #ffffff, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .shadow-soft {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 20px -2px rgba(6, 182, 212, 0.1);
 }
 
 .shadow-elite {
-  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  box-shadow: 0 20px 40px -10px rgba(6, 182, 212, 0.2);
 }
 
 .glow-card {

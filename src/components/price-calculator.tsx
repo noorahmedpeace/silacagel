@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { animate } from "framer-motion";
 import { priceOptions, whatsappNumber } from "@/lib/product-data";
 import styles from "./price-calculator.module.css";
 
@@ -13,6 +14,27 @@ const weightFormatter = new Intl.NumberFormat("en-PK", {
   maximumFractionDigits: 2,
   minimumFractionDigits: 0,
 });
+
+function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
+  const nodeRef = useRef<HTMLSpanElement>(null);
+
+  useEffect(() => {
+    const node = nodeRef.current;
+    if (!node) return;
+    
+    const controls = animate(0, value, {
+      duration: 1.2,
+      ease: [0.16, 1, 0.3, 1], // Custom bouncy ease for "charming" rapid count
+      onUpdate(latest) {
+        node.textContent = `${prefix}${formatter.format(latest)}${suffix}`;
+      }
+    });
+
+    return () => controls.stop();
+  }, [value, formatter, prefix, suffix]);
+
+  return <strong ref={nodeRef}>{prefix}{formatter.format(value)}{suffix}</strong>;
+}
 
 export function PriceCalculator() {
   const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
@@ -80,19 +102,19 @@ export function PriceCalculator() {
       <div className={styles.summaryGrid}>
         <article className={styles.summaryCard}>
           <span>Industrial Unit Rate</span>
-          <strong>Rs. {currencyFormatter.format(selectedOption?.unitPrice ?? 0)}</strong>
+          <AnimatedCounter value={selectedOption?.unitPrice ?? 0} formatter={currencyFormatter} prefix="Rs. " />
         </article>
         <article className={styles.summaryCard}>
           <span>Net Weight (g)</span>
-          <strong>{weightFormatter.format(totalGrams)} gm</strong>
+          <AnimatedCounter value={totalGrams} formatter={weightFormatter} suffix=" gm" />
         </article>
         <article className={styles.summaryCard}>
           <span>Total Mass (kg)</span>
-          <strong>{weightFormatter.format(totalKilograms)} kg</strong>
+          <AnimatedCounter value={totalKilograms} formatter={weightFormatter} suffix=" kg" />
         </article>
         <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
           <span>Estimated Subtotal</span>
-          <strong>Rs. {currencyFormatter.format(totalPrice)}</strong>
+          <AnimatedCounter value={totalPrice} formatter={currencyFormatter} prefix="Rs. " />
         </article>
       </div>
 

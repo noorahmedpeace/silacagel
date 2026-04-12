@@ -1,13 +1,17 @@
 "use client";
 
+import { useRef } from "react";
 import Image from "next/image";
+
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { Hero3DShowcase } from "@/components/hero-3d-showcase";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
+import { EmblaCarousel } from "@/components/embla-carousel";
+import { FloatingBeads } from "@/components/floating-beads";
 import {
   Globe,
   ShieldCheck,
@@ -171,9 +175,17 @@ const faqs = [
 ];
 
 export default function Home() {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+
   return (
     <div className={styles.page}>
-      <div className={styles.shell}>
+      <FloatingBeads />
+      <div className={styles.shell} ref={heroRef}>
         <section className={styles.announcementBar} aria-label="Highlights">
           <div className={styles.announcementTrack}>
             {[...announcementItems, ...announcementItems].map((item, index) => (
@@ -269,19 +281,22 @@ export default function Home() {
             </div>
 
             <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
+              style={{ y: yParallax }}
+              initial={{ opacity: 0, scale: 1.05 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
+              transition={{ delay: 0.4, duration: 1.2, ease: "easeOut" }}
               className={styles.heroVisual}
             >
               <Image
-                src="/silicagel_hero_elite.png"
-                alt="SilacaGEL Technical Product"
+                src="/macro-hero.png"
+                alt="SilacaGEL Macro Spheres"
                 fill
                 priority
                 className={styles.heroImage}
+                style={{ objectFit: "cover" }}
                 sizes="(max-width: 1100px) 100vw, 40vw"
               />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0B1120, transparent)", opacity: 0.4 }} />
             </motion.div>
           </section>
 
@@ -431,7 +446,7 @@ export default function Home() {
                 <h2>Proven protection across critical supply chains.</h2>
               </div>
 
-              <div className={styles.applicationGrid}>
+              <EmblaCarousel options={{ align: "start", loop: true }}>
                 {useCases.map((item) => (
                   <article key={item.title} className={styles.applicationCard}>
                     <div className={styles.applicationImage}>
@@ -440,7 +455,7 @@ export default function Home() {
                         alt={item.title}
                         fill
                         className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 24vw"
+                        sizes="(max-width: 1100px) 100vw, 33vw"
                       />
                     </div>
                     <div className={styles.applicationCopy}>
@@ -449,7 +464,7 @@ export default function Home() {
                     </div>
                   </article>
                 ))}
-              </div>
+              </EmblaCarousel>
             </section>
           </Reveal>
 
@@ -464,7 +479,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.testimonialGrid}>
+              <EmblaCarousel options={{ align: "start", loop: true }}>
                 {testimonials.map((item) => (
                   <article key={item.quote} className={styles.testimonialCard}>
                     <p className={styles.testimonialQuote}>{item.quote}</p>
@@ -474,7 +489,7 @@ export default function Home() {
                     </div>
                   </article>
                 ))}
-              </div>
+              </EmblaCarousel>
 
               <div className={styles.logoStrip}>
                 {trustedIndustries.map((industry) => (
