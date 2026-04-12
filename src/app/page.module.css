@@ -335,23 +335,7 @@
 }
 
 .heroVisual {
-  display: grid;
-  grid-template-columns: 1.1fr 0.84fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
   min-height: 620px;
-}
-
-.visualCard {
-  padding: 16px;
-  border-radius: 28px;
-  transition:
-    transform 260ms ease,
-    border-color 260ms ease;
-}
-
-.visualLarge {
-  grid-row: 1 / span 2;
 }
 
 .imageWrap {
@@ -364,15 +348,10 @@
   background: #1c2321;
 }
 
-.visualLarge .imageWrap {
-  min-height: 500px;
-}
-
 .image {
   object-fit: cover;
 }
 
-.visualCard:hover,
 .applicationCard:hover,
 .productCard:hover,
 .priceCard:hover,
@@ -380,10 +359,6 @@
 .reasonCard:hover {
   transform: translateY(-4px);
   border-color: rgba(212, 168, 93, 0.22);
-}
-
-.visualCaption {
-  padding: 14px 4px 4px;
 }
 
 .ribbon {
@@ -971,8 +946,6 @@
   }
 
   .heroVisual {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
     min-height: unset;
   }
 
@@ -981,11 +954,6 @@
     max-width: 9ch;
   }
 
-  .visualLarge {
-    grid-row: auto;
-  }
-
-  .visualLarge .imageWrap,
   .featureStoryVisual .imageWrap,
   .applicationImage,
   .featureImageCard .imageWrap {

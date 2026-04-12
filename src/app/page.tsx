@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Hero3DShowcase } from "@/components/hero-3d-showcase";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
@@ -266,46 +267,7 @@ export default function Home() {
               </div>
 
               <div className={styles.heroVisual}>
-                <article className={`${styles.visualCard} ${styles.visualLarge}`}>
-                  <div className={styles.imageWrap}>
-                    <Image
-                      src={visuals.warehouse}
-                      alt="Large warehouse aisle with stacked packaging boxes."
-                      fill
-                      className={styles.image}
-                      sizes="(max-width: 1100px) 100vw, 42vw"
-                      priority
-                    />
-                  </div>
-                  <div className={styles.visualCaption}>
-                    <span>Inventory Ready</span>
-                    <strong>Factory-scale supply that looks premium and dependable</strong>
-                  </div>
-                </article>
-
-                <article className={styles.visualCard}>
-                  <div className={styles.imageWrap}>
-                    <Image
-                      src={visuals.packaging}
-                      alt="Minimal packaging boxes arranged in a clean stack."
-                      fill
-                      className={styles.image}
-                      sizes="(max-width: 1100px) 100vw, 20vw"
-                    />
-                  </div>
-                </article>
-
-                <article className={styles.visualCard}>
-                  <div className={styles.imageWrap}>
-                    <Image
-                      src={visuals.cargo}
-                      alt="Cargo ship with stacked containers for export logistics."
-                      fill
-                      className={styles.image}
-                      sizes="(max-width: 1100px) 100vw, 20vw"
-                    />
-                  </div>
-                </article>
+                <Hero3DShowcase />
               </div>
             </section>
           </Reveal>
