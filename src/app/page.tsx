@@ -206,23 +206,24 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <AmbientGlow />
-      <div className={styles.shell} ref={heroRef}>
-        <section className={styles.announcementBar} aria-label="Highlights">
-          <div className={styles.announcementTrack}>
-            {[...announcementItems, ...announcementItems].map((item, index) => (
-              <span key={`${item}-${index}`}>{item}</span>
-            ))}
-          </div>
-        </section>
+      
+      <section className={styles.announcementBar} aria-label="Highlights">
+        <div className={styles.announcementTrack}>
+          {[...announcementItems, ...announcementItems].map((item, index) => (
+            <span key={`${item}-${index}`}>{item}</span>
+          ))}
+        </div>
+      </section>
 
-        <header className={styles.header}>
+      <div className={styles.shell} ref={heroRef}>        <header className={styles.header}>
           <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
             <Image
-              src="/brand-logo.svg"
+              src="/brand-logo.png"
               alt="SilacaGEL"
-              width={220}
-              height={56}
+              width={260}
+              height={70}
               className={styles.brandLogo}
+              style={{ objectFit: 'contain' }}
               priority
             />
           </a>
