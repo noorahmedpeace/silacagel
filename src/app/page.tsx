@@ -10,8 +10,10 @@ import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { EmblaCarousel } from "@/components/embla-carousel";
 import { MoisturePhysics } from "@/components/moisture-physics";
+import { IndustrySlider } from "@/components/industry-slider";
+import { EmblaCarousel } from "@/components/embla-carousel";
+
 import {
   Globe,
   ShieldCheck,
@@ -123,12 +125,31 @@ const announcementItems = [
 ];
 
 const trustedIndustries = [
-  { name: "International Pharmaceuticals", icon: Pill },
-  { name: "Global Textiles & Apparel", icon: Shirt },
-  { name: "Precision Tech Assembly", icon: Cpu },
-  { name: "Export Food Packaging", icon: PackageCheck },
-  { name: "Maritime Logistics & Cargo", icon: Ship },
-  { name: "Aerospace & Defense Storage", icon: Plane },
+  {
+    name: "International Pharmaceuticals",
+    image: "/industry-pharma.png",
+    description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
+  },
+  {
+    name: "Global Textiles & Apparel",
+    image: "/silicagel_paper_technical_1775981630266.png",
+    description: "Protecting high-quality leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
+  },
+  {
+    name: "Precision Tech Assembly",
+    image: "/macro_silica_beads_1775989669467.png",
+    description: "Ensuring zero-fail moisture elimination around microchips, PCBs, and sensitive aerospace computer components to prevent short circuits.",
+  },
+  {
+    name: "Export Food Packaging",
+    image: "/silicagel_bulk_enterprise.png",
+    description: "Food-grade desiccant solutions engineered to keep crispy snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
+  },
+  {
+    name: "Maritime Logistics & Cargo",
+    image: "/silicagel_cargo_strips.png",
+    description: "Container-scale absorption for massive export shipments, preventing container rain, condensation, and catastrophic inventory losses at sea.",
+  },
 ];
 
 const testimonials = [
@@ -309,25 +330,9 @@ export default function Home() {
                 </p>
               </div>
 
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className={styles.partnerGrid}
-              >
-                {trustedIndustries.map((industry, index) => {
-                  const Icon = industry.icon;
-                  return (
-                    <motion.article key={index} variants={itemVariants} className={styles.partnerCard}>
-                      <div className={styles.partnerIconWrapper}>
-                        <Icon size={32} strokeWidth={1.5} />
-                      </div>
-                      <span>{industry.name}</span>
-                    </motion.article>
-                  );
-                })}
-              </motion.div>
+              <Reveal direction="up" delay={0.2}>
+                <IndustrySlider industries={trustedIndustries} />
+              </Reveal>
             </section>
           </Reveal>
 
