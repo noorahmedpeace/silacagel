@@ -62,26 +62,26 @@ const useCases = [
 ];
 
 const trustSignals = [
-  "Verified Factory-Direct Supply",
-  "Transparent PKR-Based Pricing",
-  "ISO-Standard Quality Protocols",
-  "Rapid Quote-to-Shipment Flow",
+  "Global Logistics & International Shipping",
+  "Transparent Industrial Pricing",
+  "ISO-Standard Moisture Control Protocols",
+  "Precision Engineering for Global Sourcing",
 ];
 
 const announcementItems = [
-  "FACTORY-DIRECT SILICA GEL SUPPLY NOW LIVE",
-  "BULK DISCOUNTS AVAILABLE FOR EXPORT CLIENTS",
-  "INSTANT PKR PRICING & QUOTE CALCULATOR",
-  "DIRECT WHATSAPP SUPPORT FOR FAST PROCUREMENT",
+  "WORLDWIDE INDUSTRIAL SILICA GEL SUPPLY NOW LIVE",
+  "BULK EXPORT CONTRACTS & MARITIME LOGISTICS SUPPORT",
+  "TECHNICAL SPECIFICATIONS & GLOBAL COMPLIANCE READY",
+  "DIRECT WHATSAPP MANAGEMENT FOR INTERNATIONAL PROCUREMENT",
 ];
 
 const trustedIndustries = [
-  "Pharmaceuticals",
-  "Textiles & Apparel",
-  "Tech Assembly",
-  "Food Packaging",
-  "Logistics & Cargo",
-  "Defense & Storage",
+  "International Pharmaceuticals",
+  "Global Textiles & Apparel",
+  "Precision Tech Assembly",
+  "Export Food Packaging",
+  "Maritime Logistics & Cargo",
+  "Aerospace & Defense Storage",
 ];
 
 const testimonials = [
@@ -171,14 +171,14 @@ export default function Home() {
                 transition={{ delay: 0.1 }}
                 className={styles.kicker}
               >
-                Factory-Direct Desiccant Supply
+                Global Industrial Desiccant Supply
               </motion.p>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                Protect your product value from silent moisture damage.
+                World-class moisture protection for global supply chains.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -186,8 +186,9 @@ export default function Home() {
                 transition={{ delay: 0.3 }}
                 className={styles.lead}
               >
-                Professional-grade silica gel sachets, bulk formats, and container strips.
-                Built for packaging lines, export logistics, and high-volume industrial supply in Pakistan.
+                Technical-grade silica gel solutions for international maritime cargo, 
+                high-precision electronics packaging, and elite pharmaceutical storage. 
+                Built for scale, audited for quality, and optimized for worldwide distribution.
               </motion.p>
 
               <motion.div 
@@ -197,10 +198,10 @@ export default function Home() {
                 className={styles.ctaRow}
               >
                 <a href="#contact" className={styles.primaryCta}>
-                  Request Industrial Quote
+                  Request International Quote
                 </a>
                 <a href="#purchase-calculator" className={styles.secondaryCta}>
-                  Open Price Estimator
+                  Regional Price Estimator
                 </a>
               </motion.div>
 
@@ -211,11 +212,11 @@ export default function Home() {
                 className={styles.personRow}
               >
                 <div>
-                  <span>Factory Operations</span>
+                  <span>Global Operations</span>
                   <strong>Noor Ahmed Khan</strong>
                 </div>
                 <div>
-                  <span>General Management</span>
+                  <span>Procurement Lead</span>
                   <strong>Sameer Ahmed Khan</strong>
                 </div>
               </motion.div>
@@ -332,8 +333,8 @@ export default function Home() {
           <Reveal direction="up">
             <section id="why" className={styles.whySection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>The Value Proposition</p>
-                <h2>Moisture damage is silent. Product loss is structural.</h2>
+                <p className={styles.kicker}>Technical Advantage</p>
+                <h2>Moisture damage is silent. Product integrity is structural.</h2>
               </div>
 
               <div className={styles.reasonGrid}>
@@ -350,8 +351,8 @@ export default function Home() {
           <Reveal direction="up">
             <section id="applications" className={styles.applicationSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Industrial Deployment</p>
-                <h2>Proven protection across critical industries.</h2>
+                <p className={styles.kicker}>Worldwide Deployment</p>
+                <h2>Proven protection across critical supply chains.</h2>
               </div>
 
               <div className={styles.applicationGrid}>
@@ -379,11 +380,11 @@ export default function Home() {
           <Reveal direction="up">
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Technical Validation</p>
-                <h2>Built on trust, verified by performance.</h2>
+                <p className={styles.kicker}>Global Compliance</p>
+                <h2>Audited for trust, verified by performance.</h2>
                 <p>
-                  Our factory supply is trusted by the region's top manufacturers for its consistent adsorption 
-                  integrity and professional packing quality.
+                  Our configurations are trusted by multi-national manufacturers for consistent 
+                  adsorption integrity and professional-grade industrial containment.
                 </p>
               </div>
 
@@ -429,44 +430,44 @@ export default function Home() {
 
           <section className={styles.quoteStage}>
             <div className={styles.quoteStageCopy}>
-              <p className={styles.kicker}>Procurement Funnel</p>
-              <h2>Streamline your industrial sourcing workflow.</h2>
+              <p className={styles.kicker}>Technical Procurement</p>
+              <h2>Streamline your global sourcing workflow.</h2>
               <p>
-                Our WhatsApp-integrated quote form ensures you get technical 
-                feedback and pricing directly from the factory desk.
+                Our enterprise-level quote flow ensures direct access to engineering 
+                feedback and industrial pricing from our management desk.
               </p>
             </div>
 
-            <QuoteForm title="Start a Factory-Direct Quote" />
+            <QuoteForm title="Global Procurement Request" />
           </section>
         </main>
 
         <footer id="contact" className={styles.footer}>
           <div className={styles.footerCopy}>
-            <p className={styles.kicker}>Strategic Partnership</p>
-            <h2>World-class protection for world-class products.</h2>
+            <p className={styles.kicker}>International Operations</p>
+            <h2>Elite protection for world-class cargo.</h2>
             <p>
-              Connect with our factory management for bulk supplies, export 
-              contracts, and custom packing requirements.
+              Connect with our procurement management for global supply contracts, 
+              maritime logistics coordination, and custom containment auditing.
             </p>
           </div>
 
           <div className={styles.contactCard}>
-            <span>Procuring Authority</span>
+            <span>Procurement Authority</span>
             <a href={`tel:${displayPhone}`}>{displayPhone}</a>
-            <strong>Noor Ahmed Khan</strong>
-            <strong>Sameer Ahmed Khan</strong>
+            <strong>Executive Management</strong>
+            <span>Active Response Hub</span>
           </div>
         </footer>
 
         <a
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            "Hello, I'm interested in a professional SilacaGEL quote for my industrial requirement.",
+            "Hello, I'm requesting a technical SilacaGEL procurement quote for my international requirement.",
           )}`}
           target="_blank"
           rel="noopener noreferrer"
           className={styles.whatsAppFloat}
-          aria-label="Connect with Factory Management"
+          aria-label="Connect with Enterprise Management"
         >
           WhatsApp Management
         </a>

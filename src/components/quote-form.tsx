@@ -11,7 +11,7 @@ type QuoteFormProps = {
 };
 
 export function QuoteForm({
-  title = "Request a quick quote",
+  title = "Request Industrial Quote",
   compact = false,
   defaultProduct = "",
 }: QuoteFormProps) {
@@ -25,13 +25,13 @@ export function QuoteForm({
     event.preventDefault();
 
     const message = [
-      "Hello, I want a silica gel quote.",
-      `Product: ${product || "Not selected"}`,
-      `Name: ${name || "Not provided"}`,
-      `Phone: ${phone || "Not provided"}`,
-      `Quantity / Requirement: ${quantity || "Not provided"}`,
-      `City: ${city || "Not provided"}`,
-      `Factory line: ${displayPhone}`,
+      "Hello, I'm initiating an industrial SilacaGEL procurement inquiry.",
+      `Technical Specification: ${product || "General Catalog Inquiry"}`,
+      `Authorized Representative: ${name || "Unassigned"}`,
+      `Point of Contact: ${phone || "Not provided"}`,
+      `Industrial Requirement: ${quantity || "Not provided"}`,
+      `Base of Operations: ${city || "Not provided"}`,
+      `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -44,14 +44,14 @@ export function QuoteForm({
       onSubmit={handleSubmit}
     >
       <div className={styles.formHead}>
-        <p>Direct WhatsApp quote flow</p>
+        <p>Managed Procurement Flow</p>
         <h3>{title}</h3>
       </div>
 
       <label className={styles.field}>
-        <span>Product type</span>
+        <span>Technical Specification</span>
         <select value={product} onChange={(event) => setProduct(event.target.value)}>
-          <option value="">Select a product</option>
+          <option value="">Select specification</option>
           {productCatalog.map((item) => (
             <option key={item.slug} value={item.name}>
               {item.name}
@@ -61,47 +61,47 @@ export function QuoteForm({
       </label>
 
       <label className={styles.field}>
-        <span>Your name</span>
+        <span>Representative Name</span>
         <input
           value={name}
           onChange={(event) => setName(event.target.value)}
-          placeholder="Your name"
+          placeholder="Contact Name"
           type="text"
         />
       </label>
 
       <label className={styles.field}>
-        <span>Your phone number</span>
+        <span>Business Contact Number</span>
         <input
           value={phone}
           onChange={(event) => setPhone(event.target.value)}
-          placeholder="03xx xxx xxxx"
+          placeholder="International format encouraged"
           type="tel"
         />
       </label>
 
       <label className={styles.field}>
-        <span>Quantity or requirement</span>
+        <span>Industrial Capacity / Monthly Requirement</span>
         <input
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}
-          placeholder="For example: 10,000 sachets / monthly"
+          placeholder="e.g. 50,000 units / Recurring"
           type="text"
         />
       </label>
 
       <label className={styles.field}>
-        <span>City</span>
+        <span>Distribution Region</span>
         <input
           value={city}
           onChange={(event) => setCity(event.target.value)}
-          placeholder="Karachi, Lahore, Faisalabad..."
+          placeholder="City / Logistics Hub"
           type="text"
         />
       </label>
 
       <button className={styles.submit} type="submit">
-        Send on WhatsApp
+        Submit Procurement Inquiry
       </button>
     </form>
   );

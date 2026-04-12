@@ -34,12 +34,12 @@ export function PriceCalculator() {
     }
 
     const message = [
-      "Hello, I want a silica gel calculator-based quote.",
-      `Pack size: ${selectedOption.label}`,
-      `Category: ${selectedOption.groupTitle}`,
-      `Quantity: ${currencyFormatter.format(quantityValue)} packs`,
-      `Total weight: ${weightFormatter.format(totalGrams)} grams (${weightFormatter.format(totalKilograms)} kg)`,
-      `Estimated total: Rs. ${currencyFormatter.format(totalPrice)}`,
+      "Hello, I'm requesting an industrial SilacaGEL procurement quote.",
+      `Technical Spec: ${selectedOption.label}`,
+      `Industrial Category: ${selectedOption.groupTitle}`,
+      `Quantity Requirement: ${currencyFormatter.format(quantityValue)} units`,
+      `Verified Net Weight: ${weightFormatter.format(totalGrams)}g (${weightFormatter.format(totalKilograms)}kg)`,
+      `Regional Reference Total: Rs. ${currencyFormatter.format(totalPrice)}`,
     ].join("\n");
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
@@ -49,29 +49,29 @@ export function PriceCalculator() {
   return (
     <aside className={styles.calculator} aria-labelledby="price-calculator-title">
       <div className={styles.head}>
-        <p>Instant estimator</p>
-        <h3 id="price-calculator-title">Purchase calculator</h3>
-        <span>Select a pack size and quantity to estimate required grams and total PKR.</span>
+        <p>Industrial Estimator</p>
+        <h3 id="price-calculator-title">Procurement Calculator</h3>
+        <span>Select technical specifications and quantity to estimate industrial weight and regional reference rates.</span>
       </div>
 
       <label className={styles.field}>
-        <span>Pack size</span>
+        <span>Technical Specification</span>
         <select value={selectedKey} onChange={(event) => setSelectedKey(event.target.value)}>
           {priceOptions.map((option) => (
             <option key={option.key} value={option.key}>
-              {option.label} - {option.groupTitle} - Rs. {currencyFormatter.format(option.unitPrice)}
+              {option.label} - {option.groupTitle}
             </option>
           ))}
         </select>
       </label>
 
       <label className={styles.field}>
-        <span>Quantity of packs</span>
+        <span>Unit Quantity</span>
         <input
           inputMode="numeric"
           min="1"
           onChange={(event) => setQuantity(event.target.value)}
-          placeholder="Enter quantity"
+          placeholder="Quantity"
           type="number"
           value={quantity}
         />
@@ -79,38 +79,37 @@ export function PriceCalculator() {
 
       <div className={styles.summaryGrid}>
         <article className={styles.summaryCard}>
-          <span>Unit price</span>
+          <span>Industrial Unit Rate</span>
           <strong>Rs. {currencyFormatter.format(selectedOption?.unitPrice ?? 0)}</strong>
         </article>
         <article className={styles.summaryCard}>
-          <span>Total grams</span>
+          <span>Net Weight (g)</span>
           <strong>{weightFormatter.format(totalGrams)} gm</strong>
         </article>
         <article className={styles.summaryCard}>
-          <span>Total kilograms</span>
+          <span>Total Mass (kg)</span>
           <strong>{weightFormatter.format(totalKilograms)} kg</strong>
         </article>
         <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
-          <span>Estimated total</span>
+          <span>Estimated Subtotal</span>
           <strong>Rs. {currencyFormatter.format(totalPrice)}</strong>
         </article>
       </div>
 
       <div className={styles.meta}>
         <p>
-          Current selection: <strong>{selectedOption?.label}</strong> from{" "}
-          <strong>{selectedOption?.groupTitle}</strong>.
+          Technical Selection: <strong>{selectedOption?.label}</strong> | Group: <strong>{selectedOption?.groupTitle}</strong>.
         </p>
-        <p>{selectedOption?.groupNote}. Estimate uses the current listed reference rate.</p>
+        <p>Rates are reference-only. Priority procurement and bulk contracts are quoted individually by management.</p>
         {hasBulkSignal ? (
           <p className={styles.bulkHint}>
-            This looks like a larger order. Direct factory quoting may give you a better rate.
+            Enterprise-scale requirement detected. Elite pricing adjustments available through direct procurement flow.
           </p>
         ) : null}
       </div>
 
       <button className={styles.submit} onClick={handleWhatsAppQuote} type="button">
-        Send this estimate on WhatsApp
+        Submit Procurement Estimate
       </button>
     </aside>
   );
