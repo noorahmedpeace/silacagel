@@ -164,20 +164,20 @@ export default function Home() {
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
-              <motion.p 
+              <motion.span 
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 className={styles.kicker}
               >
-                Global Industrial Desiccant Supply
-              </motion.p>
+                Industrial Desiccant Infrastructure
+              </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                World-class moisture protection for global supply chains.
+                World-Class Moisture Control for Global Supply Chains.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -185,9 +185,9 @@ export default function Home() {
                 transition={{ delay: 0.3 }}
                 className={styles.lead}
               >
-                Technical-grade silica gel solutions for international maritime cargo, 
-                high-precision electronics packaging, and elite pharmaceutical storage. 
-                Built for scale, audited for quality, and optimized for worldwide distribution.
+                Precision-engineered silica gel desiccants trusted by international 
+                maritime, pharmaceutical, and electronic leaders. High-adsorption 
+                protection for high-value export cargo and technical inventory.
               </motion.p>
 
               <motion.div 
@@ -197,10 +197,10 @@ export default function Home() {
                 className={styles.ctaRow}
               >
                 <a href="#contact" className={styles.primaryCta}>
-                  Request International Quote
+                  Request Enterprise Quote
                 </a>
-                <a href="#purchase-calculator" className={styles.secondaryCta}>
-                  Regional Price Estimator
+                <a href="#products" className={styles.secondaryCta}>
+                  View Technical Catalog
                 </a>
               </motion.div>
 
@@ -208,45 +208,42 @@ export default function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.6 }}
-                className={styles.personRow}
+                className={styles.trustSignals}
               >
-                <div>
-                  <span>Global Operations</span>
-                  <strong>Noor Ahmed Khan</strong>
+                <div className={styles.signal}>
+                  <span>Logistics Hub</span>
+                  <strong>Worldwide Maritime Support</strong>
                 </div>
-                <div>
-                  <span>Procurement Lead</span>
-                  <strong>Sameer Ahmed Khan</strong>
+                <div className={styles.signal}>
+                  <span>Compliance</span>
+                  <strong>International ISO / RoHS</strong>
+                </div>
+                <div className={styles.signal}>
+                  <span>Protection</span>
+                  <strong>32%+ Adsorption Capacity</strong>
+                </div>
+                <div className={styles.signal}>
+                  <span>Materials</span>
+                  <strong>Tyvek® & Technical Bond</strong>
                 </div>
               </motion.div>
             </div>
 
-            <div className={styles.heroVisual}>
-              <div className={styles.heroVisualInner}>
-                <HeroBackgroundVideo src={heroVideo} targetId="hero" />
-                <div className={styles.beadOverlay}>
-                  <Hero3DShowcase />
-                </div>
-              </div>
-              <div className={styles.heroVisualMetadata}>
-                <div className={styles.metaItem}>
-                  <span>Visual Feed</span>
-                  <strong>Enterprise Facility Hub</strong>
-                </div>
-                <div className={styles.metaItem}>
-                  <span>Status</span>
-                  <strong>Active Adsorption</strong>
-                </div>
-                <div className={styles.metaItem}>
-                  <span>Logistics Hub</span>
-                  <strong>Karachi Terminal 01</strong>
-                </div>
-                <div className={styles.metaItem}>
-                  <span>Compliance</span>
-                  <strong>SGS / RoHS Ready</strong>
-                </div>
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className={styles.heroVisual}
+            >
+              <Image
+                src="/silicagel_hero_elite_1775981490386.png"
+                alt="SilacaGEL Technical Product"
+                fill
+                priority
+                className={styles.heroImage}
+                sizes="(max-width: 1100px) 100vw, 40vw"
+              />
+            </motion.div>
           </section>
 
           <Reveal direction="up">

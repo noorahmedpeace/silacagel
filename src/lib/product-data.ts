@@ -40,8 +40,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Optimal for high-precision components and unit-level packaging.",
     description:
       "Our precision-grade units are designed for integration directly within technical packaging. They are critical for high-end electronics, precision apertures, and luxury leather exports where unit-level integrity is non-negotiable.",
-    heroImage:
-      "https://images.pexels.com/photos/4464916/pexels-photo-4464916.jpeg?cs=srgb&dl=pexels-karola-g-4464916.jpg&fm=jpg",
+    heroImage: "/silicagel_hero_elite_1775981490386.png",
     useCases: [
       "Aerospace and semiconductor shielding",
       "High-end footwear and luxury leather",
@@ -49,9 +48,9 @@ export const productCatalog: ProductItem[] = [
       "Retail-ready electronic sub-assemblies",
     ],
     packingOptions: [
-      "Ultra-breathable non-woven formats",
-      "Custom branded technical inserts",
-      "Automated packaging line compatibility",
+      "Material: High-burst Tyvek® / Technical Fiber",
+      "Adsorption Capacity: >32% at 90% RH",
+      "Compliance: FDA / RoHS / REACH Authorized",
     ],
     leadTime: "Standard stock for recurring global contracts",
     priceBand: "Tiered industrial reference rates available",
@@ -67,8 +66,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Standard protection for industrial warehousing and scale logistics.",
     description:
       "Technical Bond sachets provide a high-performance balance for general industrial cargo. These are the workhorse of global trade, protecting everything from heavy machinery parts to large-scale textile shipments.",
-    heroImage:
-      "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg?cs=srgb&dl=pexels-web-buz-29454379.jpg&fm=jpg",
+    heroImage: "/silicagel_paper_technical_1775981630266.png",
     useCases: [
       "Standard export carton stabilization",
       "Industrial spare parts inventory",
@@ -76,9 +74,9 @@ export const productCatalog: ProductItem[] = [
       "Distributor and reseller supply chains",
     ],
     packingOptions: [
-      "High-burst strength paper formats",
-      "Scale-optimized industrial packing",
-      "Multi-gram mixed specification orders",
+      "Material: Technical Bond Porous Paper",
+      "Pore Size: Optimized for rapid adsorption",
+      "Packaging: Dust-free industrial integrity",
     ],
     leadTime: "Optimized for large-scale procurement cycles",
     priceBand: "Tiered wholesale procurement rates",
@@ -94,8 +92,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Heavy-duty coverage for expansive industrial and logistics environments.",
     description:
       "Our enterprise bulk range is designed for facility-scale moisture control programs. These high-capacity units are essential for maintaining dry-state integrity in large-scale warehouses and heavy industrial manufacturing zones.",
-    heroImage:
-      "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg?cs=srgb&dl=pexels-web-buz-29454379.jpg&fm=jpg",
+    heroImage: "/silicagel_paper_technical_1775981630266.png",
     useCases: [
       "Facility-wide moisture management",
       "Continuous industrial assembly lines",
@@ -103,9 +100,9 @@ export const productCatalog: ProductItem[] = [
       "Large-bore machinery and infrastructure parts",
     ],
     packingOptions: [
-      "25g to 500g high-capacity units",
-      "Custom industrial volume configuration",
-      "Direct factory management procurement",
+      "Capacities: 25g to 500g high-bore units",
+      "Standard: ISO 9001 Process Audited",
+      "Config: Customizable industrial density",
     ],
     leadTime: "Quoted per project and logistical requirement",
     priceBand: "Elite procurement rates for high-volume contracts",
@@ -121,8 +118,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
       "Our cargo strips are specifically engineered for the extreme humidity shifts of maritime transit. They are the global standard for protecting high-value export containers over long-haul oceanic routes.",
-    heroImage:
-      "https://images.pexels.com/photos/34106182/pexels-photo-34106182.jpeg?cs=srgb&dl=pexels-aden-deutsch-2529743-34106182.jpg&fm=jpg",
+    heroImage: "/silicagel_hero_elite_1775981490386.png",
     useCases: [
       "International ocean freight containers",
       "Extreme-humidity logistics routes",
@@ -130,9 +126,9 @@ export const productCatalog: ProductItem[] = [
       "High-value export consignment stabilization",
     ],
     packingOptions: [
-      "1 kg high-capacity maritime formats",
-      "Integrated logistics supply programs",
-      "Custom cargo-load moisture auditing",
+      "Type: 1kg Multi-chamber Cargo Strips",
+      "Seal: Double-welded high-integrity seams",
+      "Transit: 60+ Day Adsorption Protection",
     ],
     leadTime: "Aligned with international shipping windows",
     priceBand: "Global logistics procurement reference: Rs. 950 per unit",
