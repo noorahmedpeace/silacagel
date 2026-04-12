@@ -1,0 +1,32 @@
+.page { width: 100%; max-width: 1400px; margin: 0 auto; padding: 48px 32px 120px; display: flex; flex-direction: column; gap: 80px; }
+.hero { display: flex; flex-direction: column; gap: 16px; max-width: 800px; padding-top: 40px; }
+.kicker { display: inline-flex; padding: 8px 16px; background: var(--accent-glow); color: var(--accent); border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
+.hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--ink); line-height: 1.1; }
+.hero p { font-size: 1.15rem; color: var(--muted); line-height: 1.7; max-width: 640px; }
+.certsGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.certCard { background: var(--surface-elevated); border: 1px solid var(--glass-border); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 12px; transition: box-shadow 0.2s ease; }
+.certCard:hover { box-shadow: 0 16px 40px -8px rgba(37,99,235,0.12); }
+.certTop { display: flex; align-items: center; gap: 12px; }
+.certIcon { font-size: 2rem; }
+.certCode { font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.06em; background: var(--accent-glow); padding: 4px 10px; border-radius: 999px; }
+.certCard h3 { font-size: 1.1rem; font-weight: 800; color: var(--ink); }
+.certCard p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+.downloadBtn { display: inline-flex; background: var(--accent); color: white; font-size: 0.85rem; font-weight: 800; padding: 10px 20px; border-radius: 10px; width: fit-content; margin-top: auto; transition: background 0.2s ease; }
+.downloadBtn:hover { background: var(--accent-deep); opacity: 1; }
+.tableSection { display: flex; flex-direction: column; gap: 40px; }
+.sectionHead { display: flex; flex-direction: column; gap: 12px; max-width: 680px; }
+.sectionHead h2 { font-size: 2.4rem; font-weight: 900; color: var(--ink); line-height: 1.2; }
+.tableWrapper { overflow-x: auto; border-radius: 16px; border: 1px solid var(--glass-border); }
+.specTable { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.specTable th { background: var(--surface); color: var(--ink); font-weight: 800; padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--glass-border); }
+.specTable td { padding: 14px 20px; border-bottom: 1px solid var(--glass-border); color: var(--muted); }
+.specTable tr:last-child td { border-bottom: none; }
+.specTable td:first-child strong { color: var(--ink); }
+.specTable code { background: var(--accent-glow); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 0.85rem; }
+.ctaBanner { background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); border-radius: 32px; padding: 80px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+.ctaBanner h2 { font-size: 2.4rem; font-weight: 900; color: white; }
+.ctaBanner p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 500px; }
+.ctaBtn { display: inline-flex; background: white; color: var(--accent); font-size: 0.95rem; font-weight: 800; padding: 14px 28px; border-radius: 12px; transition: transform 0.2s ease; }
+.ctaBtn:hover { transform: translateY(-2px); opacity: 1; }
+@media (max-width: 1100px) { .certsGrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .page { padding: 32px 16px 80px; } .hero h1 { font-size: 2.2rem; } .certsGrid { grid-template-columns: 1fr; } .ctaBanner { padding: 48px 24px; } }

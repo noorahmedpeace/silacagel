@@ -250,24 +250,24 @@ export default function Home() {
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
-              <a href="#dispensers">Dispensers</a>
+              <Link href="/dispensers">Dispensers</Link>
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
-              <a href="#documents">Documents</a>
+              <Link href="/documents">Documents</Link>
             </div>
             <div className={styles.navItem}>
-              <a href="#faq">FAQ's</a>
+              <Link href="/faq">FAQ&apos;s</Link>
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
-              <a href="#videos">Product Videos</a>
+              <Link href="/videos">Product Videos</Link>
             </div>
             <div className={styles.navItem}>
-              <a href="#contact">Contact Us</a>
+              <Link href="/contact">Contact Us</Link>
             </div>
             <div className={styles.navItem}>
-              <a href="#about">About Us</a>
+              <Link href="/about">About Us</Link>
             </div>
           </nav>
 
