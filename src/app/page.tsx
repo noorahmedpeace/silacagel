@@ -10,7 +10,7 @@ import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { MoisturePhysics } from "@/components/moisture-physics";
+import { AmbientGlow } from "@/components/ambient-glow";
 import { IndustrySlider } from "@/components/industry-slider";
 import { EmblaCarousel } from "@/components/embla-carousel";
 
@@ -205,7 +205,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <MoisturePhysics />
+      <AmbientGlow />
       <div className={styles.shell} ref={heroRef}>
         <section className={styles.announcementBar} aria-label="Highlights">
           <div className={styles.announcementTrack}>
