@@ -122,7 +122,7 @@ const testimonials = [
   },
 ];
 
-const heroVideo = "";
+const heroVideo = "/silicagel-hero.mp4";
 const splineSceneUrl = "";
 
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
