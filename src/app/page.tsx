@@ -76,6 +76,49 @@ const trustSignals = [
   "Direct quote flow through call and WhatsApp contact",
 ];
 
+const announcementItems = [
+  "Factory-direct silica gel supply",
+  "Bulk orders and custom packing available",
+  "PKR pricing with instant calculator",
+  "Direct WhatsApp quote support",
+];
+
+const trustedIndustries = [
+  "Pharmaceutical Packaging",
+  "Leather and Footwear",
+  "Electronics Assembly",
+  "Food and Dry Goods",
+  "Warehousing",
+  "Export Logistics",
+];
+
+const featuredSolutions = [
+  {
+    eyebrow: "For leather and footwear",
+    title: "A stronger moisture-control story for boxed shoes, leather goods, and retail packaging.",
+    text: "Position the factory around freshness, finish protection, and better shelf presentation for footwear brands, stores, and packaging suppliers.",
+    ctaLabel: "Explore product lines",
+    ctaHref: "#products",
+    image: visuals.leather,
+  },
+  {
+    eyebrow: "For pharmaceuticals and packaging",
+    title: "Present compliance-friendly protection for cartons, vitamins, dry products, and sensitive packed goods.",
+    text: "Bring forward clean packing formats, dependable gram sizes, and a direct bulk-order path for serious packaging buyers.",
+    ctaLabel: "Go to purchase calculator",
+    ctaHref: "#purchase-calculator",
+    image: visuals.packaging,
+  },
+  {
+    eyebrow: "For export and industrial cargo",
+    title: "Show buyers that your supply works at container, dispatch, and warehouse scale.",
+    text: "Use clearer industrial positioning to speak to exporters, logistics teams, and bulk customers who care about long-haul moisture risk.",
+    ctaLabel: "View PKR pricing",
+    ctaHref: "#pricing",
+    image: visuals.cargo,
+  },
+];
+
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
   minimumFractionDigits: 0,
   maximumFractionDigits: 2,
@@ -153,6 +196,14 @@ export default function Home() {
       />
 
       <div className={styles.shell}>
+        <section className={styles.announcementBar} aria-label="Highlights">
+          <div className={styles.announcementTrack}>
+            {[...announcementItems, ...announcementItems].map((item, index) => (
+              <span key={`${item}-${index}`}>{item}</span>
+            ))}
+          </div>
+        </section>
+
         <a href="#top" className={styles.skipLink}>
           Skip to content
         </a>
@@ -266,6 +317,56 @@ export default function Home() {
                 PKR pricing, and a direct quote funnel together make the site
                 feel more like a brand and less like a catalog.
               </p>
+            </section>
+          </Reveal>
+
+          <Reveal>
+            <section className={styles.partnerSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Trusted Applications</p>
+                <h2>Built for the industries that buy on consistency, not on guesswork.</h2>
+                <p>
+                  Inspired by stronger market leaders, this section makes the factory
+                  feel broader, more dependable, and more commercially ready from the first screen.
+                </p>
+              </div>
+
+              <div className={styles.partnerGrid}>
+                {trustedIndustries.map((industry) => (
+                  <article key={industry} className={styles.partnerCard}>
+                    <span>{industry}</span>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal>
+            <section className={styles.featureShowcase}>
+              {featuredSolutions.map((item) => (
+                <article key={item.title} className={styles.featureStory}>
+                  <div className={styles.featureStoryCopy}>
+                    <p className={styles.kicker}>{item.eyebrow}</p>
+                    <h2>{item.title}</h2>
+                    <p>{item.text}</p>
+                    <a href={item.ctaHref} className={styles.storyCta}>
+                      {item.ctaLabel}
+                    </a>
+                  </div>
+
+                  <div className={styles.featureStoryVisual}>
+                    <div className={styles.imageWrap}>
+                      <Image
+                        src={item.image}
+                        alt={item.eyebrow}
+                        fill
+                        className={styles.image}
+                        sizes="(max-width: 1100px) 100vw, 34vw"
+                      />
+                    </div>
+                  </div>
+                </article>
+              ))}
             </section>
           </Reveal>
 

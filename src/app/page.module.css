@@ -13,6 +13,43 @@
   padding: 18px 0 40px;
 }
 
+.announcementBar {
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 1px solid rgba(233, 224, 209, 0.09);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(181, 139, 76, 0.16), rgba(255, 255, 255, 0.04));
+}
+
+.announcementTrack {
+  display: flex;
+  gap: 18px;
+  width: max-content;
+  padding: 12px 18px;
+  animation: marquee 26s linear infinite;
+}
+
+.announcementTrack span {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f3e8d4;
+  white-space: nowrap;
+}
+
+.announcementTrack span::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(240, 223, 192, 0.72);
+}
+
 .skipLink {
   position: absolute;
   left: 20px;
@@ -85,6 +122,8 @@
 
 .hero,
 .ribbon,
+.partnerSection,
+.featureShowcase,
 .whySection,
 .featureBand,
 .applicationSection,
@@ -104,6 +143,7 @@
 }
 
 .hero::before,
+.partnerSection::before,
 .whySection::before,
 .pricingSection::before,
 .faqSection::before,
@@ -120,6 +160,7 @@
 }
 
 .hero,
+.partnerSection,
 .whySection,
 .applicationSection,
 .productSection,
@@ -380,10 +421,121 @@
 .applicationGrid,
 .productGrid,
 .priceGrid,
+.partnerGrid,
 .faqGrid {
   display: grid;
   gap: 16px;
   margin-top: 28px;
+}
+
+.partnerGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.partnerCard {
+  padding: 22px;
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.partnerCard span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1;
+  color: #fff5e7;
+}
+
+.featureShowcase {
+  display: grid;
+  gap: 18px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.featureStory {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 18px;
+}
+
+.featureStory:nth-child(even) {
+  grid-template-columns: minmax(320px, 0.95fr) minmax(0, 1.05fr);
+}
+
+.featureStory:nth-child(even) .featureStoryCopy {
+  order: 2;
+}
+
+.featureStory:nth-child(even) .featureStoryVisual {
+  order: 1;
+}
+
+.featureStoryCopy,
+.featureStoryVisual {
+  border: 1px solid rgba(233, 224, 209, 0.09);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
+}
+
+.featureStoryCopy {
+  padding: 34px;
+}
+
+.featureStoryCopy h2 {
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+  font-weight: 600;
+  line-height: 0.94;
+  color: #fff5e7;
+  text-wrap: balance;
+}
+
+.featureStoryCopy p:last-of-type {
+  margin-top: 14px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(242, 233, 219, 0.72);
+}
+
+.featureStoryVisual {
+  padding: 16px;
+}
+
+.featureStoryVisual .imageWrap {
+  min-height: 100%;
+}
+
+.storyCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  margin-top: 22px;
+  padding: 0 20px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 233, 219, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-body);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff5e7;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease;
+}
+
+.storyCta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(212, 168, 93, 0.24);
 }
 
 .reasonGrid {
@@ -755,6 +907,7 @@
 @media (max-width: 1120px) {
   .hero,
   .featureBand,
+  .featureStory,
   .applicationGrid,
   .productGrid,
   .splitSection,
@@ -773,6 +926,7 @@
   }
 
   .reasonGrid,
+  .partnerGrid,
   .faqGrid {
     grid-template-columns: 1fr;
   }
@@ -789,9 +943,16 @@
     align-items: flex-start;
   }
 
+  .announcementBar {
+    border-radius: 24px;
+  }
+
   .hero,
+  .partnerSection,
   .whySection,
   .featureText,
+  .featureStoryCopy,
+  .featureStoryVisual,
   .featureImageCard,
   .applicationSection,
   .productSection,
@@ -825,8 +986,25 @@
   }
 
   .visualLarge .imageWrap,
+  .featureStoryVisual .imageWrap,
   .applicationImage,
   .featureImageCard .imageWrap {
     min-height: 280px;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcementTrack {
+    animation: none;
   }
 }
