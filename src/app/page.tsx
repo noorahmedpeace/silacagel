@@ -104,23 +104,26 @@ const proofLogos = [
 const testimonials = [
   {
     quote:
-      "“SilacaGEL helped us reduce moisture claims in finished cartons and made our packaging look more professional.”",
+      "\"SilacaGEL helped us reduce moisture claims in finished cartons and made our packaging look more professional.\"",
     name: "Operations Lead",
     company: "Packaging Partner (Placeholder)",
   },
   {
     quote:
-      "“We needed consistent bulk supply for export cargo. The factory response time and packing flexibility were strong.”",
+      "\"We needed consistent bulk supply for export cargo. The factory response time and packing flexibility were strong.\"",
     name: "Procurement Manager",
     company: "Export Client (Placeholder)",
   },
   {
     quote:
-      "“Retail sachets are clean and reliable. The pricing transparency made buying decisions much faster.”",
+      "\"Retail sachets are clean and reliable. The pricing transparency made buying decisions much faster.\"",
     name: "Purchasing Head",
     company: "Retail Distributor (Placeholder)",
   },
 ];
+
+const heroVideo = "";
+const splineSceneUrl = "";
 
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
   minimumFractionDigits: 0,
@@ -269,7 +272,64 @@ export default function Home() {
               </div>
 
               <div className={styles.heroVisual}>
-                <Hero3DShowcase />
+                <div className={styles.heroBento}>
+                  <div className={styles.heroMain}>
+                    <Hero3DShowcase />
+                  </div>
+
+                  <article className={styles.heroCard}>
+                    <div className={styles.heroCardHead}>
+                      <span>Video Hero</span>
+                      <strong>Cinematic process preview</strong>
+                    </div>
+                    <div className={styles.videoWrap}>
+                      {heroVideo ? (
+                        <video
+                          className={styles.heroVideo}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          poster="/brand-logo.svg"
+                        >
+                          <source src={heroVideo} type="video/mp4" />
+                        </video>
+                      ) : (
+                        <div className={styles.videoPlaceholder}>
+                          Add a short factory or product loop here.
+                        </div>
+                      )}
+                    </div>
+                    <p className={styles.heroCardNote}>
+                      Keep it under 8 seconds and compressed for fast loading.
+                    </p>
+                  </article>
+
+                  <article className={styles.heroCard}>
+                    <div className={styles.heroCardHead}>
+                      <span>Interactive 3D</span>
+                      <strong>Spline embed slot</strong>
+                    </div>
+                    <div className={styles.splineWrap}>
+                      {splineSceneUrl ? (
+                        <iframe
+                          className={styles.splineFrame}
+                          src={splineSceneUrl}
+                          title="Silica gel 3D scene"
+                          loading="lazy"
+                          allow="fullscreen"
+                        />
+                      ) : (
+                        <div className={styles.splinePlaceholder}>
+                          Paste your Spline scene URL here for interactive 3D.
+                        </div>
+                      )}
+                    </div>
+                    <p className={styles.heroCardNote}>
+                      We will keep the CSS 3D stage as a fallback for performance.
+                    </p>
+                  </article>
+                </div>
               </div>
             </section>
           </Reveal>
