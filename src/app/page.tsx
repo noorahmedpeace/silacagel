@@ -25,6 +25,7 @@ import {
   Pill,
   Shirt,
   Cpu,
+  Star,
 } from "lucide-react";
 import {
   displayPhone,
@@ -155,21 +156,27 @@ const trustedIndustries = [
 const testimonials = [
   {
     quote:
-      "\"SilacaGEL provides the most consistent moisture control we've used. Their bulk supply is a cornerstone of our export operations.\"",
-    name: "Head of Procurement",
-    company: "Global Footwear Manufacturer",
+      "There are so many great things about SilacaGEL. The most important to us is the consistency of the moisture thresholds during transit. Also, I love the ability to bulk order via their WhatsApp channel effortlessly.",
+    name: "Caroline Tremblay",
+    title: "Head of Procurement, Global Footwear",
+    initial: "CT",
+    color: "#FACC15" // Yellowish to match the screenshot vibe
   },
   {
     quote:
-      "\"The pricing transparency and instant PKR calculator simplified our budgeting process significantly. A very professional supply partner.\"",
-    name: "Logistics Manager",
-    company: "Electronics Export Group",
+      "I had a recent engagement with their support around bulk container strips. Unlike other suppliers, they ran down the exact mathematics for the cubic volume of our containers to ensure we bought the right amount.",
+    name: "Russ Fordyce",
+    title: "Logistics Manager, Electronics Export",
+    initial: "RF",
+    color: "#60A5FA" // Light blue
   },
   {
     quote:
-      "\"From retail sachets to container strips, the quality is world-class. Fast response time and excellent packing integrity.\"",
-    name: "Warehouse Director",
-    company: "Industrial Parts Distributor",
+      "Being a new company, we cannot afford inventory loss due to oceanic moisture. SilacaGEL's features were essential to our purpose, from retail sachets to heavy-duty maritime transport.",
+    name: "Paolo Carner",
+    title: "Warehouse Director, Industrial Parts",
+    initial: "PC",
+    color: "#A78BFA" // Purple
   },
 ];
 
@@ -486,11 +493,24 @@ export default function Home() {
               <EmblaCarousel options={{ align: "start", loop: true }}>
                 {testimonials.map((item) => (
                   <article key={item.quote} className={styles.testimonialCard}>
-                    <p className={styles.testimonialQuote}>{item.quote}</p>
-                    <div className={styles.testimonialMeta}>
-                      <strong>{item.name}</strong>
-                      <span>{item.company}</span>
+                    <div className={styles.testimonialHeader}>
+                      <div 
+                        className={styles.testimonialAvatar} 
+                        style={{ backgroundColor: item.color }}
+                      >
+                        {item.initial}
+                      </div>
+                      <div className={styles.testimonialInfo}>
+                        <strong>{item.name}</strong>
+                        <span>{item.title}</span>
+                        <div className={styles.testimonialStars}>
+                          {[...Array(5)].map((_, i) => (
+                            <Star key={i} size={16} fill="#FACC15" color="#FACC15" />
+                          ))}
+                        </div>
+                      </div>
                     </div>
+                    <p className={styles.testimonialQuote}>"{item.quote}"</p>
                   </article>
                 ))}
               </EmblaCarousel>
