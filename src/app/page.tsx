@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Hero3DShowcase } from "@/components/hero-3d-showcase";
+import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
@@ -123,7 +124,6 @@ const testimonials = [
 ];
 
 const heroVideo = "/silicagel-hero.mp4";
-const splineSceneUrl = "";
 
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
   minimumFractionDigits: 0,
@@ -237,7 +237,8 @@ export default function Home() {
 
         <main id="top" className={styles.main}>
           <Reveal>
-            <section className={styles.hero}>
+            <section className={styles.hero} id="hero">
+              <HeroBackgroundVideo src={heroVideo} targetId="hero" />
               <div className={styles.heroCopy}>
                 <p className={styles.kicker}>Factory-Direct Silica Gel</p>
                 <h1>Moisture protection packs built for bulk supply and export.</h1>
@@ -272,64 +273,7 @@ export default function Home() {
               </div>
 
               <div className={styles.heroVisual}>
-                <div className={styles.heroBento}>
-                  <div className={styles.heroMain}>
-                    <Hero3DShowcase />
-                  </div>
-
-                  <article className={styles.heroCard}>
-                    <div className={styles.heroCardHead}>
-                      <span>Video Hero</span>
-                      <strong>Cinematic process preview</strong>
-                    </div>
-                    <div className={styles.videoWrap}>
-                      {heroVideo ? (
-                        <video
-                          className={styles.heroVideo}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          poster="/brand-logo.svg"
-                        >
-                          <source src={heroVideo} type="video/mp4" />
-                        </video>
-                      ) : (
-                        <div className={styles.videoPlaceholder}>
-                          Add a short factory or product loop here.
-                        </div>
-                      )}
-                    </div>
-                    <p className={styles.heroCardNote}>
-                      Keep it under 8 seconds and compressed for fast loading.
-                    </p>
-                  </article>
-
-                  <article className={styles.heroCard}>
-                    <div className={styles.heroCardHead}>
-                      <span>Interactive 3D</span>
-                      <strong>Spline embed slot</strong>
-                    </div>
-                    <div className={styles.splineWrap}>
-                      {splineSceneUrl ? (
-                        <iframe
-                          className={styles.splineFrame}
-                          src={splineSceneUrl}
-                          title="Silica gel 3D scene"
-                          loading="lazy"
-                          allow="fullscreen"
-                        />
-                      ) : (
-                        <div className={styles.splinePlaceholder}>
-                          Paste your Spline scene URL here for interactive 3D.
-                        </div>
-                      )}
-                    </div>
-                    <p className={styles.heroCardNote}>
-                      We will keep the CSS 3D stage as a fallback for performance.
-                    </p>
-                  </article>
-                </div>
+                <Hero3DShowcase />
               </div>
             </section>
           </Reveal>
