@@ -11,7 +11,7 @@ import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
 import { EmblaCarousel } from "@/components/embla-carousel";
-import { FloatingBeads } from "@/components/floating-beads";
+import { MoisturePhysics } from "@/components/moisture-physics";
 import {
   Globe,
   ShieldCheck,
@@ -184,7 +184,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <FloatingBeads />
+      <MoisturePhysics />
       <div className={styles.shell} ref={heroRef}>
         <section className={styles.announcementBar} aria-label="Highlights">
           <div className={styles.announcementTrack}>
@@ -225,14 +225,14 @@ export default function Home() {
                 transition={{ delay: 0.1 }}
                 className={styles.kicker}
               >
-                Industrial Desiccant Infrastructure
+                99.9% Moisture Elimination
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
               >
-                World-Class Moisture Control for Global Supply Chains.
+                Zero-Fail Protection for Million-Dollar Assets.
               </motion.h1>
               <motion.p 
                 initial={{ opacity: 0, y: 20 }}
@@ -240,9 +240,7 @@ export default function Home() {
                 transition={{ delay: 0.3 }}
                 className={styles.lead}
               >
-                Precision-engineered silica gel desiccants trusted by international 
-                maritime, pharmaceutical, and electronic leaders. High-adsorption 
-                protection for high-value export cargo and technical inventory.
+                Industrial supply chains don't compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
               </motion.p>
 
               <motion.div 
@@ -252,10 +250,10 @@ export default function Home() {
                 className={styles.ctaRow}
               >
                 <a href="#contact" className={styles.primaryCta}>
-                  Request Enterprise Quote
+                  Secure Your Supply Chain
                 </a>
                 <a href="#products" className={styles.secondaryCta}>
-                  View Technical Catalog
+                  View Technical Data
                 </a>
               </motion.div>
 

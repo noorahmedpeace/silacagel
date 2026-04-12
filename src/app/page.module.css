@@ -11,7 +11,7 @@
 }
 
 .announcementBar {
-  background: var(--ink);
+  background: var(--accent-deep);
   color: white;
   padding: 12px 0;
   overflow: hidden;
@@ -187,6 +187,7 @@
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 20px -5px rgba(0,0,0,0.03);
 }
 
 .signal:hover {
@@ -262,6 +263,7 @@
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   text-align: center;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.02);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -308,6 +310,7 @@
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   overflow: hidden;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.04);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -405,7 +408,7 @@
   -webkit-backdrop-filter: blur(16px);
   padding: 50px;
   border-radius: 32px;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.08);
   border: 1px solid var(--glass-border);
 }
 
@@ -439,7 +442,7 @@
   padding: 40px;
   border-radius: 24px;
   border: 1px solid var(--glass-border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.03);
 }
 
 .testimonialQuote {
