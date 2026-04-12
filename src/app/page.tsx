@@ -2,12 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Hero3DShowcase } from "@/components/hero-3d-showcase";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
+import {
+  Globe,
+  ShieldCheck,
+  Droplets,
+  PackageCheck,
+  Factory,
+  Ship,
+  Plane,
+  Pill,
+  Shirt,
+  Cpu,
+} from "lucide-react";
 import {
   displayPhone,
   priceGroups,
@@ -61,12 +73,43 @@ const useCases = [
   },
 ];
 
-const trustSignals = [
-  "Global Logistics & International Shipping",
-  "Transparent Industrial Pricing",
-  "ISO-Standard Moisture Control Protocols",
-  "Precision Engineering for Global Sourcing",
+const trustSignalsArray = [
+  {
+    icon: Globe,
+    title: "Worldwide Maritime Support",
+    label: "Logistics Hub",
+  },
+  {
+    icon: ShieldCheck,
+    title: "International ISO / RoHS",
+    label: "Compliance",
+  },
+  {
+    icon: Droplets,
+    title: "32%+ Adsorption Capacity",
+    label: "Protection",
+  },
+  {
+    icon: PackageCheck,
+    title: "Tyvek® & Technical Bond",
+    label: "Materials",
+  },
 ];
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
+};
 
 const announcementItems = [
   "WORLDWIDE INDUSTRIAL SILICA GEL SUPPLY NOW LIVE",
@@ -76,12 +119,12 @@ const announcementItems = [
 ];
 
 const trustedIndustries = [
-  "International Pharmaceuticals",
-  "Global Textiles & Apparel",
-  "Precision Tech Assembly",
-  "Export Food Packaging",
-  "Maritime Logistics & Cargo",
-  "Aerospace & Defense Storage",
+  { name: "International Pharmaceuticals", icon: Pill },
+  { name: "Global Textiles & Apparel", icon: Shirt },
+  { name: "Precision Tech Assembly", icon: Cpu },
+  { name: "Export Food Packaging", icon: PackageCheck },
+  { name: "Maritime Logistics & Cargo", icon: Ship },
+  { name: "Aerospace & Defense Storage", icon: Plane },
 ];
 
 const testimonials = [
@@ -205,27 +248,23 @@ export default function Home() {
               </motion.div>
 
               <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.6 }}
+                variants={containerVariants}
+                initial="hidden"
+                animate="show"
                 className={styles.trustSignals}
               >
-                <div className={styles.signal}>
-                  <span>Logistics Hub</span>
-                  <strong>Worldwide Maritime Support</strong>
-                </div>
-                <div className={styles.signal}>
-                  <span>Compliance</span>
-                  <strong>International ISO / RoHS</strong>
-                </div>
-                <div className={styles.signal}>
-                  <span>Protection</span>
-                  <strong>32%+ Adsorption Capacity</strong>
-                </div>
-                <div className={styles.signal}>
-                  <span>Materials</span>
-                  <strong>Tyvek® & Technical Bond</strong>
-                </div>
+                {trustSignalsArray.map((signal, index) => {
+                  const Icon = signal.icon;
+                  return (
+                    <motion.div key={index} variants={itemVariants} className={styles.signal}>
+                      <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
+                      <div className={styles.signalText}>
+                        <span>{signal.label}</span>
+                        <strong>{signal.title}</strong>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </motion.div>
             </div>
 
@@ -257,13 +296,25 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.partnerGrid}>
-                {trustedIndustries.map((industry) => (
-                  <article key={industry} className={styles.partnerCard}>
-                    <span>{industry}</span>
-                  </article>
-                ))}
-              </div>
+              <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                className={styles.partnerGrid}
+              >
+                {trustedIndustries.map((industry, index) => {
+                  const Icon = industry.icon;
+                  return (
+                    <motion.article key={index} variants={itemVariants} className={styles.partnerCard}>
+                      <div className={styles.partnerIconWrapper}>
+                        <Icon size={32} strokeWidth={1.5} />
+                      </div>
+                      <span>{industry.name}</span>
+                    </motion.article>
+                  );
+                })}
+              </motion.div>
             </section>
           </Reveal>
 
@@ -278,16 +329,22 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.productGrid}>
+              <motion.div 
+                variants={containerVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-100px" }}
+                className={styles.productGrid}
+              >
                 {productCatalog.map((product) => (
-                  <article key={product.slug} className={styles.productCard}>
+                  <motion.article key={product.slug} variants={itemVariants} className={styles.productCard}>
                     <div className={styles.productImage}>
                       <Image
                         src={product.heroImage}
                         alt={product.name}
                         fill
                         className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 24vw"
+                        sizes="(max-width: 1100px) 100vw, 30vw"
                       />
                     </div>
                     <div className={styles.productCopy}>
@@ -298,12 +355,12 @@ export default function Home() {
                       </p>
                       <span>{product.priceBand}</span>
                       <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        Technical Specs
+                        View Product Data
                       </Link>
                     </div>
-                  </article>
+                  </motion.article>
                 ))}
-              </div>
+              </motion.div>
             </section>
           </Reveal>
 
@@ -421,8 +478,8 @@ export default function Home() {
 
               <div className={styles.logoStrip}>
                 {trustedIndustries.map((industry) => (
-                  <span key={industry} className={styles.badgeChip}>
-                    {industry}
+                  <span key={industry.name} className={styles.badgeChip}>
+                    {industry.name}
                   </span>
                 ))}
               </div>

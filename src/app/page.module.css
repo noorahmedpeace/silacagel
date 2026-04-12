@@ -180,18 +180,40 @@
 
 .signal {
   display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  transition: all 0.2s ease;
+}
+
+.signal:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+}
+
+.signalIcon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.signalText {
+  display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.signal span {
+.signalText span {
   font-size: 0.7rem;
   font-weight: 800;
-  color: var(--accent);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
-.signal strong {
+.signalText strong {
   font-size: 1rem;
   color: var(--ink);
 }
@@ -228,17 +250,37 @@
 }
 
 .partnerCard {
-  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 24px;
   background: white;
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   text-align: center;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .partnerCard:hover {
   border-color: var(--accent);
-  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+  transform: translateY(-8px);
+}
+
+.partnerIconWrapper {
+  color: var(--accent);
+  background: var(--surface);
+  padding: 16px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.partnerCard:hover .partnerIconWrapper {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
 }
 
 .partnerCard span {
@@ -262,11 +304,11 @@
   border: 1px solid var(--glass-border);
   border-radius: 28px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .productCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
   border-color: var(--accent);
   box-shadow: 0 32px 64px -16px rgba(0, 0, 0, 0.1);
 }
@@ -275,6 +317,16 @@
   position: relative;
   height: 280px;
   background: var(--surface);
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.productCard:hover .image {
+  transform: scale(1.05);
 }
 
 .productCopy {

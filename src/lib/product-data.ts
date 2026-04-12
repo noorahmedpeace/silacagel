@@ -92,7 +92,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Heavy-duty coverage for expansive industrial and logistics environments.",
     description:
       "Our enterprise bulk range is designed for facility-scale moisture control programs. These high-capacity units are essential for maintaining dry-state integrity in large-scale warehouses and heavy industrial manufacturing zones.",
-    heroImage: "/silicagel_paper_technical.png",
+    heroImage: "/silicagel_bulk_enterprise.png",
     useCases: [
       "Facility-wide moisture management",
       "Continuous industrial assembly lines",
@@ -118,7 +118,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
       "Our cargo strips are specifically engineered for the extreme humidity shifts of maritime transit. They are the global standard for protecting high-value export containers over long-haul oceanic routes.",
-    heroImage: "/silicagel_hero_elite.png",
+    heroImage: "/silicagel_cargo_strips.png",
     useCases: [
       "International ocean freight containers",
       "Extreme-humidity logistics routes",
