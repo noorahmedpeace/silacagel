@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./industry-slider.module.css";
 
@@ -16,6 +16,14 @@ interface IndustrySliderProps {
 
 export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % industries.length);
+    }, 5000); // 5 seconds
+    
+    return () => clearInterval(timer);
+  }, [industries.length]);
 
   const activeIndustry = industries[currentIndex];
 

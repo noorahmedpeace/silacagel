@@ -478,7 +478,7 @@
 }
 
 .testimonialInfo span {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: #475569;
 }
 
@@ -489,9 +489,28 @@
 }
 
 .testimonialQuote {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #334155;
+  margin-top: 8px;
+}
+
+.logoStrip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+.badgeChip {
+  padding: 12px 24px;
+  background: var(--surface-elevated);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--muted);
 }
 
 /* QUOTE FLOW */
