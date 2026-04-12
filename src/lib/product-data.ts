@@ -4,6 +4,7 @@ export type ProductItem = {
   shortName: string;
   eyebrow: string;
   summary: string;
+  useCaseLine?: string;
   description: string;
   heroImage: string;
   useCases: string[];
@@ -36,6 +37,7 @@ export const productCatalog: ProductItem[] = [
     eyebrow: "Consumer Format",
     summary:
       "Compact sachets built for retail packs, cartons, footwear boxes, and product-level moisture protection.",
+    useCaseLine: "Best for retail packs, footwear boxes, and compact cartons.",
     description:
       "Retail sachets are ideal when the desiccant needs to sit directly inside compact packaging. They work especially well for shoes, garments, leather products, electronics accessories, and boxed consumer goods.",
     heroImage:
@@ -62,6 +64,7 @@ export const productCatalog: ProductItem[] = [
     eyebrow: "Flexible Packaging",
     summary:
       "A practical packaging format for product inserts, general cartons, and everyday dry-pack applications.",
+    useCaseLine: "Everyday packaging inserts for cartons, tools, and dry goods.",
     description:
       "Paper sachets strike a strong balance between cost, usability, and product compatibility. They are suitable for standard cartons, tools, parts, dry-goods packaging, and light industrial moisture control.",
     heroImage:
@@ -88,6 +91,7 @@ export const productCatalog: ProductItem[] = [
     eyebrow: "Factory Supply",
     summary:
       "Larger gram sizes for resellers, industrial buyers, warehousing, and moisture control at operational scale.",
+    useCaseLine: "Bulk coverage for factory lines, warehouses, and distributors.",
     description:
       "Bulk silica gel formats are best for factory requirements, regular moisture-control programs, inventory safety, and industrial packing where larger product volume needs stronger absorption support.",
     heroImage:
@@ -114,6 +118,7 @@ export const productCatalog: ProductItem[] = [
     eyebrow: "Export Logistics",
     summary:
       "Heavy-duty moisture control for containers, export loads, long-haul cargo, and humid shipment environments.",
+    useCaseLine: "High-volume protection for export cargo and container loads.",
     description:
       "Container strips are designed for export and shipping situations where humidity can build up over long transit periods. They help reduce moisture risk in enclosed cargo spaces and logistics environments.",
     heroImage:

@@ -46,24 +46,17 @@
 }
 
 .orbit1 {
-  width: 510px;
-  height: 510px;
-  margin: -255px 0 0 -255px;
+  width: 480px;
+  height: 480px;
+  margin: -240px 0 0 -240px;
   animation: orbitSpin 18s linear infinite;
 }
 
 .orbit2 {
-  width: 400px;
-  height: 400px;
-  margin: -200px 0 0 -200px;
+  width: 360px;
+  height: 360px;
+  margin: -180px 0 0 -180px;
   animation: orbitSpinReverse 14s linear infinite;
-}
-
-.orbit3 {
-  width: 290px;
-  height: 290px;
-  margin: -145px 0 0 -145px;
-  animation: orbitSpin 11s linear infinite;
 }
 
 .orbitChip {
@@ -95,7 +88,7 @@
   right: 28px;
   display: grid;
   gap: 12px;
-  width: min(220px, 34%);
+  width: min(220px, 32%);
   z-index: 2;
 }
 
@@ -117,9 +110,6 @@
   animation-delay: 1.4s;
 }
 
-.metric3 {
-  animation-delay: 2.8s;
-}
 
 .metricCard span,
 .packTag,
@@ -237,7 +227,7 @@
 
 .beadField {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 10px;
   margin-top: 8px;
 }
@@ -374,7 +364,7 @@
     right: 20px;
     bottom: 18px;
     width: calc(100% - 40px);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .metricCard {
@@ -416,7 +406,6 @@
 @media (prefers-reduced-motion: reduce) {
   .orbit1,
   .orbit2,
-  .orbit3,
   .metricCard,
   .bead,
   .packCluster,

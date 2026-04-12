@@ -1,10 +1,6 @@
 import styles from "./hero-3d-showcase.module.css";
 
-const orbitalNotes = [
-  "0.5 gm to 1 kg supply",
-  "Factory direct packing",
-  "Export moisture control",
-];
+const orbitalNotes = ["Factory-direct packing", "Export-ready moisture control"];
 
 const sideMetrics = [
   {
@@ -13,15 +9,11 @@ const sideMetrics = [
   },
   {
     label: "Quote flow",
-    value: "PKR calculator ready",
-  },
-  {
-    label: "Use cases",
-    value: "Packaging, cargo, storage",
+    value: "PKR calculator live",
   },
 ];
 
-const beadIndexes = Array.from({ length: 18 }, (_, index) => index);
+const beadIndexes = Array.from({ length: 12 }, (_, index) => index);
 
 export function Hero3DShowcase() {
   return (
@@ -56,14 +48,14 @@ export function Hero3DShowcase() {
 
         <article className={styles.packFront}>
           <p className={styles.packTag}>SilacaGEL</p>
-          <h3>Premium Moisture Control</h3>
+          <h3>Premium Moisture Control Packs</h3>
           <p className={styles.packText}>
-            Factory supply for packaging, footwear, electronics, and export protection.
+            Built for packaging lines, bulk buyers, and export protection at scale.
           </p>
 
           <div className={styles.packMeta}>
-            <span>PKR pricing live</span>
-            <span>Bulk order ready</span>
+            <span>PKR pricing ready</span>
+            <span>Bulk order support</span>
           </div>
 
           <div className={styles.beadField} aria-hidden="true">

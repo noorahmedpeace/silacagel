@@ -16,9 +16,9 @@ const body = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Premium Silica Gel Pakistan",
+  title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
   description:
-    "Premium silica gel packs, custom packing formats, PKR pricing, and factory-direct moisture control for storage, shipping, export, leather, electronics, and packaging.",
+    "Factory-direct silica gel packs, bulk formats, PKR pricing, and moisture control supply for packaging, storage, export, leather, and electronics.",
   keywords: [
     "silica gel pakistan",
     "silica gel packets",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "silica gel price in pakistan",
   ],
   openGraph: {
-    title: "SilacaGEL | Premium Silica Gel Pakistan",
+    title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
     description:
-      "Factory-direct silica gel website with premium branding, PKR pricing, applications, and direct inquiry support.",
+      "Factory-direct silica gel supply with PKR pricing, bulk formats, and export-ready moisture control.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Premium Silica Gel Pakistan",
+    title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
     description:
-      "Factory-direct silica gel website with premium branding, PKR pricing, applications, and direct inquiry support.",
+      "Factory-direct silica gel supply with PKR pricing, bulk formats, and export-ready moisture control.",
   },
 };
 

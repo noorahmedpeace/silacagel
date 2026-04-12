@@ -123,13 +123,13 @@
 .hero,
 .ribbon,
 .partnerSection,
-.featureShowcase,
 .whySection,
 .featureBand,
 .applicationSection,
 .productSection,
 .splitSection,
 .pricingSection,
+.proofSection,
 .quoteStage,
 .faqSection,
 .footer {
@@ -145,6 +145,7 @@
 .hero::before,
 .partnerSection::before,
 .whySection::before,
+.proofSection::before,
 .pricingSection::before,
 .faqSection::before,
 .footer::before {
@@ -165,6 +166,7 @@
 .applicationSection,
 .productSection,
 .pricingSection,
+.proofSection,
 .faqSection,
 .footer {
   padding: 34px;
@@ -658,10 +660,15 @@
   color: #fff5e7;
 }
 
+.productUseCase,
 .productCopy p:last-of-type {
   font-family: var(--font-body);
   color: rgba(242, 233, 219, 0.72);
   line-height: 1.7;
+}
+
+.productUseCase {
+  margin-top: 4px;
 }
 
 .productLink {
@@ -740,6 +747,26 @@
 
 .calculatorAnchor {
   scroll-margin-top: 120px;
+}
+
+.calculatorPanel {
+  display: grid;
+  gap: 8px;
+}
+
+.calculatorHint {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff5e7;
+}
+
+.calculatorSubHint {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: rgba(242, 233, 219, 0.72);
+  margin-bottom: 10px;
 }
 
 .quoteStage {
@@ -830,6 +857,122 @@
     border-color 260ms ease;
 }
 
+.proofGrid,
+.testimonialGrid {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.proofGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.proofCard {
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.proofCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #fff5e7;
+}
+
+.proofCard p {
+  margin-top: 10px;
+  font-family: var(--font-body);
+  color: rgba(242, 233, 219, 0.72);
+  line-height: 1.7;
+}
+
+.badgeRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.badgeChip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 233, 219, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 233, 219, 0.72);
+}
+
+.testimonialGrid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.testimonialCard {
+  padding: 22px;
+  border-radius: 24px;
+  border: 1px solid rgba(242, 233, 219, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.testimonialQuote {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: #fff5e7;
+}
+
+.testimonialMeta {
+  margin-top: 14px;
+  display: grid;
+  gap: 4px;
+}
+
+.testimonialMeta strong {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 233, 219, 0.72);
+}
+
+.testimonialMeta span {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(242, 233, 219, 0.6);
+}
+
+.logoStrip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.logoStrip span {
+  padding: 14px;
+  border-radius: 16px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 233, 219, 0.62);
+  border: 1px dashed rgba(242, 233, 219, 0.16);
+}
+
 .footer {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.76fr);
@@ -887,6 +1030,7 @@
   .productGrid,
   .splitSection,
   .priceGrid,
+  .testimonialGrid,
   .quoteStage,
   .footer {
     grid-template-columns: 1fr;
@@ -902,6 +1046,8 @@
 
   .reasonGrid,
   .partnerGrid,
+  .proofGrid,
+  .logoStrip,
   .faqGrid {
     grid-template-columns: 1fr;
   }
@@ -924,6 +1070,7 @@
 
   .hero,
   .partnerSection,
+  .proofSection,
   .whySection,
   .featureText,
   .featureStoryCopy,

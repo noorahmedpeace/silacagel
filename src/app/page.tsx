@@ -63,25 +63,18 @@ const useCases = [
   },
 ];
 
-const formats = [
-  "Retail sachets for compact product packing",
-  "Paper and non-woven packs for regular packaging use",
-  "Bulk gram sizes for resellers and industrial buyers",
-  "Container strips for export and shipment protection",
-];
-
 const trustSignals = [
-  "Factory-direct supply with multiple packing options",
-  "PKR pricing visible for faster buyer confidence",
-  "Suitable for storage, leather, electronics, and export use",
-  "Direct quote flow through call and WhatsApp contact",
+  "Factory-direct supply with multiple packing formats",
+  "Visible PKR pricing and instant calculator",
+  "Used across storage, packaging, and export supply",
+  "Direct WhatsApp quotes for fast buying decisions",
 ];
 
 const announcementItems = [
-  "Factory-direct silica gel supply",
-  "Bulk orders and custom packing available",
-  "PKR pricing with instant calculator",
-  "Direct WhatsApp quote support",
+  "Factory-direct silica gel supply for Pakistan",
+  "Bulk orders, custom packing, and export-ready formats",
+  "PKR pricing live with instant purchase calculator",
+  "Direct WhatsApp quote support for faster sourcing",
 ];
 
 const trustedIndustries = [
@@ -93,30 +86,39 @@ const trustedIndustries = [
   "Export Logistics",
 ];
 
-const featuredSolutions = [
+const proofBadges = [
+  "ISO-style quality assurance (Placeholder)",
+  "Food-safe packing available (Placeholder)",
+  "Moisture indicator options (Placeholder)",
+  "Custom branding on request (Placeholder)",
+];
+
+const proofLogos = [
+  "Footwear brands (Placeholder)",
+  "Pharma packaging (Placeholder)",
+  "Electronics assembly (Placeholder)",
+  "Export logistics (Placeholder)",
+  "Dry goods suppliers (Placeholder)",
+];
+
+const testimonials = [
   {
-    eyebrow: "For leather and footwear",
-    title: "A stronger moisture-control story for boxed shoes, leather goods, and retail packaging.",
-    text: "Position the factory around freshness, finish protection, and better shelf presentation for footwear brands, stores, and packaging suppliers.",
-    ctaLabel: "Explore product lines",
-    ctaHref: "#products",
-    image: visuals.leather,
+    quote:
+      "“SilacaGEL helped us reduce moisture claims in finished cartons and made our packaging look more professional.”",
+    name: "Operations Lead",
+    company: "Packaging Partner (Placeholder)",
   },
   {
-    eyebrow: "For pharmaceuticals and packaging",
-    title: "Present compliance-friendly protection for cartons, vitamins, dry products, and sensitive packed goods.",
-    text: "Bring forward clean packing formats, dependable gram sizes, and a direct bulk-order path for serious packaging buyers.",
-    ctaLabel: "Go to purchase calculator",
-    ctaHref: "#purchase-calculator",
-    image: visuals.packaging,
+    quote:
+      "“We needed consistent bulk supply for export cargo. The factory response time and packing flexibility were strong.”",
+    name: "Procurement Manager",
+    company: "Export Client (Placeholder)",
   },
   {
-    eyebrow: "For export and industrial cargo",
-    title: "Show buyers that your supply works at container, dispatch, and warehouse scale.",
-    text: "Use clearer industrial positioning to speak to exporters, logistics teams, and bulk customers who care about long-haul moisture risk.",
-    ctaLabel: "View PKR pricing",
-    ctaHref: "#pricing",
-    image: visuals.cargo,
+    quote:
+      "“Retail sachets are clean and reliable. The pricing transparency made buying decisions much faster.”",
+    name: "Purchasing Head",
+    company: "Retail Distributor (Placeholder)",
   },
 ];
 
@@ -221,11 +223,11 @@ export default function Home() {
           </a>
 
           <nav className={styles.nav} aria-label="Primary">
-            <a href="#why">Why Use</a>
             <a href="#products">Products</a>
-            <a href="#applications">Applications</a>
-            <a href="#purchase-calculator">Purchase</a>
             <a href="#pricing">Pricing</a>
+            <a href="#purchase-calculator">Calculator</a>
+            <a href="#proof">Proof</a>
+            <a href="#faq">FAQ</a>
             <a href="#contact">Contact</a>
           </nav>
         </header>
@@ -234,23 +236,23 @@ export default function Home() {
           <Reveal>
             <section className={styles.hero}>
               <div className={styles.heroCopy}>
-                <p className={styles.kicker}>Factory Supply Presentation</p>
-                <h1>Professional moisture protection for packaging, storage, and export.</h1>
+                <p className={styles.kicker}>Factory-Direct Silica Gel</p>
+                <h1>Moisture protection packs built for bulk supply and export.</h1>
                 <p className={styles.lead}>
-                  Present your factory as a serious supplier with cleaner
-                  hierarchy, sharper sizing, clearer PKR pricing, and an easier
-                  quote path for retail, wholesale, and industrial buyers.
+                  Supply retail sachets, bulk packs, and container strips with
+                  visible PKR pricing, faster quotes, and production-ready
+                  packing for packaging, storage, and logistics buyers.
                 </p>
 
                 <div className={styles.ctaRow}>
-                  <a href="#purchase-calculator" className={styles.primaryCta}>
-                    Purchase Calculator
+                  <a href="#contact" className={styles.primaryCta}>
+                    Get a Quote
                   </a>
-                  <a href="#pricing" className={styles.secondaryCta}>
-                    View PKR Pricing
+                  <a href="#purchase-calculator" className={styles.secondaryCta}>
+                    Use Purchase Calculator
                   </a>
-                  <a href="tel:03330223337" className={styles.tertiaryCta}>
-                    Request a Quote
+                  <a href="#products" className={styles.tertiaryCta}>
+                    View Product Lines
                   </a>
                 </div>
 
@@ -269,16 +271,6 @@ export default function Home() {
               <div className={styles.heroVisual}>
                 <Hero3DShowcase />
               </div>
-            </section>
-          </Reveal>
-
-          <Reveal>
-            <section className={styles.ribbon}>
-              <p>
-                Premium branding, polished imagery, stronger hierarchy, visible
-                PKR pricing, and a direct quote funnel together make the site
-                feel more like a brand and less like a catalog.
-              </p>
             </section>
           </Reveal>
 
@@ -304,31 +296,87 @@ export default function Home() {
           </Reveal>
 
           <Reveal>
-            <section className={styles.featureShowcase}>
-              {featuredSolutions.map((item) => (
-                <article key={item.title} className={styles.featureStory}>
-                  <div className={styles.featureStoryCopy}>
-                    <p className={styles.kicker}>{item.eyebrow}</p>
-                    <h2>{item.title}</h2>
-                    <p>{item.text}</p>
-                    <a href={item.ctaHref} className={styles.storyCta}>
-                      {item.ctaLabel}
-                    </a>
-                  </div>
+            <section id="products" className={styles.productSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Product Categories</p>
+                <h2>Retail sachets, bulk packs, and export strips with clear supply direction.</h2>
+                <p>
+                  Each category is built for a distinct buyer type. Use the product
+                  cards below to match format, use-case, and pricing expectations quickly.
+                </p>
+              </div>
 
-                  <div className={styles.featureStoryVisual}>
-                    <div className={styles.imageWrap}>
+              <div className={styles.productGrid}>
+                {productCatalog.map((product) => (
+                  <article key={product.slug} className={styles.productCard}>
+                    <div className={styles.productImage}>
                       <Image
-                        src={item.image}
-                        alt={item.eyebrow}
+                        src={product.heroImage}
+                        alt={product.name}
                         fill
                         className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 34vw"
+                        sizes="(max-width: 1100px) 100vw, 24vw"
                       />
                     </div>
+                    <div className={styles.productCopy}>
+                      <p>{product.eyebrow}</p>
+                      <h3>{product.name}</h3>
+                      <p className={styles.productUseCase}>
+                        {product.useCaseLine ?? product.summary}
+                      </p>
+                      <span>{product.priceBand}</span>
+                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
+                        View details
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal>
+            <section id="pricing" className={styles.pricingSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>PKR Pricing</p>
+                <h2>Clear rupee pricing, with room for stronger bulk deals.</h2>
+                <p>
+                  These are reference PKR rates. Repeat buyers, resellers, custom
+                  packing, and industrial quantities can be quoted directly by call
+                  or WhatsApp.
+                </p>
+              </div>
+
+              <div className={styles.pricingLayout}>
+                <div className={styles.priceGrid}>
+                  {priceGroups.map((group) => (
+                    <article key={group.title} className={styles.priceCard}>
+                      <span className={styles.priceNote}>{group.note}</span>
+                      <h3>{group.title}</h3>
+                      <div className={styles.priceList}>
+                        {group.items.map((item) => (
+                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
+                            <strong>{item.label}</strong>
+                            <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                <div id="purchase-calculator" className={styles.calculatorAnchor}>
+                  <div className={styles.calculatorPanel}>
+                    <p className={styles.calculatorHint}>
+                      For retail packs, bulk buyers, and export planning.
+                    </p>
+                    <p className={styles.calculatorSubHint}>
+                      Use the calculator below to estimate grams and total PKR instantly.
+                    </p>
+                    <PriceCalculator />
                   </div>
-                </article>
-              ))}
+                </div>
+              </div>
             </section>
           </Reveal>
 
@@ -416,127 +464,70 @@ export default function Home() {
           </Reveal>
 
           <Reveal>
-            <section id="products" className={styles.productSection}>
+            <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Product Lines</p>
-                <h2>Dedicated product detail pages for every major packing direction.</h2>
+                <p className={styles.kicker}>Proof and Trust</p>
+                <h2>Structured proof that can be swapped with real assets anytime.</h2>
                 <p>
-                  Each category now has its own page so buyers can understand the
-                  format, pricing direction, use cases, and quote flow without
-                  everything being compressed into one homepage.
+                  This block is built for testimonials, certifications, and buyer
+                  logos. Replace the placeholder content with real proof once available.
                 </p>
               </div>
 
-              <div className={styles.productGrid}>
-                {productCatalog.map((product) => (
-                  <article key={product.slug} className={styles.productCard}>
-                    <div className={styles.productImage}>
-                      <Image
-                        src={product.heroImage}
-                        alt={product.name}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 24vw"
-                      />
-                    </div>
-                    <div className={styles.productCopy}>
-                      <p>{product.eyebrow}</p>
-                      <h3>{product.name}</h3>
-                      <span>{product.priceBand}</span>
-                      <p>{product.summary}</p>
-                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        Explore product page
-                      </Link>
-                    </div>
-                  </article>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal>
-            <section className={styles.whySection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Why Buyers Trust It</p>
-                <h2>Clarity, visible pricing, and direct factory positioning matter.</h2>
-                <p>
-                  Trust grows faster when buyers immediately understand your use
-                  cases, packing flexibility, and price structure. This section
-                  turns that confidence into a stronger inquiry flow.
-                </p>
-              </div>
-
-              <div className={styles.reasonGrid}>
+              <div className={styles.proofGrid}>
                 {trustSignals.map((item) => (
-                  <article key={item} className={styles.reasonCard}>
+                  <article key={item} className={styles.proofCard}>
                     <h3>{item}</h3>
                     <p>
-                      Built to support faster product understanding and better
-                      purchase confidence for retail, wholesale, and industrial buyers.
+                      Proof-ready statement to reinforce buyer confidence and
+                      explain why the factory supply is dependable.
                     </p>
                   </article>
                 ))}
               </div>
-            </section>
-          </Reveal>
 
-          <Reveal>
-            <section className={styles.splitSection}>
-              <article className={styles.darkPanel}>
-                <p className={styles.kickerDark}>Packing Options</p>
-                <h2>Showing packing flexibility clearly makes the factory look more capable.</h2>
-                <ul className={styles.formatList}>
-                  {formats.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-
-              <article className={styles.lightPanel}>
-                <p className={styles.kicker}>Protected Products</p>
-                <h2>From documents and electronics to shoes and export cartons.</h2>
-                <p>
-                  Storage boxes, garments, leather, machine parts, tools, optical
-                  items, shipping cartons, and packaged goods all benefit from a
-                  practical moisture-risk control layer.
-                </p>
-              </article>
-            </section>
-          </Reveal>
-
-          <Reveal>
-            <section id="pricing" className={styles.pricingSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>PKR Pricing</p>
-                <h2>Clear rupee pricing, with room for stronger bulk deals.</h2>
-                <p>
-                  These are reference PKR rates. Repeat buyers, resellers, custom
-                  packing, and industrial quantities can be quoted directly by call
-                  or WhatsApp.
-                </p>
+              <div className={styles.badgeRow}>
+                {proofBadges.map((badge) => (
+                  <span key={badge} className={styles.badgeChip}>
+                    {badge}
+                  </span>
+                ))}
               </div>
 
-              <div className={styles.pricingLayout}>
-                <div className={styles.priceGrid}>
-                  {priceGroups.map((group) => (
-                    <article key={group.title} className={styles.priceCard}>
-                      <span className={styles.priceNote}>{group.note}</span>
-                      <h3>{group.title}</h3>
-                      <div className={styles.priceList}>
-                        {group.items.map((item) => (
-                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
-                            <strong>{item.label}</strong>
-                            <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
-                </div>
+              <div className={styles.testimonialGrid}>
+                {testimonials.map((item) => (
+                  <article key={item.quote} className={styles.testimonialCard}>
+                    <p className={styles.testimonialQuote}>{item.quote}</p>
+                    <div className={styles.testimonialMeta}>
+                      <strong>{item.name}</strong>
+                      <span>{item.company}</span>
+                    </div>
+                  </article>
+                ))}
+              </div>
 
-                <div id="purchase-calculator" className={styles.calculatorAnchor}>
-                  <PriceCalculator />
-                </div>
+              <div className={styles.logoStrip}>
+                {proofLogos.map((logo) => (
+                  <span key={logo}>{logo}</span>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal>
+            <section id="faq" className={styles.faqSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>FAQ</p>
+                <h2>The questions buyers usually want answered first.</h2>
+              </div>
+
+              <div className={styles.faqGrid}>
+                {faqs.map((item) => (
+                  <article key={item.question} className={styles.faqCard}>
+                    <h3>{item.question}</h3>
+                    <p>{item.answer}</p>
+                  </article>
+                ))}
               </div>
             </section>
           </Reveal>
@@ -553,24 +544,6 @@ export default function Home() {
               </div>
 
               <QuoteForm title="Get a fast WhatsApp quote" />
-            </section>
-          </Reveal>
-
-          <Reveal>
-            <section className={styles.faqSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>FAQ</p>
-                <h2>The questions buyers usually want answered first.</h2>
-              </div>
-
-              <div className={styles.faqGrid}>
-                {faqs.map((item) => (
-                  <article key={item.question} className={styles.faqCard}>
-                    <h3>{item.question}</h3>
-                    <p>{item.answer}</p>
-                  </article>
-                ))}
-              </div>
             </section>
           </Reveal>
         </main>
