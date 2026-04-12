@@ -1,10 +1,10 @@
 :root {
-  --bg: #0b1219;
-  --surface: rgba(255, 255, 255, 0.06);
-  --ink: #f4ecdf;
-  --muted: #bdb1a1;
-  --accent: #d4a85d;
-  --accent-deep: #8ba2c4;
+  --bg: #0f172a;
+  --surface: rgba(255, 255, 255, 0.08);
+  --ink: #eef2f7;
+  --muted: #cbd5e1;
+  --accent: #2f6bff;
+  --accent-deep: #1b3fa6;
 }
 
 html {
@@ -32,7 +32,7 @@ body {
 }
 
 *::selection {
-  background: rgba(196, 151, 84, 0.28);
+  background: rgba(47, 107, 255, 0.28);
 }
 
 a {

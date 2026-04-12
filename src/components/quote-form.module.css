@@ -28,7 +28,7 @@
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
-  color: #fff5e7;
+  color: #f8fbff;
 }
 
 .field {
@@ -54,7 +54,7 @@
   min-height: 54px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, #f0dfc0, #b58b4c);
+  background: linear-gradient(135deg, #cfe0ff, #2f6bff);
   color: #0f1615;
   font-family: var(--font-body);
   font-size: 0.9rem;
@@ -69,5 +69,6 @@
 
 .submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(181, 139, 76, 0.22);
+  box-shadow: 0 14px 30px rgba(47, 107, 255, 0.24);
 }
+
