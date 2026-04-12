@@ -1,74 +1,93 @@
 .form {
   display: grid;
-  gap: 14px;
-  padding: 22px;
-  border: 1px solid rgba(242, 233, 219, 0.1);
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.04);
+  gap: 20px;
+  padding: 40px;
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  background: var(--surface);
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4);
 }
 
 .compact {
-  padding: 18px;
+  padding: 24px;
 }
 
-.formHead p,
-.field span {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.74rem;
+.formHead {
+  margin-bottom: 24px;
+}
+
+.formHead p {
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(242, 233, 219, 0.56);
+  color: var(--accent);
+  margin-bottom: 8px;
 }
 
 .formHead h3 {
-  margin-top: 8px;
   font-family: var(--font-display);
   font-size: 2rem;
-  font-weight: 600;
-  line-height: 1;
-  color: #f8fbff;
+  line-height: 1.1;
+  color: var(--ink);
 }
 
 .field {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 8px;
+}
+
+.field span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
 }
 
 .field input,
 .field select {
-  min-height: 52px;
-  padding: 0 14px;
-  border: 1px solid rgba(242, 233, 219, 0.12);
-  border-radius: 16px;
-  background: rgba(8, 14, 22, 0.72);
-  color: #f8f2e7;
+  min-height: 56px;
+  padding: 0 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: var(--surface-elevated);
+  backdrop-filter: blur(4px);
+  color: var(--ink);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
 }
 
 .field input::placeholder {
-  color: rgba(242, 233, 219, 0.4);
+  color: rgba(255, 255, 255, 0.2);
 }
 
 .submit {
-  min-height: 54px;
-  border: 0;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #cfe0ff, #2f6bff);
-  color: #0f1615;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  min-height: 56px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 1rem;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
   cursor: pointer;
-  transition:
-    transform 220ms ease,
-    box-shadow 220ms ease;
+  margin-top: 12px;
+  transition: all 0.3s ease;
 }
 
 .submit:hover {
+  background: var(--accent-deep);
   transform: translateY(-2px);
-  box-shadow: 0 14px 30px rgba(47, 107, 255, 0.24);
+  box-shadow: 0 15px 30px -10px var(--accent-glow);
 }
 

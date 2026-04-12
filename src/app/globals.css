@@ -1,28 +1,37 @@
 :root {
-  --bg: #0f172a;
-  --surface: rgba(255, 255, 255, 0.08);
-  --ink: #eef2f7;
-  --muted: #cbd5e1;
-  --accent: #2f6bff;
-  --accent-deep: #1b3fa6;
+  --bg: #030712;
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-elevated: rgba(255, 255, 255, 0.08);
+  --glass: rgba(255, 255, 255, 0.01);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --ink: #f9fafb;
+  --muted: #94a3b8;
+  --accent: #3b82f6;
+  --accent-glow: rgba(59, 130, 246, 0.3);
+  --accent-deep: #1d4ed8;
+  --font-display: var(--font-display, "Cormorant Garamond", serif);
+  --font-body: var(--font-body, "Manrope", sans-serif);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  background: var(--bg);
 }
 
 body {
   min-height: 100vh;
   color: var(--ink);
-  background: var(--bg);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
 
 * {
@@ -32,21 +41,18 @@ body {
 }
 
 *::selection {
-  background: rgba(47, 107, 255, 0.28);
+  background: var(--accent-glow);
+  color: white;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
+a:hover {
+  opacity: 0.8;
 }
 
 button,
@@ -54,30 +60,51 @@ input,
 textarea,
 select {
   font: inherit;
+  background: none;
+  border: none;
+  color: inherit;
 }
 
-.reveal {
+button {
+  cursor: pointer;
+}
+
+/* Premium Utilities */
+.glass-panel {
+  background: var(--surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.glow-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), var(--accent-glow), transparent 40%);
   opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 700ms ease,
-    transform 700ms ease;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
-.reveal.is-visible {
+.glow-card:hover::after {
   opacity: 1;
-  transform: translateY(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }
