@@ -26,6 +26,10 @@ import {
   Shirt,
   Cpu,
   Star,
+  Search,
+  User,
+  ShoppingBag,
+  ChevronDown
 } from "lucide-react";
 import {
   displayPhone,
@@ -237,13 +241,41 @@ export default function Home() {
           </a>
 
           <nav className={styles.nav} aria-label="Primary">
-            <a href="#products">Products</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#purchase-calculator">Calculator</a>
-            <a href="#proof">Technical Proof</a>
-            <a href="#faq">FAQ</a>
-            <a href="#contact">Contact</a>
+            <div className={styles.navItem}>
+              <a href="#products">Products</a>
+              <ChevronDown size={14} className={styles.navChevron} />
+            </div>
+            <div className={styles.navItem}>
+              <a href="#pricing">Bulk Sales</a>
+              <ChevronDown size={14} className={styles.navChevron} />
+            </div>
+            <div className={styles.navItem}>
+              <a href="#dispensers">Dispensers</a>
+              <ChevronDown size={14} className={styles.navChevron} />
+            </div>
+            <div className={styles.navItem}>
+              <a href="#documents">Documents</a>
+            </div>
+            <div className={styles.navItem}>
+              <a href="#faq">FAQ's</a>
+              <ChevronDown size={14} className={styles.navChevron} />
+            </div>
+            <div className={styles.navItem}>
+              <a href="#videos">Product Videos</a>
+            </div>
+            <div className={styles.navItem}>
+              <a href="#contact">Contact Us</a>
+            </div>
+            <div className={styles.navItem}>
+              <a href="#about">About Us</a>
+            </div>
           </nav>
+
+          <div className={styles.headerActions}>
+            <button aria-label="Search" className={styles.iconBtn}><Search size={20} /></button>
+            <button aria-label="Account" className={styles.iconBtn}><User size={20} /></button>
+            <button aria-label="Cart" className={styles.iconBtn}><ShoppingBag size={20} /></button>
+          </div>
         </header>
 
         <main id="top" className={styles.main}>
