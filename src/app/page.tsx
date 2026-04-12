@@ -576,6 +576,154 @@ export default function Home() {
             </section>
           </Reveal>
 
+          {/* ── FREE SHIPPING BANNER ── */}
+          <Reveal direction="up">
+            <section className={styles.shippingBanner}>
+              <div className={styles.shippingBannerInner}>
+                <div className={styles.shippingBannerLeft}>
+                  <span className={styles.shippingTag}>🚚 LIMITED TIME OFFER</span>
+                  <h2>Free Shipping to All 48 Contiguous States</h2>
+                  <p>Every order, every product, every time — no minimum order required. Industrial and retail quantities ship free, nationwide.</p>
+                  <div className={styles.shippingCtas}>
+                    <a href="#products" className={styles.primaryCta}>Shop All Products</a>
+                    <a href="#pricing" className={styles.secondaryCta}>Request Bulk Quote</a>
+                  </div>
+                </div>
+                <div className={styles.shippingBannerImage}>
+                  <Image src="/free-shipping.png" alt="Free Shipping" fill style={{ objectFit: "cover" }} sizes="50vw" />
+                </div>
+              </div>
+            </section>
+          </Reveal>
+
+          {/* ── DISPENSERS SECTION ── */}
+          <Reveal direction="up">
+            <section id="dispensers" className={styles.dispensersSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Industrial Automation</p>
+                <h2>High-Speed Desiccant Dispensers for Packaging Lines.</h2>
+                <p>Automate the insertion of desiccants into your packaging line, reducing labor costs and increasing throughput for pharmaceutical and food-grade environments.</p>
+              </div>
+
+              <div className={styles.dispensersGrid}>
+                <article className={styles.dispenserCard}>
+                  <div className={styles.dispenserImage}>
+                    <Image src="/dispenser-dt1200.png" alt="DT-1200 Dispenser" fill style={{ objectFit: "cover" }} sizes="50vw" />
+                    <div className={styles.dispenserBadge}>DT-1200 Series</div>
+                  </div>
+                  <div className={styles.dispenserCopy}>
+                    <h3>DT-1200 Hygiene-Grade Dispenser</h3>
+                    <p>Engineered for pharmaceutical and hygiene-sensitive environments. Features servo motors for precision cutting and stepper motors for feeding.</p>
+                    <div className={styles.specTable}>
+                      <div className={styles.specRow}><span>Speed</span><strong>Up to 250 packs/min</strong></div>
+                      <div className={styles.specRow}><span>Drive System</span><strong>Servo + Stepper Motors</strong></div>
+                      <div className={styles.specRow}><span>Application</span><strong>Pharmaceutical / Medical</strong></div>
+                      <div className={styles.specRow}><span>Packet Types</span><strong>Sachets, Strip Packets</strong></div>
+                    </div>
+                    <a href="#contact" className={styles.primaryCta}>Request Machinery Quote</a>
+                  </div>
+                </article>
+
+                <article className={styles.dispenserCard}>
+                  <div className={styles.dispenserImage}>
+                    <Image src="/dispenser-dt1200.png" alt="DT-1500 Dispenser" fill style={{ objectFit: "cover" }} sizes="50vw" />
+                    <div className={styles.dispenserBadge}>DT-1500 Series</div>
+                  </div>
+                  <div className={styles.dispenserCopy}>
+                    <h3>DT-1500 Continuous Strip Dispenser</h3>
+                    <p>Optimized for continuous "pillow" strip packets used in food packaging and industrial goods. Mark sensors prevent cutting errors for zero-waste output.</p>
+                    <div className={styles.specTable}>
+                      <div className={styles.specRow}><span>Speed</span><strong>200 packs/min</strong></div>
+                      <div className={styles.specRow}><span>Error Prevention</span><strong>Mark Sensor System</strong></div>
+                      <div className={styles.specRow}><span>Application</span><strong>Food & Industrial Packaging</strong></div>
+                      <div className={styles.specRow}><span>Packet Types</span><strong>Pillow / Strip Packets</strong></div>
+                    </div>
+                    <a href="#contact" className={styles.primaryCta}>Request Machinery Quote</a>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </Reveal>
+
+          {/* ── COMPLIANCE / DOCUMENTS SECTION ── */}
+          <Reveal direction="up">
+            <section id="documents" className={styles.complianceSection}>
+              <div className={styles.complianceSplit}>
+                <div className={styles.complianceImage}>
+                  <Image src="/compliance-certs.png" alt="Compliance Certifications" fill style={{ objectFit: "cover" }} sizes="40vw" />
+                </div>
+                <div className={styles.complianceCopy}>
+                  <p className={styles.kicker}>Global Compliance</p>
+                  <h2>Audited for Trust. Verified by Performance.</h2>
+                  <p>Every SilacaGEL product is manufactured under internationally recognized safety and quality standards, ensuring confidence at every stage of your supply chain.</p>
+
+                  <div className={styles.certGrid}>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>🏛️</div>
+                      <div><strong>US FDA 21 CFR 177.1520</strong><span>Food Grade Packaging — Tyvek &amp; Canister Products</span></div>
+                    </div>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>📋</div>
+                      <div><strong>US FDA 21 CFR 176.170</strong><span>Paper Components — Paper &amp; Aiwa Packets</span></div>
+                    </div>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>🌐</div>
+                      <div><strong>ISO 9001 / 14001</strong><span>Quality &amp; Environmental Management Systems</span></div>
+                    </div>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>🔬</div>
+                      <div><strong>FSSC 22000</strong><span>Food Safety Management — Full Supply Chain</span></div>
+                    </div>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>♻️</div>
+                      <div><strong>RoHS / REACH Compliant</strong><span>No Hazardous Substances — All Bead Types</span></div>
+                    </div>
+                    <div className={styles.certCard}>
+                      <div className={styles.certIcon}>✅</div>
+                      <div><strong>100% DMF Free</strong><span>Dimethyl Fumarate Free — All Desiccant Products</span></div>
+                    </div>
+                  </div>
+
+                  <a href="#contact" className={styles.primaryCta} style={{marginTop: "32px", display: "inline-block"}}>Request SDS / FDA Documents</a>
+                </div>
+              </div>
+            </section>
+          </Reveal>
+
+          {/* ── PRODUCT VIDEOS SECTION ── */}
+          <Reveal direction="up">
+            <section id="videos" className={styles.videosSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Product Education</p>
+                <h2>See Our Desiccants in Action.</h2>
+                <p>Comprehensive video demonstrations covering adsorption science, application methods, and industrial use-cases — from gun safes to pharmaceutical vaults.</p>
+              </div>
+
+              <div className={styles.videosGrid}>
+                {[
+                  { title: "Color-Change Saturation Guide", desc: "Watch silica gel beads transition from indicating orange to clear, demonstrating real-time moisture absorption for lab and consumer use.", tag: "Materials Science" },
+                  { title: "Humidity Control in Sealed Containers", desc: "Live demonstration showing how a single 5g sachet drops relative humidity from 70% to below 10% inside a sealed electronics enclosure.", tag: "Electronics Protection" },
+                  { title: "DT-1200 Line Speed Demonstration", desc: "Full machine run at 250 packets per minute on a pharmaceutical packaging line, with servo motor precision cutting highlighted.", tag: "Industrial Automation" },
+                  { title: "Container Strip Deployment", desc: "Step-by-step guide for maritime container strip installation to eliminate container rain and prevent catastrophic cargo loss.", tag: "Maritime Logistics" },
+                  { title: "Microwave Reactivation Guide", desc: "Safe reactivation of our Special Packet line in microwave defrost mode — the only FDA-compliant microwave-safe desiccant packets available.", tag: "Reactivation" },
+                  { title: "Bulk Industrial Supply Overview", desc: "A walkthrough of our bulk silica gel options ranging from 1lb bags to 55-gallon drums, with B2B subscription pricing explained.", tag: "B2B Procurement" },
+                ].map((video, i) => (
+                  <article key={i} className={styles.videoCard}>
+                    <div className={styles.videoThumb}>
+                      <Image src="/video-thumbnails.png" alt={video.title} fill style={{ objectFit: "cover" }} sizes="33vw" />
+                      <div className={styles.playBtn}>▶</div>
+                      <span className={styles.videoTag}>{video.tag}</span>
+                    </div>
+                    <div className={styles.videoCopy}>
+                      <h3>{video.title}</h3>
+                      <p>{video.desc}</p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
           <section className={styles.quoteStage}>
             <div className={styles.quoteStageCopy}>
               <p className={styles.kicker}>Technical Procurement</p>
