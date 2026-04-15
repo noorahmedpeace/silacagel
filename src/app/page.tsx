@@ -22,9 +22,14 @@ import { MoistureCalculator } from "@/components/moisture-calculator";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const splitTextToSpans = (text: string) => {
-  return text.split("").map((char, index) => (
-    <span key={index} className="gsap-hero-char" style={{ display: 'inline-block', opacity: 0, transform: 'translateY(20px)' }}>
-      {char === " " ? "\u00A0" : char}
+  return text.split(" ").map((word, wordIndex) => (
+    <span key={wordIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+      {word.split("").map((char, charIndex) => (
+        <span key={charIndex} className="gsap-hero-char" style={{ display: 'inline-block', opacity: 0, transform: 'translateY(20px)' }}>
+          {char}
+        </span>
+      ))}
+      {"\u00A0"}
     </span>
   ));
 };
@@ -375,9 +380,9 @@ export default function Home() {
             >
               <video
                 id="hero-product-image"
-                src="/hero-exploded.mp4"
+                src="/hero-cinematic.mp4"
                 autoPlay
-                loop
+                loop={false}
                 muted
                 playsInline
                 className={styles.heroImage}
@@ -397,9 +402,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <Reveal direction="up" delay={0.2}>
-                <IndustrySlider industries={trustedIndustries} />
-              </Reveal>
+              <IndustrySlider industries={trustedIndustries} />
             </section>
           </Reveal>
 

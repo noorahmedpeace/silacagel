@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./industry-slider.module.css";
 
@@ -32,16 +33,24 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
       {/* LEFT: Image Section */}
       <div className={styles.imageSection}>
         <AnimatePresence mode="wait">
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={activeIndustry.image}
-            alt={activeIndustry.name}
-            className={styles.slideImage}
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
-          />
+            transition={{ duration: 0.5 }}
+            className={styles.slideImage}
+          >
+            <Image
+              src={activeIndustry.image}
+              alt={activeIndustry.name}
+              fill
+              className={styles.image}
+              style={{ objectFit: "cover" }}
+              priority
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
+          </motion.div>
         </AnimatePresence>
       </div>
 
