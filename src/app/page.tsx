@@ -229,15 +229,14 @@ export default function Home() {
       <div className={styles.shell} ref={heroRef}>
         <header className={styles.header}>
           <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
-            <Image
-              src="/brand-logo-premium.png"
-              alt="SilacaGEL"
-              width={260}
-              height={70}
-              className={styles.brandLogo}
-              style={{ objectFit: 'contain' }}
-              priority
-            />
+            <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.brandLogo}>
+              <text x="0" y="30" fontFamily="var(--font-body), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="var(--ink)" letterSpacing="-0.03em">
+                Silaca<tspan fill="#2563EB">GEL</tspan>
+              </text>
+              <circle cx="140" cy="10" r="3.5" fill="#F97316" />
+              <circle cx="152" cy="10" r="2" fill="#F97316" opacity="0.7" />
+              <circle cx="161" cy="10" r="1" fill="#F97316" opacity="0.4" />
+            </svg>
           </a>
 
           <nav className={styles.nav} aria-label="Primary">
