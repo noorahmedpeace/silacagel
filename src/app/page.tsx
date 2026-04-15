@@ -262,9 +262,8 @@ export default function Home() {
         end: "bottom top",
         scrub: true,
       },
-      rotate: 360,
-      scale: 0.8,
-      opacity: 0.5,
+      scale: 0.85,
+      y: 100,
       ease: "none",
     });
   }, { scope: heroRef });
@@ -374,18 +373,16 @@ export default function Home() {
               style={{ y: yParallax }}
               className={styles.heroVisual}
             >
-              <Image
+              <video
                 id="hero-product-image"
-                src="/macro-hero.png"
-                alt="SilacaGEL Macro Spheres"
-                fill
-                priority
-                fetchPriority="high"
+                src="/hero-exploded.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
                 className={styles.heroImage}
-                style={{ objectFit: "cover" }}
-                sizes="(max-width: 1100px) 100vw, 40vw"
+                style={{ objectFit: "cover", width: "100%", height: "100%", pointerEvents: "none" }}
               />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, #0B1120, transparent)", opacity: 0.4 }} />
             </motion.div>
           </section>
 
