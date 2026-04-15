@@ -1,7 +1,9 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { ReactNode, useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 type RevealProps = {
   children: ReactNode;
@@ -10,42 +12,40 @@ type RevealProps = {
   width?: "fit-content" | "100%";
 };
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+}
+
 export function Reveal({
   children,
-  delay = 0.2,
+  delay = 0,
   direction = "up",
   width = "100%",
 }: RevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const container = useRef<HTMLDivElement>(null);
 
-  const variants = {
-    hidden: {
+  useGSAP(() => {
+    const xDist = direction === "left" ? 50 : direction === "right" ? -50 : 0;
+    const yDist = direction === "up" ? 50 : direction === "down" ? -50 : 0;
+
+    gsap.from(container.current, {
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
       opacity: 0,
-      y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-      x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-    },
-  };
+      x: xDist,
+      y: yDist,
+      duration: 1,
+      delay: delay,
+      ease: "power3.out",
+    });
+  }, { scope: container });
 
   return (
-    <div ref={ref} style={{ position: "relative", width, overflow: "visible" }}>
-      <motion.div
-        variants={variants}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        transition={{
-          duration: 0.8,
-          delay,
-          ease: [0.21, 0.47, 0.32, 0.98],
-        }}
-      >
-        {children}
-      </motion.div>
+    <div ref={container} style={{ position: "relative", width, overflow: "visible" }}>
+      {children}
     </div>
   );
 }

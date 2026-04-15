@@ -5,6 +5,9 @@ import Image from "next/image";
 
 import Link from "next/link";
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Hero3DShowcase } from "@/components/hero-3d-showcase";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
@@ -13,6 +16,18 @@ import { Reveal } from "@/components/reveal";
 import { AmbientGlow } from "@/components/ambient-glow";
 import { IndustrySlider } from "@/components/industry-slider";
 import { EmblaCarousel } from "@/components/embla-carousel";
+import { BentoGrid } from "@/components/bento-grid";
+import { MoistureCalculator } from "@/components/moisture-calculator";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+const splitTextToSpans = (text: string) => {
+  return text.split("").map((char, index) => (
+    <span key={index} className="gsap-hero-char" style={{ display: 'inline-block', opacity: 0, transform: 'translateY(20px)' }}>
+      {char === " " ? "\u00A0" : char}
+    </span>
+  ));
+};
 
 import {
   Globe,
@@ -214,6 +229,46 @@ export default function Home() {
   });
   const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
+  useGSAP(() => {
+    // Hero Entrance Timeline
+    const tl = gsap.timeline();
+    
+    tl.to(".gsap-hero-char", {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.02,
+      ease: "power2.out",
+    })
+    .from(".gsap-hero-fade", {
+      opacity: 0,
+      y: 30,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power3.out",
+    }, "-=0.4")
+    .from("#hero-product-image", {
+      opacity: 0,
+      scale: 1.2,
+      duration: 1.5,
+      ease: "power2.out",
+    }, "-=1");
+
+    // ScrollTrigger for Product Visual
+    gsap.to("#hero-product-image", {
+      scrollTrigger: {
+        trigger: "#hero",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      rotate: 360,
+      scale: 0.8,
+      opacity: 0.5,
+      ease: "none",
+    });
+  }, { scope: heroRef });
+
   return (
     <div className={styles.page}>
       <AmbientGlow />
@@ -280,77 +335,52 @@ export default function Home() {
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
-              <motion.span 
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className={styles.kicker}
-              >
+              <span className={`${styles.kicker} gsap-hero-fade`}>
                 99.9% Moisture Elimination
-              </motion.span>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-              >
-                Zero-Fail Protection for Million-Dollar Assets.
-              </motion.h1>
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className={styles.lead}
-              >
+              </span>
+              <h1>
+                {splitTextToSpans("Zero-Fail Protection for Million-Dollar Assets.")}
+              </h1>
+              <p className={`${styles.lead} gsap-hero-fade`}>
                 Industrial supply chains don't compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
-              </motion.p>
+              </p>
 
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className={styles.ctaRow}
-              >
+              <div className={`${styles.ctaRow} gsap-hero-fade`}>
                 <a href="#contact" className={styles.primaryCta}>
                   Secure Your Supply Chain
                 </a>
                 <a href="#products" className={styles.secondaryCta}>
                   View Technical Data
                 </a>
-              </motion.div>
+              </div>
 
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                animate="show"
-                className={styles.trustSignals}
-              >
+              <div className={`${styles.trustSignals} gsap-hero-fade`}>
                 {trustSignalsArray.map((signal, index) => {
                   const Icon = signal.icon;
                   return (
-                    <motion.div key={index} variants={itemVariants} className={styles.signal}>
+                    <div key={index} className={styles.signal}>
                       <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
                       <div className={styles.signalText}>
                         <span>{signal.label}</span>
                         <strong>{signal.title}</strong>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
-              </motion.div>
+              </div>
             </div>
 
             <motion.div 
               style={{ y: yParallax }}
-              initial={{ opacity: 0, scale: 1.05 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4, duration: 1.2, ease: "easeOut" }}
               className={styles.heroVisual}
             >
               <Image
+                id="hero-product-image"
                 src="/macro-hero.png"
                 alt="SilacaGEL Macro Spheres"
                 fill
                 priority
+                fetchPriority="high"
                 className={styles.heroImage}
                 style={{ objectFit: "cover" }}
                 sizes="(max-width: 1100px) 100vw, 40vw"
@@ -579,34 +609,12 @@ export default function Home() {
             </section>
           </Reveal>
 
-          {/* ── PAGE TEASERS ── */}
           <Reveal direction="up">
-            <section className={styles.teaserGrid}>
-              <Link href="/dispensers" className={styles.teaserCard}>
-                <div className={styles.teaserIcon}>⚙️</div>
-                <h3>Industrial Dispensers</h3>
-                <p>DT-1200 &amp; DT-1500 automated packaging machines for pharma and food lines.</p>
-                <span className={styles.teaserLink}>View Machines →</span>
-              </Link>
-              <Link href="/documents" className={styles.teaserCard}>
-                <div className={styles.teaserIcon}>📋</div>
-                <h3>Compliance Documents</h3>
-                <p>Full FDA, ISO, RoHS, and FSSC 22000 documentation for your procurement team.</p>
-                <span className={styles.teaserLink}>View Documents →</span>
-              </Link>
-              <Link href="/videos" className={styles.teaserCard}>
-                <div className={styles.teaserIcon}>🎬</div>
-                <h3>Product Videos</h3>
-                <p>9 in-depth demonstrations — from adsorption science to container strip deployment.</p>
-                <span className={styles.teaserLink}>Watch Videos →</span>
-              </Link>
-              <Link href="/faq" className={styles.teaserCard}>
-                <div className={styles.teaserIcon}>❓</div>
-                <h3>Technical FAQ</h3>
-                <p>Every procurement and chemistry question answered by our industrial experts.</p>
-                <span className={styles.teaserLink}>Read FAQ →</span>
-              </Link>
-            </section>
+            <BentoGrid />
+          </Reveal>
+
+          <Reveal direction="up">
+            <MoistureCalculator />
           </Reveal>
 
           {/* ── CTA BANNER ── */}

@@ -16,21 +16,24 @@ const body = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
+  title: "SilacaGEL | Premium Silica Gel Manufacturer Pakistan & India",
   description:
-    "Factory-direct silica gel packs, bulk formats, PKR pricing, and moisture control supply for packaging, storage, export, leather, and electronics.",
+    "Industrial leader in desiccant manufacturing. Factory-direct pharma-grade silica gel, bulk desiccant packets, and cargo container strips. US FDA & ISO 9001 compliant moisture control solutions.",
   keywords: [
+    "silica gel manufacturer",
+    "bulk desiccant packets",
+    "pharma grade silica gel",
+    "food grade desiccant",
     "silica gel pakistan",
-    "silica gel packets",
-    "desiccant bags",
-    "moisture control",
-    "container strip",
-    "silica gel price in pakistan",
+    "silica gel india",
+    "silaca gel", // Typo variant
+    "desiccant bags manufacturer",
+    "moisture control for export",
   ],
   openGraph: {
-    title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
+    title: "SilacaGEL | Zero-Fail Moisture Protection for Global Industrial Chains",
     description:
-      "Factory-direct silica gel supply with PKR pricing, bulk formats, and export-ready moisture control.",
+      "Factory-direct industrial desiccant supply. FDA & ISO certified protection for pharmaceutical, textile, and electronic exports.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -44,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Factory-Direct Silica Gel Pakistan",
+    title: "SilacaGEL | Industrial Silica Gel Leader",
     description:
-      "Factory-direct silica gel supply with PKR pricing, bulk formats, and export-ready moisture control.",
+      "Elite moisture protection for world-class cargo. FDA & ISO 9001 certified desiccant manufacturing.",
   },
 };
 
