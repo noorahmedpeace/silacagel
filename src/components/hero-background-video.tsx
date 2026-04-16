@@ -32,86 +32,23 @@ export function HeroBackgroundVideo({
       return;
     }
 
-    let isVisible = false;
-    let direction = 1;
-    let frameId = 0;
-    let lastTime = 0;
-    let ready = false;
+    video.defaultPlaybackRate = 0.72;
+    video.playbackRate = 0.72;
 
-    const speed = 0.32;
-
-    const stopLoop = () => {
-      if (frameId) {
-        cancelAnimationFrame(frameId);
-        frameId = 0;
-      }
-      lastTime = 0;
+    const tryPlay = () => {
+      void video.play().catch(() => {
+        // Keep the first frame visible if autoplay is blocked.
+      });
     };
-
-    const tick = (timestamp: number) => {
-      if (!isVisible || !ready) {
-        stopLoop();
-        return;
-      }
-
-      if (!lastTime) {
-        lastTime = timestamp;
-      }
-
-      const delta = (timestamp - lastTime) / 1000;
-      lastTime = timestamp;
-
-      const duration = Number.isFinite(video.duration) ? video.duration : 0;
-      if (duration <= 0.1) {
-        frameId = requestAnimationFrame(tick);
-        return;
-      }
-
-      let nextTime = video.currentTime + delta * speed * direction;
-
-      if (nextTime >= duration) {
-        nextTime = duration;
-        direction = -1;
-      } else if (nextTime <= 0) {
-        nextTime = 0;
-        direction = 1;
-      }
-
-      video.currentTime = nextTime;
-      frameId = requestAnimationFrame(tick);
-    };
-
-    const startLoop = () => {
-      if (!ready || !isVisible || frameId) {
-        return;
-      }
-
-      video.pause();
-      frameId = requestAnimationFrame(tick);
-    };
-
-    const handleReady = () => {
-      ready = true;
-      video.pause();
-      video.currentTime = 0;
-      startLoop();
-    };
-
-    if (video.readyState >= 1) {
-      handleReady();
-    } else {
-      video.addEventListener("loadedmetadata", handleReady);
-    }
 
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        isVisible = entry.isIntersecting;
 
-        if (isVisible) {
-          startLoop();
+        if (entry.isIntersecting) {
+          tryPlay();
         } else {
-          stopLoop();
+          video.pause();
         }
       },
       { threshold: 0.2 },
@@ -119,10 +56,15 @@ export function HeroBackgroundVideo({
 
     observer.observe(target);
 
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener("canplay", tryPlay, { once: true });
+    }
+
     return () => {
-      stopLoop();
       observer.disconnect();
-      video.removeEventListener("loadedmetadata", handleReady);
+      video.pause();
     };
   }, [targetId]);
 
@@ -135,10 +77,12 @@ export function HeroBackgroundVideo({
       <video
         ref={videoRef}
         className={styles.heroVideo}
+        autoPlay
+        loop
         muted
         playsInline
         preload="auto"
-        poster="/brand-logo.svg"
+        poster="/macro-hero.png"
       >
         <source src={src} type="video/mp4" />
       </video>
