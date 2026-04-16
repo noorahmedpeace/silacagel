@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
-import { motion, Variants, useScroll, useTransform } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -203,11 +203,6 @@ const currencyFormatter = new Intl.NumberFormat("en-PK", {
 
 export default function Home() {
   const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
 
   useGSAP(() => {
     // Hero Entrance Timeline
@@ -233,19 +228,6 @@ export default function Home() {
       duration: 1.5,
       ease: "power2.out",
     }, "-=1");
-
-    // ScrollTrigger for Product Visual
-    gsap.to("#hero-product-image", {
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      scale: 0.85,
-      y: 100,
-      ease: "none",
-    });
   }, { scope: heroRef });
 
   return (
@@ -349,10 +331,7 @@ export default function Home() {
               </div>
             </div>
 
-            <motion.div 
-              style={{ y: yParallax }}
-              className={styles.heroVisual}
-            >
+            <motion.div className={styles.heroVisual}>
               <div id="hero-product-image" className={styles.heroMediaFrame}>
                 <HeroBackgroundVideo src="/hero-cinematic.mp4" targetId="hero" />
               </div>

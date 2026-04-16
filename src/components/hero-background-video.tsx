@@ -8,12 +8,16 @@ type HeroBackgroundVideoProps = {
   targetId: string;
 };
 
-export function HeroBackgroundVideo({ src, targetId }: HeroBackgroundVideoProps) {
+export function HeroBackgroundVideo({
+  src,
+  targetId,
+}: HeroBackgroundVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     const target = document.getElementById(targetId);
+
     if (!video || !target) {
       return;
     }
@@ -28,28 +32,98 @@ export function HeroBackgroundVideo({ src, targetId }: HeroBackgroundVideoProps)
       return;
     }
 
-    video.playbackRate = 0.7;
+    let isVisible = false;
+    let direction = 1;
+    let frameId = 0;
+    let lastTime = 0;
+    let ready = false;
 
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      const entry = entries[0];
-      if (entry.isIntersecting) {
-        void video.play();
-      } else {
-        const duration = Number.isFinite(video.duration) ? video.duration : 0;
-        if (duration > 0.1) {
-          video.currentTime = Math.max(0, duration - 0.08);
-        }
-        video.pause();
+    const speed = 0.32;
+
+    const stopLoop = () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+        frameId = 0;
       }
+      lastTime = 0;
     };
 
-    const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.15,
-    });
+    const tick = (timestamp: number) => {
+      if (!isVisible || !ready) {
+        stopLoop();
+        return;
+      }
+
+      if (!lastTime) {
+        lastTime = timestamp;
+      }
+
+      const delta = (timestamp - lastTime) / 1000;
+      lastTime = timestamp;
+
+      const duration = Number.isFinite(video.duration) ? video.duration : 0;
+      if (duration <= 0.1) {
+        frameId = requestAnimationFrame(tick);
+        return;
+      }
+
+      let nextTime = video.currentTime + delta * speed * direction;
+
+      if (nextTime >= duration) {
+        nextTime = duration;
+        direction = -1;
+      } else if (nextTime <= 0) {
+        nextTime = 0;
+        direction = 1;
+      }
+
+      video.currentTime = nextTime;
+      frameId = requestAnimationFrame(tick);
+    };
+
+    const startLoop = () => {
+      if (!ready || !isVisible || frameId) {
+        return;
+      }
+
+      video.pause();
+      frameId = requestAnimationFrame(tick);
+    };
+
+    const handleReady = () => {
+      ready = true;
+      video.pause();
+      video.currentTime = 0;
+      startLoop();
+    };
+
+    if (video.readyState >= 1) {
+      handleReady();
+    } else {
+      video.addEventListener("loadedmetadata", handleReady);
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        isVisible = entry.isIntersecting;
+
+        if (isVisible) {
+          startLoop();
+        } else {
+          stopLoop();
+        }
+      },
+      { threshold: 0.2 },
+    );
 
     observer.observe(target);
 
-    return () => observer.disconnect();
+    return () => {
+      stopLoop();
+      observer.disconnect();
+      video.removeEventListener("loadedmetadata", handleReady);
+    };
   }, [targetId]);
 
   if (!src) {
@@ -61,10 +135,9 @@ export function HeroBackgroundVideo({ src, targetId }: HeroBackgroundVideoProps)
       <video
         ref={videoRef}
         className={styles.heroVideo}
-        autoPlay
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         poster="/brand-logo.svg"
       >
         <source src={src} type="video/mp4" />

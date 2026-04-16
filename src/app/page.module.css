@@ -206,6 +206,7 @@
   flex-shrink: 0;
   background:
     radial-gradient(circle at top, rgba(255, 255, 255, 0.96), rgba(241, 245, 255, 0.84) 52%, rgba(232, 239, 255, 0.92) 100%);
+  animation: heroFloat 8s ease-in-out infinite;
 }
 
 .heroVisual::after {
@@ -223,6 +224,20 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+}
+
+@keyframes heroFloat {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .trustSignals {
@@ -1178,6 +1193,7 @@
   .heroVisual {
     height: auto;
     order: -1;
+    animation-duration: 10s;
   }
   
   .testimonialGrid {
@@ -1204,5 +1220,11 @@
   .quoteStage, .pricingSection {
     padding: 40px 24px;
     border-radius: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroVisual {
+    animation: none;
   }
 }
