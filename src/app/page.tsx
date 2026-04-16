@@ -8,10 +8,8 @@ import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Hero3DShowcase } from "@/components/hero-3d-showcase";
 import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
-import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
 import { AmbientGlow } from "@/components/ambient-glow";
 import { IndustrySlider } from "@/components/industry-slider";
@@ -39,12 +37,6 @@ import {
   ShieldCheck,
   Droplets,
   PackageCheck,
-  Factory,
-  Ship,
-  Plane,
-  Pill,
-  Shirt,
-  Cpu,
   Star,
   Search,
   User,
@@ -204,27 +196,10 @@ const testimonials = [
   },
 ];
 
-const heroVideo = "/silicagel-hero.mp4";
-
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
   minimumFractionDigits: 0,
   maximumFractionDigits: 2,
 });
-
-const faqs = [
-  {
-    question: "How does SilacaGEL compare to standard desiccants?",
-    answer: "Our silica gel is secondary-refined for higher adsorption rates and packed in low-dust, high-porosity materials for professional industrial use.",
-  },
-  {
-    question: "Do you offer custom branding or specific sachet sizes?",
-    answer: "Yes, we support private labeling and custom gram sizing for high-volume recurring orders. Contact us for technical specifications.",
-  },
-  {
-    question: "How should I determine the right quantity for my package?",
-    answer: "Use our interactive calculator below to estimate weight based on product volume, or consult our logistics experts for export container planning.",
-  },
-];
 
 export default function Home() {
   const heroRef = useRef(null);
@@ -315,7 +290,7 @@ export default function Home() {
               <Link href="/documents">Documents</Link>
             </div>
             <div className={styles.navItem}>
-              <Link href="/faq">FAQ&apos;s</Link>
+              <Link href="/faq">FAQs</Link>
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
@@ -346,7 +321,7 @@ export default function Home() {
                 {splitTextToSpans("Zero-Fail Protection for Million-Dollar Assets.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Industrial supply chains don't compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
+                Industrial supply chains do not compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -378,16 +353,9 @@ export default function Home() {
               style={{ y: yParallax }}
               className={styles.heroVisual}
             >
-              <video
-                id="hero-product-image"
-                src="/hero-cinematic.mp4"
-                autoPlay
-                loop={false}
-                muted
-                playsInline
-                className={styles.heroImage}
-                style={{ objectFit: "cover", width: "100%", height: "100%", pointerEvents: "none" }}
-              />
+              <div id="hero-product-image" className={styles.heroMediaFrame}>
+                <HeroBackgroundVideo src="/hero-cinematic.mp4" targetId="hero" />
+              </div>
             </motion.div>
           </section>
 
@@ -572,7 +540,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className={styles.testimonialQuote}>"{item.quote}"</p>
+                    <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
                   </article>
                 ))}
               </EmblaCarousel>
@@ -623,9 +591,9 @@ export default function Home() {
               <div className={styles.ctaBannerContent}>
                 <p className={styles.kicker}>Global Procurement</p>
                 <h2>Ready to Secure Your Supply Chain?</h2>
-                <p>Connect with our enterprise team for bulk contracts, maritime logistics, and custom containment auditing — response within 24 hours.</p>
+                <p>Connect with our enterprise team for bulk contracts, maritime logistics, and custom containment auditing, with response within 24 hours.</p>
                 <div className={styles.ctaBannerActions}>
-                  <Link href="/contact" className={styles.primaryCta}>Start Procurement →</Link>
+                  <Link href="/contact" className={styles.primaryCta}>Start Procurement -&gt;</Link>
                   <Link href="/about" className={styles.secondaryCta}>About SilacaGEL</Link>
                 </div>
               </div>

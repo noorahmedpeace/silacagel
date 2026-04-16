@@ -1,6 +1,6 @@
 "use client";
 
-import Lottie from "lottie-react";
+import Lottie, { type LottieOptions } from "lottie-react";
 import { useEffect, useState } from "react";
 
 interface LottiePlayerProps {
@@ -10,23 +10,31 @@ interface LottiePlayerProps {
   className?: string;
 }
 
-export const LottiePlayer = ({ url, loop = true, autoplay = true, className }: LottiePlayerProps) => {
-  const [animationData, setAnimationData] = useState<any>(null);
+export const LottiePlayer = ({
+  url,
+  loop = true,
+  autoplay = true,
+  className,
+}: LottiePlayerProps) => {
+  const [animationData, setAnimationData] =
+    useState<LottieOptions["animationData"] | null>(null);
 
   useEffect(() => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setAnimationData(data))
-      .catch((err) => console.error("Lottie Load Error:", err));
+      .catch((err: unknown) => console.error("Lottie Load Error:", err));
   }, [url]);
 
-  if (!animationData) return <div className={className} />;
+  if (!animationData) {
+    return <div className={className} />;
+  }
 
   return (
-    <Lottie 
-      animationData={animationData} 
-      loop={loop} 
-      autoplay={autoplay} 
+    <Lottie
+      animationData={animationData}
+      loop={loop}
+      autoplay={autoplay}
       className={className}
     />
   );
