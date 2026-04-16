@@ -17,6 +17,10 @@ const sideMetrics = [
 ];
 
 const beadIndexes = Array.from({ length: 12 }, (_, index) => index);
+const beadTransitions = beadIndexes.map((index) => ({
+  duration: 2 + ((index * 37) % 100) / 50,
+  delay: ((index * 29) % 100) / 50,
+}));
 
 export function Hero3DShowcase() {
   return (
@@ -87,9 +91,9 @@ export function Hero3DShowcase() {
                   opacity: [0.4, 0.8, 0.4],
                 }}
                 transition={{
-                  duration: 2 + Math.random() * 2,
+                  duration: beadTransitions[index].duration,
                   repeat: Infinity,
-                  delay: Math.random() * 2,
+                  delay: beadTransitions[index].delay,
                 }}
               />
             ))}

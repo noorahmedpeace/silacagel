@@ -1,673 +1,182 @@
-"use client";
-
-import { useRef } from "react";
-import Image from "next/image";
-
 import Link from "next/link";
-import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Hero3DShowcase } from "@/components/hero-3d-showcase";
-import { HeroBackgroundVideo } from "@/components/hero-background-video";
+import { FileStack, FlaskConical, Globe2, Leaf, PackageSearch, ShieldCheck } from "lucide-react";
+import { ProductExplorer } from "@/components/product-explorer";
 import { PriceCalculator } from "@/components/price-calculator";
 import { QuoteForm } from "@/components/quote-form";
-import { Reveal } from "@/components/reveal";
-import { AmbientGlow } from "@/components/ambient-glow";
-import { IndustrySlider } from "@/components/industry-slider";
-import { EmblaCarousel } from "@/components/embla-carousel";
-import { BentoGrid } from "@/components/bento-grid";
-import { MoistureCalculator } from "@/components/moisture-calculator";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const splitTextToSpans = (text: string) => {
-  return text.split(" ").map((word, wordIndex) => (
-    <span key={wordIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
-      {word.split("").map((char, charIndex) => (
-        <span key={charIndex} className="gsap-hero-char" style={{ display: 'inline-block', opacity: 0, transform: 'translateY(20px)' }}>
-          {char}
-        </span>
-      ))}
-      {"\u00A0"}
-    </span>
-  ));
-};
-
-import {
-  Globe,
-  ShieldCheck,
-  Droplets,
-  PackageCheck,
-  Factory,
-  Ship,
-  Plane,
-  Pill,
-  Shirt,
-  Cpu,
-  Star,
-  Search,
-  User,
-  ShoppingBag,
-  ChevronDown
-} from "lucide-react";
-import {
-  displayPhone,
-  priceGroups,
-  productCatalog,
-  whatsappNumber,
-} from "@/lib/product-data";
+import { technicalDocuments } from "@/lib/documents";
+import { industrySolutions } from "@/lib/industry-solutions";
+import { complianceTags, productCatalog } from "@/lib/products";
 import styles from "./page.module.css";
 
-const visuals = {
-  warehouse: "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg",
-  cargo: "https://images.pexels.com/photos/34106182/pexels-photo-34106182.jpeg",
-  leather: "https://images.pexels.com/photos/2057484/pexels-photo-2057484.jpeg",
-  electronics: "https://images.pexels.com/photos/12741851/pexels-photo-12741851.jpeg",
-};
-
-const reasons = [
-  {
-    title: "High-Speed Adsorption",
-    text: "Our premium-grade silica gel captures moisture instantly, preventing corrosion, mold, and odor in confined packaging.",
-  },
-  {
-    title: "Triple-Seal Integrity",
-    text: "Sachets are built with medical-grade paper to ensure zero leakage while maintaining maximum moisture breathability.",
-  },
-  {
-    title: "Industrial Scalability",
-    text: "Whether you need 0.5g retail packs or 1kg container strips, our factory line supports high-volume, repeat supply.",
-  },
-];
-
-const useCases = [
-  {
-    title: "Precision Electronics",
-    text: "Safeguard circuit boards, instrumentation, and batteries from humidity-induced failure during storage and transit.",
-    image: visuals.electronics,
-  },
-  {
-    title: "Premium Leather Goods",
-    text: "Preserve the texture and finish of footwear and garments by eliminating humidity-related mold and discoloration.",
-    image: visuals.leather,
-  },
-  {
-    title: "High-Volume Logistics",
-    text: "Reduce moisture claims in export cargo with heavy-duty desiccants designed for long-haul maritime conditions.",
-    image: visuals.cargo,
-  },
-  {
-    title: "Industrial Inventory",
-    text: "Maintain warehouse stock quality with bulk formats that keep inventory rooms dry and dispatch-ready.",
-    image: visuals.warehouse,
-  },
-];
-
-const trustSignalsArray = [
-  {
-    icon: Globe,
-    title: "Worldwide Maritime Support",
-    label: "Logistics Hub",
-  },
-  {
-    icon: ShieldCheck,
-    title: "International ISO / RoHS",
-    label: "Compliance",
-  },
-  {
-    icon: Droplets,
-    title: "32%+ Adsorption Capacity",
-    label: "Protection",
-  },
-  {
-    icon: PackageCheck,
-    title: "Tyvek® & Technical Bond",
-    label: "Materials",
-  },
-];
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
-};
-
-const announcementItems = [
-  "WORLDWIDE INDUSTRIAL SILICA GEL SUPPLY NOW LIVE",
-  "BULK EXPORT CONTRACTS & MARITIME LOGISTICS SUPPORT",
-  "TECHNICAL SPECIFICATIONS & GLOBAL COMPLIANCE READY",
-  "DIRECT WHATSAPP MANAGEMENT FOR INTERNATIONAL PROCUREMENT",
-];
-
-const trustedIndustries = [
-  {
-    name: "International Pharmaceuticals",
-    image: "/industry-pharma.png",
-    description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
-  },
-  {
-    name: "Global Textiles & Apparel",
-    image: "/silicagel_paper_technical_1775981630266.png",
-    description: "Protecting high-quality leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
-  },
-  {
-    name: "Precision Tech Assembly",
-    image: "/macro_silica_beads_1775989669467.png",
-    description: "Ensuring zero-fail moisture elimination around microchips, PCBs, and sensitive aerospace computer components to prevent short circuits.",
-  },
-  {
-    name: "Export Food Packaging",
-    image: "/silicagel_bulk_enterprise.png",
-    description: "Food-grade desiccant solutions engineered to keep crispy snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
-  },
-  {
-    name: "Maritime Logistics & Cargo",
-    image: "/silicagel_cargo_strips.png",
-    description: "Container-scale absorption for massive export shipments, preventing container rain, condensation, and catastrophic inventory losses at sea.",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "There are so many great things about SilacaGEL. The most important to us is the consistency of the moisture thresholds during transit. Also, I love the ability to bulk order via their WhatsApp channel effortlessly.",
-    name: "Caroline Tremblay",
-    title: "Head of Procurement, Global Footwear",
-    initial: "CT",
-    color: "#FACC15" // Yellowish to match the screenshot vibe
-  },
-  {
-    quote:
-      "I had a recent engagement with their support around bulk container strips. Unlike other suppliers, they ran down the exact mathematics for the cubic volume of our containers to ensure we bought the right amount.",
-    name: "Russ Fordyce",
-    title: "Logistics Manager, Electronics Export",
-    initial: "RF",
-    color: "#60A5FA" // Light blue
-  },
-  {
-    quote:
-      "Being a new company, we cannot afford inventory loss due to oceanic moisture. SilacaGEL's features were essential to our purpose, from retail sachets to heavy-duty maritime transport.",
-    name: "Paolo Carner",
-    title: "Warehouse Director, Industrial Parts",
-    initial: "PC",
-    color: "#A78BFA" // Purple
-  },
-];
-
-const heroVideo = "/silicagel-hero.mp4";
-
-const currencyFormatter = new Intl.NumberFormat("en-PK", {
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-});
-
-const faqs = [
-  {
-    question: "How does SilacaGEL compare to standard desiccants?",
-    answer: "Our silica gel is secondary-refined for higher adsorption rates and packed in low-dust, high-porosity materials for professional industrial use.",
-  },
-  {
-    question: "Do you offer custom branding or specific sachet sizes?",
-    answer: "Yes, we support private labeling and custom gram sizing for high-volume recurring orders. Contact us for technical specifications.",
-  },
-  {
-    question: "How should I determine the right quantity for my package?",
-    answer: "Use our interactive calculator below to estimate weight based on product volume, or consult our logistics experts for export container planning.",
-  },
+const heroHighlights = [
+  "Corporate solution portal for industrial buyers",
+  "Taxonomy-led product discovery",
+  "Technical library with SDS, TDS, and certificate routing",
+  "Hybrid RFQ plus WhatsApp conversion flow",
 ];
 
 export default function Home() {
-  const heroRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-  const yParallax = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-
-  useGSAP(() => {
-    // Hero Entrance Timeline
-    const tl = gsap.timeline();
-    
-    tl.to(".gsap-hero-char", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      stagger: 0.02,
-      ease: "power2.out",
-    })
-    .from(".gsap-hero-fade", {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-    }, "-=0.4")
-    .from("#hero-product-image", {
-      opacity: 0,
-      scale: 1.2,
-      duration: 1.5,
-      ease: "power2.out",
-    }, "-=1");
-
-    // ScrollTrigger for Product Visual
-    gsap.to("#hero-product-image", {
-      scrollTrigger: {
-        trigger: "#hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      },
-      scale: 0.85,
-      y: 100,
-      ease: "none",
-    });
-  }, { scope: heroRef });
-
   return (
-    <div className={styles.page}>
-      <AmbientGlow />
-      
-      <section className={styles.announcementBar} aria-label="Highlights">
-        <div className={styles.announcementTrack}>
-          {[...announcementItems, ...announcementItems].map((item, index) => (
-            <span key={`${item}-${index}`}>{item}</span>
+    <main className={`page-shell portal-page ${styles.page}`}>
+      <section className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <span className="portal-kicker">Phase 1 modernization</span>
+          <h1>Industrial moisture control, technical documentation, and buyer guidance in one portal.</h1>
+          <p>
+            SilacaGEL now leads with solutions instead of isolated product cards. The portal is
+            structured for procurement teams, packaging engineers, QA reviewers, and export buyers
+            who need product fit, compliance visibility, and fast RFQ movement.
+          </p>
+          <div className="portal-actions">
+            <Link href="/contact" className="button-primary">Start a structured RFQ</Link>
+            <Link href="/technical-library" className="button-secondary">Open technical library</Link>
+          </div>
+        </div>
+
+        <div className={styles.heroPanel}>
+          {heroHighlights.map((item) => (
+            <article key={item} className={styles.heroCard}>
+              <ShieldCheck size={18} />
+              <span>{item}</span>
+            </article>
           ))}
         </div>
       </section>
 
-      <div className={styles.shell} ref={heroRef}>
-        <header className={styles.header}>
-          <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
-            <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.brandLogo}>
-              <text x="0" y="30" fontFamily="var(--font-body), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="var(--ink)" letterSpacing="-0.03em">
-                Silaca<tspan fill="#2563EB">GEL</tspan>
-              </text>
-              <circle cx="140" cy="10" r="3.5" fill="#F97316" />
-              <circle cx="152" cy="10" r="2" fill="#F97316" opacity="0.7" />
-              <circle cx="161" cy="10" r="1" fill="#F97316" opacity="0.4" />
-            </svg>
-          </a>
+      <section className="portal-section">
+        <div className="portal-section-head">
+          <span className="portal-kicker">Industry selector</span>
+          <h2>Navigate by application risk, not just by SKU.</h2>
+          <p>
+            Each solution page is organized around sector pain points, required certificates,
+            recommended products, and the documentation likely to matter during approval.
+          </p>
+        </div>
+        <div className={styles.solutionGrid}>
+          {industrySolutions.map((solution) => (
+            <Link key={solution.slug} href={`/solutions/${solution.slug}`} className={styles.solutionCard}>
+              <strong>{solution.sector}</strong>
+              <p>{solution.summary}</p>
+              <span>Open solution page</span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-          <nav className={styles.nav} aria-label="Primary">
-            <div className={styles.navItem}>
-              <a href="#products">Products</a>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <a href="#pricing">Bulk Sales</a>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/dispensers">Dispensers</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/documents">Documents</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/faq">FAQ&apos;s</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/videos">Product Videos</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/contact">Contact Us</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/about">About Us</Link>
-            </div>
-          </nav>
+      <section className="portal-section">
+        <div className="portal-section-head">
+          <span className="portal-kicker">Product taxonomy overview</span>
+          <h2>Filter the catalog by type, grade, packaging, indicator status, and packet material.</h2>
+          <p>
+            The catalog is now structured to reflect how industrial buyers actually compare
+            moisture-control options across regulated and export-heavy supply chains.
+          </p>
+        </div>
+        <ProductExplorer />
+      </section>
 
-          <div className={styles.headerActions}>
-            <button aria-label="Search" className={styles.iconBtn}><Search size={20} /></button>
-            <button aria-label="Account" className={styles.iconBtn}><User size={20} /></button>
-            <button aria-label="Cart" className={styles.iconBtn}><ShoppingBag size={20} /></button>
-          </div>
-        </header>
+      <section className={styles.complianceStrip}>
+        <div className={styles.stripIntro}>
+          <span className="portal-kicker">Compliance trust band</span>
+          <h2>Show buyer-critical certifications early.</h2>
+        </div>
+        <div className={styles.complianceTags}>
+          {complianceTags.map((tag) => (
+            <article key={tag.id} className={styles.compliancePill}>
+              <FileStack size={16} />
+              <span>{tag.shortLabel}</span>
+            </article>
+          ))}
+        </div>
+      </section>
 
-        <main id="top" className={styles.main}>
-          <section className={styles.hero} id="hero">
-            <div className={styles.heroCopy}>
-              <span className={`${styles.kicker} gsap-hero-fade`}>
-                99.9% Moisture Elimination
-              </span>
-              <h1>
-                {splitTextToSpans("Zero-Fail Protection for Million-Dollar Assets.")}
-              </h1>
-              <p className={`${styles.lead} gsap-hero-fade`}>
-                Industrial supply chains don't compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
-              </p>
-
-              <div className={`${styles.ctaRow} gsap-hero-fade`}>
-                <a href="#contact" className={styles.primaryCta}>
-                  Secure Your Supply Chain
-                </a>
-                <a href="#products" className={styles.secondaryCta}>
-                  View Technical Data
-                </a>
-              </div>
-
-              <div className={`${styles.trustSignals} gsap-hero-fade`}>
-                {trustSignalsArray.map((signal, index) => {
-                  const Icon = signal.icon;
-                  return (
-                    <div key={index} className={styles.signal}>
-                      <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
-                      <div className={styles.signalText}>
-                        <span>{signal.label}</span>
-                        <strong>{signal.title}</strong>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            <motion.div 
-              style={{ y: yParallax }}
-              className={styles.heroVisual}
-            >
-              <video
-                id="hero-product-image"
-                src="/hero-cinematic.mp4"
-                autoPlay
-                loop={false}
-                muted
-                playsInline
-                className={styles.heroImage}
-                style={{ objectFit: "cover", width: "100%", height: "100%", pointerEvents: "none" }}
-              />
-            </motion.div>
-          </section>
-
-          <Reveal direction="up">
-            <section className={styles.partnerSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Industry Compatibility</p>
-                <h2>Engineered for sectors that prioritize consistency.</h2>
-                <p>
-                  SilacaGEL supports standard-setting industries with reliable, 
-                  high-absorption silica gel that meets the demands of modern packaging lines.
-                </p>
-              </div>
-
-              <IndustrySlider industries={trustedIndustries} />
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="products" className={styles.productSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Product Ecosystem</p>
-                <h2>Retail sachets, bulk packs, and cargo strips.</h2>
-                <p>
-                  Every packing format is calibrated for a specific moisture-risk profile. 
-                  Choose the category that matches your supply requirements.
-                </p>
-              </div>
-
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className={styles.productGrid}
-              >
-                {productCatalog.map((product) => (
-                  <motion.article key={product.slug} variants={itemVariants} className={styles.productCard}>
-                    <div className={styles.productImage}>
-                      <Image
-                        src={product.heroImage}
-                        alt={product.name}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 30vw"
-                      />
-                    </div>
-                    <div className={styles.productCopy}>
-                      <p>{product.eyebrow}</p>
-                      <h3>{product.name}</h3>
-                      <p className={styles.productUseCase}>
-                        {product.useCaseLine ?? product.summary}
-                      </p>
-                      <span>{product.priceBand}</span>
-                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        View Product Data
-                      </Link>
-                    </div>
-                  </motion.article>
-                ))}
-              </motion.div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up" delay={0.4}>
-            <section id="pricing" className={styles.pricingSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Direct PKR Pricing</p>
-                <h2>Transparent reference rates with bulk leverage.</h2>
-                <p>
-                  We provide direct factory pricing in PKR to eliminate sourcing friction. 
-                  Large industrial volumes and repeat contracts are eligible for custom quotes.
-                </p>
-              </div>
-
-              <div className={styles.pricingLayout}>
-                <div className={styles.priceGrid}>
-                  {priceGroups.map((group) => (
-                    <article key={group.title} className={styles.priceCard}>
-                      <span className={styles.priceNote}>{group.note}</span>
-                      <h3>{group.title}</h3>
-                      <div className={styles.priceList}>
-                        {group.items.map((item) => (
-                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
-                            <strong>{item.label}</strong>
-                            <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-
-                <div id="purchase-calculator" className={styles.calculatorAnchor}>
-                  <div className={styles.calculatorPanel}>
-                    <p className={styles.calculatorHint}>Volume & Price Estimator</p>
-                    <p className={styles.calculatorSubHint}>
-                      Calculate your total weight and estimated PKR total instantly.
-                    </p>
-                    <PriceCalculator />
-                  </div>
-                </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="why" className={styles.whySection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Technical Advantage</p>
-                <h2>Moisture damage is silent. Product integrity is structural.</h2>
-              </div>
-
-              <div className={styles.reasonGrid}>
-                {reasons.map((item) => (
-                  <article key={item.title} className={styles.reasonCard}>
-                    <h3 className="text-gradient">{item.title}</h3>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="applications" className={styles.applicationSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Worldwide Deployment</p>
-                <h2>Proven protection across critical supply chains.</h2>
-              </div>
-
-              <EmblaCarousel options={{ align: "start", loop: true }}>
-                {useCases.map((item) => (
-                  <article key={item.title} className={styles.applicationCard}>
-                    <div className={styles.applicationImage}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 33vw"
-                      />
-                    </div>
-                    <div className={styles.applicationCopy}>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
-                  </article>
-                ))}
-              </EmblaCarousel>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="proof" className={styles.proofSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Global Compliance</p>
-                <h2>Audited for trust, verified by performance.</h2>
-                <p>
-                  Our configurations are trusted by multi-national manufacturers for consistent 
-                  adsorption integrity and professional-grade industrial containment.
-                </p>
-              </div>
-
-              <EmblaCarousel options={{ align: "start", loop: true }}>
-                {testimonials.map((item) => (
-                  <article key={item.quote} className={styles.testimonialCard}>
-                    <div className={styles.testimonialHeader}>
-                      <div 
-                        className={styles.testimonialAvatar} 
-                        style={{ backgroundColor: item.color }}
-                      >
-                        {item.initial}
-                      </div>
-                      <div className={styles.testimonialInfo}>
-                        <strong>{item.name}</strong>
-                        <span>{item.title}</span>
-                        <div className={styles.testimonialStars}>
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} fill="#FACC15" color="#FACC15" />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <p className={styles.testimonialQuote}>"{item.quote}"</p>
-                  </article>
-                ))}
-              </EmblaCarousel>
-
-              <div className={styles.logoStrip}>
-                {trustedIndustries.map((industry) => (
-                  <span key={industry.name} className={styles.badgeChip}>
-                    {industry.name}
-                  </span>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          {/* ── CERTIFICATIONS TRUST STRIP ── */}
-          <Reveal direction="up">
-            <section className={styles.certStrip}>
-              <p className={styles.certStripLabel}>Globally Certified & Trusted</p>
-              <div className={styles.certStripRow}>
-                {[
-                  { icon: "🏛️", label: "FDA 21 CFR 177.1520" },
-                  { icon: "📋", label: "FDA 21 CFR 176.170" },
-                  { icon: "🌐", label: "ISO 9001 / 14001" },
-                  { icon: "🔬", label: "FSSC 22000" },
-                  { icon: "♻️", label: "RoHS / REACH" },
-                  { icon: "✅", label: "100% DMF Free" },
-                ].map((c) => (
-                  <div key={c.label} className={styles.certPill}>
-                    <span>{c.icon}</span>
-                    <span>{c.label}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <BentoGrid />
-          </Reveal>
-
-          <Reveal direction="up">
-            <MoistureCalculator />
-          </Reveal>
-
-          {/* ── CTA BANNER ── */}
-          <Reveal direction="up">
-            <section className={styles.ctaBanner}>
-              <div className={styles.ctaBannerContent}>
-                <p className={styles.kicker}>Global Procurement</p>
-                <h2>Ready to Secure Your Supply Chain?</h2>
-                <p>Connect with our enterprise team for bulk contracts, maritime logistics, and custom containment auditing — response within 24 hours.</p>
-                <div className={styles.ctaBannerActions}>
-                  <Link href="/contact" className={styles.primaryCta}>Start Procurement →</Link>
-                  <Link href="/about" className={styles.secondaryCta}>About SilacaGEL</Link>
-                </div>
-              </div>
-            </section>
-          </Reveal>
-        </main>
-
-
-        <footer id="contact" className={styles.footer}>
-          <div className={styles.footerCopy}>
-            <p className={styles.kicker}>International Operations</p>
-            <h2>Elite protection for world-class cargo.</h2>
+      <section className={styles.toolsGrid}>
+        <article className="portal-section">
+          <div className="portal-section-head">
+            <span className="portal-kicker">Interactive tools</span>
+            <h2>Engineer a starting point before you request a quote.</h2>
             <p>
-              Connect with our procurement management for global supply contracts,
-              maritime logistics coordination, and custom containment auditing.
+              The BS1133 calculator gives packaging teams a planning-grade estimate with a nearest
+              packet recommendation from the current product range.
             </p>
-            <div style={{ display: "flex", gap: "16px", marginTop: "24px", flexWrap: "wrap" }}>
-              <Link href="/contact" className={styles.primaryCta}>Get a Quote</Link>
-              <Link href="/products" className={styles.secondaryCta}>View Products</Link>
-            </div>
+          </div>
+          <PriceCalculator />
+        </article>
+
+        <article className="portal-section">
+          <div className="portal-section-head">
+            <span className="portal-kicker">Technical library</span>
+            <h2>Request the right document pack without guessing.</h2>
+            <p>
+              Documents are indexed by product, industry, and compliance need so the library works
+              for supplier onboarding as well as packaging selection.
+            </p>
           </div>
 
-          <div className={styles.contactCard}>
-            <span>Procurement Authority</span>
-            <a href={`tel:${displayPhone}`}>{displayPhone}</a>
-            <strong>Executive Management</strong>
-            <span>Active Response Hub</span>
+          <div className={styles.libraryPreview}>
+            {technicalDocuments.slice(0, 4).map((document) => (
+              <div key={document.id} className={styles.libraryCard}>
+                <div>
+                  <span>{document.docType}</span>
+                  <strong>{document.title}</strong>
+                </div>
+                <p>{document.summary}</p>
+              </div>
+            ))}
           </div>
-        </footer>
+          <div className="portal-actions">
+            <Link href="/technical-library" className="button-primary">Browse the library</Link>
+            <Link href="/documents" className="button-secondary">Legacy documents route</Link>
+          </div>
+        </article>
+      </section>
 
-        <a
-          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            "Hello, I'm requesting a technical SilacaGEL procurement quote for my international requirement.",
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.whatsAppFloat}
-          aria-label="Connect with Enterprise Management"
-        >
-          WhatsApp Management
-        </a>
-      </div>
-    </div>
+      <section className={styles.utilityGrid}>
+        <article className="portal-section">
+          <div className="portal-section-head">
+            <span className="portal-kicker">Sustainability proof</span>
+            <h2>Position sustainability as a procurement differentiator.</h2>
+          </div>
+          <div className={styles.valueList}>
+            <div><Leaf size={18} /><span>Promote cobalt-free and DMF-free options</span></div>
+            <div><Globe2 size={18} /><span>Support export buyers with requestable declaration packs</span></div>
+            <div><FlaskConical size={18} /><span>Teach regeneration and reuse pathways where product format allows</span></div>
+          </div>
+          <Link href="/sustainability" className="button-secondary">View sustainability page</Link>
+        </article>
+
+        <article className="portal-section">
+          <div className="portal-section-head">
+            <span className="portal-kicker">Portal scope</span>
+            <h2>Phase 1 covers the core buyer journey.</h2>
+          </div>
+          <div className={styles.metricGrid}>
+            <div><strong>{productCatalog.length}</strong><span>core product families</span></div>
+            <div><strong>{industrySolutions.length}</strong><span>industry solution pages</span></div>
+            <div><strong>{technicalDocuments.length}</strong><span>metadata-backed library entries</span></div>
+            <div><strong>1</strong><span>hybrid RFQ workflow</span></div>
+          </div>
+          <Link href="/products" className="button-primary">Explore all products</Link>
+        </article>
+      </section>
+
+      <section className={styles.rfqStage}>
+        <div className={styles.rfqCopy}>
+          <span className="portal-kicker">Structured inquiry</span>
+          <h2>Move from browsing to a qualification-ready RFQ.</h2>
+          <p>
+            Capture company, industry, product interest, packaging format, annual demand, geography,
+            and technical notes before switching into WhatsApp. That makes the conversation faster
+            and far more useful for both sides.
+          </p>
+          <div className={styles.rfqNotes}>
+            <div><PackageSearch size={16} /><span>Packaged for procurement and engineering review</span></div>
+            <div><FileStack size={16} /><span>Designed to align with document-pack requests</span></div>
+          </div>
+        </div>
+
+        <QuoteForm title="Start a SilacaGEL RFQ" compact />
+      </section>
+    </main>
   );
 }

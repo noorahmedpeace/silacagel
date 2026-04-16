@@ -1,138 +1,109 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { animate } from "framer-motion";
-import { priceOptions, whatsappNumber } from "@/lib/product-data";
+import { useMemo, useState } from "react";
+import { calculateDesiccantRequirement } from "@/lib/products";
+import type { DesiccantCalculationInput } from "@/lib/site-types";
 import styles from "./price-calculator.module.css";
 
-const currencyFormatter = new Intl.NumberFormat("en-PK", {
-  maximumFractionDigits: 2,
+const numberFormatter = new Intl.NumberFormat("en-US", {
+  maximumFractionDigits: 1,
   minimumFractionDigits: 0,
 });
-
-const weightFormatter = new Intl.NumberFormat("en-PK", {
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 0,
-});
-
-function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const node = nodeRef.current;
-    if (!node) return;
-    
-    const controls = animate(0, value, {
-      duration: 1.2,
-      ease: [0.16, 1, 0.3, 1], // Custom bouncy ease for "charming" rapid count
-      onUpdate(latest) {
-        node.textContent = `${prefix}${formatter.format(latest)}${suffix}`;
-      }
-    });
-
-    return () => controls.stop();
-  }, [value, formatter, prefix, suffix]);
-
-  return <strong ref={nodeRef}>{prefix}{formatter.format(value)}{suffix}</strong>;
-}
 
 export function PriceCalculator() {
-  const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
-  const [quantity, setQuantity] = useState("1000");
+  const [input, setInput] = useState<DesiccantCalculationInput>({
+    climate: "temperate",
+    area: 1.2,
+    waterVaporTransmissionRate: 0.8,
+    months: 3,
+    dunnageFactor: 20,
+  });
 
-  const selectedOption =
-    priceOptions.find((option) => option.key === selectedKey) ?? priceOptions[0];
-  const parsedQuantity = Number(quantity);
-  const quantityValue =
-    Number.isFinite(parsedQuantity) && parsedQuantity > 0 ? parsedQuantity : 0;
-  const totalPrice = selectedOption ? selectedOption.unitPrice * quantityValue : 0;
-  const totalGrams = selectedOption ? selectedOption.grams * quantityValue : 0;
-  const totalKilograms = totalGrams / 1000;
-  const hasBulkSignal = totalKilograms >= 25 || totalPrice >= 25000;
+  const output = useMemo(() => calculateDesiccantRequirement(input), [input]);
 
-  function handleWhatsAppQuote() {
-    if (!selectedOption || quantityValue <= 0) {
-      return;
-    }
-
-    const message = [
-      "Hello, I'm requesting an industrial SilacaGEL procurement quote.",
-      `Technical Spec: ${selectedOption.label}`,
-      `Industrial Category: ${selectedOption.groupTitle}`,
-      `Quantity Requirement: ${currencyFormatter.format(quantityValue)} units`,
-      `Verified Net Weight: ${weightFormatter.format(totalGrams)}g (${weightFormatter.format(totalKilograms)}kg)`,
-      `Regional Reference Total: Rs. ${currencyFormatter.format(totalPrice)}`,
-    ].join("\n");
-
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-  }
+  const updateNumber = (key: keyof Omit<DesiccantCalculationInput, "climate">, value: string) => {
+    setInput((current) => ({
+      ...current,
+      [key]: Number(value) || 0,
+    }));
+  };
 
   return (
-    <aside className={styles.calculator} aria-labelledby="price-calculator-title">
+    <aside className={styles.calculator} aria-labelledby="desiccant-calculator-title">
       <div className={styles.head}>
-        <p>Industrial Estimator</p>
-        <h3 id="price-calculator-title">Procurement Calculator</h3>
-        <span>Select technical specifications and quantity to estimate industrial weight and regional reference rates.</span>
+        <p>BS1133 planning tool</p>
+        <h3 id="desiccant-calculator-title">Desiccant Requirement Calculator</h3>
+        <span>
+          Use the BS1133-style basis to estimate grams required from barrier area,
+          WVTR, storage duration, and a combined dunnage factor.
+        </span>
       </div>
 
-      <label className={styles.field}>
-        <span>Technical Specification</span>
-        <select value={selectedKey} onChange={(event) => setSelectedKey(event.target.value)}>
-          {priceOptions.map((option) => (
-            <option key={option.key} value={option.key}>
-              {option.label} - {option.groupTitle}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className={styles.toggleRow}>
+        <button
+          type="button"
+          className={input.climate === "temperate" ? styles.toggleActive : styles.toggle}
+          onClick={() => setInput((current) => ({ ...current, climate: "temperate" }))}
+        >
+          Temperate
+        </button>
+        <button
+          type="button"
+          className={input.climate === "tropical" ? styles.toggleActive : styles.toggle}
+          onClick={() => setInput((current) => ({ ...current, climate: "tropical" }))}
+        >
+          Tropical
+        </button>
+      </div>
 
-      <label className={styles.field}>
-        <span>Unit Quantity</span>
-        <input
-          inputMode="numeric"
-          min="1"
-          onChange={(event) => setQuantity(event.target.value)}
-          placeholder="Quantity"
-          type="number"
-          value={quantity}
-        />
-      </label>
+      <div className={styles.grid}>
+        <label className={styles.field}>
+          <span>Barrier Area (m²)</span>
+          <input type="number" min="0" step="0.1" value={input.area} onChange={(event) => updateNumber("area", event.target.value)} />
+        </label>
+        <label className={styles.field}>
+          <span>WVTR (g/m²/24 hr)</span>
+          <input type="number" min="0" step="0.1" value={input.waterVaporTransmissionRate} onChange={(event) => updateNumber("waterVaporTransmissionRate", event.target.value)} />
+        </label>
+        <label className={styles.field}>
+          <span>Transit / Storage (months)</span>
+          <input type="number" min="0" step="0.1" value={input.months} onChange={(event) => updateNumber("months", event.target.value)} />
+        </label>
+        <label className={styles.field}>
+          <span>Dunnage Factor (g)</span>
+          <input type="number" min="0" step="1" value={input.dunnageFactor} onChange={(event) => updateNumber("dunnageFactor", event.target.value)} />
+        </label>
+      </div>
 
       <div className={styles.summaryGrid}>
         <article className={styles.summaryCard}>
-          <span>Industrial Unit Rate</span>
-          <AnimatedCounter value={selectedOption?.unitPrice ?? 0} formatter={currencyFormatter} prefix="Rs. " />
+          <span>Climate Multiplier</span>
+          <strong>{output.climateMultiplier}A·R·M</strong>
         </article>
         <article className={styles.summaryCard}>
-          <span>Net Weight (g)</span>
-          <AnimatedCounter value={totalGrams} formatter={weightFormatter} suffix=" gm" />
+          <span>Required Weight</span>
+          <strong>{numberFormatter.format(output.baseWeightGrams)} g</strong>
         </article>
         <article className={styles.summaryCard}>
-          <span>Total Mass (kg)</span>
-          <AnimatedCounter value={totalKilograms} formatter={weightFormatter} suffix=" kg" />
+          <span>Nearest Packet Size</span>
+          <strong>{output.recommendedPacketLabel}</strong>
         </article>
         <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
-          <span>Estimated Subtotal</span>
-          <AnimatedCounter value={totalPrice} formatter={currencyFormatter} prefix="Rs. " />
+          <span>Suggested Quantity</span>
+          <strong>{output.recommendedPacketCount}</strong>
         </article>
       </div>
 
       <div className={styles.meta}>
         <p>
-          Technical Selection: <strong>{selectedOption?.label}</strong> | Group: <strong>{selectedOption?.groupTitle}</strong>.
+          Basis: <strong>W = climate factor × A × R × M + dunnage factor</strong>.
         </p>
-        <p>Rates are reference-only. Priority procurement and bulk contracts are quoted individually by management.</p>
-        {hasBulkSignal ? (
-          <p className={styles.bulkHint}>
-            Enterprise-scale requirement detected. Elite pricing adjustments available through direct procurement flow.
-          </p>
-        ) : null}
+        <p>
+          The dunnage factor represents the combined additional moisture contribution from
+          internal wood, paper, or support materials. Use this tool for planning, then validate
+          with the RFQ workflow for product-fit and route-specific adjustments.
+        </p>
       </div>
-
-      <button className={styles.submit} onClick={handleWhatsAppQuote} type="button">
-        Submit Procurement Estimate
-      </button>
     </aside>
   );
 }

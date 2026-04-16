@@ -1,29 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./moisture-calculator.module.css";
 import { LottiePlayer } from "./lottie-player";
 
 export const MoistureCalculator = () => {
   const [unit, setUnit] = useState<"cm" | "in">("cm");
   const [dimensions, setDimensions] = useState({ l: 0, w: 0, h: 0 });
-  const [result, setResult] = useState(0);
-
-  useEffect(() => {
-    const { l, w, h } = dimensions;
-    let cubicFeet = 0;
-
-    if (unit === "cm") {
-      const cubicCm = l * w * h;
-      cubicFeet = cubicCm / 28316.85;
-    } else {
-      const cubicInches = l * w * h;
-      cubicFeet = cubicInches / 1728;
-    }
-
-    const grams = cubicFeet * 56;
-    setResult(grams > 0 ? grams : 0);
-  }, [dimensions, unit]);
+  const { l, w, h } = dimensions;
+  const cubicFeet = unit === "cm" ? (l * w * h) / 28316.85 : (l * w * h) / 1728;
+  const result = Math.max(cubicFeet * 56, 0);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -41,14 +27,14 @@ export const MoistureCalculator = () => {
 
         <div className={styles.controls}>
           <div className={styles.unitToggle}>
-            <button 
-              className={unit === "cm" ? styles.active : ""} 
+            <button
+              className={unit === "cm" ? styles.active : ""}
               onClick={() => setUnit("cm")}
             >
               Metric (cm)
             </button>
-            <button 
-              className={unit === "in" ? styles.active : ""} 
+            <button
+              className={unit === "in" ? styles.active : ""}
               onClick={() => setUnit("in")}
             >
               Imperial (in)
@@ -73,8 +59,8 @@ export const MoistureCalculator = () => {
 
         <div className={styles.resultDisplay}>
           <div className={styles.resultCircle}>
-            <LottiePlayer 
-              url="https://lottie.host/8c067643-d08c-4a3e-862d-0b7074e5781a/3QUpfUo7jY.json" 
+            <LottiePlayer
+              url="https://lottie.host/8c067643-d08c-4a3e-862d-0b7074e5781a/3QUpfUo7jY.json"
               className={styles.resultLottie}
             />
             <span className={styles.resultValue}>{result.toFixed(1)}</span>
@@ -82,8 +68,8 @@ export const MoistureCalculator = () => {
           </div>
           <div className={styles.resultInfo}>
             <h4>Recommended Desiccant Weight</h4>
-            <p>Based on a standard moisture threshold of 56g/ft³. For high-humidity maritime environments, increase weight by 20%.</p>
-            <a href="#contact" className={styles.procureLink}>Request Technical Audit →</a>
+            <p>Based on a standard moisture threshold of 56g/ft^3. For high-humidity maritime environments, increase weight by 20%.</p>
+            <a href="#contact" className={styles.procureLink}>Request Technical Audit -&gt;</a>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const display = Cormorant_Garamond({
@@ -16,24 +18,22 @@ const body = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Premium Silica Gel Manufacturer Pakistan & India",
+  title: "SilacaGEL | Industrial Moisture-Control Solutions Portal",
   description:
-    "Industrial leader in desiccant manufacturing. Factory-direct pharma-grade silica gel, bulk desiccant packets, and cargo container strips. US FDA & ISO 9001 compliant moisture control solutions.",
+    "SilacaGEL helps procurement and packaging teams source silica gel products, technical documentation, and desiccant-planning tools for electronics, pharma, food, and industrial supply chains.",
   keywords: [
     "silica gel manufacturer",
-    "bulk desiccant packets",
+    "industrial moisture control",
+    "technical data sheet silica gel",
+    "desiccant calculator",
     "pharma grade silica gel",
-    "food grade desiccant",
-    "silica gel pakistan",
-    "silica gel india",
-    "silaca gel", // Typo variant
-    "desiccant bags manufacturer",
-    "moisture control for export",
+    "container strip desiccants",
+    "cobalt-free silica gel",
   ],
   openGraph: {
-    title: "SilacaGEL | Zero-Fail Moisture Protection for Global Industrial Chains",
+    title: "SilacaGEL | Corporate Portal for Industrial Moisture Control",
     description:
-      "Factory-direct industrial desiccant supply. FDA & ISO certified protection for pharmaceutical, textile, and electronic exports.",
+      "A solution-led portal for silica gel products, industry applications, RFQs, compliance documents, and desiccant-planning tools.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Industrial Silica Gel Leader",
+    title: "SilacaGEL | Industrial Moisture-Control Solutions Portal",
     description:
-      "Elite moisture protection for world-class cargo. FDA & ISO 9001 certified desiccant manufacturing.",
+      "Source silica gel products, technical library access, RFQs, and engineering tools from a corporate solution portal.",
   },
 };
 
@@ -60,7 +60,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }

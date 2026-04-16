@@ -1,10 +1,11 @@
 import Link from "next/link";
+import { CircleHelp, ClipboardList, Cog, Film } from "lucide-react";
+import type { ReactNode } from "react";
 import styles from "./bento-grid.module.css";
-import { Reveal } from "./reveal";
 
 interface BentoItemProps {
   href: string;
-  icon: string;
+  icon: ReactNode;
   title: string;
   description: string;
   linkText: string;
@@ -25,36 +26,36 @@ const BentoItem = ({ href, icon, title, description, linkText, className = "" }:
 export const BentoGrid = () => {
   return (
     <section className={styles.bentoContainer}>
-      <BentoItem 
+      <BentoItem
         href="/dispensers"
-        icon="⚙️"
+        icon={<Cog size={28} strokeWidth={1.8} />}
         title="Industrial Dispensers"
         description="DT-1200 & DT-1500 high-speed automated machinery engineered for pharma and food-grade desiccant deployment."
-        linkText="View Automation Catalog →"
+        linkText="View Automation Catalog ->"
         className={styles.large}
       />
-      <BentoItem 
+      <BentoItem
         href="/documents"
-        icon="📋"
+        icon={<ClipboardList size={28} strokeWidth={1.8} />}
         title="Compliance & Standards"
         description="Access full FDA, ISO 9001, and REACH documentation for global procurement."
         linkText="Get Documents"
         className={styles.standard}
       />
-      <BentoItem 
+      <BentoItem
         href="/faq"
-        icon="❓"
+        icon={<CircleHelp size={28} strokeWidth={1.8} />}
         title="Technical Expert FAQ"
         description="Chemistry and logistics questions answered by industrial experts."
         linkText="Read FAQ"
         className={styles.standard}
       />
-      <BentoItem 
+      <BentoItem
         href="/videos"
-        icon="🎬"
+        icon={<Film size={28} strokeWidth={1.8} />}
         title="Technical Demonstration Vault"
         description="9 in-depth scientific demonstrations covering adsorption capacity and maritime deployment."
-        linkText="Watch Video Demos →"
+        linkText="Watch Video Demos ->"
         className={styles.wide}
       />
     </section>
