@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -16,6 +16,7 @@ import { IndustrySlider } from "@/components/industry-slider";
 import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
 import { MoistureCalculator } from "@/components/moisture-calculator";
+import { ProductImageScroll } from "@/components/product-image-scroll";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -118,21 +119,6 @@ const trustSignalsArray = [
     label: "Materials",
   },
 ];
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } },
-};
 
 const announcementItems = [
   "WORLDWIDE INDUSTRIAL SILICA GEL SUPPLY NOW LIVE",
@@ -364,38 +350,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <motion.div 
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className={styles.productGrid}
-              >
-                {productCatalog.map((product) => (
-                  <motion.article key={product.slug} variants={itemVariants} className={styles.productCard}>
-                    <div className={styles.productImage}>
-                      <Image
-                        src={product.heroImage}
-                        alt={product.name}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 30vw"
-                      />
-                    </div>
-                    <div className={styles.productCopy}>
-                      <p>{product.eyebrow}</p>
-                      <h3>{product.name}</h3>
-                      <p className={styles.productUseCase}>
-                        {product.useCaseLine ?? product.summary}
-                      </p>
-                      <span>{product.priceBand}</span>
-                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        View Product Data
-                      </Link>
-                    </div>
-                  </motion.article>
-                ))}
-              </motion.div>
+              <ProductImageScroll products={productCatalog} />
             </section>
           </Reveal>
 

@@ -1,0 +1,289 @@
+.wrapper {
+  position: relative;
+}
+
+.desktopLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 0.95fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.copyRail {
+  position: relative;
+}
+
+.copySticky {
+  position: sticky;
+  top: 112px;
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 28px;
+}
+
+.progressTrack {
+  position: relative;
+  width: 2px;
+  background: rgba(37, 99, 235, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  position: absolute;
+  inset: 0;
+  transform-origin: top;
+  background: linear-gradient(180deg, #2563eb 0%, #93c5fd 100%);
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-right: 8px;
+}
+
+.stepCard {
+  min-height: 72vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 26px 30px;
+  border-radius: 30px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+}
+
+.activeStep {
+  transform: translateX(10px);
+  border-color: rgba(37, 99, 235, 0.26);
+  box-shadow: 0 28px 60px -28px rgba(37, 99, 235, 0.28);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.stepIndex {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  color: rgba(37, 99, 235, 0.52);
+}
+
+.stepEyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.stepCard h3 {
+  margin: 0;
+  font-size: clamp(2.1rem, 4vw, 3.25rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+
+.stepSummary {
+  max-width: 34ch;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: #475569;
+}
+
+.stepPrice {
+  font-size: 0.94rem;
+  color: #0f172a;
+}
+
+.stepMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stepMeta span {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+.stepLink {
+  display: inline-flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: rgba(255, 255, 255, 0.84);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.stepLink:hover {
+  background: #eff6ff;
+  border-color: rgba(37, 99, 235, 0.2);
+  transform: translateY(-2px);
+}
+
+.visualRail {
+  position: relative;
+}
+
+.visualSticky {
+  position: sticky;
+  top: 112px;
+}
+
+.visualStage {
+  position: relative;
+  min-height: 78vh;
+  border-radius: 38px;
+  padding: 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(240, 246, 255, 0.72)),
+    radial-gradient(circle at top right, rgba(147, 197, 253, 0.28), transparent 38%);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  box-shadow: 0 30px 80px -36px rgba(37, 99, 235, 0.24);
+}
+
+.visualCard {
+  position: absolute;
+  inset: 20px;
+  opacity: 0;
+  transform: translateY(36px) scale(0.96);
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease;
+  pointer-events: none;
+}
+
+.visualCardActive {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.visualImageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #e2e8f0;
+}
+
+.visualImage {
+  object-fit: cover;
+}
+
+.visualOverlay {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: 34px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px 24px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.visualOverlay p {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2563eb;
+}
+
+.visualOverlay h3 {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1.05;
+  color: #0f172a;
+}
+
+.visualOverlay span {
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+.mobileGrid {
+  display: none;
+}
+
+@media (max-width: 980px) {
+  .desktopLayout {
+    display: none;
+  }
+
+  .mobileGrid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .mobileCard {
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.86);
+    border: 1px solid rgba(148, 163, 184, 0.16);
+    box-shadow: 0 24px 60px -34px rgba(37, 99, 235, 0.18);
+  }
+
+  .mobileImageWrap {
+    position: relative;
+    height: 280px;
+  }
+
+  .mobileCopy {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px;
+  }
+
+  .mobileCopy p:first-child {
+    margin: 0;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #2563eb;
+  }
+
+  .mobileCopy h3 {
+    margin: 0;
+    font-size: 1.7rem;
+    line-height: 1.1;
+    color: #0f172a;
+  }
+
+  .mobileCopy p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+  }
+}
