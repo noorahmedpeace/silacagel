@@ -372,11 +372,12 @@
 
 .productGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 32px;
 }
 
 .productCard {
+  grid-column: span 4;
   background: var(--surface);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -385,6 +386,10 @@
   overflow: hidden;
   box-shadow: 0 10px 40px -10px rgba(0,0,0,0.04);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.productCardFeatured {
+  grid-column: span 6;
 }
 
 .productCard:hover {
@@ -440,7 +445,28 @@
   font-weight: 800;
   font-size: 1rem;
   color: var(--ink);
-  margin-bottom: 32px;
+  margin-bottom: 18px;
+}
+
+.productMetaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.productMetaRow small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent);
 }
 
 .productLink {
@@ -1190,6 +1216,15 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
+
+  .productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .productCard,
+  .productCardFeatured {
+    grid-column: span 1;
+  }
   
   .heroVisual {
     height: auto;
@@ -1222,6 +1257,11 @@
   .quoteStage, .pricingSection {
     padding: 40px 24px;
     border-radius: 24px;
+  }
+
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
