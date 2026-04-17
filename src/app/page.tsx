@@ -119,6 +119,13 @@ const trustSignalsArray = [
   },
 ];
 
+const homepageProductImages: Record<string, string> = {
+  "retail-sachets": "/products/white-pack-duo.jpeg",
+  "paper-sachets": "/products/kraft-grid.jpeg",
+  "bulk-industrial": "/silicagel_bulk_enterprise.png",
+  "container-strips": "/silicagel_cargo_strips.png",
+};
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -453,7 +460,7 @@ export default function Home() {
                   >
                     <div className={styles.productImage}>
                       <Image
-                        src={product.heroImage}
+                        src={homepageProductImages[product.slug] ?? product.heroImage}
                         alt={product.name}
                         fill
                         className={styles.image}
