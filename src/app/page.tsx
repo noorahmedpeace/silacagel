@@ -126,6 +126,13 @@ const homepageProductImages: Record<string, string> = {
   "container-strips": "/products/generated-cargo-strips.png",
 };
 
+const homepageProductImageClasses: Record<string, string> = {
+  "retail-sachets": "imagePackShot",
+  "paper-sachets": "imagePackShot",
+  "bulk-industrial": "imagePackShot",
+  "container-strips": "imageCargoShot",
+};
+
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -463,7 +470,7 @@ export default function Home() {
                         src={homepageProductImages[product.slug] ?? product.heroImage}
                         alt={product.name}
                         fill
-                        className={styles.image}
+                        className={`${styles.image} ${styles[homepageProductImageClasses[product.slug]] ?? ""}`}
                         sizes="(max-width: 1100px) 100vw, 30vw"
                         priority={index === 0}
                       />
