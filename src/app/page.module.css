@@ -589,29 +589,54 @@
 
 /* PRICING & CALCULATOR */
 .pricingSection {
-  padding: 100px 60px;
-  background: var(--surface);
+  padding: 88px 56px;
+  background:
+    radial-gradient(circle at top left, rgba(147, 197, 253, 0.18), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.54));
   border-radius: 40px;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 28px 60px -42px rgba(15, 23, 42, 0.2);
+}
+
+.pricingHighlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: -18px 0 34px;
+}
+
+.pricingHighlightChip {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 14px 28px -24px rgba(15, 23, 42, 0.18);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
 }
 
 .pricingLayout {
   display: grid;
-  grid-template-columns: 1.4fr 1.6fr;
-  gap: 80px;
+  grid-template-columns: 1.02fr 1.18fr;
+  gap: 36px;
+  align-items: start;
 }
 
 .priceGrid {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .priceCard {
   position: relative;
   overflow: hidden;
-  padding: 28px 30px;
+  padding: 24px 22px;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(148, 163, 184, 0.16);
   box-shadow: 0 20px 44px -28px rgba(15, 23, 42, 0.16);
 }
@@ -625,8 +650,8 @@
 }
 
 .priceCard h3 {
-  font-size: 1.5rem;
-  margin-bottom: 16px;
+  font-size: 1.32rem;
+  margin-bottom: 14px;
   color: var(--ink);
 }
 
@@ -642,16 +667,16 @@
 .priceList {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .priceRow {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
+  padding-bottom: 10px;
   border-bottom: 1px solid var(--glass-border);
-  font-size: 1.1rem;
+  font-size: 0.96rem;
 }
 
 .priceRow strong {
@@ -663,27 +688,34 @@
   color: var(--muted);
 }
 
+.priceCardFoot {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
 .calculatorPanel {
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  padding: 50px;
+  padding: 38px 36px;
   border-radius: 32px;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--glass-border);
+  border: 1px solid rgba(148, 163, 184, 0.16);
   animation: panelFloat 6s ease-in-out infinite;
 }
 
 .calculatorHint {
-  font-size: 1.75rem;
+  font-size: 1.55rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .calculatorSubHint {
-  font-size: 1rem;
+  font-size: 0.98rem;
   color: var(--muted);
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 /* PROOF & TRUST */
@@ -1359,6 +1391,10 @@
     padding: 56px 28px;
   }
 
+  .priceGrid {
+    grid-template-columns: 1fr;
+  }
+
   .productGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1406,6 +1442,10 @@
   .quoteStage, .pricingSection {
     padding: 40px 24px;
     border-radius: 24px;
+  }
+
+  .pricingHighlights {
+    margin-top: -8px;
   }
 
   .productSection {

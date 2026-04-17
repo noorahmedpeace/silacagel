@@ -143,6 +143,12 @@ const containerVariants: Variants = {
   },
 };
 
+const pricingHighlights = [
+  "Reference PKR pricing for planning",
+  "Bulk contracts quoted separately",
+  "Calculator stays on-page for speed",
+];
+
 const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: {
@@ -498,12 +504,20 @@ export default function Home() {
           <Reveal direction="up" delay={0.4}>
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Direct PKR Pricing</p>
-                <h2>Transparent reference rates with bulk leverage.</h2>
+                <p className={styles.kicker}>Pricing & Estimator</p>
+                <h2>Quick reference pricing without making the page feel heavy.</h2>
                 <p>
-                  We provide direct factory pricing in PKR to eliminate sourcing friction. 
-                  Large industrial volumes and repeat contracts are eligible for custom quotes.
+                  Keep planning on one page. Use these reference ranges for fast comparison,
+                  then calculate your likely subtotal instantly before requesting a final quote.
                 </p>
+              </div>
+
+              <div className={styles.pricingHighlights}>
+                {pricingHighlights.map((item) => (
+                  <span key={item} className={styles.pricingHighlightChip}>
+                    {item}
+                  </span>
+                ))}
               </div>
 
               <div className={styles.pricingLayout}>
@@ -521,13 +535,18 @@ export default function Home() {
                       <span className={styles.priceNote}>{group.note}</span>
                       <h3>{group.title}</h3>
                       <div className={styles.priceList}>
-                        {group.items.map((item) => (
+                        {group.items.slice(0, 4).map((item) => (
                           <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
                             <strong>{item.label}</strong>
                             <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
                           </div>
                         ))}
                       </div>
+                      <p className={styles.priceCardFoot}>
+                        {group.items.length > 4
+                          ? `+${group.items.length - 4} more sizes available in the calculator`
+                          : "Ready for direct quote confirmation"}
+                      </p>
                     </motion.article>
                   ))}
                 </div>
