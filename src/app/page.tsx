@@ -447,7 +447,7 @@ export default function Home() {
                   <motion.article
                     key={product.slug}
                     variants={itemVariants}
-                    className={`${styles.productCard} ${index === 0 ? styles.productCardFeatured : ""}`}
+                    className={`${styles.productCard} ${styles[`productCardSequence${index + 1}`]} ${index === 0 ? styles.productCardFeatured : ""}`}
                     whileHover={{ y: -14, scale: 1.01, rotateX: 1.5 }}
                     whileTap={{ scale: 0.99 }}
                   >
@@ -460,6 +460,10 @@ export default function Home() {
                         sizes="(max-width: 1100px) 100vw, 30vw"
                         priority={index === 0}
                       />
+                      <div className={styles.productImageOverlay}>
+                        <span>{product.shortName}</span>
+                        <strong>{product.featuredSizes.slice(0, 2).join(" / ")}</strong>
+                      </div>
                     </div>
                     <div className={styles.productCopy}>
                       <p>{product.eyebrow}</p>
