@@ -120,10 +120,10 @@ const trustSignalsArray = [
 ];
 
 const homepageProductImages: Record<string, string> = {
-  "retail-sachets": "/products/white-pack-duo.jpeg",
-  "paper-sachets": "/products/kraft-grid.jpeg",
-  "bulk-industrial": "/silicagel_bulk_enterprise.png",
-  "container-strips": "/silicagel_cargo_strips.png",
+  "retail-sachets": "/products/generated-white-sachets.png",
+  "paper-sachets": "/products/generated-kraft-sachets.png",
+  "bulk-industrial": "/products/generated-bulk-packs.png",
+  "container-strips": "/products/generated-cargo-strips.png",
 };
 
 const containerVariants: Variants = {
