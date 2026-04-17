@@ -389,6 +389,44 @@
   color: var(--ink);
 }
 
+.solutionGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.solutionCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 220px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  box-shadow: 0 20px 44px -30px rgba(15, 23, 42, 0.16);
+}
+
+.solutionIndex {
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.solutionCard h3 {
+  font-size: 1.35rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.solutionCard p {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 34ch;
+}
+
 .productSection {
   padding: 0;
 }
@@ -647,6 +685,105 @@
 /* PROOF & TRUST */
 .proofSection {
   padding: 0;
+}
+
+.applicationSection {
+  padding: 0;
+}
+
+.applicationTextGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.applicationTextCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.68);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -30px rgba(15, 23, 42, 0.16);
+}
+
+.applicationTextCard span {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.applicationTextCard h3 {
+  font-size: 1.3rem;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+
+.applicationTextCard p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.proofStage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.featuredProofCard {
+  background: #FFFCE8;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.proofColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.metricCard {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 20px;
+  background: rgba(255, 255, 255, 0.76);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  box-shadow: 0 16px 32px -26px rgba(15, 23, 42, 0.16);
+}
+
+.metricCard strong {
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.metricCard span {
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.proofBadgeGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .applicationCard {
@@ -1313,6 +1450,13 @@
     gap: 60px;
   }
 
+  .solutionGrid,
+  .applicationTextGrid,
+  .proofStage,
+  .metricGrid {
+    grid-template-columns: 1fr;
+  }
+
   .productGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1365,6 +1509,12 @@
   .productGrid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .solutionCard,
+  .applicationTextCard,
+  .featuredProofCard {
+    padding: 24px;
   }
 
   .productImage {

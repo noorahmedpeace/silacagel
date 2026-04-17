@@ -12,8 +12,6 @@ import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { Reveal } from "@/components/reveal";
 import { AmbientGlow } from "@/components/ambient-glow";
-import { IndustrySlider } from "@/components/industry-slider";
-import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
 import { MoistureCalculator } from "@/components/moisture-calculator";
 
@@ -37,7 +35,6 @@ import {
   ShieldCheck,
   Droplets,
   PackageCheck,
-  Star,
   Search,
   User,
   ShoppingBag,
@@ -50,13 +47,6 @@ import {
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./page.module.css";
-
-const visuals = {
-  warehouse: "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg",
-  cargo: "https://images.pexels.com/photos/34106182/pexels-photo-34106182.jpeg",
-  leather: "https://images.pexels.com/photos/2057484/pexels-photo-2057484.jpeg",
-  electronics: "https://images.pexels.com/photos/12741851/pexels-photo-12741851.jpeg",
-};
 
 const reasons = [
   {
@@ -77,22 +67,18 @@ const useCases = [
   {
     title: "Precision Electronics",
     text: "Safeguard circuit boards, instrumentation, and batteries from humidity-induced failure during storage and transit.",
-    image: visuals.electronics,
   },
   {
     title: "Premium Leather Goods",
     text: "Preserve the texture and finish of footwear and garments by eliminating humidity-related mold and discoloration.",
-    image: visuals.leather,
   },
   {
     title: "High-Volume Logistics",
     text: "Reduce moisture claims in export cargo with heavy-duty desiccants designed for long-haul maritime conditions.",
-    image: visuals.cargo,
   },
   {
     title: "Industrial Inventory",
     text: "Maintain warehouse stock quality with bulk formats that keep inventory rooms dry and dispatch-ready.",
-    image: visuals.warehouse,
   },
 ];
 
@@ -246,6 +232,12 @@ const testimonials = [
     initial: "PC",
     color: "#A78BFA" // Purple
   },
+];
+
+const proofMetrics = [
+  { value: "24h", label: "Quote response window" },
+  { value: "32%+", label: "Adsorption capacity target" },
+  { value: "5", label: "Core industrial sectors" },
 ];
 
 const currencyFormatter = new Intl.NumberFormat("en-PK", {
@@ -416,12 +408,28 @@ export default function Home() {
                 <p className={styles.kicker}>Industry Compatibility</p>
                 <h2>Engineered for sectors that prioritize consistency.</h2>
                 <p>
-                  SilacaGEL supports standard-setting industries with reliable, 
-                  high-absorption silica gel that meets the demands of modern packaging lines.
+                  We keep this section calmer on purpose. Start with the industry fit,
+                  then move into the detailed product pages only when you need the full story.
                 </p>
               </div>
 
-              <IndustrySlider industries={trustedIndustries} />
+              <div className={styles.solutionGrid}>
+                {trustedIndustries.map((industry, index) => (
+                  <motion.article
+                    key={industry.name}
+                    className={styles.solutionCard}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.06 }}
+                    whileHover={{ y: -6 }}
+                  >
+                    <span className={styles.solutionIndex}>0{index + 1}</span>
+                    <h3>{industry.name}</h3>
+                    <p>{industry.description}</p>
+                  </motion.article>
+                ))}
+              </div>
             </section>
           </Reveal>
 
@@ -567,34 +575,31 @@ export default function Home() {
           <Reveal direction="up">
             <section id="applications" className={styles.applicationSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Worldwide Deployment</p>
-                <h2>Proven protection across critical supply chains.</h2>
+                <p className={styles.kicker}>Deployment Snapshot</p>
+                <h2>Clear use-case guidance without another heavy image block.</h2>
+                <p>
+                  The homepage should guide fast. These quick summaries show where each format performs
+                  best before you open the detailed page.
+                </p>
               </div>
 
-              <EmblaCarousel options={{ align: "start", loop: true }}>
+              <div className={styles.applicationTextGrid}>
                 {useCases.map((item) => (
                   <motion.article
                     key={item.title}
-                    className={styles.applicationCard}
-                    whileHover={{ y: -10, scale: 1.015 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className={styles.applicationTextCard}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.45, ease: "easeOut" }}
+                    whileHover={{ y: -6 }}
                   >
-                    <div className={styles.applicationImage}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 33vw"
-                      />
-                    </div>
-                    <div className={styles.applicationCopy}>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
+                    <span>Use Case</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
                   </motion.article>
                 ))}
-              </EmblaCarousel>
+              </div>
             </section>
           </Reveal>
 
@@ -609,51 +614,64 @@ export default function Home() {
                 </p>
               </div>
 
-              <EmblaCarousel options={{ align: "start", loop: true }}>
-                {testimonials.map((item) => (
-                  <motion.article
-                    key={item.quote}
-                    className={styles.testimonialCard}
-                    whileHover={{ y: -10, rotate: -0.4 }}
-                    transition={{ duration: 0.28, ease: "easeOut" }}
-                  >
-                    <div className={styles.testimonialHeader}>
-                      <div 
-                        className={styles.testimonialAvatar} 
-                        style={{ backgroundColor: item.color }}
-                      >
-                        {item.initial}
-                      </div>
-                      <div className={styles.testimonialInfo}>
-                        <strong>{item.name}</strong>
-                        <span>{item.title}</span>
-                        <div className={styles.testimonialStars}>
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} fill="#FACC15" color="#FACC15" />
-                          ))}
-                        </div>
-                      </div>
+              <div className={styles.proofStage}>
+                <motion.article
+                  className={styles.featuredProofCard}
+                  initial={{ opacity: 0, y: 28 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.55, ease: "easeOut" }}
+                  whileHover={{ y: -6, rotate: -0.3 }}
+                >
+                  <div className={styles.testimonialHeader}>
+                    <div
+                      className={styles.testimonialAvatar}
+                      style={{ backgroundColor: testimonials[0].color }}
+                    >
+                      {testimonials[0].initial}
                     </div>
-                    <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
-                  </motion.article>
-                ))}
-              </EmblaCarousel>
+                    <div className={styles.testimonialInfo}>
+                      <strong>{testimonials[0].name}</strong>
+                      <span>{testimonials[0].title}</span>
+                    </div>
+                  </div>
+                  <p className={styles.testimonialQuote}>&ldquo;{testimonials[0].quote}&rdquo;</p>
+                </motion.article>
 
-              <div className={styles.logoStrip}>
-                {trustedIndustries.map((industry, index) => (
-                  <motion.span
-                    key={industry.name}
-                    custom={index}
-                    variants={logoChipVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-60px" }}
-                    whileHover={{ y: -4, scale: 1.04 }}
-                    className={styles.badgeChip}
-                  >
-                    {industry.name}
-                  </motion.span>
-                ))}
+                <div className={styles.proofColumn}>
+                  <div className={styles.metricGrid}>
+                    {proofMetrics.map((item, index) => (
+                      <motion.article
+                        key={item.label}
+                        className={styles.metricCard}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-80px" }}
+                        transition={{ duration: 0.45, ease: "easeOut", delay: index * 0.05 }}
+                      >
+                        <strong>{item.value}</strong>
+                        <span>{item.label}</span>
+                      </motion.article>
+                    ))}
+                  </div>
+
+                  <div className={styles.proofBadgeGroup}>
+                    {trustedIndustries.map((industry, index) => (
+                      <motion.span
+                        key={industry.name}
+                        custom={index}
+                        variants={logoChipVariants}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: "-60px" }}
+                        whileHover={{ y: -4, scale: 1.04 }}
+                        className={styles.badgeChip}
+                      >
+                        {industry.name}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </section>
           </Reveal>
