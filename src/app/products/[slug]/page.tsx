@@ -4,7 +4,12 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { displayPhone, getProductBySlug, productCatalog } from "@/lib/product-data";
+import {
+  displayPhone,
+  getProductBySlug,
+  productCatalog,
+  whatsappNumber,
+} from "@/lib/product-data";
 import styles from "./product.module.css";
 
 type ProductPageProps = {
@@ -48,6 +53,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
+  const purchaseMessage = [
+    "Hello, I want to purchase SilacaGEL.",
+    `Product: ${product.name}`,
+    `Sizes: ${product.featuredSizes.join(", ")}`,
+    `Reference: ${product.priceBand}`,
+  ].join("\n");
+
   return (
     <div className={styles.page}>
       <div className={styles.shell}>
@@ -70,6 +82,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <h1>{product.name}</h1>
                 <p className={styles.summary}>{product.summary}</p>
                 <p className={styles.description}>{product.description}</p>
+
+                <div className={styles.heroActions}>
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(purchaseMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.primaryAction}
+                  >
+                    Purchase / Quote
+                  </a>
+                  <a href="#quote-form" className={styles.secondaryAction}>
+                    Send Requirement
+                  </a>
+                </div>
 
                 <div className={styles.statRow}>
                   <article>
@@ -137,7 +163,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </section>
 
           <Reveal>
-            <section className={styles.quoteSection}>
+            <section id="quote-form" className={styles.quoteSection}>
               <div className={styles.quoteCopy}>
                 <p className={styles.eyebrow}>Direct Quote Flow</p>
                 <h2>Send your requirement straight to WhatsApp.</h2>

@@ -431,8 +431,8 @@ export default function Home() {
                 <p className={styles.kicker}>Product Ecosystem</p>
                 <h2>Retail sachets, bulk packs, and cargo strips.</h2>
                 <p>
-                  Every packing format is calibrated for a specific moisture-risk profile. 
-                  Choose the category that matches your supply requirements.
+                  Start with the right format. Open any category for complete sizing,
+                  application detail, and direct purchase support.
                 </p>
               </div>
 
@@ -462,7 +462,7 @@ export default function Home() {
                       />
                       <div className={styles.productImageOverlay}>
                         <span>{product.shortName}</span>
-                        <strong>{product.featuredSizes.slice(0, 2).join(" / ")}</strong>
+                        <strong>{product.featuredSizes[0]}</strong>
                       </div>
                     </div>
                     <div className={styles.productCopy}>
@@ -471,14 +471,8 @@ export default function Home() {
                       <p className={styles.productUseCase}>
                         {product.useCaseLine ?? product.summary}
                       </p>
-                      <span>{product.priceBand}</span>
-                      <div className={styles.productMetaRow}>
-                        {product.featuredSizes.slice(0, 3).map((size) => (
-                          <small key={`${product.slug}-${size}`}>{size}</small>
-                        ))}
-                      </div>
                       <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        View Product Data
+                        View More
                       </Link>
                     </div>
                   </motion.article>
