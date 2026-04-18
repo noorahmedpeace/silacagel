@@ -32,8 +32,8 @@ export function HeroBackgroundVideo({
       return;
     }
 
-    video.defaultPlaybackRate = 0.72;
-    video.playbackRate = 0.72;
+    video.defaultPlaybackRate = 0.68;
+    video.playbackRate = 0.68;
 
     const tryPlay = () => {
       void video.play().catch(() => {

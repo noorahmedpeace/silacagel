@@ -316,7 +316,7 @@ export default function Home() {
 
       <div className={styles.shell} ref={heroRef}>
         <header className={styles.header}>
-          <a className={styles.brand} href="#top" aria-label="SilacaGEL home">
+          <Link className={styles.brand} href="/" aria-label="SilacaGEL home">
             <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.brandLogo}>
               <text x="0" y="30" fontFamily="var(--font-body), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="var(--ink)" letterSpacing="-0.03em">
                 Silaca<tspan fill="#2563EB">GEL</tspan>
@@ -325,15 +325,15 @@ export default function Home() {
               <circle cx="152" cy="10" r="2" fill="#F97316" opacity="0.7" />
               <circle cx="161" cy="10" r="1" fill="#F97316" opacity="0.4" />
             </svg>
-          </a>
+          </Link>
 
           <nav className={styles.nav} aria-label="Primary">
             <div className={styles.navItem}>
-              <a href="#products">Products</a>
+              <Link href="/products">Products</Link>
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
-              <a href="#pricing">Bulk Sales</a>
+              <Link href="/bulk-sales">Bulk Sales</Link>
               <ChevronDown size={14} className={styles.navChevron} />
             </div>
             <div className={styles.navItem}>
