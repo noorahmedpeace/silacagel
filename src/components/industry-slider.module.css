@@ -1,10 +1,10 @@
 .container {
   display: flex;
-  background: var(--surface-elevated);
-  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 247, 251, 0.78));
+  border-radius: 36px;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  box-shadow: 0 34px 70px -42px rgba(13, 27, 42, 0.24);
   min-height: 600px;
   position: relative;
 }
@@ -27,7 +27,7 @@
 
 .contentSection {
   flex: 1;
-  padding: 80px 80px;
+  padding: 82px 74px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,11 +51,12 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.9rem;
+  font-weight: 900;
   line-height: 1.1;
   color: var(--ink);
   margin-bottom: 24px;
+  letter-spacing: -0.04em;
 }
 
 .description {
@@ -68,10 +69,10 @@
 .viewAllBtn {
   display: inline-flex;
   padding: 16px 32px;
-  background: var(--ink);
-  color: var(--bg);
+  background: var(--cta-gradient);
+  color: white;
   border-radius: 999px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
   cursor: pointer;
@@ -111,9 +112,9 @@
 }
 
 .dotActive {
-  background: var(--ink);
-  color: var(--bg);
-  border-color: var(--ink);
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
   transform: scale(1.1);
 }
 

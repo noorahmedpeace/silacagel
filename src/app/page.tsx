@@ -58,38 +58,38 @@ const visuals = {
 
 const reasons = [
   {
-    title: "High-Speed Adsorption",
-    text: "Our premium-grade silica gel captures moisture instantly, preventing corrosion, mold, and odor in confined packaging.",
+    title: "Fast humidity capture",
+    text: "Adsorption starts quickly inside packed cartons, helping reduce moisture build-up before it becomes product damage.",
   },
   {
-    title: "Triple-Seal Integrity",
-    text: "Sachets are built with medical-grade paper to ensure zero leakage while maintaining maximum moisture breathability.",
+    title: "Cleaner packet construction",
+    text: "Breathable paper sachets are prepared for tidy insertion, cleaner handling, and dependable use across packaging lines.",
   },
   {
-    title: "Industrial Scalability",
-    text: "Whether you need 0.5g retail packs or 1kg container strips, our factory line supports high-volume, repeat supply.",
+    title: "Supply that scales",
+    text: "From small sachets to container formats, the range supports repeat bulk buying without changing vendors every cycle.",
   },
 ];
 
 const useCases = [
   {
-    title: "Precision Electronics",
-    text: "Safeguard circuit boards, instrumentation, and batteries from humidity-induced failure during storage and transit.",
+    title: "Electronics packaging",
+    text: "Helps protect boards, batteries, and delicate assemblies from humidity during storage and shipment.",
     image: visuals.electronics,
   },
   {
-    title: "Premium Leather Goods",
-    text: "Preserve the texture and finish of footwear and garments by eliminating humidity-related mold and discoloration.",
+    title: "Leather and footwear",
+    text: "Reduces mold risk and protects finish quality in shoes, garments, and stored leather stock.",
     image: visuals.leather,
   },
   {
-    title: "High-Volume Logistics",
-    text: "Reduce moisture claims in export cargo with heavy-duty desiccants designed for long-haul maritime conditions.",
+    title: "Export logistics",
+    text: "Supports long-haul dispatch where cartons, pallets, and containers face humidity swings in transit.",
     image: visuals.cargo,
   },
   {
-    title: "Industrial Inventory",
-    text: "Maintain warehouse stock quality with bulk formats that keep inventory rooms dry and dispatch-ready.",
+    title: "Warehouse inventory",
+    text: "Keeps stored goods drier and dispatch-ready across shelves, stock rooms, and bulk holding spaces.",
     image: visuals.warehouse,
   },
 ];
@@ -97,25 +97,25 @@ const useCases = [
 const trustSignalsArray = [
   {
     icon: PackageCheck,
-    title: "0.5g to 1kg formats",
+    title: "0.5g to 1kg supply range",
     label: "Formats",
   },
   {
     icon: Globe,
-    title: "PKR quotes for bulk orders",
-    label: "Pricing",
+    title: "Bulk quotes for Pakistan buyers",
+    label: "Quoting",
   },
   {
     icon: ShieldCheck,
-    title: "Docs available on request",
+    title: "Technical docs on request",
     label: "Documents",
   },
 ];
 
 const heroHighlights = [
-  "Paper sachets",
-  "Bulk packs",
-  "Container strips",
+  "Dispatch-ready sachets",
+  "Warehouse moisture control",
+  "Container protection",
 ];
 const homepageProductImages: Record<string, string> = {
   "retail-sachets": "/products/generated-white-sachets.png",
@@ -143,8 +143,8 @@ const containerVariants: Variants = {
 
 const pricingHighlights = [
   "Reference PKR pricing for planning",
+  "Calculator stays visible on-page",
   "Bulk contracts quoted separately",
-  "Calculator stays on-page for speed",
 ];
 
 const itemVariants: Variants = {
@@ -235,27 +235,27 @@ const trustedIndustries = [
 const testimonials = [
   {
     quote:
-      "We needed consistent sachet sizes for export cartons and faster quote turnaround. SilacaGEL made the order process much easier for repeat dispatches.",
-    name: "Footwear Export Buyer",
-    title: "Repeat sachet orders",
+      "We needed repeatable sachet sizes for export cartons and a faster quote path. The product range felt much easier to understand.",
+    name: "Footwear exporter",
+    title: "Repeat dispatch buying",
     initial: "FB",
-    color: "#FACC15" // Yellowish to match the screenshot vibe
+    color: "#CDAA6B"
   },
   {
     quote:
-      "The calculator and product breakdown helped our team estimate container strip requirements before requesting the final quotation.",
-    name: "Electronics Logistics Team",
-    title: "Container moisture planning",
+      "The calculator and product breakdown helped our team estimate container requirements before we asked for a final quotation.",
+    name: "Electronics logistics team",
+    title: "Container planning",
     initial: "EL",
-    color: "#60A5FA" // Light blue
+    color: "#3D6D8F"
   },
   {
     quote:
-      "For warehouse stock and outbound shipments, it helped to see unit sizes, bulk formats, and direct contact options on one page instead of hunting around.",
-    name: "Industrial Warehouse Partner",
-    title: "Bulk and dispatch support",
+      "For warehouse stock and outbound shipments, it helped to see formats, guidance, and contact options in one place instead of hunting around.",
+    name: "Warehouse operations partner",
+    title: "Bulk support",
     initial: "IW",
-    color: "#A78BFA" // Purple
+    color: "#4E5F78"
   },
 ];
 
@@ -352,13 +352,13 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Silica gel for export packaging
+                Silica gel supply for serious packaging teams
               </span>
               <h1>
-                {splitTextToSpans("Moisture control that looks as precise as it performs.")}
+                {splitTextToSpans("A sharper, calmer way to buy industrial silica gel.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Premium sachets, bulk packs, and container strips for buyers who want dependable adsorption, cleaner presentation, and faster quote flow.
+                Built for cartons, warehouse stock, and export dispatch. Browse the range, estimate volume, and move to quote without digging through clutter.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -421,8 +421,8 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.heroStillBadge}>
-                    <span>Performance</span>
-                    <strong>32%+ adsorption capacity</strong>
+                    <span>Supply Range</span>
+                    <strong>Retail sachets, bulk packs, and container formats</strong>
                   </div>
                   <div className={styles.heroStillBeads}>
                     <Image
@@ -448,8 +448,8 @@ export default function Home() {
                     />
                   </motion.div>
                   <div className={styles.heroStillCallout}>
-                    <span>Use Cases</span>
-                    <strong>Pharma, electronics, leather, and export cargo</strong>
+                    <span>Best For</span>
+                    <strong>Electronics, leather, warehouse stock, and export packing</strong>
                   </div>
                   <div className={styles.heroStillSpecs}>
                     {heroHighlights.map((item) => (
@@ -462,28 +462,12 @@ export default function Home() {
           </section>
 
           <Reveal direction="up">
-            <section className={styles.partnerSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Industry Compatibility</p>
-                <h2>Engineered for sectors that prioritize consistency.</h2>
-                <p>
-                  SilacaGEL supports moisture-sensitive industries with reliable
-                  silica gel formats for packaging lines, warehouse storage, and export dispatch.
-                </p>
-              </div>
-
-              <IndustrySlider industries={trustedIndustries} />
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
             <section id="products" className={styles.productSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Product Ecosystem</p>
-                <h2>Retail sachets, bulk packs, and cargo strips.</h2>
+                <p className={styles.kicker}>Product Line</p>
+                <h2>Choose the format first. Everything else gets easier.</h2>
                 <p>
-                  Start with the right format. Open any category for complete sizing,
-                  application detail, and direct purchase support.
+                  Each range is presented as a clearer buying lane, so a visitor can move from browsing to shortlisting without the page feeling noisy.
                 </p>
               </div>
 
@@ -536,10 +520,9 @@ export default function Home() {
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Pricing & Estimator</p>
-                <h2>Reference pricing and a faster way to estimate quantity.</h2>
+                <h2>Plan quickly, then request the real quote with context.</h2>
                 <p>
-                  Use these PKR ranges for quick planning, then estimate your likely subtotal
-                  before requesting a final quote from the team.
+                  Use the visible PKR references for early planning, then estimate likely quantity before speaking to sales.
                 </p>
               </div>
 
@@ -605,8 +588,8 @@ export default function Home() {
           <Reveal direction="up">
             <section id="why" className={styles.whySection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Technical Advantage</p>
-                <h2>Reliable desiccant performance starts with the right format.</h2>
+                <p className={styles.kicker}>Why It Works</p>
+                <h2>A calmer interface, but still built around practical buying logic.</h2>
               </div>
 
               <div className={styles.reasonGrid}>
@@ -629,10 +612,24 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
+            <section className={styles.partnerSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Industry Compatibility</p>
+                <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
+                <p>
+                  The flow now introduces industries after the product and pricing layers, so the story feels grounded before it gets aspirational.
+                </p>
+              </div>
+
+              <IndustrySlider industries={trustedIndustries} />
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
             <section id="applications" className={styles.applicationSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Worldwide Deployment</p>
-                <h2>Proven protection across critical supply chains.</h2>
+                <p className={styles.kicker}>Applications</p>
+                <h2>Use cases that explain the product without sounding theatrical.</h2>
               </div>
 
               <EmblaCarousel options={{ align: "start", loop: true }}>
@@ -665,11 +662,10 @@ export default function Home() {
           <Reveal direction="up">
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Global Compliance</p>
-                <h2>Built for procurement teams that need clarity.</h2>
+                <p className={styles.kicker}>Buyer Confidence</p>
+                <h2>Proof points, operational notes, and the trust layer buyers look for.</h2>
                 <p>
-                  Review the product mix, materials, and buyer-facing information before you request
-                  documentation or a formal quotation.
+                  Instead of generic hype, this section leans on procurement comfort: industries served, practical feedback, and visible compliance language.
                 </p>
               </div>
 
@@ -722,18 +718,17 @@ export default function Home() {
             </section>
           </Reveal>
 
-          {/* ── CERTIFICATIONS TRUST STRIP ── */}
           <Reveal direction="up">
             <section className={styles.certStrip}>
-              <p className={styles.certStripLabel}>Globally Certified & Trusted</p>
+              <p className={styles.certStripLabel}>Compliance Snapshot</p>
               <div className={styles.certStripRow}>
                 {[
-                  { icon: "🏛️", label: "FDA 21 CFR 177.1520" },
-                  { icon: "📋", label: "FDA 21 CFR 176.170" },
-                  { icon: "🌐", label: "ISO 9001 / 14001" },
-                  { icon: "🔬", label: "FSSC 22000" },
-                  { icon: "♻️", label: "RoHS / REACH" },
-                  { icon: "✅", label: "100% DMF Free" },
+                  { icon: "01", label: "FDA 21 CFR 177.1520" },
+                  { icon: "02", label: "FDA 21 CFR 176.170" },
+                  { icon: "03", label: "ISO 9001 / 14001" },
+                  { icon: "04", label: "FSSC 22000" },
+                  { icon: "05", label: "RoHS / REACH" },
+                  { icon: "06", label: "100% DMF Free" },
                 ].map((c, index) => (
                   <motion.div
                     key={c.label}
@@ -761,19 +756,18 @@ export default function Home() {
             <MoistureCalculator />
           </Reveal>
 
-          {/* ── CTA BANNER ── */}
           <Reveal direction="up">
             <section className={styles.ctaBanner}>
               <div className={styles.ctaBannerContent}>
-                <p className={styles.kicker}>Global Procurement</p>
-                <h2>Ready to request your next order?</h2>
-                <p>Connect with the team for bulk orders, container requirements, and product guidance with a response target within 24 hours.</p>
+                <p className={styles.kicker}>Request Quote</p>
+                <h2>Ready to turn this into a proper buying page?</h2>
+                <p>Use the product pages, calculators, and contact flow as the practical layer. The new visual system does the rest of the persuasion.</p>
                 <div className={styles.ctaBannerActions}>
                   <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link href="/contact" className={styles.primaryCta}>Request Quote -&gt;</Link>
+                    <Link href="/contact" className={styles.primaryCta}>Request Quote</Link>
                   </motion.div>
                   <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
-                    <Link href="/about" className={styles.secondaryCta}>About SilacaGEL</Link>
+                    <Link href="/products" className={styles.secondaryCta}>Browse Products</Link>
                   </motion.div>
                 </div>
               </div>
@@ -785,9 +779,9 @@ export default function Home() {
         <footer id="contact" className={styles.footer}>
           <div className={styles.footerCopy}>
             <p className={styles.kicker}>Contact and Orders</p>
-            <h2>Silica gel supply for cartons, containers, and warehouse stock.</h2>
+            <h2>Silica gel supply that feels clearer, calmer, and easier to buy.</h2>
             <p>
-              Contact us for product selection, bulk pricing, and dispatch support for local and export orders.
+              Contact us for format selection, bulk pricing, and dispatch support for local and export orders.
             </p>
             <div style={{ display: "flex", gap: "16px", marginTop: "24px", flexWrap: "wrap" }}>
               <Link href="/contact" className={styles.primaryCta}>Get a Quote</Link>
@@ -810,7 +804,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           className={styles.whatsAppFloat}
-          aria-label="Connect with Enterprise Management"
+          aria-label="Request a WhatsApp quote"
         >
           WhatsApp Quote
         </a>
