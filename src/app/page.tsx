@@ -8,7 +8,6 @@ import { motion, Variants } from "framer-motion";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { HeroBackgroundVideo } from "@/components/hero-background-video";
 import { PriceCalculator } from "@/components/price-calculator";
 import { Reveal } from "@/components/reveal";
 import { AmbientGlow } from "@/components/ambient-glow";
@@ -99,24 +98,30 @@ const useCases = [
 const trustSignalsArray = [
   {
     icon: Globe,
-    title: "Worldwide Maritime Support",
-    label: "Logistics Hub",
+    title: "Pakistan, India, and export supply",
+    label: "Delivery Reach",
   },
   {
     icon: ShieldCheck,
-    title: "International ISO / RoHS",
-    label: "Compliance",
+    title: "Documents and compliance support",
+    label: "Buyer Ready",
   },
   {
     icon: Droplets,
     title: "32%+ Adsorption Capacity",
-    label: "Protection",
+    label: "Performance",
   },
   {
     icon: PackageCheck,
-    title: "Tyvek® & Technical Bond",
-    label: "Materials",
+    title: "Tyvek, paper, and bulk formats",
+    label: "Packaging",
   },
+];
+
+const heroHighlights = [
+  "Sachets from 0.5g to 20g",
+  "Bulk packs up to 500g",
+  "1 kg cargo strips for containers",
 ];
 
 const homepageProductImages: Record<string, string> = {
@@ -207,10 +212,10 @@ const certPillVariants: Variants = {
 };
 
 const announcementItems = [
-  "WORLDWIDE INDUSTRIAL SILICA GEL SUPPLY NOW LIVE",
-  "BULK EXPORT CONTRACTS & MARITIME LOGISTICS SUPPORT",
-  "TECHNICAL SPECIFICATIONS & GLOBAL COMPLIANCE READY",
-  "DIRECT WHATSAPP MANAGEMENT FOR INTERNATIONAL PROCUREMENT",
+  "FACTORY-DIRECT SILICA GEL SACHETS, BULK PACKS, AND CARGO STRIPS",
+  "PKR PRICING, BULK QUOTES, AND EXPORT SUPPORT",
+  "PRODUCT DOCUMENTS AND BUYER-READY SPECIFICATIONS AVAILABLE",
+  "DIRECT WHATSAPP QUOTES FOR FAST ORDER PLANNING",
 ];
 
 const trustedIndustries = [
@@ -244,26 +249,26 @@ const trustedIndustries = [
 const testimonials = [
   {
     quote:
-      "There are so many great things about SilacaGEL. The most important to us is the consistency of the moisture thresholds during transit. Also, I love the ability to bulk order via their WhatsApp channel effortlessly.",
-    name: "Caroline Tremblay",
-    title: "Head of Procurement, Global Footwear",
-    initial: "CT",
+      "We needed consistent sachet sizes for export cartons and faster quote turnaround. SilacaGEL made the order process much easier for repeat dispatches.",
+    name: "Footwear Export Buyer",
+    title: "Repeat sachet orders",
+    initial: "FB",
     color: "#FACC15" // Yellowish to match the screenshot vibe
   },
   {
     quote:
-      "I had a recent engagement with their support around bulk container strips. Unlike other suppliers, they ran down the exact mathematics for the cubic volume of our containers to ensure we bought the right amount.",
-    name: "Russ Fordyce",
-    title: "Logistics Manager, Electronics Export",
-    initial: "RF",
+      "The calculator and product breakdown helped our team estimate container strip requirements before requesting the final quotation.",
+    name: "Electronics Logistics Team",
+    title: "Container moisture planning",
+    initial: "EL",
     color: "#60A5FA" // Light blue
   },
   {
     quote:
-      "Being a new company, we cannot afford inventory loss due to oceanic moisture. SilacaGEL's features were essential to our purpose, from retail sachets to heavy-duty maritime transport.",
-    name: "Paolo Carner",
-    title: "Warehouse Director, Industrial Parts",
-    initial: "PC",
+      "For warehouse stock and outbound shipments, it helped to see unit sizes, bulk formats, and direct contact options on one page instead of hunting around.",
+    name: "Industrial Warehouse Partner",
+    title: "Bulk and dispatch support",
+    initial: "IW",
     color: "#A78BFA" // Purple
   },
 ];
@@ -369,13 +374,13 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                99.9% Moisture Elimination
+                Factory-direct silica gel supply
               </span>
               <h1>
-                {splitTextToSpans("Zero-Fail Protection for Million-Dollar Assets.")}
+                {splitTextToSpans("Moisture protection for packaging, storage, and export.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Industrial supply chains do not compromise. Our high-adsorption polymers secure international maritime, pharmaceutical, and technical inventory against catastrophic climate variance.
+                SilacaGEL supplies silica gel sachets, bulk packs, and container strips for pharma, electronics, leather, food packaging, and industrial shipments.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -385,7 +390,7 @@ export default function Home() {
                   whileHover={{ y: -4, scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Secure Your Supply Chain
+                  Get a Quote
                 </motion.a>
                 <motion.a
                   href="#products"
@@ -393,7 +398,7 @@ export default function Home() {
                   whileHover={{ y: -3, scale: 1.015 }}
                   whileTap={{ scale: 0.985 }}
                 >
-                  View Technical Data
+                  Browse Products
                 </motion.a>
               </div>
 
@@ -425,7 +430,32 @@ export default function Home() {
 
             <motion.div className={styles.heroVisual}>
               <div id="hero-product-image" className={styles.heroMediaFrame}>
-                <HeroBackgroundVideo src="/hero-cinematic.mp4" targetId="hero" />
+                <div className={styles.heroStillScene}>
+                  <div className={styles.heroStillGlow} />
+                  <div className={styles.heroStillBadge}>
+                    <span>Bulk Supply</span>
+                    <strong>Buyer-ready silica gel formats</strong>
+                  </div>
+                  <div className={styles.heroStillSpecs}>
+                    {heroHighlights.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                  <div className={styles.heroStillImageWrap}>
+                    <Image
+                      src="/hero-pharma.png"
+                      alt="Silica gel sachets and moisture control packaging"
+                      fill
+                      className={styles.heroStillImage}
+                      sizes="(max-width: 1100px) 100vw, 40vw"
+                      priority
+                    />
+                  </div>
+                  <div className={styles.heroStillCallout}>
+                    <span>Applications</span>
+                    <strong>Pharma, electronics, leather, and export cargo</strong>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </section>
@@ -436,8 +466,8 @@ export default function Home() {
                 <p className={styles.kicker}>Industry Compatibility</p>
                 <h2>Engineered for sectors that prioritize consistency.</h2>
                 <p>
-                  SilacaGEL supports standard-setting industries with reliable, 
-                  high-absorption silica gel that meets the demands of modern packaging lines.
+                  SilacaGEL supports moisture-sensitive industries with reliable
+                  silica gel formats for packaging lines, warehouse storage, and export dispatch.
                 </p>
               </div>
 
@@ -505,10 +535,10 @@ export default function Home() {
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Pricing & Estimator</p>
-                <h2>Quick reference pricing without making the page feel heavy.</h2>
+                <h2>Reference pricing and a faster way to estimate quantity.</h2>
                 <p>
-                  Keep planning on one page. Use these reference ranges for fast comparison,
-                  then calculate your likely subtotal instantly before requesting a final quote.
+                  Use these PKR ranges for quick planning, then estimate your likely subtotal
+                  before requesting a final quote from the team.
                 </p>
               </div>
 
@@ -575,7 +605,7 @@ export default function Home() {
             <section id="why" className={styles.whySection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Technical Advantage</p>
-                <h2>Moisture damage is silent. Product integrity is structural.</h2>
+                <h2>Reliable desiccant performance starts with the right format.</h2>
               </div>
 
               <div className={styles.reasonGrid}>
@@ -635,10 +665,10 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Global Compliance</p>
-                <h2>Audited for trust, verified by performance.</h2>
+                <h2>Built for procurement teams that need clarity.</h2>
                 <p>
-                  Our configurations are trusted by multi-national manufacturers for consistent 
-                  adsorption integrity and professional-grade industrial containment.
+                  Review the product mix, materials, and buyer-facing information before you request
+                  documentation or a formal quotation.
                 </p>
               </div>
 
@@ -735,11 +765,11 @@ export default function Home() {
             <section className={styles.ctaBanner}>
               <div className={styles.ctaBannerContent}>
                 <p className={styles.kicker}>Global Procurement</p>
-                <h2>Ready to Secure Your Supply Chain?</h2>
-                <p>Connect with our enterprise team for bulk contracts, maritime logistics, and custom containment auditing, with response within 24 hours.</p>
+                <h2>Ready to request your next order?</h2>
+                <p>Connect with the team for bulk orders, container requirements, and product guidance with a response target within 24 hours.</p>
                 <div className={styles.ctaBannerActions}>
                   <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Link href="/contact" className={styles.primaryCta}>Start Procurement -&gt;</Link>
+                    <Link href="/contact" className={styles.primaryCta}>Request Quote -&gt;</Link>
                   </motion.div>
                   <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
                     <Link href="/about" className={styles.secondaryCta}>About SilacaGEL</Link>
@@ -753,11 +783,10 @@ export default function Home() {
 
         <footer id="contact" className={styles.footer}>
           <div className={styles.footerCopy}>
-            <p className={styles.kicker}>International Operations</p>
-            <h2>Elite protection for world-class cargo.</h2>
+            <p className={styles.kicker}>Contact and Orders</p>
+            <h2>Silica gel supply for cartons, containers, and warehouse stock.</h2>
             <p>
-              Connect with our procurement management for global supply contracts,
-              maritime logistics coordination, and custom containment auditing.
+              Contact us for product selection, bulk pricing, and dispatch support for local and export orders.
             </p>
             <div style={{ display: "flex", gap: "16px", marginTop: "24px", flexWrap: "wrap" }}>
               <Link href="/contact" className={styles.primaryCta}>Get a Quote</Link>
@@ -766,10 +795,10 @@ export default function Home() {
           </div>
 
           <div className={styles.contactCard}>
-            <span>Procurement Authority</span>
+            <span>Sales Support</span>
             <a href={`tel:${displayPhone}`}>{displayPhone}</a>
-            <strong>Executive Management</strong>
-            <span>Active Response Hub</span>
+            <strong>WhatsApp and phone contact</strong>
+            <span>Response target within 24 hours</span>
           </div>
         </footer>
 
@@ -782,7 +811,7 @@ export default function Home() {
           className={styles.whatsAppFloat}
           aria-label="Connect with Enterprise Management"
         >
-          WhatsApp Management
+          WhatsApp Quote
         </a>
       </div>
     </div>
