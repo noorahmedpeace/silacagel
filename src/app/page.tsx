@@ -34,7 +34,6 @@ const splitTextToSpans = (text: string) => {
 import {
   Globe,
   ShieldCheck,
-  Droplets,
   PackageCheck,
   Star,
   Search,
@@ -97,33 +96,27 @@ const useCases = [
 
 const trustSignalsArray = [
   {
+    icon: PackageCheck,
+    title: "0.5g to 1kg formats",
+    label: "Product Range",
+  },
+  {
     icon: Globe,
-    title: "Pakistan, India, and export supply",
-    label: "Delivery Reach",
+    title: "PKR quotes for bulk orders",
+    label: "Fast Estimation",
   },
   {
     icon: ShieldCheck,
-    title: "Documents and compliance support",
+    title: "Docs available on request",
     label: "Buyer Ready",
-  },
-  {
-    icon: Droplets,
-    title: "32%+ Adsorption Capacity",
-    label: "Performance",
-  },
-  {
-    icon: PackageCheck,
-    title: "Tyvek, paper, and bulk formats",
-    label: "Packaging",
   },
 ];
 
 const heroHighlights = [
-  "Sachets from 0.5g to 20g",
-  "Bulk packs up to 500g",
-  "1 kg cargo strips for containers",
+  "Paper sachets",
+  "Bulk packs",
+  "Container strips",
 ];
-
 const homepageProductImages: Record<string, string> = {
   "retail-sachets": "/products/generated-white-sachets.png",
   "paper-sachets": "/products/generated-kraft-sachets.png",
@@ -210,13 +203,6 @@ const certPillVariants: Variants = {
     },
   }),
 };
-
-const announcementItems = [
-  "FACTORY-DIRECT SILICA GEL SACHETS, BULK PACKS, AND CARGO STRIPS",
-  "PKR PRICING, BULK QUOTES, AND EXPORT SUPPORT",
-  "PRODUCT DOCUMENTS AND BUYER-READY SPECIFICATIONS AVAILABLE",
-  "DIRECT WHATSAPP QUOTES FOR FAST ORDER PLANNING",
-];
 
 const trustedIndustries = [
   {
@@ -310,14 +296,6 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <AmbientGlow />
-      
-      <section className={styles.announcementBar} aria-label="Highlights">
-        <div className={styles.announcementTrack}>
-          {[...announcementItems, ...announcementItems].map((item, index) => (
-            <span key={`${item}-${index}`}>{item}</span>
-          ))}
-        </div>
-      </section>
 
       <div className={styles.shell} ref={heroRef}>
         <header className={styles.header}>
@@ -374,13 +352,13 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Factory-direct silica gel supply
+                Industrial silica gel supply
               </span>
               <h1>
-                {splitTextToSpans("Moisture protection for packaging, storage, and export.")}
+                {splitTextToSpans("Dry cartons. Stable stock. Safer export transit.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                SilacaGEL supplies silica gel sachets, bulk packs, and container strips for pharma, electronics, leather, food packaging, and industrial shipments.
+                SilacaGEL supplies sachets, bulk packs, and container strips for packaging teams that want cleaner presentation, faster quoting, and dependable moisture control.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -398,7 +376,7 @@ export default function Home() {
                   whileHover={{ y: -3, scale: 1.015 }}
                   whileTap={{ scale: 0.985 }}
                 >
-                  Browse Products
+                  View Formats
                 </motion.a>
               </div>
 
@@ -428,32 +406,55 @@ export default function Home() {
               </motion.div>
             </div>
 
-            <motion.div className={styles.heroVisual}>
+            <motion.div className={styles.heroVisual} whileHover={{ y: -4 }} transition={{ duration: 0.35, ease: "easeOut" }}>
               <div id="hero-product-image" className={styles.heroMediaFrame}>
                 <div className={styles.heroStillScene}>
-                  <div className={styles.heroStillGlow} />
-                  <div className={styles.heroStillBadge}>
-                    <span>Bulk Supply</span>
-                    <strong>Buyer-ready silica gel formats</strong>
-                  </div>
-                  <div className={styles.heroStillSpecs}>
-                    {heroHighlights.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                  <div className={styles.heroStillImageWrap}>
+                  <div className={styles.heroStillAura} />
+                  <div className={styles.heroStillBackdrop}>
                     <Image
-                      src="/hero-pharma.png"
-                      alt="Silica gel sachets and moisture control packaging"
+                      src="/silicagel_hero_elite.png"
+                      alt="Silica gel product line in a premium lab environment"
                       fill
-                      className={styles.heroStillImage}
-                      sizes="(max-width: 1100px) 100vw, 40vw"
+                      className={styles.heroBackdropImage}
+                      sizes="(max-width: 1100px) 100vw, 52vw"
                       priority
+                    />
+                  </div>
+                  <div className={styles.heroStillBadge}>
+                    <span>Adsorption</span>
+                    <strong>32%+ moisture uptake</strong>
+                  </div>
+                  <motion.div
+                    className={styles.heroStillProduct}
+                    initial={{ opacity: 0, y: 20, rotate: -5 }}
+                    animate={{ opacity: 1, y: 0, rotate: -3 }}
+                    transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
+                  >
+                    <Image
+                      src="/products/generated-white-sachets.png"
+                      alt="Silica gel desiccant sachets"
+                      fill
+                      className={styles.heroProductImage}
+                      sizes="(max-width: 1100px) 100vw, 30vw"
+                    />
+                  </motion.div>
+                  <div className={styles.heroStillInset}>
+                    <Image
+                      src="/macro_silica_beads_1775989669467.png"
+                      alt="Silica beads close-up"
+                      fill
+                      className={styles.heroInsetImage}
+                      sizes="180px"
                     />
                   </div>
                   <div className={styles.heroStillCallout}>
                     <span>Applications</span>
                     <strong>Pharma, electronics, leather, and export cargo</strong>
+                  </div>
+                  <div className={styles.heroStillSpecs}>
+                    {heroHighlights.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
                   </div>
                 </div>
               </div>
