@@ -98,17 +98,17 @@ const trustSignalsArray = [
   {
     icon: PackageCheck,
     title: "0.5g to 1kg formats",
-    label: "Product Range",
+    label: "Formats",
   },
   {
     icon: Globe,
     title: "PKR quotes for bulk orders",
-    label: "Fast Estimation",
+    label: "Pricing",
   },
   {
     icon: ShieldCheck,
     title: "Docs available on request",
-    label: "Buyer Ready",
+    label: "Documents",
   },
 ];
 
@@ -352,13 +352,13 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Industrial silica gel supply
+                Silica gel for export packaging
               </span>
               <h1>
-                {splitTextToSpans("Dry cartons. Stable stock. Safer export transit.")}
+                {splitTextToSpans("Moisture control that looks as precise as it performs.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                SilacaGEL supplies sachets, bulk packs, and container strips for packaging teams that want cleaner presentation, faster quoting, and dependable moisture control.
+                Premium sachets, bulk packs, and container strips for buyers who want dependable adsorption, cleaner presentation, and faster quote flow.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -421,13 +421,22 @@ export default function Home() {
                     />
                   </div>
                   <div className={styles.heroStillBadge}>
-                    <span>Adsorption</span>
-                    <strong>32%+ moisture uptake</strong>
+                    <span>Performance</span>
+                    <strong>32%+ adsorption capacity</strong>
+                  </div>
+                  <div className={styles.heroStillBeads}>
+                    <Image
+                      src="/macro_silica_beads_1775989669467.png"
+                      alt="Silica beads texture"
+                      fill
+                      className={styles.heroBeadsImage}
+                      sizes="(max-width: 1100px) 100vw, 36vw"
+                    />
                   </div>
                   <motion.div
                     className={styles.heroStillProduct}
-                    initial={{ opacity: 0, y: 20, rotate: -5 }}
-                    animate={{ opacity: 1, y: 0, rotate: -3 }}
+                    initial={{ opacity: 0, y: 24, rotate: -4 }}
+                    animate={{ opacity: 1, y: 0, rotate: -2 }}
                     transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
                   >
                     <Image
@@ -438,17 +447,8 @@ export default function Home() {
                       sizes="(max-width: 1100px) 100vw, 30vw"
                     />
                   </motion.div>
-                  <div className={styles.heroStillInset}>
-                    <Image
-                      src="/macro_silica_beads_1775989669467.png"
-                      alt="Silica beads close-up"
-                      fill
-                      className={styles.heroInsetImage}
-                      sizes="180px"
-                    />
-                  </div>
                   <div className={styles.heroStillCallout}>
-                    <span>Applications</span>
+                    <span>Use Cases</span>
                     <strong>Pharma, electronics, leather, and export cargo</strong>
                   </div>
                   <div className={styles.heroStillSpecs}>
