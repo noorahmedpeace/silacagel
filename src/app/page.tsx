@@ -36,9 +36,6 @@ import {
   ShieldCheck,
   PackageCheck,
   Star,
-  Search,
-  User,
-  ShoppingBag,
   ChevronDown
 } from "lucide-react";
 import {
@@ -109,6 +106,30 @@ const trustSignalsArray = [
     icon: ShieldCheck,
     title: "Technical docs on request",
     label: "Documents",
+  },
+];
+
+const heroCerts = [
+  "ISO-style quality systems",
+  "FDA documentation support",
+  "RoHS / REACH alignment",
+];
+
+const sciencePoints = [
+  {
+    step: "01",
+    title: "Porous structure",
+    text: "Silica gel works through a dense internal pore network, giving the material a very high active surface area for vapor capture.",
+  },
+  {
+    step: "02",
+    title: "Moisture adsorption",
+    text: "Instead of feeling decorative, the science block should explain that water vapor adheres to the bead surface and settles into the pore structure.",
+  },
+  {
+    step: "03",
+    title: "Practical packaging use",
+    text: "That science turns into a simple buying story: choose the right packet size for cartons, shelves, or containers and reduce humidity risk fast.",
   },
 ];
 
@@ -311,41 +332,18 @@ export default function Home() {
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
-            <div className={styles.navItem}>
-              <Link href="/products">Products</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/bulk-sales">Bulk Sales</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/dispensers">Dispensers</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/documents">Documents</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/faq">FAQs</Link>
-              <ChevronDown size={14} className={styles.navChevron} />
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/videos">Product Videos</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/contact">Contact Us</Link>
-            </div>
-            <div className={styles.navItem}>
-              <Link href="/about">About Us</Link>
-            </div>
+            <a className={styles.navItem} href="#top">Home</a>
+            <a className={styles.navItem} href="#science">Science</a>
+            <a className={styles.navItem} href="#products">Products</a>
+            <a className={styles.navItem} href="#industries">Industries</a>
+            <a className={styles.navItem} href="#resources">Resources</a>
+            <a className={styles.navItem} href="#contact">Contact</a>
           </nav>
 
-          <div className={styles.headerActions}>
-            <button aria-label="Search" className={styles.iconBtn}><Search size={20} /></button>
-            <button aria-label="Account" className={styles.iconBtn}><User size={20} /></button>
-            <button aria-label="Cart" className={styles.iconBtn}><ShoppingBag size={20} /></button>
-          </div>
+          <a href="#contact" className={styles.navCta}>
+            Get a Quote
+            <ChevronDown size={14} className={styles.navCtaIcon} />
+          </a>
         </header>
 
         <main id="top" className={styles.main}>
@@ -380,6 +378,12 @@ export default function Home() {
                 </motion.a>
               </div>
 
+              <div className={`${styles.heroCertRow} gsap-hero-fade`}>
+                {heroCerts.map((item) => (
+                  <span key={item} className={styles.heroCertPill}>{item}</span>
+                ))}
+              </div>
+
               <motion.div
                 variants={trustContainerVariants}
                 initial="hidden"
@@ -411,6 +415,16 @@ export default function Home() {
                 <div className={styles.heroStillScene}>
                   <div className={styles.heroStillAura} />
                   <div className={styles.heroStillBackdrop}>
+                    <video
+                      className={styles.heroBackdropVideo}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="auto"
+                    >
+                      <source src="/hero-cinematic.mp4" type="video/mp4" />
+                    </video>
                     <Image
                       src="/silicagel_hero_elite.png"
                       alt="Silica gel product line in a premium lab environment"
@@ -460,6 +474,59 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
+
+          <Reveal direction="up">
+            <section id="science" className={styles.scienceSection}>
+              <div className={styles.scienceVisual}>
+                <div className={styles.scienceStage}>
+                  <Image
+                    src="/macro-hero.png"
+                    alt="Macro silica gel beads with detailed moisture adsorption texture"
+                    fill
+                    className={styles.scienceImage}
+                    sizes="(max-width: 1100px) 100vw, 48vw"
+                  />
+                  <div className={styles.scienceGlow} />
+                  <div className={styles.scienceBadge}>
+                    <span>Surface Area</span>
+                    <strong>500-950 m2/g porous adsorption range</strong>
+                  </div>
+                  <div className={styles.scienceCallout}>
+                    <span>Moisture Logic</span>
+                    <strong>Water vapor settles onto the bead surface and into the pore structure.</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.scienceCopy}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>The Science</p>
+                  <h2>Make the moisture story feel intelligent, not complicated.</h2>
+                  <p>
+                    This section turns the product into something more credible. It gives buyers a clean explanation of why silica gel works and why format selection matters.
+                  </p>
+                </div>
+
+                <div className={styles.scienceGrid}>
+                  {sciencePoints.map((item) => (
+                    <motion.article
+                      key={item.step}
+                      className={styles.scienceCard}
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      whileHover={{ y: -8 }}
+                    >
+                      <span className={styles.scienceStep}>{item.step}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </motion.article>
+                  ))}
+                </div>
+              </div>
+            </section>
+          </Reveal>
 
           <Reveal direction="up">
             <section id="products" className={styles.productSection}>
@@ -612,7 +679,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <section className={styles.partnerSection}>
+            <section id="industries" className={styles.partnerSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Industry Compatibility</p>
                 <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
@@ -749,7 +816,16 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <BentoGrid />
+            <section id="resources" className={styles.resourceSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Resources</p>
+                <h2>Keep supporting tools, documents, and demos in one premium utility layer.</h2>
+                <p>
+                  The page should feel polished, but it still needs practical depth. This block keeps the technical resources visible without making the homepage feel crowded.
+                </p>
+              </div>
+              <BentoGrid />
+            </section>
           </Reveal>
 
           <Reveal direction="up">
