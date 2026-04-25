@@ -9,9 +9,9 @@
 
 .shell {
   width: 100%;
-  max-width: 1440px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 0 36px 120px;
+  padding: 0 44px 96px;
 }
 
 .header {
@@ -89,7 +89,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 124px;
+  gap: 96px;
 }
 
 /* HERO SECTION */
@@ -234,7 +234,7 @@
     0 56px 110px -62px rgba(16, 35, 71, 0.42);
   flex-shrink: 0;
   background: transparent;
-  animation: heroFloat 8s ease-in-out infinite;
+  animation: none;
 }
 
 .heroVisual::after {
@@ -282,10 +282,10 @@
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 560px;
+  min-height: 520px;
   border-radius: 36px;
   overflow: hidden;
-  background: #eef3f8;
+  background: #f2ede3;
   box-shadow:
     0 28px 54px -34px rgba(15, 23, 42, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.8);
@@ -294,8 +294,8 @@
 .heroBackdropImage {
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.98) contrast(1.02);
-  transform: scale(1.01);
+  filter: saturate(0.96) contrast(1.02);
+  transform: scale(1.02);
   opacity: 1;
 }
 
@@ -322,7 +322,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-width: 270px;
+  max-width: 250px;
   padding: 15px 17px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.78);
@@ -382,20 +382,6 @@
   box-shadow: 0 18px 30px -26px rgba(15, 23, 42, 0.26);
 }
 
-@keyframes heroFloat {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(0, -8px, 0);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .trustSignals {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -408,7 +394,7 @@
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   gap: 52px;
   align-items: center;
-  padding: 88px 56px;
+  padding: 72px 48px;
   border-radius: 40px;
   background:
     radial-gradient(circle at top left, rgba(31, 94, 255, 0.12), transparent 24%),
@@ -434,7 +420,7 @@
 
 .scienceStage {
   position: relative;
-  min-height: 580px;
+  min-height: 500px;
   overflow: hidden;
   border-radius: 34px;
   background: rgba(255, 255, 255, 0.88);
@@ -669,7 +655,7 @@
 }
 
 .productSection {
-  padding: 82px 56px;
+  padding: 72px 48px;
   background:
     radial-gradient(circle at top right, rgba(31, 94, 255, 0.14), transparent 28%),
     radial-gradient(circle at bottom left, rgba(201, 168, 106, 0.12), transparent 24%),
@@ -682,7 +668,7 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 44px 34px;
+  gap: 32px 28px;
 }
 
 .productCard {
@@ -723,7 +709,7 @@
 }
 
 .productCard:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
 }
 
 .productImage {
@@ -869,7 +855,7 @@
 
 /* PRICING & CALCULATOR */
 .pricingSection {
-  padding: 90px 56px;
+  padding: 72px 48px;
   background:
     radial-gradient(circle at top left, rgba(31, 94, 255, 0.1), transparent 24%),
     radial-gradient(circle at bottom right, rgba(201, 168, 106, 0.08), transparent 22%),
@@ -1000,7 +986,7 @@
   border-radius: 32px;
   box-shadow: 0 28px 56px -30px rgba(13, 27, 42, 0.16);
   border: 1px solid rgba(37, 52, 77, 0.08);
-  animation: panelFloat 6s ease-in-out infinite;
+  animation: none;
 }
 
 .calculatorHint {
@@ -1017,7 +1003,7 @@
 
 .whySection,
 .applicationSection {
-  padding: 82px 56px;
+  padding: 72px 48px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 247, 251, 0.72));
   border: 1px solid rgba(37, 52, 77, 0.08);
@@ -1028,7 +1014,7 @@
 .reasonGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  gap: 18px;
 }
 
 .reasonCard {
@@ -1053,7 +1039,7 @@
 
 /* PROOF & TRUST */
 .proofSection {
-  padding: 82px 56px;
+  padding: 72px 48px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 247, 251, 0.74));
   border: 1px solid rgba(37, 52, 77, 0.08);
@@ -1273,7 +1259,7 @@
     radial-gradient(circle at top right, rgba(201, 168, 106, 0.18), transparent 24%),
     linear-gradient(135deg, #102347 0%, #163fcd 52%, #245bff 100%);
   border-radius: 40px;
-  padding: 108px 80px;
+  padding: 88px 64px;
   display: flex;
   justify-content: center;
   box-shadow: 0 44px 90px -48px rgba(16, 35, 71, 0.52);
@@ -1660,7 +1646,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: 80px;
-  padding: 90px 56px;
+  padding: 72px 48px;
   margin-top: 12px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 247, 251, 0.74));
@@ -1719,7 +1705,7 @@
   font-weight: 800;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 24px 44px -16px rgba(37, 211, 102, 0.44);
-  animation: whatsAppPulse 2.8s ease-in-out infinite;
+  animation: none;
   z-index: 120;
 }
 
@@ -1739,16 +1725,6 @@
 @keyframes ctaPulse {
   0%, 100% { box-shadow: 0 16px 32px -16px rgba(37, 99, 235, 0.45); }
   50% { box-shadow: 0 22px 44px -18px rgba(37, 99, 235, 0.62); }
-}
-
-@keyframes panelFloat {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50% { transform: translate3d(0, -8px, 0); }
-}
-
-@keyframes whatsAppPulse {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(0, -3px, 0) scale(1.03); }
 }
 
 @media (max-width: 1100px) {
@@ -1800,12 +1776,12 @@
     height: auto;
     order: -1;
     animation-duration: 10s;
-    max-width: 620px;
+    max-width: 580px;
     width: 100%;
   }
 
   .heroStillBackdrop {
-    min-height: 520px;
+    min-height: 460px;
   }
 
   .trustSignals {
@@ -1828,7 +1804,7 @@
 
 @media (max-width: 768px) {
   .shell {
-    padding: 0 16px 80px;
+    padding: 0 20px 72px;
   }
 
   .header {
@@ -1877,21 +1853,8 @@
   }
 
   .heroStillBackdrop {
-    min-height: 430px;
+    min-height: 380px;
     border-radius: 24px;
-  }
-
-  .heroStillProduct {
-    right: 34px;
-    bottom: 68px;
-    width: 42%;
-  }
-
-  .heroStillBeads {
-    left: 36%;
-    bottom: 28px;
-    width: 42%;
-    height: 26%;
   }
 
   .heroStillBadge,

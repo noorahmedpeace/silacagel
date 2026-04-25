@@ -363,7 +363,7 @@ export default function Home() {
                 <motion.a
                   href="#contact"
                   className={styles.primaryCta}
-                  whileHover={{ y: -4, scale: 1.02 }}
+                  whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   Get a Quote
@@ -371,7 +371,7 @@ export default function Home() {
                 <motion.a
                   href="#products"
                   className={styles.secondaryCta}
-                  whileHover={{ y: -3, scale: 1.015 }}
+                  whileHover={{ y: -2, scale: 1.008 }}
                   whileTap={{ scale: 0.985 }}
                 >
                   View Formats
@@ -396,7 +396,7 @@ export default function Home() {
                     <motion.div
                       key={index}
                       variants={trustItemVariants}
-                      whileHover={{ y: -8, scale: 1.02 }}
+                      whileHover={{ y: -4, scale: 1.01 }}
                       className={styles.signal}
                     >
                       <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
@@ -410,14 +410,14 @@ export default function Home() {
               </motion.div>
             </div>
 
-            <motion.div className={styles.heroVisual} whileHover={{ y: -4 }} transition={{ duration: 0.35, ease: "easeOut" }}>
+            <motion.div className={styles.heroVisual} whileHover={{ y: -2 }} transition={{ duration: 0.3, ease: "easeOut" }}>
               <div id="hero-product-image" className={styles.heroMediaFrame}>
                 <div className={styles.heroStillScene}>
                   <div className={styles.heroStillAura} />
                   <div className={styles.heroStillBackdrop}>
                     <Image
-                      src="/hero-generated-clean.png"
-                      alt="Premium silica gel sachet with clean white industrial styling"
+                      src="/hero-macro-kraft.png"
+                      alt="Macro silica gel beads spilling from a sachet on a warm kraft surface"
                       fill
                       className={styles.heroBackdropImage}
                       sizes="(max-width: 1100px) 100vw, 52vw"
@@ -483,7 +483,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
-                      whileHover={{ y: -8 }}
+                      whileHover={{ y: -3 }}
                     >
                       <span className={styles.scienceStep}>{item.step}</span>
                       <h3>{item.title}</h3>
@@ -517,7 +517,7 @@ export default function Home() {
                     key={product.slug}
                     variants={itemVariants}
                     className={`${styles.productCard} ${styles[`productCardSequence${index + 1}`]} ${index === 0 ? styles.productCardFeatured : ""}`}
-                    whileHover={{ y: -14, scale: 1.01, rotateX: 1.5 }}
+                    whileHover={{ y: -5, scale: 1.005 }}
                     whileTap={{ scale: 0.99 }}
                   >
                     <div className={styles.productImage}>
@@ -578,7 +578,7 @@ export default function Home() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.65, ease: "easeOut" }}
-                      whileHover={{ y: -8, scale: 1.015 }}
+                      whileHover={{ y: -4, scale: 1.008 }}
                     >
                       <span className={styles.priceNote}>{group.note}</span>
                       <h3>{group.title}</h3>
@@ -606,7 +606,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    whileHover={{ y: -6 }}
+                    whileHover={{ y: -3 }}
                   >
                     <p className={styles.calculatorHint}>Volume & Price Estimator</p>
                     <p className={styles.calculatorSubHint}>
@@ -635,7 +635,7 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    whileHover={{ y: -10, scale: 1.02 }}
+                    whileHover={{ y: -4, scale: 1.01 }}
                   >
                     <h3 className="text-gradient">{item.title}</h3>
                     <p>{item.text}</p>
@@ -671,7 +671,7 @@ export default function Home() {
                   <motion.article
                     key={item.title}
                     className={styles.applicationCard}
-                    whileHover={{ y: -10, scale: 1.015 }}
+                    whileHover={{ y: -4, scale: 1.008 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                   >
                     <div className={styles.applicationImage}>
@@ -708,7 +708,7 @@ export default function Home() {
                   <motion.article
                     key={item.quote}
                     className={styles.testimonialCard}
-                    whileHover={{ y: -10, rotate: -0.4 }}
+                    whileHover={{ y: -4 }}
                     transition={{ duration: 0.28, ease: "easeOut" }}
                   >
                     <div className={styles.testimonialHeader}>
@@ -742,7 +742,7 @@ export default function Home() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, margin: "-60px" }}
-                    whileHover={{ y: -4, scale: 1.04 }}
+                    whileHover={{ y: -2, scale: 1.015 }}
                     className={styles.badgeChip}
                   >
                     {industry.name}
@@ -771,7 +771,7 @@ export default function Home() {
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, margin: "-60px" }}
-                    whileHover={{ y: -5, scale: 1.04 }}
+                    whileHover={{ y: -2, scale: 1.015 }}
                     className={styles.certPill}
                   >
                     <span>{c.icon}</span>
@@ -806,10 +806,10 @@ export default function Home() {
                 <h2>Ready to turn this into a proper buying page?</h2>
                 <p>Use the product pages, calculators, and contact flow as the practical layer. The new visual system does the rest of the persuasion.</p>
                 <div className={styles.ctaBannerActions}>
-                  <motion.div whileHover={{ y: -4, scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.98 }}>
                     <Link href="/contact" className={styles.primaryCta}>Request Quote</Link>
                   </motion.div>
-                  <motion.div whileHover={{ y: -3, scale: 1.015 }} whileTap={{ scale: 0.985 }}>
+                  <motion.div whileHover={{ y: -2, scale: 1.008 }} whileTap={{ scale: 0.985 }}>
                     <Link href="/products" className={styles.secondaryCta}>Browse Products</Link>
                   </motion.div>
                 </div>
