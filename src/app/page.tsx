@@ -134,9 +134,9 @@ const sciencePoints = [
 ];
 
 const heroHighlights = [
-  "Dispatch-ready sachets",
-  "Warehouse moisture control",
-  "Container protection",
+  "Premium sachet formats",
+  "Warehouse-ready supply",
+  "Cleaner quote flow",
 ];
 const homepageProductImages: Record<string, string> = {
   "retail-sachets": "/products/generated-white-sachets.png",
@@ -415,19 +415,9 @@ export default function Home() {
                 <div className={styles.heroStillScene}>
                   <div className={styles.heroStillAura} />
                   <div className={styles.heroStillBackdrop}>
-                    <video
-                      className={styles.heroBackdropVideo}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      preload="auto"
-                    >
-                      <source src="/hero-cinematic.mp4" type="video/mp4" />
-                    </video>
                     <Image
-                      src="/silicagel_hero_elite.png"
-                      alt="Silica gel product line in a premium lab environment"
+                      src="/hero-generated-clean.png"
+                      alt="Premium silica gel sachet with clean white industrial styling"
                       fill
                       className={styles.heroBackdropImage}
                       sizes="(max-width: 1100px) 100vw, 52vw"
@@ -436,31 +426,8 @@ export default function Home() {
                   </div>
                   <div className={styles.heroStillBadge}>
                     <span>Supply Range</span>
-                    <strong>Retail sachets, bulk packs, and container formats</strong>
+                    <strong>Retail sachets, bulk packs, and export-ready stock support</strong>
                   </div>
-                  <div className={styles.heroStillBeads}>
-                    <Image
-                      src="/macro_silica_beads_1775989669467.png"
-                      alt="Silica beads texture"
-                      fill
-                      className={styles.heroBeadsImage}
-                      sizes="(max-width: 1100px) 100vw, 36vw"
-                    />
-                  </div>
-                  <motion.div
-                    className={styles.heroStillProduct}
-                    initial={{ opacity: 0, y: 24, rotate: -4 }}
-                    animate={{ opacity: 1, y: 0, rotate: -2 }}
-                    transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-                  >
-                    <Image
-                      src="/products/generated-white-sachets.png"
-                      alt="Silica gel desiccant sachets"
-                      fill
-                      className={styles.heroProductImage}
-                      sizes="(max-width: 1100px) 100vw, 30vw"
-                    />
-                  </motion.div>
                   <div className={styles.heroStillCallout}>
                     <span>Best For</span>
                     <strong>Electronics, leather, warehouse stock, and export packing</strong>
