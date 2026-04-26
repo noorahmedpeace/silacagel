@@ -10,7 +10,6 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { PriceCalculator } from "@/components/price-calculator";
 import { Reveal } from "@/components/reveal";
-import { AmbientGlow } from "@/components/ambient-glow";
 import { IndustrySlider } from "@/components/industry-slider";
 import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
@@ -133,11 +132,6 @@ const sciencePoints = [
   },
 ];
 
-const heroHighlights = [
-  "Premium sachet formats",
-  "Warehouse-ready supply",
-  "Cleaner quote flow",
-];
 const homepageProductImages: Record<string, string> = {
   "retail-sachets": "/products/generated-white-sachets.png",
   "paper-sachets": "/products/generated-kraft-sachets.png",
@@ -316,8 +310,6 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
-      <AmbientGlow />
-
       <div className={styles.shell} ref={heroRef}>
         <header className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="SilacaGEL home">
@@ -348,15 +340,26 @@ export default function Home() {
 
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
+            <Image
+              id="hero-product-image"
+              src="/hero-macro-kraft.png"
+              alt="Silica gel beads spilling from a desiccant sachet"
+              fill
+              className={styles.heroBgImage}
+              sizes="100vw"
+              priority
+            />
+            <div className={styles.heroShade} />
+
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Silica gel supply for serious packaging teams
+                Silica gel supply
               </span>
               <h1>
-                {splitTextToSpans("A sharper, calmer way to buy industrial silica gel.")}
+                {splitTextToSpans("Industrial silica gel for serious packaging teams.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Built for cartons, warehouse stock, and export dispatch. Browse the range, estimate volume, and move to quote without digging through clutter.
+                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and export dispatch.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -409,37 +412,6 @@ export default function Home() {
                 })}
               </motion.div>
             </div>
-
-            <motion.div className={styles.heroVisual} whileHover={{ y: -2 }} transition={{ duration: 0.3, ease: "easeOut" }}>
-              <div id="hero-product-image" className={styles.heroMediaFrame}>
-                <div className={styles.heroStillScene}>
-                  <div className={styles.heroStillAura} />
-                  <div className={styles.heroStillBackdrop}>
-                    <Image
-                      src="/hero-macro-kraft.png"
-                      alt="Macro silica gel beads spilling from a sachet on a warm kraft surface"
-                      fill
-                      className={styles.heroBackdropImage}
-                      sizes="(max-width: 1100px) 100vw, 52vw"
-                      priority
-                    />
-                  </div>
-                  <div className={styles.heroStillBadge}>
-                    <span>Supply Range</span>
-                    <strong>Retail sachets, bulk packs, and export-ready stock support</strong>
-                  </div>
-                  <div className={styles.heroStillCallout}>
-                    <span>Best For</span>
-                    <strong>Electronics, leather, warehouse stock, and export packing</strong>
-                  </div>
-                  <div className={styles.heroStillSpecs}>
-                    {heroHighlights.map((item) => (
-                      <span key={item}>{item}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </motion.div>
           </section>
 
           <Reveal direction="up">

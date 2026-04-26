@@ -9,9 +9,9 @@
 
 .shell {
   width: 100%;
-  max-width: 1360px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 44px 96px;
+  padding: 0 40px 88px;
 }
 
 .header {
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 22px 26px;
-  margin: 18px 0 52px;
+  margin: 18px 0 28px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(22px);
@@ -89,29 +89,50 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 72px;
 }
 
 /* HERO SECTION */
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
-  gap: 72px;
-  align-items: center;
-  min-height: 780px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 690px;
+  overflow: hidden;
+  border-radius: 36px;
+  padding: 64px;
+  isolation: isolate;
+  box-shadow: 0 44px 90px -54px rgba(13, 27, 42, 0.36);
 }
 
 .heroCopy {
-  max-width: 640px;
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+}
+
+.heroBgImage {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
+}
+
+.heroShade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(9, 16, 28, 0.84) 0%, rgba(9, 16, 28, 0.56) 38%, rgba(9, 16, 28, 0.1) 72%),
+    linear-gradient(180deg, rgba(9, 16, 28, 0.08) 0%, rgba(9, 16, 28, 0.62) 100%);
 }
 
 .kicker {
   display: inline-flex;
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.66);
-  color: var(--accent);
-  border: 1px solid rgba(31, 94, 255, 0.12);
-  box-shadow: 0 18px 36px -30px rgba(31, 94, 255, 0.28);
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
   border-radius: 999px;
   font-size: 0.72rem;
   font-weight: 800;
@@ -122,20 +143,21 @@
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(4.4rem, 6.4vw, 6.2rem);
-  line-height: 0.86;
-  letter-spacing: -0.05em;
+  font-size: 5.4rem;
+  line-height: 0.95;
+  letter-spacing: 0;
   margin-bottom: 24px;
-  color: var(--ink);
-  max-width: 8.7ch;
+  color: white;
+  max-width: 10.8ch;
+  text-wrap: balance;
 }
 
 .lead {
-  font-size: 1.08rem;
-  color: var(--muted);
-  max-width: 45ch;
+  font-size: 1.12rem;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 50ch;
   margin-bottom: 34px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .ctaRow {
@@ -157,9 +179,9 @@
   align-items: center;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.74);
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  color: #41526a;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -205,20 +227,20 @@
 
 .secondaryCta {
   position: relative;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(37, 52, 77, 0.08);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 18px 24px;
   border-radius: 18px;
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--ink);
-  box-shadow: 0 20px 32px -28px rgba(13, 27, 42, 0.2);
+  color: white;
+  box-shadow: none;
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 .secondaryCta:hover {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(36, 91, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.28);
   transform: translateY(-2px);
 }
 
@@ -387,6 +409,21 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   padding-top: 10px;
+}
+
+.hero .signal {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: none;
+}
+
+.hero .signalIcon {
+  color: white;
+}
+
+.hero .signalText span,
+.hero .signalText strong {
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .scienceSection {
