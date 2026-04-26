@@ -524,12 +524,23 @@ export default function Home() {
 
           <Reveal direction="up" delay={0.4}>
             <section id="pricing" className={styles.pricingSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Pricing & Estimator</p>
-                <h2>Plan quickly, then request the real quote with context.</h2>
-                <p>
-                  Use the visible PKR references for early planning, then estimate likely quantity before speaking to sales.
-                </p>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Pricing & Estimator</p>
+                  <h2>Estimate the order before the quote request.</h2>
+                  <p>
+                    Keep pricing practical: visible reference rates, quick mass estimates, and a clear path to WhatsApp procurement.
+                  </p>
+                </div>
+                <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
+                  <Image
+                    src="/section-resources-docs.png"
+                    alt="Silica gel procurement documents, calculator, and product packs"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
 
               <div className={styles.pricingHighlights}>
