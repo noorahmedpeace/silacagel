@@ -674,8 +674,8 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/section-applications-collage.png"
-                    alt="Silica gel sachets used across electronics, leather, pharma, and shipping"
+                    src="/section-applications-premium.png"
+                    alt="Premium silica gel sachet protection for electronics, leather, cartons, and packaging environments"
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"

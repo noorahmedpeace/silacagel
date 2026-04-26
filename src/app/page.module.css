@@ -772,19 +772,20 @@
 .productGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 28px;
+  gap: 24px;
 }
 
 .productCard {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  overflow: visible;
-  box-shadow: none;
+  gap: 0;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 34px;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -34px rgba(13, 27, 42, 0.18);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
 }
@@ -814,17 +815,20 @@
 
 .productCard:hover {
   transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.16);
+  box-shadow: 0 34px 64px -38px rgba(13, 27, 42, 0.26);
 }
 
 .productImage {
   position: relative;
-  height: 390px;
+  aspect-ratio: 1.55;
+  height: auto;
   background: linear-gradient(180deg, #edf2f8 0%, #dce6f2 100%);
   overflow: hidden;
-  border-radius: 32px;
+  border-radius: 26px;
   border: 1px solid rgba(37, 52, 77, 0.08);
   box-shadow:
-    0 30px 60px -34px rgba(15, 23, 42, 0.22),
+    0 22px 44px -34px rgba(15, 23, 42, 0.2),
     0 1px 0 rgba(255, 255, 255, 0.72) inset;
 }
 
@@ -845,13 +849,14 @@
 }
 
 .imagePackShot {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: 30px 28px 24px;
+  padding: 0;
+  transform: scale(1.02);
 }
 
 .imageCargoShot {
-  object-position: center right;
+  object-position: center;
 }
 
 .productImageOverlay {
@@ -893,7 +898,7 @@
 }
 
 .productCard:hover .imagePackShot {
-  transform: translateY(-4px) scale(1.02);
+  transform: scale(1.06);
 }
 
 .productCard:hover .imageCargoShot {
@@ -901,7 +906,7 @@
 }
 
 .productCopy {
-  padding: 6px 8px 0 4px;
+  padding: 22px 10px 8px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1221,22 +1226,28 @@
 
 .applicationCard {
   background: rgba(255, 255, 255, 0.84);
-  border-radius: 28px;
+  border-radius: 26px;
   overflow: hidden;
   border: 1px solid rgba(37, 52, 77, 0.08);
   box-shadow: 0 22px 44px -30px rgba(13, 27, 42, 0.2);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.applicationCard:hover {
+  border-color: rgba(37, 99, 235, 0.16);
+  box-shadow: 0 28px 56px -34px rgba(13, 27, 42, 0.24);
 }
 
 .applicationImage {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 220px;
   overflow: hidden;
   background: var(--surface-elevated);
 }
 
 .applicationCopy {
-  padding: 32px;
+  padding: 26px;
 }
 
 .applicationCopy h3 {
