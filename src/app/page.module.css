@@ -560,7 +560,13 @@
 .resourceSection {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 32px;
+  padding: 72px 48px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 247, 251, 0.72));
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 40px;
+  box-shadow: 0 30px 60px -44px rgba(13, 27, 42, 0.18);
 }
 
 .signal {
@@ -618,18 +624,54 @@
 
 .sectionHead h2 {
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 4.2vw, 4rem);
+  font-size: 3.2rem;
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   margin: 18px 0 14px;
   color: var(--ink);
-  max-width: 12ch;
+  max-width: 14ch;
 }
 
 .sectionHead p {
   font-size: 1.06rem;
   color: var(--muted);
   max-width: 58ch;
+}
+
+.sectionIntro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: 44px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.sectionIntro .sectionHead {
+  margin-bottom: 0;
+}
+
+.sectionVisual {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #edf2f8;
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  box-shadow: 0 28px 54px -36px rgba(13, 27, 42, 0.2);
+}
+
+.sectionVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(15, 23, 42, 0.08));
+  pointer-events: none;
+}
+
+.sectionVisualImage {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.01);
 }
 
 /* GRIDS */
@@ -1785,8 +1827,18 @@
   .applicationSection,
   .proofSection,
   .partnerSection,
+  .resourceSection,
   .footer {
     padding: 56px 28px;
+  }
+
+  .sectionIntro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .sectionVisual {
+    min-height: 340px;
   }
 
   .priceGrid {
@@ -1863,7 +1915,7 @@
 
   /* Prevent text bleed on massive headings */
   .heroCopy h1 { font-size: 3.2rem; max-width: 11ch; }
-  .sectionHead h2 { font-size: 2rem; }
+  .sectionHead h2 { font-size: 2.15rem; max-width: 16ch; }
   .quoteStage h2 { font-size: 2.2rem; }
 
   .hero {
@@ -1929,9 +1981,19 @@
   .applicationSection,
   .proofSection,
   .partnerSection,
+  .resourceSection,
   .footer {
     padding: 40px 24px;
     border-radius: 24px;
+  }
+
+  .sectionIntro {
+    margin-bottom: 28px;
+  }
+
+  .sectionVisual {
+    min-height: 260px;
+    border-radius: 20px;
   }
 
   .pricingHighlights {

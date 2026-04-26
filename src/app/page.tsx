@@ -593,9 +593,23 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="why" className={styles.whySection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Why It Works</p>
-                <h2>A calmer interface, but still built around practical buying logic.</h2>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Why It Works</p>
+                  <h2>Moisture control buyers can understand fast.</h2>
+                  <p>
+                    A tighter technical story makes the product easier to trust: what it does, where it fits, and why the format matters.
+                  </p>
+                </div>
+                <div className={styles.sectionVisual}>
+                  <Image
+                    src="/section-science-moisture.png"
+                    alt="Macro silica gel beads and sachet showing moisture protection"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
 
               <div className={styles.reasonGrid}>
@@ -633,9 +647,23 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="applications" className={styles.applicationSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Applications</p>
-                <h2>Use cases that explain the product without sounding theatrical.</h2>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Applications</p>
+                  <h2>Protection across real packaging environments.</h2>
+                  <p>
+                    From electronics and leather to pharma and export cartons, the use cases should feel visual before the visitor reads every card.
+                  </p>
+                </div>
+                <div className={styles.sectionVisual}>
+                  <Image
+                    src="/section-applications-collage.png"
+                    alt="Silica gel sachets used across electronics, leather, pharma, and shipping"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
 
               <EmblaCarousel options={{ align: "start", loop: true }}>
@@ -756,12 +784,23 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="resources" className={styles.resourceSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Resources</p>
-                <h2>Keep supporting tools, documents, and demos in one premium utility layer.</h2>
-                <p>
-                  The page should feel polished, but it still needs practical depth. This block keeps the technical resources visible without making the homepage feel crowded.
-                </p>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Resources</p>
+                  <h2>Documents, demos, and tools for faster buying decisions.</h2>
+                  <p>
+                    Keep the procurement layer practical: specs, calculators, videos, and compliance routes all visible without making the homepage feel crowded.
+                  </p>
+                </div>
+                <div className={styles.sectionVisual}>
+                  <Image
+                    src="/section-resources-docs.png"
+                    alt="Silica gel sachets with technical documents and procurement tools"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
               <BentoGrid />
             </section>
