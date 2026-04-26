@@ -19,12 +19,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
-    <span key={wordIndex} style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
-      {word.split("").map((char, charIndex) => (
-        <span key={charIndex} className="gsap-hero-char" style={{ display: 'inline-block', opacity: 0, transform: 'translateY(20px)' }}>
-          {char}
-        </span>
-      ))}
+    <span
+      key={wordIndex}
+      className="gsap-hero-word"
+      style={{ display: "inline-block", whiteSpace: "nowrap", opacity: 0, transform: "translateY(28px)" }}
+    >
+      {word}
       {"\u00A0"}
     </span>
   ));
@@ -286,26 +286,26 @@ export default function Home() {
     // Hero Entrance Timeline
     const tl = gsap.timeline();
     
-    tl.to(".gsap-hero-char", {
+    tl.to(".gsap-hero-word", {
       opacity: 1,
       y: 0,
-      duration: 0.8,
-      stagger: 0.02,
-      ease: "power2.out",
+      duration: 0.72,
+      stagger: 0.055,
+      ease: "power3.out",
     })
     .from(".gsap-hero-fade", {
       opacity: 0,
-      y: 30,
-      duration: 1,
-      stagger: 0.2,
-      ease: "power3.out",
-    }, "-=0.4")
+      y: 18,
+      duration: 0.72,
+      stagger: 0.12,
+      ease: "power2.out",
+    }, "-=0.28")
     .from("#hero-product-image", {
       opacity: 0,
-      scale: 1.2,
-      duration: 1.5,
+      scale: 1.08,
+      duration: 1.1,
       ease: "power2.out",
-    }, "-=1");
+    }, "-=0.9");
   }, { scope: heroRef });
 
   return (
@@ -379,6 +379,12 @@ export default function Home() {
                 >
                   View Formats
                 </motion.a>
+              </div>
+
+              <div className={`${styles.heroMetaStrip} gsap-hero-fade`}>
+                <span>Bulk quotes</span>
+                <span>Format selection</span>
+                <span>Dispatch support</span>
               </div>
 
               <div className={`${styles.heroCertRow} gsap-hero-fade`}>
@@ -848,7 +854,7 @@ export default function Home() {
             <p>
               Contact us for format selection, bulk pricing, and dispatch support for local and export orders.
             </p>
-            <div style={{ display: "flex", gap: "16px", marginTop: "24px", flexWrap: "wrap" }}>
+            <div className={styles.footerActions}>
               <Link href="/contact" className={styles.primaryCta}>Get a Quote</Link>
               <Link href="/products" className={styles.secondaryCta}>View Products</Link>
             </div>
@@ -859,6 +865,11 @@ export default function Home() {
             <a href={`tel:${displayPhone}`}>{displayPhone}</a>
             <strong>WhatsApp and phone contact</strong>
             <span>Response target within 24 hours</span>
+            <div className={styles.contactMeta}>
+              <span>Bulk orders</span>
+              <span>Sample guidance</span>
+              <span>Docs on request</span>
+            </div>
           </div>
         </footer>
 
