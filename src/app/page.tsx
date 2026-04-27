@@ -536,6 +536,12 @@ export default function Home() {
                         <span>{product.shortName}</span>
                         <strong>{product.featuredSizes[0]}</strong>
                       </div>
+                      <div className={styles.productWarningLabel} aria-hidden="true">
+                        <strong>SILACAGEL</strong>
+                        <span>DESICCANT</span>
+                        <em>DO NOT EAT</em>
+                        <small>THROW AWAY</small>
+                      </div>
                     </div>
                     <div className={styles.productCopy}>
                       <p>{product.eyebrow}</p>
