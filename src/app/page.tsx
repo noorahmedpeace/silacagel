@@ -134,10 +134,10 @@ const sciencePoints = [
 ];
 
 const homepageProductImages: Record<string, string> = {
-  "retail-sachets": "/products/premium-white-precision-labeled.png",
-  "paper-sachets": "/products/premium-kraft-bond-labeled.png",
-  "bulk-industrial": "/products/premium-bulk-supply-labeled.png",
-  "container-strips": "/products/premium-cargo-strips-labeled.png",
+  "retail-sachets": "/products/premium-white-precision-printed.png",
+  "paper-sachets": "/products/premium-kraft-bond-printed.png",
+  "bulk-industrial": "/products/premium-bulk-supply-printed.png",
+  "container-strips": "/products/premium-cargo-strips-printed.png",
 };
 
 const homepageProductImageClasses: Record<string, string> = {
@@ -356,7 +356,7 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <Image
               id="hero-product-image"
-              src="/hero-macro-kraft-labeled.png"
+              src="/hero-macro-kraft-printed.png"
               alt="Silica gel beads spilling from a desiccant sachet"
               fill
               className={styles.heroBgImage}
@@ -439,7 +439,7 @@ export default function Home() {
               <div className={styles.scienceVisual}>
                 <div className={styles.scienceStage}>
                   <Image
-                    src="/macro-hero-labeled.png"
+                    src="/macro-hero-printed.png"
                     alt="Macro silica gel beads with detailed moisture adsorption texture"
                     fill
                     className={styles.scienceImage}
@@ -499,7 +499,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/products/premium-bulk-supply-labeled.png"
+                    src="/products/premium-bulk-supply-printed.png"
                     alt="Premium silica gel product formats for export quote planning"
                     fill
                     className={styles.sectionVisualImage}
@@ -565,7 +565,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
                   <Image
-                    src="/section-resources-docs-labeled.png"
+                    src="/section-resources-docs-printed.png"
                     alt="Silica gel procurement documents, calculator, and product packs"
                     fill
                     className={styles.sectionVisualImage}
@@ -645,7 +645,7 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/section-science-moisture-labeled.png"
+                    src="/section-science-moisture-printed.png"
                     alt="Macro silica gel beads and sachet showing moisture protection"
                     fill
                     className={styles.sectionVisualImage}
@@ -685,7 +685,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
                   <Image
-                    src="/industry-compatibility-premium-labeled.png"
+                    src="/industry-compatibility-premium-printed.png"
                     alt="Premium silica gel desiccant protection across electronics, leather, cartons, warehouse, and cargo industries"
                     fill
                     className={styles.sectionVisualImage}
@@ -710,7 +710,7 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/section-applications-premium-labeled.png"
+                    src="/section-applications-premium-printed.png"
                     alt="Premium silica gel sachet protection for electronics, leather, cartons, and packaging environments"
                     fill
                     className={styles.sectionVisualImage}
@@ -848,7 +848,7 @@ export default function Home() {
                 </div>
                 <div className={styles.shippingBannerImage}>
                   <Image
-                    src="/section-applications-premium-labeled.png"
+                    src="/section-applications-premium-printed.png"
                     alt="Silica gel desiccant supply for worldwide packaging and freight delivery"
                     fill
                     className={styles.image}
@@ -901,7 +901,7 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/section-resources-docs-labeled.png"
+                    src="/section-resources-docs-printed.png"
                     alt="Silica gel sachets with technical documents and procurement tools"
                     fill
                     className={styles.sectionVisualImage}
