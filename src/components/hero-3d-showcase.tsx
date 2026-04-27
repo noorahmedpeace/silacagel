@@ -12,7 +12,7 @@ const sideMetrics = [
   },
   {
     label: "Quote flow",
-    value: "PKR calculator live",
+    value: "Export quote ready",
   },
 ];
 
@@ -77,7 +77,7 @@ export function Hero3DShowcase() {
           </p>
 
           <div className={styles.packMeta}>
-            <span>PKR pricing ready</span>
+            <span>MOQ guidance ready</span>
             <span>Bulk order support</span>
           </div>
 

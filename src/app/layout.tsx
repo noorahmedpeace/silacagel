@@ -16,24 +16,22 @@ const body = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Premium Silica Gel Manufacturer Pakistan & India",
+  title: "SilacaGEL | Export-Ready Silica Gel Desiccant Supply",
   description:
-    "Industrial leader in desiccant manufacturing. Factory-direct pharma-grade silica gel, bulk desiccant packets, and cargo container strips. US FDA & ISO 9001 compliant moisture control solutions.",
+    "Export-ready silica gel desiccant sachets, bulk packs, and cargo strips for packaging, logistics, warehousing, and industrial procurement teams.",
   keywords: [
     "silica gel manufacturer",
     "bulk desiccant packets",
     "pharma grade silica gel",
     "food grade desiccant",
-    "silica gel pakistan",
-    "silica gel india",
     "silaca gel", // Typo variant
     "desiccant bags manufacturer",
     "moisture control for export",
   ],
   openGraph: {
-    title: "SilacaGEL | Zero-Fail Moisture Protection for Global Industrial Chains",
+    title: "SilacaGEL | Export-Ready Moisture Protection for Global Supply Chains",
     description:
-      "Factory-direct industrial desiccant supply. FDA & ISO certified protection for pharmaceutical, textile, and electronic exports.",
+      "Industrial desiccant supply for packaging, logistics, warehouse stock, and export shipments with documentation available on request.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -47,9 +45,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Industrial Silica Gel Leader",
+    title: "SilacaGEL | Industrial Silica Gel Desiccant Supply",
     description:
-      "Elite moisture protection for world-class cargo. FDA & ISO 9001 certified desiccant manufacturing.",
+      "Export-ready moisture protection for cartons, bulk packaging, and container cargo.",
   },
 };
 

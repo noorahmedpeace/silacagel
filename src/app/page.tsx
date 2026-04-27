@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import {
   displayPhone,
+  phoneHref,
   priceGroups,
   productCatalog,
   whatsappNumber,
@@ -98,7 +99,7 @@ const trustSignalsArray = [
   },
   {
     icon: Globe,
-    title: "Bulk quotes for Pakistan buyers",
+    title: "Export quotes for global buyers",
     label: "Quoting",
   },
   {
@@ -109,7 +110,7 @@ const trustSignalsArray = [
 ];
 
 const heroCerts = [
-  "ISO-style quality systems",
+  "COA / SDS on request",
   "FDA documentation support",
   "RoHS / REACH alignment",
 ];
@@ -157,9 +158,27 @@ const containerVariants: Variants = {
 };
 
 const pricingHighlights = [
-  "Reference PKR pricing for planning",
-  "Calculator stays visible on-page",
-  "Bulk contracts quoted separately",
+  "MOQ and volume guidance",
+  "FOB / CIF / EXW quote support",
+  "Bulk contracts quoted by requirement",
+];
+
+const exportDetails = [
+  {
+    label: "Documentation",
+    title: "COA, SDS, compliance notes",
+    text: "Share the destination market and product format so the team can prepare the right document set for review.",
+  },
+  {
+    label: "Commercial Terms",
+    title: "MOQ, lead time, Incoterms",
+    text: "Export quotes can be aligned around MOQ, dispatch timing, FOB / CIF / EXW terms, and carton or pallet quantities.",
+  },
+  {
+    label: "Packaging",
+    title: "Private label and bulk cartons",
+    text: "Sachet formats, bulk packs, and cargo strips can be discussed for repeat procurement and distributor supply.",
+  },
 ];
 
 const itemVariants: Variants = {
@@ -274,11 +293,6 @@ const testimonials = [
   },
 ];
 
-const currencyFormatter = new Intl.NumberFormat("en-PK", {
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-});
-
 export default function Home() {
   const heroRef = useRef(null);
 
@@ -356,10 +370,10 @@ export default function Home() {
                 Silica gel supply
               </span>
               <h1>
-                {splitTextToSpans("Industrial silica gel for serious packaging teams.")}
+                {splitTextToSpans("Export-ready silica gel for global packaging teams.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and export dispatch.
+                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and international dispatch.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -369,7 +383,7 @@ export default function Home() {
                   whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Get a Quote
+                  Request Export Quote
                 </motion.a>
                 <motion.a
                   href="#products"
@@ -383,8 +397,8 @@ export default function Home() {
 
               <div className={`${styles.heroMetaStrip} gsap-hero-fade`}>
                 <span>Bulk quotes</span>
-                <span>Format selection</span>
-                <span>Dispatch support</span>
+                <span>MOQ guidance</span>
+                <span>FOB / CIF support</span>
               </div>
 
               <div className={`${styles.heroCertRow} gsap-hero-fade`}>
@@ -446,9 +460,9 @@ export default function Home() {
               <div className={styles.scienceCopy}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>The Science</p>
-                  <h2>Make the moisture story feel intelligent, not complicated.</h2>
+                  <h2>Moisture control buyers can understand fast.</h2>
                   <p>
-                    This section turns the product into something more credible. It gives buyers a clean explanation of why silica gel works and why format selection matters.
+                    A clear technical explanation helps international procurement teams understand how the product works, where it fits, and which format to request.
                   </p>
                 </div>
 
@@ -477,9 +491,9 @@ export default function Home() {
             <section id="products" className={styles.productSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Product Line</p>
-                <h2>Choose the format first. Everything else gets easier.</h2>
+                <h2>Choose the format first. Build the quote around it.</h2>
                 <p>
-                  Each range is presented as a clearer buying lane, so a visitor can move from browsing to shortlisting without the page feeling noisy.
+                  Each range is presented as a clear buying lane with size, use case, and supply context for faster export shortlisting.
                 </p>
               </div>
 
@@ -532,10 +546,10 @@ export default function Home() {
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Pricing & Estimator</p>
-                  <h2>Estimate the order before the quote request.</h2>
+                  <p className={styles.kicker}>Export Quote Planning</p>
+                  <h2>Plan volume first. Request the final quote with context.</h2>
                   <p>
-                    Keep pricing practical: visible reference rates, quick mass estimates, and a clear path to WhatsApp procurement.
+                    Global buyers need more than a price list: format, quantity, destination, lead time, documents, and shipping terms all shape the final quote.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
@@ -575,14 +589,14 @@ export default function Home() {
                         {group.items.slice(0, 4).map((item) => (
                           <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
                             <strong>{item.label}</strong>
-                            <span>Rs. {currencyFormatter.format(item.unitPrice)}</span>
+                            <span>Export quote</span>
                           </div>
                         ))}
                       </div>
                       <p className={styles.priceCardFoot}>
                         {group.items.length > 4
                           ? `+${group.items.length - 4} more sizes available in the calculator`
-                          : "Ready for direct quote confirmation"}
+                          : "Ready for export quote confirmation"}
                       </p>
                     </motion.article>
                   ))}
@@ -597,9 +611,9 @@ export default function Home() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     whileHover={{ y: -3 }}
                   >
-                    <p className={styles.calculatorHint}>Volume & Price Estimator</p>
+                    <p className={styles.calculatorHint}>Volume & Export Quote Estimator</p>
                     <p className={styles.calculatorSubHint}>
-                      Calculate your total weight and estimated PKR total instantly.
+                      Estimate total weight and share a cleaner procurement request with the export team.
                     </p>
                     <PriceCalculator />
                   </motion.div>
@@ -613,7 +627,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Why It Works</p>
-                  <h2>Moisture control buyers can understand fast.</h2>
+                <h2>Moisture control that fits real procurement checks.</h2>
                   <p>
                     A tighter technical story makes the product easier to trust: what it does, where it fits, and why the format matters.
                   </p>
@@ -654,7 +668,7 @@ export default function Home() {
                 <p className={styles.kicker}>Industry Compatibility</p>
                 <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
                 <p>
-                  The flow now introduces industries after the product and pricing layers, so the story feels grounded before it gets aspirational.
+                  Industry use cases help overseas buyers match the right desiccant format to shipment risk, storage conditions, and packaging type.
                 </p>
               </div>
 
@@ -714,9 +728,9 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <h2>Proof points, operational notes, and the trust layer buyers look for.</h2>
+                <h2>Proof points global buyers look for before they ask for price.</h2>
                 <p>
-                  Instead of generic hype, this section leans on procurement comfort: industries served, practical feedback, and visible compliance language.
+                  The page should reduce buying risk with clear industries, practical feedback, visible documentation language, and export-ready contact options.
                 </p>
               </div>
 
@@ -770,6 +784,33 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
+            <section className={styles.exportSection}>
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Global Supply Readiness</p>
+                <h2>Built for buyers who need clarity before committing.</h2>
+                <p>
+                  International procurement teams need the commercial and technical basics quickly. This layer makes the site feel more export-ready and less local.
+                </p>
+              </div>
+
+              <div className={styles.exportGrid}>
+                {exportDetails.map((item) => (
+                  <motion.article
+                    key={item.title}
+                    className={styles.exportCard}
+                    whileHover={{ y: -4, scale: 1.006 }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                  >
+                    <span>{item.label}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                  </motion.article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
             <section className={styles.certStrip}>
               <p className={styles.certStripLabel}>Compliance Snapshot</p>
               <div className={styles.certStripRow}>
@@ -804,9 +845,9 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Resources</p>
-                  <h2>Documents, demos, and tools for faster buying decisions.</h2>
+                  <h2>Documents, demos, and tools for faster export decisions.</h2>
                   <p>
-                    Keep the procurement layer practical: specs, calculators, videos, and compliance routes all visible without making the homepage feel crowded.
+                    Keep specs, calculators, videos, and compliance routes visible so overseas buyers know what to ask for before starting a quote conversation.
                   </p>
                 </div>
                 <div className={styles.sectionVisual}>
@@ -831,11 +872,11 @@ export default function Home() {
             <section className={styles.ctaBanner}>
               <div className={styles.ctaBannerContent}>
                 <p className={styles.kicker}>Request Quote</p>
-                <h2>Ready to turn this into a proper buying page?</h2>
-                <p>Use the product pages, calculators, and contact flow as the practical layer. The new visual system does the rest of the persuasion.</p>
+                <h2>Ready to discuss an export-ready desiccant requirement?</h2>
+                <p>Share your product format, quantity, destination market, and documentation needs so the team can prepare a clearer procurement response.</p>
                 <div className={styles.ctaBannerActions}>
                   <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.98 }}>
-                    <Link href="/contact" className={styles.primaryCta}>Request Quote</Link>
+                    <Link href="/contact" className={styles.primaryCta}>Request Export Quote</Link>
                   </motion.div>
                   <motion.div whileHover={{ y: -2, scale: 1.008 }} whileTap={{ scale: 0.985 }}>
                     <Link href="/products" className={styles.secondaryCta}>Browse Products</Link>
@@ -850,24 +891,24 @@ export default function Home() {
         <footer id="contact" className={styles.footer}>
           <div className={styles.footerCopy}>
             <p className={styles.kicker}>Contact and Orders</p>
-            <h2>Silica gel supply that feels clearer, calmer, and easier to buy.</h2>
+            <h2>Export-ready silica gel supply with clearer buying support.</h2>
             <p>
-              Contact us for format selection, bulk pricing, and dispatch support for local and export orders.
+              Contact us for format selection, bulk pricing, documentation, and dispatch support for international and domestic orders.
             </p>
             <div className={styles.footerActions}>
-              <Link href="/contact" className={styles.primaryCta}>Get a Quote</Link>
+              <Link href="/contact" className={styles.primaryCta}>Request Export Quote</Link>
               <Link href="/products" className={styles.secondaryCta}>View Products</Link>
             </div>
           </div>
 
           <div className={styles.contactCard}>
             <span>Sales Support</span>
-            <a href={`tel:${displayPhone}`}>{displayPhone}</a>
+            <a href={`tel:${phoneHref}`}>{displayPhone}</a>
             <strong>WhatsApp and phone contact</strong>
             <span>Response target within 24 hours</span>
             <div className={styles.contactMeta}>
-              <span>Bulk orders</span>
-              <span>Sample guidance</span>
+              <span>MOQ guidance</span>
+              <span>Export docs</span>
               <span>Docs on request</span>
             </div>
           </div>

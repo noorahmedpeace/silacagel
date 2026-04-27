@@ -7,6 +7,7 @@ import { Reveal } from "@/components/reveal";
 import {
   displayPhone,
   getProductBySlug,
+  phoneHref,
   productCatalog,
   whatsappNumber,
 } from "@/lib/product-data";
@@ -68,7 +69,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <Link href="/" className={styles.backLink}>
               Back to Homepage
             </Link>
-            <a href={`tel:${displayPhone}`} className={styles.phoneLink}>
+            <a href={`tel:${phoneHref}`} className={styles.phoneLink}>
               {displayPhone}
             </a>
           </header>
@@ -90,7 +91,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     rel="noopener noreferrer"
                     className={styles.primaryAction}
                   >
-                    Purchase / Quote
+                    Request Export Quote
                   </a>
                   <a href="#quote-form" className={styles.secondaryAction}>
                     Send Requirement
@@ -99,7 +100,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
                 <div className={styles.statRow}>
                   <article>
-                    <span>Price band</span>
+                    <span>Quote basis</span>
                     <strong>{product.priceBand}</strong>
                   </article>
                   <article>

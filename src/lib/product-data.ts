@@ -27,7 +27,8 @@ export type PriceGroup = {
 };
 
 export const whatsappNumber = "923330223337";
-export const displayPhone = "03330223337";
+export const displayPhone = "+92 333 022 3337";
+export const phoneHref = "+923330223337";
 
 export const productCatalog: ProductItem[] = [
   {
@@ -131,7 +132,7 @@ export const productCatalog: ProductItem[] = [
       "Transit: 60+ Day Adsorption Protection",
     ],
     leadTime: "Aligned with international shipping windows",
-    priceBand: "Global logistics procurement reference: Rs. 950 per unit",
+    priceBand: "Quoted by route, container volume, and dispatch schedule",
     featuredSizes: ["1 kg maritime strip"],
   },
 ];

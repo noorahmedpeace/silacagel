@@ -1347,6 +1347,74 @@
   box-shadow: 0 14px 30px -24px rgba(13, 27, 42, 0.14);
 }
 
+/* EXPORT READINESS */
+.exportSection {
+  padding: 72px 48px;
+  border-radius: 40px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(31, 94, 255, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 247, 251, 0.78));
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  box-shadow: 0 30px 60px -44px rgba(13, 27, 42, 0.18);
+}
+
+.exportSection .sectionHead {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exportSection .sectionHead h2 {
+  max-width: 16ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exportSection .sectionHead p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.exportGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.exportCard {
+  padding: 30px 28px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  box-shadow: 0 22px 44px -32px rgba(13, 27, 42, 0.18);
+}
+
+.exportCard span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(31, 94, 255, 0.08);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.exportCard h3 {
+  font-size: 1.35rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.exportCard p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 /* ── CERT STRIP ── */
 .certStrip {
   display: flex;
@@ -1960,6 +2028,7 @@
   .whySection,
   .applicationSection,
   .proofSection,
+  .exportSection,
   .partnerSection,
   .resourceSection,
   .footer {
@@ -2025,6 +2094,10 @@
   }
   
   .testimonialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .exportGrid {
     grid-template-columns: 1fr;
   }
 }
@@ -2118,6 +2191,7 @@
   .whySection,
   .applicationSection,
   .proofSection,
+  .exportSection,
   .partnerSection,
   .resourceSection,
   .footer {

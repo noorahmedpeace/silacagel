@@ -8,10 +8,10 @@ export default function BulkSalesPage() {
     <main className={shared.page}>
       <section className={shared.hero}>
         <span className={shared.kicker}>Bulk Sales</span>
-        <h1>Reference pricing and procurement planning in one place.</h1>
+        <h1>Export quote planning and procurement context in one place.</h1>
         <p>
-          Review key PKR reference ranges, then use the estimator for a quick
-          quantity check before sending your final requirement.
+          Review available format ranges, then use the estimator for a quick
+          weight check before sending your final export requirement.
         </p>
       </section>
 
@@ -25,7 +25,7 @@ export default function BulkSalesPage() {
                 {group.items.map((item) => (
                   <div key={`${group.title}-${item.label}`} className={styles.row}>
                     <strong>{item.label}</strong>
-                    <span>Rs. {item.unitPrice}</span>
+                    <span>Quote by requirement</span>
                   </div>
                 ))}
               </div>
@@ -37,7 +37,7 @@ export default function BulkSalesPage() {
           <div className={styles.calculatorHead}>
             <span className={shared.kicker}>Estimator</span>
             <h2>Procurement calculator</h2>
-            <p>Use the same homepage calculator here in a dedicated planning view.</p>
+            <p>Use the same estimator here for a dedicated export planning view.</p>
           </div>
           <PriceCalculator />
         </section>

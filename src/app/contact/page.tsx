@@ -1,7 +1,7 @@
 "use client";
 import styles from "./contact.module.css";
 import { QuoteForm } from "@/components/quote-form";
-import { displayPhone, whatsappNumber } from "@/lib/product-data";
+import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
 import { Reveal } from "@/components/reveal";
 
 export default function ContactPage() {
@@ -27,7 +27,7 @@ export default function ContactPage() {
               { 
                 icon: "📞", 
                 title: "Phone / WhatsApp", 
-                content: <a href={`tel:${displayPhone}`}>{displayPhone}</a> 
+                content: <a href={`tel:${phoneHref}`}>{displayPhone}</a> 
               },
               { 
                 icon: "💬", 
