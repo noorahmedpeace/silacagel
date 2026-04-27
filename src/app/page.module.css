@@ -654,6 +654,10 @@
   letter-spacing: 0;
   margin: 18px 0 14px;
   color: var(--ink);
+  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   max-width: 14ch;
 }
 
@@ -683,6 +687,18 @@
   background: #edf2f8;
   border: 1px solid rgba(37, 52, 77, 0.08);
   box-shadow: 0 28px 54px -36px rgba(13, 27, 42, 0.2);
+}
+
+.sectionVisual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(31, 94, 255, 0.18), transparent 26%),
+    linear-gradient(135deg, rgba(31, 94, 255, 0.08), transparent 42%);
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 .sectionVisual::after {
@@ -761,7 +777,8 @@
 .productSection {
   padding: 72px 48px;
   background:
-    radial-gradient(circle at top right, rgba(31, 94, 255, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(31, 94, 255, 0.2), transparent 28%),
+    linear-gradient(90deg, rgba(31, 94, 255, 0.08), transparent 34%),
     radial-gradient(circle at bottom left, rgba(201, 168, 106, 0.12), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(243, 246, 250, 0.72));
   border: 1px solid rgba(37, 52, 77, 0.08);
@@ -788,6 +805,31 @@
   box-shadow: 0 24px 48px -34px rgba(13, 27, 42, 0.18);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+}
+
+.productCard::before,
+.reasonCard::before,
+.exportCard::before,
+.priceCard::before,
+.testimonialCard::before,
+.applicationCard::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--accent), rgba(31, 94, 255, 0));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.productCard:hover::before,
+.reasonCard:hover::before,
+.exportCard:hover::before,
+.priceCard:hover::before,
+.testimonialCard:hover::before,
+.applicationCard:hover::before {
+  opacity: 1;
 }
 
 .productCardFeatured {
@@ -1164,6 +1206,7 @@
 .applicationSection {
   padding: 72px 48px;
   background:
+    radial-gradient(circle at 88% 10%, rgba(31, 94, 255, 0.12), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 247, 251, 0.72));
   border: 1px solid rgba(37, 52, 77, 0.08);
   border-radius: 40px;
@@ -1177,6 +1220,8 @@
 }
 
 .reasonCard {
+  position: relative;
+  overflow: hidden;
   padding: 30px 28px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.86);
@@ -1200,7 +1245,8 @@
 .proofSection {
   padding: 72px 48px;
   background:
-    radial-gradient(circle at top, rgba(37, 99, 235, 0.08), transparent 28%),
+    radial-gradient(circle at top, rgba(37, 99, 235, 0.13), transparent 28%),
+    linear-gradient(90deg, rgba(31, 94, 255, 0.07), transparent 42%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 247, 251, 0.8));
   border: 1px solid rgba(37, 52, 77, 0.08);
   border-radius: 40px;
@@ -1225,6 +1271,7 @@
 }
 
 .applicationCard {
+  position: relative;
   background: rgba(255, 255, 255, 0.84);
   border-radius: 26px;
   overflow: hidden;
@@ -1263,6 +1310,8 @@
 }
 
 .testimonialCard {
+  position: relative;
+  overflow: hidden;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.9));
   padding: 32px;
@@ -1352,7 +1401,8 @@
   padding: 72px 48px;
   border-radius: 40px;
   background:
-    radial-gradient(circle at 16% 12%, rgba(31, 94, 255, 0.1), transparent 24%),
+    radial-gradient(circle at 16% 12%, rgba(31, 94, 255, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(31, 94, 255, 0.08), transparent 38%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 247, 251, 0.78));
   border: 1px solid rgba(37, 52, 77, 0.08);
   box-shadow: 0 30px 60px -44px rgba(13, 27, 42, 0.18);
@@ -1382,6 +1432,8 @@
 }
 
 .exportCard {
+  position: relative;
+  overflow: hidden;
   padding: 30px 28px;
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.88);
