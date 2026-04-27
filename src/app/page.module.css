@@ -715,6 +715,17 @@
   transform: scale(1.01);
 }
 
+.productLineVisual,
+.industryVisual {
+  min-height: 320px;
+  border-radius: 32px;
+}
+
+.productLineVisual .sectionVisualImage,
+.industryVisual .sectionVisualImage {
+  filter: saturate(0.96) contrast(1.02);
+}
+
 /* GRIDS */
 .partnerSection {
   padding: 70px 56px;
@@ -784,6 +795,12 @@
   border: 1px solid rgba(37, 52, 77, 0.08);
   border-radius: 40px;
   box-shadow: 0 34px 70px -48px rgba(13, 27, 42, 0.22);
+}
+
+.productSection .sectionIntro,
+.partnerSection .sectionIntro {
+  grid-template-columns: minmax(0, 0.86fr) minmax(360px, 1.14fr);
+  margin-bottom: 34px;
 }
 
 .productGrid {
@@ -894,7 +911,7 @@
   object-fit: cover;
   object-position: center;
   padding: 0;
-  transform: scale(1.02);
+  transform: scale(1.01);
 }
 
 .imageCargoShot {
@@ -2108,6 +2125,11 @@
   }
 
   .pricingSection .sectionIntro {
+    grid-template-columns: 1fr;
+  }
+
+  .productSection .sectionIntro,
+  .partnerSection .sectionIntro {
     grid-template-columns: 1fr;
   }
 

@@ -134,10 +134,10 @@ const sciencePoints = [
 ];
 
 const homepageProductImages: Record<string, string> = {
-  "retail-sachets": "/products/generated-white-sachets.png",
-  "paper-sachets": "/products/generated-kraft-sachets.png",
-  "bulk-industrial": "/products/generated-bulk-packs.png",
-  "container-strips": "/products/generated-cargo-strips.png",
+  "retail-sachets": "/products/premium-white-precision.png",
+  "paper-sachets": "/products/premium-kraft-bond.png",
+  "bulk-industrial": "/products/premium-bulk-supply.png",
+  "container-strips": "/products/premium-cargo-strips.png",
 };
 
 const homepageProductImageClasses: Record<string, string> = {
@@ -489,12 +489,23 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="products" className={styles.productSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Product Line</p>
-                <h2>Choose the format first. Build the quote around it.</h2>
-                <p>
-                  Each range is presented as a clear buying lane with size, use case, and supply context for faster export shortlisting.
-                </p>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Product Line</p>
+                  <h2>Choose the format first. Build the quote around it.</h2>
+                  <p>
+                    Each range is presented as a clear buying lane with size, use case, and supply context for faster export shortlisting.
+                  </p>
+                </div>
+                <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
+                  <Image
+                    src="/products/premium-bulk-supply.png"
+                    alt="Premium silica gel product formats for export quote planning"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
 
               <motion.div
@@ -664,12 +675,23 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="industries" className={styles.partnerSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Industry Compatibility</p>
-                <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
-                <p>
-                  Industry use cases help overseas buyers match the right desiccant format to shipment risk, storage conditions, and packaging type.
-                </p>
+              <div className={styles.sectionIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>Industry Compatibility</p>
+                  <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
+                  <p>
+                    Industry use cases help overseas buyers match the right desiccant format to shipment risk, storage conditions, and packaging type.
+                  </p>
+                </div>
+                <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
+                  <Image
+                    src="/industry-compatibility-premium.png"
+                    alt="Premium silica gel desiccant protection across electronics, leather, cartons, warehouse, and cargo industries"
+                    fill
+                    className={styles.sectionVisualImage}
+                    sizes="(max-width: 900px) 100vw, 42vw"
+                  />
+                </div>
               </div>
 
               <IndustrySlider industries={trustedIndustries} />
