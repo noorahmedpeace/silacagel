@@ -811,6 +811,33 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
+            <section className={styles.shippingBanner}>
+              <div className={styles.shippingBannerInner}>
+                <div className={styles.shippingBannerLeft}>
+                  <span className={styles.shippingTag}>Worldwide Delivery Support</span>
+                  <h2>Wherever your operation is, we can help arrange supply.</h2>
+                  <p>
+                    From local dispatch to international freight coordination, SilacaGEL can support desiccant delivery to buyers across regions. Share your destination and required format, and our team will guide the most practical supply route.
+                  </p>
+                  <div className={styles.shippingCtas}>
+                    <Link href="/contact" className={styles.primaryCta}>Request Delivery Quote</Link>
+                    <Link href="/bulk-sales" className={styles.secondaryCta}>Plan Bulk Supply</Link>
+                  </div>
+                </div>
+                <div className={styles.shippingBannerImage}>
+                  <Image
+                    src="/section-applications-premium.png"
+                    alt="Silica gel desiccant supply for worldwide packaging and freight delivery"
+                    fill
+                    className={styles.image}
+                    sizes="(max-width: 900px) 100vw, 48vw"
+                  />
+                </div>
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
             <section className={styles.certStrip}>
               <p className={styles.certStripLabel}>Compliance Snapshot</p>
               <div className={styles.certStripRow}>
