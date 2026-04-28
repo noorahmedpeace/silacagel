@@ -499,7 +499,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/products/real-bulk-supply.png"
+                    src="/section-product-line-premium.png"
                     alt="Premium silica gel product formats for export quote planning"
                     fill
                     className={styles.sectionVisualImage}
@@ -565,7 +565,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
                   <Image
-                    src="/products/real-bulk-supply.png"
+                    src="/section-export-quote-premium.png"
                     alt="Silica gel procurement documents, calculator, and product packs"
                     fill
                     className={styles.sectionVisualImage}
