@@ -1,81 +1,138 @@
 "use client";
+
+import { motion } from "framer-motion";
 import styles from "./documents.module.css";
 
-const certs = [
-  { icon: "🏛️", code: "US FDA 21 CFR 177.1520", title: "Food Grade Packaging", desc: "Covers all Tyvek packet, canister, and food-safe packaging materials.", download: true },
-  { icon: "📋", code: "US FDA 21 CFR 176.170", title: "Paper Components", desc: "Covers all paper-based and Aiwa specialty packet materials.", download: true },
-  { icon: "🌐", code: "ISO 9001 / 14001", title: "Quality & Environmental", desc: "Covers the full manufacturing facility quality management system.", download: true },
-  { icon: "🔬", code: "FSSC 22000", title: "Food Safety Systems", desc: "Full supply chain food safety certification for all food-grade SKUs.", download: true },
-  { icon: "♻️", code: "RoHS / REACH", title: "Hazardous Substance Compliance", desc: "No restricted substances across all blue, white, and orange bead types.", download: false },
-  { icon: "✅", code: "DMF Free", title: "Dimethyl Fumarate Free", desc: "All desiccant products guaranteed free of Dimethyl Fumarate.", download: false },
+const documents = [
+  {
+    code: "SDS",
+    title: "Safety Data Sheet",
+    desc: "Safety handling, storage, composition, and transport guidance for procurement and compliance teams.",
+  },
+  {
+    code: "COA",
+    title: "Certificate of Analysis",
+    desc: "Batch or product-level quality reference for adsorption performance, moisture control, and product checks.",
+  },
+  {
+    code: "RoHS / REACH",
+    title: "Restricted substance support",
+    desc: "Documentation support for buyers checking restricted substances and market-entry requirements.",
+  },
+  {
+    code: "FDA",
+    title: "FDA packaging support",
+    desc: "Food-contact and packaging-related documentation can be prepared where applicable to the product format.",
+  },
+  {
+    code: "DMF Free",
+    title: "Dimethyl fumarate statement",
+    desc: "DMF-free confirmation can be requested for desiccant formats used in export packaging.",
+  },
+  {
+    code: "Specs",
+    title: "Product specification sheet",
+    desc: "Size, packing, material, use case, and shipment notes for technical evaluation before final quotation.",
+  },
 ];
 
-const materialTable = [
-  { type: "Silica Gel", function: "Moisture Adsorption", form: "Beads / Granules", spec: "SiO₂, <10% humidity" },
-  { type: "Oxygen Absorbers", function: "Prevents Oxidation", form: "Tyvek Packets", spec: "100cc – 2000cc" },
-  { type: "Activated Alumina", function: "Gas / Liquid Dehydration", form: "Bulk (3–44 lbs)", spec: "Al₂O₃, high heat resistance" },
-  { type: "Clay Desiccant", function: "Industrial Moisture Control", form: "Unit Bags", spec: "Natural Montmorillonite" },
-  { type: "Ethylene Absorbers", function: "Fruit Preservation", form: "2g and 5g Packets", spec: "Removes ripening gases" },
+const requestChecklist = [
+  "Destination market or buyer country",
+  "Product format and sachet size",
+  "Estimated quantity or MOQ target",
+  "Required document type",
+  "Buyer company name or import reference",
+];
+
+const complianceNotes = [
+  {
+    title: "Document availability",
+    text: "Documents are supplied by request so the team can match the correct product format, market, and batch context.",
+  },
+  {
+    title: "Export review",
+    text: "For international orders, share the destination country early so compliance and logistics expectations are clear.",
+  },
+  {
+    title: "No generic claims",
+    text: "Final documentation should be reviewed against the exact product, quantity, and buyer requirements before purchase.",
+  },
 ];
 
 export default function DocumentsPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <span className={styles.kicker}>Safety & Compliance</span>
-        <h1>Every Certificate. Every Standard. Every Product.</h1>
-        <p>SilacaGEL products are manufactured under the strictest international safety and quality frameworks. Request official SDS and FDA documentation directly from our compliance team.</p>
+        <div>
+          <span className={styles.kicker}>Compliance Documents</span>
+          <h1>Technical documents for global silica gel procurement.</h1>
+          <p>
+            International buyers need more than product photos. Request SDS, COA, specification sheets, and compliance support based on the exact desiccant format and destination market.
+          </p>
+          <div className={styles.heroActions}>
+            <a href="/contact" className={styles.primaryBtn}>Request Documents</a>
+            <a href="/products" className={styles.secondaryBtn}>View Products</a>
+          </div>
+        </div>
+        <div className={styles.heroPanel} aria-hidden="true">
+          <span>01 SDS</span>
+          <span>02 COA</span>
+          <span>03 RoHS / REACH</span>
+          <span>04 DMF Free</span>
+        </div>
       </section>
 
-      <section className={styles.certsGrid}>
-        {certs.map((c) => (
-          <article key={c.code} className={styles.certCard}>
-            <div className={styles.certTop}>
-              <span className={styles.certIcon}>{c.icon}</span>
-              <span className={styles.certCode}>{c.code}</span>
+      <section className={styles.documentsGrid}>
+        {documents.map((item, index) => (
+          <motion.article
+            key={item.code}
+            className={styles.documentCard}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ delay: index * 0.04, duration: 0.45, ease: "easeOut" }}
+          >
+            <span>{item.code}</span>
+            <h2>{item.title}</h2>
+            <p>{item.desc}</p>
+            <a href="/contact">Request this document</a>
+          </motion.article>
+        ))}
+      </section>
+
+      <section className={styles.requestSection}>
+        <div className={styles.sectionHead}>
+          <span className={styles.kicker}>Request Checklist</span>
+          <h2>Send the details that help us prepare the right file.</h2>
+          <p>
+            Compliance documents are most useful when they match the product format, destination market, and buyer review process.
+          </p>
+        </div>
+        <div className={styles.checklist}>
+          {requestChecklist.map((item, index) => (
+            <div key={item} className={styles.checkItem}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <strong>{item}</strong>
             </div>
-            <h3>{c.title}</h3>
-            <p>{c.desc}</p>
-            {c.download && (
-              <a href="/contact" className={styles.downloadBtn}>Request Document →</a>
-            )}
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.notesGrid}>
+        {complianceNotes.map((item) => (
+          <article key={item.title} className={styles.noteCard}>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
           </article>
         ))}
       </section>
 
-      <section className={styles.tableSection}>
-        <div className={styles.sectionHead}>
-          <span className={styles.kicker}>Material Reference</span>
-          <h2>Technical Chemical Analysis of Adsorption Materials.</h2>
-        </div>
-        <div className={styles.tableWrapper}>
-          <table className={styles.specTable}>
-            <thead>
-              <tr>
-                <th>Material Type</th>
-                <th>Primary Function</th>
-                <th>Physical Form</th>
-                <th>Technical Specification</th>
-              </tr>
-            </thead>
-            <tbody>
-              {materialTable.map((row) => (
-                <tr key={row.type}>
-                  <td><strong>{row.type}</strong></td>
-                  <td>{row.function}</td>
-                  <td>{row.form}</td>
-                  <td><code>{row.spec}</code></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
       <section className={styles.ctaBanner}>
-        <h2>Need Official Documentation for Your Compliance Team?</h2>
-        <p>Our technical team provides SDS sheets, FDA letters of guarantee, and ISO certificates within 24 hours.</p>
-        <a href="/contact" className={styles.ctaBtn}>Request All Documents →</a>
+        <h2>Need documents for an export buyer or compliance team?</h2>
+        <p>
+          Share your product format, country, quantity, and required document type. The team will guide the right documentation path.
+        </p>
+        <a href="/contact" className={styles.ctaBtn}>Request Documentation</a>
       </section>
     </main>
   );
