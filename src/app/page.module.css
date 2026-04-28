@@ -1188,6 +1188,31 @@
   color: var(--muted);
 }
 
+.priceQuoteLink {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(31, 94, 255, 0.08);
+  border: 1px solid rgba(31, 94, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 800;
+  transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.priceQuoteLink:hover {
+  transform: translateY(-1px);
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 16px 30px -18px rgba(31, 94, 255, 0.42);
+  opacity: 1;
+}
+
 .priceCardFoot {
   margin-top: 14px;
   font-size: 0.82rem;

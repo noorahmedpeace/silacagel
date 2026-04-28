@@ -600,7 +600,21 @@ export default function Home() {
                         {group.items.slice(0, 4).map((item) => (
                           <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
                             <strong>{item.label}</strong>
-                            <span>Export quote</span>
+                            <a
+                              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                                [
+                                  "Hello, I'm requesting a SilacaGEL export quote.",
+                                  `Category: ${group.title}`,
+                                  `Size: ${item.label}`,
+                                  "Please advise MOQ, lead time, documentation, and shipping terms.",
+                                ].join("\n"),
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={styles.priceQuoteLink}
+                            >
+                              Export quote
+                            </a>
                           </div>
                         ))}
                       </div>
