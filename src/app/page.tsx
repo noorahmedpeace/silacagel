@@ -356,7 +356,7 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <Image
               id="hero-product-image"
-              src="/products/real-kraft-bond.png"
+              src="/hero-macro-kraft.png"
               alt="Silica gel beads spilling from a desiccant sachet"
               fill
               className={styles.heroBgImage}
