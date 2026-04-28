@@ -4,8 +4,10 @@
   padding: 40px;
   border: 1px solid var(--glass-border);
   border-radius: 28px;
-  background: var(--surface);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.4);
+  background:
+    radial-gradient(circle at top right, rgba(31, 94, 255, 0.08), transparent 28%),
+    rgba(255, 255, 255, 0.82);
+  box-shadow: 0 24px 52px -38px rgba(13, 27, 42, 0.24);
 }
 
 .compact {
@@ -47,7 +49,8 @@
 }
 
 .field input,
-.field select {
+.field select,
+.field textarea {
   min-height: 56px;
   padding: 0 16px;
   border: 1px solid var(--glass-border);
@@ -60,14 +63,16 @@
 }
 
 .field input:focus,
-.field select:focus {
+.field select:focus,
+.field textarea:focus {
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 1px var(--accent);
 }
 
-.field input::placeholder {
-  color: rgba(255, 255, 255, 0.2);
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(96, 112, 135, 0.62);
 }
 
 .submit {

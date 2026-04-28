@@ -19,7 +19,10 @@ export function QuoteForm({
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [quantity, setQuantity] = useState("");
-  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [currency, setCurrency] = useState("USD");
+  const [destination, setDestination] = useState("");
+  const [documents, setDocuments] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -29,8 +32,11 @@ export function QuoteForm({
       `Technical Specification: ${product || "General Catalog Inquiry"}`,
       `Authorized Representative: ${name || "Unassigned"}`,
       `Point of Contact: ${phone || "Not provided"}`,
-      `Industrial Requirement: ${quantity || "Not provided"}`,
-      `Base of Operations: ${city || "Not provided"}`,
+      `Country / Market: ${country || "Not provided"}`,
+      `Preferred Currency: ${currency}`,
+      `Quantity / MOQ Target: ${quantity || "Not provided"}`,
+      `Destination Port or City: ${destination || "Not provided"}`,
+      `Required Documents: ${documents || "Not specified"}`,
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
@@ -81,21 +87,53 @@ export function QuoteForm({
       </label>
 
       <label className={styles.field}>
-        <span>Industrial Capacity / Monthly Requirement</span>
+        <span>Country / Market</span>
         <input
-          value={quantity}
-          onChange={(event) => setQuantity(event.target.value)}
-          placeholder="e.g. 50,000 units / Recurring"
+          value={country}
+          onChange={(event) => setCountry(event.target.value)}
+          placeholder="e.g. United States, UAE, Germany"
           type="text"
         />
       </label>
 
       <label className={styles.field}>
-        <span>Distribution Region</span>
+        <span>Preferred Currency</span>
+        <select value={currency} onChange={(event) => setCurrency(event.target.value)}>
+          <option value="USD">USD - US Dollar</option>
+          <option value="EUR">EUR - Euro</option>
+          <option value="GBP">GBP - Pound</option>
+          <option value="PKR">PKR - Pakistani Rupee</option>
+          <option value="INR">INR - Indian Rupee</option>
+          <option value="CNY">CNY - Chinese Yuan</option>
+        </select>
+      </label>
+
+      <label className={styles.field}>
+        <span>Quantity / MOQ Target</span>
         <input
-          value={city}
-          onChange={(event) => setCity(event.target.value)}
-          placeholder="City / Logistics Hub"
+          value={quantity}
+          onChange={(event) => setQuantity(event.target.value)}
+          placeholder="e.g. 50,000 sachets / 25 cartons / recurring"
+          type="text"
+        />
+      </label>
+
+      <label className={styles.field}>
+        <span>Destination Port or City</span>
+        <input
+          value={destination}
+          onChange={(event) => setDestination(event.target.value)}
+          placeholder="e.g. Jebel Ali, Hamburg, Houston"
+          type="text"
+        />
+      </label>
+
+      <label className={styles.field}>
+        <span>Required Documents</span>
+        <input
+          value={documents}
+          onChange={(event) => setDocuments(event.target.value)}
+          placeholder="e.g. SDS, COA, RoHS/REACH, FDA support"
           type="text"
         />
       </label>
