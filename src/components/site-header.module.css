@@ -18,21 +18,21 @@
   border: 1px solid rgba(191, 193, 194, 0.44);
   border-radius: 24px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.64));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.68), rgba(255, 255, 255, 0.42));
   color: var(--ink);
   box-shadow: 0 24px 54px -42px rgba(15, 23, 42, 0.42);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  transition: background 0.28s ease, color 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, min-height 0.28s ease;
+  transition: background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, min-height 0.28s ease, transform 0.28s ease;
 }
 
 .headerScrolled {
   min-height: 62px;
   background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-  color: #ffffff;
-  border-color: rgba(191, 193, 194, 0.22);
-  box-shadow: 0 24px 62px -34px rgba(15, 23, 42, 0.68);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.5));
+  color: var(--ink);
+  border-color: rgba(191, 193, 194, 0.52);
+  box-shadow: 0 28px 70px -42px rgba(15, 23, 42, 0.36);
 }
 
 .brand {
@@ -92,8 +92,8 @@
 }
 
 .headerScrolled .nav {
-  background: rgba(255, 255, 255, 0.075);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.045);
+  border-color: rgba(191, 193, 194, 0.32);
 }
 
 .navItem {
@@ -118,7 +118,7 @@
 }
 
 .headerScrolled .navItem:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.76);
 }
 
 .navCta {
@@ -139,9 +139,9 @@
 }
 
 .headerScrolled .navCta {
-  border-color: rgba(255, 255, 255, 0.18);
-  background: #ffffff;
-  color: #0f172a;
+  border-color: rgba(15, 23, 42, 0.16);
+  background: #0f172a;
+  color: #ffffff;
 }
 
 .navCta:hover {
