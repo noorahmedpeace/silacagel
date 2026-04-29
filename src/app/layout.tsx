@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Inter, Montserrat } from "next/font/google";
+import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 const display = Montserrat({
@@ -22,9 +23,9 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Export-Ready Silica Gel Desiccant Supply",
+  title: "SilacaGEL | Premium Silica Gel Desiccants Delivered Worldwide",
   description:
-    "Export-ready silica gel desiccant sachets, bulk packs, and cargo strips for packaging, logistics, warehousing, and industrial procurement teams.",
+    "Premium silica gel desiccant sachets, bulk packs, cargo strips, SDS/COA support, and worldwide delivery for industrial packaging and export procurement teams.",
   keywords: [
     "silica gel manufacturer",
     "bulk desiccant packets",
@@ -33,11 +34,13 @@ export const metadata: Metadata = {
     "silaca gel", // Typo variant
     "desiccant bags manufacturer",
     "moisture control for export",
+    "silica gel delivered worldwide",
+    "ISO 9001 silica gel supplier",
   ],
   openGraph: {
-    title: "SilacaGEL | Export-Ready Moisture Protection for Global Supply Chains",
+    title: "SilacaGEL | Premium Silica Gel Delivered Worldwide",
     description:
-      "Industrial desiccant supply for packaging, logistics, warehouse stock, and export shipments with documentation available on request.",
+      "Industrial desiccant supply for packaging, logistics, warehouse stock, and export shipments with SDS, COA, and compliance documentation available on request.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -51,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Industrial Silica Gel Desiccant Supply",
+    title: "SilacaGEL | Global Silica Gel Desiccant Supplier",
     description:
       "Export-ready moisture protection for cartons, bulk packaging, and container cargo.",
   },
@@ -64,7 +67,51 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "SilacaGEL",
+              url: "https://silacagel.vercel.app",
+              description:
+                "Premium silica gel desiccant supplier for industrial packaging, logistics, warehousing, and export procurement.",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+923330223337",
+                contactType: "sales",
+                areaServed: "Worldwide",
+                availableLanguage: ["en"],
+              },
+              makesOffer: [
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Product",
+                    name: "Silica gel desiccant sachets",
+                    category: "Industrial desiccants",
+                    material: "Silicon dioxide",
+                  },
+                },
+                {
+                  "@type": "Offer",
+                  itemOffered: {
+                    "@type": "Product",
+                    name: "Silica gel cargo strips",
+                    category: "Export moisture control",
+                    material: "Silicon dioxide",
+                  },
+                },
+              ],
+            }),
+          }}
+        />
+      </body>
     </html>
   );
 }
