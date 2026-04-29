@@ -639,11 +639,11 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("/backgrounds/particle-corner.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
-  background-position: 100% 0;
-  background-size: min(760px, 70%) auto;
-  opacity: 0.3;
+  background-position: 50% 0;
+  background-size: max(1600px, 120%) auto;
+  opacity: 0.12;
   mix-blend-mode: multiply;
 }
 
@@ -655,11 +655,11 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("/backgrounds/particle-ribbon.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  background-size: min(920px, 86%) auto;
-  opacity: 0.26;
+  background-size: max(1700px, 125%) auto;
+  opacity: 0.11;
   mix-blend-mode: multiply;
 }
 
@@ -672,11 +672,11 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("/backgrounds/particle-left-burst.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
-  background-position: 0 20%;
-  background-size: min(820px, 78%) auto;
-  opacity: 0.24;
+  background-position: 50% 100%;
+  background-size: max(1600px, 120%) auto;
+  opacity: 0.1;
   mix-blend-mode: multiply;
 }
 
@@ -869,7 +869,7 @@
   letter-spacing: -0.065em;
   margin: 18px 0 14px;
   color: var(--ink);
-  background: linear-gradient(135deg, var(--ink) 0%, #1f2937 58%, #8b8d90 100%);
+  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -31,11 +31,11 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/backgrounds/particle-left-burst.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
-  background-position: 0 22%;
-  background-size: min(820px, 80%) auto;
-  opacity: 0.23;
+  background-position: 50% 0;
+  background-size: max(1500px, 120%) auto;
+  opacity: 0.12;
   pointer-events: none;
   mix-blend-mode: multiply;
 }
@@ -72,6 +72,14 @@
   font-family: var(--font-display);
   color: var(--ink);
   letter-spacing: -0.065em;
+}
+
+.hero h1,
+.sectionHead h2 {
+  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero h1 {
@@ -196,11 +204,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/backgrounds/particle-corner.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
-  background-position: 100% 0;
-  background-size: 380px auto;
-  opacity: 0.18;
+  background-position: 50% 0;
+  background-size: 800px auto;
+  opacity: 0.08;
   pointer-events: none;
   mix-blend-mode: multiply;
 }

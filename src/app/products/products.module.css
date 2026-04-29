@@ -34,11 +34,11 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/backgrounds/particle-corner.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
-  background-position: 100% 0;
-  background-size: 360px auto;
-  opacity: 0.2;
+  background-position: 50% 0;
+  background-size: 820px auto;
+  opacity: 0.08;
   pointer-events: none;
   mix-blend-mode: multiply;
 }
@@ -133,6 +133,10 @@
   line-height: 1.02;
   color: var(--ink);
   letter-spacing: -0.055em;
+  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .copy p {

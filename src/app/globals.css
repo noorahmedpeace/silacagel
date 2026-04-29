@@ -32,6 +32,7 @@ body {
 
 body {
   min-height: 100vh;
+  padding-top: 92px;
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -50,12 +51,12 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(244, 244, 244, 0.84)),
-    url("/backgrounds/blue-particle-wave.png");
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(244, 244, 244, 0.72)),
+    url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-size: 1180px auto;
-  opacity: 0.38;
+  background-size: max(1920px, 100vw) auto;
+  opacity: 0.42;
   filter: saturate(0.92) contrast(1.02);
   transform: translate3d(0, 0, 0);
   animation: particleDrift 18s ease-in-out infinite alternate;
@@ -152,12 +153,18 @@ button {
   }
 }
 
+@media (max-width: 760px) {
+  body {
+    padding-top: 170px;
+  }
+}
+
 @keyframes particleDrift {
   from {
-    background-position: 48% -18px;
+    background-position: 48% -10px;
   }
 
   to {
-    background-position: 54% 26px;
+    background-position: 52% 18px;
   }
 }
