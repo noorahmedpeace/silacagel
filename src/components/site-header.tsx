@@ -36,7 +36,7 @@ export function SiteHeader() {
             <circle cx="152" cy="10" r="2" fill="currentColor" opacity="0.45" />
             <circle cx="161" cy="10" r="1" fill="currentColor" opacity="0.25" />
           </svg>
-          <span>Premium Silica Gel, Delivered Worldwide</span>
+          <span className={styles.brandTag}>Worldwide Desiccant Supply</span>
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
