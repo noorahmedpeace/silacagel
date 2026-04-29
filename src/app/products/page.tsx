@@ -5,10 +5,10 @@ import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 
 const catalogImages: Record<string, string> = {
-  "retail-sachets": "/products/generated-white-sachets.png",
-  "paper-sachets": "/products/generated-kraft-sachets.png",
-  "bulk-industrial": "/products/generated-bulk-packs.png",
-  "container-strips": "/products/generated-cargo-strips.png",
+  "retail-sachets": "/products/real-white-precision.png",
+  "paper-sachets": "/products/real-kraft-bond.png",
+  "bulk-industrial": "/products/real-bulk-supply.png",
+  "container-strips": "/products/real-cargo-strips.png",
 };
 
 export default function ProductsPage() {
@@ -34,6 +34,9 @@ export default function ProductsPage() {
                 className={styles.image}
                 sizes="(max-width: 900px) 100vw, 45vw"
               />
+              <div className={styles.imageScrim} />
+              <span className={styles.formatBadge}>{product.featuredSizes[0]}</span>
+              <span className={styles.globalBadge}>Worldwide dispatch</span>
             </div>
             <div className={styles.copy}>
               <span className={styles.eyebrow}>{product.eyebrow}</span>
