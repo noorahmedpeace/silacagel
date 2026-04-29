@@ -1,117 +1,180 @@
 .page {
   width: 100%;
-  max-width: 1400px;
+  max-width: 1420px;
   margin: 0 auto;
   padding: 80px 32px 140px;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 70px;
 }
 
 .hero {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 900px;
-  padding-top: 60px;
+  max-width: 980px;
+  padding: 62px;
+  border-radius: 42px;
+  border: 1px solid rgba(191, 193, 194, 0.36);
+  background:
+    radial-gradient(circle at 86% 14%, rgba(191, 193, 194, 0.28), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 244, 244, 0.78));
+  box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
 }
 
-.kicker { display: inline-flex; padding: 8px 16px; background: var(--accent-glow); color: var(--accent); border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 20px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(191, 193, 194, 0.48);
+  color: #475569;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.contactInfo h2 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  letter-spacing: -0.07em;
+}
 
 .hero h1 {
-  font-size: 4.5rem;
+  max-width: 11ch;
+  margin-bottom: 22px;
+  font-size: clamp(3.6rem, 6vw, 5.4rem);
   font-weight: 900;
-  color: var(--ink);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 0.96;
 }
 
 .hero p {
-  font-size: 1.25rem;
+  max-width: 760px;
   color: var(--muted);
-  line-height: 1.6;
-  max-width: 720px;
+  font-size: 1.12rem;
+  line-height: 1.78;
 }
 
 .contactLayout {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 100px;
+  grid-template-columns: minmax(320px, 0.78fr) minmax(0, 1.22fr);
+  gap: 42px;
   align-items: start;
 }
 
 .contactInfo {
+  position: sticky;
+  top: 112px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 34px;
 }
 
 .contactInfo h2 {
-  font-size: 2.8rem;
+  max-width: 12ch;
+  margin-bottom: 16px;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
   font-weight: 900;
-  color: var(--ink);
-  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
-.contactInfo > p {
+.contactInfo p {
+  max-width: 520px;
   color: var(--muted);
-  line-height: 1.6;
-  font-size: 1.1rem;
+  line-height: 1.75;
+  font-size: 1rem;
 }
 
 .contactCards {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .contactCard {
   display: flex;
   align-items: center;
-  gap: 24px;
-  padding: 32px;
-  background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 28px;
-  transition: all 0.3s ease;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid rgba(191, 193, 194, 0.36);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 22px 48px -38px rgba(15, 23, 42, 0.24);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contactCard:hover {
-  background: var(--surface-elevated);
-  transform: translateX(8px);
-  border-color: var(--accent);
-  box-shadow: 0 20px 60px -15px rgba(0,0,0,0.06);
+  transform: translateX(6px);
+  border-color: rgba(15, 23, 42, 0.22);
+  box-shadow: 0 28px 62px -42px rgba(15, 23, 42, 0.34);
 }
 
 .contactIcon {
-  font-size: 2.5rem;
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 800;
 }
 
 .contactCard strong {
   display: block;
-  font-weight: 800;
+  margin-bottom: 5px;
   color: var(--ink);
-  margin-bottom: 6px;
-  font-size: 1.1rem;
-}
-
-.contactCard a, .contactCard span {
-  color: var(--accent);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 1rem;
 }
 
+.contactCard a,
+.contactCard span {
+  color: #475569;
+  font-weight: 700;
+  font-size: 0.94rem;
+}
+
+.contactCard a:hover {
+  color: var(--ink);
+}
+
 @media (max-width: 1100px) {
-  .contactLayout { grid-template-columns: 1fr; gap: 80px; }
-  .hero h1 { font-size: 3.5rem; }
+  .contactLayout {
+    grid-template-columns: 1fr;
+  }
+
+  .contactInfo {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
-  .page { padding: 48px 20px 100px; }
-  .hero h1 { font-size: 2.8rem; }
-  .contactInfo h2 { font-size: 2.2rem; }
-  .contactCard { padding: 24px; gap: 16px; }
+  .page {
+    padding: 42px 18px 100px;
+  }
+
+  .hero {
+    padding: 30px;
+    border-radius: 28px;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .contactInfo h2 {
+    font-size: 2.3rem;
+  }
+
+  .contactCard {
+    padding: 18px;
+    gap: 14px;
+  }
 }

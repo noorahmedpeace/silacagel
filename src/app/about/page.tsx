@@ -1,7 +1,38 @@
 "use client";
+
 import Image from "next/image";
-import styles from "./about.module.css";
 import { Reveal } from "@/components/reveal";
+import styles from "./about.module.css";
+
+const stats = [
+  { value: "40+", label: "Years in moisture control" },
+  { value: "150+", label: "Markets supported" },
+  { value: "10M+", label: "Units shipped annually" },
+  { value: "24h", label: "Procurement response target" },
+];
+
+const values = [
+  {
+    icon: "01",
+    title: "Global Reach",
+    desc: "Supplying maritime cargo, pharmaceutical packaging, precision electronics, and export cartons with dependable desiccant formats.",
+  },
+  {
+    icon: "02",
+    title: "Technical Discipline",
+    desc: "Product conversations stay grounded in adsorption logic, documentation, MOQ planning, and packaging conditions.",
+  },
+  {
+    icon: "03",
+    title: "Procurement Partnership",
+    desc: "We help buyers define size, volume, destination, and document requirements before final quote confirmation.",
+  },
+  {
+    icon: "04",
+    title: "Compliance Readiness",
+    desc: "SDS, COA, RoHS/REACH, FDA support, and specification language can be prepared for international review.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -9,22 +40,21 @@ export default function AboutPage() {
       <section className={styles.hero}>
         <Reveal direction="up">
           <div className={styles.heroContent}>
-            <span className={styles.kicker}>Our Story</span>
-            <h1>Built on 4 Decades of Moisture Control Innovation.</h1>
+            <span className={styles.kicker}>Industrial Profile</span>
+            <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              SilacaGEL was born from a singular mission: provide world-class industrial
-              desiccant solutions to manufacturers, exporters, and packagers who cannot
-              afford product loss. From our first factory floor to global maritime shipping
-              lanes, we have protected millions of dollars of cargo.
+              SilacaGEL supports manufacturers, exporters, warehouse teams, and packaging
+              buyers with silica gel formats that protect stock, cartons, and container
+              shipments across demanding supply chains.
             </p>
           </div>
         </Reveal>
-        
+
         <Reveal direction="up" delay={0.2}>
           <div className={styles.heroImage}>
             <Image
               src="/macro-hero.png"
-              alt="About SilacaGEL"
+              alt="Macro silica gel material for industrial moisture control"
               fill
               style={{ objectFit: "cover" }}
               priority
@@ -35,12 +65,7 @@ export default function AboutPage() {
       </section>
 
       <section className={styles.stats}>
-        {[
-          { value: "40+", label: "Years in the Industry" },
-          { value: "150+", label: "Countries Served" },
-          { value: "10M+", label: "Units Shipped Annually" },
-          { value: "100%", label: "Customer Satisfaction" },
-        ].map((stat, idx) => (
+        {stats.map((stat, idx) => (
           <Reveal key={stat.label} direction="up" delay={0.1 * idx}>
             <div className={styles.statCard}>
               <strong>{stat.value}</strong>
@@ -53,23 +78,18 @@ export default function AboutPage() {
       <section className={styles.values}>
         <Reveal direction="up">
           <div className={styles.sectionHead}>
-            <span className={styles.kicker}>Our Values</span>
-            <h2>The Principles That Drive Every Packet We Make.</h2>
+            <span className={styles.kicker}>Operating Principles</span>
+            <h2>A cleaner supply story for serious industrial procurement.</h2>
           </div>
         </Reveal>
-        
+
         <div className={styles.valuesGrid}>
-          {[
-            { icon: "🌐", title: "Global Reach", desc: "Supplying maritime cargo, pharmaceutical vaults, and precision electronics across 150+ countries with reliable, on-time delivery." },
-            { icon: "🔬", title: "Technical Excellence", desc: "Every product is engineered under ISO 9001 and FDA standards, with ongoing R&D improving our adsorption rates year over year." },
-            { icon: "🤝", title: "Client Partnership", desc: "We're not just a supplier. We act as moisture-control consultants, helping you calculate exactly what you need for your specific cargo." },
-            { icon: "♻️", title: "Environmental Responsibility", desc: "Our manufacturing process is ISO 14001 certified, ensuring minimal waste and full compliance with REACH and RoHS directives." },
-          ].map((v, idx) => (
-            <Reveal key={v.title} direction="up" delay={0.1 * idx}>
+          {values.map((value, idx) => (
+            <Reveal key={value.title} direction="up" delay={0.1 * idx}>
               <article className={styles.valueCard}>
-                <div className={styles.valueIcon}>{v.icon}</div>
-                <h3>{v.title}</h3>
-                <p>{v.desc}</p>
+                <div className={styles.valueIcon}>{value.icon}</div>
+                <h3>{value.title}</h3>
+                <p>{value.desc}</p>
               </article>
             </Reveal>
           ))}
@@ -78,9 +98,12 @@ export default function AboutPage() {
 
       <Reveal direction="up">
         <section className={styles.cta}>
-          <h2>Ready to Partner with SilacaGEL?</h2>
-          <p>Connect with our procurement team for industrial supply contracts and custom desiccant solutions.</p>
-          <a href="/contact" className={styles.ctaBtn}>Get in Touch</a>
+          <h2>Ready to plan a desiccant supply requirement?</h2>
+          <p>
+            Share your product format, quantity, destination, and documents needed so the
+            procurement response is clearer from the first message.
+          </p>
+          <a href="/contact" className={styles.ctaBtn}>Start Procurement Request</a>
         </section>
       </Reveal>
     </main>
