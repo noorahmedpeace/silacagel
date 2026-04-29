@@ -389,15 +389,26 @@ export default function Home() {
 
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
+            <Image
+              id="hero-product-image"
+              src="/hero-macro-kraft.png"
+              alt="Silica gel beads spilling from a desiccant sachet"
+              fill
+              className={styles.heroBgImage}
+              sizes="100vw"
+              priority
+            />
+            <div className={styles.heroShade} />
+
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Global supply desk
+                Silica gel supply
               </span>
               <h1>
-                {splitTextToSpans("Global Silica Gel Supply. Engineered for Precision.")}
+                {splitTextToSpans("Export-ready silica gel for global packaging teams.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Premium desiccant sachets, bulk packs, and container formats for international packaging teams that need clean documentation, reliable supply, and fast quoting.
+                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and international dispatch.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -407,7 +418,7 @@ export default function Home() {
                   whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Request Quote
+                  Request Export Quote
                 </motion.a>
                 <motion.a
                   href="#products"
@@ -420,51 +431,41 @@ export default function Home() {
               </div>
 
               <div className={`${styles.heroMetaStrip} gsap-hero-fade`}>
-                <span>CAS: 7631-86-9</span>
-                <span>SiO2 desiccant</span>
+                <span>Bulk quotes</span>
+                <span>MOQ guidance</span>
                 <span>FOB / CIF support</span>
               </div>
 
-              <div className={`${styles.heroCertRow} gsap-hero-fade`} aria-label="Certification support">
-                {["ISO 9001", "FDA support", "SDS / COA", "RoHS / REACH"].map((item) => (
+              <div className={`${styles.heroCertRow} gsap-hero-fade`}>
+                {heroCerts.map((item) => (
                   <span key={item} className={styles.heroCertPill}>{item}</span>
                 ))}
               </div>
-            </div>
 
-            <motion.div
-              className={`${styles.heroLabVisual} gsap-hero-fade`}
-              initial={{ opacity: 0, scale: 0.96, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-              <div className={styles.heroLabFrame}>
-                <Image
-                  id="hero-product-image"
-                  src="/hero-macro-kraft.png"
-                  alt="Silica gel packaging and beads in a clean laboratory supply setting"
-                  fill
-                  className={styles.heroLabImage}
-                  sizes="(max-width: 1100px) 100vw, 48vw"
-                  priority
-                />
-                <div className={styles.heroLabOverlay} />
-                <div className={styles.heroFormula}>
-                  <span>MOISTURE ADSORPTION</span>
-                  <strong>SiO2</strong>
-                </div>
-                <div className={styles.heroSpecCard}>
-                  <span>Bulk Export Supply</span>
-                  <strong>0.5g sachets to 1kg cargo strips</strong>
-                </div>
-              </div>
-            </motion.div>
-
-            <div className={`${styles.heroTrustBar} gsap-hero-fade`}>
-              {heroCerts.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-              <span>Worldwide delivery support</span>
+              <motion.div
+                variants={trustContainerVariants}
+                initial="hidden"
+                animate="show"
+                className={`${styles.trustSignals} gsap-hero-fade`}
+              >
+                {trustSignalsArray.map((signal, index) => {
+                  const Icon = signal.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      variants={trustItemVariants}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      className={styles.signal}
+                    >
+                      <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
+                      <div className={styles.signalText}>
+                        <span>{signal.label}</span>
+                        <strong>{signal.title}</strong>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
             </div>
           </section>
 

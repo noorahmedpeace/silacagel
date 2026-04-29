@@ -112,26 +112,20 @@
 /* HERO SECTION */
 .hero {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-  align-items: center;
-  gap: 44px;
-  min-height: 720px;
+  display: flex;
+  align-items: flex-end;
+  min-height: 680px;
   overflow: hidden;
   border-radius: 36px;
-  padding: 70px 62px 104px;
+  padding: 62px;
   isolation: isolate;
-  background:
-    radial-gradient(circle at 72% 24%, rgba(191, 193, 194, 0.28), transparent 22%),
-    linear-gradient(135deg, #0f172a 0%, #172033 48%, #0b1120 100%);
-  border: 1px solid rgba(191, 193, 194, 0.22);
-  box-shadow: 0 44px 90px -54px rgba(13, 27, 42, 0.66);
+  box-shadow: 0 44px 90px -54px rgba(13, 27, 42, 0.36);
 }
 
 .heroCopy {
   position: relative;
   z-index: 2;
-  max-width: 680px;
+  max-width: 720px;
 }
 
 .heroBgImage {
@@ -166,12 +160,12 @@
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(3.8rem, 6vw, 5.5rem);
-  line-height: 0.92;
-  letter-spacing: -0.075em;
+  font-size: clamp(4.25rem, 7vw, 5.7rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
   margin-bottom: 24px;
   color: white;
-  max-width: 11.5ch;
+  max-width: 10.6ch;
   text-wrap: balance;
 }
 
@@ -197,8 +191,8 @@
   margin-bottom: 24px;
   padding: 8px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(191, 193, 194, 0.22);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -213,7 +207,6 @@
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.02em;
-  font-family: var(--font-mono);
 }
 
 .heroCertRow {
@@ -228,13 +221,12 @@
   align-items: center;
   padding: 10px 14px;
   border-radius: 999px;
-  background: rgba(191, 193, 194, 0.1);
-  border: 1px solid rgba(191, 193, 194, 0.3);
-  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.86);
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-  font-family: var(--font-mono);
   box-shadow: 0 16px 30px -26px rgba(13, 27, 42, 0.16);
 }
 
