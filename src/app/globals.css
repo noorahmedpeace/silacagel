@@ -43,6 +43,24 @@ body {
     linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%);
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(244, 244, 244, 0.84)),
+    url("/backgrounds/blue-particle-wave.png");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: 1180px auto;
+  opacity: 0.38;
+  filter: saturate(0.92) contrast(1.02);
+  transform: translate3d(0, 0, 0);
+  animation: particleDrift 18s ease-in-out infinite alternate;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -127,5 +145,19 @@ button {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  body::before {
+    animation: none;
+  }
+}
+
+@keyframes particleDrift {
+  from {
+    background-position: 48% -18px;
+  }
+
+  to {
+    background-position: 54% 26px;
   }
 }
