@@ -20,11 +20,28 @@
 }
 
 .hero {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 16px;
   max-width: 800px;
   padding-top: 40px;
+  isolation: isolate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: -80px -220px -80px auto;
+  z-index: -1;
+  width: min(760px, 82vw);
+  background-image: url("/backgrounds/particle-corner.png");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: contain;
+  opacity: 0.32;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
 .kicker {
@@ -96,6 +113,8 @@
 }
 
 .ctaBanner {
+  position: relative;
+  overflow: hidden;
   background:
     radial-gradient(circle at 80% 16%, rgba(191, 193, 194, 0.18), transparent 24%),
     linear-gradient(135deg, #0f172a, #111827);
@@ -106,6 +125,25 @@
   align-items: center;
   text-align: center;
   gap: 20px;
+  isolation: isolate;
+}
+
+.ctaBanner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/backgrounds/particle-ribbon.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: min(920px, 95%) auto;
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+.ctaBanner > * {
+  position: relative;
+  z-index: 1;
 }
 
 .ctaBanner h2 {

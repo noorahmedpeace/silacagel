@@ -9,6 +9,7 @@
 }
 
 .hero {
+  position: relative;
   max-width: 980px;
   padding: 62px;
   border-radius: 42px;
@@ -17,6 +18,27 @@
     radial-gradient(circle at 86% 14%, rgba(191, 193, 194, 0.28), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 244, 244, 0.78));
   box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/backgrounds/particle-ribbon.png");
+  background-repeat: no-repeat;
+  background-position: 74% 42%;
+  background-size: min(820px, 86%) auto;
+  opacity: 0.22;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .kicker {
@@ -94,6 +116,7 @@
 }
 
 .contactCard {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 18px;
@@ -103,6 +126,25 @@
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 22px 48px -38px rgba(15, 23, 42, 0.24);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.contactCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/backgrounds/particle-corner.png");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 280px auto;
+  opacity: 0.16;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.contactCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .contactCard:hover {

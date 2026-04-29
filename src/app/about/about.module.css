@@ -9,6 +9,7 @@
 }
 
 .hero {
+  position: relative;
   display: grid;
   grid-template-columns: 1.04fr 0.96fr;
   gap: 72px;
@@ -21,6 +22,27 @@
     radial-gradient(circle at 10% 8%, rgba(15, 23, 42, 0.08), transparent 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 244, 244, 0.78));
   box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/backgrounds/particle-left-burst.png");
+  background-repeat: no-repeat;
+  background-position: 0 22%;
+  background-size: min(820px, 80%) auto;
+  opacity: 0.23;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .heroContent {
@@ -160,12 +182,32 @@
 }
 
 .valueCard {
+  position: relative;
+  overflow: hidden;
   min-height: 310px;
   display: flex;
   flex-direction: column;
   gap: 18px;
   padding: 42px;
   border-radius: 32px;
+}
+
+.valueCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/backgrounds/particle-corner.png");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 380px auto;
+  opacity: 0.18;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.valueCard > * {
+  position: relative;
+  z-index: 1;
 }
 
 .valueIcon {

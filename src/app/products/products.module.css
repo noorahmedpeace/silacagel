@@ -29,6 +29,25 @@
   box-shadow: 0 34px 90px -48px rgba(37, 99, 235, 0.42);
 }
 
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("/backgrounds/particle-corner.png");
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 360px auto;
+  opacity: 0.2;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
 .imageWrap {
   position: relative;
   min-height: 310px;
