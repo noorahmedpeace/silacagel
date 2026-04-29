@@ -5,10 +5,10 @@ import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 
 const catalogImages: Record<string, string> = {
-  "retail-sachets": "/products/real-white-precision.png",
-  "paper-sachets": "/products/real-kraft-bond.png",
-  "bulk-industrial": "/products/real-bulk-supply.png",
-  "container-strips": "/products/real-cargo-strips.png",
+  "retail-sachets": "/products/catalog-white-nonindicating.png",
+  "paper-sachets": "/products/catalog-kraft-indicating.png",
+  "bulk-industrial": "/products/catalog-bulk-supply.png",
+  "container-strips": "/products/catalog-cargo-strips.png",
 };
 
 export default function ProductsPage() {
