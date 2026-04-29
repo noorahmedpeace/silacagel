@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -146,6 +146,33 @@ const homepageProductImageClasses: Record<string, string> = {
   "bulk-industrial": "imagePackShot",
   "container-strips": "imageCargoShot",
 };
+
+const industrialBentoCards = [
+  {
+    title: "White Non-Indicating",
+    label: "Bulk Supply",
+    text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
+    image: "/products/real-white-precision.png",
+    href: "/products/retail-sachets",
+    stat: "0.5g-20g",
+  },
+  {
+    title: "Orange / Blue Indicating",
+    label: "RH Monitoring",
+    text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
+    image: "/macro_silica_beads_1775989669467.png",
+    href: "/documents",
+    stat: "RH signal",
+  },
+  {
+    title: "Global Logistics",
+    label: "190+ Countries",
+    text: "Cargo strips and high-capacity formats for long-haul shipments, warehouses, pallets, and container routes.",
+    image: "/products/real-cargo-strips.png",
+    href: "/products/container-strips",
+    stat: "FOB / CIF",
+  },
+];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -295,6 +322,14 @@ const testimonials = [
 
 export default function Home() {
   const heroRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateHeaderState = () => setIsScrolled(window.scrollY > 24);
+    updateHeaderState();
+    window.addEventListener("scroll", updateHeaderState, { passive: true });
+    return () => window.removeEventListener("scroll", updateHeaderState);
+  }, []);
 
   useGSAP(() => {
     // Hero Entrance Timeline
@@ -325,15 +360,15 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.shell} ref={heroRef}>
-        <header className={styles.header}>
+        <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
           <Link className={styles.brand} href="/" aria-label="SilacaGEL home">
             <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.brandLogo}>
-              <text x="0" y="30" fontFamily="var(--font-body), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="var(--ink)" letterSpacing="-0.03em">
-                Silaca<tspan fill="#2563EB">GEL</tspan>
+              <text x="0" y="30" fontFamily="var(--font-display), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="currentColor" letterSpacing="-0.03em">
+                Silaca<tspan className={styles.brandAccent}>GEL</tspan>
               </text>
-              <circle cx="140" cy="10" r="3.5" fill="#F97316" />
-              <circle cx="152" cy="10" r="2" fill="#F97316" opacity="0.7" />
-              <circle cx="161" cy="10" r="1" fill="#F97316" opacity="0.4" />
+              <circle cx="140" cy="10" r="3.5" fill="currentColor" opacity="0.7" />
+              <circle cx="152" cy="10" r="2" fill="currentColor" opacity="0.45" />
+              <circle cx="161" cy="10" r="1" fill="currentColor" opacity="0.25" />
             </svg>
           </Link>
 
@@ -354,26 +389,15 @@ export default function Home() {
 
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
-            <Image
-              id="hero-product-image"
-              src="/hero-macro-kraft.png"
-              alt="Silica gel beads spilling from a desiccant sachet"
-              fill
-              className={styles.heroBgImage}
-              sizes="100vw"
-              priority
-            />
-            <div className={styles.heroShade} />
-
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Silica gel supply
+                Global supply desk
               </span>
               <h1>
-                {splitTextToSpans("Export-ready silica gel for global packaging teams.")}
+                {splitTextToSpans("Global Silica Gel Supply. Engineered for Precision.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and international dispatch.
+                Premium desiccant sachets, bulk packs, and container formats for international packaging teams that need clean documentation, reliable supply, and fast quoting.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -383,7 +407,7 @@ export default function Home() {
                   whileHover={{ y: -2, scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Request Export Quote
+                  Request Quote
                 </motion.a>
                 <motion.a
                   href="#products"
@@ -396,41 +420,51 @@ export default function Home() {
               </div>
 
               <div className={`${styles.heroMetaStrip} gsap-hero-fade`}>
-                <span>Bulk quotes</span>
-                <span>MOQ guidance</span>
+                <span>CAS: 7631-86-9</span>
+                <span>SiO2 desiccant</span>
                 <span>FOB / CIF support</span>
               </div>
 
-              <div className={`${styles.heroCertRow} gsap-hero-fade`}>
-                {heroCerts.map((item) => (
+              <div className={`${styles.heroCertRow} gsap-hero-fade`} aria-label="Certification support">
+                {["ISO 9001", "FDA support", "SDS / COA", "RoHS / REACH"].map((item) => (
                   <span key={item} className={styles.heroCertPill}>{item}</span>
                 ))}
               </div>
+            </div>
 
-              <motion.div
-                variants={trustContainerVariants}
-                initial="hidden"
-                animate="show"
-                className={`${styles.trustSignals} gsap-hero-fade`}
-              >
-                {trustSignalsArray.map((signal, index) => {
-                  const Icon = signal.icon;
-                  return (
-                    <motion.div
-                      key={index}
-                      variants={trustItemVariants}
-                      whileHover={{ y: -4, scale: 1.01 }}
-                      className={styles.signal}
-                    >
-                      <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
-                      <div className={styles.signalText}>
-                        <span>{signal.label}</span>
-                        <strong>{signal.title}</strong>
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
+            <motion.div
+              className={`${styles.heroLabVisual} gsap-hero-fade`}
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <div className={styles.heroLabFrame}>
+                <Image
+                  id="hero-product-image"
+                  src="/hero-macro-kraft.png"
+                  alt="Silica gel packaging and beads in a clean laboratory supply setting"
+                  fill
+                  className={styles.heroLabImage}
+                  sizes="(max-width: 1100px) 100vw, 48vw"
+                  priority
+                />
+                <div className={styles.heroLabOverlay} />
+                <div className={styles.heroFormula}>
+                  <span>MOISTURE ADSORPTION</span>
+                  <strong>SiO2</strong>
+                </div>
+                <div className={styles.heroSpecCard}>
+                  <span>Bulk Export Supply</span>
+                  <strong>0.5g sachets to 1kg cargo strips</strong>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className={`${styles.heroTrustBar} gsap-hero-fade`}>
+              {heroCerts.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+              <span>Worldwide delivery support</span>
             </div>
           </section>
 
@@ -513,40 +547,34 @@ export default function Home() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, margin: "-100px" }}
-                className={styles.productGrid}
+                className={styles.industrialBentoGrid}
               >
-                {productCatalog.map((product, index) => (
+                {industrialBentoCards.map((card, index) => (
                   <motion.article
-                    key={product.slug}
+                    key={card.title}
                     variants={itemVariants}
-                    className={`${styles.productCard} ${styles[`productCardSequence${index + 1}`]} ${index === 0 ? styles.productCardFeatured : ""}`}
-                    whileHover={{ y: -5, scale: 1.005 }}
+                    className={`${styles.industrialBentoCard} ${index === 0 ? styles.industrialBentoLarge : ""}`}
+                    whileHover={{ y: -7, scale: 1.006 }}
                     whileTap={{ scale: 0.99 }}
                   >
-                    <div className={styles.productImage}>
+                    <Link href={card.href} className={styles.industrialBentoLink}>
+                      <div className={styles.industrialBentoImage}>
                       <Image
-                        src={homepageProductImages[product.slug] ?? product.heroImage}
-                        alt={product.name}
+                        src={card.image}
+                        alt={card.title}
                         fill
-                        className={`${styles.image} ${styles[homepageProductImageClasses[product.slug]] ?? ""}`}
-                        sizes="(max-width: 1100px) 100vw, 30vw"
+                        className={styles.image}
+                        sizes="(max-width: 1100px) 100vw, 38vw"
                         priority={index === 0}
                       />
-                      <div className={styles.productImageOverlay}>
-                        <span>{product.shortName}</span>
-                        <strong>{product.featuredSizes[0]}</strong>
                       </div>
-                    </div>
-                    <div className={styles.productCopy}>
-                      <p>{product.eyebrow}</p>
-                      <h3>{product.name}</h3>
-                      <p className={styles.productUseCase}>
-                        {product.useCaseLine ?? product.summary}
-                      </p>
-                      <Link href={`/products/${product.slug}`} className={styles.productLink}>
-                        View More
-                      </Link>
-                    </div>
+                      <div className={styles.industrialBentoCopy}>
+                        <span>{card.label}</span>
+                        <h3>{card.title}</h3>
+                        <p>{card.text}</p>
+                      </div>
+                      <strong className={styles.industrialBentoStat}>{card.stat}</strong>
+                    </Link>
                   </motion.article>
                 ))}
               </motion.div>

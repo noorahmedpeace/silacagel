@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { displayPhone, productCatalog, whatsappNumber } from "@/lib/product-data";
 import styles from "./quote-form.module.css";
 
@@ -16,7 +17,8 @@ export function QuoteForm({
   defaultProduct = "",
 }: QuoteFormProps) {
   const [product, setProduct] = useState(defaultProduct);
-  const [name, setName] = useState("");
+  const [company, setCompany] = useState("");
+  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [quantity, setQuantity] = useState("");
   const [country, setCountry] = useState("");
@@ -29,12 +31,13 @@ export function QuoteForm({
 
     const message = [
       "Hello, I'm initiating an industrial SilacaGEL procurement inquiry.",
-      `Technical Specification: ${product || "General Catalog Inquiry"}`,
-      `Authorized Representative: ${name || "Unassigned"}`,
+      `Company Name: ${company || "Not provided"}`,
+      `Business Email: ${email || "Not provided"}`,
+      `Product CAS Number / Type: ${product || "CAS 7631-86-9 / General Silica Gel Inquiry"}`,
       `Point of Contact: ${phone || "Not provided"}`,
       `Country / Market: ${country || "Not provided"}`,
       `Preferred Currency: ${currency}`,
-      `Quantity / MOQ Target: ${quantity || "Not provided"}`,
+      `Quantity (Tons/Kgs): ${quantity || "Not provided"}`,
       `Destination Port or City: ${destination || "Not provided"}`,
       `Required Documents: ${documents || "Not specified"}`,
       `Global Support Line: ${displayPhone}`,
@@ -45,102 +48,124 @@ export function QuoteForm({
   }
 
   return (
-    <form
-      className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`}
-      onSubmit={handleSubmit}
-    >
-      <div className={styles.formHead}>
-        <p>Managed Procurement Flow</p>
-        <h3>{title}</h3>
+    <form className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`} onSubmit={handleSubmit}>
+      <div className={styles.formMain}>
+        <div className={styles.formHead}>
+          <p>Professional RFQ Engine</p>
+          <h3>{title}</h3>
+        </div>
+
+        <label className={styles.field}>
+          <span>Company Name</span>
+          <input
+            value={company}
+            onChange={(event) => setCompany(event.target.value)}
+            placeholder="Registered business / importer name"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Business Email</span>
+          <input
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="procurement@company.com"
+            type="email"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Product CAS Number / Type</span>
+          <select value={product} onChange={(event) => setProduct(event.target.value)}>
+            <option value="">CAS 7631-86-9 / Select silica gel type</option>
+            {productCatalog.map((item) => (
+              <option key={item.slug} value={`CAS 7631-86-9 / ${item.name}`}>
+                CAS 7631-86-9 / {item.name}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label className={styles.field}>
+          <span>Quantity (Tons/Kgs)</span>
+          <input
+            value={quantity}
+            onChange={(event) => setQuantity(event.target.value)}
+            placeholder="e.g. 500 kg / 2 tons / monthly recurring"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Business Contact Number</span>
+          <input
+            value={phone}
+            onChange={(event) => setPhone(event.target.value)}
+            placeholder="International format encouraged"
+            type="tel"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Country / Market</span>
+          <input
+            value={country}
+            onChange={(event) => setCountry(event.target.value)}
+            placeholder="e.g. United States, UAE, Germany"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Preferred Currency</span>
+          <select value={currency} onChange={(event) => setCurrency(event.target.value)}>
+            <option value="USD">USD - US Dollar</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - Pound</option>
+            <option value="PKR">PKR - Pakistani Rupee</option>
+            <option value="INR">INR - Indian Rupee</option>
+            <option value="CNY">CNY - Chinese Yuan</option>
+          </select>
+        </label>
+
+        <label className={styles.field}>
+          <span>Destination Port or City</span>
+          <input
+            value={destination}
+            onChange={(event) => setDestination(event.target.value)}
+            placeholder="e.g. Jebel Ali, Hamburg, Houston"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Required Documents</span>
+          <input
+            value={documents}
+            onChange={(event) => setDocuments(event.target.value)}
+            placeholder="e.g. SDS, COA, RoHS/REACH, FDA support"
+            type="text"
+          />
+        </label>
+
+        <button className={styles.submit} type="submit">
+          Submit RFQ
+        </button>
       </div>
 
-      <label className={styles.field}>
-        <span>Technical Specification</span>
-        <select value={product} onChange={(event) => setProduct(event.target.value)}>
-          <option value="">Select specification</option>
-          {productCatalog.map((item) => (
-            <option key={item.slug} value={item.name}>
-              {item.name}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className={styles.field}>
-        <span>Representative Name</span>
-        <input
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-          placeholder="Contact Name"
-          type="text"
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span>Business Contact Number</span>
-        <input
-          value={phone}
-          onChange={(event) => setPhone(event.target.value)}
-          placeholder="International format encouraged"
-          type="tel"
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span>Country / Market</span>
-        <input
-          value={country}
-          onChange={(event) => setCountry(event.target.value)}
-          placeholder="e.g. United States, UAE, Germany"
-          type="text"
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span>Preferred Currency</span>
-        <select value={currency} onChange={(event) => setCurrency(event.target.value)}>
-          <option value="USD">USD - US Dollar</option>
-          <option value="EUR">EUR - Euro</option>
-          <option value="GBP">GBP - Pound</option>
-          <option value="PKR">PKR - Pakistani Rupee</option>
-          <option value="INR">INR - Indian Rupee</option>
-          <option value="CNY">CNY - Chinese Yuan</option>
-        </select>
-      </label>
-
-      <label className={styles.field}>
-        <span>Quantity / MOQ Target</span>
-        <input
-          value={quantity}
-          onChange={(event) => setQuantity(event.target.value)}
-          placeholder="e.g. 50,000 sachets / 25 cartons / recurring"
-          type="text"
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span>Destination Port or City</span>
-        <input
-          value={destination}
-          onChange={(event) => setDestination(event.target.value)}
-          placeholder="e.g. Jebel Ali, Hamburg, Houston"
-          type="text"
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span>Required Documents</span>
-        <input
-          value={documents}
-          onChange={(event) => setDocuments(event.target.value)}
-          placeholder="e.g. SDS, COA, RoHS/REACH, FDA support"
-          type="text"
-        />
-      </label>
-
-      <button className={styles.submit} type="submit">
-        Submit Procurement Inquiry
-      </button>
+      <aside className={styles.rfqSidebar} aria-label="Global delivery support">
+        <span className={styles.sidebarKicker}>Global Delivery</span>
+        <strong>1-2 day dispatch support for prepared bulk orders.</strong>
+        <div className={styles.sidebarStats}>
+          <span>Worldwide delivery coordination</span>
+          <span>Bulk dispatch support</span>
+          <span>SDS / COA available on request</span>
+        </div>
+        <Link href="/documents" className={styles.datasheetButton}>
+          Download Technical Datasheet (SDS)
+        </Link>
+      </aside>
     </form>
   );
 }

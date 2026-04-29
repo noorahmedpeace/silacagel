@@ -1,29 +1,38 @@
 .form {
   display: grid;
-  gap: 20px;
-  padding: 40px;
-  border: 1px solid var(--glass-border);
-  border-radius: 28px;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+  gap: 24px;
+  padding: 22px;
+  border: 1px solid rgba(191, 193, 194, 0.38);
+  border-radius: 32px;
   background:
-    radial-gradient(circle at top right, rgba(31, 94, 255, 0.08), transparent 28%),
-    rgba(255, 255, 255, 0.82);
-  box-shadow: 0 24px 52px -38px rgba(13, 27, 42, 0.24);
+    radial-gradient(circle at top right, rgba(191, 193, 194, 0.28), transparent 26%),
+    rgba(255, 255, 255, 0.9);
+  box-shadow: 0 28px 62px -42px rgba(15, 23, 42, 0.28);
 }
 
 .compact {
   padding: 24px;
 }
 
+.formMain {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .formHead {
-  margin-bottom: 24px;
+  grid-column: 1 / -1;
+  margin-bottom: 8px;
 }
 
 .formHead p {
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #475569;
   margin-bottom: 8px;
 }
 
@@ -31,6 +40,7 @@
   font-family: var(--font-display);
   font-size: 2rem;
   line-height: 1.1;
+  letter-spacing: -0.055em;
   color: var(--ink);
 }
 
@@ -41,6 +51,7 @@
 }
 
 .field span {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -53,8 +64,8 @@
 .field textarea {
   min-height: 56px;
   padding: 0 16px;
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 14px;
   background: var(--surface-elevated);
   backdrop-filter: blur(4px);
   color: var(--ink);
@@ -66,8 +77,8 @@
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 1px var(--accent);
+  border-color: rgba(15, 23, 42, 0.42);
+  box-shadow: 0 0 0 4px rgba(191, 193, 194, 0.24);
 }
 
 .field input::placeholder,
@@ -76,11 +87,12 @@
 }
 
 .submit {
+  grid-column: 1 / -1;
   min-height: 56px;
-  background: var(--accent);
+  background: var(--ink);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   font-weight: 700;
   font-size: 1rem;
   text-transform: uppercase;
@@ -91,8 +103,91 @@
 }
 
 .submit:hover {
-  background: var(--accent-deep);
+  background: #020617;
   transform: translateY(-2px);
-  box-shadow: 0 15px 30px -10px var(--accent-glow);
+  box-shadow: 0 18px 34px -18px rgba(15, 23, 42, 0.46);
+}
+
+.rfqSidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 100%;
+  padding: 28px;
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #0f172a, #111827);
+  border: 1px solid rgba(191, 193, 194, 0.26);
+  color: #ffffff;
+}
+
+.sidebarKicker {
+  width: fit-content;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(191, 193, 194, 0.24);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.rfqSidebar strong {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  line-height: 1.1;
+  letter-spacing: -0.055em;
+}
+
+.sidebarStats {
+  display: grid;
+  gap: 10px;
+}
+
+.sidebarStats span {
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(191, 193, 194, 0.18);
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.datasheetButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 16px;
+  border-radius: 14px;
+  color: #dbeafe;
+  border: 1px solid rgba(96, 165, 250, 0.64);
+  background: rgba(37, 99, 235, 0.08);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .form,
+  .compact {
+    padding: 16px;
+  }
+
+  .formMain {
+    grid-template-columns: 1fr;
+  }
 }
 
