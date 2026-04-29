@@ -114,6 +114,14 @@ const heroCerts = [
   "RoHS / REACH alignment",
 ];
 
+const announcementStats = [
+  { value: "Serving since 1983", label: "Industrial moisture control" },
+  { value: "10+ million", label: "Silica gel packets supplied" },
+  { value: "10,000+", label: "Happy customers supported" },
+  { value: "40+", label: "Custom categories" },
+  { value: "Worldwide", label: "Delivery support available" },
+];
+
 const sciencePoints = [
   {
     step: "01",
@@ -430,6 +438,17 @@ export default function Home() {
                   );
                 })}
               </motion.div>
+            </div>
+          </section>
+
+          <section className={styles.announcementBar} aria-label="SilacaGEL supply highlights">
+            <div className={styles.announcementTrack}>
+              {[...announcementStats, ...announcementStats].map((item, index) => (
+                <div className={styles.announcementItem} key={`${item.value}-${index}`}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
           </section>
 
