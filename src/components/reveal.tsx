@@ -28,15 +28,19 @@ export function Reveal({
     const xDist = direction === "left" ? 50 : direction === "right" ? -50 : 0;
     const yDist = direction === "up" ? 50 : direction === "down" ? -50 : 0;
 
-    gsap.from(container.current, {
+    gsap.fromTo(container.current, {
+      opacity: 0.96,
+      x: xDist * 0.24,
+      y: yDist * 0.24,
+    }, {
       scrollTrigger: {
         trigger: container.current,
         start: "top 90%",
         toggleActions: "play none none none",
       },
-      opacity: 0,
-      x: xDist,
-      y: yDist,
+      opacity: 1,
+      x: 0,
+      y: 0,
       duration: 1,
       delay: delay,
       ease: "power3.out",

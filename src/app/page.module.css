@@ -588,15 +588,14 @@
 .announcementBar {
   position: relative;
   overflow: hidden;
-  min-height: 132px;
+  min-height: 38px;
   display: flex;
   align-items: center;
-  border-radius: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+  border: 1px solid rgba(0, 103, 197, 0.16);
   background:
-    linear-gradient(90deg, rgba(15, 23, 42, 0.14), rgba(31, 94, 255, 0.72), rgba(15, 23, 42, 0.14)),
-    linear-gradient(135deg, #0f4fcf 0%, #1f6fff 50%, #0f4fcf 100%);
-  box-shadow: 0 30px 68px -44px rgba(31, 94, 255, 0.5);
+    linear-gradient(90deg, #0067c5 0%, #0067c5 46%, #d80d2a 46%, #d80d2a 54%, #064a91 54%, #064a91 100%);
+  box-shadow: 0 16px 32px -28px rgba(0, 103, 197, 0.5);
   isolation: isolate;
 }
 
@@ -606,12 +605,10 @@
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(90deg, rgba(8, 18, 38, 0.32), transparent 18%, transparent 82%, rgba(8, 18, 38, 0.32)),
-    url("/silicagel_bulk_enterprise.png");
+    linear-gradient(90deg, rgba(8, 18, 38, 0.18), transparent 18%, transparent 82%, rgba(8, 18, 38, 0.18));
   background-size: cover;
   background-position: center;
-  opacity: 0.22;
-  filter: grayscale(1) contrast(1.08);
+  opacity: 1;
 }
 
 .announcementBar::after {
@@ -619,10 +616,8 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
-  background-size: max(1600px, 120%) auto;
-  background-position: center;
-  opacity: 0.14;
+  background-image: repeating-linear-gradient(90deg, transparent 0 260px, rgba(255, 255, 255, 0.7) 260px 262px);
+  opacity: 0.28;
   pointer-events: none;
 }
 
@@ -630,35 +625,43 @@
   position: relative;
   z-index: 2;
   display: flex;
-  width: max-content;
-  min-width: 200%;
+  width: 100%;
+  min-width: 0;
   align-items: center;
-  gap: 68px;
-  animation: announcementMarquee 28s linear infinite;
+  justify-content: space-around;
+  gap: 42px;
+  padding: 0 18px;
+  animation: none;
+}
+
+.announcementItem:nth-child(n + 5) {
+  display: none;
 }
 
 .announcementItem {
-  display: grid;
-  min-width: 260px;
-  gap: 8px;
-  place-items: center;
+  display: inline-flex;
+  min-width: max-content;
+  gap: 10px;
+  align-items: center;
   color: #ffffff;
-  text-align: center;
+  text-align: left;
   text-shadow: 0 12px 28px rgba(5, 16, 34, 0.24);
 }
 
 .announcementItem strong {
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
   font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.055em;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .announcementItem span {
-  font-size: 0.98rem;
-  font-weight: 700;
-  opacity: 0.9;
+  font-size: 0.76rem;
+  font-weight: 800;
+  opacity: 0.96;
+  white-space: nowrap;
 }
 
 
@@ -1743,6 +1746,12 @@
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
+.applicationGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
 .applicationCard:hover {
   border-color: rgba(37, 99, 235, 0.16);
   box-shadow: 0 28px 56px -34px rgba(13, 27, 42, 0.24);
@@ -2520,6 +2529,456 @@
   z-index: 120;
 }
 
+/* DASIOGEL-inspired industrial refinement */
+.main {
+  gap: 24px;
+}
+
+.hero {
+  min-height: 720px;
+  border-radius: 6px;
+  padding: 72px;
+  background: #101820;
+  box-shadow: 0 36px 72px -48px rgba(16, 24, 32, 0.5);
+}
+
+.heroBgImage {
+  object-position: 62% center;
+  filter: saturate(1.02) contrast(1.04);
+}
+
+.heroShade {
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, 0.9) 0%, rgba(16, 24, 32, 0.72) 38%, rgba(16, 24, 32, 0.12) 76%),
+    radial-gradient(circle at 22% 18%, rgba(216, 13, 42, 0.28), transparent 22%),
+    linear-gradient(180deg, rgba(16, 24, 32, 0.08), rgba(16, 24, 32, 0.6));
+}
+
+.hero h1 {
+  max-width: 14ch;
+  font-size: clamp(3.45rem, 5.8vw, 5.15rem);
+  letter-spacing: -0.055em;
+}
+
+.hero .kicker,
+.sectionHead .kicker,
+.certStripLabel,
+.shippingTag {
+  border-radius: 4px;
+  color: var(--accent);
+  background: rgba(216, 13, 42, 0.08);
+  border-color: rgba(216, 13, 42, 0.14);
+}
+
+.hero .kicker {
+  color: #ffffff;
+  background: rgba(216, 13, 42, 0.88);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.lead {
+  max-width: 58ch;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.primaryCta,
+.ctaBtn {
+  border-radius: 4px;
+  background: var(--cta-gradient);
+  color: #ffffff;
+  box-shadow: 0 18px 38px -22px rgba(216, 13, 42, 0.68);
+}
+
+.primaryCta:hover {
+  background: linear-gradient(135deg, #a8081f, #7d0617);
+  box-shadow: 0 22px 42px -22px rgba(216, 13, 42, 0.78);
+}
+
+.secondaryCta {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, 0.72);
+}
+
+.secondaryCta:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.heroMetaStrip {
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.heroMetaStrip span,
+.heroCertPill {
+  border-radius: 4px;
+}
+
+.heroCertPill {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(255, 255, 255, 0.76);
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.announcementBar {
+  min-height: 38px;
+  border-radius: 3px;
+  background:
+    linear-gradient(90deg, #0067c5 0%, #0067c5 46%, #d80d2a 46%, #d80d2a 54%, #064a91 54%, #064a91 100%);
+  box-shadow: 0 16px 32px -28px rgba(0, 103, 197, 0.5);
+}
+
+.announcementBar::after {
+  filter: none;
+  opacity: 0.28;
+}
+
+.sectionHead h2 {
+  background: linear-gradient(135deg, var(--ink) 0%, var(--industrial-blue) 54%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.applicationSection,
+.proofSection,
+.exportSection,
+.partnerSection,
+.resourceSection,
+.footer {
+  padding: 58px 44px;
+  border-radius: 6px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.94));
+  border-color: rgba(16, 24, 32, 0.08);
+  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+}
+
+.scienceSection::after,
+.productSection::after,
+.pricingSection::after,
+.whySection::after,
+.applicationSection::after,
+.proofSection::after,
+.exportSection::after,
+.partnerSection::after,
+.resourceSection::after,
+.footer::after {
+  filter: grayscale(1);
+  opacity: 0.035;
+}
+
+.sectionIntro {
+  gap: 34px;
+  margin-bottom: 30px;
+}
+
+.sectionVisual,
+.scienceStage,
+.industrialBentoCard,
+.priceCard,
+.calculatorPanel,
+.reasonCard,
+.applicationCard,
+.testimonialCard,
+.exportCard,
+.contactCard {
+  border-radius: 6px;
+}
+
+.sectionVisual {
+  min-height: 300px;
+  background: #f3f5f7;
+}
+
+.sectionVisual::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 103, 197, 0.12), transparent 25%),
+    linear-gradient(135deg, rgba(216, 13, 42, 0.05), transparent 42%);
+}
+
+.scienceStage,
+.industrialBentoCard,
+.priceCard,
+.calculatorPanel,
+.reasonCard,
+.applicationCard,
+.testimonialCard,
+.exportCard {
+  background: #ffffff;
+  border-color: rgba(16, 24, 32, 0.08);
+}
+
+.signalIcon,
+.scienceBadge span,
+.scienceCallout span,
+.priceQuoteLink,
+.exportCard span,
+.contactCard a {
+  color: var(--accent);
+}
+
+.signal:hover,
+.priceCard:hover,
+.reasonCard:hover,
+.applicationCard:hover,
+.testimonialCard:hover,
+.exportCard:hover {
+  border-color: rgba(216, 13, 42, 0.18);
+  box-shadow: 0 26px 52px -38px rgba(216, 13, 42, 0.22);
+}
+
+.productCard::before,
+.reasonCard::before,
+.exportCard::before,
+.priceCard::before,
+.testimonialCard::before,
+.applicationCard::before {
+  background: linear-gradient(180deg, var(--accent), rgba(216, 13, 42, 0));
+}
+
+.industrialBentoGrid {
+  grid-template-columns: 1.05fr 0.95fr;
+  grid-auto-rows: minmax(250px, auto);
+  gap: 18px;
+}
+
+.industrialBentoLarge {
+  min-height: 540px;
+}
+
+.industrialBentoCard {
+  min-height: 280px;
+}
+
+.industrialBentoImage::after {
+  background:
+    linear-gradient(180deg, rgba(16, 24, 32, 0.04), rgba(16, 24, 32, 0.76)),
+    radial-gradient(circle at 80% 16%, rgba(216, 13, 42, 0.22), transparent 20%);
+}
+
+.industrialBentoStat,
+.priceQuoteLink,
+.pricingHighlightChip,
+.badgeChip,
+.certPill,
+.contactMeta span {
+  border-radius: 4px;
+}
+
+.priceQuoteLink {
+  background: rgba(216, 13, 42, 0.08);
+  border-color: rgba(216, 13, 42, 0.12);
+}
+
+.priceQuoteLink:hover {
+  background: var(--accent);
+  box-shadow: 0 16px 30px -18px rgba(216, 13, 42, 0.5);
+}
+
+.pricingHighlights {
+  margin-bottom: 20px;
+}
+
+.pricingHighlightChip:hover,
+.certPill:hover {
+  border-color: rgba(216, 13, 42, 0.18);
+  box-shadow: 0 14px 28px -20px rgba(216, 13, 42, 0.22);
+}
+
+.priceGrid,
+.reasonGrid,
+.exportGrid {
+  gap: 16px;
+}
+
+.ctaBanner,
+.shippingBanner {
+  border-radius: 6px;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.16), transparent 24%),
+    linear-gradient(135deg, #101820 0%, #a8081f 58%, #d80d2a 100%);
+  box-shadow: 0 34px 70px -46px rgba(168, 8, 31, 0.48);
+}
+
+.shippingBanner {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.shippingBannerLeft p,
+.ctaBannerContent p {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.contactCard {
+  background:
+    radial-gradient(circle at top right, rgba(216, 13, 42, 0.1), transparent 24%),
+    linear-gradient(180deg, #ffffff, #f3f5f7);
+}
+
+.contactMeta span {
+  background: rgba(216, 13, 42, 0.08);
+  border-color: rgba(216, 13, 42, 0.1);
+  color: var(--accent-deep);
+}
+
+.whatsAppFloat {
+  bottom: 22px;
+  right: 22px;
+  padding: 13px 20px;
+  border-radius: 4px;
+  background: #101820;
+  box-shadow: 0 18px 38px -24px rgba(16, 24, 32, 0.52);
+}
+
+.whatsAppFloat:hover {
+  background: var(--accent);
+  opacity: 1;
+}
+
+/* stacked feature blocks inspired by alternating SaaS/product section cards */
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.partnerSection,
+.applicationSection {
+  padding: 64px 52px;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 103, 197, 0.1);
+  box-shadow:
+    0 34px 78px -56px rgba(16, 24, 32, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+.scienceSection,
+.whySection,
+.applicationSection {
+  background:
+    radial-gradient(circle at 16% 18%, rgba(191, 219, 254, 0.76), transparent 30%),
+    radial-gradient(circle at 86% 18%, rgba(0, 103, 197, 0.12), transparent 26%),
+    linear-gradient(135deg, #e6f0ff 0%, #ffffff 56%, #f7fbff 100%);
+}
+
+.productSection,
+.pricingSection,
+.partnerSection {
+  border-color: rgba(216, 13, 42, 0.12);
+  background:
+    radial-gradient(circle at 82% 16%, rgba(254, 202, 202, 0.72), transparent 30%),
+    radial-gradient(circle at 12% 84%, rgba(216, 13, 42, 0.1), transparent 24%),
+    linear-gradient(135deg, #fee2e2 0%, #ffffff 54%, #fff7f7 100%);
+}
+
+.scienceSection::after,
+.productSection::after,
+.pricingSection::after,
+.whySection::after,
+.partnerSection::after,
+.applicationSection::after {
+  background-image:
+    radial-gradient(circle, rgba(16, 24, 32, 0.08) 0 1px, transparent 1px),
+    url("/backgrounds/blue-particle-board-wide.png");
+  background-size: 18px 18px, max(1500px, 118%) auto;
+  opacity: 0.045;
+  filter: none;
+  mix-blend-mode: multiply;
+}
+
+.scienceSection .sectionHead .kicker,
+.whySection .sectionHead .kicker,
+.applicationSection .sectionHead .kicker {
+  background: #bfdbfe;
+  border-color: rgba(0, 103, 197, 0.16);
+  color: #004080;
+}
+
+.productSection .sectionHead .kicker,
+.pricingSection .sectionHead .kicker,
+.partnerSection .sectionHead .kicker {
+  background: #fecaca;
+  border-color: rgba(185, 28, 28, 0.16);
+  color: #800000;
+}
+
+.scienceSection .sectionHead h2,
+.whySection .sectionHead h2,
+.applicationSection .sectionHead h2 {
+  background: linear-gradient(135deg, #003a73 0%, #0067c5 62%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.productSection .sectionHead h2,
+.pricingSection .sectionHead h2,
+.partnerSection .sectionHead h2 {
+  background: linear-gradient(135deg, #6f0000 0%, #b91c1c 62%, #7c2d12 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.scienceSection .sectionHead p,
+.whySection .sectionHead p,
+.applicationSection .sectionHead p {
+  color: #24507d;
+}
+
+.productSection .sectionHead p,
+.pricingSection .sectionHead p,
+.partnerSection .sectionHead p {
+  color: #884040;
+}
+
+.productSection .sectionIntro,
+.partnerSection .sectionIntro {
+  grid-template-columns: minmax(380px, 1.08fr) minmax(0, 0.92fr);
+}
+
+.productSection .sectionIntro .sectionHead,
+.partnerSection .sectionIntro .sectionHead {
+  order: 2;
+}
+
+.productSection .sectionIntro .sectionVisual,
+.partnerSection .sectionIntro .sectionVisual {
+  order: 1;
+}
+
+.sectionVisual,
+.scienceStage {
+  border-radius: 20px;
+  box-shadow:
+    0 28px 58px -42px rgba(16, 24, 32, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.58);
+}
+
+.scienceCard,
+.reasonCard,
+.priceCard,
+.applicationCard,
+.industrialBentoCard {
+  border-radius: 14px;
+}
+
+.scienceCard,
+.reasonCard,
+.priceCard {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.priceQuoteLink,
+.pricingHighlightChip {
+  border-radius: 7px;
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -2608,11 +3067,11 @@
   }
 
   .announcementTrack {
-    gap: 44px;
+    gap: 36px;
   }
 
   .announcementItem {
-    min-width: 230px;
+    min-width: max-content;
   }
 
   .priceGrid {
@@ -2668,6 +3127,10 @@
   .priceGrid {
     grid-template-columns: 1fr;
   }
+
+  .applicationGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   
   .testimonialGrid {
     grid-template-columns: 1fr;
@@ -2701,14 +3164,25 @@
   }
 
   /* Prevent text bleed on massive headings */
-  .heroCopy h1 { font-size: 3.2rem; max-width: 11ch; }
+  .heroCopy h1 { font-size: 2.42rem; line-height: 0.96; max-width: 100%; }
   .sectionHead h2 { font-size: 2.15rem; max-width: 16ch; }
   .quoteStage h2 { font-size: 2.2rem; }
 
   .hero {
     gap: 40px;
-    min-height: auto;
-    padding: 44px 24px 28px;
+    min-height: 620px;
+    padding: 32px 22px 28px;
+    border-radius: 8px;
+  }
+
+  .heroBgImage {
+    object-position: 58% center;
+  }
+
+  .heroShade {
+    background:
+      linear-gradient(180deg, rgba(16, 24, 32, 0.72) 0%, rgba(16, 24, 32, 0.52) 48%, rgba(16, 24, 32, 0.9) 100%),
+      radial-gradient(circle at 20% 12%, rgba(216, 13, 42, 0.2), transparent 28%);
   }
 
   .heroLabFrame {
@@ -2734,6 +3208,10 @@
   .ctaRow {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .whatsAppFloat {
+    display: none;
   }
 
   .trustSignals {
@@ -2793,21 +3271,31 @@
   .resourceSection,
   .footer {
     padding: 40px 24px;
-    border-radius: 24px;
+    border-radius: 8px;
   }
 
   .announcementBar {
-    min-height: 116px;
-    border-radius: 24px;
+    min-height: 36px;
+    border-radius: 3px;
   }
 
   .announcementTrack {
-    gap: 30px;
-    animation-duration: 22s;
+    gap: 18px;
+    justify-content: space-between;
+    padding: 0 14px;
   }
 
   .announcementItem {
-    min-width: 210px;
+    min-width: max-content;
+    gap: 0;
+  }
+
+  .announcementItem strong {
+    font-size: 0.76rem;
+  }
+
+  .announcementItem span {
+    display: none;
   }
 
   .sectionIntro {
@@ -2820,7 +3308,7 @@
 
   .sectionVisual {
     min-height: 260px;
-    border-radius: 20px;
+    border-radius: 8px;
   }
 
   .pricingHighlights {
@@ -2829,7 +3317,7 @@
 
   .productSection {
     padding: 40px 20px;
-    border-radius: 28px;
+    border-radius: 8px;
   }
 
   .heroCertRow {
@@ -2838,7 +3326,7 @@
 
   .scienceStage {
     min-height: 380px;
-    border-radius: 24px;
+    border-radius: 8px;
   }
 
   .scienceBadge,
@@ -2848,6 +3336,10 @@
   }
 
   .reasonGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .applicationGrid {
     grid-template-columns: 1fr;
   }
 
@@ -2863,7 +3355,7 @@
   .industrialBentoCard,
   .industrialBentoLarge {
     min-height: 360px;
-    border-radius: 24px;
+    border-radius: 8px;
   }
 
   .industrialBentoCopy {

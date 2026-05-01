@@ -1,18 +1,20 @@
 :root {
-  --bg: #f4f4f4;
+  --bg: #f3f5f7;
   --surface: rgba(255, 255, 255, 0.74);
   --surface-elevated: #ffffff;
-  --surface-strong: #f4f4f4;
+  --surface-strong: #f3f5f7;
   --glass-border: rgba(15, 23, 42, 0.12);
-  --ink: #0f172a;
-  --muted: #64748b;
-  --accent: #bfc1c2;
-  --accent-glow: rgba(191, 193, 194, 0.28);
-  --accent-deep: #0f172a;
-  --accent-warm: #bfc1c2;
-  --industrial-blue: #2563eb;
-  --cta-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 58%, #bfc1c2 100%);
-  --cta-glow: rgba(15, 23, 42, 0.28);
+  --ink: #101820;
+  --muted: #667085;
+  --accent: #d80d2a;
+  --accent-glow: rgba(216, 13, 42, 0.2);
+  --accent-deep: #a8081f;
+  --accent-warm: #d80d2a;
+  --industrial-blue: #0067c5;
+  --industrial-blue-deep: #064a91;
+  --industrial-blue-soft: rgba(0, 103, 197, 0.1);
+  --cta-gradient: linear-gradient(135deg, #d80d2a 0%, #a8081f 100%);
+  --cta-glow: rgba(216, 13, 42, 0.28);
   --font-display: "Montserrat", var(--font-body), sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -39,9 +41,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   background-image:
-    radial-gradient(circle at top left, rgba(15, 23, 42, 0.08), transparent 28%),
-    radial-gradient(circle at 86% 12%, rgba(191, 193, 194, 0.28), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #f4f4f4 100%);
+    radial-gradient(circle at top left, rgba(216, 13, 42, 0.07), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(16, 24, 32, 0.08), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f3f5f7 100%);
 }
 
 body::before {
@@ -51,13 +53,13 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(244, 244, 244, 0.72)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(243, 245, 247, 0.82)),
     url("/backgrounds/blue-particle-board-wide.png");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: max(1920px, 100vw) auto;
-  opacity: 0.42;
-  filter: saturate(0.92) contrast(1.02);
+  opacity: 0.22;
+  filter: grayscale(1) saturate(0.65) contrast(1.02);
   transform: translate3d(0, 0, 0);
   animation: particleDrift 18s ease-in-out infinite alternate;
 }
@@ -111,7 +113,7 @@ button {
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--ink) 0%, #334155 52%, #8b8d90 100%);
+  background: linear-gradient(135deg, var(--ink) 0%, #334155 48%, var(--accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -155,7 +157,7 @@ button {
 
 @media (max-width: 760px) {
   body {
-    padding-top: 170px;
+    padding-top: 180px;
   }
 }
 

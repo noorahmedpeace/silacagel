@@ -13,6 +13,8 @@
   flex: 1;
   position: relative;
   background: var(--surface);
+  background-position: center;
+  background-size: cover;
   overflow: hidden;
 }
 

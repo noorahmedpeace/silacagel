@@ -7,10 +7,10 @@ import styles from "./site-header.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
-  { label: "Science", href: "/#science" },
-  { label: "Industries", href: "/#industries" },
-  { label: "Documents", href: "/documents" },
+  { label: "Applications", href: "/#applications" },
+  { label: "Resources", href: "/documents" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -36,7 +36,7 @@ export function SiteHeader() {
             <circle cx="152" cy="10" r="2" fill="currentColor" opacity="0.45" />
             <circle cx="161" cy="10" r="1" fill="currentColor" opacity="0.25" />
           </svg>
-          <span className={styles.brandTag}>Worldwide Desiccant Supply</span>
+          <span className={styles.brandTag}>Premium Silica Gel, Delivered Worldwide</span>
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
@@ -48,7 +48,7 @@ export function SiteHeader() {
         </nav>
 
         <Link href="/contact" className={styles.navCta}>
-          Get a Quote
+          Contact Us
           <ChevronDown size={14} className={styles.navCtaIcon} />
         </Link>
       </div>

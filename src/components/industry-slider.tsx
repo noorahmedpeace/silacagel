@@ -31,11 +31,14 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
   return (
     <div className={styles.container}>
       {/* LEFT: Image Section */}
-      <div className={styles.imageSection}>
+      <div
+        className={styles.imageSection}
+        style={{ backgroundImage: `url(${activeIndustry.image})` }}
+      >
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
@@ -62,7 +65,7 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
             <motion.h3
               key={`title-${currentIndex}`}
               className={styles.title}
-              initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 1, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.4 }}
@@ -75,7 +78,7 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
             <motion.p
               key={`desc-${currentIndex}`}
               className={styles.description}
-              initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4, delay: 0.1 }}

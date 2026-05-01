@@ -114,6 +114,7 @@ export function PriceCalculator() {
           min="1"
           onChange={(event) => setQuantity(event.target.value)}
           placeholder="Quantity"
+          suppressHydrationWarning
           type="number"
           value={quantity}
         />

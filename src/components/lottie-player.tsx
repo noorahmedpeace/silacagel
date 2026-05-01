@@ -20,10 +20,30 @@ export const LottiePlayer = ({
     useState<LottieOptions["animationData"] | null>(null);
 
   useEffect(() => {
+    let isMounted = true;
+
     fetch(url)
-      .then((res) => res.json())
-      .then((data) => setAnimationData(data))
-      .catch((err: unknown) => console.error("Lottie Load Error:", err));
+      .then((res) => {
+        const contentType = res.headers.get("content-type") ?? "";
+        if (!res.ok || !contentType.includes("application/json")) {
+          return null;
+        }
+        return res.json();
+      })
+      .then((data) => {
+        if (isMounted && data) {
+          setAnimationData(data);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setAnimationData(null);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, [url]);
 
   if (!animationData) {

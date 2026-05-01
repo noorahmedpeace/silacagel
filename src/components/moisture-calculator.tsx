@@ -50,15 +50,15 @@ export const MoistureCalculator = () => {
           <div className={styles.inputGrid}>
             <div className={styles.inputGroup}>
               <label>Length ({unit})</label>
-              <input type="number" name="l" placeholder="0" onChange={handleInput} />
+              <input type="number" name="l" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
             <div className={styles.inputGroup}>
               <label>Width ({unit})</label>
-              <input type="number" name="w" placeholder="0" onChange={handleInput} />
+              <input type="number" name="w" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
             <div className={styles.inputGroup}>
               <label>Height ({unit})</label>
-              <input type="number" name="h" placeholder="0" onChange={handleInput} />
+              <input type="number" name="h" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
           </div>
         </div>

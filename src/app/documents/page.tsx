@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./documents.module.css";
 
@@ -70,8 +71,8 @@ export default function DocumentsPage() {
             International buyers need more than product photos. Request SDS, COA, specification sheets, and compliance support based on the exact desiccant format and destination market.
           </p>
           <div className={styles.heroActions}>
-            <a href="/contact" className={styles.primaryBtn}>Request Documents</a>
-            <a href="/products" className={styles.secondaryBtn}>View Products</a>
+            <Link href="/contact" className={styles.primaryBtn}>Request Documents</Link>
+            <Link href="/products" className={styles.secondaryBtn}>View Products</Link>
           </div>
         </div>
         <div className={styles.heroPanel} aria-hidden="true">
@@ -95,7 +96,7 @@ export default function DocumentsPage() {
             <span>{item.code}</span>
             <h2>{item.title}</h2>
             <p>{item.desc}</p>
-            <a href="/contact">Request this document</a>
+            <Link href="/contact">Request this document</Link>
           </motion.article>
         ))}
       </section>
@@ -132,7 +133,7 @@ export default function DocumentsPage() {
         <p>
           Share your product format, country, quantity, and required document type. The team will guide the right documentation path.
         </p>
-        <a href="/contact" className={styles.ctaBtn}>Request Documentation</a>
+        <Link href="/contact" className={styles.ctaBtn}>Request Documentation</Link>
       </section>
     </main>
   );

@@ -22,7 +22,7 @@ const splitTextToSpans = (text: string) => {
     <span
       key={wordIndex}
       className="gsap-hero-word"
-      style={{ display: "inline-block", whiteSpace: "nowrap", opacity: 0, transform: "translateY(28px)" }}
+      style={{ display: "inline-block", whiteSpace: "nowrap" }}
     >
       {word}
       {"\u00A0"}
@@ -40,16 +40,15 @@ import {
   displayPhone,
   phoneHref,
   priceGroups,
-  productCatalog,
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./page.module.css";
 
 const visuals = {
-  warehouse: "https://images.pexels.com/photos/29454379/pexels-photo-29454379.jpeg",
-  cargo: "https://images.pexels.com/photos/34106182/pexels-photo-34106182.jpeg",
-  leather: "https://images.pexels.com/photos/2057484/pexels-photo-2057484.jpeg",
-  electronics: "https://images.pexels.com/photos/12741851/pexels-photo-12741851.jpeg",
+  warehouse: "/applications/warehouse-inventory.webp",
+  cargo: "/applications/export-logistics.webp",
+  leather: "/applications/leather-footwear.webp",
+  electronics: "/applications/electronics-packaging.webp",
 };
 
 const reasons = [
@@ -109,9 +108,10 @@ const trustSignalsArray = [
 ];
 
 const heroCerts = [
-  "COA / SDS on request",
-  "FDA documentation support",
-  "RoHS / REACH alignment",
+  "Serving since 1983",
+  "COA / SDS Available",
+  "Worldwide Delivery",
+  "Bulk Supply",
 ];
 
 const announcementStats = [
@@ -139,20 +139,6 @@ const sciencePoints = [
     text: "That science turns into a simple buying story: choose the right packet size for cartons, shelves, or containers and reduce humidity risk fast.",
   },
 ];
-
-const homepageProductImages: Record<string, string> = {
-  "retail-sachets": "/products/real-white-precision.png",
-  "paper-sachets": "/products/real-kraft-bond.png",
-  "bulk-industrial": "/products/real-bulk-supply.png",
-  "container-strips": "/products/real-cargo-strips.png",
-};
-
-const homepageProductImageClasses: Record<string, string> = {
-  "retail-sachets": "imagePackShot",
-  "paper-sachets": "imagePackShot",
-  "bulk-industrial": "imagePackShot",
-  "container-strips": "imageCargoShot",
-};
 
 const industrialBentoCards = [
   {
@@ -182,7 +168,7 @@ const industrialBentoCards = [
 ];
 
 const containerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: {
@@ -216,7 +202,7 @@ const exportDetails = [
 ];
 
 const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 1, y: 0 },
   show: {
     opacity: 1,
     y: 0,
@@ -225,7 +211,7 @@ const itemVariants: Variants = {
 };
 
 const trustContainerVariants: Variants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   show: {
     opacity: 1,
     transition: {
@@ -236,7 +222,7 @@ const trustContainerVariants: Variants = {
 };
 
 const trustItemVariants: Variants = {
-  hidden: { opacity: 0, y: 30, scale: 0.96 },
+  hidden: { opacity: 1, y: 0, scale: 1 },
   show: {
     opacity: 1,
     y: 0,
@@ -246,7 +232,7 @@ const trustItemVariants: Variants = {
 };
 
 const logoChipVariants: Variants = {
-  hidden: { opacity: 0, y: 14 },
+  hidden: { opacity: 1, y: 0 },
   show: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -259,7 +245,7 @@ const logoChipVariants: Variants = {
 };
 
 const certPillVariants: Variants = {
-  hidden: { opacity: 0, y: 18, scale: 0.96 },
+  hidden: { opacity: 1, y: 0, scale: 1 },
   show: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -334,7 +320,10 @@ export default function Home() {
     // Hero Entrance Timeline
     const tl = gsap.timeline();
     
-    tl.to(".gsap-hero-word", {
+    tl.fromTo(".gsap-hero-word", {
+      opacity: 0.96,
+      y: 14,
+    }, {
       opacity: 1,
       y: 0,
       duration: 0.72,
@@ -342,15 +331,15 @@ export default function Home() {
       ease: "power3.out",
     })
     .from(".gsap-hero-fade", {
-      opacity: 0,
-      y: 18,
+      opacity: 0.96,
+      y: 10,
       duration: 0.72,
       stagger: 0.12,
       ease: "power2.out",
     }, "-=0.28")
     .from("#hero-product-image", {
-      opacity: 0,
-      scale: 1.08,
+      opacity: 0.94,
+      scale: 1.04,
       duration: 1.1,
       ease: "power2.out",
     }, "-=0.9");
@@ -360,6 +349,17 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.shell} ref={heroRef}>
         <main id="top" className={styles.main}>
+          <section className={styles.announcementBar} aria-label="SilacaGEL supply highlights">
+            <div className={styles.announcementTrack}>
+              {[...announcementStats, ...announcementStats].map((item, index) => (
+                <div className={styles.announcementItem} key={`${item.value}-${index}`}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
           <section className={styles.hero} id="hero">
             <Image
               id="hero-product-image"
@@ -374,13 +374,13 @@ export default function Home() {
 
             <div className={styles.heroCopy}>
               <span className={`${styles.kicker} gsap-hero-fade`}>
-                Silica gel supply
+                Global industrial desiccant supply
               </span>
               <h1>
-                {splitTextToSpans("Export-ready silica gel for global packaging teams.")}
+                {splitTextToSpans("Worldwide silica gel desiccants for industrial moisture protection.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Desiccant sachets, bulk packs, and container formats for cartons, warehouse stock, and international dispatch.
+                Export-ready sachets, bulk packs, and cargo strips for manufacturers, importers, pharma, electronics, logistics, and packaging teams in any country.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
@@ -398,7 +398,7 @@ export default function Home() {
                   whileHover={{ y: -2, scale: 1.008 }}
                   whileTap={{ scale: 0.985 }}
                 >
-                  View Formats
+                  View Product Range
                 </motion.a>
               </div>
 
@@ -441,17 +441,6 @@ export default function Home() {
             </div>
           </section>
 
-          <section className={styles.announcementBar} aria-label="SilacaGEL supply highlights">
-            <div className={styles.announcementTrack}>
-              {[...announcementStats, ...announcementStats].map((item, index) => (
-                <div className={styles.announcementItem} key={`${item.value}-${index}`}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
           <Reveal direction="up">
             <section id="science" className={styles.scienceSection}>
               <div className={styles.scienceVisual}>
@@ -489,7 +478,7 @@ export default function Home() {
                     <motion.article
                       key={item.step}
                       className={styles.scienceCard}
-                      initial={{ opacity: 0, y: 24 }}
+                      initial={{ opacity: 1, y: 0 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -600,7 +589,7 @@ export default function Home() {
                     <motion.article
                       key={group.title}
                       className={styles.priceCard}
-                      initial={{ opacity: 0, y: 28 }}
+                      initial={{ opacity: 1, y: 0 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
                       transition={{ duration: 0.65, ease: "easeOut" }}
@@ -642,7 +631,7 @@ export default function Home() {
                 <div id="purchase-calculator" className={styles.calculatorAnchor}>
                   <motion.div
                     className={styles.calculatorPanel}
-                    initial={{ opacity: 0, scale: 0.96, y: 24 }}
+                    initial={{ opacity: 1, scale: 1, y: 0 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
@@ -685,7 +674,7 @@ export default function Home() {
                   <motion.article
                     key={item.title}
                     className={styles.reasonCard}
-                    initial={{ opacity: 0, y: 24 }}
+                    initial={{ opacity: 1, y: 0 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
@@ -740,12 +729,13 @@ export default function Home() {
                     alt="Premium silica gel sachet protection for electronics, leather, cartons, and packaging environments"
                     fill
                     className={styles.sectionVisualImage}
+                    loading="eager"
                     sizes="(max-width: 900px) 100vw, 42vw"
                   />
                 </div>
               </div>
 
-              <EmblaCarousel options={{ align: "start", loop: true }}>
+              <div className={styles.applicationGrid}>
                 {useCases.map((item) => (
                   <motion.article
                     key={item.title}
@@ -759,6 +749,8 @@ export default function Home() {
                         alt={item.title}
                         fill
                         className={styles.image}
+                        loading="eager"
+                        priority
                         sizes="(max-width: 1100px) 100vw, 33vw"
                       />
                     </div>
@@ -768,7 +760,7 @@ export default function Home() {
                     </div>
                   </motion.article>
                 ))}
-              </EmblaCarousel>
+              </div>
             </section>
           </Reveal>
 
@@ -931,6 +923,7 @@ export default function Home() {
                     alt="Silica gel sachets with technical documents and procurement tools"
                     fill
                     className={styles.sectionVisualImage}
+                    loading="eager"
                     sizes="(max-width: 900px) 100vw, 42vw"
                   />
                 </div>
