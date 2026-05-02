@@ -2876,11 +2876,11 @@
 .productSection,
 .pricingSection,
 .partnerSection {
-  border-color: rgba(216, 13, 42, 0.12);
+  border-color: rgba(0, 103, 197, 0.12);
   background:
-    radial-gradient(circle at 82% 16%, rgba(254, 202, 202, 0.72), transparent 30%),
-    radial-gradient(circle at 12% 84%, rgba(216, 13, 42, 0.1), transparent 24%),
-    linear-gradient(135deg, #fee2e2 0%, #ffffff 54%, #fff7f7 100%);
+    radial-gradient(circle at 82% 16%, rgba(219, 234, 254, 0.72), transparent 30%),
+    radial-gradient(circle at 12% 84%, rgba(216, 13, 42, 0.055), transparent 24%),
+    linear-gradient(135deg, #edf5ff 0%, #ffffff 54%, #f8fbff 100%);
 }
 
 .scienceSection::after,
@@ -2909,9 +2909,9 @@
 .productSection .sectionHead .kicker,
 .pricingSection .sectionHead .kicker,
 .partnerSection .sectionHead .kicker {
-  background: #fecaca;
-  border-color: rgba(185, 28, 28, 0.16);
-  color: #800000;
+  background: #dbeafe;
+  border-color: rgba(0, 103, 197, 0.16);
+  color: #064a91;
 }
 
 .scienceSection .sectionHead h2,
@@ -2925,7 +2925,7 @@
 .productSection .sectionHead h2,
 .pricingSection .sectionHead h2,
 .partnerSection .sectionHead h2 {
-  background: linear-gradient(135deg, #6f0000 0%, #b91c1c 62%, #7c2d12 100%);
+  background: linear-gradient(135deg, #0b2447 0%, #0067c5 58%, #8a1430 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -2939,7 +2939,102 @@
 .productSection .sectionHead p,
 .pricingSection .sectionHead p,
 .partnerSection .sectionHead p {
-  color: #884040;
+  color: #3f5f7f;
+}
+
+/* calmer procurement quote area */
+.pricingSection {
+  border-color: rgba(0, 103, 197, 0.14);
+  background:
+    radial-gradient(circle at 78% 10%, rgba(191, 219, 254, 0.78), transparent 26%),
+    radial-gradient(circle at 10% 88%, rgba(16, 24, 32, 0.06), transparent 28%),
+    linear-gradient(135deg, #eef6ff 0%, #ffffff 48%, #f5f8fb 100%);
+}
+
+.pricingSection::before {
+  content: "";
+  position: absolute;
+  inset: 22px;
+  z-index: 0;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 103, 197, 0.08);
+  pointer-events: none;
+}
+
+.pricingSection .sectionIntro {
+  align-items: stretch;
+}
+
+.pricingSection .sectionHead {
+  align-self: center;
+}
+
+.pricingSection .sectionHead h2 {
+  max-width: 13ch;
+  background: linear-gradient(135deg, #0b2447 0%, #005aab 70%, #8a1430 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.pricingSection .sectionHead .kicker {
+  background: rgba(219, 234, 254, 0.88);
+  color: #064a91;
+}
+
+.pricingVisual {
+  min-height: 285px;
+  border-color: rgba(0, 103, 197, 0.12);
+  background-image: url("/section-export-quote-premium.webp");
+  background-position: center;
+  background-size: cover;
+}
+
+.pricingHighlights {
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.pricingHighlightChip {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(0, 103, 197, 0.1);
+  color: #315170;
+  box-shadow: none;
+}
+
+.priceCard {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(0, 103, 197, 0.1);
+  box-shadow: 0 18px 38px -34px rgba(16, 24, 32, 0.18);
+}
+
+.priceCard::after {
+  background: radial-gradient(circle at top right, rgba(0, 103, 197, 0.12), transparent 38%);
+}
+
+.priceCard h3,
+.pricingSection .calculatorHint {
+  color: #102a43;
+}
+
+.priceQuoteLink {
+  background: rgba(0, 103, 197, 0.08);
+  border-color: rgba(0, 103, 197, 0.12);
+  color: #064a91;
+}
+
+.priceQuoteLink:hover {
+  background: #0067c5;
+  box-shadow: 0 16px 30px -18px rgba(0, 103, 197, 0.5);
+}
+
+.calculatorPanel {
+  padding: 34px;
+  border-color: rgba(0, 103, 197, 0.11);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.9));
+  box-shadow:
+    0 28px 58px -42px rgba(16, 24, 32, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
 .productSection .sectionIntro,

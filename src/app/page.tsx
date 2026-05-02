@@ -566,7 +566,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
                   <Image
-                    src="/section-export-quote-premium.png"
+                    src="/section-export-quote-premium.webp"
                     alt="Silica gel procurement documents, calculator, and product packs"
                     fill
                     className={styles.sectionVisualImage}

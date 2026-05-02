@@ -151,4 +151,50 @@
   }
 }
 
+/* calmer procurement styling */
+.head p,
+.highlightCard strong,
+.bulkHint {
+  color: var(--industrial-blue);
+}
+
+.field input,
+.field select {
+  border-color: rgba(0, 103, 197, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--industrial-blue);
+  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.12);
+}
+
+.summaryCard {
+  border-color: rgba(0, 103, 197, 0.1);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 14px 26px -24px rgba(15, 23, 42, 0.14);
+}
+
+.highlightCard {
+  background: linear-gradient(180deg, rgba(219, 234, 254, 0.96), rgba(239, 246, 255, 0.9));
+  border-color: rgba(0, 103, 197, 0.22);
+}
+
+.bulkHint {
+  background: rgba(0, 103, 197, 0.08);
+}
+
+.submit {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #064a91, #0067c5);
+}
+
+.submit:hover {
+  background: linear-gradient(135deg, #063a72, #005aab);
+  box-shadow: 0 14px 28px -18px rgba(0, 103, 197, 0.55);
+}
+
 
