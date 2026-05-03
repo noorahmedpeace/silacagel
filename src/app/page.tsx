@@ -14,6 +14,7 @@ import { IndustrySlider } from "@/components/industry-slider";
 import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
 import { MoistureCalculator } from "@/components/moisture-calculator";
+import { QuoteForm } from "@/components/quote-form";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -31,10 +32,14 @@ const splitTextToSpans = (text: string) => {
 };
 
 import {
+  Building2,
+  FileCheck2,
+  FlaskConical,
   Globe,
   ShieldCheck,
   PackageCheck,
   Star,
+  Truck,
 } from "lucide-react";
 import {
   displayPhone,
@@ -122,6 +127,78 @@ const announcementStats = [
   { value: "Worldwide", label: "Delivery support available" },
 ];
 
+const procurementFlow = [
+  {
+    step: "01",
+    title: "Define the pack",
+    text: "Choose sachets, strips, or bulk formats by carton size, humidity exposure, and product sensitivity.",
+    icon: PackageCheck,
+  },
+  {
+    step: "02",
+    title: "Confirm documents",
+    text: "Request SDS, COA, compliance notes, labeling details, and destination-specific paperwork early.",
+    icon: FileCheck2,
+  },
+  {
+    step: "03",
+    title: "Plan shipment",
+    text: "Align MOQ, lead time, Incoterms, packaging quantity, and dispatch route before final quotation.",
+    icon: Truck,
+  },
+];
+
+const categoryLanes = [
+  "Silica gel packets",
+  "Paper sachets",
+  "Indicating gel",
+  "Container strips",
+  "Bulk beads",
+  "Dispensers",
+];
+
+const capabilityBlocks = [
+  {
+    icon: Building2,
+    title: "Factory-direct export supply",
+    text: "Build every quote around product format, recurring volume, destination market, and dispatch window.",
+  },
+  {
+    icon: FlaskConical,
+    title: "QC and documentation desk",
+    text: "SDS, COA, RoHS, REACH, FDA/FSSC support language should be backed by valid documents before display.",
+  },
+  {
+    icon: PackageCheck,
+    title: "OEM and private label ready",
+    text: "Offer buyer-specific sachet printing, carton labeling, and recurring distributor supply programs.",
+  },
+  {
+    icon: Truck,
+    title: "Logistics-first RFQ flow",
+    text: "Capture Incoterms, port/city, carton quantity, shipment mode, and lead-time urgency before WhatsApp.",
+  },
+];
+
+const seoClusters = [
+  {
+    title: "Product intent",
+    keywords: "silica gel packets, bulk silica gel desiccant, non indicating silica gel, indicating silica gel, container desiccant strips",
+  },
+  {
+    title: "Industry intent",
+    keywords: "silica gel for electronics packaging, desiccant for pharma packaging, silica gel for leather export, desiccant for food packaging",
+  },
+  {
+    title: "Export intent",
+    keywords: "silica gel manufacturer exporter, bulk desiccant supplier, private label desiccant packets, silica gel supplier Pakistan Asia global",
+  },
+  {
+    title: "Compliance intent",
+    keywords: "silica gel SDS, COA silica gel, DMF free desiccant, RoHS REACH desiccant",
+  },
+];
+
 const sciencePoints = [
   {
     step: "01",
@@ -145,7 +222,7 @@ const industrialBentoCards = [
     title: "White Non-Indicating",
     label: "Bulk Supply",
     text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: "/products/real-white-precision.png",
+    image: "/products/silica-gel-do-not-eat.png",
     href: "/products/retail-sachets",
     stat: "0.5g-20g",
   },
@@ -402,15 +479,9 @@ export default function Home() {
                 </motion.a>
               </div>
 
-              <div className={`${styles.heroMetaStrip} gsap-hero-fade`}>
-                <span>Bulk quotes</span>
-                <span>MOQ guidance</span>
-                <span>FOB / CIF support</span>
-              </div>
-
-              <div className={`${styles.heroCertRow} gsap-hero-fade`}>
+              <div className={`${styles.heroProofLine} gsap-hero-fade`}>
                 {heroCerts.map((item) => (
-                  <span key={item} className={styles.heroCertPill}>{item}</span>
+                  <span key={item}>{item}</span>
                 ))}
               </div>
 
@@ -439,14 +510,39 @@ export default function Home() {
                 })}
               </motion.div>
             </div>
+
           </section>
+
+          <Reveal direction="up">
+            <section className={styles.procurementFlowSection} aria-label="Buyer workflow">
+              <div className={styles.procurementFlowIntro}>
+                <p className={styles.kicker}>Buyer Workflow</p>
+                <h2>Move from product fit to quote without guesswork.</h2>
+              </div>
+              <div className={styles.procurementFlowGrid}>
+                {procurementFlow.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <article className={styles.procurementFlowCard} key={item.title}>
+                      <div className={styles.procurementFlowIcon}>
+                        <Icon size={22} strokeWidth={1.8} />
+                      </div>
+                      <span>{item.step}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          </Reveal>
 
           <Reveal direction="up">
             <section id="science" className={styles.scienceSection}>
               <div className={styles.scienceVisual}>
                 <div className={styles.scienceStage}>
                   <Image
-                    src="/products/real-white-precision.png"
+                    src="/products/silica-gel-do-not-eat.png"
                     alt="Macro silica gel beads with detailed moisture adsorption texture"
                     fill
                     className={styles.scienceImage}
@@ -506,7 +602,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/section-product-line-premium.png"
+                    src="/products/silica-gel-do-not-eat.png"
                     alt="Premium silica gel product formats for export quote planning"
                     fill
                     className={styles.sectionVisualImage}
@@ -551,6 +647,12 @@ export default function Home() {
                   </motion.article>
                 ))}
               </motion.div>
+
+              <div className={styles.categoryRail} aria-label="Core product category landing pages">
+                {categoryLanes.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
             </section>
           </Reveal>
 
@@ -614,7 +716,7 @@ export default function Home() {
                               rel="noopener noreferrer"
                               className={styles.priceQuoteLink}
                             >
-                              Export quote
+                              Quote
                             </a>
                           </div>
                         ))}
@@ -660,7 +762,7 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/real-white-precision.png"
+                    src="/products/silica-gel-do-not-eat.png"
                     alt="Macro silica gel beads and sachet showing moisture protection"
                     fill
                     className={styles.sectionVisualImage}
@@ -847,6 +949,19 @@ export default function Home() {
                   </motion.article>
                 ))}
               </div>
+
+              <div className={styles.capabilityGrid}>
+                {capabilityBlocks.map((item) => {
+                  const Icon = item.icon;
+                  return (
+                    <article key={item.title} className={styles.capabilityCard}>
+                      <Icon size={24} strokeWidth={1.8} />
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </article>
+                  );
+                })}
+              </div>
             </section>
           </Reveal>
 
@@ -933,7 +1048,42 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
+            <section className={styles.seoRoadmapSection} aria-label="Global SEO roadmap">
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Global SEO Architecture</p>
+                <h2>Build landing pages around buyer intent, not just products.</h2>
+                <p>
+                  The global search strategy should create product, industry, export, and compliance
+                  clusters that answer procurement questions before the buyer asks for price.
+                </p>
+              </div>
+              <div className={styles.seoClusterGrid}>
+                {seoClusters.map((cluster) => (
+                  <article key={cluster.title} className={styles.seoClusterCard}>
+                    <h3>{cluster.title}</h3>
+                    <p>{cluster.keywords}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
             <MoistureCalculator />
+          </Reveal>
+
+          <Reveal direction="up">
+            <section className={styles.homeRfqSection} aria-label="International RFQ form">
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Serious Buyer RFQ</p>
+                <h2>Make the form the primary conversion path for bulk orders.</h2>
+                <p>
+                  WhatsApp stays available for speed, but serious international procurement should
+                  start with product type, quantity, destination, Incoterms, and document requirements.
+                </p>
+              </div>
+              <QuoteForm title="Send MOQ Requirement" />
+            </section>
           </Reveal>
 
           <Reveal direction="up">

@@ -183,6 +183,8 @@
 
   .header {
     grid-template-columns: 1fr;
+    max-width: 100%;
+    min-width: 0;
     gap: 8px;
     padding: 10px;
     border-radius: 6px;
@@ -191,6 +193,7 @@
   .brand {
     justify-content: space-between;
     min-width: 0;
+    overflow: hidden;
   }
 
   .brandLogo {
@@ -198,7 +201,7 @@
   }
 
   .brandTag {
-    display: inline-flex;
+    display: none;
     max-width: 132px;
     font-size: 0.5rem;
   }
@@ -228,5 +231,15 @@
     min-height: 40px;
     width: 100%;
     order: 3;
+  }
+}
+
+@media (max-width: 430px) {
+  .brand {
+    justify-content: flex-start;
+  }
+
+  .brandTag {
+    display: none;
   }
 }

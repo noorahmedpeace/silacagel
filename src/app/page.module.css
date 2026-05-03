@@ -181,53 +181,32 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  margin-bottom: 18px;
-}
-
-.heroMetaStrip {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 10px;
   margin-bottom: 24px;
-  padding: 8px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
-.heroMetaStrip span {
+.heroProofLine {
   display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.11);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.heroCertRow {
-  display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  margin: 0 0 22px;
+  gap: 10px 18px;
+  margin-bottom: 22px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.82rem;
+  font-weight: 800;
 }
 
-.heroCertPill {
+.heroProofLine span {
   display: inline-flex;
   align-items: center;
-  padding: 10px 14px;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.heroProofLine span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.03em;
-  box-shadow: 0 16px 30px -26px rgba(13, 27, 42, 0.16);
+  background: rgba(255, 255, 255, 0.62);
 }
 
 .primaryCta {
@@ -566,13 +545,14 @@
 .trustSignals {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  padding-top: 10px;
+  gap: 12px;
+  max-width: 800px;
+  padding-top: 2px;
 }
 
 .hero .signal {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(10, 18, 30, 0.42);
+  border-color: rgba(255, 255, 255, 0.16);
   box-shadow: none;
 }
 
@@ -582,7 +562,7 @@
 
 .hero .signalText span,
 .hero .signalText strong {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .announcementBar {
@@ -1183,9 +1163,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.72)),
-    radial-gradient(circle at 80% 16%, rgba(255, 255, 255, 0.28), transparent 20%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.02), rgba(15, 23, 42, 0.72));
 }
 
 .industrialBentoCard .image {
@@ -2614,21 +2592,13 @@
   border-color: #ffffff;
 }
 
-.heroMetaStrip {
+.heroProofLine {
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.08);
 }
 
-.heroMetaStrip span,
-.heroCertPill {
+.heroProofLine span {
   border-radius: 4px;
-}
-
-.heroCertPill {
-  background: rgba(255, 255, 255, 0.92);
-  border-color: rgba(255, 255, 255, 0.76);
-  color: var(--ink);
-  font-weight: 800;
 }
 
 .announcementBar {
@@ -2765,9 +2735,7 @@
 }
 
 .industrialBentoImage::after {
-  background:
-    linear-gradient(180deg, rgba(16, 24, 32, 0.04), rgba(16, 24, 32, 0.76)),
-    radial-gradient(circle at 80% 16%, rgba(216, 13, 42, 0.22), transparent 20%);
+  background: linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.72));
 }
 
 .industrialBentoStat,
@@ -2944,6 +2912,7 @@
 
 /* calmer procurement quote area */
 .pricingSection {
+  padding-top: 32px;
   border-color: rgba(0, 103, 197, 0.14);
   background:
     radial-gradient(circle at 78% 10%, rgba(191, 219, 254, 0.78), transparent 26%),
@@ -2962,6 +2931,9 @@
 }
 
 .pricingSection .sectionIntro {
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 0.88fr);
+  gap: 22px;
+  margin-bottom: 14px;
   align-items: stretch;
 }
 
@@ -2970,7 +2942,9 @@
 }
 
 .pricingSection .sectionHead h2 {
-  max-width: 13ch;
+  max-width: 20ch;
+  font-size: clamp(2.25rem, 3.45vw, 3.35rem);
+  line-height: 1.02;
   background: linear-gradient(135deg, #0b2447 0%, #005aab 70%, #8a1430 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -2982,11 +2956,65 @@
 }
 
 .pricingVisual {
-  min-height: 285px;
+  min-height: 210px;
   border-color: rgba(0, 103, 197, 0.12);
   background-image: url("/section-export-quote-premium.webp");
   background-position: center;
   background-size: cover;
+}
+
+.pricingLayout {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.72fr) minmax(520px, 1.28fr);
+  gap: 20px;
+  align-items: start;
+}
+
+.priceGrid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.priceCard {
+  padding: 18px;
+  border-radius: 14px;
+}
+
+.priceCard h3 {
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+}
+
+.priceNote {
+  margin-bottom: 6px;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+}
+
+.priceList {
+  gap: 6px;
+}
+
+.priceRow {
+  padding-bottom: 7px;
+  font-size: 0.88rem;
+}
+
+.priceQuoteLink {
+  min-height: 26px;
+  padding: 0 9px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  background: rgba(0, 103, 197, 0.06);
+}
+
+.priceCardFoot {
+  margin-top: 10px;
+  font-size: 0.75rem;
+}
+
+.calculatorAnchor {
+  min-width: 0;
 }
 
 .pricingHighlights {
@@ -3037,19 +3065,29 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
+.whatsAppFloat {
+  display: none;
+}
+
 .productSection .sectionIntro,
 .partnerSection .sectionIntro {
   grid-template-columns: minmax(380px, 1.08fr) minmax(0, 0.92fr);
 }
 
-.productSection .sectionIntro .sectionHead,
-.partnerSection .sectionIntro .sectionHead {
+.productSection .sectionIntro .sectionHead {
   order: 2;
 }
 
-.productSection .sectionIntro .sectionVisual,
-.partnerSection .sectionIntro .sectionVisual {
+.productSection .sectionIntro .sectionVisual {
   order: 1;
+}
+
+.partnerSection .sectionIntro .sectionHead {
+  order: 1;
+}
+
+.partnerSection .sectionIntro .sectionVisual {
+  order: 2;
 }
 
 .sectionVisual,
@@ -3424,10 +3462,6 @@
     border-radius: 8px;
   }
 
-  .heroCertRow {
-    gap: 10px;
-  }
-
   .scienceStage {
     min-height: 380px;
     border-radius: 8px;
@@ -3489,4 +3523,399 @@
   .announcementTrack {
     animation: none;
   }
+}
+
+/* procurement-first redesign pass */
+.shell {
+  max-width: 1500px;
+  padding-inline: clamp(16px, 3vw, 42px);
+}
+
+.main {
+  gap: clamp(24px, 3vw, 42px);
+}
+
+.hero {
+  display: flex;
+  align-items: end;
+  min-height: min(760px, calc(100vh - 132px));
+  padding: clamp(36px, 5vw, 78px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #101820;
+}
+
+.heroCopy {
+  max-width: 820px;
+}
+
+.heroBgImage {
+  object-position: 68% center;
+  filter: saturate(1.08) contrast(1.08);
+}
+
+.heroShade {
+  background:
+    linear-gradient(90deg, rgba(16, 24, 32, 0.92) 0%, rgba(16, 24, 32, 0.72) 38%, rgba(16, 24, 32, 0.22) 70%, rgba(16, 24, 32, 0.06) 100%),
+    radial-gradient(circle at 76% 38%, rgba(255, 255, 255, 0.26), transparent 21%),
+    radial-gradient(circle at 22% 18%, rgba(216, 13, 42, 0.24), transparent 22%),
+    linear-gradient(180deg, rgba(16, 24, 32, 0.08), rgba(16, 24, 32, 0.52));
+}
+
+.hero h1 {
+  max-width: 16ch;
+  font-size: clamp(3.15rem, 6.2vw, 6.2rem);
+  line-height: 0.92;
+}
+
+.lead {
+  max-width: 62ch;
+  font-size: clamp(1rem, 1.25vw, 1.18rem);
+}
+
+.procurementFlowSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: 22px;
+  align-items: stretch;
+  padding: clamp(28px, 4vw, 46px);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, #101820 0%, #162535 48%, #0f172a 100%);
+  color: #ffffff;
+  overflow: hidden;
+  position: relative;
+}
+
+.procurementFlowSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(216, 13, 42, 0.22), transparent 28%),
+    url("/backgrounds/blue-particle-board-wide.png");
+  background-size: cover;
+  background-position: center;
+  opacity: 0.22;
+}
+
+.procurementFlowIntro,
+.procurementFlowGrid {
+  position: relative;
+  z-index: 1;
+}
+
+.procurementFlowIntro {
+  align-self: center;
+}
+
+.procurementFlowIntro h2 {
+  max-width: 13ch;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.3vw, 3.45rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.procurementFlowGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.procurementFlowCard {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.procurementFlowIcon {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: auto;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #064a91, #0067c5);
+  color: #ffffff;
+}
+
+.procurementFlowCard span {
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.procurementFlowCard h3 {
+  margin-top: 8px;
+  font-size: 1.2rem;
+  letter-spacing: -0.03em;
+}
+
+.procurementFlowCard p {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.9rem;
+  line-height: 1.62;
+}
+
+.sectionHead h2 {
+  max-width: 14ch;
+}
+
+.sectionHead p {
+  max-width: 62ch;
+}
+
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.partnerSection,
+.applicationSection,
+.proofSection,
+.exportSection,
+.resourceSection,
+.shippingBanner,
+.ctaBanner,
+.footer {
+  border-radius: 8px;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .procurementFlowSection {
+    grid-template-columns: 1fr;
+  }
+
+  .procurementFlowIntro h2 {
+    max-width: 18ch;
+  }
+
+  .procurementFlowGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .procurementFlowCard {
+    min-height: 210px;
+  }
+
+  .pricingLayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .page,
+  .shell,
+  .main,
+  .hero,
+  .heroCopy {
+    min-width: 0;
+  }
+
+  .shell {
+    padding-inline: 16px;
+  }
+
+  .hero {
+    padding: 26px 18px;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .hero h1 {
+    max-width: 11ch;
+    font-size: clamp(2.45rem, 14vw, 3.4rem);
+  }
+
+  .lead {
+    max-width: 100%;
+  }
+
+  .ctaRow {
+    width: 100%;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .heroProofLine {
+    width: 100%;
+    display: flex;
+    border-radius: 6px;
+  }
+
+  .procurementFlowSection {
+    padding: 28px 18px;
+  }
+
+  .procurementFlowCard {
+    min-height: 0;
+  }
+}
+
+/* global dominance implementation */
+.seoRoadmapSection,
+.homeRfqSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 58px 44px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 84% 10%, rgba(219, 234, 254, 0.72), transparent 28%),
+    linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+  overflow: hidden;
+}
+
+.seoRoadmapSection::after,
+.homeRfqSection::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-position: center;
+  background-size: max(1500px, 118%) auto;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+}
+
+.seoRoadmapSection > *,
+.homeRfqSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.seoClusterCard h3 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.seoClusterCard,
+.capabilityCard {
+  border: 1px solid rgba(16, 24, 32, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+}
+
+.seoClusterCard p,
+.capabilityCard p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.capabilityCard h3 {
+  color: var(--ink);
+  font-size: 1.22rem;
+  letter-spacing: -0.03em;
+}
+
+.categoryRail {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.categoryRail span {
+  display: inline-flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #0b2447;
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-align: center;
+}
+
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.capabilityCard {
+  min-height: 230px;
+  padding: 22px;
+}
+
+.capabilityCard svg {
+  margin-bottom: 34px;
+  color: var(--accent);
+}
+
+.seoClusterGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.seoClusterCard {
+  min-height: 210px;
+  padding: 22px;
+}
+
+.seoClusterCard h3 {
+  margin-bottom: 22px;
+  color: #064a91;
+}
+
+@media (max-width: 1100px) {
+  .capabilityGrid,
+  .seoClusterGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .categoryRail {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .seoRoadmapSection,
+  .homeRfqSection {
+    padding: 36px 18px;
+  }
+
+  .capabilityGrid,
+  .seoClusterGrid,
+  .categoryRail {
+    grid-template-columns: 1fr;
+  }
+
 }

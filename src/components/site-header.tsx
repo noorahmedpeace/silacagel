@@ -7,11 +7,12 @@ import styles from "./site-header.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Products", href: "/products" },
-  { label: "Applications", href: "/#applications" },
-  { label: "Resources", href: "/documents" },
-  { label: "Contact", href: "/contact" },
+  { label: "Export", href: "/export" },
+  { label: "Private Label", href: "/private-label" },
+  { label: "Industries", href: "/industries/electronics-packaging" },
+  { label: "Documents", href: "/documents" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export function SiteHeader() {
@@ -48,7 +49,7 @@ export function SiteHeader() {
         </nav>
 
         <Link href="/contact" className={styles.navCta}>
-          Contact Us
+          Request Quote
           <ChevronDown size={14} className={styles.navCtaIcon} />
         </Link>
       </div>

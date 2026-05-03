@@ -23,12 +23,19 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Premium Silica Gel Desiccants Delivered Worldwide",
+  title: "SilacaGEL | Silica Gel Manufacturer Exporter & Bulk Desiccant Supplier",
   description:
-    "Premium silica gel desiccant sachets, bulk packs, cargo strips, SDS/COA support, and worldwide delivery for industrial packaging and export procurement teams.",
+    "Factory-direct silica gel desiccant packets, bulk packs, cargo strips, private-label sachets, SDS/COA support, and worldwide export delivery for industrial packaging buyers.",
   keywords: [
     "silica gel manufacturer",
+    "silica gel manufacturer exporter",
+    "bulk desiccant supplier",
     "bulk desiccant packets",
+    "silica gel packets",
+    "non indicating silica gel",
+    "indicating silica gel",
+    "container desiccant strips",
+    "private label desiccant packets",
     "pharma grade silica gel",
     "food grade desiccant",
     "silaca gel", // Typo variant
@@ -38,9 +45,9 @@ export const metadata: Metadata = {
     "ISO 9001 silica gel supplier",
   ],
   openGraph: {
-    title: "SilacaGEL | Premium Silica Gel Delivered Worldwide",
+    title: "SilacaGEL | Global Silica Gel Manufacturer Exporter",
     description:
-      "Industrial desiccant supply for packaging, logistics, warehouse stock, and export shipments with SDS, COA, and compliance documentation available on request.",
+      "Industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
     type: "website",
@@ -54,9 +61,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Global Silica Gel Desiccant Supplier",
+    title: "SilacaGEL | Silica Gel Manufacturer Exporter",
     description:
-      "Export-ready moisture protection for cartons, bulk packaging, and container cargo.",
+      "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
   },
 };
 
@@ -76,36 +83,81 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "SilacaGEL",
-              url: "https://silacagel.vercel.app",
-              description:
-                "Premium silica gel desiccant supplier for industrial packaging, logistics, warehousing, and export procurement.",
-              contactPoint: {
-                "@type": "ContactPoint",
-                telephone: "+923330223337",
-                contactType: "sales",
-                areaServed: "Worldwide",
-                availableLanguage: ["en"],
-              },
-              makesOffer: [
+              "@graph": [
                 {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Product",
-                    name: "Silica gel desiccant sachets",
-                    category: "Industrial desiccants",
-                    material: "Silicon dioxide",
+                  "@type": "Organization",
+                  name: "SilacaGEL",
+                  alternateName: ["Silica Gel Export Supply", "Sorbenta candidate brand"],
+                  url: "https://silacagel.vercel.app",
+                  description:
+                    "Silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
+                  contactPoint: {
+                    "@type": "ContactPoint",
+                    telephone: "+923330223337",
+                    contactType: "sales",
+                    areaServed: "Worldwide",
+                    availableLanguage: ["en"],
+                  },
+                  makesOffer: [
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Product",
+                        name: "Silica gel desiccant sachets",
+                        category: "Industrial desiccants",
+                        material: "Silicon dioxide",
+                      },
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Product",
+                        name: "Silica gel cargo strips",
+                        category: "Export moisture control",
+                        material: "Silicon dioxide",
+                      },
+                    },
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Product",
+                        name: "Private label desiccant packets",
+                        category: "OEM packaging",
+                        material: "Silicon dioxide",
+                      },
+                    },
+                  ],
+                },
+                {
+                  "@type": "WebSite",
+                  name: "SilacaGEL",
+                  url: "https://silacagel.vercel.app",
+                  potentialAction: {
+                    "@type": "SearchAction",
+                    target: "https://silacagel.vercel.app/products?query={search_term_string}",
+                    "query-input": "required name=search_term_string",
                   },
                 },
                 {
-                  "@type": "Offer",
-                  itemOffered: {
-                    "@type": "Product",
-                    name: "Silica gel cargo strips",
-                    category: "Export moisture control",
-                    material: "Silicon dioxide",
-                  },
+                  "@type": "FAQPage",
+                  mainEntity: [
+                    {
+                      "@type": "Question",
+                      name: "Can SilacaGEL provide SDS and COA documents?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "SDS and COA support is available on request and should be confirmed against the exact product format and destination market.",
+                      },
+                    },
+                    {
+                      "@type": "Question",
+                      name: "Does SilacaGEL support private-label desiccant packets?",
+                      acceptedAnswer: {
+                        "@type": "Answer",
+                        text: "Private-label sachet printing, carton labeling, and distributor supply can be discussed through the RFQ form.",
+                      },
+                    },
+                  ],
                 },
               ],
             }),

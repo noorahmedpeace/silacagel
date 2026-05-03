@@ -11,10 +11,17 @@ const routes = [
   "/products/bulk-industrial",
   "/products/container-strips",
   "/documents",
+  "/export",
+  "/private-label",
+  "/industries/electronics-packaging",
+  "/industries/pharma-packaging",
+  "/industries/leather-footwear-export",
+  "/industries/food-packaging",
   "/bulk-sales",
   "/dispensers",
   "/faq",
   "/videos",
+  "/blog",
   "/contact",
 ];
 

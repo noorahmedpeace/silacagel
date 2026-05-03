@@ -197,4 +197,56 @@
   box-shadow: 0 14px 28px -18px rgba(0, 103, 197, 0.55);
 }
 
+/* compact desktop workbench layout */
+.calculator {
+  gap: 12px;
+}
+
+.head {
+  margin-bottom: 8px;
+}
+
+.head h3 {
+  font-size: 1.55rem;
+}
+
+.head span {
+  font-size: 0.86rem;
+}
+
+.field {
+  gap: 6px;
+}
+
+.field span {
+  font-size: 0.68rem;
+}
+
+.field input,
+.field select {
+  min-height: 46px;
+  font-size: 0.94rem;
+}
+
+.summaryGrid {
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.summaryCard {
+  padding: 14px 16px;
+}
+
+.summaryCard strong {
+  font-size: 1.18rem;
+}
+
+.meta {
+  font-size: 0.78rem;
+}
+
+.submit {
+  min-height: 48px;
+}
+
 

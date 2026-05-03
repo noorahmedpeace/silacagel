@@ -24,6 +24,8 @@ export function QuoteForm({
   const [country, setCountry] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [destination, setDestination] = useState("");
+  const [incoterm, setIncoterm] = useState("FOB");
+  const [packaging, setPackaging] = useState("");
   const [documents, setDocuments] = useState("");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -39,6 +41,8 @@ export function QuoteForm({
       `Preferred Currency: ${currency}`,
       `Quantity (Tons/Kgs): ${quantity || "Not provided"}`,
       `Destination Port or City: ${destination || "Not provided"}`,
+      `Incoterms: ${incoterm}`,
+      `Packaging / Private Label: ${packaging || "Not provided"}`,
       `Required Documents: ${documents || "Not specified"}`,
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
@@ -135,6 +139,27 @@ export function QuoteForm({
             value={destination}
             onChange={(event) => setDestination(event.target.value)}
             placeholder="e.g. Jebel Ali, Hamburg, Houston"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Incoterms</span>
+          <select value={incoterm} onChange={(event) => setIncoterm(event.target.value)}>
+            <option value="FOB">FOB - Free On Board</option>
+            <option value="CIF">CIF - Cost, Insurance & Freight</option>
+            <option value="EXW">EXW - Ex Works</option>
+            <option value="DAP">DAP - Delivered At Place</option>
+            <option value="Not sure">Not sure - advise best option</option>
+          </select>
+        </label>
+
+        <label className={styles.field}>
+          <span>Packaging / Private Label</span>
+          <input
+            value={packaging}
+            onChange={(event) => setPackaging(event.target.value)}
+            placeholder="e.g. printed sachet, bulk carton, distributor label"
             type="text"
           />
         </label>
