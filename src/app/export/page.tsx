@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "../strategy-pages.module.css";
+import { exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
   title: "Silica Gel Manufacturer Exporter | Bulk Desiccant Supply",
@@ -54,6 +55,28 @@ export default function ExportPage() {
               <span>{block.label}</span>
               <h3>{block.title}</h3>
               <p>{block.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Export landing pages by buyer market.</h2>
+          <p>
+            Each page is built for a specific import route, buyer type, document set,
+            and RFQ workflow without overstating unsupported certifications.
+          </p>
+        </div>
+        <div className={styles.grid}>
+          {exportMarkets.map((market) => (
+            <article className={styles.articleCard} key={market.slug}>
+              <span>{market.country}</span>
+              <h3>{market.title}</h3>
+              <p>{market.description}</p>
+              <Link className={styles.textLink} href={`/export/${market.slug}`}>
+                View {market.country} page
+              </Link>
             </article>
           ))}
         </div>

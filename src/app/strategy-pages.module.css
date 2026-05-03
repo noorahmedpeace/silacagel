@@ -115,6 +115,41 @@
   letter-spacing: -0.035em;
 }
 
+.bulletList {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bulletList li {
+  position: relative;
+  padding-left: 16px;
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.bulletList li::before {
+  content: "";
+  position: absolute;
+  top: 0.65em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #d80d2a;
+}
+
+.textLink {
+  display: inline-flex;
+  margin-top: 18px;
+  color: #d80d2a;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
 .cta {
   display: inline-flex;
   width: fit-content;
