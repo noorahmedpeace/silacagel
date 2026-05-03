@@ -133,7 +133,7 @@ const procurementFlow = [
     title: "Define the pack",
     text: "Choose sachets, strips, or bulk formats by carton size, humidity exposure, and product sensitivity.",
     icon: PackageCheck,
-    imagePosition: "left center",
+    image: "/workflow/define-pack.png",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
   },
   {
@@ -141,7 +141,7 @@ const procurementFlow = [
     title: "Confirm documents",
     text: "Request SDS, COA, compliance notes, labeling details, and destination-specific paperwork early.",
     icon: FileCheck2,
-    imagePosition: "center center",
+    image: "/workflow/confirm-documents.png",
     imageAlt: "Export documentation desk with silica gel sample and compliance papers",
   },
   {
@@ -149,7 +149,7 @@ const procurementFlow = [
     title: "Plan shipment",
     text: "Align MOQ, lead time, Incoterms, packaging quantity, and dispatch route before final quotation.",
     icon: Truck,
-    imagePosition: "right center",
+    image: "/workflow/plan-shipment.png",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
   },
 ];
@@ -202,24 +202,6 @@ const seoClusters = [
   {
     title: "Compliance intent",
     keywords: "silica gel SDS, COA silica gel, DMF free desiccant, RoHS REACH desiccant",
-  },
-];
-
-const sciencePoints = [
-  {
-    step: "01",
-    title: "Porous structure",
-    text: "Clear beads carry a high internal surface area designed to capture vapor before it reaches packed goods.",
-  },
-  {
-    step: "02",
-    title: "Moisture adsorption",
-    text: "Water vapor adheres to the bead surface and settles into the pore structure; the packet stays dry and controlled.",
-  },
-  {
-    step: "03",
-    title: "Export packaging fit",
-    text: "Choose the sachet, strip, or bulk format around carton volume, transit time, and destination humidity.",
   },
 ];
 
@@ -532,12 +514,11 @@ export default function Home() {
                     <article className={styles.procurementFlowCard} key={item.title}>
                       <div className={styles.procurementFlowMedia}>
                         <Image
-                          src="/workflow/buyer-workflow-triptych.png"
+                          src={item.image}
                           alt={item.imageAlt}
                           fill
                           className={styles.procurementFlowImage}
                           sizes="(max-width: 1100px) 100vw, 18vw"
-                          style={{ objectPosition: item.imagePosition }}
                         />
                         <div className={styles.procurementFlowIcon}>
                           <Icon size={18} strokeWidth={1.8} />
@@ -557,55 +538,29 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="science" className={styles.scienceSection}>
-              <div className={styles.scienceVisual}>
-                <div className={styles.scienceStage}>
-                  <video
-                    className={styles.scienceVideo}
-                    src="/videos/silica-beads-glass-container-3d.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    aria-label="3D animation of clear silica gel beads inside a premium glass container"
-                  />
-                  <div className={styles.scienceGlow} />
-                  <div className={styles.scienceBadge}>
-                    <span>Moisture Control</span>
-                    <strong>Clear bead structure for controlled vapor adsorption.</strong>
-                  </div>
-                  <div className={styles.scienceCallout}>
-                    <span>Buyer Logic</span>
-                    <strong>Select pack size by volume, route, and humidity exposure.</strong>
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.scienceCopy}>
-                <div className={styles.sectionHead}>
+              <div className={styles.scienceStage}>
+                <video
+                  className={styles.scienceVideo}
+                  src="/videos/silica-beads-glass-container-3d.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="3D animation of clear silica gel beads inside a premium glass container"
+                />
+                <div className={styles.scienceGlow} />
+                <div className={styles.scienceOverlay}>
                   <p className={styles.kicker}>The Science</p>
-                  <h2>Show the material before selling the packet.</h2>
+                  <h2>Clear beads. Controlled moisture protection.</h2>
                   <p>
-                    The 3D bead visual gives procurement teams a premium, simple way to understand how silica gel protects cartons, electronics, pharma packs, and export goods.
+                    Premium 3D material visual for buyers who need to understand silica gel performance fast: adsorption, pack sizing, and export protection in one clean scene.
                   </p>
-                </div>
-
-                <div className={styles.scienceGrid}>
-                  {sciencePoints.map((item) => (
-                    <motion.article
-                      key={item.step}
-                      className={styles.scienceCard}
-                      initial={{ opacity: 1, y: 0 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      whileHover={{ y: -3 }}
-                    >
-                      <span className={styles.scienceStep}>{item.step}</span>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </motion.article>
-                  ))}
+                  <div className={styles.scienceChips} aria-label="Silica gel science highlights">
+                    <span>Porous bead structure</span>
+                    <span>Vapor adsorption</span>
+                    <span>Pack-size planning</span>
+                  </div>
                 </div>
               </div>
             </section>
