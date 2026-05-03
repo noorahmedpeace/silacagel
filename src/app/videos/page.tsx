@@ -7,9 +7,9 @@ const videos = [
   { title: "Humidity Control in Sealed Containers", desc: "Live demonstration showing how a single 5g sachet drops relative humidity from 70% to below 10% inside a sealed electronics enclosure.", tag: "Electronics", duration: "6:18" },
   { title: "DT-1200 Line Speed Demonstration", desc: "Full machine run at 250 packets per minute on a pharmaceutical packaging line, with servo motor precision cutting highlighted.", tag: "Industrial", duration: "8:05" },
   { title: "Container Strip Deployment", desc: "Step-by-step installation guide for maritime container strips to eliminate container rain and prevent catastrophic cargo loss.", tag: "Maritime", duration: "5:47" },
-  { title: "Microwave Reactivation Guide", desc: "Safe reactivation of our Special Packet line in microwave defrost mode — the only FDA-compliant microwave-safe desiccant packets available.", tag: "How-To", duration: "3:21" },
+  { title: "Packet Reactivation Guide", desc: "Safe oven reactivation guidance for compatible formats, with temperature limits reviewed against the exact packet material.", tag: "How-To", duration: "3:21" },
   { title: "Bulk Industrial Supply Overview", desc: "A complete walkthrough of bulk silica gel options from 1lb bags to 55-gallon drums with B2B subscription pricing explained.", tag: "B2B Guide", duration: "7:14" },
-  { title: "Oxygen Absorber Science Explained", desc: "A deep dive into how iron-based oxygen absorbers remove O₂ from sealed food containers to extend shelf life by up to 5 years.", tag: "Food Safety", duration: "9:02" },
+  { title: "Moisture Protection Science Explained", desc: "A practical look at adsorption, sealed packaging, and why the right packet size matters for export cartons.", tag: "Packaging", duration: "9:02" },
   { title: "Pharmaceutical Clean Room Insertion", desc: "Step-by-step guide for integrating DT-1200 dispensers into a pharmaceutical clean room packaging environment.", tag: "Pharma", duration: "11:30" },
   { title: "3D Filament Moisture Protection", desc: "How to prevent moisture absorption in PLA, ABS, and PETG filament spools using indicating silica gel for perfect print results.", tag: "3D Printing", duration: "5:55" },
 ];

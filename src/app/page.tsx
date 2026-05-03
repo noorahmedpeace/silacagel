@@ -190,7 +190,7 @@ const capabilityBlocks = [
   {
     icon: FlaskConical,
     title: "QC and documentation desk",
-    text: "SDS, COA, RoHS, REACH, FDA/FSSC support language should be backed by valid documents before display.",
+    text: "ISO 9001:2015, SDS, COA, and DMF-free support should be easy to request; additional claims require valid documents before display.",
   },
   {
     icon: PackageCheck,
@@ -282,6 +282,54 @@ const exportDetails = [
     title: "Private label and bulk cartons",
     text: "Sachet formats, bulk packs, and cargo strips can be discussed for repeat procurement and distributor supply.",
   },
+];
+
+const verifiedProof = [
+  {
+    value: "Since 1983",
+    label: "Karachi manufacturing heritage",
+    text: "Backed by Kamran Enterprises and 40+ years of silica gel sachet manufacturing in Pakistan.",
+  },
+  {
+    value: "ISO 9001:2015",
+    label: "Verified quality system",
+    text: "Use as the anchor compliance proof. Additional certifications should only be shown when documents exist.",
+  },
+  {
+    value: "DMF-free",
+    label: "Product-level safety claim",
+    text: "Reusable for silica gel product discussions alongside SDS, COA, non-toxic, and non-flammable support language.",
+  },
+  {
+    value: "10M+",
+    label: "Packets distributed",
+    text: "A strong scale metric for buyers comparing a real manufacturer against small trading suppliers.",
+  },
+  {
+    value: "10,000+",
+    label: "Customers supported",
+    text: "Useful proof for domestic and export buyers when paired with documents and product range clarity.",
+  },
+  {
+    value: "40+",
+    label: "Custom categories",
+    text: "Signals custom sizing, recurring supply, and private-label readiness without overstating certifications.",
+  },
+];
+
+const skuRows = [
+  { family: "Paper sachets", sizes: "0.5g, 1g, 2g, 3g, 5g, 10g", material: "Breathable paper / technical fiber", buyer: "Pharma bottles, electronics, retail cartons" },
+  { family: "Large sachets", sizes: "25g, 50g, 100g, 250g, 500g", material: "Woven or non-woven bead bags", buyer: "Textile, leather, warehouse, export cartons" },
+  { family: "Container strips", sizes: "1kg, 2kg, 3kg, 5kg", material: "Multi-chamber cargo strip format", buyer: "Ocean freight, container rain prevention" },
+  { family: "Custom supply", sizes: "Made to requirement", material: "Private label / carton labeling", buyer: "Distributors, OEM packaging, repeat contracts" },
+];
+
+const documentationMatrix = [
+  { name: "ISO 9001:2015", status: "Held", use: "Quality management proof for B2B procurement review." },
+  { name: "SDS / MSDS", status: "Request", use: "Safety and handling document matched to product format." },
+  { name: "COA", status: "Request", use: "Batch or product-level quality reference for buyer files." },
+  { name: "DMF-free statement", status: "Supported", use: "Product-level claim for buyers avoiding DMF-risk materials." },
+  { name: "FDA / REACH / Halal / GMP", status: "Do not claim yet", use: "Show only if valid documents are obtained for the exact order." },
 ];
 
 const itemVariants: Variants = {
@@ -1008,15 +1056,15 @@ export default function Home() {
 
           <Reveal direction="up">
             <section className={styles.certStrip}>
-              <p className={styles.certStripLabel}>Compliance Snapshot</p>
+              <p className={styles.certStripLabel}>Verified Proof Snapshot</p>
               <div className={styles.certStripRow}>
                 {[
-                  { icon: "01", label: "FDA 21 CFR 177.1520" },
-                  { icon: "02", label: "FDA 21 CFR 176.170" },
-                  { icon: "03", label: "ISO 9001 / 14001" },
-                  { icon: "04", label: "FSSC 22000" },
-                  { icon: "05", label: "RoHS / REACH" },
-                  { icon: "06", label: "100% DMF Free" },
+                  { icon: "01", label: "Since 1983" },
+                  { icon: "02", label: "ISO 9001:2015" },
+                  { icon: "03", label: "DMF-free silica" },
+                  { icon: "04", label: "10M+ packets" },
+                  { icon: "05", label: "10,000+ customers" },
+                  { icon: "06", label: "40+ custom categories" },
                 ].map((c, index) => (
                   <motion.div
                     key={c.label}
@@ -1032,6 +1080,90 @@ export default function Home() {
                     <span>{c.label}</span>
                   </motion.div>
                 ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
+            <section className={styles.proofVaultSection} aria-label="Manufacturer proof and documentation">
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Manufacturer Proof</p>
+                <h2>Show buyers what can actually be claimed today.</h2>
+                <p>
+                  The relaunch inherits the operating company&apos;s real strengths: 40+ years,
+                  ISO 9001:2015, DMF-free product support, high packet volume, and Karachi manufacturing.
+                </p>
+              </div>
+              <div className={styles.proofVaultGrid}>
+                {verifiedProof.map((item) => (
+                  <article className={styles.proofVaultCard} key={item.label}>
+                    <strong>{item.value}</strong>
+                    <span>{item.label}</span>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
+            <section className={styles.skuSection} aria-label="Silica gel SKU and documentation matrix">
+              <div className={styles.skuIntro}>
+                <div className={styles.sectionHead}>
+                  <p className={styles.kicker}>SKU & Document Matrix</p>
+                  <h2>Give procurement the table they came for.</h2>
+                  <p>
+                    Serious buyers need size range, material, use case, and document status before they ask for price.
+                  </p>
+                </div>
+              </div>
+
+              <div className={styles.skuTables}>
+                <div className={styles.skuTableWrap}>
+                  <h3>Core Product Formats</h3>
+                  <table className={styles.skuTable}>
+                    <thead>
+                      <tr>
+                        <th>Family</th>
+                        <th>Sizes</th>
+                        <th>Material</th>
+                        <th>Buyer Fit</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {skuRows.map((row) => (
+                        <tr key={row.family}>
+                          <td>{row.family}</td>
+                          <td>{row.sizes}</td>
+                          <td>{row.material}</td>
+                          <td>{row.buyer}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className={styles.skuTableWrap}>
+                  <h3>Documentation Status</h3>
+                  <table className={styles.skuTable}>
+                    <thead>
+                      <tr>
+                        <th>Document</th>
+                        <th>Status</th>
+                        <th>Use</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {documentationMatrix.map((row) => (
+                        <tr key={row.name}>
+                          <td>{row.name}</td>
+                          <td>{row.status}</td>
+                          <td>{row.use}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </section>
           </Reveal>

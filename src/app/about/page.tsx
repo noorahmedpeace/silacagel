@@ -30,7 +30,7 @@ const values = [
   {
     icon: "04",
     title: "Compliance Readiness",
-    desc: "SDS, COA, RoHS/REACH, FDA support, and specification language can be prepared for international review.",
+    desc: "ISO 9001:2015, SDS, COA, DMF-free support, and specification language can be prepared for international review. Additional claims require valid proof.",
   },
 ];
 

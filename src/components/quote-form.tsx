@@ -27,6 +27,9 @@ export function QuoteForm({
   const [incoterm, setIncoterm] = useState("FOB");
   const [packaging, setPackaging] = useState("");
   const [documents, setDocuments] = useState("");
+  const [application, setApplication] = useState("");
+  const [targetPrice, setTargetPrice] = useState("");
+  const [sampleNeed, setSampleNeed] = useState("Need sample before bulk order");
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -42,8 +45,11 @@ export function QuoteForm({
       `Quantity (Tons/Kgs): ${quantity || "Not provided"}`,
       `Destination Port or City: ${destination || "Not provided"}`,
       `Incoterms: ${incoterm}`,
+      `Application / Industry: ${application || "Not provided"}`,
       `Packaging / Private Label: ${packaging || "Not provided"}`,
       `Required Documents: ${documents || "Not specified"}`,
+      `Target Price / Current Supplier Benchmark: ${targetPrice || "Not provided"}`,
+      `Sample Requirement: ${sampleNeed}`,
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
@@ -169,9 +175,42 @@ export function QuoteForm({
           <input
             value={documents}
             onChange={(event) => setDocuments(event.target.value)}
-            placeholder="e.g. SDS, COA, RoHS/REACH, FDA support"
+            placeholder="e.g. ISO 9001, SDS, COA, DMF-free statement"
             type="text"
           />
+        </label>
+
+        <label className={styles.field}>
+          <span>Application / Industry</span>
+          <select value={application} onChange={(event) => setApplication(event.target.value)}>
+            <option value="">Select use case</option>
+            <option value="Pharmaceutical packaging">Pharmaceutical packaging</option>
+            <option value="Electronics packaging">Electronics packaging</option>
+            <option value="Textile / garment export">Textile / garment export</option>
+            <option value="Leather / footwear export">Leather / footwear export</option>
+            <option value="Food packaging">Food packaging</option>
+            <option value="Container / warehouse logistics">Container / warehouse logistics</option>
+            <option value="Distributor / reseller">Distributor / reseller</option>
+          </select>
+        </label>
+
+        <label className={styles.field}>
+          <span>Target Price / Benchmark</span>
+          <input
+            value={targetPrice}
+            onChange={(event) => setTargetPrice(event.target.value)}
+            placeholder="e.g. current price, target FOB, or supplier quote"
+            type="text"
+          />
+        </label>
+
+        <label className={styles.field}>
+          <span>Sample Requirement</span>
+          <select value={sampleNeed} onChange={(event) => setSampleNeed(event.target.value)}>
+            <option value="Need sample before bulk order">Need sample before bulk order</option>
+            <option value="Bulk quote only">Bulk quote only</option>
+            <option value="Repeat purchase / already tested">Repeat purchase / already tested</option>
+          </select>
         </label>
 
         <button className={styles.submit} type="submit">
@@ -185,7 +224,7 @@ export function QuoteForm({
         <div className={styles.sidebarStats}>
           <span>Worldwide delivery coordination</span>
           <span>Bulk dispatch support</span>
-          <span>SDS / COA available on request</span>
+          <span>ISO 9001:2015, SDS, COA, DMF-free support</span>
         </div>
         <Link href="/documents" className={styles.datasheetButton}>
           Download Technical Datasheet (SDS)

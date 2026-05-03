@@ -49,9 +49,9 @@ export const productCatalog: ProductItem[] = [
       "Retail-ready electronic sub-assemblies",
     ],
     packingOptions: [
-      "Material: High-burst Tyvek® / Technical Fiber",
+      "Material: breathable paper / technical fiber options",
       "Adsorption Capacity: >32% at 90% RH",
-      "Compliance: FDA / RoHS / REACH Authorized",
+      "Document support: ISO 9001:2015, SDS, COA, DMF-free statement on request",
     ],
     leadTime: "Standard stock for recurring global contracts",
     priceBand: "Tiered industrial reference rates available",
@@ -102,7 +102,7 @@ export const productCatalog: ProductItem[] = [
     ],
     packingOptions: [
       "Capacities: 25g to 500g high-bore units",
-      "Standard: ISO 9001 Process Audited",
+      "Standard: backed by ISO 9001:2015 manufacturing process",
       "Config: Customizable industrial density",
     ],
     leadTime: "Quoted per project and logistical requirement",

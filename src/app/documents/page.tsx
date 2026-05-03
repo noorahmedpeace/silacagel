@@ -16,14 +16,14 @@ const documents = [
     desc: "Batch or product-level quality reference for adsorption performance, moisture control, and product checks.",
   },
   {
-    code: "RoHS / REACH",
-    title: "Restricted substance support",
-    desc: "Documentation support for buyers checking restricted substances and market-entry requirements.",
+    code: "Review",
+    title: "Restricted substance review",
+    desc: "Restricted-substance language should be matched to valid buyer documents before any market-entry claim is made.",
   },
   {
-    code: "FDA",
-    title: "FDA packaging support",
-    desc: "Food-contact and packaging-related documentation can be prepared where applicable to the product format.",
+    code: "Future",
+    title: "Certification gap tracking",
+    desc: "FDA, REACH, Halal, GMP, and food-grade claims should only be shown after valid certification or product documentation exists.",
   },
   {
     code: "DMF Free",
@@ -78,7 +78,7 @@ export default function DocumentsPage() {
         <div className={styles.heroPanel} aria-hidden="true">
           <span>01 SDS</span>
           <span>02 COA</span>
-          <span>03 RoHS / REACH</span>
+          <span>03 ISO 9001:2015</span>
           <span>04 DMF Free</span>
         </div>
       </section>

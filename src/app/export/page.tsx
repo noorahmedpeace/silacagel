@@ -17,7 +17,7 @@ const exportBlocks = [
   {
     label: "02",
     title: "Documents before dispatch",
-    text: "SDS, COA, RoHS, REACH, FDA/FSSC support language should be matched to valid document proof for each buyer requirement.",
+    text: "SDS, COA, ISO 9001:2015, and DMF-free support can be aligned early. FDA, REACH, Halal, or GMP claims should only be used when valid proof exists.",
   },
   {
     label: "03",

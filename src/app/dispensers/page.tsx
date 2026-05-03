@@ -14,7 +14,7 @@ const machines = [
       { label: "Industry", value: "Pharmaceutical / Medical" },
       { label: "Packet Types", value: "Sachets, Strip Packets" },
       { label: "Error Detection", value: "Optical Sensor Array" },
-      { label: "Compliance", value: "FDA 21 CFR Compatible" },
+      { label: "Compliance", value: "Buyer spec review" },
     ],
   },
   {

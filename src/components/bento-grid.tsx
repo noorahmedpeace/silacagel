@@ -37,7 +37,7 @@ export const BentoGrid = () => {
         href="/dispensers"
         icon={<Cog size={28} strokeWidth={1.8} />}
         title="Industrial Dispensers"
-        description="DT-1200 & DT-1500 high-speed automated machinery engineered for pharma and food-grade desiccant deployment."
+        description="Automated desiccant insertion and packing-line support for recurring sachet programs."
         linkText="View Automation Catalog ->"
         className={styles.large}
       />
@@ -45,7 +45,7 @@ export const BentoGrid = () => {
         href="/documents"
         icon={<ClipboardList size={28} strokeWidth={1.8} />}
         title="Compliance & Standards"
-        description="Access full FDA, ISO 9001, and REACH documentation for global procurement."
+        description="Request ISO 9001:2015, SDS, COA, DMF-free, and product specification support for buyer review."
         linkText="Get Documents"
         className={styles.standard}
       />

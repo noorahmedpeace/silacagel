@@ -3972,6 +3972,8 @@
 }
 
 /* global dominance implementation */
+.proofVaultSection,
+.skuSection,
 .seoRoadmapSection,
 .homeRfqSection {
   position: relative;
@@ -3988,6 +3990,8 @@
   overflow: hidden;
 }
 
+.proofVaultSection::after,
+.skuSection::after,
 .seoRoadmapSection::after,
 .homeRfqSection::after {
   content: "";
@@ -4002,10 +4006,106 @@
   mix-blend-mode: multiply;
 }
 
+.proofVaultSection > *,
+.skuSection > *,
 .seoRoadmapSection > *,
 .homeRfqSection > * {
   position: relative;
   z-index: 1;
+}
+
+.proofVaultGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.proofVaultCard {
+  min-height: 205px;
+  padding: 22px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+}
+
+.proofVaultCard strong {
+  display: block;
+  margin-bottom: 18px;
+  color: #064a91;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.6vw, 2.7rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.proofVaultCard span {
+  display: block;
+  margin-bottom: 10px;
+  color: #0b2447;
+  font-size: 0.92rem;
+  font-weight: 900;
+}
+
+.proofVaultCard p {
+  color: #475569;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.skuTables {
+  display: grid;
+  gap: 18px;
+}
+
+.skuTableWrap {
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+}
+
+.skuTableWrap h3 {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(16, 24, 32, 0.08);
+  color: #0b2447;
+  font-size: 1rem;
+  letter-spacing: -0.02em;
+}
+
+.skuTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skuTable th,
+.skuTable td {
+  padding: 15px 18px;
+  border-bottom: 1px solid rgba(16, 24, 32, 0.07);
+  text-align: left;
+  vertical-align: top;
+}
+
+.skuTable th {
+  color: #064a91;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  background: rgba(219, 234, 254, 0.42);
+}
+
+.skuTable td {
+  color: #334155;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.skuTable td:first-child {
+  color: #0b2447;
+  font-weight: 900;
 }
 
 .seoClusterCard h3 {
@@ -4094,6 +4194,7 @@
 
 @media (max-width: 1100px) {
   .capabilityGrid,
+  .proofVaultGrid,
   .seoClusterGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -4105,14 +4206,25 @@
 
 @media (max-width: 760px) {
   .seoRoadmapSection,
+  .proofVaultSection,
+  .skuSection,
   .homeRfqSection {
     padding: 36px 18px;
   }
 
   .capabilityGrid,
+  .proofVaultGrid,
   .seoClusterGrid,
   .categoryRail {
     grid-template-columns: 1fr;
+  }
+
+  .skuTableWrap {
+    overflow-x: auto;
+  }
+
+  .skuTable {
+    min-width: 720px;
   }
 
 }
