@@ -133,18 +133,24 @@ const procurementFlow = [
     title: "Define the pack",
     text: "Choose sachets, strips, or bulk formats by carton size, humidity exposure, and product sensitivity.",
     icon: PackageCheck,
+    imagePosition: "left center",
+    imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
   },
   {
     step: "02",
     title: "Confirm documents",
     text: "Request SDS, COA, compliance notes, labeling details, and destination-specific paperwork early.",
     icon: FileCheck2,
+    imagePosition: "center center",
+    imageAlt: "Export documentation desk with silica gel sample and compliance papers",
   },
   {
     step: "03",
     title: "Plan shipment",
     text: "Align MOQ, lead time, Incoterms, packaging quantity, and dispatch route before final quotation.",
     icon: Truck,
+    imagePosition: "right center",
+    imageAlt: "Wrapped export cartons on a pallet ready for shipment",
   },
 ];
 
@@ -203,17 +209,17 @@ const sciencePoints = [
   {
     step: "01",
     title: "Porous structure",
-    text: "Silica gel works through a dense internal pore network, giving the material a very high active surface area for vapor capture.",
+    text: "Clear beads carry a high internal surface area designed to capture vapor before it reaches packed goods.",
   },
   {
     step: "02",
     title: "Moisture adsorption",
-    text: "Instead of feeling decorative, the science block should explain that water vapor adheres to the bead surface and settles into the pore structure.",
+    text: "Water vapor adheres to the bead surface and settles into the pore structure; the packet stays dry and controlled.",
   },
   {
     step: "03",
-    title: "Practical packaging use",
-    text: "That science turns into a simple buying story: choose the right packet size for cartons, shelves, or containers and reduce humidity risk fast.",
+    title: "Export packaging fit",
+    text: "Choose the sachet, strip, or bulk format around carton volume, transit time, and destination humidity.",
   },
 ];
 
@@ -524,12 +530,24 @@ export default function Home() {
                   const Icon = item.icon;
                   return (
                     <article className={styles.procurementFlowCard} key={item.title}>
-                      <div className={styles.procurementFlowIcon}>
-                        <Icon size={22} strokeWidth={1.8} />
+                      <div className={styles.procurementFlowMedia}>
+                        <Image
+                          src="/workflow/buyer-workflow-triptych.png"
+                          alt={item.imageAlt}
+                          fill
+                          className={styles.procurementFlowImage}
+                          sizes="(max-width: 1100px) 100vw, 18vw"
+                          style={{ objectPosition: item.imagePosition }}
+                        />
+                        <div className={styles.procurementFlowIcon}>
+                          <Icon size={18} strokeWidth={1.8} />
+                        </div>
                       </div>
-                      <span>{item.step}</span>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
+                      <div className={styles.procurementFlowContent}>
+                        <span>{item.step}</span>
+                        <h3>{item.title}</h3>
+                        <p>{item.text}</p>
+                      </div>
                     </article>
                   );
                 })}
@@ -541,21 +559,24 @@ export default function Home() {
             <section id="science" className={styles.scienceSection}>
               <div className={styles.scienceVisual}>
                 <div className={styles.scienceStage}>
-                  <Image
-                    src="/products/silica-gel-do-not-eat.png"
-                    alt="Macro silica gel beads with detailed moisture adsorption texture"
-                    fill
-                    className={styles.scienceImage}
-                    sizes="(max-width: 1100px) 100vw, 48vw"
+                  <video
+                    className={styles.scienceVideo}
+                    src="/videos/silica-beads-glass-container-3d.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label="3D animation of clear silica gel beads inside a premium glass container"
                   />
                   <div className={styles.scienceGlow} />
                   <div className={styles.scienceBadge}>
-                    <span>Surface Area</span>
-                    <strong>500-950 m2/g porous adsorption range</strong>
+                    <span>Moisture Control</span>
+                    <strong>Clear bead structure for controlled vapor adsorption.</strong>
                   </div>
                   <div className={styles.scienceCallout}>
-                    <span>Moisture Logic</span>
-                    <strong>Water vapor settles onto the bead surface and into the pore structure.</strong>
+                    <span>Buyer Logic</span>
+                    <strong>Select pack size by volume, route, and humidity exposure.</strong>
                   </div>
                 </div>
               </div>
@@ -563,9 +584,9 @@ export default function Home() {
               <div className={styles.scienceCopy}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>The Science</p>
-                  <h2>Moisture control buyers can understand fast.</h2>
+                  <h2>Show the material before selling the packet.</h2>
                   <p>
-                    A clear technical explanation helps international procurement teams understand how the product works, where it fits, and which format to request.
+                    The 3D bead visual gives procurement teams a premium, simple way to understand how silica gel protects cartons, electronics, pharma packs, and export goods.
                   </p>
                 </div>
 

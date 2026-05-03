@@ -655,16 +655,16 @@
 
 .scienceSection {
   display: grid;
-  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
-  gap: 52px;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: 46px;
   align-items: center;
-  padding: 72px 48px;
-  border-radius: 40px;
+  padding: 54px 44px;
+  border-radius: 8px;
   background:
-    radial-gradient(circle at top left, rgba(31, 94, 255, 0.12), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(243, 246, 250, 0.82));
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  box-shadow: 0 32px 70px -48px rgba(13, 27, 42, 0.18);
+    radial-gradient(circle at 18% 18%, rgba(0, 103, 197, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.94));
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
 }
 
 .scienceSection,
@@ -765,55 +765,69 @@
 
 .scienceStage {
   position: relative;
-  min-height: 500px;
+  min-height: 430px;
   overflow: hidden;
-  border-radius: 34px;
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: #101820;
+  border: 1px solid rgba(16, 24, 32, 0.12);
+  box-shadow:
+    0 28px 58px -42px rgba(16, 24, 32, 0.32),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-.scienceImage {
+.scienceStage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.28)),
+    radial-gradient(circle at 82% 18%, rgba(0, 103, 197, 0.18), transparent 34%);
+  pointer-events: none;
+}
+
+.scienceVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: scale(1.04);
-  transition: transform 0.6s ease;
-}
-
-.scienceStage:hover .scienceImage {
-  transform: scale(1.09);
+  transform: scale(1.01);
 }
 
 .scienceGlow {
   position: absolute;
+  z-index: 1;
   inset: auto 12% 8% 12%;
-  height: 22%;
+  height: 18%;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(8, 213, 255, 0.16), transparent 72%);
-  filter: blur(26px);
+  background: radial-gradient(circle, rgba(0, 103, 197, 0.18), transparent 72%);
+  filter: blur(30px);
 }
 
 .scienceBadge,
 .scienceCallout {
   position: absolute;
   z-index: 2;
-  max-width: 250px;
-  padding: 16px 18px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  max-width: 210px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  box-shadow: 0 20px 40px -28px rgba(0, 21, 45, 0.48);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .scienceBadge {
-  top: 22px;
-  left: 22px;
+  top: 16px;
+  left: 16px;
 }
 
 .scienceCallout {
-  right: 22px;
-  bottom: 22px;
+  right: 16px;
+  bottom: 16px;
 }
 
 .scienceBadge span,
@@ -831,7 +845,7 @@
 .scienceCallout strong {
   color: var(--ink);
   line-height: 1.45;
-  font-size: 0.95rem;
+  font-size: 0.82rem;
 }
 
 .scienceCopy {
@@ -841,14 +855,15 @@
 
 .scienceGrid {
   display: grid;
-  gap: 18px;
+  gap: 12px;
 }
 
 .scienceCard {
-  padding: 24px 24px 22px;
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(37, 52, 77, 0.08);
+  padding: 18px 18px 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(16, 24, 32, 0.08);
+  box-shadow: none;
 }
 
 .scienceStep {
@@ -860,9 +875,14 @@
 }
 
 .scienceCard h3 {
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   letter-spacing: -0.03em;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
+}
+
+.scienceCard p {
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 .resourceSection {
@@ -3624,32 +3644,66 @@
 }
 
 .procurementFlowCard {
-  min-height: 250px;
+  min-height: 292px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 22px;
+  justify-content: flex-start;
+  padding: 10px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+}
+
+.procurementFlowMedia {
+  position: relative;
+  min-height: 122px;
+  border-radius: 5px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.procurementFlowMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.2)),
+    radial-gradient(circle at top right, rgba(0, 103, 197, 0.14), transparent 58%);
+  pointer-events: none;
+}
+
+.procurementFlowImage {
+  object-fit: cover;
+  filter: saturate(0.95) contrast(1.04);
 }
 
 .procurementFlowIcon {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
   display: inline-flex;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   align-items: center;
   justify-content: center;
-  margin-bottom: auto;
-  border-radius: 6px;
-  background: linear-gradient(135deg, #064a91, #0067c5);
+  border-radius: 5px;
+  background: rgba(0, 103, 197, 0.92);
   color: #ffffff;
+  box-shadow: 0 12px 24px rgba(0, 21, 45, 0.18);
+}
+
+.procurementFlowContent {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px 12px 12px;
 }
 
 .procurementFlowCard span {
-  margin-top: 24px;
   color: rgba(255, 255, 255, 0.58);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -3693,6 +3747,38 @@
   border-radius: 8px;
 }
 
+.scienceSection {
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+  gap: 44px;
+  padding: 52px 44px;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(191, 219, 254, 0.46), transparent 28%),
+    linear-gradient(135deg, #f8fbff 0%, #ffffff 58%, #eef6ff 100%);
+  border-color: rgba(0, 103, 197, 0.12);
+}
+
+.scienceStage {
+  min-height: 430px;
+  border-radius: 8px;
+  background: #101820;
+  border-color: rgba(16, 24, 32, 0.12);
+}
+
+.scienceSection .sectionHead {
+  margin-bottom: 24px;
+}
+
+.scienceSection .sectionHead h2 {
+  max-width: 12ch;
+  font-size: clamp(2.45rem, 3.2vw, 3.55rem);
+  line-height: 0.98;
+}
+
+.scienceCard {
+  border-radius: 8px;
+  padding: 18px;
+}
+
 @media (max-width: 1100px) {
   .hero {
     min-height: auto;
@@ -3711,6 +3797,10 @@
   }
 
   .procurementFlowCard {
+    min-height: 0;
+  }
+
+  .procurementFlowMedia {
     min-height: 210px;
   }
 
@@ -3771,6 +3861,10 @@
 
   .procurementFlowCard {
     min-height: 0;
+  }
+
+  .procurementFlowMedia {
+    min-height: 170px;
   }
 }
 
