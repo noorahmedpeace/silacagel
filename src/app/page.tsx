@@ -210,7 +210,7 @@ const industrialBentoCards = [
     title: "White Non-Indicating",
     label: "Bulk Supply",
     text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: "/products/silica-gel-do-not-eat.png",
+    image: "/products/white-nonindicating-clean-sachets.png",
     href: "/products/retail-sachets",
     stat: "0.5g-20g",
   },
@@ -578,7 +578,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/products/silica-gel-do-not-eat.png"
+                    src="/products/product-range-export-showcase.png"
                     alt="Premium silica gel product formats for export quote planning"
                     fill
                     className={styles.sectionVisualImage}
