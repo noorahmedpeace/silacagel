@@ -444,6 +444,36 @@ const testimonials = [
   },
 ];
 
+const caseStudies = [
+  {
+    label: "Anonymous Case 01",
+    title: "Leather exporter reduced moisture-risk checks before dispatch.",
+    industry: "Leather / Footwear Export",
+    challenge: "Seasonal shipments needed repeatable sachet sizing for cartons moving through humid storage and sea freight.",
+    solution: "Mapped carton volume to 5g, 10g, and 50g sachet options with COA/SDS request path before recurring orders.",
+    result: "Cleaner RFQs, faster size selection, and better pre-shipment moisture-control planning.",
+    image: "/applications/leather-footwear.webp",
+  },
+  {
+    label: "Anonymous Case 02",
+    title: "Electronics buyer moved from guessing to documented pack selection.",
+    industry: "Electronics Packaging",
+    challenge: "The buyer needed desiccant guidance for mixed PCB, accessories, and boxed components without over-ordering.",
+    solution: "Used unit-level sachet formats, application notes, and document checklist to prepare a clearer procurement request.",
+    result: "Fewer back-and-forth questions before quote, with product format and documents aligned earlier.",
+    image: "/applications/electronics-packaging.webp",
+  },
+  {
+    label: "Anonymous Case 03",
+    title: "Container shipment team planned strip requirements before pricing.",
+    industry: "Maritime Logistics",
+    challenge: "Long-haul cargo needed humidity protection guidance before selecting 1kg to 5kg container strips.",
+    solution: "Matched shipment route, container size, dispatch window, and Incoterms with cargo strip options.",
+    result: "More useful RFQ inputs for FOB/CIF discussion and better route-based desiccant planning.",
+    image: "/applications/export-logistics.webp",
+  },
+];
+
 export default function Home() {
   const heroRef = useRef(null);
 
@@ -824,8 +854,8 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/silica-gel-do-not-eat.png"
-                    alt="Macro silica gel beads and sachet showing moisture protection"
+                    src="/products/procurement-checks-silica-sachets.png"
+                    alt="Silica gel desiccant sachets printed with do not eat and throw away warning text"
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -932,10 +962,54 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <h2>Proof points global buyers look for before they ask for price.</h2>
+                <h2>Anonymous proof stories buyers can believe.</h2>
                 <p>
-                  The page should reduce buying risk with clear industries, practical feedback, visible documentation language, and export-ready contact options.
+                  Until named logos are available, use buyer-safe case studies that show the actual problem,
+                  document path, and buying outcome without exposing client details.
                 </p>
+              </div>
+
+              <div className={styles.caseStudyGrid}>
+                {caseStudies.map((item) => (
+                  <motion.article
+                    key={item.title}
+                    className={styles.caseStudyCard}
+                    whileHover={{ y: -5, scale: 1.004 }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                  >
+                    <div className={styles.caseStudyImage}>
+                      <Image
+                        src={item.image}
+                        alt={item.industry}
+                        fill
+                        className={styles.image}
+                        sizes="(max-width: 1100px) 100vw, 33vw"
+                      />
+                    </div>
+                    <div className={styles.caseStudyCopy}>
+                      <span>{item.label}</span>
+                      <h3>{item.title}</h3>
+                      <dl>
+                        <div>
+                          <dt>Challenge</dt>
+                          <dd>{item.challenge}</dd>
+                        </div>
+                        <div>
+                          <dt>Solution</dt>
+                          <dd>{item.solution}</dd>
+                        </div>
+                        <div>
+                          <dt>Outcome</dt>
+                          <dd>{item.result}</dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+
+              <div className={styles.caseStudyAction}>
+                <Link href="/case-studies" className={styles.secondaryCta}>View Case Studies</Link>
               </div>
 
               <EmblaCarousel options={{ align: "start", loop: true }}>

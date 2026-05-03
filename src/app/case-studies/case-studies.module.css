@@ -1,0 +1,251 @@
+.page {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px 32px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.hero,
+.caseCard,
+.rulesSection {
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(219, 234, 254, 0.7), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.88));
+  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+}
+
+.hero {
+  padding: 72px 56px;
+}
+
+.kicker {
+  display: inline-flex;
+  width: fit-content;
+  padding: 9px 13px;
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  border-radius: 4px;
+  background: rgba(219, 234, 254, 0.7);
+  color: #064a91;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.rulesSection h2 {
+  max-width: 13ch;
+  margin: 20px 0 16px;
+  color: #0b2447;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+.hero p,
+.rulesSection p {
+  max-width: 66ch;
+  color: #475569;
+  font-size: 1.04rem;
+  line-height: 1.72;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 6px;
+  font-size: 0.86rem;
+  font-weight: 900;
+}
+
+.primaryBtn {
+  background: #d80d2a;
+  color: #ffffff;
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  background: rgba(255, 255, 255, 0.84);
+  color: #0b2447;
+}
+
+.caseStack {
+  display: grid;
+  gap: 24px;
+}
+
+.caseCard {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1.26fr);
+  overflow: hidden;
+}
+
+.caseImage {
+  position: relative;
+  min-height: 100%;
+  background: #dbeafe;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.caseImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 24, 32, 0), rgba(16, 24, 32, 0.22));
+}
+
+.caseCopy {
+  padding: 34px;
+}
+
+.caseCopy > span {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: #064a91;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.caseCopy h2 {
+  max-width: 15ch;
+  margin-bottom: 26px;
+  color: #0b2447;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.caseDetails {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.caseDetails div {
+  padding: 16px;
+  border: 1px solid rgba(16, 24, 32, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.caseDetails strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #8a1430;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.caseDetails p {
+  color: #475569;
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.rulesSection {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+  gap: 36px;
+  padding: 56px;
+}
+
+.rulesSection h2 {
+  font-size: clamp(2.5rem, 4.8vw, 4.9rem);
+}
+
+.rulesGrid {
+  display: grid;
+  gap: 12px;
+}
+
+.ruleCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 14px 16px;
+  border: 1px solid rgba(16, 24, 32, 0.08);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.ruleCard span {
+  color: #d80d2a;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+.ruleCard strong {
+  color: #0b2447;
+  font-size: 0.92rem;
+  line-height: 1.42;
+}
+
+@media (max-width: 1000px) {
+  .caseCard,
+  .rulesSection {
+    grid-template-columns: 1fr;
+  }
+
+  .caseImage {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 720px) {
+  .page {
+    padding: 28px 16px 80px;
+  }
+
+  .hero,
+  .caseCopy,
+  .rulesSection {
+    padding: 28px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .heroActions {
+    flex-direction: column;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+
+  .caseDetails {
+    grid-template-columns: 1fr;
+  }
+}

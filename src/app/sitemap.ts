@@ -11,6 +11,7 @@ const routes = [
   "/products/bulk-industrial",
   "/products/container-strips",
   "/documents",
+  "/case-studies",
   "/export",
   "/private-label",
   "/industries/electronics-packaging",
