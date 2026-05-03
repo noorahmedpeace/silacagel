@@ -3839,6 +3839,18 @@
   color: #0b2447;
 }
 
+.bubbleHeading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.12em 0.18em;
+}
+
+.bubbleWord {
+  display: inline-flex;
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+}
+
 .scienceOverlay p {
   max-width: 62ch;
   color: #24507d;

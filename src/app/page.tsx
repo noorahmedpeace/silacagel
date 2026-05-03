@@ -31,6 +31,24 @@ const splitTextToSpans = (text: string) => {
   ));
 };
 
+const splitTextToBubbleSpans = (text: string) => {
+  return text.split(" ").map((word, wordIndex) => (
+    <motion.span
+      key={`${word}-${wordIndex}`}
+      className={styles.bubbleWord}
+      variants={itemVariants}
+      transition={{
+        delay: wordIndex * 0.045,
+        type: "spring",
+        stiffness: 420,
+        damping: 18,
+      }}
+    >
+      {word}
+    </motion.span>
+  ));
+};
+
 import {
   Building2,
   FileCheck2,
@@ -563,7 +581,9 @@ export default function Home() {
               >
                 <motion.div variants={itemVariants} className={styles.scienceOverlay}>
                   <p className={styles.kicker}>The Science</p>
-                  <h2>Clear beads. Controlled moisture protection.</h2>
+                  <h2 className={styles.bubbleHeading}>
+                    {splitTextToBubbleSpans("Clear beads. Controlled moisture protection.")}
+                  </h2>
                   <p>
                     A vertical 3D material view built around the real buying logic: how the bead captures vapor, how pack size is selected, and why clean desiccant protects export goods.
                   </p>
