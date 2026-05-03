@@ -56,7 +56,8 @@
 .hero p,
 .sectionHead p,
 .documentCard p,
-.noteCard p {
+.noteCard p,
+.assetCard p {
   color: var(--muted);
   line-height: 1.7;
 }
@@ -135,7 +136,8 @@
 }
 
 .documentCard,
-.noteCard {
+.noteCard,
+.assetCard {
   background: rgba(255, 255, 255, 0.88);
   border: 1px solid rgba(37, 52, 77, 0.08);
   box-shadow: 0 22px 44px -34px rgba(13, 27, 42, 0.18);
@@ -146,20 +148,39 @@
   border-radius: 28px;
 }
 
-.documentCard span {
-  display: inline-flex;
+.cardTopline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 18px;
+}
+
+.cardTopline span,
+.cardTopline em {
+  display: inline-flex;
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(31, 94, 255, 0.08);
-  color: var(--accent);
   font-size: 0.72rem;
   font-weight: 900;
   letter-spacing: 0.1em;
+  font-style: normal;
+}
+
+.cardTopline span {
+  background: rgba(31, 94, 255, 0.08);
+  color: var(--accent);
+}
+
+.cardTopline em {
+  background: rgba(15, 23, 42, 0.06);
+  color: #475569;
+  text-transform: uppercase;
 }
 
 .documentCard h2,
-.noteCard h3 {
+.noteCard h3,
+.assetCard h3 {
   color: var(--ink);
   line-height: 1.16;
   letter-spacing: -0.03em;
@@ -175,6 +196,16 @@
   margin-top: 22px;
   color: var(--accent);
   font-weight: 900;
+}
+
+.documentCard small {
+  display: block;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(37, 52, 77, 0.08);
+  color: #64748b;
+  font-size: 0.82rem;
+  line-height: 1.55;
 }
 
 .requestSection {
@@ -246,6 +277,86 @@
   margin-bottom: 10px;
 }
 
+.vaultSection,
+.assetSection {
+  display: grid;
+  gap: 28px;
+  padding: 64px 48px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(219, 234, 254, 0.76), transparent 30%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.84));
+  border: 1px solid rgba(37, 52, 77, 0.08);
+}
+
+.vaultTableWrap {
+  overflow: hidden;
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 22px 44px -36px rgba(13, 27, 42, 0.2);
+}
+
+.vaultTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.vaultTable th,
+.vaultTable td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(37, 52, 77, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+.vaultTable th {
+  background: rgba(31, 94, 255, 0.08);
+  color: var(--accent-deep);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.vaultTable td {
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.vaultTable td:first-child {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.assetGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.assetCard {
+  min-height: 220px;
+  padding: 28px;
+  border-radius: 26px;
+}
+
+.assetCard span {
+  display: inline-flex;
+  margin-bottom: 34px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.assetCard h3 {
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+}
+
 .ctaBanner {
   background:
     radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.14), transparent 26%),
@@ -287,7 +398,8 @@
   }
 
   .documentsGrid,
-  .notesGrid {
+  .notesGrid,
+  .assetGrid {
     grid-template-columns: 1fr 1fr;
   }
 }
@@ -300,14 +412,25 @@
 
   .hero,
   .requestSection,
+  .vaultSection,
+  .assetSection,
   .ctaBanner {
     padding: 40px 24px;
     border-radius: 28px;
   }
 
   .documentsGrid,
-  .notesGrid {
+  .notesGrid,
+  .assetGrid {
     grid-template-columns: 1fr;
+  }
+
+  .vaultTableWrap {
+    overflow-x: auto;
+  }
+
+  .vaultTable {
+    min-width: 680px;
   }
 
   .heroActions {
