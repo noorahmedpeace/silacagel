@@ -538,31 +538,49 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="science" className={styles.scienceSection}>
-              <div className={styles.scienceStage}>
-                <video
-                  className={styles.scienceVideo}
-                  src="/videos/silica-beads-glass-container-3d.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="3D animation of clear silica gel beads inside a premium glass container"
-                />
-                <div className={styles.scienceGlow} />
-                <div className={styles.scienceOverlay}>
+              <div className={styles.scienceVideoColumn}>
+                <div className={styles.scienceStage}>
+                  <video
+                    className={styles.scienceVideo}
+                    src="/videos/silica-beads-glass-container-3d.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    aria-label="3D animation of clear silica gel beads inside a premium glass container"
+                  />
+                  <div className={styles.scienceGlow} />
+                </div>
+              </div>
+
+              <motion.div
+                className={styles.scienceCopyPanel}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, margin: "-120px" }}
+                variants={containerVariants}
+              >
+                <motion.div variants={itemVariants} className={styles.scienceOverlay}>
                   <p className={styles.kicker}>The Science</p>
                   <h2>Clear beads. Controlled moisture protection.</h2>
                   <p>
-                    Premium 3D material visual for buyers who need to understand silica gel performance fast: adsorption, pack sizing, and export protection in one clean scene.
+                    A vertical 3D material view built around the real buying logic: how the bead captures vapor, how pack size is selected, and why clean desiccant protects export goods.
                   </p>
-                  <div className={styles.scienceChips} aria-label="Silica gel science highlights">
-                    <span>Porous bead structure</span>
-                    <span>Vapor adsorption</span>
-                    <span>Pack-size planning</span>
-                  </div>
+                </motion.div>
+
+                <div className={styles.scienceChips} aria-label="Silica gel science highlights">
+                  {["Porous bead structure", "Vapor adsorption", "Pack-size planning"].map((label, index) => (
+                    <motion.span
+                      key={label}
+                      variants={itemVariants}
+                      transition={{ delay: index * 0.08, type: "spring", stiffness: 260, damping: 18 }}
+                    >
+                      {label}
+                    </motion.span>
+                  ))}
                 </div>
-              </div>
+              </motion.div>
             </section>
           </Reveal>
 
