@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import styles from "./documents.module.css";
 
@@ -65,18 +66,22 @@ const proofAssets = [
   {
     title: "Factory reality",
     text: "Machines, packing line, bead storage, weighing process, and staff working areas.",
+    image: "/proof/factory-packing-line-proof.png",
   },
   {
     title: "QC and documents",
     text: "Lab table, weighing scale, sample bags, COA/SDS desk, batch labels, and product samples.",
+    image: "/proof/qc-documents-proof.png",
   },
   {
     title: "Export proof",
     text: "Cartons, pallets, container loading, stretch wrap, shipping marks, and dispatch photos.",
+    image: "/proof/export-pallets-proof.png",
   },
   {
     title: "Product closeups",
     text: "0.5g to 10g sachets, 250g/500g bags, 1kg to 5kg container strips, loose beads.",
+    image: "/proof/product-range-proof.png",
   },
   {
     title: "Buyer-safe redactions",
@@ -224,6 +229,18 @@ export default function DocumentsPage() {
         <div className={styles.assetGrid}>
           {proofAssets.map((item, index) => (
             <article className={styles.assetCard} key={item.title}>
+              {"image" in item && item.image ? (
+                <div className={styles.assetImage}>
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className={styles.image}
+                    loading="eager"
+                    sizes="(max-width: 1000px) 100vw, 33vw"
+                  />
+                </div>
+              ) : null}
               <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>

@@ -338,13 +338,34 @@
 
 .assetCard {
   min-height: 220px;
-  padding: 28px;
+  overflow: hidden;
+  padding: 0;
   border-radius: 26px;
+}
+
+.assetImage {
+  position: relative;
+  min-height: 172px;
+  overflow: hidden;
+  background: #eaf2fb;
+}
+
+.assetImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(16, 24, 32, 0.2));
+  pointer-events: none;
+}
+
+.image {
+  object-fit: cover;
 }
 
 .assetCard span {
   display: inline-flex;
-  margin-bottom: 34px;
+  margin: 24px 28px 24px;
   color: var(--accent);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -353,8 +374,12 @@
 }
 
 .assetCard h3 {
-  margin-bottom: 10px;
+  margin: 0 28px 10px;
   font-size: 1.25rem;
+}
+
+.assetCard p {
+  margin: 0 28px 28px;
 }
 
 .ctaBanner {
