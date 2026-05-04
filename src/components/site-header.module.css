@@ -38,46 +38,60 @@
 
 .brand {
   display: inline-flex;
-  min-width: 302px;
+  min-width: 282px;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   color: currentColor;
 }
 
-.brandLogo {
-  width: 174px;
-  height: auto;
-  color: currentColor;
+.brandMark {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  box-shadow: 0 16px 28px -20px rgba(14, 22, 32, 0.7);
 }
 
-.brandAccent {
-  fill: var(--accent);
+.brandMark svg {
+  display: block;
+  width: 38px;
+  height: 38px;
+}
+
+.brandCopy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.brandName {
+  display: inline-flex;
+  align-items: baseline;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.72rem;
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  line-height: 0.92;
+}
+
+.brandName span {
+  color: var(--accent);
 }
 
 .brandTag {
-  position: relative;
   display: inline-flex;
-  max-width: 138px;
-  padding-left: 14px;
-  color: currentColor;
+  color: #334155;
   font-family: var(--font-mono);
-  font-size: 0.58rem;
+  font-size: 0.56rem;
   font-weight: 800;
-  letter-spacing: 0.1em;
-  line-height: 1.35;
+  letter-spacing: 0.115em;
+  line-height: 1;
   opacity: 0.66;
   text-transform: uppercase;
-}
-
-.brandTag::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 1px;
-  background: currentColor;
-  opacity: 0.2;
 }
 
 .nav {
@@ -196,13 +210,11 @@
     overflow: hidden;
   }
 
-  .brandLogo {
-    width: 146px;
+  .brandName {
+    font-size: 1.48rem;
   }
 
   .brandTag {
-    display: none;
-    max-width: 132px;
     font-size: 0.5rem;
   }
 

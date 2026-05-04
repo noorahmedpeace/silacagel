@@ -29,15 +29,22 @@ export function SiteHeader() {
     <header className={styles.headerWrap}>
       <div className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
         <Link className={styles.brand} href="/" aria-label="SilacaGEL home">
-          <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.brandLogo}>
-            <text x="0" y="30" fontFamily="var(--font-display), system-ui, sans-serif" fontSize="28" fontWeight="900" fill="currentColor" letterSpacing="-0.03em">
-              Silaca<tspan className={styles.brandAccent}>GEL</tspan>
-            </text>
-            <circle cx="140" cy="10" r="3.5" fill="currentColor" opacity="0.7" />
-            <circle cx="152" cy="10" r="2" fill="currentColor" opacity="0.45" />
-            <circle cx="161" cy="10" r="1" fill="currentColor" opacity="0.25" />
-          </svg>
-          <span className={styles.brandTag}>Premium Silica Gel, Delivered Worldwide</span>
+          <span className={styles.brandMark} aria-hidden="true">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="38" height="38" rx="9" fill="#0E1620" />
+              <path d="M4 28C13 21 25 19 34 21.5V31C23.5 28.5 14 30 4 35V28Z" fill="#0067C5" />
+              <circle cx="26.5" cy="9.5" r="4.6" fill="#DCEEFF" />
+              <circle cx="31.5" cy="14.5" r="3.2" fill="#7DB7F2" />
+              <circle cx="31.5" cy="6.5" r="2.1" fill="#D80D2A" />
+              <path d="M8 27H23" stroke="#D80D2A" strokeWidth="3.6" strokeLinecap="round" />
+            </svg>
+          </span>
+          <span className={styles.brandCopy}>
+            <span className={styles.brandName}>
+              Silaca<span>GEL</span>
+            </span>
+            <span className={styles.brandTag}>Industrial Desiccant Exporter</span>
+          </span>
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">

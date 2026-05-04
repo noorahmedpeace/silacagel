@@ -50,6 +50,14 @@ export const metadata: Metadata = {
       "Industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
     url: "https://silacagel.vercel.app",
     siteName: "SilacaGEL",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "SilacaGEL industrial silica gel desiccant export supply",
+      },
+    ],
     type: "website",
   },
   alternates: {
@@ -64,6 +72,7 @@ export const metadata: Metadata = {
     title: "SilacaGEL | Silica Gel Manufacturer Exporter",
     description:
       "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
+    images: ["/opengraph-image"],
   },
 };
 
