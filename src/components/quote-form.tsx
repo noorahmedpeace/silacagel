@@ -30,15 +30,17 @@ export function QuoteForm({
   const [application, setApplication] = useState("");
   const [targetPrice, setTargetPrice] = useState("");
   const [sampleNeed, setSampleNeed] = useState("Need sample before bulk order");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const message = [
+    const rfqMessage = [
       "Hello, I'm initiating an industrial SilacaGEL procurement inquiry.",
       `Company Name: ${company || "Not provided"}`,
       `Business Email: ${email || "Not provided"}`,
-      `Product CAS Number / Type: ${product || "CAS 7631-86-9 / General Silica Gel Inquiry"}`,
+      `Product Type / Format: ${product || "General silica gel inquiry"}`,
       `Point of Contact: ${phone || "Not provided"}`,
       `Country / Market: ${country || "Not provided"}`,
       `Preferred Currency: ${currency}`,
@@ -50,10 +52,12 @@ export function QuoteForm({
       `Required Documents: ${documents || "Not specified"}`,
       `Target Price / Current Supplier Benchmark: ${targetPrice || "Not provided"}`,
       `Sample Requirement: ${sampleNeed}`,
+      `Additional Notes: ${message || "Not provided"}`,
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(rfqMessage)}`;
+    setSubmitted(true);
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
@@ -61,8 +65,9 @@ export function QuoteForm({
     <form className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`} onSubmit={handleSubmit}>
       <div className={styles.formMain}>
         <div className={styles.formHead}>
-          <p>Professional RFQ Engine</p>
+          <p>Export RFQ Engine</p>
           <h3>{title}</h3>
+          <span>Quote-ready fields for MOQ, docs, private label, and shipment planning.</span>
         </div>
 
         <label className={styles.field}>
@@ -86,23 +91,26 @@ export function QuoteForm({
         </label>
 
         <label className={styles.field}>
-          <span>Product CAS Number / Type</span>
+          <span>Product Type / Format</span>
           <select value={product} onChange={(event) => setProduct(event.target.value)}>
-            <option value="">CAS 7631-86-9 / Select silica gel type</option>
+            <option value="">Select silica gel format</option>
             {productCatalog.map((item) => (
-              <option key={item.slug} value={`CAS 7631-86-9 / ${item.name}`}>
-                CAS 7631-86-9 / {item.name}
+              <option key={item.slug} value={item.name}>
+                {item.name}
               </option>
             ))}
+            <option value="Private-label printed sachets">Private-label printed sachets</option>
+            <option value="Container desiccant / cargo strips">Container desiccant / cargo strips</option>
+            <option value="Bulk silica gel beads">Bulk silica gel beads</option>
           </select>
         </label>
 
         <label className={styles.field}>
-          <span>Quantity (Tons/Kgs)</span>
+          <span>Quantity / Monthly Volume</span>
           <input
             value={quantity}
             onChange={(event) => setQuantity(event.target.value)}
-            placeholder="e.g. 500 kg / 2 tons / monthly recurring"
+            placeholder="e.g. 500 kg, 2 tons, 100k sachets monthly"
             type="text"
           />
         </label>
@@ -175,7 +183,7 @@ export function QuoteForm({
           <input
             value={documents}
             onChange={(event) => setDocuments(event.target.value)}
-            placeholder="e.g. ISO 9001, SDS, COA, DMF-free statement"
+            placeholder="e.g. SDS, COA, ISO 9001, DMF-free statement"
             type="text"
           />
         </label>
@@ -213,21 +221,42 @@ export function QuoteForm({
           </select>
         </label>
 
+        <label className={`${styles.field} ${styles.fullField}`}>
+          <span>Additional Notes</span>
+          <textarea
+            value={message}
+            onChange={(event) => setMessage(event.target.value)}
+            placeholder="Share packet size, carton dimensions, logo print, delivery deadline, current supplier issue, or special compliance request."
+            rows={5}
+          />
+        </label>
+
         <button className={styles.submit} type="submit">
-          Submit RFQ
+          Prepare WhatsApp RFQ
         </button>
+
+        {submitted ? (
+          <div className={styles.successNote} role="status">
+            <strong>RFQ prepared.</strong>
+            <span>
+              WhatsApp opened with your structured inquiry. The export desk can now
+              review format, MOQ, documents, and route faster.
+            </span>
+          </div>
+        ) : null}
       </div>
 
       <aside className={styles.rfqSidebar} aria-label="Global delivery support">
-        <span className={styles.sidebarKicker}>Global Delivery</span>
-        <strong>1-2 day dispatch support for prepared bulk orders.</strong>
+        <span className={styles.sidebarKicker}>Quote Checklist</span>
+        <strong>Faster quotes start with cleaner buyer data.</strong>
         <div className={styles.sidebarStats}>
-          <span>Worldwide delivery coordination</span>
-          <span>Bulk dispatch support</span>
-          <span>ISO 9001:2015, SDS, COA, DMF-free support</span>
+          <span>Product format, size, and packing style</span>
+          <span>Quantity, MOQ target, and repeat volume</span>
+          <span>Destination country, port, and Incoterms</span>
+          <span>SDS, COA, ISO, and private-label needs</span>
         </div>
         <Link href="/documents" className={styles.datasheetButton}>
-          Download Technical Datasheet (SDS)
+          Review documents and standards
         </Link>
       </aside>
     </form>

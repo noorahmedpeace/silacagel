@@ -2,21 +2,23 @@
   width: 100%;
   max-width: 1420px;
   margin: 0 auto;
-  padding: 80px 32px 140px;
+  padding: 92px 32px 140px;
   display: flex;
   flex-direction: column;
-  gap: 70px;
+  gap: 56px;
 }
 
 .hero {
   position: relative;
-  max-width: 980px;
-  padding: 62px;
-  border-radius: 42px;
+  max-width: 1120px;
+  padding: 54px;
+  border-radius: 8px;
   border: 1px solid rgba(191, 193, 194, 0.36);
   background:
-    radial-gradient(circle at 86% 14%, rgba(191, 193, 194, 0.28), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 244, 244, 0.78));
+    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.86) 50%, rgba(239, 246, 255, 0.78) 100%),
+    url("/backgrounds/bento-silica-panel.png");
+  background-size: cover;
+  background-position: center;
   box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
   overflow: hidden;
   isolation: isolate;
@@ -46,10 +48,10 @@
   width: fit-content;
   margin-bottom: 20px;
   padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.06);
-  border: 1px solid rgba(191, 193, 194, 0.48);
-  color: #475569;
+  border-radius: 6px;
+  background: rgba(219, 234, 254, 0.9);
+  border: 1px solid rgba(0, 103, 197, 0.16);
+  color: #064a91;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -69,11 +71,36 @@
 }
 
 .hero h1 {
-  max-width: 11ch;
+  max-width: 13ch;
   margin-bottom: 22px;
   font-size: clamp(3.6rem, 6vw, 5.4rem);
   font-weight: 900;
   line-height: 0.96;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.heroActions a {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  border-radius: 6px;
+  color: #ffffff;
+  background: var(--accent);
+  font-weight: 900;
+}
+
+.heroActions a:last-child {
+  color: #064a91;
+  background: #ffffff;
+  border: 1px solid rgba(0, 103, 197, 0.16);
 }
 
 .hero p {
@@ -96,6 +123,36 @@
   display: flex;
   flex-direction: column;
   gap: 34px;
+}
+
+.checklist {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.checklist li {
+  position: relative;
+  padding: 13px 14px 13px 34px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  top: 19px;
+  left: 16px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 .contactInfo h2 {
@@ -126,7 +183,7 @@
   gap: 18px;
   padding: 22px;
   border: 1px solid rgba(191, 193, 194, 0.36);
-  border-radius: 24px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 22px 48px -38px rgba(15, 23, 42, 0.24);
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
@@ -180,11 +237,19 @@
   font-size: 1rem;
 }
 
+.contactCard p,
 .contactCard a,
-.contactCard span {
+.contactCard div > span {
   color: #475569;
-  font-weight: 700;
   font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.contactCard a {
+  display: inline-flex;
+  margin-top: 8px;
+  color: #d80d2a;
+  font-weight: 900;
 }
 
 .contactCard a:hover {
@@ -203,16 +268,25 @@
 
 @media (max-width: 768px) {
   .page {
-    padding: 42px 18px 100px;
+    padding: 56px 18px 100px;
+    gap: 36px;
   }
 
   .hero {
     padding: 30px;
-    border-radius: 28px;
+    border-radius: 8px;
   }
 
   .hero h1 {
-    font-size: 2.7rem;
+    font-size: 2.55rem;
+  }
+
+  .heroActions {
+    gap: 10px;
+  }
+
+  .heroActions a {
+    width: 100%;
   }
 
   .contactInfo h2 {
