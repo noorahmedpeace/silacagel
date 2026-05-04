@@ -15,6 +15,7 @@ import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
 import { MoistureCalculator } from "@/components/moisture-calculator";
 import { QuoteForm } from "@/components/quote-form";
+import { AnimatedText } from "@/components/animated-text";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -333,11 +334,12 @@ const documentationMatrix = [
 ];
 
 const itemVariants: Variants = {
-  hidden: { opacity: 1, y: 0 },
+  hidden: { opacity: 0.65, y: 22, scale: 0.985 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
+    scale: 1,
+    transition: { type: "spring", stiffness: 260, damping: 24 },
   },
 };
 
@@ -353,7 +355,7 @@ const trustContainerVariants: Variants = {
 };
 
 const trustItemVariants: Variants = {
-  hidden: { opacity: 1, y: 0, scale: 1 },
+  hidden: { opacity: 0.65, y: 18, scale: 0.985 },
   show: {
     opacity: 1,
     y: 0,
@@ -363,7 +365,7 @@ const trustItemVariants: Variants = {
 };
 
 const logoChipVariants: Variants = {
-  hidden: { opacity: 1, y: 0 },
+  hidden: { opacity: 0.65, y: 14 },
   show: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -376,7 +378,7 @@ const logoChipVariants: Variants = {
 };
 
 const certPillVariants: Variants = {
-  hidden: { opacity: 1, y: 0, scale: 1 },
+  hidden: { opacity: 0.65, y: 12, scale: 0.96 },
   show: (index: number) => ({
     opacity: 1,
     y: 0,
@@ -601,7 +603,7 @@ export default function Home() {
             <section className={styles.procurementFlowSection} aria-label="Buyer workflow">
               <div className={styles.procurementFlowIntro}>
                 <p className={styles.kicker}>Buyer Workflow</p>
-                <h2>Move from product fit to quote without guesswork.</h2>
+                <AnimatedText text="Move from product fit to quote without guesswork." mode="bubble" />
               </div>
               <div className={styles.procurementFlowGrid}>
                 {procurementFlow.map((item) => {
@@ -687,7 +689,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Product Line</p>
-                  <h2>Choose the format first. Build the quote around it.</h2>
+                  <AnimatedText text="Choose the format first. Build the quote around it." mode="bubble" />
                   <p>
                     Each range is presented as a clear buying lane with size, use case, and supply context for faster export shortlisting.
                   </p>
@@ -753,7 +755,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Export Quote Planning</p>
-                  <h2>Plan volume first. Request the final quote with context.</h2>
+                  <AnimatedText text="Plan volume first. Request the final quote with context." mode="bubble" />
                   <p>
                     Global buyers need more than a price list: format, quantity, destination, lead time, documents, and shipping terms all shape the final quote.
                   </p>
@@ -783,10 +785,10 @@ export default function Home() {
                     <motion.article
                       key={group.title}
                       className={styles.priceCard}
-                      initial={{ opacity: 1, y: 0 }}
+                      initial={{ opacity: 0.65, y: 22 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.65, ease: "easeOut" }}
+                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
                       whileHover={{ y: -4, scale: 1.008 }}
                     >
                       <span className={styles.priceNote}>{group.note}</span>
@@ -825,10 +827,10 @@ export default function Home() {
                 <div id="purchase-calculator" className={styles.calculatorAnchor}>
                   <motion.div
                     className={styles.calculatorPanel}
-                    initial={{ opacity: 1, scale: 1, y: 0 }}
+                    initial={{ opacity: 0.65, scale: 0.985, y: 26 }}
                     whileInView={{ opacity: 1, scale: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ y: -3 }}
                   >
                     <p className={styles.calculatorHint}>Volume & Export Quote Estimator</p>
@@ -847,7 +849,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Why It Works</p>
-                <h2>Moisture control that fits real procurement checks.</h2>
+                  <AnimatedText text="Moisture control that fits real procurement checks." mode="bubble" />
                   <p>
                     A tighter technical story makes the product easier to trust: what it does, where it fits, and why the format matters.
                   </p>
@@ -868,10 +870,10 @@ export default function Home() {
                   <motion.article
                     key={item.title}
                     className={styles.reasonCard}
-                    initial={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0.65, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ y: -4, scale: 1.01 }}
                   >
                     <h3 className="text-gradient">{item.title}</h3>
@@ -887,7 +889,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Industry Compatibility</p>
-                  <h2>Used where humidity turns into damage, claims, or wasted stock.</h2>
+                  <AnimatedText text="Used where humidity turns into damage, claims, or wasted stock." mode="bubble" />
                   <p>
                     Industry use cases help overseas buyers match the right desiccant format to shipment risk, storage conditions, and packaging type.
                   </p>
@@ -912,7 +914,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Applications</p>
-                  <h2>Protection across real packaging environments.</h2>
+                  <AnimatedText text="Protection across real packaging environments." mode="bubble" />
                   <p>
                     From electronics and leather to pharma and export cartons, the use cases should feel visual before the visitor reads every card.
                   </p>
@@ -962,7 +964,7 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <h2>Anonymous proof stories buyers can believe.</h2>
+                <AnimatedText text="Anonymous proof stories buyers can believe." mode="rise" />
                 <p>
                   Until named logos are available, use buyer-safe case studies that show the actual problem,
                   document path, and buying outcome without exposing client details.
@@ -1065,7 +1067,7 @@ export default function Home() {
             <section className={styles.exportSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Global Supply Readiness</p>
-                <h2>Built for buyers who need clarity before committing.</h2>
+                <AnimatedText text="Built for buyers who need clarity before committing." mode="rise" />
                 <p>
                   International procurement teams need the commercial and technical basics quickly. This layer makes the site feel more export-ready and less local.
                 </p>
@@ -1106,7 +1108,7 @@ export default function Home() {
               <div className={styles.shippingBannerInner}>
                 <div className={styles.shippingBannerLeft}>
                   <span className={styles.shippingTag}>Worldwide Delivery Support</span>
-                  <h2>Wherever your operation is, we can help arrange supply.</h2>
+                  <AnimatedText text="Wherever your operation is, we can help arrange supply." mode="rise" />
                   <p>
                     From local dispatch to international freight coordination, SilacaGEL can support desiccant delivery to buyers across regions. Share your destination and required format, and our team will guide the most practical supply route.
                   </p>
@@ -1162,7 +1164,7 @@ export default function Home() {
             <section className={styles.proofVaultSection} aria-label="Manufacturer proof and documentation">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Manufacturer Proof</p>
-                <h2>Show buyers what can actually be claimed today.</h2>
+                <AnimatedText text="Show buyers what can actually be claimed today." mode="rise" />
                 <p>
                   The relaunch inherits the operating company&apos;s real strengths: 40+ years,
                   ISO 9001:2015, DMF-free product support, high packet volume, and Karachi manufacturing.
@@ -1185,7 +1187,7 @@ export default function Home() {
               <div className={styles.skuIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>SKU & Document Matrix</p>
-                  <h2>Give procurement the table they came for.</h2>
+                  <AnimatedText text="Give procurement the table they came for." mode="rise" />
                   <p>
                     Serious buyers need size range, material, use case, and document status before they ask for price.
                   </p>
@@ -1247,7 +1249,7 @@ export default function Home() {
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
                   <p className={styles.kicker}>Resources</p>
-                  <h2>Documents, demos, and tools for faster export decisions.</h2>
+                  <AnimatedText text="Documents, demos, and tools for faster export decisions." mode="rise" />
                   <p>
                     Keep specs, calculators, videos, and compliance routes visible so overseas buyers know what to ask for before starting a quote conversation.
                   </p>
@@ -1271,7 +1273,7 @@ export default function Home() {
             <section className={styles.seoRoadmapSection} aria-label="Global SEO roadmap">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Global SEO Architecture</p>
-                <h2>Build landing pages around buyer intent, not just products.</h2>
+                <AnimatedText text="Build landing pages around buyer intent, not just products." mode="rise" />
                 <p>
                   The global search strategy should create product, industry, export, and compliance
                   clusters that answer procurement questions before the buyer asks for price.
@@ -1296,7 +1298,7 @@ export default function Home() {
             <section className={styles.homeRfqSection} aria-label="International RFQ form">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Serious Buyer RFQ</p>
-                <h2>Make the form the primary conversion path for bulk orders.</h2>
+                <AnimatedText text="Make the form the primary conversion path for bulk orders." mode="rise" />
                 <p>
                   WhatsApp stays available for speed, but serious international procurement should
                   start with product type, quantity, destination, Incoterms, and document requirements.
@@ -1310,7 +1312,7 @@ export default function Home() {
             <section className={styles.ctaBanner}>
               <div className={styles.ctaBannerContent}>
                 <p className={styles.kicker}>Request Quote</p>
-                <h2>Ready to discuss an export-ready desiccant requirement?</h2>
+                <AnimatedText text="Ready to discuss an export-ready desiccant requirement?" mode="bubble" />
                 <p>Share your product format, quantity, destination market, and documentation needs so the team can prepare a clearer procurement response.</p>
                 <div className={styles.ctaBannerActions}>
                   <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.98 }}>

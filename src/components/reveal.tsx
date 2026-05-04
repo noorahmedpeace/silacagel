@@ -28,10 +28,12 @@ export function Reveal({
     const xDist = direction === "left" ? 50 : direction === "right" ? -50 : 0;
     const yDist = direction === "up" ? 50 : direction === "down" ? -50 : 0;
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     gsap.fromTo(container.current, {
-      opacity: 0.96,
-      x: xDist * 0.24,
-      y: yDist * 0.24,
+      opacity: 1,
+      x: reduceMotion ? 0 : xDist * 0.22,
+      y: reduceMotion ? 0 : yDist * 0.22,
     }, {
       scrollTrigger: {
         trigger: container.current,
@@ -41,7 +43,7 @@ export function Reveal({
       opacity: 1,
       x: 0,
       y: 0,
-      duration: 1,
+      duration: reduceMotion ? 0.01 : 0.9,
       delay: delay,
       ease: "power3.out",
     });
