@@ -48,6 +48,8 @@
 
 .hero,
 .panel,
+.procurementSection,
+.supportCard,
 .quoteSection {
   border: 1px solid var(--glass-border);
   border-radius: 30px;
@@ -73,6 +75,8 @@
 
 .copy h1,
 .panel h2,
+.sectionHead h2,
+.supportCard h2,
 .quoteCopy h2 {
   margin-top: 14px;
   font-family: var(--font-display);
@@ -85,6 +89,7 @@
 
 .summary,
 .description,
+.sectionHead p,
 .quoteCopy p,
 .list li {
   font-family: var(--font-body);
@@ -220,6 +225,156 @@
   border: 1px solid var(--glass-border);
 }
 
+.procurementSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 28px;
+}
+
+.sectionHead {
+  max-width: 780px;
+}
+
+.sectionHead h2 {
+  max-width: 13ch;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+}
+
+.sectionHead p {
+  margin-top: 14px;
+  max-width: 66ch;
+}
+
+.procurementLayout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.36fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.tableWrap {
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.skuTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skuTable th,
+.skuTable td {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  text-align: left;
+  vertical-align: top;
+}
+
+.skuTable th {
+  background: rgba(219, 234, 254, 0.58);
+  color: #064a91;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.skuTable td {
+  color: #475569;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.skuTable td:first-child {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.buyingPanel {
+  display: grid;
+  gap: 14px;
+}
+
+.buyingPanel div {
+  padding: 22px;
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at top right, rgba(219, 234, 254, 0.86), transparent 34%),
+    rgba(255, 255, 255, 0.9);
+}
+
+.buyingPanel span {
+  display: block;
+  margin-bottom: 12px;
+  color: #064a91;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.buyingPanel strong {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.supportSection {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.supportCard {
+  padding: 24px;
+}
+
+.supportCard h2 {
+  font-size: clamp(1.8rem, 2.7vw, 2.6rem);
+}
+
+.badgeList,
+.linkList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.badgeList li {
+  display: inline-flex;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: #064a91;
+  font-size: 0.78rem;
+  font-weight: 900;
+}
+
+.linkList {
+  flex-direction: column;
+}
+
+.linkList a,
+.textAction {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.textAction {
+  display: inline-flex;
+  margin-top: 22px;
+}
+
 .quoteSection {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
@@ -235,8 +390,18 @@
 @media (max-width: 980px) {
   .hero,
   .gridSection,
+  .procurementLayout,
+  .supportSection,
   .quoteSection {
     grid-template-columns: 1fr;
+  }
+
+  .tableWrap {
+    overflow-x: auto;
+  }
+
+  .skuTable {
+    min-width: 760px;
   }
 
   .visual {
@@ -252,6 +417,8 @@
   .topbar,
   .hero,
   .panel,
+  .procurementSection,
+  .supportCard,
   .quoteSection {
     padding: 20px;
   }
