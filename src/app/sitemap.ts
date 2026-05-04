@@ -28,6 +28,11 @@ const routes = [
   "/faq",
   "/videos",
   "/blog",
+  "/blog/how-to-choose-silica-gel-packet-size",
+  "/blog/silica-gel-vs-clay-desiccant",
+  "/blog/container-rain-prevention",
+  "/blog/desiccant-for-electronics-packaging",
+  "/blog/can-you-reuse-silica-gel",
   "/contact",
 ];
 
