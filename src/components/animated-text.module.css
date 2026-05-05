@@ -9,7 +9,7 @@
 .word {
   display: inline-block;
   color: currentColor;
-  -webkit-text-fill-color: currentColor !important;
+  -webkit-text-fill-color: currentColor;
   transform-origin: 50% 100%;
   will-change: transform, opacity, filter;
 }
@@ -26,6 +26,13 @@
 @media (prefers-reduced-motion: reduce) {
   .word {
     transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .word {
     opacity: 1 !important;
     filter: none !important;
   }

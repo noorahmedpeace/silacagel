@@ -645,7 +645,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="none"
                     aria-label="3D animation of clear silica gel beads inside a premium glass container"
                   />
                   <div className={styles.scienceGlow} />

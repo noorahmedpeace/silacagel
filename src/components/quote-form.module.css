@@ -225,10 +225,40 @@
   .form,
   .compact {
     padding: 16px;
+    border-radius: 22px;
   }
 
   .formMain {
     grid-template-columns: 1fr;
+  }
+
+  .formHead h3 {
+    font-size: 1.75rem;
+  }
+
+  .field span {
+    letter-spacing: 0.08em;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    padding-inline: 14px;
+    font-size: 1rem;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    font-size: 0.94rem;
+  }
+
+  .rfqSidebar {
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .rfqSidebar strong {
+    font-size: 1.35rem;
   }
 }
 

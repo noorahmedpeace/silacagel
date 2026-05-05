@@ -3626,6 +3626,12 @@
   .announcementTrack {
     animation: none;
   }
+
+  .heroBgImage,
+  .sectionVisualImage,
+  .scienceVideo {
+    transform: none !important;
+  }
 }
 
 /* procurement-first redesign pass */
@@ -4327,6 +4333,14 @@
     aspect-ratio: 9 / 16;
     min-height: 0;
     justify-self: center;
+  }
+
+  .scienceVideoColumn {
+    order: 1;
+  }
+
+  .scienceCopyPanel {
+    order: 2;
   }
 
   .scienceVideo {
