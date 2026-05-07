@@ -1,188 +1,196 @@
-"use client";
-
-import Link from "next/link";
+import type { Metadata } from "next";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { whatsappNumber } from "@/lib/product-data";
 import styles from "./documents.module.css";
 
-const documents = [
+export const metadata: Metadata = {
+  title: "Silica Gel Documents | SDS, COA, ISO & Export Compliance",
+  description:
+    "Request silica gel SDS, COA, ISO 9001, DMF-free statement, product specification sheets, private-label artwork checks, and export documentation support.",
+  alternates: {
+    canonical: "/documents",
+  },
+};
+
+const documentCards = [
   {
     code: "SDS",
     title: "Safety Data Sheet",
-    desc: "Safety handling, storage, composition, and transport guidance for procurement and compliance teams.",
-    status: "Request-ready",
-    proofNeed: "Upload current SDS PDF before enabling direct download.",
+    text: "Handling, storage, composition, safety, and transport information for buyer review before approval.",
+    status: "Available on request",
+    action: "Ask for SDS",
   },
   {
     code: "COA",
     title: "Certificate of Analysis",
-    desc: "Batch or product-level quality reference for adsorption performance, moisture control, and product checks.",
-    status: "Request-ready",
-    proofNeed: "Add sample COA template and batch-specific COA process.",
+    text: "Batch or product-level quality reference for procurement, QC, and incoming-material review.",
+    status: "Matched to order",
+    action: "Request COA",
   },
   {
     code: "ISO",
-    title: "ISO 9001:2015 Certificate",
-    desc: "Quality management certificate is the core proof asset for serious B2B buyer review.",
-    status: "Proof to upload",
-    proofNeed: "Upload certificate scan/PDF with certificate number and valid date visible.",
+    title: "ISO 9001:2015",
+    text: "Quality-management proof should be shared with valid certificate details when required by the buyer.",
+    status: "Proof required",
+    action: "Verify ISO proof",
   },
   {
     code: "DMF",
     title: "DMF-free Statement",
-    desc: "DMF-free confirmation can be requested for desiccant formats used in export packaging.",
-    status: "Request-ready",
-    proofNeed: "Prepare signed company statement on letterhead.",
+    text: "A product-level statement for buyers who need desiccant formats that avoid DMF-risk materials.",
+    status: "By request",
+    action: "Ask for statement",
   },
   {
-    code: "Specs",
-    title: "Product Specification Sheet",
-    desc: "Size, packing, material, use case, adsorption notes, and shipment notes for technical evaluation before final quotation.",
-    status: "Build next",
-    proofNeed: "Create one-page spec sheet for sachets, bulk bags, and container strips.",
+    code: "SPEC",
+    title: "Product Specification",
+    text: "Format, size range, packing material, use case, MOQ context, and export packing notes.",
+    status: "Format specific",
+    action: "Request spec sheet",
   },
   {
-    code: "Gap",
-    title: "Future Certification Tracker",
-    desc: "FDA, REACH, Halal, GMP, and food-grade claims should only be shown after valid certification or product documentation exists.",
-    status: "Do not claim",
-    proofNeed: "Keep hidden from marketing until valid documents exist.",
+    code: "OEM",
+    title: "Private-label Proof",
+    text: "Artwork, warning text, carton marks, pouch language, and approval notes before printed production.",
+    status: "Order specific",
+    action: "Check artwork",
   },
 ];
 
-const vaultRows = [
-  { file: "ISO 9001:2015 certificate", buyerUse: "Quality-system proof", status: "Upload PDF/image", owner: "Management" },
-  { file: "SDS / MSDS", buyerUse: "Safety and handling review", status: "Prepare PDF", owner: "QC / Compliance" },
-  { file: "COA sample", buyerUse: "Quality reference before order", status: "Prepare template", owner: "QC" },
-  { file: "DMF-free statement", buyerUse: "Export packaging safety review", status: "Prepare signed letter", owner: "Management" },
-  { file: "Product spec sheet", buyerUse: "Size, material, MOQ, packing", status: "Build next", owner: "Sales / QC" },
-];
-
-const proofAssets = [
+const claimRows = [
   {
-    title: "Certificate scans",
-    text: "ISO 9001:2015 certificate, valid dates, issuer, and certificate number visible.",
+    claim: "SDS and COA",
+    status: "Can be requested",
+    note: "Final file should match exact product format, order, and buyer review need.",
   },
   {
-    title: "Factory reality",
-    text: "Machines, packing line, bead storage, weighing process, and staff working areas.",
-    image: "/proof/factory-packing-line-proof.png",
+    claim: "ISO 9001:2015",
+    status: "Show with proof",
+    note: "Use only certificate details that are valid and visible on the uploaded file.",
   },
   {
-    title: "QC and documents",
-    text: "Lab table, weighing scale, sample bags, COA/SDS desk, batch labels, and product samples.",
-    image: "/proof/qc-documents-proof.png",
+    claim: "DMF-free",
+    status: "Statement required",
+    note: "Use a signed product or company statement when a buyer needs this confirmation.",
   },
   {
-    title: "Export proof",
-    text: "Cartons, pallets, container loading, stretch wrap, shipping marks, and dispatch photos.",
-    image: "/proof/export-pallets-proof.png",
-  },
-  {
-    title: "Product closeups",
-    text: "0.5g to 10g sachets, 250g/500g bags, 1kg to 5kg container strips, loose beads.",
-    image: "/proof/product-range-proof.png",
-  },
-  {
-    title: "Buyer-safe redactions",
-    text: "Blur client names, invoice values, and private shipment details before publishing.",
+    claim: "FDA, REACH, Halal, GMP",
+    status: "Do not claim casually",
+    note: "Publish only after valid proof exists for the exact product and target market.",
   },
 ];
 
-const requestChecklist = [
-  "Destination market or buyer country",
-  "Product format and sachet size",
-  "Estimated quantity or MOQ target",
-  "Required document type",
-  "Buyer company name or import reference",
+const workflow = [
+  "Select document type",
+  "Confirm product format",
+  "Share destination market",
+  "Match buyer requirement",
+  "Send RFQ or approval pack",
 ];
 
-const complianceNotes = [
+const faqs = [
   {
-    title: "Document availability",
-    text: "Documents are supplied by request so the team can match the correct product format, market, and batch context.",
+    q: "Can you provide SDS for silica gel?",
+    a: "Yes, SDS support can be requested. The document should be matched to the exact silica gel format being quoted.",
   },
   {
-    title: "Export review",
-    text: "For international orders, share the destination country early so compliance and logistics expectations are clear.",
+    q: "Can COA be provided by batch?",
+    a: "COA should be confirmed against the product and order context. For serious bulk orders, share size, quantity, and destination early.",
   },
   {
-    title: "No generic claims",
-    text: "Final documentation should be reviewed against the exact product, quantity, and buyer requirements before purchase.",
+    q: "Do private-label packets need artwork approval?",
+    a: "Yes. Printed sachets should confirm warning text, brand print, carton marks, language, and any destination-specific buyer requirement.",
+  },
+  {
+    q: "Can all compliance logos be shown on the site?",
+    a: "No. Claims like FDA, REACH, Halal, or GMP should only be shown when valid proof exists for that exact product and market.",
   },
 ];
+
+const whatsappMessage = encodeURIComponent(
+  [
+    "Hello, I need silica gel documentation support.",
+    "Required document: SDS / COA / ISO / DMF-free / Product Spec",
+    "Product format:",
+    "Quantity:",
+    "Destination country:",
+  ].join("\n"),
+);
 
 export default function DocumentsPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <div>
-          <span className={styles.kicker}>Compliance Documents</span>
-          <h1>Technical documents for global silica gel procurement.</h1>
+        <div className={styles.heroCopy}>
+          <span className={styles.kicker}>Export Document Center</span>
+          <h1>Give buyers the proof they need before they ask twice.</h1>
           <p>
-            International buyers need more than product photos. Request SDS, COA, specification sheets, and compliance support based on the exact desiccant format and destination market.
+            Request SDS, COA, ISO proof, DMF-free statement, product specification
+            sheets, and private-label document support for silica gel export orders.
           </p>
           <div className={styles.heroActions}>
-            <Link href="/contact" className={styles.primaryBtn}>Request Documents</Link>
-            <Link href="/products" className={styles.secondaryBtn}>View Products</Link>
+            <Link href="/contact" className={styles.primaryBtn}>Request documents</Link>
+            <a
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.secondaryBtn}
+            >
+              Ask on WhatsApp
+            </a>
           </div>
         </div>
-        <div className={styles.heroPanel} aria-hidden="true">
-          <span>01 SDS</span>
-          <span>02 COA</span>
-          <span>03 ISO 9001:2015</span>
-          <span>04 DMF Free</span>
+        <div className={styles.heroVisual}>
+          <Image
+            src="/proof/qc-documents-proof.png"
+            alt="Silica gel quality control documents and product samples"
+            fill
+            className={styles.image}
+            sizes="(max-width: 900px) 100vw, 42vw"
+            priority
+          />
         </div>
       </section>
 
-      <section className={styles.documentsGrid}>
-        {documents.map((item, index) => (
-          <motion.article
-            key={item.code}
-            className={styles.documentCard}
-            initial={{ opacity: 1, y: 0 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ delay: index * 0.04, duration: 0.45, ease: "easeOut" }}
-          >
+      <section className={styles.documentsGrid} aria-label="Available document types">
+        {documentCards.map((item) => (
+          <article className={styles.documentCard} key={item.code}>
             <div className={styles.cardTopline}>
               <span>{item.code}</span>
               <em>{item.status}</em>
             </div>
             <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-            <small>{item.proofNeed}</small>
-            <Link href="/contact">Request this document</Link>
-          </motion.article>
+            <p>{item.text}</p>
+            <Link href="/contact">{item.action}</Link>
+          </article>
         ))}
       </section>
 
-      <section className={styles.vaultSection}>
+      <section className={styles.claimSection}>
         <div className={styles.sectionHead}>
-          <span className={styles.kicker}>Document Vault</span>
-          <h2>Turn proof into a buyer-ready file system.</h2>
+          <span className={styles.kicker}>Claim Discipline</span>
+          <h2>Show strong proof, but do not overclaim.</h2>
           <p>
-            This is the operating checklist for making the site feel real. Once the files are uploaded,
-            the request-only buttons can become direct downloads or gated RFQ assets.
+            Global buyers respect a supplier that separates available documents from
+            claims that still require valid certification.
           </p>
         </div>
-        <div className={styles.vaultTableWrap}>
-          <table className={styles.vaultTable}>
+        <div className={styles.claimTableWrap}>
+          <table className={styles.claimTable}>
             <thead>
               <tr>
-                <th>Asset</th>
-                <th>Buyer Use</th>
+                <th>Claim</th>
                 <th>Status</th>
-                <th>Owner</th>
+                <th>How to handle it</th>
               </tr>
             </thead>
             <tbody>
-              {vaultRows.map((row) => (
-                <tr key={row.file}>
-                  <td>{row.file}</td>
-                  <td>{row.buyerUse}</td>
+              {claimRows.map((row) => (
+                <tr key={row.claim}>
+                  <td>{row.claim}</td>
                   <td>{row.status}</td>
-                  <td>{row.owner}</td>
+                  <td>{row.note}</td>
                 </tr>
               ))}
             </tbody>
@@ -190,71 +198,79 @@ export default function DocumentsPage() {
         </div>
       </section>
 
-      <section className={styles.requestSection}>
+      <section className={styles.workflowSection}>
         <div className={styles.sectionHead}>
-          <span className={styles.kicker}>Request Checklist</span>
-          <h2>Send the details that help us prepare the right file.</h2>
+          <span className={styles.kicker}>Buyer Workflow</span>
+          <h2>From document request to quote approval.</h2>
           <p>
-            Compliance documents are most useful when they match the product format, destination market, and buyer review process.
+            The fastest documentation path starts with product fit, destination,
+            order context, and the buyer&apos;s required review file.
           </p>
         </div>
-        <div className={styles.checklist}>
-          {requestChecklist.map((item, index) => (
-            <div key={item} className={styles.checkItem}>
+        <div className={styles.workflowGrid}>
+          {workflow.map((item, index) => (
+            <article className={styles.workflowCard} key={item}>
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item}</strong>
-            </div>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className={styles.notesGrid}>
-        {complianceNotes.map((item) => (
-          <article key={item.title} className={styles.noteCard}>
-            <h3>{item.title}</h3>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </section>
-
-      <section className={styles.assetSection}>
+      <section className={styles.proofSection}>
         <div className={styles.sectionHead}>
-          <span className={styles.kicker}>Proof Asset Intake</span>
-          <h2>Photos and files that will make the brand feel real.</h2>
+          <span className={styles.kicker}>Proof Assets</span>
+          <h2>Files and photos that make procurement confident.</h2>
           <p>
-            Generated visuals help polish the site, but real buyer trust comes from factory,
-            document, product, and export proof. These are the next assets to collect.
+            Keep document scans, product photos, batch references, packing proofs,
+            and dispatch photos organized so buyers can approve faster.
           </p>
         </div>
-        <div className={styles.assetGrid}>
-          {proofAssets.map((item, index) => (
-            <article className={styles.assetCard} key={item.title}>
-              {"image" in item && item.image ? (
-                <div className={styles.assetImage}>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className={styles.image}
-                    loading="eager"
-                    sizes="(max-width: 1000px) 100vw, 33vw"
-                  />
-                </div>
-              ) : null}
-              <span>{String(index + 1).padStart(2, "0")}</span>
+        <div className={styles.proofGrid}>
+          {[
+            { title: "QC documents", image: "/proof/qc-documents-proof.png" },
+            { title: "Product range", image: "/proof/product-range-proof.png" },
+            { title: "Export pallets", image: "/proof/export-pallets-proof.png" },
+          ].map((item) => (
+            <article className={styles.proofCard} key={item.title}>
+              <div className={styles.proofImage}>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className={styles.image}
+                  loading="eager"
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                />
+              </div>
               <h3>{item.title}</h3>
-              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.faqSection}>
+        <div className={styles.sectionHead}>
+          <span className={styles.kicker}>Document FAQ</span>
+          <h2>Questions procurement teams ask before bulk approval.</h2>
+        </div>
+        <div className={styles.faqGrid}>
+          {faqs.map((item) => (
+            <article className={styles.faqCard} key={item.q}>
+              <h3>{item.q}</h3>
+              <p>{item.a}</p>
             </article>
           ))}
         </div>
       </section>
 
       <section className={styles.ctaBanner}>
-        <h2>Need documents for an export buyer or compliance team?</h2>
+        <h2>Need SDS, COA, or private-label document support?</h2>
         <p>
-          Share your product format, country, quantity, and required document type. The team will guide the right documentation path.
+          Share product format, quantity, destination country, and required document
+          type so the export desk can prepare the right response.
         </p>
-        <Link href="/contact" className={styles.ctaBtn}>Request Documentation</Link>
+        <Link href="/contact" className={styles.ctaBtn}>Request documentation</Link>
       </section>
     </main>
   );

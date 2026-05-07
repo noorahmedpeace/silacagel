@@ -512,7 +512,7 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.shell} ref={heroRef}>
         <main id="top" className={styles.main}>
-          <section className={styles.announcementBar} aria-label="SilacaGEL supply highlights">
+          <section className={styles.announcementBar} aria-label="Dry Gel World supply highlights">
             <div className={styles.announcementTrack}>
               {[...announcementStats, ...announcementStats].map((item, index) => (
                 <div className={styles.announcementItem} key={`${item.value}-${index}`}>
@@ -800,7 +800,7 @@ export default function Home() {
                             <a
                               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
                                 [
-                                  "Hello, I'm requesting a SilacaGEL export quote.",
+                                  "Hello, I'm requesting a Dry Gel World export quote.",
                                   `Category: ${group.title}`,
                                   `Size: ${item.label}`,
                                   "Please advise MOQ, lead time, documentation, and shipping terms.",
@@ -1110,7 +1110,7 @@ export default function Home() {
                   <span className={styles.shippingTag}>Worldwide Delivery Support</span>
                   <AnimatedText text="Wherever your operation is, we can help arrange supply." mode="rise" />
                   <p>
-                    From local dispatch to international freight coordination, SilacaGEL can support desiccant delivery to buyers across regions. Share your destination and required format, and our team will guide the most practical supply route.
+                    From local dispatch to international freight coordination, Dry Gel World can support desiccant delivery to buyers across regions. Share your destination and required format, and our team will guide the most practical supply route.
                   </p>
                   <div className={styles.shippingCtas}>
                     <Link href="/contact" className={styles.primaryCta}>Request Delivery Quote</Link>
@@ -1356,7 +1356,7 @@ export default function Home() {
 
         <a
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            "Hello, I'm requesting a technical SilacaGEL procurement quote for my international requirement.",
+            "Hello, I'm requesting a technical Dry Gel World procurement quote for my international requirement.",
           )}`}
           target="_blank"
           rel="noopener noreferrer"

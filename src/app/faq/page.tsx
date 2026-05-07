@@ -3,7 +3,7 @@ import { useState } from "react";
 import styles from "./faq.module.css";
 
 const faqs = [
-  { q: "How does SilacaGEL compare to standard desiccants?", a: "Our silica gel is secondary-refined for higher adsorption rates (32%+ by weight) and packed in low-dust, high-porosity materials. Unlike standard clay desiccants, our silica gel does not swell, cake, or change physical state when saturated." },
+  { q: "How does Dry Gel World compare to standard desiccants?", a: "Our silica gel is secondary-refined for higher adsorption rates (32%+ by weight) and packed in low-dust, high-porosity materials. Unlike standard clay desiccants, our silica gel does not swell, cake, or change physical state when saturated." },
   { q: "What is the difference between indicating and non-indicating silica gel?", a: "Indicating silica gel contains a moisture-sensitive dye (safe, cobalt-chloride free) that changes color — typically from orange to clear — when saturated. Non-indicating gel is white and requires a humidity meter to check saturation levels." },
   { q: "How do I reactivate silica gel packets?", a: "Paper packets: Oven at 200°F–250°F for 0.5–2 hours. Special Packets (microwave-safe): Defrost mode for 7–12 minutes only. Never exceed 250°F in an oven, as this can damage the packet material or desiccant structure." },
   { q: "Which compliance documents can you provide?", a: "ISO 9001:2015, SDS, COA, and DMF-free support can be discussed against the exact product format and buyer requirement. FDA, REACH, Halal, GMP, or food-grade claims should only be used when valid documentation is available for that specific order." },

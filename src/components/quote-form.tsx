@@ -37,7 +37,7 @@ export function QuoteForm({
     event.preventDefault();
 
     const rfqMessage = [
-      "Hello, I'm initiating an industrial SilacaGEL procurement inquiry.",
+      "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
       `Company Name: ${company || "Not provided"}`,
       `Business Email: ${email || "Not provided"}`,
       `Product Type / Format: ${product || "General silica gel inquiry"}`,

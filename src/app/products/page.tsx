@@ -18,7 +18,7 @@ export default function ProductsPage() {
         <span className={shared.kicker}>Product Catalog</span>
         <h1>Choose the right moisture-control format for your workflow.</h1>
         <p>
-          Browse all primary SilacaGEL formats in one place. Open any category for
+          Browse all primary Dry Gel World formats in one place. Open any category for
           full detail, specifications, and direct purchase support.
         </p>
       </section>

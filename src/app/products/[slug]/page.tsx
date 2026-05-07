@@ -100,12 +100,12 @@ export async function generateMetadata({
 
   if (!product) {
     return {
-      title: "Product Not Found | SilacaGEL",
+      title: "Product Not Found | Dry Gel World",
     };
   }
 
   return {
-    title: `${product.name} | SilacaGEL`,
+    title: `${product.name} | Dry Gel World`,
     description: `${product.summary} ${product.priceBand}. Factory-direct inquiries available on ${displayPhone}.`,
     alternates: {
       canonical: `/products/${product.slug}`,
@@ -124,7 +124,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const procurement = procurementDetails[product.slug as keyof typeof procurementDetails];
 
   const purchaseMessage = [
-    "Hello, I want to purchase SilacaGEL.",
+    "Hello, I want to purchase Dry Gel World.",
     `Product: ${product.name}`,
     `Sizes: ${product.featuredSizes.join(", ")}`,
     `Reference: ${product.priceBand}`,

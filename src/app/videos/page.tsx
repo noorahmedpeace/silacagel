@@ -19,7 +19,7 @@ export default function VideosPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <span className={styles.kicker}>Product Education</span>
-        <h1>See SilacaGEL in Action.</h1>
+        <h1>See Dry Gel World in Action.</h1>
         <p>Watch our comprehensive industry demonstrations covering adsorption science, equipment operation, and real-world applications — from pharmaceutical labs to deep-sea freight containers.</p>
       </section>
 

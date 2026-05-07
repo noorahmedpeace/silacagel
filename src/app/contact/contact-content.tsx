@@ -15,7 +15,7 @@ const contactCards = [
     icon: "02",
     title: "WhatsApp Support",
     text: "Use for urgent clarification after sending your requirement.",
-    href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I am requesting a SilacaGEL export quotation. Product type, quantity, destination, and documents are below.")}`,
+    href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I am requesting a Dry Gel World export quotation. Product type, quantity, destination, and documents are below.")}`,
     label: "Open WhatsApp",
   },
   {

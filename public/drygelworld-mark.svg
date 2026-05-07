@@ -1,0 +1,39 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(55 49) rotate(44) scale(56 48)">
+      <stop stop-color="#5CE1FF"/>
+      <stop offset="0.44" stop-color="#108FD8"/>
+      <stop offset="0.78" stop-color="#0757A6"/>
+      <stop offset="1" stop-color="#082A62"/>
+    </radialGradient>
+    <linearGradient id="metalA" x1="23" y1="18" x2="105" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.24" stop-color="#A8B4C0"/>
+      <stop offset="0.5" stop-color="#F4F8FC"/>
+      <stop offset="0.76" stop-color="#75818D"/>
+      <stop offset="1" stop-color="#EEF4FA"/>
+    </linearGradient>
+    <linearGradient id="metalB" x1="104" y1="22" x2="26" y2="110" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FCFF"/>
+      <stop offset="0.32" stop-color="#8E9BA8"/>
+      <stop offset="0.58" stop-color="#FFFFFF"/>
+      <stop offset="0.84" stop-color="#7B8794"/>
+      <stop offset="1" stop-color="#F3F8FD"/>
+    </linearGradient>
+    <filter id="drop" x="2" y="5" width="124" height="120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="8" stdDeviation="7" flood-color="#071827" flood-opacity="0.24"/>
+    </filter>
+  </defs>
+  <g filter="url(#drop)">
+    <circle cx="64" cy="64" r="42" fill="url(#core)"/>
+    <path d="M24 65C41 50 63 47 84 54C97 58 105 57 112 51C110 68 100 80 85 84C68 88 53 78 36 79C28 79 23 83 18 88C17 80 19 71 24 65Z" fill="#063D8B" opacity="0.95"/>
+    <path d="M29 43C45 19 78 12 99 31C83 33 72 40 62 52C51 65 38 70 21 65C20 56 23 49 29 43Z" fill="url(#metalA)"/>
+    <path d="M32 44C48 25 75 19 93 32C79 35 70 42 61 54C51 66 40 69 24 64C24 57 27 50 32 44Z" fill="white" opacity="0.28"/>
+    <path d="M101 36C111 50 111 69 101 84C91 99 74 107 57 104C70 95 76 83 77 68C78 53 84 42 101 36Z" fill="url(#metalB)"/>
+    <path d="M98 41C106 53 106 69 98 81C91 91 80 98 68 101C77 91 81 80 82 68C83 56 88 48 98 41Z" fill="white" opacity="0.22"/>
+    <path d="M26 85C42 95 59 94 74 85C89 76 101 77 111 87C101 110 72 122 47 111C35 106 27 97 26 85Z" fill="url(#metalA)"/>
+    <path d="M32 88C45 96 60 95 74 88C88 80 98 81 106 88C96 106 72 116 51 108C40 104 34 97 32 88Z" fill="white" opacity="0.22"/>
+    <circle cx="48" cy="42" r="17" fill="white" opacity="0.16"/>
+    <circle cx="43" cy="37" r="7" fill="white" opacity="0.3"/>
+  </g>
+</svg>

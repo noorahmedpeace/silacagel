@@ -75,7 +75,7 @@ export function PriceCalculator() {
     }
 
     const message = [
-      "Hello, I'm requesting an industrial SilacaGEL procurement quote.",
+      "Hello, I'm requesting an industrial Dry Gel World procurement quote.",
       `Technical Spec: ${selectedOption.label}`,
       `Industrial Category: ${selectedOption.groupTitle}`,
       `Quantity Requirement: ${numberFormatter.format(quantityValue)} units`,
@@ -97,7 +97,11 @@ export function PriceCalculator() {
       </div>
 
       <label className={styles.field}>
-        <span>Technical Specification</span>
+        <span className={styles.fieldLabel}>
+          <span className={styles.fieldStep}>Step 01</span>
+          <strong>Product specification</strong>
+          <small>Choose the sachet size or desiccant format you want quoted.</small>
+        </span>
         <select value={selectedKey} onChange={(event) => setSelectedKey(event.target.value)}>
           {priceOptions.map((option) => (
             <option key={option.key} value={option.key}>
@@ -108,12 +112,16 @@ export function PriceCalculator() {
       </label>
 
       <label className={styles.field}>
-        <span>Unit Quantity</span>
+        <span className={styles.fieldLabel}>
+          <span className={styles.fieldStep}>Step 02</span>
+          <strong>Quantity required</strong>
+          <small>Type the total pieces, sachets, or units needed for this quote.</small>
+        </span>
         <input
           inputMode="numeric"
           min="1"
           onChange={(event) => setQuantity(event.target.value)}
-          placeholder="Quantity"
+          placeholder="e.g. 1000"
           suppressHydrationWarning
           type="number"
           value={quantity}
@@ -121,7 +129,11 @@ export function PriceCalculator() {
       </label>
 
       <label className={styles.field}>
-        <span>Reference Currency</span>
+        <span className={styles.fieldLabel}>
+          <span className={styles.fieldStep}>Step 03</span>
+          <strong>Reference currency</strong>
+          <small>Select the currency you want the estimate displayed in.</small>
+        </span>
         <select value={currencyCode} onChange={(event) => setCurrencyCode(event.target.value as CurrencyCode)}>
           {currencyOptions.map((currency) => (
             <option key={currency.code} value={currency.code}>

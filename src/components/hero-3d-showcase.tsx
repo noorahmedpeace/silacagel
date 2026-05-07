@@ -70,7 +70,7 @@ export function Hero3DShowcase() {
           whileHover={{ y: -10, rotateX: 5, rotateY: 5 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          <p className={styles.packTag}>SilacaGEL</p>
+          <p className={styles.packTag}>Dry Gel World</p>
           <h3 className="text-gradient">Premium Moisture Control Packs</h3>
           <p className={styles.packText}>
             Built for packaging lines, bulk buyers, and export protection at scale.

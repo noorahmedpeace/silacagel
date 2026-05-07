@@ -22,8 +22,8 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://silacagel.vercel.app"),
-  title: "SilacaGEL | Silica Gel Manufacturer Exporter & Bulk Desiccant Supplier",
+  metadataBase: new URL("https://www.drygelworld.com"),
+  title: "Dry Gel World | Industrial Silica Gel & Desiccant Export Supplier",
   description:
     "Factory-direct silica gel desiccant packets, bulk packs, cargo strips, private-label sachets, SDS/COA support, and worldwide export delivery for industrial packaging buyers.",
   keywords: [
@@ -38,24 +38,24 @@ export const metadata: Metadata = {
     "private label desiccant packets",
     "pharma grade silica gel",
     "food grade desiccant",
-    "silaca gel", // Typo variant
+    "silica gel",
     "desiccant bags manufacturer",
     "moisture control for export",
     "silica gel delivered worldwide",
     "ISO 9001 silica gel supplier",
   ],
   openGraph: {
-    title: "SilacaGEL | Global Silica Gel Manufacturer Exporter",
+    title: "Dry Gel World | Global Silica Gel Manufacturer Exporter",
     description:
       "Industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
-    url: "https://silacagel.vercel.app",
-    siteName: "SilacaGEL",
+    url: "https://www.drygelworld.com",
+    siteName: "Dry Gel World",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "SilacaGEL industrial silica gel desiccant export supply",
+        alt: "Dry Gel World industrial silica gel desiccant export supply",
       },
     ],
     type: "website",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SilacaGEL | Silica Gel Manufacturer Exporter",
+    title: "Dry Gel World | Silica Gel Manufacturer Exporter",
     description:
       "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
     images: ["/opengraph-image"],
@@ -95,9 +95,9 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  name: "SilacaGEL",
-                  alternateName: ["Silica Gel Export Supply", "Sorbenta candidate brand"],
-                  url: "https://silacagel.vercel.app",
+                  name: "Dry Gel World",
+                  alternateName: ["Dry Gel World", "Silica Gel Export Supply"],
+                  url: "https://www.drygelworld.com",
                   description:
                     "Silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
                   contactPoint: {
@@ -139,11 +139,11 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  name: "SilacaGEL",
-                  url: "https://silacagel.vercel.app",
+                  name: "Dry Gel World",
+                  url: "https://www.drygelworld.com",
                   potentialAction: {
                     "@type": "SearchAction",
-                    target: "https://silacagel.vercel.app/products?query={search_term_string}",
+                    target: "https://www.drygelworld.com/products?query={search_term_string}",
                     "query-input": "required name=search_term_string",
                   },
                 },
@@ -152,7 +152,7 @@ export default function RootLayout({
                   mainEntity: [
                     {
                       "@type": "Question",
-                      name: "Can SilacaGEL provide SDS and COA documents?",
+                      name: "Can Dry Gel World provide SDS and COA documents?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text: "SDS and COA support is available on request and should be confirmed against the exact product format and destination market.",
@@ -160,7 +160,7 @@ export default function RootLayout({
                     },
                     {
                       "@type": "Question",
-                      name: "Does SilacaGEL support private-label desiccant packets?",
+                      name: "Does Dry Gel World support private-label desiccant packets?",
                       acceptedAnswer: {
                         "@type": "Answer",
                         text: "Private-label sachet printing, carton labeling, and distributor supply can be discussed through the RFQ form.",

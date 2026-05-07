@@ -3114,6 +3114,7 @@
 
 .calculatorAnchor {
   min-width: 0;
+  scroll-margin-top: 118px;
 }
 
 .pricingHighlights {
@@ -4016,6 +4017,10 @@
 
   .shell {
     padding-inline: 16px;
+  }
+
+  .calculatorAnchor {
+    scroll-margin-top: 190px;
   }
 
   .hero {

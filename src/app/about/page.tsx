@@ -43,7 +43,7 @@ export default function AboutPage() {
             <span className={styles.kicker}>Industrial Profile</span>
             <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              SilacaGEL supports manufacturers, exporters, warehouse teams, and packaging
+              Dry Gel World supports manufacturers, exporters, warehouse teams, and packaging
               buyers with silica gel formats that protect stock, cartons, and container
               shipments across demanding supply chains.
             </p>

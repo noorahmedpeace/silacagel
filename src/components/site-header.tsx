@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Calculator, ChevronDown } from "lucide-react";
 import styles from "./site-header.module.css";
 
 const navItems = [
@@ -28,23 +29,15 @@ export function SiteHeader() {
   return (
     <header className={styles.headerWrap}>
       <div className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
-        <Link className={styles.brand} href="/" aria-label="SilacaGEL home">
-          <span className={styles.brandMark} aria-hidden="true">
-            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect width="38" height="38" rx="9" fill="#0E1620" />
-              <path d="M4 28C13 21 25 19 34 21.5V31C23.5 28.5 14 30 4 35V28Z" fill="#0067C5" />
-              <circle cx="26.5" cy="9.5" r="4.6" fill="#DCEEFF" />
-              <circle cx="31.5" cy="14.5" r="3.2" fill="#7DB7F2" />
-              <circle cx="31.5" cy="6.5" r="2.1" fill="#D80D2A" />
-              <path d="M8 27H23" stroke="#D80D2A" strokeWidth="3.6" strokeLinecap="round" />
-            </svg>
-          </span>
-          <span className={styles.brandCopy}>
-            <span className={styles.brandName}>
-              Silaca<span>GEL</span>
-            </span>
-            <span className={styles.brandTag}>Industrial Desiccant Exporter</span>
-          </span>
+        <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
+          <Image
+            src="/drygelworld-logo.svg"
+            alt="Dry Gel World Professional Gel Solutions"
+            width={930}
+            height={245}
+            className={styles.brandLogo}
+            priority
+          />
         </Link>
 
         <nav className={styles.nav} aria-label="Primary">
@@ -55,10 +48,26 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link href="/contact" className={styles.navCta}>
-          Request Quote
-          <ChevronDown size={14} className={styles.navCtaIcon} />
-        </Link>
+        <div className={styles.headerActions}>
+          <Link
+            href="/#purchase-calculator"
+            className={styles.calcCta}
+            aria-label="Calculate silica gel requirement"
+          >
+            <span className={styles.calcIcon} aria-hidden="true">
+              <Calculator size={17} strokeWidth={2.35} />
+            </span>
+            <span className={styles.calcText}>
+              <span>Requirement</span>
+              <strong>Calculator</strong>
+            </span>
+          </Link>
+
+          <Link href="/contact" className={styles.navCta}>
+            Request Quote
+            <ChevronDown size={14} className={styles.navCtaIcon} />
+          </Link>
+        </div>
       </div>
     </header>
   );

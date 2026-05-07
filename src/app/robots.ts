@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://silacagel.vercel.app/sitemap.xml",
+    sitemap: "https://www.drygelworld.com/sitemap.xml",
   };
 }

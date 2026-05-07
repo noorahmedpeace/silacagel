@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "SilacaGEL industrial silica gel desiccant export supply";
+export const alt = "Dry Gel World industrial silica gel desiccant export supply";
 export const size = {
   width: 1200,
   height: 630,
@@ -79,18 +79,42 @@ export default function Image() {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                borderRadius: 18,
-                background: "#0e1620",
+                borderRadius: 999,
+                background: "radial-gradient(circle at 34% 28%, #55d9ff 0%, #0b8fdb 38%, #0758a9 68%, #082b63 100%)",
                 color: "#ffffff",
-                fontSize: 30,
-                fontWeight: 900,
+                boxShadow: "0 16px 30px rgba(0, 75, 145, 0.28)",
+                position: "relative",
+                overflow: "hidden",
               }}
             >
-              SG
+              <div
+                style={{
+                  position: "absolute",
+                  left: -8,
+                  right: -8,
+                  top: 16,
+                  height: 18,
+                  borderRadius: 999,
+                  background: "linear-gradient(90deg, #f8fbff, #9daab6 42%, #ffffff 56%, #768390)",
+                  transform: "rotate(-22deg)",
+                }}
+              />
+              <div
+                style={{
+                  position: "absolute",
+                  left: -6,
+                  right: -10,
+                  bottom: 14,
+                  height: 18,
+                  borderRadius: 999,
+                  background: "linear-gradient(90deg, #8d99a5, #ffffff 44%, #8a96a3)",
+                  transform: "rotate(19deg)",
+                }}
+              />
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
               <div style={{ display: "flex", fontSize: 48, fontWeight: 900, letterSpacing: -3 }}>
-                Silaca<span style={{ color: "#d80d2a" }}>GEL</span>
+                DryGel<span style={{ color: "#d80d2a" }}>World</span>
               </div>
               <div
                 style={{

@@ -1,0 +1,59 @@
+<svg width="930" height="245" viewBox="0 0 930 245" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="core" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(82 86) rotate(44) scale(86 74)">
+      <stop stop-color="#5CE1FF"/>
+      <stop offset="0.44" stop-color="#108FD8"/>
+      <stop offset="0.78" stop-color="#0757A6"/>
+      <stop offset="1" stop-color="#082A62"/>
+    </radialGradient>
+    <linearGradient id="metalA" x1="31" y1="32" x2="159" y2="132" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="0.24" stop-color="#A8B4C0"/>
+      <stop offset="0.5" stop-color="#F4F8FC"/>
+      <stop offset="0.76" stop-color="#75818D"/>
+      <stop offset="1" stop-color="#EEF4FA"/>
+    </linearGradient>
+    <linearGradient id="metalB" x1="158" y1="36" x2="42" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FCFF"/>
+      <stop offset="0.32" stop-color="#8E9BA8"/>
+      <stop offset="0.58" stop-color="#FFFFFF"/>
+      <stop offset="0.84" stop-color="#7B8794"/>
+      <stop offset="1" stop-color="#F3F8FD"/>
+    </linearGradient>
+    <pattern id="dotGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="2.2" cy="2.2" r="1.45" fill="#0067C5"/>
+      <circle cx="6" cy="6" r="1" fill="#7DB7F2"/>
+    </pattern>
+    <linearGradient id="textShade" x1="210" y1="68" x2="900" y2="148" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#071827"/>
+      <stop offset="0.36" stop-color="#064A91"/>
+      <stop offset="0.68" stop-color="#0E1620"/>
+      <stop offset="1" stop-color="#0067C5"/>
+    </linearGradient>
+    <filter id="wordShadow" x="185" y="48" width="745" height="112" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="4" dy="7" stdDeviation="3" flood-color="#063A72" flood-opacity="0.26"/>
+    </filter>
+    <filter id="markShadow" x="0" y="8" width="188" height="188" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#071827" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <g filter="url(#markShadow)">
+    <circle cx="88" cy="103" r="63" fill="url(#core)"/>
+    <path d="M28 104C54 80 87 76 119 86C139 92 154 90 165 80C162 106 147 124 125 130C99 136 77 120 51 122C40 123 32 128 24 136C22 123 21 113 28 104Z" fill="#063D8B" opacity="0.95"/>
+    <path d="M35 70C59 34 108 23 139 52C115 55 98 66 84 84C68 104 49 110 23 102C22 89 26 78 35 70Z" fill="url(#metalA)"/>
+    <path d="M40 72C64 43 104 34 132 53C110 58 97 68 84 86C69 105 52 109 28 101C28 91 32 80 40 72Z" fill="white" opacity="0.27"/>
+    <path d="M142 60C158 81 157 110 142 132C127 154 102 166 77 161C97 147 105 129 106 106C107 83 117 66 142 60Z" fill="url(#metalB)"/>
+    <path d="M138 66C149 84 149 108 137 126C126 142 110 151 92 156C107 140 113 123 114 105C115 87 123 74 138 66Z" fill="white" opacity="0.22"/>
+    <path d="M31 131C55 146 80 144 103 131C126 118 143 120 160 135C145 169 101 185 64 168C47 160 35 148 31 131Z" fill="url(#metalA)"/>
+    <path d="M40 136C60 148 83 147 103 135C124 123 140 124 152 135C137 162 101 176 70 163C54 156 45 147 40 136Z" fill="white" opacity="0.22"/>
+    <circle cx="64" cy="68" r="25" fill="white" opacity="0.15"/>
+    <circle cx="56" cy="61" r="10" fill="white" opacity="0.3"/>
+  </g>
+  <g filter="url(#wordShadow)">
+    <text x="206" y="122" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="900" letter-spacing="1.5" fill="url(#textShade)" stroke="#F3F8FD" stroke-width="2.2">DRYGELWORLD</text>
+    <text x="206" y="122" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="900" letter-spacing="1.5" fill="url(#dotGrid)" opacity="0.72">DRYGELWORLD</text>
+    <text x="624" y="73" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="900" fill="#064A91" stroke="#EFF4F8" stroke-width="1.2">W</text>
+    <path d="M670 74C688 50 725 53 737 65C717 59 695 65 682 83C677 90 671 95 661 96C667 91 666 82 670 74Z" fill="#0067C5" opacity="0.82"/>
+  </g>
+  <text x="290" y="184" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" letter-spacing="10.5" fill="#315170">PROFESSIONAL GEL SOLUTIONS</text>
+</svg>
