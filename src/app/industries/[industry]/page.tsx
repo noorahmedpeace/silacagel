@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
 
 const industryPages = {
@@ -117,6 +118,19 @@ export default async function IndustryPage({
           ))}
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Industries", href: "/industries/electronics-packaging" },
+              { name: page.title, href: `/industries/${industry}` },
+            ]),
+          ),
+        }}
+      />
     </main>
   );
 }

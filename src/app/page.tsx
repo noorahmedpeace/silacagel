@@ -61,8 +61,6 @@ import {
   Truck,
 } from "lucide-react";
 import {
-  displayPhone,
-  phoneHref,
   priceGroups,
   whatsappNumber,
 } from "@/lib/product-data";
@@ -1335,32 +1333,6 @@ export default function Home() {
           </Reveal>
         </main>
 
-
-        <footer id="contact" className={styles.footer}>
-          <div className={styles.footerCopy}>
-            <p className={styles.kicker}>Contact and Orders</p>
-            <h2>Export-ready silica gel supply with clearer buying support.</h2>
-            <p>
-              Contact us for format selection, bulk pricing, documentation, and dispatch support for international and domestic orders.
-            </p>
-            <div className={styles.footerActions}>
-              <Link href="/contact" className={styles.primaryCta}>Request Export Quote</Link>
-              <Link href="/products" className={styles.secondaryCta}>View Products</Link>
-            </div>
-          </div>
-
-          <div className={styles.contactCard}>
-            <span>Sales Support</span>
-            <a href={`tel:${phoneHref}`}>{displayPhone}</a>
-            <strong>WhatsApp and phone contact</strong>
-            <span>Response target within 24 hours</span>
-            <div className={styles.contactMeta}>
-              <span>MOQ guidance</span>
-              <span>Export docs</span>
-              <span>Docs on request</span>
-            </div>
-          </div>
-        </footer>
 
         <a
           href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(

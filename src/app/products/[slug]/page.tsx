@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { absoluteUrl, siteName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import {
   displayPhone,
   getProductBySlug,
@@ -353,32 +353,41 @@ export default async function ProductPage({ params }: ProductPageProps) {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Product",
-              name: product.name,
-              description: product.description,
-              category: "Industrial silica gel desiccants",
-              brand: {
-                "@type": "Brand",
-                name: siteName,
-              },
-              manufacturer: {
-                "@type": "Organization",
-                name: siteName,
-                url: absoluteUrl(),
-              },
-              image: absoluteUrl(product.heroImage),
-              url: absoluteUrl(`/products/${product.slug}`),
-              additionalProperty: [
+              "@graph": [
                 {
-                  "@type": "PropertyValue",
-                  name: "Available sizes",
-                  value: product.featuredSizes.join(", "),
+                  "@type": "Product",
+                  name: product.name,
+                  description: product.description,
+                  category: "Industrial silica gel desiccants",
+                  brand: {
+                    "@type": "Brand",
+                    name: siteName,
+                  },
+                  manufacturer: {
+                    "@type": "Organization",
+                    name: siteName,
+                    url: absoluteUrl(),
+                  },
+                  image: absoluteUrl(product.heroImage),
+                  url: absoluteUrl(`/products/${product.slug}`),
+                  additionalProperty: [
+                    {
+                      "@type": "PropertyValue",
+                      name: "Available sizes",
+                      value: product.featuredSizes.join(", "),
+                    },
+                    {
+                      "@type": "PropertyValue",
+                      name: "Lead time",
+                      value: product.leadTime,
+                    },
+                  ],
                 },
-                {
-                  "@type": "PropertyValue",
-                  name: "Lead time",
-                  value: product.leadTime,
-                },
+                breadcrumbJsonLd([
+                  { name: "Home", href: "/" },
+                  { name: "Products", href: "/products" },
+                  { name: product.name, href: `/products/${product.slug}` },
+                ]),
               ],
             }),
           }}

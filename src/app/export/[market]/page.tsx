@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
 import { exportMarkets, getExportMarket } from "../markets";
 
@@ -123,6 +124,19 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
           ))}
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Export", href: "/export" },
+              { name: market.country, href: `/export/${market.slug}` },
+            ]),
+          ),
+        }}
+      />
     </main>
   );
 }

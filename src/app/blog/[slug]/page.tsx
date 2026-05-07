@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { absoluteUrl, siteName, sitemapLastModified } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteName, sitemapLastModified } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getBlogArticle } from "../articles";
 
@@ -106,23 +106,32 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "Article",
-            headline: article.title,
-            description: article.description,
-            datePublished: sitemapLastModified,
-            dateModified: sitemapLastModified,
-            author: {
-              "@type": "Organization",
-              name: siteName,
-              url: absoluteUrl(),
-            },
-            publisher: {
-              "@type": "Organization",
-              name: siteName,
-              url: absoluteUrl(),
-            },
-            mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
-            url: absoluteUrl(`/blog/${article.slug}`),
+            "@graph": [
+              {
+                "@type": "Article",
+                headline: article.title,
+                description: article.description,
+                datePublished: sitemapLastModified,
+                dateModified: sitemapLastModified,
+                author: {
+                  "@type": "Organization",
+                  name: siteName,
+                  url: absoluteUrl(),
+                },
+                publisher: {
+                  "@type": "Organization",
+                  name: siteName,
+                  url: absoluteUrl(),
+                },
+                mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
+                url: absoluteUrl(`/blog/${article.slug}`),
+              },
+              breadcrumbJsonLd([
+                { name: "Home", href: "/" },
+                { name: "Blog", href: "/blog" },
+                { name: article.title, href: `/blog/${article.slug}` },
+              ]),
+            ],
           }),
         }}
       />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
 
@@ -136,7 +137,16 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(landingPageJsonLd(page)),
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              ...landingPageJsonLd(page)["@graph"],
+              breadcrumbJsonLd([
+                { name: "Home", href: "/" },
+                { name: page.kicker, href: `/${page.slug}` },
+              ]),
+            ],
+          }),
         }}
       />
     </main>
