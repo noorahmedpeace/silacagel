@@ -8,19 +8,22 @@ const footerGroups = [
     links: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
+      { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
+      { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Product catalog", href: "/products" },
-      { label: "Bulk sales calculator", href: "/bulk-sales" },
     ],
   },
   {
     title: "Export / OEM",
     links: [
       { label: "Silica gel manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
       { label: "Private label desiccant packets", href: "/private-label-desiccant-packets" },
       { label: "Export support", href: "/export" },
       { label: "Documents hub", href: "/documents" },
-      { label: "Request quote", href: "/contact" },
     ],
   },
   {
@@ -37,11 +40,11 @@ const footerGroups = [
     title: "Buyer Resources",
     links: [
       { label: "DryGelWorld official site", href: "/drygelworld" },
+      { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
+      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
       { label: "Technical FAQ", href: "/faq" },
       { label: "Buyer guides", href: "/blog" },
       { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
-      { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
-      { label: "Product videos", href: "/videos" },
     ],
   },
 ];

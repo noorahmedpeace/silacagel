@@ -8,7 +8,7 @@ export const brandDomain = "drygelworld.com";
 
 export const defaultSeoImage = "/opengraph-image";
 
-export const sitemapLastModified = "2026-05-07";
+export const sitemapLastModified = "2026-05-08";
 
 export const coreSitemapRoutes = [
   "",
@@ -24,6 +24,13 @@ export const coreSitemapRoutes = [
   "/container-desiccant-strips",
   "/private-label-desiccant-packets",
   "/silica-gel-manufacturer-exporter",
+  "/silica-gel-manufacturer-pakistan",
+  "/silica-gel-supplier-karachi",
+  "/food-grade-silica-gel-supplier",
+  "/blue-silica-gel-manufacturer",
+  "/orange-silica-gel-supplier",
+  "/moisture-absorber-supplier",
+  "/shipping-container-desiccant-supplier",
   "/documents",
   "/case-studies",
   "/export",

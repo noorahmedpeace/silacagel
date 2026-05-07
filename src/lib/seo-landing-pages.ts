@@ -565,6 +565,601 @@ export const seoLandingPages = {
       },
     ],
   },
+  "silica-gel-manufacturer-pakistan": {
+    slug: "silica-gel-manufacturer-pakistan",
+    title: "Silica Gel Manufacturer in Pakistan | DryGelWorld",
+    metaDescription:
+      "DryGelWorld supports Pakistan and export buyers with silica gel packets, bulk desiccants, container desiccants, packaging desiccants, SDS, COA, and RFQ support.",
+    kicker: "Pakistan silica gel manufacturer",
+    h1: "Silica gel manufacturer in Pakistan for industrial and export buyers.",
+    lead:
+      "Source silica gel from Pakistan with clearer buying inputs: product format, gram size, bulk quantity, destination, Incoterms, and document requirements before final quotation.",
+    searchIntent: "Local buyer intent: silica gel manufacturer in Pakistan, silica gel Pakistan, silica gel company",
+    primaryCta: "Request Pakistan Quote",
+    secondaryCta: "View Export Support",
+    secondaryHref: "/export",
+    proofPoints: ["Pakistan supplier positioning", "Bulk and packet formats", "Export RFQ support", "SDS / COA on request"],
+    heroImage: {
+      src: "/applications/export-logistics.webp",
+      alt: "Silica gel export logistics from Pakistan for global buyers",
+      caption: "Pakistan-based silica gel buying path for packets, bulk desiccants, private label, and export-ready RFQs.",
+      chips: ["Pakistan supply", "Export support", "Bulk RFQ", "Documents"],
+    },
+    fitTitle: "Who this Pakistan silica gel page is for",
+    fitItems: [
+      {
+        label: "Importers",
+        title: "Buyers sourcing from Pakistan",
+        text: "Use this page when you need a Pakistan supplier for packets, bulk bags, or cargo moisture-control products.",
+      },
+      {
+        label: "Packagers",
+        title: "Local and export packaging programs",
+        text: "Align sachet size, carton quantity, labeling, and documentation before requesting a commercial quote.",
+      },
+      {
+        label: "Distributors",
+        title: "Repeat silica gel procurement",
+        text: "Quote by kg, carton, pallet, or monthly volume when building a recurring supply program.",
+      },
+    ],
+    specsTitle: "Pakistan silica gel RFQ inputs",
+    specsIntro:
+      "A strong Pakistan supplier inquiry should separate local stock needs from export shipment needs.",
+    specs: [
+      { label: "Target keywords", value: "Silica gel manufacturer in Pakistan, silica gel supplier Pakistan, silica gel company" },
+      { label: "Product formats", value: "Silica gel packets, bulk silica gel, cargo strips, paper sachets, private-label packets" },
+      { label: "Buyer types", value: "Importers, distributors, packagers, warehouses, exporters" },
+      { label: "Documents", value: "SDS, COA, ISO support, labeling, and market-specific paperwork on request" },
+      { label: "Quote basis", value: "Format, size, quantity, destination, Incoterms, and repeat volume" },
+    ],
+    buyingTitle: "How to request silica gel from Pakistan",
+    buyingIntro:
+      "Send enough commercial detail to avoid a weak quote and reduce back-and-forth with the export desk.",
+    buyingSteps: [
+      {
+        title: "Choose the format",
+        text: "Start with packets, bulk beads, cargo strips, food packaging, pharma packaging, or private-label sachets.",
+      },
+      {
+        title: "Share quantity and route",
+        text: "Send kg, packet count, pallet target, destination country, port, Incoterms, and required delivery timing.",
+      },
+      {
+        title: "Confirm documents",
+        text: "List SDS, COA, ISO, DMF-free, food packaging, pharma, or other compliance expectations before dispatch planning.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Silica gel exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Request quote", href: "/contact" },
+    ],
+    faqs: [
+      {
+        question: "Can DryGelWorld support silica gel buyers in Pakistan?",
+        answer: "DryGelWorld is structured for local and export silica gel RFQs including packets, bulk desiccants, cargo strips, and private-label programs.",
+      },
+      {
+        question: "What details are needed for Pakistan silica gel pricing?",
+        answer: "Send product format, size, quantity, destination, packing needs, repeat volume, and required documents.",
+      },
+      {
+        question: "Is this page for export buyers too?",
+        answer: "Yes. International buyers can use this page when searching for a silica gel manufacturer or exporter from Pakistan.",
+      },
+    ],
+  },
+  "silica-gel-supplier-karachi": {
+    slug: "silica-gel-supplier-karachi",
+    title: "Silica Gel Supplier in Karachi | DryGelWorld",
+    metaDescription:
+      "Silica gel supplier in Karachi for packets, bulk desiccants, packaging moisture absorbers, container desiccant planning, SDS, COA, and export RFQs.",
+    kicker: "Karachi silica gel supplier",
+    h1: "Silica gel supplier in Karachi for packaging, warehouse, and export buyers.",
+    lead:
+      "Use this Karachi-focused page to plan silica gel packets, bulk orders, packaging desiccants, and export moisture-control RFQs with clearer local and international buying details.",
+    searchIntent: "Local buyer intent: silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi",
+    primaryCta: "Request Karachi Quote",
+    secondaryCta: "View Products",
+    secondaryHref: "/products",
+    proofPoints: ["Karachi buyer path", "Packets and bulk supply", "Packaging desiccants", "Export support"],
+    heroImage: {
+      src: "/products/product-range-export-showcase.png",
+      alt: "Silica gel product range for Karachi packaging and export buyers",
+      caption: "Karachi buyer path for silica gel packets, bulk desiccants, packaging desiccants, and export RFQs.",
+      chips: ["Karachi", "Silica gel", "Bulk supply", "Packaging"],
+    },
+    fitTitle: "Karachi silica gel buying use cases",
+    fitItems: [
+      {
+        label: "Packaging",
+        title: "Carton and product moisture control",
+        text: "Select packet size, sachet material, and carton quantity for local packaging or export dispatch.",
+      },
+      {
+        label: "Warehouse",
+        title: "Bulk desiccant stock planning",
+        text: "Quote kg, bag size, pallet targets, and repeat buying cycles for storage and repacking operations.",
+      },
+      {
+        label: "Export",
+        title: "Port and shipment planning",
+        text: "Align Incoterms, destination, cargo type, and documents before final quotation.",
+      },
+    ],
+    specsTitle: "Karachi supplier quote inputs",
+    specsIntro:
+      "Local supplier searches should still include proper RFQ data so pricing and stock planning are useful.",
+    specs: [
+      { label: "Target keywords", value: "Silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi" },
+      { label: "Formats", value: "0.5g-20g packets, bulk bags, cargo strips, private-label sachets" },
+      { label: "Use cases", value: "Packaging, warehousing, electronics, leather, food cartons, export logistics" },
+      { label: "Documents", value: "SDS, COA, ISO and buyer-specific paperwork on request" },
+      { label: "Quote basis", value: "Size, quantity, pickup/export path, packing, and repeat volume" },
+    ],
+    buyingTitle: "How Karachi buyers should request silica gel",
+    buyingIntro:
+      "A clean Karachi RFQ should say whether the order is local, export, private label, or recurring bulk supply.",
+    buyingSteps: [
+      {
+        title: "Define local or export use",
+        text: "Tell the sales desk whether the product is for Karachi packaging, warehouse stock, or export shipment.",
+      },
+      {
+        title: "Send product and volume",
+        text: "Share packet size, bulk weight, carton quantity, or monthly volume before asking for price.",
+      },
+      {
+        title: "List documents and timing",
+        text: "Mention SDS, COA, labeling, lead time, destination, and dispatch terms where relevant.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Pakistan manufacturer page", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Bulk sales calculator", href: "/bulk-sales" },
+    ],
+    faqs: [
+      {
+        question: "Can Karachi buyers request both packets and bulk silica gel?",
+        answer: "Yes. Buyers can request small packets, bulk silica gel, cargo strips, and private-label packet programs depending on volume and use case.",
+      },
+      {
+        question: "What makes a Karachi silica gel inquiry faster?",
+        answer: "Share product format, size, quantity, destination or pickup path, packing requirements, and documents.",
+      },
+      {
+        question: "Can export orders be quoted from Karachi?",
+        answer: "Export terms can be discussed once quantity, destination, Incoterms, and document requirements are clear.",
+      },
+    ],
+  },
+  "food-grade-silica-gel-supplier": {
+    slug: "food-grade-silica-gel-supplier",
+    title: "Food Grade Silica Gel Supplier | Packaging Desiccant RFQ",
+    metaDescription:
+      "Food grade silica gel and food packaging desiccant RFQ page for moisture control in cartons, dry goods packaging, SDS, COA, labeling, and compliance review.",
+    kicker: "Food packaging desiccant",
+    h1: "Food grade silica gel supplier path for packaging buyers who need document-backed claims.",
+    lead:
+      "Plan silica gel for food packaging with careful document review, correct packet text, carton quantity, application context, and destination requirements before using food-grade claims.",
+    searchIntent: "Food packaging intent: food grade silica gel supplier, food grade desiccant, desiccant for food packaging",
+    primaryCta: "Request Food Packaging Quote",
+    secondaryCta: "View Documents",
+    secondaryHref: "/documents",
+    proofPoints: ["Food packaging RFQs", "SDS / COA review", "Packet text planning", "Compliance claims checked"],
+    heroImage: {
+      src: "/products/white-nonindicating-clean-sachets.png",
+      alt: "Clean white silica gel sachets for food packaging moisture control RFQs",
+      caption: "Food packaging silica gel RFQs should confirm packet material, warning text, SDS, COA, and destination compliance before claims are used.",
+      chips: ["Food packaging", "SDS / COA", "Clean sachets", "Compliance review"],
+    },
+    fitTitle: "Where food packaging desiccants fit",
+    fitItems: [
+      {
+        label: "Dry goods",
+        title: "Cartons and sealed packs",
+        text: "Use moisture-control packets where humidity can affect dry ingredients, cartons, labels, or packed goods.",
+      },
+      {
+        label: "Export",
+        title: "Destination-specific documentation",
+        text: "Food packaging claims should be reviewed against buyer documents and destination requirements before dispatch.",
+      },
+      {
+        label: "Branding",
+        title: "Clear warning text and labels",
+        text: "Align packet wording, carton labels, and compliance language before repeat orders.",
+      },
+    ],
+    specsTitle: "Food packaging silica gel quote inputs",
+    specsIntro:
+      "Use careful wording for food-grade searches. Claims should match the exact material, certificate, and destination requirements.",
+    specs: [
+      { label: "Target keywords", value: "Food grade silica gel supplier, food grade desiccant, desiccant for food packaging" },
+      { label: "Typical formats", value: "Small white packets, carton sachets, private-label packaging programs" },
+      { label: "Documents", value: "SDS, COA, material statement, labeling and compliance proof where valid" },
+      { label: "Buyer risk", value: "Making unsupported food-grade or food-contact claims without matching documents" },
+      { label: "Quote basis", value: "Packet size, product category, quantity, destination, document set, packaging text" },
+    ],
+    buyingTitle: "How to request food packaging desiccants",
+    buyingIntro:
+      "For food packaging programs, procurement should confirm documents and wording before price is treated as final.",
+    buyingSteps: [
+      {
+        title: "Share food packaging context",
+        text: "Explain whether the packet goes in a carton, pouch, master box, or secondary packaging environment.",
+      },
+      {
+        title: "Request document review",
+        text: "Ask for SDS, COA, and any specific material or destination statement needed before using food-grade wording.",
+      },
+      {
+        title: "Confirm packet text",
+        text: "Align warning text, packet material, label requirements, and carton quantity before ordering.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Documents hub", href: "/documents" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Food packaging industry", href: "/industries/food-packaging" },
+    ],
+    faqs: [
+      {
+        question: "Can DryGelWorld quote food grade silica gel?",
+        answer: "Food packaging RFQs can be discussed, but any food-grade or food-contact claim should be confirmed against valid product documents and destination requirements.",
+      },
+      {
+        question: "What documents should food packaging buyers request?",
+        answer: "Request SDS, COA, material statements, and any buyer-specific compliance documents before placing repeat orders.",
+      },
+      {
+        question: "Are warning labels still needed for food packaging sachets?",
+        answer: "Yes. Packet wording and warning copy should be reviewed for the market and packaging use case.",
+      },
+    ],
+  },
+  "blue-silica-gel-manufacturer": {
+    slug: "blue-silica-gel-manufacturer",
+    title: "Blue Silica Gel Manufacturer | Indicating Desiccant Supplier",
+    metaDescription:
+      "Blue silica gel manufacturer and indicating desiccant RFQ page for humidity indication, lab storage, packaging programs, compliance review, SDS, and COA support.",
+    kicker: "Blue indicating silica gel",
+    h1: "Blue silica gel manufacturer path for buyers who need moisture indication and compliance review.",
+    lead:
+      "Use blue indicating silica gel only after confirming composition, destination rules, SDS, COA, and whether the buyer needs alternative indicating colors for regulated markets.",
+    searchIntent: "Indicating gel intent: blue silica gel manufacturer, blue silica gel supplier, indicating silica gel",
+    primaryCta: "Request Blue Gel Quote",
+    secondaryCta: "Compare Orange Gel",
+    secondaryHref: "/orange-silica-gel-supplier",
+    proofPoints: ["Indicating silica gel", "RH signal applications", "SDS / COA review", "Compliance notes"],
+    heroImage: {
+      src: "/macro_silica_beads_1775989669467.png",
+      alt: "Macro silica gel beads for indicating desiccant buyer education",
+      caption: "Indicating silica gel RFQs should confirm color system, use case, documents, and destination compliance before quotation.",
+      chips: ["Blue silica gel", "Indicating", "RH signal", "Documents"],
+    },
+    fitTitle: "Where blue silica gel is requested",
+    fitItems: [
+      {
+        label: "Labs",
+        title: "Visual humidity indication",
+        text: "Buyers use indicating gel where a visible moisture-state signal helps teams monitor storage conditions.",
+      },
+      {
+        label: "Storage",
+        title: "Reusable moisture-control checks",
+        text: "Indicating beads can support controlled storage workflows when regeneration and handling rules are clear.",
+      },
+      {
+        label: "Compliance",
+        title: "Composition must be confirmed",
+        text: "Blue indicating gel can have regulatory concerns in some markets, so documents and destination rules matter.",
+      },
+    ],
+    specsTitle: "Blue silica gel quote inputs",
+    specsIntro:
+      "Blue gel inquiries should not be treated like generic white silica gel because color chemistry and market rules can matter.",
+    specs: [
+      { label: "Target keywords", value: "Blue silica gel manufacturer, blue silica gel supplier, indicating silica gel" },
+      { label: "Use cases", value: "Lab storage, equipment cases, humidity signal packs, controlled storage" },
+      { label: "Documents", value: "SDS, COA, composition notes, destination compliance review" },
+      { label: "Buyer risk", value: "Ordering an indicating color that does not match buyer or market restrictions" },
+      { label: "Quote basis", value: "Color, bead size, quantity, packing, destination, and document requirements" },
+    ],
+    buyingTitle: "How to request blue silica gel",
+    buyingIntro:
+      "The safest RFQ explains why the buyer needs blue gel and what destination rules apply.",
+    buyingSteps: [
+      {
+        title: "Explain the indication need",
+        text: "Share whether the product is for lab jars, storage packs, cases, or buyer education.",
+      },
+      {
+        title: "Ask for composition documents",
+        text: "Request SDS, COA, and any composition detail needed by the destination market.",
+      },
+      {
+        title: "Confirm alternative colors",
+        text: "If blue gel is restricted, ask whether orange indicating or non-indicating silica gel is a better route.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
+      { label: "Documents hub", href: "/documents" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+    ],
+    faqs: [
+      {
+        question: "What is blue silica gel used for?",
+        answer: "Blue silica gel is an indicating desiccant used where buyers need a visual moisture-state signal, subject to composition and market review.",
+      },
+      {
+        question: "Should blue silica gel be used in all markets?",
+        answer: "No. Buyers should confirm composition, SDS, COA, and destination restrictions before using blue indicating silica gel.",
+      },
+      {
+        question: "Is orange silica gel an alternative?",
+        answer: "Orange indicating silica gel may be requested as an alternative depending on buyer requirements and document review.",
+      },
+    ],
+  },
+  "orange-silica-gel-supplier": {
+    slug: "orange-silica-gel-supplier",
+    title: "Orange Silica Gel Supplier | Indicating Desiccant RFQ",
+    metaDescription:
+      "Orange silica gel supplier page for indicating desiccant RFQs, humidity signal applications, packaging support, SDS, COA, compliance review, and export buyers.",
+    kicker: "Orange indicating silica gel",
+    h1: "Orange silica gel supplier for buyers who need visible humidity indication.",
+    lead:
+      "Plan orange indicating silica gel orders around color-change requirements, bead or packet format, use case, documentation, quantity, and destination rules.",
+    searchIntent: "Indicating gel intent: orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier",
+    primaryCta: "Request Orange Gel Quote",
+    secondaryCta: "Compare Blue Gel",
+    secondaryHref: "/blue-silica-gel-manufacturer",
+    proofPoints: ["Orange indicating gel", "Humidity signal support", "Packet or bulk RFQ", "SDS / COA on request"],
+    heroImage: {
+      src: "/hero-macro-kraft.png",
+      alt: "Silica gel desiccant beads and sachets for indicating gel applications",
+      caption: "Orange indicating silica gel helps buyers add a visible moisture-state signal where product and market requirements allow.",
+      chips: ["Orange gel", "Indicating", "Bulk or packets", "Export RFQ"],
+    },
+    fitTitle: "Where orange indicating gel fits",
+    fitItems: [
+      {
+        label: "Storage",
+        title: "Humidity-state monitoring",
+        text: "Use orange indicating gel where a visual color signal supports controlled storage checks.",
+      },
+      {
+        label: "Packaging",
+        title: "Buyer education and inspection",
+        text: "Indicating gel can help teams understand moisture exposure when packaging workflows require visible checks.",
+      },
+      {
+        label: "Export",
+        title: "Document-backed quotation",
+        text: "Confirm SDS, COA, color system, and destination requirements before final export quote.",
+      },
+    ],
+    specsTitle: "Orange silica gel RFQ inputs",
+    specsIntro:
+      "Indicating gel buyers should specify color-change expectations and document needs early.",
+    specs: [
+      { label: "Target keywords", value: "Orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier" },
+      { label: "Formats", value: "Bulk beads, jars, packets, carton packs by buyer requirement" },
+      { label: "Use cases", value: "Storage monitoring, lab supplies, packaging checks, moisture-state education" },
+      { label: "Documents", value: "SDS, COA, composition notes and destination review on request" },
+      { label: "Quote basis", value: "Color, quantity, packing, destination, and required documents" },
+    ],
+    buyingTitle: "How to request orange silica gel",
+    buyingIntro:
+      "A strong RFQ should clarify whether the buyer needs orange color indication, bulk beads, or packet-ready supply.",
+    buyingSteps: [
+      {
+        title: "Share the color-change use",
+        text: "Explain the monitoring workflow and whether the product is used in jars, packs, cartons, or displays.",
+      },
+      {
+        title: "Confirm format and quantity",
+        text: "Send bead size, bag size, packet target, kg, cartons, or monthly volume before pricing.",
+      },
+      {
+        title: "Request documents",
+        text: "Ask for SDS, COA, and any destination-specific compliance statement needed for export.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
+      { label: "Documents hub", href: "/documents" },
+      { label: "Request quote", href: "/contact" },
+    ],
+    faqs: [
+      {
+        question: "What is orange silica gel?",
+        answer: "Orange silica gel is an indicating desiccant requested when buyers need a visible moisture-state signal.",
+      },
+      {
+        question: "Can orange silica gel be quoted in bulk?",
+        answer: "Bulk or packet-ready RFQs can be discussed when quantity, packing, destination, and documents are clear.",
+      },
+      {
+        question: "Do indicating gels need special documents?",
+        answer: "Yes. SDS, COA, composition notes, and destination review should be requested before final use.",
+      },
+    ],
+  },
+  "moisture-absorber-supplier": {
+    slug: "moisture-absorber-supplier",
+    title: "Moisture Absorber Supplier | Industrial Desiccant Manufacturer",
+    metaDescription:
+      "Moisture absorber supplier for industrial desiccants, silica gel packets, packaging desiccants, warehouse moisture control, cargo desiccants, SDS, COA, and export RFQs.",
+    kicker: "Moisture absorber supplier",
+    h1: "Moisture absorber supplier for packaging, warehouses, cartons, and export shipments.",
+    lead:
+      "Use this page when the buyer searches for moisture absorbers but actually needs a desiccant format: silica gel packets, bulk desiccant, cargo strips, or packaging moisture control.",
+    searchIntent: "Buyer intent: moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container",
+    primaryCta: "Request Moisture Absorber Quote",
+    secondaryCta: "View Product Range",
+    secondaryHref: "/products",
+    proofPoints: ["Desiccant supplier", "Packaging moisture control", "Cargo desiccants", "Bulk RFQ support"],
+    heroImage: {
+      src: "/backgrounds/bento-silica-panel.png",
+      alt: "Silica gel moisture absorber visual for industrial desiccant buyers",
+      caption: "Moisture absorber buyers should choose the desiccant format by product risk, package size, storage time, and shipment route.",
+      chips: ["Moisture absorber", "Desiccant", "Packaging", "Cargo"],
+    },
+    fitTitle: "Moisture absorber buying paths",
+    fitItems: [
+      {
+        label: "Packets",
+        title: "Product and carton protection",
+        text: "Small silica gel packets fit product boxes, cartons, accessories, pharma packs, and electronics packaging.",
+      },
+      {
+        label: "Bulk",
+        title: "Warehouse and repacking supply",
+        text: "Bulk silica gel fits inventory, distributors, repackers, and industrial storage programs.",
+      },
+      {
+        label: "Cargo",
+        title: "Container moisture control",
+        text: "Container desiccants and cargo strips fit long-haul shipments exposed to humidity and temperature swings.",
+      },
+    ],
+    specsTitle: "Moisture absorber quote map",
+    specsIntro:
+      "The term moisture absorber is broad, so the page routes buyers into the right desiccant format.",
+    specs: [
+      { label: "Target keywords", value: "Moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container" },
+      { label: "Formats", value: "Silica gel packets, bulk beads, cargo strips, carton packs, private-label sachets" },
+      { label: "Use cases", value: "Packaging, warehousing, electronics, pharma, leather, food cartons, shipping containers" },
+      { label: "Documents", value: "SDS, COA, ISO and buyer-specific statements on request" },
+      { label: "Quote basis", value: "Use case, product sensitivity, format, quantity, destination, and document needs" },
+    ],
+    buyingTitle: "How to request moisture absorber products",
+    buyingIntro:
+      "A better moisture absorber RFQ starts with the damage risk and ends with the correct desiccant format.",
+    buyingSteps: [
+      {
+        title: "Describe the moisture risk",
+        text: "Mention mold, corrosion, carton softening, odor, product clumping, electronics damage, or container rain.",
+      },
+      {
+        title: "Choose the format",
+        text: "Select packets, bulk silica gel, cargo strips, or private-label sachets based on where the desiccant will sit.",
+      },
+      {
+        title: "Send quantity and destination",
+        text: "Add order volume, destination, Incoterms, document needs, and repeat schedule before final quotation.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Container desiccants", href: "/shipping-container-desiccant-supplier" },
+    ],
+    faqs: [
+      {
+        question: "Is silica gel a moisture absorber?",
+        answer: "Yes. Silica gel is a desiccant moisture absorber used to reduce humidity inside packaging, cartons, storage spaces, and shipment environments.",
+      },
+      {
+        question: "Which moisture absorber format should I request?",
+        answer: "Use packets for product packaging, bulk silica gel for industrial or repacking supply, and cargo strips for container shipments.",
+      },
+      {
+        question: "What details are needed for moisture absorber pricing?",
+        answer: "Send use case, product sensitivity, package size, quantity, destination, and required documents.",
+      },
+    ],
+  },
+  "shipping-container-desiccant-supplier": {
+    slug: "shipping-container-desiccant-supplier",
+    title: "Shipping Container Desiccant Supplier | Cargo Moisture Control",
+    metaDescription:
+      "Shipping container desiccant supplier for cargo moisture control, container rain prevention, sea-freight desiccants, export packaging, route planning, SDS, and COA.",
+    kicker: "Shipping container desiccant",
+    h1: "Shipping container desiccant supplier for sea freight and container rain prevention.",
+    lead:
+      "Plan shipping container desiccants by container size, route humidity, transit time, commodity risk, pallet packing, and destination before final strip quantity or cargo desiccant pricing.",
+    searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers",
+    primaryCta: "Plan Container Desiccants",
+    secondaryCta: "Read Container Rain Guide",
+    secondaryHref: "/blog/container-rain-prevention",
+    proofPoints: ["20ft / 40ft planning", "Cargo desiccant RFQs", "Container rain risk", "FOB / CIF support"],
+    heroImage: {
+      src: "/products/premium-cargo-strips.png",
+      alt: "Container desiccant strips and cargo moisture control for shipping containers",
+      caption: "Shipping container desiccant planning should start with route, container size, cargo type, humidity exposure, and transit days.",
+      chips: ["Container desiccant", "Cargo", "20ft / 40ft", "Sea freight"],
+    },
+    fitTitle: "Where shipping container desiccants matter",
+    fitItems: [
+      {
+        label: "Sea freight",
+        title: "Long-haul container routes",
+        text: "Use container desiccants where ocean transit and temperature swings can create condensation and carton damage.",
+      },
+      {
+        label: "Cargo",
+        title: "Pallet and carton protection",
+        text: "Cargo strips support moisture control around leather, textiles, machinery, food cartons, and export goods.",
+      },
+      {
+        label: "Claims",
+        title: "Container rain prevention",
+        text: "Plan desiccant quantity before shipment to reduce mold, corrosion, carton collapse, and moisture claims.",
+      },
+    ],
+    specsTitle: "Container desiccant quote inputs",
+    specsIntro:
+      "Container desiccant pricing should be tied to route risk, container size, cargo type, transit days, and planned strip count.",
+    specs: [
+      { label: "Target keywords", value: "Shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers" },
+      { label: "Container sizes", value: "20ft and 40ft route planning by commodity risk and humidity exposure" },
+      { label: "Use cases", value: "Leather, textiles, machinery, cartons, warehouse-to-port cargo, food packaging exports" },
+      { label: "Planning inputs", value: "Origin, destination, transit days, cargo type, pallet density, container loading style" },
+      { label: "Quote basis", value: "Strip count, strip weight, route, Incoterms, schedule, and documents" },
+    ],
+    buyingTitle: "How to request shipping container desiccants",
+    buyingIntro:
+      "A container desiccant RFQ should start with shipping risk, not only unit price.",
+    buyingSteps: [
+      {
+        title: "Define the route",
+        text: "Share origin, destination, transit days, season, and whether the route has high humidity or temperature swings.",
+      },
+      {
+        title: "Share container and cargo",
+        text: "Mention 20ft or 40ft container, cargo type, carton or pallet packing, and damage concerns.",
+      },
+      {
+        title: "Request strip planning",
+        text: "Ask for suggested desiccant format, strip quantity, documents, and Incoterms before final dispatch planning.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Container strips", href: "/container-desiccant-strips" },
+      { label: "Container rain guide", href: "/blog/container-rain-prevention" },
+      { label: "Export support", href: "/export" },
+    ],
+    faqs: [
+      {
+        question: "What is a shipping container desiccant?",
+        answer: "A shipping container desiccant is a moisture-control product used inside containers to reduce condensation, humidity damage, and container rain risk.",
+      },
+      {
+        question: "How many desiccants are needed for a container?",
+        answer: "Quantity depends on container size, cargo type, route humidity, transit days, loading density, and packaging style.",
+      },
+      {
+        question: "Do container desiccants replace packet desiccants?",
+        answer: "No. Container desiccants protect the container environment, while packets protect products or cartons directly.",
+      },
+    ],
+  },
   drygelworld: {
     slug: "drygelworld",
     title: `${brandName} Official Website | Silica Gel Desiccant Supplier`,
