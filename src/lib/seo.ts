@@ -2,12 +2,17 @@ export const siteUrl = "https://www.drygelworld.com";
 
 export const siteName = "Dry Gel World";
 
+export const brandName = "DryGelWorld";
+
+export const brandDomain = "drygelworld.com";
+
 export const defaultSeoImage = "/opengraph-image";
 
 export const sitemapLastModified = "2026-05-07";
 
 export const coreSitemapRoutes = [
   "",
+  "/drygelworld",
   "/about",
   "/products",
   "/products/retail-sachets",

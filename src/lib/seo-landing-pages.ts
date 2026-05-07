@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, defaultSeoImage, siteName } from "@/lib/seo";
+import { absoluteUrl, brandDomain, brandName, defaultSeoImage, siteName } from "@/lib/seo";
 
 export type SeoLandingPage = {
   slug: string;
@@ -565,6 +565,94 @@ export const seoLandingPages = {
       },
     ],
   },
+  drygelworld: {
+    slug: "drygelworld",
+    title: `${brandName} Official Website | Silica Gel Desiccant Supplier`,
+    metaDescription:
+      "Official DryGelWorld.com brand page for industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS, COA, and worldwide buyer support.",
+    kicker: `Official ${brandName}.com`,
+    h1: "DryGelWorld is the official silica gel desiccant export brand for global B2B buyers.",
+    lead:
+      "DryGelWorld.com is the official website for Dry Gel World, built for procurement teams that need silica gel packets, bulk desiccant supply, container strips, private-label sachets, export documentation, and clear RFQ paths.",
+    searchIntent: "Brand intent: DryGelWorld, drygelworld.com, Dry Gel World silica gel supplier",
+    primaryCta: "Request DryGelWorld Quote",
+    secondaryCta: "View Products",
+    secondaryHref: "/products",
+    proofPoints: ["Official domain: drygelworld.com", "Silica gel export supplier", "SDS / COA support", "Global B2B RFQ path"],
+    heroImage: {
+      src: "/products/product-range-export-showcase.png",
+      alt: "DryGelWorld silica gel product range for export buyers",
+      caption: "Official DryGelWorld.com product path for silica gel packets, bulk supply, cargo strips, and private-label buyer programs.",
+      chips: ["DryGelWorld", "Official website", "B2B export", "Silica gel"],
+    },
+    fitTitle: "What DryGelWorld.com should be known for",
+    fitItems: [
+      {
+        label: "Brand",
+        title: "Exact-name official website",
+        text: "This page confirms DryGelWorld, Dry Gel World, and drygelworld.com as the official brand and domain for silica gel desiccant supply.",
+      },
+      {
+        label: "Products",
+        title: "Silica gel formats for procurement",
+        text: "Buyers can move from the brand page to packets, bulk silica gel, cargo strips, private label, documents, and export RFQ routes.",
+      },
+      {
+        label: "Trust",
+        title: "Clear buyer proof signals",
+        text: "Brand, product, documentation, and destination signals are grouped so search engines and buyers can understand the business faster.",
+      },
+    ],
+    specsTitle: "DryGelWorld brand and search signals",
+    specsIntro:
+      "New domains need clear entity signals. This page gives Google and procurement buyers an exact-match reference for the official brand name and website.",
+    specs: [
+      { label: "Official brand", value: brandName },
+      { label: "Trading name", value: "Dry Gel World" },
+      { label: "Official domain", value: brandDomain },
+      { label: "Primary category", value: "Industrial silica gel desiccant supplier and exporter" },
+      { label: "Core products", value: "Silica gel packets, bulk silica gel, container desiccant strips, private-label desiccant packets" },
+      { label: "Buyer path", value: "Product pages, technical guides, documents hub, quote form, WhatsApp RFQ" },
+    ],
+    buyingTitle: "How buyers should use DryGelWorld.com",
+    buyingIntro:
+      "The brand page should route buyers from a name search into the correct commercial path quickly.",
+    buyingSteps: [
+      {
+        title: "Start with product format",
+        text: "Choose packets, bulk desiccant, cargo strips, paper sachets, or private-label supply based on your packaging workflow.",
+      },
+      {
+        title: "Check document needs",
+        text: "Review SDS, COA, ISO, labeling, and compliance expectations before requesting shipment pricing.",
+      },
+      {
+        title: "Send a structured RFQ",
+        text: "Share quantity, destination, Incoterms, pack size, documentation needs, and repeat volume so DryGelWorld can respond with useful quote data.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Official homepage", href: "/" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Request quote", href: "/contact" },
+    ],
+    faqs: [
+      {
+        question: "Is DryGelWorld.com the official Dry Gel World website?",
+        answer: "Yes. DryGelWorld.com is the official website for Dry Gel World and is used for silica gel desiccant product information, export RFQs, and buyer support.",
+      },
+      {
+        question: "What does DryGelWorld supply?",
+        answer: "DryGelWorld supplies silica gel packets, bulk silica gel desiccants, cargo/container desiccant strips, paper sachets, and private-label desiccant packets for B2B buyers.",
+      },
+      {
+        question: "Why is the DryGelWorld brand page important for Google?",
+        answer: "A new domain needs exact brand-name signals, internal links, structured data, and sitemap inclusion so search engines can distinguish the brand from similar names.",
+      },
+    ],
+  },
   "silica-gel-manufacturer-exporter": {
     slug: "silica-gel-manufacturer-exporter",
     title: "Silica Gel Manufacturer Exporter | Dry Gel World",
@@ -688,7 +776,9 @@ export function landingPageJsonLd(page: SeoLandingPage) {
         url: absoluteUrl(`/${page.slug}`),
         isPartOf: {
           "@type": "WebSite",
-          name: siteName,
+          "@id": `${absoluteUrl()}#website`,
+          name: brandName,
+          alternateName: [siteName, "DryGelWorld.com", brandDomain],
           url: absoluteUrl(),
         },
       },
@@ -698,7 +788,9 @@ export function landingPageJsonLd(page: SeoLandingPage) {
         description: page.lead,
         provider: {
           "@type": "Organization",
-          name: siteName,
+          "@id": `${absoluteUrl()}#organization`,
+          name: brandName,
+          alternateName: [siteName, "DryGelWorld.com", brandDomain],
           url: absoluteUrl(),
         },
         areaServed: "Worldwide",

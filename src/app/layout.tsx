@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { absoluteUrl, brandDomain, brandName, siteName } from "@/lib/seo";
 import "./globals.css";
 
 const display = Montserrat({
@@ -26,10 +27,15 @@ const mono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drygelworld.com"),
-  title: "Dry Gel World | Industrial Silica Gel & Desiccant Export Supplier",
+  applicationName: brandName,
+  title: "DryGelWorld Official Site | Industrial Silica Gel & Desiccant Export Supplier",
   description:
-    "Factory-direct silica gel desiccant packets, bulk packs, cargo strips, private-label sachets, SDS/COA support, and worldwide export delivery for industrial packaging buyers.",
+    "Official DryGelWorld.com website for factory-direct silica gel desiccant packets, bulk packs, cargo strips, private-label sachets, SDS/COA support, and worldwide export delivery.",
   keywords: [
+    "DryGelWorld",
+    "DryGelWorld.com",
+    "drygelworld.com",
+    "Dry Gel World",
     "silica gel manufacturer",
     "silica gel manufacturer exporter",
     "bulk desiccant supplier",
@@ -48,11 +54,11 @@ export const metadata: Metadata = {
     "ISO 9001 silica gel supplier",
   ],
   openGraph: {
-    title: "Dry Gel World | Global Silica Gel Manufacturer Exporter",
+    title: "DryGelWorld | Official Silica Gel Manufacturer Exporter",
     description:
-      "Industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
+      "Official DryGelWorld.com industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
     url: "https://www.drygelworld.com",
-    siteName: "Dry Gel World",
+    siteName: brandName,
     images: [
       {
         url: "/opengraph-image",
@@ -75,7 +81,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dry Gel World | Silica Gel Manufacturer Exporter",
+    title: "DryGelWorld | Silica Gel Manufacturer Exporter",
     description:
       "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
     images: ["/opengraph-image"],
@@ -104,11 +110,13 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Organization",
-                  name: "Dry Gel World",
-                  alternateName: ["Dry Gel World", "Silica Gel Export Supply"],
-                  url: "https://www.drygelworld.com",
+                  "@id": `${absoluteUrl()}#organization`,
+                  name: brandName,
+                  legalName: siteName,
+                  alternateName: [siteName, "DryGelWorld.com", brandDomain, "Silica Gel Export Supply"],
+                  url: absoluteUrl(),
                   description:
-                    "Silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
+                    "DryGelWorld is a silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
                   contactPoint: {
                     "@type": "ContactPoint",
                     telephone: "+923330223337",
@@ -148,8 +156,13 @@ export default function RootLayout({
                 },
                 {
                   "@type": "WebSite",
-                  name: "Dry Gel World",
-                  url: "https://www.drygelworld.com",
+                  "@id": `${absoluteUrl()}#website`,
+                  name: brandName,
+                  alternateName: [siteName, "DryGelWorld.com", brandDomain],
+                  url: absoluteUrl(),
+                  publisher: {
+                    "@id": `${absoluteUrl()}#organization`,
+                  },
                   potentialAction: {
                     "@type": "SearchAction",
                     target: "https://www.drygelworld.com/products?query={search_term_string}",

@@ -36,6 +36,7 @@ const footerGroups = [
   {
     title: "Buyer Resources",
     links: [
+      { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Technical FAQ", href: "/faq" },
       { label: "Buyer guides", href: "/blog" },
       { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
@@ -84,7 +85,7 @@ export function SiteFooter() {
       </div>
 
       <div className={styles.bottom}>
-        <span><strong>Dry Gel World</strong> industrial silica gel and desiccant export supply.</span>
+        <span><strong>DryGelWorld.com</strong> official Dry Gel World website for industrial silica gel and desiccant export supply.</span>
         <a href={`tel:${phoneHref}`}>{displayPhone}</a>
       </div>
     </footer>
