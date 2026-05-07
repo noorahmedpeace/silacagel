@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./dispensers.module.css";
 
 export const metadata: Metadata = {
@@ -72,7 +73,7 @@ export default function DispensersPage() {
                   </div>
                 ))}
               </div>
-              <a href="/contact" className={styles.ctaBtn}>Request Machinery Quote →</a>
+              <Link href="/contact" className={styles.ctaBtn}>Request Machinery Quote →</Link>
             </div>
           </article>
         ))}

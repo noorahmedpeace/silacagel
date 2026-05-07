@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import styles from "./about.module.css";
 
@@ -111,7 +112,7 @@ export default function AboutPage() {
             Share your product format, quantity, destination, and documents needed so the
             procurement response is clearer from the first message.
           </p>
-          <a href="/contact" className={styles.ctaBtn}>Start Procurement Request</a>
+          <Link href="/contact" className={styles.ctaBtn}>Start Procurement Request</Link>
         </section>
       </Reveal>
     </main>

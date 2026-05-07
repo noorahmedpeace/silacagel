@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./faq.module.css";
 
 export type FaqItem = {
@@ -32,7 +33,7 @@ export function FAQContent({ faqs }: { faqs: FaqItem[] }) {
       <section className={styles.ctaBanner}>
         <h2>Still Have a Technical Question?</h2>
         <p>Our industrial chemistry team responds within 24 hours for all B2B procurement queries.</p>
-        <a href="/contact" className={styles.ctaBtn}>Ask Our Experts -&gt;</a>
+        <Link href="/contact" className={styles.ctaBtn}>Ask Our Experts -&gt;</Link>
       </section>
     </>
   );
