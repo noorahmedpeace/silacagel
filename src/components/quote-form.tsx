@@ -16,6 +16,8 @@ export function QuoteForm({
   compact = false,
   defaultProduct = "",
 }: QuoteFormProps) {
+  const hasDefaultProductOption =
+    defaultProduct.length > 0 && productCatalog.some((item) => item.name === defaultProduct);
   const [product, setProduct] = useState(defaultProduct);
   const [company, setCompany] = useState("");
   const [email, setEmail] = useState("");
@@ -94,6 +96,9 @@ export function QuoteForm({
           <span>Product Type / Format</span>
           <select value={product} onChange={(event) => setProduct(event.target.value)}>
             <option value="">Select silica gel format</option>
+            {defaultProduct && !hasDefaultProductOption ? (
+              <option value={defaultProduct}>{defaultProduct}</option>
+            ) : null}
             {productCatalog.map((item) => (
               <option key={item.slug} value={item.name}>
                 {item.name}

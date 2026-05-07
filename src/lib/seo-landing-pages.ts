@@ -13,6 +13,12 @@ export type SeoLandingPage = {
   secondaryCta: string;
   secondaryHref: string;
   proofPoints: string[];
+  heroImage?: {
+    src: string;
+    alt: string;
+    caption: string;
+    chips: string[];
+  };
   fitTitle: string;
   fitItems: Array<{
     label: string;
@@ -25,6 +31,30 @@ export type SeoLandingPage = {
     label: string;
     value: string;
   }>;
+  sizeGuide?: {
+    title: string;
+    intro: string;
+    rows: Array<{
+      size: string;
+      bestFor: string;
+      buyerNote: string;
+    }>;
+  };
+  comparison?: {
+    title: string;
+    intro: string;
+    columns: [string, string, string];
+    rows: Array<{
+      label: string;
+      values: [string, string, string];
+    }>;
+  };
+  quoteChecklist?: {
+    title: string;
+    intro: string;
+    items: string[];
+    defaultProduct: string;
+  };
   buyingTitle: string;
   buyingIntro: string;
   buyingSteps: Array<{
@@ -56,6 +86,12 @@ export const seoLandingPages = {
     secondaryCta: "View Product Range",
     secondaryHref: "/products",
     proofPoints: ["0.5g to 20g packet range", "SDS / COA on request", "Private-label discussion", "Worldwide export support"],
+    heroImage: {
+      src: "/products/white-nonindicating-clean-sachets.png",
+      alt: "Clean white silica gel packets with clear beads for industrial packaging",
+      caption: "Clean white non-indicating silica gel packets for cartons, unit packaging, and repeat export orders.",
+      chips: ["White non-indicating", "Carton-ready", "0.5g-20g", "Private label"],
+    },
     fitTitle: "Where silica gel packets fit best",
     fitItems: [
       {
@@ -84,6 +120,87 @@ export const seoLandingPages = {
       { label: "Documents", value: "SDS, COA, ISO 9001:2015, DMF-free support on request" },
       { label: "Quote basis", value: "Size, quantity, carton packing, destination, and Incoterms" },
     ],
+    sizeGuide: {
+      title: "Silica gel packet size guide for buyers",
+      intro:
+        "Use this as a starting point for RFQs. Final sizing should still consider carton volume, product sensitivity, packaging film, storage time, and destination humidity.",
+      rows: [
+        {
+          size: "0.5g-1g",
+          bestFor: "Small electronic accessories, pill bottles, precision parts, compact unit packs",
+          buyerNote: "Best when the packet sits directly inside small individual packaging.",
+        },
+        {
+          size: "2g-3g",
+          bestFor: "Medium retail boxes, accessories, small leather goods, tools, consumer electronics",
+          buyerNote: "Common first quote range when carton risk is moderate and unit packs are not tiny.",
+        },
+        {
+          size: "5g-10g",
+          bestFor: "Export cartons, footwear boxes, garments, instruments, larger electronics packaging",
+          buyerNote: "Good for buyers who need stronger carton-level protection without moving to bulk bags.",
+        },
+        {
+          size: "20g+",
+          bestFor: "Larger cartons, warehouse stock, mixed cartons, high-humidity logistics routes",
+          buyerNote: "Use when product sensitivity or transit exposure is higher than standard unit packaging.",
+        },
+      ],
+    },
+    comparison: {
+      title: "Silica gel packets vs bulk bags vs container strips",
+      intro:
+        "Buyers often search for packets but actually need a different format. This comparison routes them to the right quote path before sales starts.",
+      columns: ["Silica gel packets", "Bulk silica gel", "Container strips"],
+      rows: [
+        {
+          label: "Best use",
+          values: [
+            "Inside product packaging, retail boxes, master cartons",
+            "Repacking, warehouse use, distributors, industrial stock",
+            "20ft/40ft containers and long-haul sea freight",
+          ],
+        },
+        {
+          label: "Quote unit",
+          values: [
+            "Packet size and number of units",
+            "Kg, pallet, or monthly tonnage",
+            "Strip weight, strip count, route, and container size",
+          ],
+        },
+        {
+          label: "Main buyer risk",
+          values: [
+            "Moisture inside product/carton packaging",
+            "Humidity across inventory or repacking operations",
+            "Container rain, condensation, and route humidity",
+          ],
+        },
+        {
+          label: "Best next page",
+          values: [
+            "/products/retail-sachets",
+            "/bulk-silica-gel-desiccant",
+            "/container-desiccant-strips",
+          ],
+        },
+      ],
+    },
+    quoteChecklist: {
+      title: "Packet quote checklist",
+      intro:
+        "A serious silica gel packet RFQ should include these fields so the export desk can answer MOQ, lead time, documents, and dispatch path without guessing.",
+      defaultProduct: "Silica gel packets / desiccant sachets",
+      items: [
+        "Packet size or expected gram range",
+        "Monthly or shipment quantity",
+        "Product category and packaging type",
+        "Destination country, port, or city",
+        "Incoterms preference: FOB, CIF, EXW, or DAP",
+        "SDS, COA, ISO, DMF-free, or private-label requirements",
+      ],
+    },
     buyingTitle: "How procurement should request silica gel packets",
     buyingIntro:
       "Generic messages slow the quote. These inputs let the export desk recommend a realistic format and shipment path.",

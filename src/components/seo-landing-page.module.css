@@ -131,6 +131,69 @@
   margin-top: 6px;
 }
 
+.visualCard {
+  position: relative;
+  min-height: 310px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 197, 0.16);
+  border-radius: 8px;
+  background: #dfe8f1;
+  box-shadow: 0 22px 46px -36px rgba(16, 24, 32, 0.46);
+}
+
+.visualImage {
+  object-fit: cover;
+}
+
+.visualScrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 19, 32, 0.02), rgba(8, 19, 32, 0.58)),
+    radial-gradient(circle at 12% 12%, rgba(255, 255, 255, 0.36), transparent 24%);
+}
+
+.visualCaption {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.visualCaption p {
+  max-width: 36ch;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 850;
+  line-height: 1.45;
+  text-shadow: 0 10px 22px rgba(0, 0, 0, 0.34);
+}
+
+.visualCaption div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.visualCaption span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 0 10px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #064a91;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(12px);
+}
+
 .proofItem {
   display: flex;
   align-items: center;
@@ -269,6 +332,194 @@
   font-weight: 700;
 }
 
+.sizeGuideGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.sizeGuideCard {
+  position: relative;
+  min-height: 230px;
+  overflow: hidden;
+  padding: 22px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 103, 197, 0.13), transparent 34%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 254, 0.92));
+  box-shadow: 0 18px 38px -32px rgba(16, 24, 32, 0.22);
+}
+
+.sizeGuideCard::after {
+  content: "";
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 103, 197, 0.16);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.96), transparent 28%),
+    linear-gradient(135deg, rgba(219, 234, 254, 0.86), rgba(0, 103, 197, 0.12));
+}
+
+.sizeGuideCard span {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  margin-bottom: 46px;
+  border-radius: 999px;
+  padding: 0 12px;
+  background: var(--industrial-blue);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.sizeGuideCard h3 {
+  margin-bottom: 12px;
+  color: var(--ink);
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.sizeGuideCard p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1.62;
+}
+
+.comparisonTable {
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 22px 42px -36px rgba(16, 24, 32, 0.24);
+}
+
+.comparisonHeader,
+.comparisonRow {
+  display: grid;
+  grid-template-columns: 0.78fr repeat(3, minmax(0, 1fr));
+}
+
+.comparisonHeader {
+  background: linear-gradient(135deg, #0f1b2d, #173a62);
+  color: #ffffff;
+}
+
+.comparisonHeader strong,
+.comparisonRow strong,
+.comparisonRow span {
+  min-width: 0;
+  padding: 17px 16px;
+  border-right: 1px solid rgba(16, 24, 32, 0.08);
+}
+
+.comparisonHeader strong:last-child,
+.comparisonRow span:last-child {
+  border-right: 0;
+}
+
+.comparisonHeader strong {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.comparisonRow {
+  border-bottom: 1px solid rgba(16, 24, 32, 0.07);
+}
+
+.comparisonRow:last-child {
+  border-bottom: 0;
+}
+
+.comparisonRow strong {
+  background: rgba(0, 103, 197, 0.05);
+  color: #064a91;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.comparisonRow span {
+  color: #26384f;
+  font-size: 0.88rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.comparisonRow a {
+  color: var(--industrial-blue);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+.quoteSection {
+  grid-template-columns: minmax(0, 0.82fr) minmax(420px, 1.18fr);
+  align-items: start;
+  background:
+    radial-gradient(circle at 86% 12%, rgba(0, 103, 197, 0.16), transparent 32%),
+    linear-gradient(135deg, rgba(248, 251, 255, 0.99), rgba(255, 255, 255, 0.94));
+}
+
+.quoteChecklist {
+  display: grid;
+  gap: 22px;
+}
+
+.quoteChecklist ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.quoteChecklist li {
+  position: relative;
+  padding: 14px 16px 14px 42px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #23364f;
+  font-size: 0.92rem;
+  font-weight: 850;
+  line-height: 1.4;
+}
+
+.quoteChecklist li::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 17px;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 0 5px rgba(216, 13, 42, 0.1);
+}
+
+.quoteFormShell {
+  min-width: 0;
+}
+
+.quoteFormShell :global(form) {
+  border-radius: 8px;
+}
+
 .related {
   display: flex;
   min-height: 116px;
@@ -346,11 +597,29 @@
   .cardGrid,
   .stepGrid,
   .relatedGrid,
-  .faqGrid {
+  .faqGrid,
+  .sizeGuideGrid {
     grid-template-columns: 1fr;
   }
 
+  .visualCard {
+    min-height: 260px;
+  }
+
   .specRow {
+    grid-template-columns: 1fr;
+  }
+
+  .comparisonTable {
+    overflow-x: auto;
+  }
+
+  .comparisonHeader,
+  .comparisonRow {
+    min-width: 780px;
+  }
+
+  .quoteSection {
     grid-template-columns: 1fr;
   }
 

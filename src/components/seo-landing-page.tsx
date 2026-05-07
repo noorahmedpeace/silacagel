@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { QuoteForm } from "@/components/quote-form";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
@@ -27,6 +29,27 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </div>
 
         <aside className={styles.proofPanel} aria-label="Procurement proof points">
+          {page.heroImage ? (
+            <div className={styles.visualCard}>
+              <Image
+                src={page.heroImage.src}
+                alt={page.heroImage.alt}
+                fill
+                className={styles.visualImage}
+                sizes="(max-width: 1080px) 100vw, 38vw"
+                priority
+              />
+              <div className={styles.visualScrim} />
+              <div className={styles.visualCaption}>
+                <p>{page.heroImage.caption}</p>
+                <div>
+                  {page.heroImage.chips.map((chip) => (
+                    <span key={chip}>{chip}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : null}
           <div>
             <span className={styles.kicker}>Buyer proof</span>
             <h2>Quote-ready details buyers check before contacting a supplier.</h2>
@@ -73,6 +96,55 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </div>
       </section>
 
+      {page.sizeGuide ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.sizeGuide.title}</h2>
+            <p>{page.sizeGuide.intro}</p>
+          </div>
+          <div className={styles.sizeGuideGrid}>
+            {page.sizeGuide.rows.map((row) => (
+              <article className={styles.sizeGuideCard} key={row.size}>
+                <span>{row.size}</span>
+                <h3>{row.bestFor}</h3>
+                <p>{row.buyerNote}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {page.comparison ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.comparison.title}</h2>
+            <p>{page.comparison.intro}</p>
+          </div>
+          <div className={styles.comparisonTable}>
+            <div className={styles.comparisonHeader}>
+              <strong>Buyer question</strong>
+              {page.comparison.columns.map((column) => (
+                <strong key={column}>{column}</strong>
+              ))}
+            </div>
+            {page.comparison.rows.map((row) => (
+              <div className={styles.comparisonRow} key={row.label}>
+                <strong>{row.label}</strong>
+                {row.values.map((value, index) => (
+                  <span key={`${row.label}-${page.comparison?.columns[index]}`}>
+                    {value.startsWith("/") ? (
+                      <Link href={value}>Open {page.comparison?.columns[index]} page</Link>
+                    ) : (
+                      value
+                    )}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>{page.buyingTitle}</h2>
@@ -88,6 +160,29 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           ))}
         </div>
       </section>
+
+      {page.quoteChecklist ? (
+        <section className={`${styles.section} ${styles.quoteSection}`}>
+          <div className={styles.quoteChecklist}>
+            <div className={styles.sectionHead}>
+              <h2>{page.quoteChecklist.title}</h2>
+              <p>{page.quoteChecklist.intro}</p>
+            </div>
+            <ul>
+              {page.quoteChecklist.items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className={styles.quoteFormShell}>
+            <QuoteForm
+              title="Request Silica Gel Packet Quote"
+              compact
+              defaultProduct={page.quoteChecklist.defaultProduct}
+            />
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.ctaBand}>
         <div>
