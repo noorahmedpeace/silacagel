@@ -68,6 +68,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  verification: {
+    google: "DF-Lv79GdccoyRnUPdGDn3Lgp521O_gBJ-ejnmtCDBk",
+  },
   twitter: {
     card: "summary_large_image",
     title: "Dry Gel World | Silica Gel Manufacturer Exporter",
