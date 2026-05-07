@@ -176,7 +176,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           </div>
           <div className={styles.quoteFormShell}>
             <QuoteForm
-              title="Request Silica Gel Packet Quote"
+              title={page.quoteChecklist.formTitle}
               compact
               defaultProduct={page.quoteChecklist.defaultProduct}
             />

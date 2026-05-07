@@ -51,6 +51,7 @@ export type SeoLandingPage = {
   };
   quoteChecklist?: {
     title: string;
+    formTitle: string;
     intro: string;
     items: string[];
     defaultProduct: string;
@@ -189,6 +190,7 @@ export const seoLandingPages = {
     },
     quoteChecklist: {
       title: "Packet quote checklist",
+      formTitle: "Request Silica Gel Packet Quote",
       intro:
         "A serious silica gel packet RFQ should include these fields so the export desk can answer MOQ, lead time, documents, and dispatch path without guessing.",
       defaultProduct: "Silica gel packets / desiccant sachets",
@@ -252,6 +254,12 @@ export const seoLandingPages = {
     secondaryCta: "Use Calculator",
     secondaryHref: "/bulk-sales",
     proofPoints: ["25kg loose bags", "250g / 500g packs", "Pallet planning", "Recurring supply quotes"],
+    heroImage: {
+      src: "/products/premium-bulk-supply.png",
+      alt: "Bulk silica gel desiccant bags and clear beads in a warehouse supply setting",
+      caption: "Bulk silica gel desiccant supply for repackers, distributors, warehouses, and repeat industrial procurement.",
+      chips: ["25kg loose bags", "250g-500g packs", "Pallet-ready", "Repeat supply"],
+    },
     fitTitle: "Best-fit bulk desiccant buyers",
     fitItems: [
       {
@@ -280,6 +288,88 @@ export const seoLandingPages = {
       { label: "Documents", value: "SDS, COA, ISO 9001:2015 support on request" },
       { label: "Commercial basis", value: "Quoted by kg, pallet, route, MOQ, and repeat volume" },
     ],
+    sizeGuide: {
+      title: "Bulk silica gel format guide",
+      intro:
+        "Use this guide to describe your order clearly. Bulk desiccant pricing changes by format, bag size, pallet plan, monthly volume, and destination route.",
+      rows: [
+        {
+          size: "25kg loose",
+          bestFor: "Distributors, repackers, warehouse stock, and industrial users buying by weight",
+          buyerNote: "Best when the buyer handles downstream packing, internal use, or regional resale.",
+        },
+        {
+          size: "25g-100g",
+          bestFor: "Heavy cartons, instruments, machinery parts, and larger packaged goods",
+          buyerNote: "Useful when standard small sachets are too light for the carton risk.",
+        },
+        {
+          size: "250g-500g",
+          bestFor: "Export cartons, palletized stock, warehousing, and high-humidity storage programs",
+          buyerNote: "Good for carton-level or inventory-level moisture control before moving to cargo strips.",
+        },
+        {
+          size: "Pallet / tonnage",
+          bestFor: "Recurring industrial supply, importers, distributors, and quarterly procurement cycles",
+          buyerNote: "Quote with destination, packing, Incoterms, and repeat volume so pricing is realistic.",
+        },
+      ],
+    },
+    comparison: {
+      title: "Bulk silica gel vs packets vs container strips",
+      intro:
+        "Bulk buyers often need more than one format. Use this comparison to separate repacking supply, carton protection, and container-level moisture control.",
+      columns: ["Bulk silica gel", "Silica gel packets", "Container strips"],
+      rows: [
+        {
+          label: "Best use",
+          values: [
+            "Warehouse stock, repacking, distributors, large bag programs",
+            "Inside product packaging, retail boxes, master cartons",
+            "20ft/40ft containers and sea-freight condensation risk",
+          ],
+        },
+        {
+          label: "Quote unit",
+          values: [
+            "Kg, tons, pallet count, repeat monthly volume",
+            "Packet size, unit count, carton packing, private-label text",
+            "Strip count, strip weight, container size, route, transit days",
+          ],
+        },
+        {
+          label: "Procurement risk",
+          values: [
+            "Wrong pack format, unclear pallet plan, weak repeat-volume data",
+            "Wrong gram size or missing warning/document requirements",
+            "Underestimating container rain and route humidity exposure",
+          ],
+        },
+        {
+          label: "Best next page",
+          values: [
+            "/products/bulk-industrial",
+            "/silica-gel-packets",
+            "/container-desiccant-strips",
+          ],
+        },
+      ],
+    },
+    quoteChecklist: {
+      title: "Bulk quote checklist",
+      formTitle: "Request Bulk Silica Gel Quote",
+      intro:
+        "A serious bulk silica gel RFQ should make the commercial unit clear: loose kg, finished packs, pallet count, destination, repeat schedule, and documents.",
+      defaultProduct: "Bulk silica gel desiccant / industrial packs",
+      items: [
+        "Loose silica gel, finished bags, or both",
+        "Required weight: kg, tons, pallet count, or monthly volume",
+        "Pack size target: 25kg, 25g-100g, 250g, 500g, or custom",
+        "Destination country, port, or city",
+        "Incoterms preference: FOB, CIF, EXW, DAP, or buyer pickup",
+        "SDS, COA, ISO, labeling, or private-pack requirements",
+      ],
+    },
     buyingTitle: "How to request a bulk silica gel quote",
     buyingIntro:
       "A proper bulk quote should include weight, packing, destination, and whether the order repeats monthly or quarterly.",
