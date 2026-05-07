@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 96px;
 }
 
 html,
@@ -34,7 +34,7 @@ body {
 
 body {
   min-height: 100vh;
-  padding-top: 92px;
+  padding-top: 128px;
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -157,7 +157,7 @@ button {
 
 @media (max-width: 760px) {
   body {
-    padding-top: 180px;
+    padding-top: 224px;
   }
 }
 

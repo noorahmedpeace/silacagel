@@ -138,14 +138,6 @@ const heroCerts = [
   "Bulk Supply",
 ];
 
-const announcementStats = [
-  { value: "Serving since 1983", label: "Industrial moisture control" },
-  { value: "10+ million", label: "Silica gel packets supplied" },
-  { value: "10,000+", label: "Happy customers supported" },
-  { value: "40+", label: "Custom categories" },
-  { value: "Worldwide", label: "Delivery support available" },
-];
-
 const procurementFlow = [
   {
     step: "01",
@@ -512,17 +504,6 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.shell} ref={heroRef}>
         <main id="top" className={styles.main}>
-          <section className={styles.announcementBar} aria-label="Dry Gel World supply highlights">
-            <div className={styles.announcementTrack}>
-              {[...announcementStats, ...announcementStats].map((item, index) => (
-                <div className={styles.announcementItem} key={`${item.value}-${index}`}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-
           <section className={styles.hero} id="hero">
             <Image
               id="hero-product-image"
