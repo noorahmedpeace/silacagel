@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { productCatalog } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
+
+export const metadata: Metadata = {
+  title: "Silica Gel Products | Sachets, Bulk Packs & Cargo Strips",
+  description:
+    "Browse Dry Gel World silica gel desiccant products including small sachets, paper packets, bulk industrial bags, and container cargo strips for export buyers.",
+  alternates: {
+    canonical: "/products",
+  },
+};
 
 const catalogImages: Record<string, string> = {
   "retail-sachets": "/products/catalog-white-nonindicating.png",

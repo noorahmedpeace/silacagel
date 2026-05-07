@@ -1,6 +1,15 @@
-"use client";
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./videos.module.css";
+
+export const metadata: Metadata = {
+  title: "Silica Gel Videos | Desiccant Product Education",
+  description:
+    "Watch silica gel desiccant education videos covering adsorption science, packet use, container strips, reactivation, and packaging-line moisture protection.",
+  alternates: {
+    canonical: "/videos",
+  },
+};
 
 const videos = [
   { title: "Color-Change Saturation Guide", desc: "Watch silica gel beads transition from indicating orange to clear, demonstrating real-time moisture absorption for lab and consumer use.", tag: "Materials Science", duration: "4:32" },

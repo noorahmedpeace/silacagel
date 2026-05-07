@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Silica Gel Manufacturer Exporter | Bulk Desiccant Supply",
   description:
     "Export-ready silica gel desiccant packets, cargo strips, bulk beads, SDS, COA, Incoterms, and logistics support for international packaging buyers.",
+  alternates: {
+    canonical: "/export",
+  },
 };
 
 const exportBlocks = [

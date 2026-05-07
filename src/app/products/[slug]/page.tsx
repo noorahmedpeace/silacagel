@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
+import { absoluteUrl, siteName } from "@/lib/seo";
 import {
   displayPhone,
   getProductBySlug,
@@ -109,6 +110,18 @@ export async function generateMetadata({
     description: `${product.summary} ${product.priceBand}. Factory-direct inquiries available on ${displayPhone}.`,
     alternates: {
       canonical: `/products/${product.slug}`,
+    },
+    openGraph: {
+      title: `${product.name} | Dry Gel World`,
+      description: product.summary,
+      url: `/products/${product.slug}`,
+      images: [
+        {
+          url: product.heroImage,
+          alt: product.name,
+        },
+      ],
+      type: "website",
     },
   };
 }
@@ -334,6 +347,42 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </section>
           </Reveal>
         </main>
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: product.name,
+              description: product.description,
+              category: "Industrial silica gel desiccants",
+              brand: {
+                "@type": "Brand",
+                name: siteName,
+              },
+              manufacturer: {
+                "@type": "Organization",
+                name: siteName,
+                url: absoluteUrl(),
+              },
+              image: absoluteUrl(product.heroImage),
+              url: absoluteUrl(`/products/${product.slug}`),
+              additionalProperty: [
+                {
+                  "@type": "PropertyValue",
+                  name: "Available sizes",
+                  value: product.featuredSizes.join(", "),
+                },
+                {
+                  "@type": "PropertyValue",
+                  name: "Lead time",
+                  value: product.leadTime,
+                },
+              ],
+            }),
+          }}
+        />
       </div>
     </div>
   );

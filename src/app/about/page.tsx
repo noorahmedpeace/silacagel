@@ -1,8 +1,16 @@
-"use client";
-
+import type { Metadata } from "next";
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import styles from "./about.module.css";
+
+export const metadata: Metadata = {
+  title: "About Dry Gel World | Global Silica Gel Export Supplier",
+  description:
+    "Learn how Dry Gel World supports manufacturers, exporters, warehouses, and packaging buyers with silica gel desiccant formats for global moisture-control supply chains.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const stats = [
   { value: "40+", label: "Years in moisture control" },

@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import { PriceCalculator } from "@/components/price-calculator";
 import { priceGroups } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "./bulk-sales.module.css";
+
+export const metadata: Metadata = {
+  title: "Bulk Silica Gel Sales | Industrial Desiccant Quote Planning",
+  description:
+    "Plan bulk silica gel desiccant requirements by product format, quantity, and estimated weight before requesting an export quote from Dry Gel World.",
+  alternates: {
+    canonical: "/bulk-sales",
+  },
+};
 
 export default function BulkSalesPage() {
   return (

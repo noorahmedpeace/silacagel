@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Silica Gel Export Knowledge Center | Desiccant Buyer Guides",
   description:
     "Technical buyer guides for silica gel packets, desiccant sizing, container rain, SDS, COA, indicating gel, and export packaging moisture control.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Anonymous Silica Gel Case Studies | Buyer Proof",
   description:
     "Buyer-safe silica gel desiccant case studies for leather export, electronics packaging, and container shipment planning.",
+  alternates: {
+    canonical: "/case-studies",
+  },
 };
 
 const caseStudies = [

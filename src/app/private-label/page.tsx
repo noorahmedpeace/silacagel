@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Private Label Desiccant Packets | OEM Silica Gel Sachets",
   description:
     "Private-label silica gel sachets, printed desiccant packets, export cartons, and distributor-ready bulk packaging for B2B moisture-control buyers.",
+  alternates: {
+    canonical: "/private-label",
+  },
 };
 
 const privateLabelBlocks = [

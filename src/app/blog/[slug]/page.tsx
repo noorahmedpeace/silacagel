@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { absoluteUrl, siteName, sitemapLastModified } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getBlogArticle } from "../articles";
 
@@ -31,6 +32,12 @@ export async function generateMetadata({
     description: article.description,
     alternates: {
       canonical: `/blog/${article.slug}`,
+    },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `/blog/${article.slug}`,
+      type: "article",
     },
   };
 }
@@ -93,6 +100,32 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           </Link>
         </section>
       </article>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: article.title,
+            description: article.description,
+            datePublished: sitemapLastModified,
+            dateModified: sitemapLastModified,
+            author: {
+              "@type": "Organization",
+              name: siteName,
+              url: absoluteUrl(),
+            },
+            publisher: {
+              "@type": "Organization",
+              name: siteName,
+              url: absoluteUrl(),
+            },
+            mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
+            url: absoluteUrl(`/blog/${article.slug}`),
+          }),
+        }}
+      />
     </main>
   );
 }

@@ -1,6 +1,15 @@
-"use client";
+import type { Metadata } from "next";
 import Image from "next/image";
 import styles from "./dispensers.module.css";
+
+export const metadata: Metadata = {
+  title: "Desiccant Dispensers | Silica Gel Packet Automation",
+  description:
+    "Explore desiccant dispensing equipment for packaging lines, including silica gel packet insertion support for pharma, food, and industrial production workflows.",
+  alternates: {
+    canonical: "/dispensers",
+  },
+};
 
 const machines = [
   {
