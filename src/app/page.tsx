@@ -201,18 +201,38 @@ const seoClusters = [
   {
     title: "Product intent",
     keywords: "silica gel packets, bulk silica gel desiccant, non indicating silica gel, indicating silica gel, container desiccant strips",
+    links: [
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Container strips", href: "/container-desiccant-strips" },
+    ],
   },
   {
     title: "Industry intent",
     keywords: "silica gel for electronics packaging, desiccant for pharma packaging, silica gel for leather export, desiccant for food packaging",
+    links: [
+      { label: "Electronics", href: "/industries/electronics-packaging" },
+      { label: "Pharma", href: "/industries/pharma-packaging" },
+      { label: "Leather", href: "/industries/leather-footwear-export" },
+    ],
   },
   {
     title: "Export intent",
     keywords: "silica gel manufacturer exporter, bulk desiccant supplier, private label desiccant packets, silica gel supplier Pakistan Asia global",
+    links: [
+      { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Export support", href: "/export" },
+    ],
   },
   {
     title: "Compliance intent",
     keywords: "silica gel SDS, COA silica gel, DMF free desiccant, RoHS REACH desiccant",
+    links: [
+      { label: "Documents", href: "/documents" },
+      { label: "FAQ", href: "/faq" },
+      { label: "Buyer guides", href: "/blog" },
+    ],
   },
 ];
 
@@ -1265,6 +1285,13 @@ export default function Home() {
                   <article key={cluster.title} className={styles.seoClusterCard}>
                     <h3>{cluster.title}</h3>
                     <p>{cluster.keywords}</p>
+                    <div className={styles.seoClusterLinks}>
+                      {cluster.links.map((link) => (
+                        <Link href={link.href} key={link.href}>
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
                   </article>
                 ))}
               </div>
