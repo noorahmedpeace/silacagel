@@ -169,35 +169,45 @@ export default function RootLayout({
                     areaServed: "Worldwide",
                     availableLanguage: ["en"],
                   },
-                  makesOffer: [
-                    {
-                      "@type": "Offer",
-                      itemOffered: {
-                        "@type": "Product",
-                        name: "Silica gel desiccant sachets",
-                        category: "Industrial desiccants",
-                        material: "Silicon dioxide",
+                  hasOfferCatalog: {
+                    "@type": "OfferCatalog",
+                    name: "Industrial silica gel and desiccant supply programs",
+                    itemListElement: [
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Silica gel desiccant sachet supply",
+                          serviceType: "Industrial desiccant procurement",
+                          category: "Industrial desiccants",
+                          material: "Silicon dioxide",
+                          areaServed: "Worldwide",
+                        },
                       },
-                    },
-                    {
-                      "@type": "Offer",
-                      itemOffered: {
-                        "@type": "Product",
-                        name: "Silica gel cargo strips",
-                        category: "Export moisture control",
-                        material: "Silicon dioxide",
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Silica gel cargo strip supply",
+                          serviceType: "Export moisture-control procurement",
+                          category: "Container and cargo desiccants",
+                          material: "Silicon dioxide",
+                          areaServed: "Worldwide",
+                        },
                       },
-                    },
-                    {
-                      "@type": "Offer",
-                      itemOffered: {
-                        "@type": "Product",
-                        name: "Private label desiccant packets",
-                        category: "OEM packaging",
-                        material: "Silicon dioxide",
+                      {
+                        "@type": "Offer",
+                        itemOffered: {
+                          "@type": "Service",
+                          name: "Private label desiccant packet supply",
+                          serviceType: "OEM desiccant packaging",
+                          category: "Private-label industrial packaging",
+                          material: "Silicon dioxide",
+                          areaServed: "Worldwide",
+                        },
                       },
-                    },
-                  ],
+                    ],
+                  },
                 },
                 {
                   "@type": "WebSite",

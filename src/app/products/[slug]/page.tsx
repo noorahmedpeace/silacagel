@@ -355,19 +355,21 @@ export default async function ProductPage({ params }: ProductPageProps) {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Product",
-                  name: product.name,
+                  "@type": "Service",
+                  name: `${product.name} supply`,
                   description: product.description,
-                  category: "Industrial silica gel desiccants",
+                  serviceType: "Industrial silica gel desiccant procurement",
+                  category: "Industrial moisture-control supply",
                   brand: {
                     "@type": "Brand",
                     name: siteName,
                   },
-                  manufacturer: {
+                  provider: {
                     "@type": "Organization",
                     name: siteName,
                     url: absoluteUrl(),
                   },
+                  areaServed: "Worldwide",
                   image: absoluteUrl(product.heroImage),
                   url: absoluteUrl(`/products/${product.slug}`),
                   additionalProperty: [
