@@ -1,12 +1,27 @@
-export const siteUrl = "https://www.drygelworld.com";
+function publicEnv(name: string, fallback: string) {
+  return process.env[name]?.trim() || fallback;
+}
 
-export const siteName = "Dry Gel World";
+function withoutTrailingSlash(value: string) {
+  return value.replace(/\/+$/, "");
+}
 
-export const brandName = "DryGelWorld";
+export const siteUrl = withoutTrailingSlash(
+  publicEnv("NEXT_PUBLIC_SITE_URL", "https://www.drygelworld.com"),
+);
 
-export const brandDomain = "drygelworld.com";
+export const siteName = publicEnv("NEXT_PUBLIC_SITE_NAME", "Dry Gel World");
 
-export const defaultSeoImage = "/opengraph-image";
+export const brandName = publicEnv("NEXT_PUBLIC_BRAND_NAME", "DryGelWorld");
+
+export const brandDomain = publicEnv("NEXT_PUBLIC_BRAND_DOMAIN", "drygelworld.com");
+
+export const defaultSeoImage = publicEnv("NEXT_PUBLIC_DEFAULT_SEO_IMAGE", "/opengraph-image");
+
+export const googleSiteVerification =
+  process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim() ||
+  "DF-Lv79GdccoyRnUPdGDn3Lgp521O_gBJ-ejnmtCDBk";
 
 export const sitemapLastModified = "2026-05-08";
 

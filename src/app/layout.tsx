@@ -4,7 +4,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { absoluteUrl, brandDomain, brandName, siteName } from "@/lib/seo";
+import { companyCity, companyCountry, phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
+import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const display = Montserrat({
@@ -83,7 +84,7 @@ export const metadata: Metadata = {
     title: "DryGelWorld | Official Silica Gel Manufacturer Exporter",
     description:
       "Official DryGelWorld.com industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
-    url: "https://www.drygelworld.com",
+    url: siteUrl,
     siteName: brandName,
     images: [
       {
@@ -115,7 +116,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   verification: {
-    google: "DF-Lv79GdccoyRnUPdGDn3Lgp521O_gBJ-ejnmtCDBk",
+    google: googleSiteVerification,
   },
   twitter: {
     card: "summary_large_image",
@@ -131,6 +132,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const salesContactPoint = {
+    "@type": "ContactPoint",
+    telephone: phoneHref,
+    contactType: "sales",
+    areaServed: serviceArea,
+    availableLanguage: ["en"],
+    ...(salesEmail ? { email: salesEmail } : {}),
+  };
+
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
@@ -162,13 +172,12 @@ export default function RootLayout({
                   image: absoluteUrl("/opengraph-image"),
                   description:
                     "DryGelWorld is a silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
-                  contactPoint: {
-                    "@type": "ContactPoint",
-                    telephone: "+923330223337",
-                    contactType: "sales",
-                    areaServed: "Worldwide",
-                    availableLanguage: ["en"],
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: companyCity,
+                    addressCountry: companyCountry,
                   },
+                  contactPoint: salesContactPoint,
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",
                     name: "Industrial silica gel and desiccant supply programs",

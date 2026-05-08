@@ -26,9 +26,13 @@ export type PriceGroup = {
   items: PriceItem[];
 };
 
-export const whatsappNumber = "923330223337";
-export const displayPhone = "+92 333 022 3337";
-export const phoneHref = "+923330223337";
+export const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "923330223337";
+export const displayPhone = process.env.NEXT_PUBLIC_SALES_PHONE_DISPLAY?.trim() || "+92 333 022 3337";
+export const phoneHref = process.env.NEXT_PUBLIC_SALES_PHONE_HREF?.trim() || "+923330223337";
+export const salesEmail = process.env.NEXT_PUBLIC_SALES_EMAIL?.trim() || "";
+export const companyCity = process.env.NEXT_PUBLIC_COMPANY_CITY?.trim() || "Karachi";
+export const companyCountry = process.env.NEXT_PUBLIC_COMPANY_COUNTRY?.trim() || "Pakistan";
+export const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA?.trim() || "Worldwide";
 
 export const productCatalog: ProductItem[] = [
   {
