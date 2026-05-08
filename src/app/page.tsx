@@ -234,6 +234,39 @@ const seoClusters = [
   },
 ];
 
+const buyerGuideLinks = [
+  {
+    label: "Technical basics",
+    title: "What is silica gel and how does it work?",
+    text: "Explain adsorption, packet materials, and the difference between sachets, bulk gel, and cargo formats.",
+    href: "/blog/what-is-silica-gel-and-how-does-it-work",
+  },
+  {
+    label: "Export cartons",
+    title: "Prevent moisture in export cartons",
+    text: "Help buyers plan packet size, placement, carton handling, and container-level protection.",
+    href: "/blog/how-to-prevent-moisture-in-export-cartons",
+  },
+  {
+    label: "Documents",
+    title: "SDS and COA requirements",
+    text: "Clarify which documents serious buyers should request before samples, MOQ, or compliance claims.",
+    href: "/blog/silica-gel-sds-coa-requirements-for-buyers",
+  },
+  {
+    label: "Private label",
+    title: "OEM silica gel packet guide",
+    text: "Cover packet text, artwork, warning copy, carton labels, MOQ, and repeat buyer programs.",
+    href: "/blog/private-label-silica-gel-packets-guide",
+  },
+  {
+    label: "Bulk buying",
+    title: "Bulk silica gel supplier checklist",
+    text: "Compare loose bags, finished packs, pallet orders, documents, Incoterms, and repeat supply.",
+    href: "/blog/bulk-silica-gel-supplier-checklist",
+  },
+];
+
 const industrialBentoCards = [
   {
     title: "White Non-Indicating",
@@ -1265,6 +1298,29 @@ export default function Home() {
                 </div>
               </div>
               <BentoGrid />
+            </section>
+          </Reveal>
+
+          <Reveal direction="up">
+            <section className={styles.buyerGuideSection} aria-label="Technical buyer guides">
+              <div className={styles.sectionHead}>
+                <p className={styles.kicker}>Technical Buyer Guides</p>
+                <AnimatedText text="Turn buyer questions into stronger search signals." mode="rise" />
+                <p>
+                  These guides support long-tail SEO and help procurement teams understand sizing,
+                  documents, carton moisture risk, private label work, and bulk supplier checks before RFQ.
+                </p>
+              </div>
+              <div className={styles.buyerGuideGrid}>
+                {buyerGuideLinks.map((guide) => (
+                  <Link href={guide.href} className={styles.buyerGuideCard} key={guide.href}>
+                    <span>{guide.label}</span>
+                    <h3>{guide.title}</h3>
+                    <p>{guide.text}</p>
+                    <strong>Read guide</strong>
+                  </Link>
+                ))}
+              </div>
             </section>
           </Reveal>
 
