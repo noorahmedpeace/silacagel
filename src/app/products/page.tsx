@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 };
 
 const catalogImages: Record<string, string> = {
-  "retail-sachets": "/products/catalog-white-nonindicating.png",
-  "paper-sachets": "/products/catalog-kraft-indicating.png",
-  "bulk-industrial": "/products/catalog-bulk-supply.png",
-  "container-strips": "/products/catalog-cargo-strips.png",
+  "retail-sachets": "/products/catalog-white-nonindicating.webp",
+  "paper-sachets": "/products/catalog-kraft-indicating.webp",
+  "bulk-industrial": "/products/catalog-bulk-supply.webp",
+  "container-strips": "/products/catalog-cargo-strips.webp",
 };
 
 export default function ProductsPage() {

@@ -35,7 +35,7 @@
   inset: -120px -360px -120px -220px;
   z-index: -1;
   width: auto;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: max(1500px, 120%) auto;
@@ -141,7 +141,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: max(1500px, 120%) auto;

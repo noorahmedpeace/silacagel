@@ -62,7 +62,7 @@ export default function AboutPage() {
         <Reveal direction="up" delay={0.2}>
           <div className={styles.heroImage}>
             <Image
-              src="/macro-hero.png"
+              src="/macro-hero.webp"
               alt="Macro silica gel material for industrial moisture control"
               fill
               style={{ objectFit: "cover" }}

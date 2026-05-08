@@ -18,7 +18,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: max(1500px, 120%) auto;

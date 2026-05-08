@@ -143,7 +143,7 @@ export default function DocumentsPage() {
         </div>
         <div className={styles.heroVisual}>
           <Image
-            src="/proof/qc-documents-proof.png"
+            src="/proof/qc-documents-proof.webp"
             alt="Silica gel quality control documents and product samples"
             fill
             className={styles.image}
@@ -228,9 +228,9 @@ export default function DocumentsPage() {
         </div>
         <div className={styles.proofGrid}>
           {[
-            { title: "QC documents", image: "/proof/qc-documents-proof.png" },
-            { title: "Product range", image: "/proof/product-range-proof.png" },
-            { title: "Export pallets", image: "/proof/export-pallets-proof.png" },
+            { title: "QC documents", image: "/proof/qc-documents-proof.webp" },
+            { title: "Product range", image: "/proof/product-range-proof.webp" },
+            { title: "Export pallets", image: "/proof/export-pallets-proof.webp" },
           ].map((item) => (
             <article className={styles.proofCard} key={item.title}>
               <div className={styles.proofImage}>
@@ -239,7 +239,6 @@ export default function DocumentsPage() {
                   alt={item.title}
                   fill
                   className={styles.image}
-                  loading="eager"
                   sizes="(max-width: 900px) 100vw, 30vw"
                 />
               </div>

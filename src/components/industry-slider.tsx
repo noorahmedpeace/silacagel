@@ -50,7 +50,6 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
               fill
               className={styles.image}
               style={{ objectFit: "cover" }}
-              priority
               sizes="(max-width: 900px) 100vw, 50vw"
             />
           </motion.div>

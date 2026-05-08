@@ -142,7 +142,7 @@ const procurementFlow = [
     title: "Define the pack",
     text: "Choose sachets, strips, or bulk formats by carton size, humidity exposure, and product sensitivity.",
     icon: PackageCheck,
-    image: "/workflow/define-pack.png",
+    image: "/workflow/define-pack.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
   },
   {
@@ -150,7 +150,7 @@ const procurementFlow = [
     title: "Confirm documents",
     text: "Request SDS, COA, compliance notes, labeling details, and destination-specific paperwork early.",
     icon: FileCheck2,
-    image: "/workflow/confirm-documents.png",
+    image: "/workflow/confirm-documents.webp",
     imageAlt: "Export documentation desk with silica gel sample and compliance papers",
   },
   {
@@ -158,7 +158,7 @@ const procurementFlow = [
     title: "Plan shipment",
     text: "Align MOQ, lead time, Incoterms, packaging quantity, and dispatch route before final quotation.",
     icon: Truck,
-    image: "/workflow/plan-shipment.png",
+    image: "/workflow/plan-shipment.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
   },
 ];
@@ -272,7 +272,7 @@ const industrialBentoCards = [
     title: "White Non-Indicating",
     label: "Bulk Supply",
     text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: "/products/white-nonindicating-clean-sachets.png",
+    image: "/products/white-nonindicating-clean-sachets.webp",
     href: "/products/retail-sachets",
     stat: "0.5g-20g",
   },
@@ -280,7 +280,7 @@ const industrialBentoCards = [
     title: "Orange / Blue Indicating",
     label: "RH Monitoring",
     text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
-    image: "/macro_silica_beads_1775989669467.png",
+    image: "/macro_silica_beads_1775989669467.webp",
     href: "/documents",
     stat: "RH signal",
   },
@@ -288,7 +288,7 @@ const industrialBentoCards = [
     title: "Global Logistics",
     label: "190+ Countries",
     text: "Cargo strips and high-capacity formats for long-haul shipments, warehouses, pallets, and container routes.",
-    image: "/products/real-cargo-strips.png",
+    image: "/products/real-cargo-strips.webp",
     href: "/products/container-strips",
     stat: "FOB / CIF",
   },
@@ -437,27 +437,27 @@ const certPillVariants: Variants = {
 const trustedIndustries = [
   {
     name: "International Pharmaceuticals",
-    image: "/industry-pharma.png",
+    image: "/industry-pharma.webp",
     description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
   },
   {
     name: "Global Textiles & Apparel",
-    image: "/silicagel_paper_technical_1775981630266.png",
+    image: "/silicagel_paper_technical_1775981630266.webp",
     description: "Protecting high-quality leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
   },
   {
     name: "Precision Tech Assembly",
-    image: "/macro_silica_beads_1775989669467.png",
+    image: "/macro_silica_beads_1775989669467.webp",
     description: "Ensuring zero-fail moisture elimination around microchips, PCBs, and sensitive aerospace computer components to prevent short circuits.",
   },
   {
     name: "Export Food Packaging",
-    image: "/silicagel_bulk_enterprise.png",
+    image: "/silicagel_bulk_enterprise.webp",
     description: "Food-grade desiccant solutions engineered to keep crispy snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
   },
   {
     name: "Maritime Logistics & Cargo",
-    image: "/silicagel_cargo_strips.png",
+    image: "/silicagel_cargo_strips.webp",
     description: "Container-scale absorption for massive export shipments, preventing container rain, condensation, and catastrophic inventory losses at sea.",
   },
 ];
@@ -558,7 +558,7 @@ export default function Home() {
           <section className={styles.hero} id="hero">
             <Image
               id="hero-product-image"
-              src="/hero-macro-kraft.png"
+              src="/hero-macro-kraft.webp"
               alt="Silica gel beads spilling from a desiccant sachet"
               fill
               className={styles.heroBgImage}
@@ -728,7 +728,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/products/product-range-export-showcase.png"
+                    src="/products/product-range-export-showcase.webp"
                     alt="Premium silica gel product formats for export quote planning"
                     fill
                     className={styles.sectionVisualImage}
@@ -760,7 +760,6 @@ export default function Home() {
                         fill
                         className={styles.image}
                         sizes="(max-width: 1100px) 100vw, 38vw"
-                        priority={index === 0}
                       />
                       </div>
                       <div className={styles.industrialBentoCopy}>
@@ -888,7 +887,7 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/procurement-checks-silica-sachets.png"
+                    src="/products/procurement-checks-silica-sachets.webp"
                     alt="Silica gel desiccant sachets printed with do not eat and throw away warning text"
                     fill
                     className={styles.sectionVisualImage}
@@ -928,7 +927,7 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
                   <Image
-                    src="/products/real-cargo-strips.png"
+                    src="/products/real-cargo-strips.webp"
                     alt="Premium silica gel desiccant protection across electronics, leather, cartons, warehouse, and cargo industries"
                     fill
                     className={styles.sectionVisualImage}
@@ -953,11 +952,10 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/real-kraft-bond.png"
+                    src="/products/real-kraft-bond.webp"
                     alt="Premium silica gel sachet protection for electronics, leather, cartons, and packaging environments"
                     fill
                     className={styles.sectionVisualImage}
-                    loading="eager"
                     sizes="(max-width: 900px) 100vw, 42vw"
                   />
                 </div>
@@ -977,8 +975,6 @@ export default function Home() {
                         alt={item.title}
                         fill
                         className={styles.image}
-                        loading="eager"
-                        priority
                         sizes="(max-width: 1100px) 100vw, 33vw"
                       />
                     </div>
@@ -1151,7 +1147,7 @@ export default function Home() {
                 </div>
                 <div className={styles.shippingBannerImage}>
                   <Image
-                    src="/products/real-cargo-strips.png"
+                    src="/products/real-cargo-strips.webp"
                     alt="Silica gel desiccant supply for worldwide packaging and freight delivery"
                     fill
                     className={styles.image}
@@ -1288,11 +1284,10 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/real-bulk-supply.png"
+                    src="/products/real-bulk-supply.webp"
                     alt="Silica gel sachets with technical documents and procurement tools"
                     fill
                     className={styles.sectionVisualImage}
-                    loading="eager"
                     sizes="(max-width: 900px) 100vw, 42vw"
                   />
                 </div>

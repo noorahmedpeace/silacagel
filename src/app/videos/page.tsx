@@ -36,7 +36,7 @@ export default function VideosPage() {
         {videos.map((v, i) => (
           <article key={i} className={styles.videoCard}>
             <div className={styles.videoThumb}>
-              <Image src="/video-thumbnails.png" alt={v.title} fill style={{ objectFit: "cover" }} sizes="33vw" />
+              <Image src="/video-thumbnails.webp" alt={v.title} fill style={{ objectFit: "cover" }} sizes="33vw" />
               <div className={styles.playOverlay}>
                 <div className={styles.playBtn}>▶</div>
               </div>

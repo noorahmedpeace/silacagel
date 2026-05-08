@@ -16,7 +16,7 @@
   border: 1px solid rgba(191, 193, 194, 0.36);
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.86) 50%, rgba(239, 246, 255, 0.78) 100%),
-    url("/backgrounds/bento-silica-panel.png");
+    url("/backgrounds/bento-silica-panel.webp");
   background-size: cover;
   background-position: center;
   box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
@@ -29,7 +29,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: max(1500px, 120%) auto;
@@ -194,7 +194,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/backgrounds/blue-particle-board-wide.png");
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 620px auto;

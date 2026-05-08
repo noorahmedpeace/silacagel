@@ -17,7 +17,7 @@ const machines = [
     model: "DT-1200 Series",
     title: "DT-1200 Hygiene-Grade Dispenser",
     desc: "Engineered specifically for pharmaceutical and hygiene-sensitive production environments. Features precision servo motors for cutting accuracy and stepper motors for reliable packet feeding at enterprise-level throughput.",
-    image: "/dispenser-dt1200.png",
+    image: "/dispenser-dt1200.webp",
     specs: [
       { label: "Speed", value: "Up to 250 packs/min" },
       { label: "Drive System", value: "Servo + Stepper Motors" },
@@ -31,7 +31,7 @@ const machines = [
     model: "DT-1500 Series",
     title: "DT-1500 Continuous Strip Dispenser",
     desc: "Optimized for high-volume food and industrial packaging lines using continuous pillow-strip format packets. Mark sensors prevent cross-cutting errors for near-zero waste throughput.",
-    image: "/dispenser-dt1200.png",
+    image: "/dispenser-dt1200.webp",
     specs: [
       { label: "Speed", value: "200 packs/min" },
       { label: "Error Prevention", value: "Mark Sensor System" },
