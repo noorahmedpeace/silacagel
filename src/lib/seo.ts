@@ -81,6 +81,11 @@ export const coreSitemapRoutes = [
   "/blog/container-rain-prevention",
   "/blog/desiccant-for-electronics-packaging",
   "/blog/can-you-reuse-silica-gel",
+  "/blog/what-is-silica-gel-and-how-does-it-work",
+  "/blog/how-to-prevent-moisture-in-export-cartons",
+  "/blog/silica-gel-sds-coa-requirements-for-buyers",
+  "/blog/private-label-silica-gel-packets-guide",
+  "/blog/bulk-silica-gel-supplier-checklist",
   "/contact",
 ] as const;
 
