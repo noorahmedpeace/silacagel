@@ -98,6 +98,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  manifest: "/site.webmanifest",
   robots: {
     index: true,
     follow: true,
@@ -141,6 +153,13 @@ export default function RootLayout({
                   legalName: siteName,
                   alternateName: [siteName, "DryGelWorld.com", brandDomain, "Silica Gel Export Supply"],
                   url: absoluteUrl(),
+                  logo: {
+                    "@type": "ImageObject",
+                    url: absoluteUrl("/favicon-192x192.png"),
+                    width: 192,
+                    height: 192,
+                  },
+                  image: absoluteUrl("/opengraph-image"),
                   description:
                     "DryGelWorld is a silica gel desiccant manufacturer and exporter for industrial packaging, logistics, warehousing, private-label sachets, and bulk procurement.",
                   contactPoint: {
