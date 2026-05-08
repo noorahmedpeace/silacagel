@@ -96,6 +96,24 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </div>
       </section>
 
+      {page.buyerGuide ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.buyerGuide.title}</h2>
+            <p>{page.buyerGuide.intro}</p>
+          </div>
+          <div className={styles.buyerGuideGrid}>
+            {page.buyerGuide.sections.map((section) => (
+              <article className={styles.buyerGuideCard} key={section.title}>
+                <span>{section.label}</span>
+                <h3>{section.title}</h3>
+                <p>{section.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {page.sizeGuide ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>

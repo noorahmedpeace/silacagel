@@ -31,6 +31,15 @@ export type SeoLandingPage = {
     label: string;
     value: string;
   }>;
+  buyerGuide?: {
+    title: string;
+    intro: string;
+    sections: Array<{
+      label: string;
+      title: string;
+      text: string;
+    }>;
+  };
   sizeGuide?: {
     title: string;
     intro: string;
@@ -102,6 +111,7 @@ type KeywordClusterInput = {
   documents: string;
   buyerRisk: string;
   quoteBasis: string;
+  buyerGuide?: SeoLandingPage["buyerGuide"];
   relatedLinks: SeoLandingPage["relatedLinks"];
   faqs: SeoLandingPage["faqs"];
 };
@@ -138,6 +148,7 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
       { label: "Buyer risk", value: input.buyerRisk },
       { label: "Quote basis", value: input.quoteBasis },
     ],
+    buyerGuide: input.buyerGuide,
     buyingTitle: `How to request ${input.kicker.toLowerCase()}`,
     buyingIntro:
       "A useful B2B inquiry should explain the product application, commercial quantity, destination, and document requirements before price negotiation starts.",
@@ -189,6 +200,28 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, ISO support, labeling, DMF-free or market statements where valid",
     buyerRisk: "Choosing a vendor that cannot support repeat volume, documents, or multiple formats",
     quoteBasis: "Product format, size, quantity, destination, Incoterms, documents, and repeat schedule",
+    buyerGuide: {
+      title: "What serious buyers should verify in a silica gel manufacturer",
+      intro:
+        "A manufacturer page should answer the questions procurement teams ask before they share quantity or target price. These checks make the page useful for searchers with real purchase intent.",
+      sections: [
+        {
+          label: "Capacity",
+          title: "Can the supplier support repeat volume?",
+          text: "Ask whether the quote is for a one-time carton order, monthly packet supply, palletized bulk gel, or a recurring OEM program. Serious manufacturer inquiries should include target quantity and expected repeat schedule.",
+        },
+        {
+          label: "Documents",
+          title: "Can the paperwork match the exact product?",
+          text: "SDS, COA, ISO support, DMF-free statements, and label claims should be tied to the specific silica gel format being supplied, not treated as generic marketing language.",
+        },
+        {
+          label: "Format range",
+          title: "Can one RFQ cover packets, bulk, and cargo formats?",
+          text: "A stronger industrial supplier can route buyers toward sachets, paper packets, bulk beads, larger desiccant bags, container strips, or private-label sachets instead of forcing every inquiry into one product type.",
+        },
+      ],
+    },
     relatedLinks: [
       { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
@@ -1457,6 +1490,28 @@ export const seoLandingPages = {
       { label: "Documents", value: "SDS, COA, ISO 9001:2015 support on request" },
       { label: "Commercial basis", value: "Quoted by kg, pallet, route, MOQ, and repeat volume" },
     ],
+    buyerGuide: {
+      title: "How bulk buyers avoid weak or misleading quotes",
+      intro:
+        "Bulk silica gel pricing changes when the buyer changes format, bag size, pallet plan, route, or repeat volume. This section helps buyers send quote data that can actually be priced.",
+      sections: [
+        {
+          label: "Unit clarity",
+          title: "Quote by kg, pallet, or monthly tonnage",
+          text: "A bulk inquiry should not only say large quantity. It should state whether the buyer needs loose 25kg bags, finished 25g-500g packs, palletized cartons, or a monthly supply program.",
+        },
+        {
+          label: "Packing",
+          title: "Separate loose material from finished packs",
+          text: "Loose silica gel suits repackers and industrial users, while finished bags suit warehouses, exporters, and carton-level protection. Mixing the two in one RFQ creates wrong pricing.",
+        },
+        {
+          label: "Export",
+          title: "Include destination before comparing suppliers",
+          text: "Bulk quotes should include destination country, port or city, Incoterms, document requirements, and expected repeat schedule so freight and packing assumptions are not guessed.",
+        },
+      ],
+    },
     sizeGuide: {
       title: "Bulk silica gel format guide",
       intro:
@@ -1697,6 +1752,28 @@ export const seoLandingPages = {
       { label: "Documents", value: "SDS, COA, ISO 9001:2015, DMF-free support on request" },
       { label: "Commercial basis", value: "Quoted by print scope, size, MOQ, packing, and destination" },
     ],
+    buyerGuide: {
+      title: "Private-label control points before artwork is approved",
+      intro:
+        "OEM desiccant buyers are not only buying a packet. They are buying repeatable packaging text, carton identity, documentation, and a supply workflow that will be inspected by their own customers.",
+      sections: [
+        {
+          label: "Copy",
+          title: "Lock packet wording before sampling",
+          text: "Confirm whether the sachet needs SILICA GEL, DESICCANT, DO NOT EAT, THROW AWAY, gram size, buyer brand text, lot code, or destination-specific warning language.",
+        },
+        {
+          label: "Artwork",
+          title: "Match artwork to material and MOQ",
+          text: "Small packets, porous paper, non-woven material, and larger bag formats do not all print the same way. Artwork should be reviewed against size, material, and repeat volume before the quote is treated as final.",
+        },
+        {
+          label: "Cartons",
+          title: "Treat outer carton labels as part of the product",
+          text: "Private-label supply should define SKU names, carton quantity, batch references, export labels, and document references so receiving teams can identify the goods cleanly.",
+        },
+      ],
+    },
     buyingTitle: "How to request OEM desiccant packets",
     buyingIntro:
       "Private-label RFQs move faster when artwork, copy, sizing, and carton requirements are clear early.",
@@ -1952,6 +2029,28 @@ export const seoLandingPages = {
       { label: "Buyer risk", value: "Making unsupported food-grade or food-contact claims without matching documents" },
       { label: "Quote basis", value: "Packet size, product category, quantity, destination, document set, packaging text" },
     ],
+    buyerGuide: {
+      title: "How to handle food packaging claims responsibly",
+      intro:
+        "Food packaging searches are high-value, but they are also sensitive. The page should help buyers understand what must be verified before using food-grade or food-contact wording.",
+      sections: [
+        {
+          label: "Use case",
+          title: "Define direct contact vs secondary packaging",
+          text: "A desiccant placed inside a master carton is a different conversation from a sachet placed near consumer goods. The RFQ should explain where the packet sits and what it can touch.",
+        },
+        {
+          label: "Evidence",
+          title: "Ask for documents before using claims",
+          text: "SDS, COA, material statements, label text, and buyer-required compliance proof should be reviewed before food-grade language appears on the website, packet, or purchase order.",
+        },
+        {
+          label: "Labeling",
+          title: "Keep warning text clear even for food packaging",
+          text: "Food packaging programs still need clear sachet text and warning language. Packet wording should be confirmed for the market before repeat production.",
+        },
+      ],
+    },
     buyingTitle: "How to request food packaging desiccants",
     buyingIntro:
       "For food packaging programs, procurement should confirm documents and wording before price is treated as final.",
@@ -2292,6 +2391,28 @@ export const seoLandingPages = {
       { label: "Planning inputs", value: "Origin, destination, transit days, cargo type, pallet density, container loading style" },
       { label: "Quote basis", value: "Strip count, strip weight, route, Incoterms, schedule, and documents" },
     ],
+    buyerGuide: {
+      title: "Container desiccant planning signals buyers should send",
+      intro:
+        "Container moisture problems are route-driven. A useful page should teach buyers to share shipment data before asking for strip quantity or cargo desiccant price.",
+      sections: [
+        {
+          label: "Route",
+          title: "Origin, destination, season, and transit days matter",
+          text: "A 20ft shipment on a short dry route and a 40ft shipment through humid sea freight need different planning. The RFQ should include route, season, transit duration, and port handling risk.",
+        },
+        {
+          label: "Cargo",
+          title: "Commodity risk changes the desiccant plan",
+          text: "Leather, textiles, paper cartons, food packaging, machinery, and metal goods do not fail in the same way. Buyers should describe mold, corrosion, label damage, carton collapse, or odor concerns.",
+        },
+        {
+          label: "System",
+          title: "Combine container strips with product-level packets when needed",
+          text: "Cargo strips manage the container atmosphere. Small silica gel packets protect product packaging directly. Exporters with sensitive goods may need both layers.",
+        },
+      ],
+    },
     buyingTitle: "How to request shipping container desiccants",
     buyingIntro:
       "A container desiccant RFQ should start with shipping risk, not only unit price.",
