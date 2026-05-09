@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Mono, Inter, Montserrat } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SiteFooter } from "@/components/site-footer";
@@ -8,23 +8,10 @@ import { companyCity, companyCountry, phoneHref, salesEmail, serviceArea } from 
 import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
-const display = Montserrat({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-});
-
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
-});
-
-const mono = IBM_Plex_Mono({
-  variable: "--font-mono",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,51 +22,18 @@ export const metadata: Metadata = {
     "DryGelWorld is a silica gel manufacturer, supplier, and exporter providing industrial desiccants, container desiccants, packaging desiccants, and moisture absorber solutions worldwide.",
   keywords: [
     "DryGelWorld",
-    "DryGelWorld.com",
-    "drygelworld.com",
-    "Dry Gel World",
     "silica gel manufacturer",
     "silica gel supplier",
     "silica gel exporter",
-    "silica gel manufacturer exporter",
-    "silica gel manufacturer in pakistan",
-    "silica gel supplier in karachi",
-    "silica gel pakistan",
-    "silica gel company",
-    "silica gel wholesale",
-    "silica gel bulk supplier",
-    "industrial silica gel",
     "desiccant manufacturer",
-    "desiccant supplier",
-    "bulk desiccant supplier",
-    "industrial desiccant manufacturer",
-    "desiccant exporter",
-    "bulk desiccant packets",
-    "silica gel packets",
-    "silica gel packets wholesale",
-    "food grade silica gel supplier",
-    "blue silica gel manufacturer",
-    "orange silica gel supplier",
-    "non indicating silica gel",
-    "indicating silica gel",
-    "moisture absorber supplier",
-    "moisture absorber for container",
+    "industrial desiccant exporter",
     "container desiccant",
-    "cargo desiccant",
-    "packaging desiccant",
-    "container desiccant strips",
-    "shipping container desiccant supplier",
-    "silica gel for shipping containers",
-    "silica gel for export packaging",
-    "private label desiccant packets",
-    "pharma silica gel supplier",
-    "pharma grade silica gel",
-    "food grade desiccant",
-    "silica gel",
+    "cargo desiccant supplier",
+    "moisture absorber supplier",
+    "silica gel packets bulk",
     "desiccant bags manufacturer",
-    "moisture control for export",
-    "silica gel delivered worldwide",
-    "ISO 9001 silica gel supplier",
+    "private label desiccant packets",
+    "food grade silica gel",
   ],
   openGraph: {
     title: "DryGelWorld | Official Silica Gel Manufacturer Exporter",
@@ -143,7 +97,23 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={body.variable}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-macro-kraft-mobile.webp"
+          media="(max-width: 760px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/hero-macro-kraft.webp"
+          media="(min-width: 761px)"
+          fetchPriority="high"
+        />
+      </head>
       <body>
         <SiteHeader />
         {children}
@@ -162,7 +132,7 @@ export default function RootLayout({
                   "@id": `${absoluteUrl()}#organization`,
                   name: brandName,
                   legalName: siteName,
-                  alternateName: [siteName, "DryGelWorld.com", brandDomain, "Silica Gel Export Supply"],
+                  alternateName: [siteName, "DryGelWorld.com", brandDomain],
                   url: absoluteUrl(),
                   logo: {
                     "@type": "ImageObject",
@@ -233,27 +203,6 @@ export default function RootLayout({
                     target: "https://www.drygelworld.com/products?query={search_term_string}",
                     "query-input": "required name=search_term_string",
                   },
-                },
-                {
-                  "@type": "FAQPage",
-                  mainEntity: [
-                    {
-                      "@type": "Question",
-                      name: "Can Dry Gel World provide SDS and COA documents?",
-                      acceptedAnswer: {
-                        "@type": "Answer",
-                        text: "SDS and COA support is available on request and should be confirmed against the exact product format and destination market.",
-                      },
-                    },
-                    {
-                      "@type": "Question",
-                      name: "Does Dry Gel World support private-label desiccant packets?",
-                      acceptedAnswer: {
-                        "@type": "Answer",
-                        text: "Private-label sachet printing, carton labeling, and distributor supply can be discussed through the RFQ form.",
-                      },
-                    },
-                  ],
                 },
               ],
             }),

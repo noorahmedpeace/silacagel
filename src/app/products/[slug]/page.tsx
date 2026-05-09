@@ -355,23 +355,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
               "@context": "https://schema.org",
               "@graph": [
                 {
-                  "@type": "Service",
-                  name: `${product.name} supply`,
+                  "@type": "Product",
+                  name: product.name,
                   description: product.description,
-                  serviceType: "Industrial silica gel desiccant procurement",
-                  category: "Industrial moisture-control supply",
+                  category: "Industrial silica gel desiccant",
+                  image: absoluteUrl(product.heroImage),
+                  url: absoluteUrl(`/products/${product.slug}`),
                   brand: {
                     "@type": "Brand",
                     name: siteName,
                   },
-                  provider: {
+                  manufacturer: {
                     "@type": "Organization",
                     name: siteName,
                     url: absoluteUrl(),
                   },
-                  areaServed: "Worldwide",
-                  image: absoluteUrl(product.heroImage),
-                  url: absoluteUrl(`/products/${product.slug}`),
+                  material: "Silicon dioxide",
+                  countryOfOrigin: "Pakistan",
                   additionalProperty: [
                     {
                       "@type": "PropertyValue",
@@ -384,6 +384,22 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       value: product.leadTime,
                     },
                   ],
+                  offers: {
+                    "@type": "Offer",
+                    availability: "https://schema.org/InStock",
+                    areaServed: "Worldwide",
+                    url: absoluteUrl("/contact"),
+                    seller: {
+                      "@type": "Organization",
+                      name: siteName,
+                      url: absoluteUrl(),
+                    },
+                    priceSpecification: {
+                      "@type": "PriceSpecification",
+                      priceCurrency: "USD",
+                      description: product.priceBand,
+                    },
+                  },
                 },
                 breadcrumbJsonLd([
                   { name: "Home", href: "/" },

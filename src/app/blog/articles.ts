@@ -581,3 +581,29 @@ export const blogArticles: BlogArticle[] = [
 export function getBlogArticle(slug: string) {
   return blogArticles.find((article) => article.slug === slug);
 }
+
+// Per-article publication dates used by Article JSON-LD on /blog/[slug].
+// These are placeholders staggered across the last ~10 months. Update each
+// entry with the real first-publish date when known; updatedAt should bump
+// whenever the article body is materially revised.
+export type ArticlePublication = {
+  publishedAt: string;
+  updatedAt: string;
+};
+
+const articlePublication: Record<string, ArticlePublication> = {
+  "how-to-choose-silica-gel-packet-size": { publishedAt: "2025-08-20", updatedAt: "2026-05-01" },
+  "silica-gel-vs-clay-desiccant": { publishedAt: "2025-09-10", updatedAt: "2026-05-01" },
+  "container-rain-prevention": { publishedAt: "2025-10-01", updatedAt: "2026-05-01" },
+  "desiccant-for-electronics-packaging": { publishedAt: "2025-10-22", updatedAt: "2026-05-01" },
+  "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-05-01" },
+  "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-05-01" },
+  "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-05-01" },
+  "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-01" },
+  "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-01" },
+  "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
+};
+
+export function getArticlePublication(slug: string): ArticlePublication {
+  return articlePublication[slug] ?? { publishedAt: "2026-05-01", updatedAt: "2026-05-01" };
+}

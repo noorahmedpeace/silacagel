@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { absoluteUrl, breadcrumbJsonLd, siteName, sitemapLastModified } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
-import { blogArticles, getBlogArticle } from "../articles";
+import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
 
 type BlogArticlePageProps = {
   params: Promise<{
@@ -49,6 +49,8 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   if (!article) {
     notFound();
   }
+
+  const { publishedAt, updatedAt } = getArticlePublication(slug);
 
   return (
     <main className={styles.page}>
@@ -111,8 +113,11 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 "@type": "Article",
                 headline: article.title,
                 description: article.description,
-                datePublished: sitemapLastModified,
-                dateModified: sitemapLastModified,
+                datePublished: publishedAt,
+                dateModified: updatedAt,
+                inLanguage: "en",
+                articleSection: "Buyer Guides",
+                image: absoluteUrl("/opengraph-image"),
                 author: {
                   "@type": "Organization",
                   name: siteName,
@@ -122,6 +127,10 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                   "@type": "Organization",
                   name: siteName,
                   url: absoluteUrl(),
+                  logo: {
+                    "@type": "ImageObject",
+                    url: absoluteUrl("/favicon-192x192.png"),
+                  },
                 },
                 mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
                 url: absoluteUrl(`/blog/${article.slug}`),
