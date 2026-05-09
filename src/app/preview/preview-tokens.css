@@ -1,0 +1,66 @@
+/* Design tokens scoped to /preview/* routes only — do not affect production styles. */
+
+.preview-root {
+  --p-bg: #f4f6f8;
+  --p-bg-deep: #0a1628;
+  --p-surface: #ffffff;
+  --p-surface-tint: #f8fbff;
+  --p-text: #0e1620;
+  --p-text-muted: #475569;
+  --p-text-faint: #6b7785;
+  --p-brand: #0067c5;
+  --p-brand-deep: #044d99;
+  --p-brand-soft: #e8f1fb;
+  --p-accent: #d80d2a;
+  --p-accent-deep: #a90b21;
+  --p-hairline: #e5e9ef;
+  --p-hairline-strong: #cfd6e0;
+
+  --p-glass-bg: rgba(255, 255, 255, 0.66);
+  --p-glass-border: rgba(255, 255, 255, 0.55);
+  --p-glass-blur: 16px;
+
+  --p-shadow-soft: 0 4px 18px rgba(8, 30, 80, 0.06);
+  --p-shadow-card: 0 10px 32px rgba(8, 30, 80, 0.08);
+  --p-shadow-hero: 0 24px 72px rgba(8, 30, 80, 0.14);
+  --p-shadow-cta: 0 10px 24px rgba(216, 13, 42, 0.28);
+
+  --p-radius-card: 14px;
+  --p-radius-hero: 22px;
+  --p-radius-pill: 999px;
+
+  --p-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --p-dur-quick: 200ms;
+  --p-dur-base: 300ms;
+
+  background: var(--p-bg);
+  color: var(--p-text);
+  min-height: 100vh;
+}
+
+/* Fade-up keyframe used across preview routes. CSS-only via animation-timeline. */
+@keyframes p-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.preview-root .p-fade-up {
+  opacity: 0;
+  animation: p-fade-up linear both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 28%;
+}
+
+/* Initial hero reveal (no scroll trigger). */
+.preview-root .p-reveal {
+  animation: p-fade-up 700ms var(--p-ease) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-root .p-fade-up,
+  .preview-root .p-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
