@@ -1,0 +1,110 @@
+/*
+ * Design tokens for production rollout of the mood-board direction.
+ * Imported once from src/app/layout.tsx alongside globals.css.
+ * All tokens are namespaced with --ds-* to avoid clashing with the
+ * existing globals.css custom properties.
+ */
+
+:root {
+  /* Surface */
+  --ds-bg: #f4f6f8;
+  --ds-bg-deep: #0a1628;
+  --ds-surface: #ffffff;
+  --ds-surface-tint: #f8fbff;
+
+  /* Text */
+  --ds-text: #0e1620;
+  --ds-text-muted: #475569;
+  --ds-text-faint: #6b7785;
+
+  /* Brand */
+  --ds-brand: #0067c5;
+  --ds-brand-deep: #044d99;
+  --ds-brand-soft: #e8f1fb;
+
+  /* Accent (CTAs, kicker pills) — used sparingly */
+  --ds-accent: #d80d2a;
+  --ds-accent-deep: #a90b21;
+  --ds-accent-soft: rgba(216, 13, 42, 0.1);
+
+  /* Hairlines */
+  --ds-hairline: #e5e9ef;
+  --ds-hairline-strong: #cfd6e0;
+
+  /* Glass — applied only to hero proof surfaces */
+  --ds-glass-bg: rgba(255, 255, 255, 0.66);
+  --ds-glass-border: rgba(255, 255, 255, 0.55);
+  --ds-glass-blur: 16px;
+
+  /* Shadows */
+  --ds-shadow-soft: 0 4px 18px rgba(8, 30, 80, 0.06);
+  --ds-shadow-card: 0 10px 32px rgba(8, 30, 80, 0.08);
+  --ds-shadow-hero: 0 24px 72px rgba(8, 30, 80, 0.14);
+  --ds-shadow-cta: 0 10px 24px rgba(216, 13, 42, 0.28);
+
+  /* Radii */
+  --ds-radius-tight: 8px;
+  --ds-radius-card: 14px;
+  --ds-radius-hero: 22px;
+  --ds-radius-pill: 999px;
+
+  /* Container widths — single source of truth for horizontal alignment */
+  --ds-container-max: 1320px;
+  --ds-container-narrow: 1100px;
+  --ds-container-prose: 760px;
+  --ds-page-px: clamp(20px, 5vw, 88px);
+
+  /* Vertical rhythm */
+  --ds-section-py-tight: clamp(56px, 7vw, 96px);
+  --ds-section-py: clamp(64px, 8vw, 112px);
+  --ds-section-py-loose: clamp(72px, 9vw, 128px);
+  --ds-hero-py: clamp(72px, 10vw, 132px);
+  --ds-stack-sm: 8px;
+  --ds-stack-md: 16px;
+  --ds-stack-lg: 24px;
+  --ds-stack-xl: 32px;
+
+  /* Type scale (clamp-based for fluid sizing) */
+  --ds-h1: clamp(2.125rem, 4.4vw, 3.75rem);
+  --ds-h2: clamp(1.625rem, 2.8vw, 2.375rem);
+  --ds-h3: 1.18rem;
+  --ds-lead: clamp(1rem, 1.4vw, 1.18rem);
+  --ds-body: 1rem;
+  --ds-small: 0.92rem;
+  --ds-meta: 0.85rem;
+  --ds-eyebrow: 11px;
+
+  /* Motion */
+  --ds-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ds-dur-quick: 200ms;
+  --ds-dur-base: 300ms;
+}
+
+/* Universal scroll-triggered fade. Add `ds-fade-up` to any element. */
+@keyframes ds-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ds-fade-up {
+  opacity: 0;
+  animation: ds-fade-up linear both;
+  animation-timeline: view();
+  animation-range: entry 8% cover 28%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ds-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .ds-fade-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

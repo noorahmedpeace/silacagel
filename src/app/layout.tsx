@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { companyCity, companyCountry, phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
 import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
+import "./design-tokens.css";
 import "./globals.css";
 
 const body = Inter({
