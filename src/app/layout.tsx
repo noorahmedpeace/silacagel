@@ -11,18 +11,19 @@ import "./globals.css";
 const display = Montserrat({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["600", "700", "800", "900"],
+  display: "swap",
 });
 
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const mono = IBM_Plex_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
+  display: "swap",
   weight: ["400", "500", "600", "700"],
 });
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { animate } from "framer-motion";
 import { priceOptions, whatsappNumber } from "@/lib/product-data";
 import styles from "./price-calculator.module.css";
 
@@ -32,16 +31,24 @@ function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value
   useEffect(() => {
     const node = nodeRef.current;
     if (!node) return;
-    
-    const controls = animate(0, value, {
-      duration: 1.2,
-      ease: [0.16, 1, 0.3, 1], // Custom bouncy ease for "charming" rapid count
-      onUpdate(latest) {
-        node.textContent = `${prefix}${formatter.format(latest)}${suffix}`;
-      }
-    });
 
-    return () => controls.stop();
+    const duration = 900;
+    const start = performance.now();
+    let frame = 0;
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      node.textContent = `${prefix}${formatter.format(value * eased)}${suffix}`;
+
+      if (progress < 1) {
+        frame = requestAnimationFrame(tick);
+      }
+    };
+
+    frame = requestAnimationFrame(tick);
+
+    return () => cancelAnimationFrame(frame);
   }, [value, formatter, prefix, suffix]);
 
   return <strong ref={nodeRef}>{prefix}{formatter.format(value)}{suffix}</strong>;

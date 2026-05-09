@@ -1,30 +1,24 @@
-"use client";
-
-import { useRef } from "react";
 import Image from "next/image";
 
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { PriceCalculator } from "@/components/price-calculator";
 import { Reveal } from "@/components/reveal";
-import { IndustrySlider } from "@/components/industry-slider";
-import { EmblaCarousel } from "@/components/embla-carousel";
 import { BentoGrid } from "@/components/bento-grid";
-import { MoistureCalculator } from "@/components/moisture-calculator";
-import { QuoteForm } from "@/components/quote-form";
 import { AnimatedText } from "@/components/animated-text";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import { LazyScienceVideo } from "@/components/lazy-science-video";
+import {
+  DeferredEmblaCarousel,
+  DeferredIndustrySlider,
+  DeferredMoistureCalculator,
+  DeferredPriceCalculator,
+  DeferredQuoteForm,
+} from "@/components/deferred-home-widgets";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
     <span
       key={wordIndex}
       className="gsap-hero-word"
-      style={{ display: "inline-block", whiteSpace: "nowrap" }}
+      style={{ animationDelay: `${wordIndex * 42}ms`, display: "inline-block", whiteSpace: "nowrap" }}
     >
       {word}
       {"\u00A0"}
@@ -34,19 +28,13 @@ const splitTextToSpans = (text: string) => {
 
 const splitTextToBubbleSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
-    <motion.span
+    <span
       key={`${word}-${wordIndex}`}
       className={styles.bubbleWord}
-      variants={itemVariants}
-      transition={{
-        delay: wordIndex * 0.045,
-        type: "spring",
-        stiffness: 420,
-        damping: 18,
-      }}
+      style={{ animationDelay: `${wordIndex * 48}ms` }}
     >
       {word}
-    </motion.span>
+    </span>
   ));
 };
 
@@ -294,16 +282,6 @@ const industrialBentoCards = [
   },
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 1 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
-
 const pricingHighlights = [
   "MOQ and volume guidance",
   "FOB / CIF / EXW quote support",
@@ -375,64 +353,6 @@ const documentationMatrix = [
   { name: "DMF-free statement", status: "Supported", use: "Product-level claim for buyers avoiding DMF-risk materials." },
   { name: "FDA / REACH / Halal / GMP", status: "Do not claim yet", use: "Show only if valid documents are obtained for the exact order." },
 ];
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0.65, y: 22, scale: 0.985 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { type: "spring", stiffness: 260, damping: 24 },
-  },
-};
-
-const trustContainerVariants: Variants = {
-  hidden: { opacity: 1 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.1,
-    },
-  },
-};
-
-const trustItemVariants: Variants = {
-  hidden: { opacity: 0.65, y: 18, scale: 0.985 },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.7, ease: "easeOut" },
-  },
-};
-
-const logoChipVariants: Variants = {
-  hidden: { opacity: 0.65, y: 14 },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: index * 0.05,
-      duration: 0.5,
-      ease: "easeOut",
-    },
-  }),
-};
-
-const certPillVariants: Variants = {
-  hidden: { opacity: 0.65, y: 12, scale: 0.96 },
-  show: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      delay: index * 0.06,
-      duration: 0.55,
-      ease: "easeOut",
-    },
-  }),
-};
 
 const trustedIndustries = [
   {
@@ -520,40 +440,9 @@ const caseStudies = [
 ];
 
 export default function Home() {
-  const heroRef = useRef(null);
-
-  useGSAP(() => {
-    // Hero Entrance Timeline
-    const tl = gsap.timeline();
-    
-    tl.fromTo(".gsap-hero-word", {
-      opacity: 0.96,
-      y: 14,
-    }, {
-      opacity: 1,
-      y: 0,
-      duration: 0.72,
-      stagger: 0.055,
-      ease: "power3.out",
-    })
-    .from(".gsap-hero-fade", {
-      opacity: 0.96,
-      y: 10,
-      duration: 0.72,
-      stagger: 0.12,
-      ease: "power2.out",
-    }, "-=0.28")
-    .from("#hero-product-image", {
-      opacity: 0.94,
-      scale: 1.04,
-      duration: 1.1,
-      ease: "power2.out",
-    }, "-=0.9");
-  }, { scope: heroRef });
-
   return (
     <div className={styles.page}>
-      <div className={styles.shell} ref={heroRef}>
+      <div className={styles.shell}>
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
             <Image
@@ -579,22 +468,12 @@ export default function Home() {
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
-                <motion.a
-                  href="#contact"
-                  className={styles.primaryCta}
-                  whileHover={{ y: -2, scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                <a href="#contact" className={styles.primaryCta}>
                   Request Export Quote
-                </motion.a>
-                <motion.a
-                  href="#products"
-                  className={styles.secondaryCta}
-                  whileHover={{ y: -2, scale: 1.008 }}
-                  whileTap={{ scale: 0.985 }}
-                >
+                </a>
+                <a href="#products" className={styles.secondaryCta}>
                   View Product Range
-                </motion.a>
+                </a>
               </div>
 
               <div className={`${styles.heroProofLine} gsap-hero-fade`}>
@@ -603,30 +482,20 @@ export default function Home() {
                 ))}
               </div>
 
-              <motion.div
-                variants={trustContainerVariants}
-                initial="hidden"
-                animate="show"
-                className={`${styles.trustSignals} gsap-hero-fade`}
-              >
+              <div className={`${styles.trustSignals} gsap-hero-fade`}>
                 {trustSignalsArray.map((signal, index) => {
                   const Icon = signal.icon;
                   return (
-                    <motion.div
-                      key={index}
-                      variants={trustItemVariants}
-                      whileHover={{ y: -4, scale: 1.01 }}
-                      className={styles.signal}
-                    >
+                    <div key={index} className={styles.signal}>
                       <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
                       <div className={styles.signalText}>
                         <span>{signal.label}</span>
                         <strong>{signal.title}</strong>
                       </div>
-                    </motion.div>
+                    </div>
                   );
                 })}
-              </motion.div>
+              </div>
             </div>
 
           </section>
@@ -670,28 +539,13 @@ export default function Home() {
             <section id="science" className={styles.scienceSection}>
               <div className={styles.scienceVideoColumn}>
                 <div className={styles.scienceStage}>
-                  <video
-                    className={styles.scienceVideo}
-                    src="/videos/silica-beads-glass-container-3d.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="none"
-                    aria-label="3D animation of clear silica gel beads inside a premium glass container"
-                  />
+                  <LazyScienceVideo className={styles.scienceVideo} />
                   <div className={styles.scienceGlow} />
                 </div>
               </div>
 
-              <motion.div
-                className={styles.scienceCopyPanel}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-120px" }}
-                variants={containerVariants}
-              >
-                <motion.div variants={itemVariants} className={styles.scienceOverlay}>
+              <div className={styles.scienceCopyPanel}>
+                <div className={styles.scienceOverlay}>
                   <p className={styles.kicker}>The Science</p>
                   <h2 className={styles.bubbleHeading}>
                     {splitTextToBubbleSpans("Clear beads. Controlled moisture protection.")}
@@ -699,20 +553,16 @@ export default function Home() {
                   <p>
                     A vertical 3D material view built around the real buying logic: how the bead captures vapor, how pack size is selected, and why clean desiccant protects export goods.
                   </p>
-                </motion.div>
+                </div>
 
                 <div className={styles.scienceChips} aria-label="Silica gel science highlights">
                   {["Porous bead structure", "Vapor adsorption", "Pack-size planning"].map((label, index) => (
-                    <motion.span
-                      key={label}
-                      variants={itemVariants}
-                      transition={{ delay: index * 0.08, type: "spring", stiffness: 260, damping: 18 }}
-                    >
+                    <span key={label} style={{ animationDelay: `${index * 80}ms` }}>
                       {label}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             </section>
           </Reveal>
 
@@ -737,20 +587,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: "-100px" }}
-                className={styles.industrialBentoGrid}
-              >
+              <div className={styles.industrialBentoGrid}>
                 {industrialBentoCards.map((card, index) => (
-                  <motion.article
+                  <article
                     key={card.title}
-                    variants={itemVariants}
                     className={`${styles.industrialBentoCard} ${index === 0 ? styles.industrialBentoLarge : ""}`}
-                    whileHover={{ y: -7, scale: 1.006 }}
-                    whileTap={{ scale: 0.99 }}
                   >
                     <Link href={card.href} className={styles.industrialBentoLink}>
                       <div className={styles.industrialBentoImage}>
@@ -769,9 +610,9 @@ export default function Home() {
                       </div>
                       <strong className={styles.industrialBentoStat}>{card.stat}</strong>
                     </Link>
-                  </motion.article>
+                  </article>
                 ))}
-              </motion.div>
+              </div>
 
               <div className={styles.categoryRail} aria-label="Core product category landing pages">
                 {categoryLanes.map((item) => (
@@ -813,15 +654,7 @@ export default function Home() {
               <div className={styles.pricingLayout}>
                 <div className={styles.priceGrid}>
                   {priceGroups.map((group) => (
-                    <motion.article
-                      key={group.title}
-                      className={styles.priceCard}
-                      initial={{ opacity: 0.65, y: 22 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-                      whileHover={{ y: -4, scale: 1.008 }}
-                    >
+                    <article key={group.title} className={styles.priceCard}>
                       <span className={styles.priceNote}>{group.note}</span>
                       <h3>{group.title}</h3>
                       <div className={styles.priceList}>
@@ -851,25 +684,18 @@ export default function Home() {
                           ? `+${group.items.length - 4} more sizes available in the calculator`
                           : "Ready for export quote confirmation"}
                       </p>
-                    </motion.article>
+                    </article>
                   ))}
                 </div>
 
                 <div id="purchase-calculator" className={styles.calculatorAnchor}>
-                  <motion.div
-                    className={styles.calculatorPanel}
-                    initial={{ opacity: 0.65, scale: 0.985, y: 26 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    whileHover={{ y: -3 }}
-                  >
+                  <div className={styles.calculatorPanel}>
                     <p className={styles.calculatorHint}>Volume & Export Quote Estimator</p>
                     <p className={styles.calculatorSubHint}>
                       Estimate total weight and share a cleaner procurement request with the export team.
                     </p>
-                    <PriceCalculator />
-                  </motion.div>
+                    <DeferredPriceCalculator />
+                  </div>
                 </div>
               </div>
             </section>
@@ -898,18 +724,10 @@ export default function Home() {
 
               <div className={styles.reasonGrid}>
                 {reasons.map((item) => (
-                  <motion.article
-                    key={item.title}
-                    className={styles.reasonCard}
-                    initial={{ opacity: 0.65, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                    whileHover={{ y: -4, scale: 1.01 }}
-                  >
+                  <article key={item.title} className={styles.reasonCard}>
                     <h3 className="text-gradient">{item.title}</h3>
                     <p>{item.text}</p>
-                  </motion.article>
+                  </article>
                 ))}
               </div>
             </section>
@@ -936,7 +754,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <IndustrySlider industries={trustedIndustries} />
+              <DeferredIndustrySlider industries={trustedIndustries} />
             </section>
           </Reveal>
 
@@ -963,12 +781,7 @@ export default function Home() {
 
               <div className={styles.applicationGrid}>
                 {useCases.map((item) => (
-                  <motion.article
-                    key={item.title}
-                    className={styles.applicationCard}
-                    whileHover={{ y: -4, scale: 1.008 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  >
+                  <article key={item.title} className={styles.applicationCard}>
                     <div className={styles.applicationImage}>
                       <Image
                         src={item.image}
@@ -982,7 +795,7 @@ export default function Home() {
                       <h3>{item.title}</h3>
                       <p>{item.text}</p>
                     </div>
-                  </motion.article>
+                  </article>
                 ))}
               </div>
             </section>
@@ -1001,12 +814,7 @@ export default function Home() {
 
               <div className={styles.caseStudyGrid}>
                 {caseStudies.map((item) => (
-                  <motion.article
-                    key={item.title}
-                    className={styles.caseStudyCard}
-                    whileHover={{ y: -5, scale: 1.004 }}
-                    transition={{ duration: 0.28, ease: "easeOut" }}
-                  >
+                  <article key={item.title} className={styles.caseStudyCard}>
                     <div className={styles.caseStudyImage}>
                       <Image
                         src={item.image}
@@ -1034,7 +842,7 @@ export default function Home() {
                         </div>
                       </dl>
                     </div>
-                  </motion.article>
+                  </article>
                 ))}
               </div>
 
@@ -1042,14 +850,9 @@ export default function Home() {
                 <Link href="/case-studies" className={styles.secondaryCta}>View Case Studies</Link>
               </div>
 
-              <EmblaCarousel options={{ align: "start", loop: true }}>
+              <DeferredEmblaCarousel options={{ align: "start", loop: true }}>
                 {testimonials.map((item) => (
-                  <motion.article
-                    key={item.quote}
-                    className={styles.testimonialCard}
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.28, ease: "easeOut" }}
-                  >
+                  <article key={item.quote} className={styles.testimonialCard}>
                     <div className={styles.testimonialHeader}>
                       <div 
                         className={styles.testimonialAvatar} 
@@ -1068,24 +871,19 @@ export default function Home() {
                       </div>
                     </div>
                     <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
-                  </motion.article>
+                  </article>
                 ))}
-              </EmblaCarousel>
+              </DeferredEmblaCarousel>
 
               <div className={styles.logoStrip}>
                 {trustedIndustries.map((industry, index) => (
-                  <motion.span
+                  <span
                     key={industry.name}
-                    custom={index}
-                    variants={logoChipVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-60px" }}
-                    whileHover={{ y: -2, scale: 1.015 }}
                     className={styles.badgeChip}
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
                     {industry.name}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </section>
@@ -1103,16 +901,11 @@ export default function Home() {
 
               <div className={styles.exportGrid}>
                 {exportDetails.map((item) => (
-                  <motion.article
-                    key={item.title}
-                    className={styles.exportCard}
-                    whileHover={{ y: -4, scale: 1.006 }}
-                    transition={{ duration: 0.28, ease: "easeOut" }}
-                  >
+                  <article key={item.title} className={styles.exportCard}>
                     <span>{item.label}</span>
                     <h3>{item.title}</h3>
                     <p>{item.text}</p>
-                  </motion.article>
+                  </article>
                 ))}
               </div>
 
@@ -1170,19 +963,10 @@ export default function Home() {
                   { icon: "05", label: "10,000+ customers" },
                   { icon: "06", label: "40+ custom categories" },
                 ].map((c, index) => (
-                  <motion.div
-                    key={c.label}
-                    custom={index}
-                    variants={certPillVariants}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-60px" }}
-                    whileHover={{ y: -2, scale: 1.015 }}
-                    className={styles.certPill}
-                  >
+                  <div key={c.label} className={styles.certPill} style={{ animationDelay: `${index * 60}ms` }}>
                     <span>{c.icon}</span>
                     <span>{c.label}</span>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </section>
@@ -1348,7 +1132,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <MoistureCalculator />
+            <DeferredMoistureCalculator />
           </Reveal>
 
           <Reveal direction="up">
@@ -1361,7 +1145,7 @@ export default function Home() {
                   start with product type, quantity, destination, Incoterms, and document requirements.
                 </p>
               </div>
-              <QuoteForm title="Send MOQ Requirement" />
+                <DeferredQuoteForm title="Send MOQ Requirement" />
             </section>
           </Reveal>
 
@@ -1372,12 +1156,12 @@ export default function Home() {
                 <AnimatedText text="Ready to discuss an export-ready desiccant requirement?" mode="bubble" />
                 <p>Share your product format, quantity, destination market, and documentation needs so the team can prepare a clearer procurement response.</p>
                 <div className={styles.ctaBannerActions}>
-                  <motion.div whileHover={{ y: -2, scale: 1.01 }} whileTap={{ scale: 0.98 }}>
+                  <div>
                     <Link href="/contact" className={styles.primaryCta}>Request Export Quote</Link>
-                  </motion.div>
-                  <motion.div whileHover={{ y: -2, scale: 1.008 }} whileTap={{ scale: 0.985 }}>
+                  </div>
+                  <div>
                     <Link href="/products" className={styles.secondaryCta}>Browse Products</Link>
-                  </motion.div>
+                  </div>
                 </div>
               </div>
             </section>
