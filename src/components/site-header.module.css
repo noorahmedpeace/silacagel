@@ -434,14 +434,14 @@
 
 @media (max-width: 760px) {
   .announcementBar {
-    max-height: 36px;
-    min-height: 36px;
+    max-height: 28px;
+    min-height: 28px;
   }
 
   .announcementTrack {
-    gap: 42px;
-    padding: 0 24px;
-    animation-duration: 20s;
+    gap: 34px;
+    padding: 0 20px;
+    animation-duration: 32s;
   }
 
   .announcementItem {
@@ -449,15 +449,18 @@
   }
 
   .announcementItem strong {
-    font-size: 0.72rem;
+    font-size: 0.66rem;
   }
 
   .announcementItem span {
-    font-size: 0.64rem;
+    font-size: 0.58rem;
   }
 
   .navShell {
-    padding: 8px 12px;
+    padding: 6px 10px;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .headerWrapScrolled .navShell {
@@ -469,8 +472,8 @@
     max-width: 100%;
     min-width: 0;
     min-height: 0;
-    gap: 9px;
-    padding: 9px;
+    gap: 6px;
+    padding: 7px;
     border-radius: 12px;
   }
 
@@ -480,16 +483,16 @@
 
   .brand {
     width: 100%;
-    height: 52px;
+    height: 42px;
     justify-content: center;
     overflow: hidden;
   }
 
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(306px, 100%);
-    height: 52px;
-    max-height: 52px;
+    width: min(270px, 100%);
+    height: 42px;
+    max-height: 42px;
     object-position: center;
   }
 
@@ -503,14 +506,14 @@
 
   .calcCta {
     min-width: 0;
-    min-height: 40px;
+    min-height: 36px;
     padding: 0 9px;
   }
 
   .calcIcon {
-    width: 24px;
-    height: 24px;
-    flex-basis: 24px;
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
   }
 
   .calcText {
@@ -523,7 +526,7 @@
 
   .navCta {
     min-width: 0;
-    min-height: 40px;
+    min-height: 36px;
     padding: 0 10px;
     font-size: 0.76rem;
   }
@@ -543,10 +546,10 @@
   }
 
   .navItem {
-    min-height: 32px;
+    min-height: 28px;
     flex: 0 0 auto;
-    padding: 0 10px;
-    font-size: 0.72rem;
+    padding: 0 9px;
+    font-size: 0.68rem;
   }
 
   .navItem:nth-last-child(-n + 2) {
@@ -566,7 +569,7 @@
   }
 
   .headerActions {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }
 

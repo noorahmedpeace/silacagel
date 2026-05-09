@@ -18,10 +18,12 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background-image: url("/backgrounds/blue-particle-board-wide.webp");
+  background-image:
+    radial-gradient(circle at 16% 18%, rgba(0, 103, 197, 0.12) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 84% 22%, rgba(0, 103, 197, 0.1), transparent 30%);
   background-repeat: no-repeat;
   background-position: 50% 0;
-  background-size: max(1500px, 120%) auto;
+  background-size: 22px 22px, 760px 460px;
   opacity: 0.08;
   pointer-events: none;
 }
