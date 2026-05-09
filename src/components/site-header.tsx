@@ -1,8 +1,5 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Calculator, ChevronDown } from "lucide-react";
 import styles from "./site-header.module.css";
 
@@ -25,17 +22,8 @@ const announcementStats = [
 ];
 
 export function SiteHeader() {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const updateHeaderState = () => setIsScrolled(window.scrollY > 24);
-    updateHeaderState();
-    window.addEventListener("scroll", updateHeaderState, { passive: true });
-    return () => window.removeEventListener("scroll", updateHeaderState);
-  }, []);
-
   return (
-    <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
+    <header className={styles.headerWrap}>
       <section className={styles.announcementBar} aria-label="Dry Gel World supply highlights">
         <div className={styles.announcementTrack}>
           {[...announcementStats, ...announcementStats].map((item, index) => (
