@@ -85,6 +85,22 @@ const procurementDetails = {
       { label: "Qatar export page", href: "/export/qatar" },
     ],
   },
+  "dry-clay-desiccant": {
+    moq: "Discuss MOQ by sachet size, monthly volume, and dispatch program",
+    sample: "Sample packs available; confirm size and packaging format before bulk planning",
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    skuRows: [
+      { size: "1g-5g", material: "Activated clay sachet", fit: "Industrial cartons, durable goods, cost-tier packaging", pack: "Carton quantities" },
+      { size: "10g-25g", material: "Activated clay bag", fit: "Industrial parts, storage, larger cargo", pack: "Bulk cartons" },
+      { size: "50g+ / custom", material: "Industrial clay desiccant pack", fit: "Heavy machinery, durable goods, oversized cargo", pack: "Custom packaging by requirement" },
+    ],
+    packaging: ["Sachet format", "Industrial bag", "Bulk cartons", "Custom format on request"],
+    related: [
+      { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Document hub", href: "/documents" },
+    ],
+  },
 } as const;
 
 export async function generateStaticParams() {

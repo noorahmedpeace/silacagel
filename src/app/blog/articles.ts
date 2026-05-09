@@ -117,36 +117,87 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "container-rain-prevention",
     label: "Logistics",
-    title: "Container rain prevention for long-haul export shipments",
+    title: "Container rain prevention: a long-haul export shipping guide",
     description:
-      "A logistics-focused guide to reducing condensation, carton damage, corrosion, mold risk, and moisture claims during sea freight.",
-    readTime: "8 min read",
+      "A logistics-grade guide to stopping container condensation: the physics behind container rain, sizing math by container type and route, format-by-format protection plans, claim-defensible documentation, and the gap between desiccant alone and a complete moisture program.",
+    readTime: "14 min read",
     sections: [
       {
-        heading: "Why container rain happens",
-        body: "Container rain happens when temperature swings cause trapped humidity to condense on container walls, ceilings, cargo covers, or cartons.",
+        heading: "What container rain actually is",
+        body: "\"Container rain\" is the visible droplet condensation that forms on the inside of a sealed shipping container during ocean transit. It is not exotic; it is basic psychrometrics. A loaded 40-foot dry-box container holds roughly 67 cubic meters of air. At 30°C and 80% relative humidity, that air can carry close to 1.5 kg of water vapor before it has to release any of it as liquid water. The moment the container's steel ceiling drops below the dew point of the trapped air — which happens almost daily during multi-week ocean voyages — that vapor condenses on the ceiling, drips back down onto cartons, soaks through corrugated, and starts staining or rotting cargo. The temperature swing between a daytime equator transit and a night Atlantic crossing is more than enough to cycle condensation 20–30 times before the box is unloaded.",
         bullets: [
-          "High humidity at loading increases the risk.",
-          "Long sea routes and cold-to-warm climate changes make condensation worse.",
-          "Moist cargo, wooden pallets, and weak carton protection can add more vapor.",
+          "Cargo type matters: kiln-dried timber pallets, wet cardboard, fresh paint, salt residue and even moist textile fibers all add vapor to the trapped air on top of ambient humidity.",
+          "Container condition matters: older boxes with damaged door seals or roof pinholes leak humid sea-air in faster than fresh-trip boxes.",
+          "Route matters most: Karachi → Hamburg (~25 days), Karachi → New York (~30 days), Karachi → Sydney (~22 days) and Karachi → Vancouver (~30 days) all cross enough climate zones to drive multiple condensation cycles per voyage.",
+          "The damage is rarely a single 'flood event' — it is gradual saturation of corrugated, slow oxidation of unpainted metal parts, and biological growth on leather, paper, and natural fibers.",
         ],
       },
       {
-        heading: "Use desiccant at the right protection level",
-        body: "Small sachets protect product packs. Container strips and higher-capacity formats help manage the air and surfaces around cargo inside the container.",
+        heading: "Why long-haul ocean routes are the worst case",
+        body: "Air freight rarely sees container rain because the journey is short and the temperature is stable in pressurized cargo holds. Truck and rail freight on land routes sees moderate exposure but the cargo is unloaded within days. Long-haul ocean is the worst case for three compounding reasons: voyage duration is measured in weeks, the steel container behaves like a thermal mass that lags the outside temperature by hours, and ocean air is salt-laden — meaning that even small condensation events bring corrosive chlorides into contact with metal cargo. By the time a 40-foot container has crossed from Karachi to a North European port, its interior has typically gone through 25–40 thermal cycles, each of which is a fresh chance for water to drop out of the air.",
         bullets: [
-          "Use sachets inside cartons for direct product moisture protection.",
-          "Use strips or hanging desiccants for container-level condensation control.",
-          "Protect pallets and cartons from direct wall contact where possible.",
+          "Tropical-to-temperate routes (e.g. Karachi → Hamburg, Mumbai → Rotterdam) have the worst delta because the container is loaded warm-and-humid and unloaded cool-and-dry.",
+          "Cross-equator routes (Karachi → Sydney, Karachi → Buenos Aires) cycle the dew point twice per voyage as the box crosses the ITCZ.",
+          "Trans-Pacific routes (Karachi → Vancouver, Karachi → Long Beach) often add a Pacific-storm leg where the box swings between high humidity and cold sea air for days at a time.",
+          "Buyer-managed FOB routing tends to be more exposed than seller-managed CIF programs because the FOB shipper has less control over the carrier's stowage choice.",
         ],
       },
       {
-        heading: "Build a repeatable loading checklist",
-        body: "For exporters, moisture prevention should become a loading workflow, not a last-minute accessory.",
+        heading: "The desiccant math: how much do you actually need",
+        body: "DryGelWorld silica gel adsorbs up to one-third of its own weight in water vapor and runs roughly 35 percent more efficient than typical clay desiccant in the same operating range. That gives an exporter a real number to design around. As a working starting point, a 40-foot container shipping moisture-sensitive cargo through a tropical-to-temperate route should plan around 4–6 kilograms of container-grade desiccant placed at the ceiling line; a 20-foot container in the same conditions starts around 2–3 kilograms. Cost-tier industrial cargo (durable goods, parts, machinery) where the moisture risk is mainly oxidation rather than mold can run at the lower end of those bands and is often a good fit for activated dry clay desiccant. Precision cargo, packaged pharma-style goods, electronics, and leather should run at the higher end with silica gel and add carton-level sachets on top of strip-level coverage.",
         bullets: [
-          "Check cargo dryness before loading.",
-          "Use clean pallets, suitable liners, and desiccant placement records.",
-          "Document product type, route, loading date, and desiccant format for claim defense.",
+          "20 ft container, low-risk industrial cargo, 20-day route: ~1.5–2 kg dry clay or silica gel strips.",
+          "20 ft container, high-risk leather/electronics, 20-day route: ~3 kg silica gel strips + carton-level sachets.",
+          "40 ft container, low-risk industrial cargo, 25–30 day route: ~3–4 kg dry clay or silica gel strips.",
+          "40 ft container, high-risk cargo, 30+ day route (Karachi → New York, Karachi → Vancouver): ~5–6 kg silica gel strips + carton-level sachets, optional VCI emitters where corrosion is the primary risk.",
+          "Reefer and ventilated containers need their own protocol — desiccant alone does not solve refrigeration loop condensation.",
+        ],
+      },
+      {
+        heading: "Format-by-format protection plan",
+        body: "A modern moisture-control program runs on three layers. The product layer uses small sachets — 0.5 g, 1 g, 3 g, 5 g — placed inside individual cartons or product packs to keep the immediate microenvironment dry. The carton layer uses larger sachets and bead bags — 25 g, 50 g, 100 g, 250 g, 500 g — placed inside master cartons or shipping cases to manage the carton-level air pocket. The container layer uses 1 kg to 5 kg multi-chamber strips hung along the inner ceiling and walls of the container itself, where the largest condensation events happen. Buyers running cost-tier durable goods often substitute activated dry clay at the carton and container layers; buyers running precision or regulated cargo keep silica gel across all three layers and request DMF-free product confirmation.",
+        bullets: [
+          "Product layer: 0.5 g–5 g breathable paper sachets inside each pack or unit carton.",
+          "Carton layer: 25 g–500 g sachets or bead bags inside master cartons; 25 kg loose bulk for re-packers.",
+          "Container layer: 1 kg, 2 kg, 3 kg, 5 kg multi-chamber strips hung at the container ceiling and along the walls.",
+          "Pair with surface protection — VCI paper or emitter for ferrous cargo, food-safe liners for sensitive packaging.",
+          "Avoid loading desiccant in direct contact with damp cargo — let the air around the cargo do the work.",
+        ],
+      },
+      {
+        heading: "Pre-dispatch loading workflow that prevents claims",
+        body: "Most container rain claims that go to insurance arbitration fail not because the desiccant was wrong, but because the loading workflow was undocumented. A claim-defensible workflow looks the same every time and produces the same paper trail: pre-load humidity check on cargo, pallet inspection (kiln-dried, free of bark and moisture), liner placement, sachet placement at the carton level (recorded by carton count and sachet weight), strip placement at the container level (recorded by hanging position and strip weight), seal, and a dated photo log. The cost of building this workflow once is small; the cost of losing a single high-value container claim because no one can prove what went into the box is substantial. Buyers running recurring programs should standardize the workflow once and require the supplier to follow it on every shipment.",
+        bullets: [
+          "Step 1: humidity-check cargo before loading. Reject anything above the agreed threshold (commonly 12–14% moisture content for woven goods).",
+          "Step 2: inspect pallets. Use kiln-dried wood or plastic pallets; reject anything visibly damp, mossy, or split.",
+          "Step 3: place liner if required by buyer (food-safe, VCI, or food-contact film).",
+          "Step 4: place carton-level sachets and record by carton count.",
+          "Step 5: place container-level strips at ceiling line and record hanging positions plus total kg.",
+          "Step 6: seal container and take a dated photo log: cargo, sachets, strips, seal number.",
+          "Step 7: dispatch with a packing list that includes desiccant format, total quantity, and placement.",
+        ],
+      },
+      {
+        heading: "Documentation that defends an insurance claim",
+        body: "When container rain damage triggers an insurance claim, the carrier and the underwriter both look for evidence that moisture mitigation was attempted and that the damage was outside the shipper's control. A solid evidence pack includes: an SDS for the desiccant used (so the underwriter can confirm it was the appropriate product), a COA that ties the desiccant batch to the shipment, an ISO 9001:2015 quality reference for the manufacturer, photos of the loading workflow, and a packing list that names the desiccant format and quantity. DryGelWorld supports this documentation set on request. What the documentation cannot do is rescue a shipment where the desiccant was visibly absent or under-spec — that is why the loading workflow above matters before the dispatch, not after.",
+        bullets: [
+          "SDS (Safety Data Sheet) — proves the desiccant is non-toxic, non-flammable, and DMF-free.",
+          "COA (Certificate of Analysis) — ties batch quality to the shipment.",
+          "ISO 9001:2015 quality reference — anchors the manufacturer's process credibility.",
+          "Loading photo log — captures placement, quantity, seal, and date.",
+          "Packing list with desiccant detail — quantifies what went into the box.",
+          "Voyage temperature/humidity data from the carrier (where available) — shows the conditions the cargo was exposed to.",
+        ],
+      },
+      {
+        heading: "When desiccant alone is not enough",
+        body: "Desiccant is the right tool for moisture in still air. It is not the right tool for refrigeration loop condensation, hull leaks, salt-spray contamination, packaging that is wet at loading, or shipments where the cargo itself is the moisture source (kiln-fresh timber, undried agricultural product). For those cases the program needs ventilation control, source elimination, or a sealed liner — and desiccant becomes a supplementary layer rather than the primary defense. Equally, very long voyages (Karachi → South America, Karachi → some Pacific island routes) can outrun the working capacity of any practical kg of desiccant; on those routes the pragmatic move is to combine desiccant with route insurance and explicit cargo-handover documentation.",
+        bullets: [
+          "Reefer or ventilated containers — refrigeration loop condensation needs different mitigation.",
+          "Hull damage or seal failure — desiccant cannot keep up with active water ingress; address the seal.",
+          "Wet cargo at loading — fix the source; do not rely on desiccant to dry damp goods in a sealed box.",
+          "Voyages beyond ~50 days — combine desiccant with insurance and sealed liners; reassess kg-per-container.",
+          "Ferrous corrosion risk — pair silica gel with VCI paper or emitter for surface protection.",
         ],
       },
     ],
@@ -154,12 +205,32 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Do silica gel packets stop container rain by themselves?",
         answer:
-          "Small packets protect cartons or products. Container rain usually needs container-level desiccants, loading discipline, and route-aware planning.",
+          "Small carton-level packets protect individual product packs but rarely stop container-level condensation by themselves. Container rain is a ceiling-level phenomenon — addressing it usually needs 1 kg to 5 kg multi-chamber strips hung at the ceiling line, paired with carton-level sachets, paired with a disciplined loading workflow.",
       },
       {
-        question: "Who needs container desiccant strips?",
+        question: "How much desiccant for a 20 ft or 40 ft container?",
         answer:
-          "Exporters shipping leather, footwear, textiles, electronics, machinery, food cartons, wooden goods, and long-haul pallet cargo should evaluate them.",
+          "As a working starting point: 20 ft low-risk cargo on a 20-day route → ~1.5–2 kg; 20 ft high-risk cargo → ~3 kg plus carton-level sachets; 40 ft low-risk on a 25–30 day route → ~3–4 kg; 40 ft high-risk on a 30+ day route → ~5–6 kg plus carton-level sachets. Adjust up for tropical-to-temperate routes and down for short, climate-stable lanes.",
+      },
+      {
+        question: "Which routes have the worst container rain?",
+        answer:
+          "Tropical-to-temperate routes (Karachi → Hamburg, Mumbai → Rotterdam) and trans-Pacific routes (Karachi → Vancouver, Karachi → Long Beach) consistently show the worst condensation cycling because the container's interior crosses multiple climate zones over 25–40+ days.",
+      },
+      {
+        question: "Can container desiccant strips be reused after a voyage?",
+        answer:
+          "DryGelWorld silica gel can be regenerated at 150°C (max 250°C) — physically possible to reuse — but for container-grade strips the more practical answer is no: the strips are sized to be saturated by end-of-voyage and the cost of regenerating, re-packaging, and re-certifying a used strip usually exceeds the cost of a fresh one. Treat strips as single-voyage consumables.",
+      },
+      {
+        question: "What documents prove I used desiccant if there is an insurance claim?",
+        answer:
+          "An SDS, a COA tied to the shipment batch, an ISO 9001:2015 quality reference, a dated loading photo log, and a packing list that names the desiccant format and quantity. DryGelWorld supplies the SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request — the photo log and packing list are the shipper's responsibility.",
+      },
+      {
+        question: "Silica gel or dry clay for container shipments?",
+        answer:
+          "Silica gel adsorbs roughly 35% more vapor per gram than typical clay, regenerates at 150°C, and is DMF-free — a stronger choice for precision, leather, electronics, and pharma-style cargo. Dry clay desiccant is a cost-effective fit for industrial durable goods and bulk cartons where the primary risk is oxidation rather than mold or finish damage. Many programs use both: clay at the cost-tier carton level, silica gel at the precision and container level.",
       },
     ],
   },

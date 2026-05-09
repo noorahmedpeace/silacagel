@@ -82,6 +82,76 @@ export const exportMarkets: ExportMarket[] = [
       "FOB Karachi works best when the buyer already knows freight routing and wants product, carton quantity, and handover details confirmed first.",
     rfqTip: "Send product size, monthly volume, carton or pallet quantity, forwarder details, and required document list.",
   },
+  {
+    slug: "uk",
+    country: "United Kingdom",
+    title: "Silica gel desiccant supplier for UK importers and packaging buyers.",
+    description:
+      "Factory-direct silica gel sachets, dry clay packs, bulk beads, and container strips for UK distributors, packaging companies, electronics OEMs, and footwear or leather importers.",
+    buyerTypes: ["UK distributors and re-packers", "Electronics packagers and OEMs", "Footwear, leather and textile importers", "Pharma and healthcare procurement"],
+    ports: ["Felixstowe", "Southampton", "London Gateway", "Liverpool"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg container strips", "Dry clay desiccant packs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms — REACH registration is a buyer-driven discussion, not a held certification, so the conversation should start early.",
+    rfqTip: "Send target port, monthly volume, Incoterms, REACH expectations, and whether you need silica gel, dry clay, or both formats in one program.",
+  },
+  {
+    slug: "germany",
+    country: "Germany",
+    title: "Silica gel and dry clay desiccant supply for German importers.",
+    description:
+      "Industrial moisture-control supply for German automotive OEM packaging, electronics distribution, pharma procurement, and warehouse logistics buyers.",
+    buyerTypes: ["Industrial packagers and OEM buyers", "Automotive supplier networks", "Electronics distributors", "Logistics and warehouse procurement"],
+    ports: ["Hamburg", "Bremerhaven", "Wilhelmshaven (JadeWeserPort)", "Munich rail-port routing"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg cargo strips", "Dry clay desiccant for industrial parts"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "German procurement teams typically require SDS in German and align EU import documentation before pricing. REACH support is a buyer-led discussion — DryGelWorld supplies SDS, COA, and ISO 9001:2015, while REACH registration must be confirmed against the buyer's compliance program.",
+    rfqTip: "Send REACH expectations, target port, language requirements (DE/EN), monthly volume, and whether silica gel or dry clay better fits the use case.",
+  },
+  {
+    slug: "canada",
+    country: "Canada",
+    title: "Silica gel desiccant export supply for Canadian buyers.",
+    description:
+      "Factory-direct silica gel sachets, dry clay packs, bulk beads, and container strips for Canadian distributors, packaging companies, electronics packers, and textile or leather importers.",
+    buyerTypes: ["Canadian distributors and re-packers", "Electronics and consumer-goods packagers", "Textile and leather importers", "Industrial procurement teams"],
+    ports: ["Vancouver", "Montreal", "Halifax", "Prince Rupert"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Canadian buyers can route through West Coast (Vancouver, Prince Rupert) or East Coast (Montreal, Halifax). Karachi-to-Vancouver is the most direct lane for Pakistani-origin desiccant supply; document expectations and bilingual labeling (EN/FR) should be confirmed early.",
+    rfqTip: "Send province, port, monthly volume, Incoterms, and any French-language carton labeling needs alongside silica gel vs dry clay product preference.",
+  },
+  {
+    slug: "australia",
+    country: "Australia",
+    title: "Silica gel and dry clay desiccant supplier for Australian importers.",
+    description:
+      "Moisture-control supply for Australian distributors, packaging companies, OEM packagers, and import buyers across electronics, food packaging context, and industrial cargo.",
+    buyerTypes: ["Australian distributors and importers", "Packaging companies and re-packers", "OEM packagers and electronics brands", "Logistics and freight teams"],
+    ports: ["Sydney (Port Botany)", "Melbourne", "Brisbane", "Fremantle"],
+    products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Australian customs and biosecurity expectations should be aligned before dispatch — clean SDS, COA, and pallet/packaging documentation reduce hold risk at port. East Coast (Sydney, Melbourne, Brisbane) and West Coast (Fremantle) routing are both supported.",
+    rfqTip: "Send destination port, monthly volume, biosecurity-document expectations, and whether you need silica gel, dry clay, or a combined supply program.",
+  },
+  {
+    slug: "europe",
+    country: "Europe (EU-wide)",
+    title: "Silica gel and desiccant export supply for European buyers.",
+    description:
+      "Multi-port European supply for distributors, importers, OEM packagers, and regional networks across the EU and adjacent markets — silica gel, dry clay, container strips, and private-label programs.",
+    buyerTypes: ["European distributors and importers", "OEM packagers and brand owners", "Regional supply network operators", "Logistics and freight consolidators"],
+    ports: ["Hamburg", "Rotterdam", "Antwerp", "Le Havre", "Felixstowe"],
+    products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "EU-wide buyers should align REACH expectations early — REACH registration is buyer-driven and discussed before commercial terms. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) keeps options open for distributor programs and language/labeling requirements vary by country.",
+    rfqTip: "Send target country, REACH expectations, language and labeling requirements, monthly volume, and product preference (silica gel, dry clay, or both).",
+  },
 ];
 
 export function getExportMarket(slug: string) {

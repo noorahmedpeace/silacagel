@@ -139,6 +139,34 @@ export const productCatalog: ProductItem[] = [
     priceBand: "Quoted by route, container volume, and dispatch schedule",
     featuredSizes: ["1 kg maritime strip"],
   },
+  {
+    slug: "dry-clay-desiccant",
+    name: "Industrial Dry Clay Desiccant",
+    shortName: "Dry Clay",
+    eyebrow: "Industrial Clay",
+    summary:
+      "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture-control programs.",
+    useCaseLine: "Cost-effective humidity control for less precision-critical industrial cargo.",
+    description:
+      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons — clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
+    // TODO: replace heroImage with a real product photo of dry clay desiccant.
+    // /silicagel_bulk_enterprise.webp is a placeholder bulk-industrial shot.
+    heroImage: "/silicagel_bulk_enterprise.webp",
+    useCases: [
+      "Durable industrial goods packaging",
+      "Heavy-machinery and parts storage",
+      "Bulk export cartons for cost-sensitive cargo",
+      "Tiered moisture programs alongside silica gel",
+    ],
+    packingOptions: [
+      "Material: activated bentonite or montmorillonite clay",
+      "Format: sachets, bags, or industrial cartons by requirement",
+      "Document support: ISO 9001:2015, SDS, COA, DMF-free statement on request",
+    ],
+    leadTime: "Quoted by format, volume, and dispatch schedule",
+    priceBand: "Cost-sensitive industrial reference rates available",
+    featuredSizes: ["1 g", "5 g", "10 g", "25 g", "50 g", "Custom"],
+  },
 ];
 
 export const priceGroups: PriceGroup[] = [
