@@ -1,41 +1,56 @@
 /*
- * Floating side button — links to #moisture-calculator on /.
- * Positioned offset upward so it doesn't collide with the existing
- * WhatsApp float (bottom-right) on the home page.
+ * Floating Moisture Calculator button — pinned bottom-LEFT so it
+ * never collides with the bottom-right WhatsApp float on the home
+ * page, and so the two floats balance the screen visually.
+ *
+ * Default state: light translucent surface with subtle border so it
+ * doesn't dominate the hero. Hover: solid brand blue with white text
+ * for clear interaction feedback.
  */
 
 .float {
   position: fixed;
-  right: 20px;
-  bottom: 92px;
+  left: 22px;
+  bottom: 22px;
   z-index: 60;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   padding: 12px 18px 12px 14px;
-  background: var(--ds-brand, #0067c5);
-  color: #fff;
+
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--ds-brand-deep, #044d99);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.01em;
+
+  border: 1px solid rgba(0, 103, 197, 0.18);
   border-radius: 999px;
-  box-shadow: 0 12px 28px rgba(0, 103, 197, 0.32);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  box-shadow: 0 10px 26px -10px rgba(8, 30, 80, 0.2);
+
   text-decoration: none;
-  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
     background-color 220ms ease,
+    color 220ms ease,
+    border-color 220ms ease,
     box-shadow 320ms ease;
 }
 
 .float:hover,
 .float:focus-visible {
-  transform: translateY(-2px);
   background: var(--ds-brand-deep, #044d99);
+  color: #ffffff;
+  border-color: var(--ds-brand-deep, #044d99);
+  transform: translateY(-2px);
   box-shadow: 0 16px 36px rgba(0, 103, 197, 0.4);
   outline: none;
 }
 
 .float:focus-visible {
-  outline: 2px solid #fff;
+  outline: 2px solid var(--ds-brand, #0067c5);
   outline-offset: 2px;
 }
 
@@ -46,8 +61,16 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(0, 103, 197, 0.12);
+  color: var(--ds-brand, #0067c5);
   flex-shrink: 0;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+.float:hover .iconWrap,
+.float:focus-visible .iconWrap {
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
 }
 
 .label {
@@ -55,12 +78,11 @@
   white-space: nowrap;
 }
 
-/* On small screens, collapse to icon-only circle so it doesn't dominate the
- * viewport. Tap target stays comfortable at 48x48. */
+/* Mobile: collapse to icon-only circle so it doesn't take up screen */
 @media (max-width: 640px) {
   .float {
-    right: 14px;
-    bottom: 86px;
+    left: 14px;
+    bottom: 16px;
     padding: 0;
     width: 52px;
     height: 52px;
@@ -78,9 +100,9 @@
   }
 }
 
-/* Respect users who prefer no motion */
 @media (prefers-reduced-motion: reduce) {
-  .float {
+  .float,
+  .iconWrap {
     transition: none;
   }
 
