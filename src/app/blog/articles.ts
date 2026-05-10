@@ -318,36 +318,85 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "desiccant-for-electronics-packaging",
     label: "Electronics",
-    title: "Desiccant for electronics packaging and PCB shipments",
+    title: "Desiccant for electronics packaging: a procurement guide",
     description:
-      "How procurement teams protect circuit boards, components, devices, and export electronics from moisture during packing and transit.",
-    readTime: "6 min read",
+      "A technical buyer guide to desiccants for electronics packaging — what moisture does to PCBs and components, MSL handling, sachet sizing per pack volume, ESD-bag integration, long-haul shipping, documentation buyers actually need, and the difference between cost-tier and precision-tier programs.",
+    readTime: "12 min read",
     sections: [
       {
-        heading: "Electronics need clean moisture control",
-        body: "Electronics packaging needs desiccants that can sit inside cartons, pouches, or master packs without creating a messy handling process.",
+        heading: "Why electronics need stricter moisture control than most cargo",
+        body: "Electronics packaging is the use case where small moisture amounts produce expensive damage. A 1% humidity excess inside a PCB carton can drive solder-joint oxidation, capacitor degradation, contact resistance creep, and dendrite growth — all of which fail far above the threshold the buyer paid the supplier to deliver. For high-volume export programs (consumer electronics, IoT modules, accessories, batteries) the desiccant cost is fractional compared to the unit value, yet it's the line item most often under-specced. Treat electronics-grade desiccant as fixed insurance overhead, not as variable cost to negotiate down.",
         bullets: [
-          "Use low-dust sachets for components, boards, and devices.",
-          "Match packet weight to pouch or carton volume.",
-          "Consider indicating gel where visual humidity checks are useful.",
+          "PCBs and assembled modules absorb ambient moisture during storage and reflow it during transit thermal cycles — visible damage shows up at destination, not at packing.",
+          "Capacitor and connector materials are particularly humidity-sensitive — corrosion can be invisible to QC at packing.",
+          "Battery packaging adds an additional safety angle: moisture exposure of lithium-ion cells can drive thermal events on long-haul cargo.",
+          "Damage doesn't always show at unboxing — it shows as elevated field-failure rates 6-18 months later, by which point the supplier relationship is harder to defend.",
         ],
       },
       {
-        heading: "Documentation matters for serious buyers",
-        body: "Industrial electronics buyers often ask for technical documents before approving a new packaging material supplier.",
+        heading: "The MSL framework: moisture sensitivity levels",
+        body: "Industrial electronics buyers often reference Moisture Sensitivity Level (MSL) classifications under IPC/JEDEC J-STD-033. The standard defines 8 levels (MSL 1 through 6) based on how long a component can stay exposed to ambient conditions before it needs reflow bake-out. Buyers building reflow-soldering production lines need desiccant programs that keep packaging humidity inside MSL-appropriate windows. DryGelWorld supplies the silica gel that goes inside the moisture barrier bag — but JEDEC J-STD-033 compliance is a customer-driven framework, not a held credential. Buyers requiring JEDEC-stamped packaging programs should align documentation and audit expectations against their compliance team before commercial terms.",
         bullets: [
-          "Keep SDS and COA available for procurement review.",
-          "Confirm sachet material, print, and packaging count before MOQ.",
-          "Use batch traceability where customer audits require it.",
+          "MSL 1: unlimited floor life at <30°C and <85% RH (most permissive).",
+          "MSL 2 - MSL 2a: ~1 year to 4 weeks floor life depending on humidity.",
+          "MSL 3: ~168 hours floor life — common for SMT components.",
+          "MSL 4: ~72 hours.",
+          "MSL 5 / 5a / 6: progressively stricter — used for sensitive packages and large BGAs.",
+          "JEDEC J-STD-033 compliance is buyer-driven; DryGelWorld supplies silica gel, SDS, COA, and ISO 9001:2015 reference — formal JEDEC alignment must be confirmed against the buyer's compliance program.",
         ],
       },
       {
-        heading: "Avoid overcomplicated product pages",
-        body: "The buyer needs fast clarity: size range, material, MOQ, documents, sample path, and quote route.",
+        heading: "Sachet sizing math for electronics packs",
+        body: "Electronics packs are typically smaller and denser than general cargo, which changes the desiccant math. A small antistatic bag holding a single PCB has internal air volume around 50-150 ml — a single 0.5g or 1g sachet is sufficient. A larger assembled-module box (1-5 liter internal volume) typically uses 2g-5g sachets. Master cartons holding multiple boxed units justify 10g-25g sachets at the carton air-volume level. The DryGelWorld silica gel adsorbs ~33% of its own weight, so a 1g sachet has working capacity for ~0.33g of water — sized correctly for a single small PCB pack on a 30-day voyage.",
         bullets: [
-          "Show standard sizes and custom pack options.",
-          "Explain where the sachet sits in the pack.",
-          "Route buyers to an RFQ with quantity and destination fields.",
+          "PCB antistatic bag (50-150 ml): 0.5g-1g sachet.",
+          "Assembled module box (1-5 liter): 2g-5g sachet.",
+          "Multi-pack carton (5-30 liter): 10g-25g sachet.",
+          "Master carton (30+ liter): 25g-50g sachet or larger bag.",
+          "Pallet-level supplementary: 100g-250g bag at pallet base for high-value programs.",
+          "Increase by ~50% for tropical-to-temperate routes and high-volume reflow lines requiring strict MSL bake-out windows.",
+        ],
+      },
+      {
+        heading: "ESD bag integration: where the sachet goes",
+        body: "The placement question matters more for electronics than for any other cargo type. The sachet should sit inside the moisture barrier bag (MBB) or antistatic shielding bag — between the product and the bag wall, never sealed in plastic that blocks vapor exchange. For static-sensitive components, the sachet itself should be packaged in non-shedding paper that won't contaminate the cleanroom-grade assembly. For combined product-plus-component packs, a small unit-level sachet plus a master carton sachet gives the layered protection JEDEC-style programs expect. Avoid placing sachets directly against any component that generates heat during shipping — the warm-zone moisture exchange isn't where the desiccant should be working.",
+        bullets: [
+          "Inside the moisture barrier bag (MBB): the standard placement for MSL 2-6 components.",
+          "Antistatic / shielding bag: 0.5g-2g sachet for single-component packs.",
+          "Outer carton: 10g-25g sachet inside the master carton, away from the moisture barrier bag.",
+          "Pallet level: 100g-250g bag for high-value programs.",
+          "Materials note: use low-dust breathable paper sachets — Tyvek is preferred for cleanroom-grade programs; DryGelWorld currently supplies breathable paper sachets, with Tyvek format on the expansion roadmap.",
+        ],
+      },
+      {
+        heading: "Long-haul electronics shipping considerations",
+        body: "For Karachi-to-export electronics shipments, route timing and humidity profile drive the desiccant program. Karachi-to-Hamburg (~25 days) means 25-40 thermal cycles inside the container; Karachi-to-Vancouver (~30 days) crosses Pacific storm cycles; Karachi-to-Sydney crosses the ITCZ. For high-value electronics on tropical-to-temperate routes, the right program combines: unit-level sachets in each pack, carton-level sachets in each master carton, and 1kg-5kg container strips at the container ceiling for condensation control. Buyers should also consider VCI (volatile corrosion inhibitor) paper for cargo with exposed metal contacts — VCI complements desiccant rather than replacing it.",
+        bullets: [
+          "Tropical-to-temperate routes (Karachi → Hamburg / NYC): full tiered program — unit + carton + container.",
+          "Trans-Pacific (Karachi → Vancouver / LA): same tier; consider supplementary VCI for connector-heavy cargo.",
+          "Intra-region (Karachi → UAE / Saudi): short routes need carton-level desiccant; container strips optional based on cargo value.",
+          "Battery shipments: confirm IATA / IMDG class requirements; desiccant program does not change battery hazard classification.",
+        ],
+      },
+      {
+        heading: "Documentation electronics buyers actually require",
+        body: "Industrial electronics procurement teams typically require more documentation than other cargo categories. A standard ask includes: ISO 9001:2015 quality reference, SDS for the desiccant, COA tied to the shipment batch, DMF-free product statement, and (for large customers) batch traceability records. DryGelWorld supplies all five on request. What DryGelWorld does NOT currently supply: formal JEDEC J-STD-033 compliance certification, MIL-D-3464 stamped product, or RoHS-specific audit — these are buyer-driven frameworks that must be aligned against the customer's compliance program before commercial terms. Buyers should send their full compliance requirement list at RFQ stage so the document set can be confirmed before sample dispatch.",
+        bullets: [
+          "ISO 9001:2015 quality reference — anchor manufacturer credibility.",
+          "SDS — non-toxic, non-flammable, DMF-free product confirmation.",
+          "COA — batch quality tied to shipment date.",
+          "Batch traceability — available for high-volume programs on request.",
+          "JEDEC J-STD-033, MIL-D-3464, RoHS audit — buyer-driven discussions; not held credentials.",
+        ],
+      },
+      {
+        heading: "Cost reality: electronics is where the desiccant ROI is highest",
+        body: "Electronics is the use case where the desiccant-to-cargo-value ratio is most favorable. A USD 50 PCB with a USD 0.02 sachet costs 0.04% of cargo value in desiccant. A claim for moisture-damaged PCBs typically runs 100-500% of cargo value once you count warranty, replacement logistics, and customer-relationship damage. The prevention-to-damage ratio for electronics is roughly 1:2500 in extreme cases. Under-spending on desiccant for electronics cargo is the single most common procurement mistake in this category.",
+        bullets: [
+          "Typical desiccant cost: 0.01-0.1% of electronics cargo value.",
+          "Typical moisture damage claim: 100-500% of original cargo value (counting warranty + replacement + reputational damage).",
+          "Prevention-to-damage ratio: 1:1000 to 1:2500 for high-value electronics.",
+          "Cheapest desiccant program is almost never the most cost-effective for electronics shipments.",
         ],
       },
     ],
@@ -355,12 +404,32 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Can silica gel be used for PCB packaging?",
         answer:
-          "Yes, silica gel sachets are commonly used to reduce moisture risk around circuit boards and electronic components when selected and packed correctly.",
+          "Yes — silica gel is the standard desiccant for PCB and electronics component packaging. DryGelWorld supplies breathable paper sachets in 0.5g-10g sizes that fit inside antistatic shielding bags and moisture barrier bags, the standard placements for MSL 2-6 components.",
       },
       {
         question: "Should electronics use indicating silica gel?",
         answer:
-          "Indicating gel can help with visual checks, but the final choice depends on customer policy, compliance needs, and packaging design.",
+          "Indicating silica gel (orange or blue beads that change color when saturated) helps with visual humidity checks at packing and unpacking. Useful for QC programs that need an at-a-glance saturation indicator. Indicating gel is on the DryGelWorld expansion roadmap — currently we supply non-indicating white silica gel.",
+      },
+      {
+        question: "What sachet size for a single PCB in an antistatic bag?",
+        answer:
+          "0.5g or 1g for a typical PCB antistatic bag (50-150 ml internal volume). Increase to 2g-5g for assembled modules in larger boxes. Add a 10g-25g sachet at the master-carton level for long-haul export shipping.",
+      },
+      {
+        question: "Do you offer JEDEC J-STD-033 compliant packaging?",
+        answer:
+          "JEDEC J-STD-033 is a buyer-driven compliance framework, not a held credential. DryGelWorld supplies the silica gel that goes inside compliant packaging programs, along with SDS, COA, ISO 9001:2015 reference, and batch traceability on request. Formal JEDEC alignment should be confirmed against the buyer's compliance program before commercial terms.",
+      },
+      {
+        question: "Tyvek vs breathable paper sachets for electronics?",
+        answer:
+          "Tyvek is preferred for cleanroom-grade pharma and electronics programs because of its low-shed profile and dimensional stability. DryGelWorld currently supplies breathable paper sachets, with Tyvek format on the expansion roadmap. Buyers requiring Tyvek packaging should confirm timing at RFQ stage.",
+      },
+      {
+        question: "Do I also need VCI paper for electronics shipments?",
+        answer:
+          "VCI (volatile corrosion inhibitor) paper complements desiccant rather than replacing it — desiccant manages bulk humidity, VCI specifically protects exposed metal contacts and connector pins from corrosion. For connector-heavy electronics cargo on long-haul routes, both are often used together.",
       },
     ],
   },
@@ -1067,6 +1136,234 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "best-desiccant-for-shipping-containers",
+    label: "Container Shipping",
+    title: "Best desiccant for shipping containers: a buyer's selection guide",
+    description:
+      "How export buyers pick the right desiccant program for 20-foot and 40-foot container shipments. Container-level strips vs carton-level sachets, silica gel vs clay, route-by-route sizing math, and the procurement checklist that prevents moisture-damage claims.",
+    readTime: "11 min read",
+    sections: [
+      {
+        heading: "The right desiccant depends on three variables — not one",
+        body: "Most buyers asking 'what's the best desiccant for shipping containers' get a one-size-fits-all answer from suppliers. The honest answer is that the right program depends on three variables: cargo value-and-sensitivity, route length-and-humidity-profile, and packaging tier (carton vs container). A 20-foot container of durable industrial goods going Karachi → Jebel Ali on a 7-day route needs a different program than a 40-foot container of leather exports going Karachi → Hamburg on a 25-day tropical-to-temperate route. Both can use silica gel; both can use clay; both can mix. Picking 'the best' starts with answering those three questions.",
+        bullets: [
+          "Variable 1 — cargo value: high-value cargo (electronics, leather, pharma) justifies precision-tier silica gel. Low-value durable industrial goods can use cost-tier clay.",
+          "Variable 2 — route: tropical-to-temperate long-haul (Karachi → Hamburg, Karachi → NYC, Karachi → Vancouver) needs container-level protection. Short intra-region (Karachi → Jebel Ali) often runs with carton-level only.",
+          "Variable 3 — packaging tier: unit-pack desiccant vs carton-level vs container-ceiling each solve different problems and often combine.",
+        ],
+      },
+      {
+        heading: "Container-level strips: when 1kg vs 2kg vs 3kg vs 5kg",
+        body: "Container desiccant strips are designed to be hung at the container ceiling line, where the worst condensation cycles happen. DryGelWorld supplies strips in 1kg, 2kg, 3kg, and 5kg formats — the choice depends on container size, route length, and cargo risk. As a working starting point: 1kg strips for short routes and low-risk cargo (1-2 strips per 20-foot container), 2-3kg strips for standard 20-40 foot containers on medium-length routes, and 5kg strips for long-haul tropical-to-temperate routes carrying moisture-sensitive cargo. Multiple smaller strips are usually preferable to one large strip — the protection is distributed across the container ceiling rather than concentrated at one hanging point.",
+        bullets: [
+          "1kg strip: short routes (under 14 days), low-risk industrial cargo, 20ft containers — typically 1-2 strips total.",
+          "2-3kg strip: standard 20-40ft containers on medium-length routes, mixed cargo risk profile — 2-4 strips total.",
+          "5kg strip: long-haul tropical-to-temperate (25+ days), high-value cargo (leather, electronics, pharma) — typically 4-6 strips per 40ft container, hung along the ceiling line.",
+          "Distribute strips across the ceiling rather than concentrating at one point — protection is more even and condensation hotspots are smaller.",
+        ],
+      },
+      {
+        heading: "Carton-level sachets: the layer most buyers under-spec",
+        body: "Container strips alone do not protect the cargo inside the cartons — they only manage container-level air humidity. For high-value or moisture-sensitive cargo, you also need carton-level sachets that protect the product directly. The math from earlier in the moisture-prevention series: 0.5g-1g sachets inside unit packs, 2g-5g in product cartons, 10g-25g in master cartons, 25g-100g in large export cartons. For a typical 40-foot container of leather goods, the carton-level program might use 5000-10000 small sachets across all the units, plus 4-6 cargo strips at the container ceiling. Costs roughly 0.3-0.7% of cargo value, which is the right order of magnitude for a moisture-prevention program.",
+        bullets: [
+          "Unit pack desiccant: 0.5g-1g sachet in each consumer-facing pack.",
+          "Product carton: 2g-5g sachet per box.",
+          "Master carton: 10g-25g sachet per master.",
+          "Container ceiling: 1kg-5kg strips per the table above.",
+          "Pallet base supplementary: 100g-250g bag for highest-value programs.",
+          "Combined cost: typically 0.3-1% of cargo value across all tiers.",
+        ],
+      },
+      {
+        heading: "Silica gel vs dry clay for containers",
+        body: "Both silica gel and dry clay work for container shipping. The selection depends on cargo profile and budget. Silica gel adsorbs ~33% of its own weight in water vapor; clay adsorbs ~24-28%. So silica gel is roughly 35% more efficient per gram, which usually means smaller strips and fewer cartons of sachets. Clay is cheaper per kilogram. For most B2B export programs: use silica gel where the cargo is high-value (electronics, leather, pharma, precision components) — the per-unit-of-protection economics favor silica gel. Use clay where the cargo is low-value durable industrial goods on short routes where moisture risk is mostly mild oxidation. Many export programs use both: clay at cost-tier carton level, silica gel at precision-tier carton level and at the container ceiling.",
+        bullets: [
+          "Silica gel: ~33% adsorption capacity, higher per-kg cost, better per-unit-of-protection economics for high-value cargo.",
+          "Dry clay: ~24-28% adsorption, lower per-kg cost, cost-tier choice for low-risk industrial cargo.",
+          "Mixed programs: clay at carton level for cost cargo, silica gel at carton + container level for precision cargo.",
+          "For tropical-to-temperate long-haul: silica gel almost always wins the per-unit-of-protection math.",
+          "For short intra-region runs: clay can be sufficient and noticeably cheaper.",
+        ],
+      },
+      {
+        heading: "Route-by-route program sizing",
+        body: "A working table of container desiccant sizing by route, for moisture-sensitive cargo in a 40-foot container. Adjust down 20-40% for shorter or less-humid routes; adjust up for very high-value programs where damage cost dwarfs prevention.",
+        bullets: [
+          "Karachi → Jebel Ali (UAE, ~7 days): 2-3 strips of 2kg silica gel at ceiling. Carton-level sachets per cargo volume.",
+          "Karachi → Jeddah / Dammam (Saudi, ~10 days): 3-4 strips of 2-3kg silica gel; carton-level sachets.",
+          "Karachi → Sydney (Australia, ~22 days, crosses ITCZ): 4-5 strips of 3kg silica gel; full carton-level program.",
+          "Karachi → Hamburg / Rotterdam (~25 days): 4-6 strips of 3-5kg silica gel at ceiling; full carton-level program.",
+          "Karachi → New York / East Coast US (~30 days): 5-6 strips of 5kg silica gel; full carton + pallet-level program.",
+          "Karachi → Vancouver / West Coast US (~30 days trans-Pacific with storm cycles): 6 strips of 5kg silica gel; full carton + pallet-level program.",
+        ],
+      },
+      {
+        heading: "The procurement checklist for a defensible program",
+        body: "A claim-defensible container desiccant program requires both the right product choice AND the right documentation. Beyond the desiccant itself, buyers should secure: SDS (proves non-toxic, non-flammable, DMF-free), COA tied to the shipment batch, ISO 9001:2015 quality reference, dated loading photos showing strip placement and seal, and a packing list that names desiccant format and total quantity per container. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request — the photo log and packing list are the shipper's responsibility but cheap to maintain.",
+        bullets: [
+          "SDS — non-toxic, non-flammable, DMF-free desiccant confirmation.",
+          "COA — batch quality tied to shipment date.",
+          "ISO 9001:2015 reference — manufacturer credibility.",
+          "Loading photo log — strip placement, seal number, dated.",
+          "Packing list with desiccant detail — total kg and number of strips per container.",
+          "Voyage temperature / humidity log from carrier (when available) — supports condition-of-cargo defense in claims.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How many silica gel strips do I need for a 40-foot container?",
+        answer:
+          "Working starting point for moisture-sensitive cargo: 4-6 strips of 3-5kg silica gel at the container ceiling, distributed evenly along the length. Adjust up for tropical-to-temperate long-haul routes (Karachi → Hamburg, NYC, Vancouver), down for short intra-region runs.",
+      },
+      {
+        question: "Should I use silica gel or clay strips in containers?",
+        answer:
+          "Silica gel for high-value cargo (electronics, leather, pharma, precision) — the ~35% better adsorption per gram makes it cheaper per unit of protection despite higher per-kg cost. Clay for low-risk durable industrial cargo on short routes. Many programs combine: clay at the cost-tier carton level, silica gel at the container ceiling.",
+      },
+      {
+        question: "Do I also need carton-level sachets if I'm using container strips?",
+        answer:
+          "Yes — container strips manage container-air humidity but do not protect the cargo inside each carton directly. High-value or moisture-sensitive cargo needs a tiered program: unit-pack sachets + carton-level sachets + container-ceiling strips. Strips alone leave the cargo exposed to micro-environment moisture.",
+      },
+      {
+        question: "What's the total cost of a container desiccant program?",
+        answer:
+          "Typical desiccant cost runs 0.3-1% of cargo value for a full tiered program (carton + container). For a USD 80,000 container of leather goods, that's roughly USD 240-800 in desiccant — versus typical moisture-damage claim costs of 5-20% of cargo value plus carrier fees. Prevention-to-damage ratio is roughly 1:20 to 1:40.",
+      },
+      {
+        question: "Can I reuse the strips after a voyage?",
+        answer:
+          "Technically yes — silica gel regenerates at 150°C — but for container-grade strips it's rarely worth doing economically. Strips are sized to be saturated by end-of-voyage and treated as single-use consumables. Reuse mostly makes sense for laboratory and small-industrial applications.",
+      },
+      {
+        question: "Where exactly should the strips be hung in the container?",
+        answer:
+          "Along the container ceiling, distributed evenly along the length, with strips facing into the container air (not flush against the wall). Avoid concentrating strips at one point — distributed placement gives even protection and prevents condensation hotspots.",
+      },
+    ],
+  },
+  {
+    slug: "ppe-products-for-factories",
+    label: "PPE Buyer Guide",
+    title: "PPE products for factories: a procurement guide for B2B buyers",
+    description:
+      "A working guide to industrial PPE procurement — hair nets, beard covers, and the broader PPE program design for food processing, manufacturing, healthcare, and cleanroom workspaces. Color zoning, sizing, document expectations, and supplier selection.",
+    readTime: "10 min read",
+    sections: [
+      {
+        heading: "PPE procurement is process design, not a shopping list",
+        body: "B2B PPE buying is often handled as a commodity purchase — a procurement team gets a request, places an order, ships boxes. The shipments that actually reduce contamination, accident, and audit risk treat PPE as a process design problem instead. The questions that matter: which production zones need which PPE, what color zoning prevents cross-contamination, what disposable-vs-reusable economics make sense at your shift volume, what documentation the destination market actually requires, and which suppliers can repeat the same specification across recurring orders. Getting these right at the procurement stage is cheaper than fixing them after an audit finding.",
+        bullets: [
+          "PPE is part of a contamination-control process, not a shopping line item.",
+          "Zone design (where each PPE type is required, where it isn't) matters as much as product selection.",
+          "Disposable-vs-reusable economics break differently above and below ~50-employee shifts.",
+          "Documentation expectations vary by destination market — confirm before commercial terms.",
+          "Supplier reliability for repeat supply matters more than first-shipment price.",
+        ],
+      },
+      {
+        heading: "The PPE categories most B2B factories actually need",
+        body: "Industrial PPE programs typically cover four categories: hair containment (bouffant hair nets), facial-hair containment (beard covers), hand protection (gloves), and respiratory protection (masks). DryGelWorld currently supplies the first two — bouffant hair nets in 18/20/21/22 inch diameters across green and white, and disposable beard covers. The other two (gloves and masks) are not currently in the catalog. Buyers building complete PPE programs should plan supply across all four categories, even if sourcing from multiple suppliers — gaps in coverage create the contamination risk PPE is meant to prevent.",
+        bullets: [
+          "Hair containment: bouffant nets in 18/20/21/22 inch diameter, green or white — DryGelWorld supplies these.",
+          "Facial-hair containment: disposable beard covers — DryGelWorld supplies these.",
+          "Hand protection: nitrile, latex, or vinyl gloves — sourced from PPE specialists; not currently in DryGelWorld catalog.",
+          "Respiratory protection: masks (surgical, FFP1, FFP2, FFP3) — sourced from PPE specialists; not currently in DryGelWorld catalog.",
+          "Apron / coverall / shoe cover: secondary controls; sourced from PPE specialists.",
+        ],
+      },
+      {
+        heading: "Color zoning: the cheapest contamination-control tool",
+        body: "Color zoning uses different PPE colors in different production zones to visually separate areas and prevent worker movement-driven cross-contamination. The classic food-processing application: green PPE in the raw-meat zone, white PPE in the finished-product zone — a worker who walks from raw to finished is immediately visible by their PPE color. Zone color codes are arbitrary by industry, but consistency within a facility matters. Establishing the zoning system at PPE procurement stage is much cheaper than retrofitting it after an audit finding. DryGelWorld stocks bouffant hair nets in green and white precisely to support this zoning use case.",
+        bullets: [
+          "Food processing: typically green for raw zones (meat, vegetable prep), white for finished/packaging zones.",
+          "Manufacturing: zoning is facility-specific; common pattern is white for general production, blue/red for higher-risk or QC zones.",
+          "Pharma / healthcare: typically white throughout, with color used for visitor / contractor identification.",
+          "Cleanroom: white default, with cleanroom-grade Tyvek replacing standard non-woven for higher-class environments.",
+          "Color zoning is consistent within a facility — switching mid-shift defeats the purpose.",
+        ],
+      },
+      {
+        heading: "Sizing hair nets and beard covers across your workforce",
+        body: "Hair net diameter is sized to head size, and a multi-size production line ordering only one diameter creates an uncomfortable workforce — which leads to nets being worn improperly or not at all. Standard production lines benefit from carrying at least two diameters: 20 inch and 22 inch covers most adult head sizes; 18 inch fits smaller heads or workers who prefer a snug fit; 21 inch is a mid-range option. Beard covers are typically one-size with elastic edges so sizing is less critical, but quantity planning is — beard covers should be planned at roughly 30-50% of male workforce headcount, depending on facial-hair demographic. Under-ordering beard covers is one of the most common B2B PPE procurement mistakes.",
+        bullets: [
+          "Hair net diameter: stock 20 inch and 22 inch as defaults; add 18 inch for smaller heads, 21 inch for mid-range.",
+          "Beard cover quantity: ~30-50% of male workforce headcount per shift.",
+          "Daily consumption: ~1-2 hair nets per worker per shift (depending on shift length and contamination risk).",
+          "Carton planning: standard cartons hold 100 or 1000 pieces — order by monthly consumption forecast.",
+          "Buffer stock: maintain ~2 weeks of supply on-site to absorb supply chain hiccups.",
+        ],
+      },
+      {
+        heading: "Document expectations vary by market",
+        body: "PPE documentation expectations vary substantially by destination market. ISO 9001:2015 is the most universally recognized baseline — DryGelWorld holds this. Beyond that: EU markets often expect EN 14126 or similar PPE-specific compliance, US food markets expect FDA / FSSC 22000 alignment, GCC markets may expect SASO or ESMA alignment, and pharma cleanroom programs may expect ISO 13485. None of these market-specific compliances are currently held credentials for the DryGelWorld PPE line — they are buyer-driven discussions to align before commercial terms. Buyers requiring stamped market-specific compliance should confirm the documentation set at RFQ stage so the supplier and the buyer's compliance team can align before sample dispatch.",
+        bullets: [
+          "ISO 9001:2015 — held; baseline quality system reference.",
+          "EN 14126 (EU PPE compliance) — buyer-driven discussion; not held.",
+          "FDA / FSSC 22000 (US food) — buyer-driven discussion; not held.",
+          "SASO / ESMA (GCC) — buyer-driven discussion; not held.",
+          "ISO 13485 (medical device / cleanroom) — buyer-driven discussion; not held.",
+          "Confirm documentation set at RFQ stage — don't assume coverage of un-held credentials.",
+        ],
+      },
+      {
+        heading: "Disposable vs reusable: the economics break around 50 workers",
+        body: "Disposable PPE (single-use hair nets and beard covers) dominates B2B procurement because the per-unit cost is low and the labor cost of laundering reusable PPE adds up quickly. The economics start to flip around 50-100 employees per shift, where disposable consumption scales linearly but reusable laundering costs scale sub-linearly. Above ~100 employees, some facilities consider reusable PPE programs with industrial laundering contracts. Below that threshold, disposable almost always wins on total cost. DryGelWorld supplies disposable hair nets and beard covers — buyers above the threshold should evaluate reusable PPE specialists alongside the disposable program rather than instead of it.",
+        bullets: [
+          "Under 50 employees per shift: disposable almost always wins on total cost.",
+          "50-100 employees: depends on shift count, contamination risk, and labor cost of laundering.",
+          "Above 100 employees: reusable PPE worth evaluating with industrial laundering specialists.",
+          "Most facilities use BOTH: disposable for high-turnover zones, reusable for stable workstation PPE.",
+          "DryGelWorld's hair nets and beard covers are disposable / single-use; reusable PPE is not in the current catalog.",
+        ],
+      },
+      {
+        heading: "Supplier selection checklist",
+        body: "PPE procurement reliability matters more than first-shipment price for any program above a few hundred dollars per month. A good PPE supplier should: (1) ship consistent specification across orders — same material, same size, same color; (2) supply the documentation set the destination market requires; (3) handle private-label and carton printing if needed; (4) maintain stock to support unplanned demand spikes; (5) ship reliably on agreed Incoterms. Compare suppliers on these five dimensions, not on per-unit price alone. The cheapest PPE supplier is almost never the most reliable, and supply interruptions cause more economic damage than the price difference between cheapest and best supplier.",
+        bullets: [
+          "Specification consistency — can the supplier repeat the exact same product across recurring orders?",
+          "Documentation — can they supply the SDS, COA, ISO, and market-specific docs the destination requires?",
+          "Private-label capability — can they print carton labels in the buyer's language and brand?",
+          "Stock and lead time — can they support demand spikes and meet agreed delivery windows?",
+          "Reliability on Incoterms — FOB / CIF / DAP, port handover, and dispatch communication.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do you supply gloves and masks alongside hair nets and beard covers?",
+        answer:
+          "Currently no — DryGelWorld's PPE line covers bouffant hair nets and disposable beard covers. Gloves (nitrile, latex, vinyl) and masks (surgical, FFP1-3) are not in the current catalog and should be sourced from PPE specialists for now. Combining sources is normal in B2B PPE procurement.",
+      },
+      {
+        question: "What colors do you stock for hair nets?",
+        answer:
+          "Green and white are the standard stocked colors. Green is commonly used for zone marking in food processing (e.g. raw-meat zones); white is the general-use default. Other colors can be discussed for high-volume programs.",
+      },
+      {
+        question: "How many hair nets should I order per month?",
+        answer:
+          "Working starting point: ~1-2 hair nets per worker per shift, multiplied by shift count and working days. For a 50-worker single-shift operation working 22 days per month, plan ~1100-2200 hair nets monthly. Add a 2-week buffer stock to absorb supply chain variability.",
+      },
+      {
+        question: "Are your PPE products food-grade certified?",
+        answer:
+          "ISO 9001:2015 is held as the quality system reference. Formal food-grade certifications (FDA, FSSC 22000, EU 1935/2004) are buyer-driven discussions, not currently held credentials. Buyers requiring stamped food-grade documentation should confirm against their compliance program before commercial terms.",
+      },
+      {
+        question: "Can I get private-label hair nets and beard covers?",
+        answer:
+          "Yes — private-label carton printing and supplier label discussions can be handled at RFQ stage. Confirm artwork, language, brand expectations, and minimum order quantity early. Private label is typically viable above a few thousand cartons per design.",
+      },
+      {
+        question: "Disposable or reusable PPE — which is better?",
+        answer:
+          "For most B2B facilities under 50-100 employees per shift, disposable wins on total cost. Above that threshold, reusable PPE programs with industrial laundering become cost-competitive. Most large facilities run both: disposable for high-turnover zones, reusable for stable workstations. DryGelWorld supplies disposable; reusable PPE is not in the current catalog.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -1086,7 +1383,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "how-to-choose-silica-gel-packet-size": { publishedAt: "2025-08-20", updatedAt: "2026-05-01" },
   "silica-gel-vs-clay-desiccant": { publishedAt: "2025-09-10", updatedAt: "2026-05-01" },
   "container-rain-prevention": { publishedAt: "2025-10-01", updatedAt: "2026-05-01" },
-  "desiccant-for-electronics-packaging": { publishedAt: "2025-10-22", updatedAt: "2026-05-01" },
+  // (electronics entry now lives below with bumped updatedAt)
   "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-05-01" },
   "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-05-01" },
   "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-05-10" },
@@ -1095,6 +1392,9 @@ const articlePublication: Record<string, ArticlePublication> = {
   "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
   "why-hair-nets-matter-in-food-export": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
+  "desiccant-for-electronics-packaging": { publishedAt: "2025-10-22", updatedAt: "2026-05-11" },
+  "best-desiccant-for-shipping-containers": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
+  "ppe-products-for-factories": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
