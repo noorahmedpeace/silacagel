@@ -19,9 +19,7 @@ const catalogImages: Record<string, string> = {
   "paper-sachets": "/products/catalog-kraft-indicating.webp",
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
-  // Placeholder. Real dry clay product photo still needed — drop in
-  // /public/products/ and update this path.
-  "dry-clay-desiccant": "/products/real-kraft-bond.webp",
+  "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
   // PLACEHOLDER for new PPE product lines. Real photos still needed.
   "hair-nets": "/products/real-bulk-supply.webp",
   "beard-covers": "/products/real-bulk-supply.webp",

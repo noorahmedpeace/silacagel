@@ -211,11 +211,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Cost-effective humidity control for less precision-critical industrial cargo.",
     description:
       "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons — clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
-    // PLACEHOLDER. Real dry-clay-desiccant product photo still needed.
-    // Using kraft-bond beige sachets as the closest visual match for clay.
-    // When a real photo arrives, drop it into /public/products/ and update
-    // this path AND the catalogImages map in src/app/products/page.tsx.
-    heroImage: "/products/real-kraft-bond.webp",
+    heroImage: "/products/dry-clay-desiccant.jpg",
     useCases: [
       "Durable industrial goods packaging",
       "Heavy-machinery and parts storage",
