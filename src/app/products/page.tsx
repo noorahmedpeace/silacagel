@@ -20,9 +20,8 @@ const catalogImages: Record<string, string> = {
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
   "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
-  // PLACEHOLDER for new PPE product lines. Real photos still needed.
-  "hair-nets": "/products/real-bulk-supply.webp",
-  "beard-covers": "/products/real-bulk-supply.webp",
+  "hair-nets": "/products/hair-nets.jpg",
+  "beard-covers": "/products/beard-covers.jpg",
 };
 
 export default function ProductsPage() {

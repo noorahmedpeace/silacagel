@@ -149,10 +149,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Standard hair-containment PPE for safety-critical workspaces.",
     description:
       "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white — green is commonly used to mark designated zones and white is the general-use default.",
-    // PLACEHOLDER. Real hair-net product photo still needed.
-    // Drop a real product photo into /public/products/ (e.g. hair-nets.webp)
-    // and update this path AND the catalogImages map in src/app/products/page.tsx.
-    heroImage: "/products/real-bulk-supply.webp",
+    heroImage: "/products/hair-nets.jpg",
     useCases: [
       "Food processing and packaging line PPE",
       "Manufacturing and assembly hairshed prevention",
@@ -182,8 +179,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "PPE compliance for facial-hair containment in safety-critical operations.",
     description:
       "Beard covers — also called beard nets or beard guards — contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
-    // PLACEHOLDER. Real beard-cover product photo still needed.
-    heroImage: "/products/real-bulk-supply.webp",
+    heroImage: "/products/beard-covers.jpg",
     useCases: [
       "Food processing and bakery handling",
       "Manufacturing and assembly safety programs",
