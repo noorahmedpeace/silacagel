@@ -416,10 +416,10 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "what-is-silica-gel-and-how-does-it-work",
     label: "Technical Basics",
-    title: "What is silica gel and how does it work in packaging?",
+    title: "What is silica gel and how does it actually work?",
     description:
-      "A practical explanation of silica gel desiccant for procurement teams buying packets, bulk beads, cargo strips, and export packaging moisture-control products.",
-    readTime: "8 min read",
+      "A foundational technical guide to silica gel — what it is, how adsorption works at the bead level, why it controls moisture better than most alternatives, and how procurement teams should think about it for packaging, export shipping, and industrial moisture control programs.",
+    readTime: "12 min read",
     sections: [
       {
         heading: "Silica gel is a porous desiccant, not a gel-like liquid",
@@ -473,6 +473,155 @@ export const blogArticles: BlogArticle[] = [
         question: "What should I send to get a silica gel quote?",
         answer:
           "Send product type, package or carton size, required packet or bulk format, quantity, destination, Incoterms, and document needs such as SDS or COA.",
+      },
+      {
+        question: "Why is it called gel if it's a hard solid?",
+        answer:
+          "The 'gel' name is historical, not chemical. Silica gel was originally produced by drying a wet silicic acid gel — a colloidal suspension that, once dried, became the porous solid we know today. The dried solid kept the original 'gel' name even though by the time it reaches a sachet it is dry, hard, and stable. The name confuses first-time buyers but the material is unambiguously a solid.",
+      },
+      {
+        question: "Can you eat silica gel?",
+        answer:
+          "No — and don't. Pure silica gel as a desiccant is not chemically toxic and is generally classed as a non-hazardous packaging material, but the beads are not food. Real-world packets often pass through manufacturing lines, dust, and packaging environments that are not food-safe. Every silica gel sachet should carry DO NOT EAT and THROW AWAY warning text, and should be kept away from children and pets.",
+      },
+      {
+        question: "How do I regenerate silica gel?",
+        answer:
+          "Heating the bead at 150°C drives off the adsorbed water and restores capacity. Maximum reactivation temperature is around 250°C — going higher damages the porous structure. For container-grade strips this is rarely worth doing economically; for laboratory and small-scale industrial use, regeneration is a real cost saver.",
+      },
+      {
+        question: "What are the orange and blue silica gel beads?",
+        answer:
+          "Those are indicating silica gels — the bead is dyed with a moisture-sensitive indicator that changes color as it saturates. Blue silica gel turns pink when saturated; orange silica gel turns green or colorless. The chemistry is the same as standard white non-indicating silica gel; the indicator just gives a visual signal of saturation. Useful for laboratories, electronics packaging with humidity-monitoring requirements, and re-pack programs.",
+      },
+    ],
+  },
+  {
+    slug: "silica-gel-vs-molecular-sieve-vs-activated-alumina",
+    label: "Comparison",
+    title: "Silica gel vs molecular sieve vs activated alumina: a buyer's guide",
+    description:
+      "A buyer-grade comparison of the three main industrial desiccants — silica gel, molecular sieve, and activated alumina. Adsorption capacity, pore-size differences, cost tiers, regeneration, and which one fits which export-packaging use case.",
+    readTime: "11 min read",
+    sections: [
+      {
+        heading: "The three desiccants in plain language",
+        body: "Three industrial desiccants dominate B2B moisture control. Silica gel is the everyday workhorse — synthetic amorphous silicon dioxide, broad humidity range, balanced cost. Molecular sieve is the precision tool — synthetic crystalline zeolite with extremely uniform pore sizes (3A, 4A, 5A, 13X), built for very low humidity and selective adsorption. Activated alumina is the gas-drying specialist — synthetic aluminum oxide, optimized for compressed air dehydration, fluoride removal from water, and refinery gas processing. Each has a sweet spot. Most B2B export packaging buyers default to silica gel because it covers the widest range of practical situations; molecular sieve and activated alumina are specialist tools that earn their cost in narrow applications.",
+        bullets: [
+          "Silica gel: amorphous SiO₂; broad RH range; cost-balanced; the default for export packaging.",
+          "Molecular sieve: crystalline zeolite; uniform pore sizes; best at very low RH; premium cost.",
+          "Activated alumina: Al₂O₃; gas drying and fluoride removal; premium cost; specialist applications.",
+          "Silica gel covers ~80% of B2B packaging applications. The others are specialist tools.",
+        ],
+      },
+      {
+        heading: "Adsorption mechanism: why pore structure matters",
+        body: "Silica gel has a random, amorphous internal pore structure with a wide pore-size distribution. That gives it a huge total surface area (roughly 600-800 m² per gram) and broad-spectrum capture of water vapor across humidity levels. Molecular sieve, by contrast, has crystalline pores of precisely engineered diameter — 3 angstroms (3A), 4 angstroms (4A), 5 angstroms (5A), or 10 angstroms (13X). Molecules larger than the pore size simply cannot enter. That makes molecular sieve a kinetic sieve, not just a sponge — it can selectively capture water while leaving larger molecules untouched, which is critical in pharmaceutical and chemical processes. Activated alumina sits between them: medium-uniform pores, high surface area, and a chemistry that pulls fluoride and water particularly well from gas streams.",
+        bullets: [
+          "Silica gel: ~600-800 m²/g surface area; random pore distribution; broad capture.",
+          "Molecular sieve 3A: pore size 3 angstroms — captures water, excludes most other molecules. Used in pharma and refrigerant drying.",
+          "Molecular sieve 4A: 4 angstrom pores — captures water plus some small organics.",
+          "Molecular sieve 13X: 10 angstrom pores — captures water plus larger contaminants like CO₂.",
+          "Activated alumina: ~200-400 m²/g; specialist for compressed air, fluoride, and gas drying.",
+        ],
+      },
+      {
+        heading: "Adsorption capacity: the real numbers",
+        body: "On paper, silica gel wins capacity. It adsorbs up to one-third (about 33%) of its own weight in water vapor. Molecular sieve adsorbs around 20-22% of its weight; activated alumina around 18-20%. So per gram, silica gel holds the most water — but here's the catch. Capacity is not the only measure of performance. Molecular sieve adsorbs water at much lower humidity levels (it can drive a sealed environment down to <1% RH), while silica gel runs out of steam below ~20% RH. Activated alumina similarly works at very low RH for gas drying. So the right number depends on what RH range you're operating in. For a sealed shipping container starting at 60-80% RH and cycling between 30-90%, silica gel's high upper-end capacity is the dominant factor. For a laboratory glovebox that needs <5% RH at all times, molecular sieve is the right tool even at lower per-gram capacity.",
+        bullets: [
+          "Silica gel: ~33% of own weight (best raw capacity).",
+          "Molecular sieve: ~20-22% of own weight (lower capacity but works at <1% RH).",
+          "Activated alumina: ~18-20% of own weight (specialist gas drying).",
+          "Above 40% RH: silica gel wins clearly.",
+          "Below 20% RH: molecular sieve and activated alumina pull ahead.",
+          "Container shipments and warehouse storage: silica gel is the right tool.",
+          "Laboratory dry-room and gas-drying applications: molecular sieve / activated alumina.",
+        ],
+      },
+      {
+        heading: "Cost tiers: silica gel is roughly half the others",
+        body: "Cost ranking is consistent across markets: silica gel is cheapest per kilogram, molecular sieve and activated alumina are roughly 1.5-2.5× the price. Within molecular sieve grades, 13X (the largest pore) is more expensive than 3A or 4A. Activated alumina sits in similar territory to molecular sieve. For an export packaging buyer protecting a 40-foot container of leather goods on a 30-day Karachi-to-Hamburg voyage, silica gel cargo strips at the container ceiling (~5 kg total) are the right tool both technically and economically. Trying to do the same job with molecular sieve would cost roughly double, deliver similar protection above 20% RH, and waste capacity at the low-RH end where the cargo never operates.",
+        bullets: [
+          "Silica gel: cheapest per kg of the three.",
+          "Molecular sieve 3A/4A: ~1.5-2× silica gel price.",
+          "Molecular sieve 13X: ~2-2.5× silica gel price.",
+          "Activated alumina: ~1.5-2× silica gel price.",
+          "Per-unit-of-protection in packaging: silica gel wins clearly.",
+          "Per-unit-of-protection in low-RH industrial applications: molecular sieve can win despite higher cost.",
+        ],
+      },
+      {
+        heading: "Regeneration temperatures",
+        body: "Each desiccant has a different regeneration profile. Silica gel regenerates at 150°C (max 250°C) — moderate heat, easy in any commercial oven. Molecular sieve needs 200-300°C, sometimes higher. Activated alumina is the toughest to regenerate, often requiring 350-450°C. For B2B buyers running container-grade or carton-grade single-voyage desiccant, regeneration is rarely an economic factor — strips and sachets are treated as consumables. Where regeneration matters is laboratory drying, gas-purification systems with regenerable beds, and large industrial dryers where the bed is designed to cycle hundreds or thousands of times. For those applications, the lower regen temperature of silica gel is a real operational advantage.",
+        bullets: [
+          "Silica gel: 150°C (max 250°C) — easiest to regenerate.",
+          "Molecular sieve: 200-300°C — moderate energy cost.",
+          "Activated alumina: 350-450°C — highest energy cost.",
+          "Container/carton-grade single-voyage desiccant: regeneration economically irrelevant.",
+          "Industrial gas-drying beds and lab desiccators: regeneration matters; silica gel often wins.",
+        ],
+      },
+      {
+        heading: "Use case decision matrix",
+        body: "Rather than ranking them as 'better' and 'worse', think of these three desiccants as different tools. Silica gel is the multi-purpose tool — it covers most B2B export packaging, container moisture control, retail pack desiccation, leather and electronics shipping, and warehouse stabilization. Molecular sieve is the precision tool — laboratory dry-rooms, pharmaceutical processing where moisture must be driven below 5% RH, refrigerant drying, glove-box atmospheres, and any system where pore-size selectivity matters. Activated alumina is the gas-handling tool — compressed-air drying systems, refinery gas processing, fluoride removal from drinking water, and ozone generation. For most readers of this page — B2B export buyers — the answer is silica gel. Period.",
+        bullets: [
+          "Pick silica gel when: cargo packaging, container shipping, warehouse storage, retail pack desiccation, leather and electronics protection. (Default for ~80% of buyers.)",
+          "Pick molecular sieve when: laboratory dry-room, pharmaceutical low-RH processing, refrigerant or gas drying, glove-box atmosphere, pore-size-selective adsorption.",
+          "Pick activated alumina when: compressed-air drying, refinery gas processing, fluoride removal, ozone generation, specialty gas treatment.",
+        ],
+      },
+      {
+        heading: "Common mistakes when picking between them",
+        body: "The most common mistake is buying molecular sieve for general packaging because someone said it's 'better.' For shipping container moisture control, molecular sieve has lower capacity than silica gel in the operating RH range and costs roughly twice as much — strictly worse for that use case. The second-most-common mistake is trying to use silica gel where molecular sieve is needed; if your application requires sustained <5% RH, silica gel will saturate and stop working long before the operation ends. The third is confusing the three categories: 'silica' is sometimes used loosely to mean any desiccant, but technically only synthetic amorphous silicon dioxide qualifies. When in doubt, ask the supplier for a material datasheet that names the specific material chemistry.",
+        bullets: [
+          "Mistake: buying molecular sieve 'because it sounds better' for general cargo packaging.",
+          "Mistake: forcing silica gel into low-RH applications where molecular sieve is the right tool.",
+          "Mistake: confusing silica gel with molecular sieve in RFQ language.",
+          "Mistake: not checking pore size when ordering molecular sieve (3A vs 4A vs 13X matters).",
+          "Mistake: ordering activated alumina for packaging applications where it has no advantage over silica gel.",
+        ],
+      },
+      {
+        heading: "When combinations make sense",
+        body: "Some advanced B2B applications combine multiple desiccants in a single program. For instance, a pharmaceutical packaging line might use molecular sieve at the primary product level (bottle inserts requiring sustained <10% RH) and silica gel at the secondary carton level (controlling carton humidity at 30-40% RH). A natural gas processing system might use a silica gel pre-bed to remove the bulk of moisture and a molecular sieve polishing bed to drive residual moisture below 1% RH. These layered programs cost more upfront but deliver substantially better performance for high-stakes applications. For typical export packaging, layering is unnecessary — silica gel alone covers the practical range.",
+        bullets: [
+          "Pharma packaging: molecular sieve in primary container + silica gel at carton level.",
+          "Industrial gas processing: silica gel pre-bed + molecular sieve polishing bed.",
+          "Lab drying systems: silica gel for general use + molecular sieve for ultra-low RH zones.",
+          "Standard export packaging: silica gel alone is sufficient.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which desiccant adsorbs the most water per gram?",
+        answer:
+          "Silica gel adsorbs the most by raw capacity — up to ~33% of its own weight. Molecular sieve is ~20-22%; activated alumina is ~18-20%. But molecular sieve and activated alumina win at very low RH (<20%), where silica gel's effective capacity drops sharply.",
+      },
+      {
+        question: "What's the cost difference?",
+        answer:
+          "Silica gel is the cheapest of the three per kilogram. Molecular sieve and activated alumina cost roughly 1.5-2.5× more, with 13X molecular sieve being the most expensive. For typical export packaging, the cost premium of molecular sieve or activated alumina is not justified by performance.",
+      },
+      {
+        question: "Can I substitute one for another?",
+        answer:
+          "Sometimes — but only if the application's operating RH range allows it. Substituting molecular sieve for silica gel in a shipping container is technically possible but wasteful (lower capacity at the operating RH, higher cost). Substituting silica gel for molecular sieve in a sub-5% RH lab application will fail because silica gel can't drive humidity that low. Always check the operating range first.",
+      },
+      {
+        question: "Are any of them dangerous?",
+        answer:
+          "All three are non-toxic and non-flammable as packaged industrial desiccants. Silica gel and activated alumina are chemically inert under normal conditions. Molecular sieve is also inert but generates noticeable heat when adsorbing water (exothermic reaction); large beds need to manage that heat. None of the three should be eaten, and all should carry DO NOT EAT warnings on consumer-facing packaging.",
+      },
+      {
+        question: "What does pore size mean for molecular sieve?",
+        answer:
+          "Pore size in angstroms (Å) determines which molecules can enter the bead. 3A captures water but excludes most other molecules. 4A captures water plus small organics. 13X captures water plus larger contaminants like CO₂. The right pore size depends on the application — pharma and refrigerant drying typically use 3A; gas processing uses 13X.",
+      },
+      {
+        question: "For B2B export packaging, which one should I order?",
+        answer:
+          "Silica gel. It covers ~80% of B2B export packaging applications, costs less than the alternatives, and has the best per-gram capacity in the humidity range your shipments actually operate in. Use molecular sieve or activated alumina only if you have a specific low-RH or gas-drying application that justifies the cost premium.",
       },
     ],
   },
@@ -875,6 +1024,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-01" },
   "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
   "why-hair-nets-matter-in-food-export": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
+  "silica-gel-vs-molecular-sieve-vs-activated-alumina": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
