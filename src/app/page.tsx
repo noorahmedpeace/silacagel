@@ -1131,9 +1131,11 @@ export default function Home() {
             </section>
           </Reveal>
 
-          <Reveal direction="up">
-            <DeferredMoistureCalculator />
-          </Reveal>
+          <section id="moisture-calculator" aria-label="Moisture load calculator">
+            <Reveal direction="up">
+              <DeferredMoistureCalculator />
+            </Reveal>
+          </section>
 
           <Reveal direction="up">
             <section className={styles.homeRfqSection} aria-label="International RFQ form">

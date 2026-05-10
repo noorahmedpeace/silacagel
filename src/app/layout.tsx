@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { companyCity, companyCountry, phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
@@ -118,6 +119,7 @@ export default function RootLayout({
       <body>
         <SiteHeader />
         {children}
+        <MoistureCalcFloat />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />

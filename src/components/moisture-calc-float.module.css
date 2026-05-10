@@ -1,0 +1,91 @@
+/*
+ * Floating side button — links to #moisture-calculator on /.
+ * Positioned offset upward so it doesn't collide with the existing
+ * WhatsApp float (bottom-right) on the home page.
+ */
+
+.float {
+  position: fixed;
+  right: 20px;
+  bottom: 92px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 14px;
+  background: var(--ds-brand, #0067c5);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  box-shadow: 0 12px 28px rgba(0, 103, 197, 0.32);
+  text-decoration: none;
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 220ms ease,
+    box-shadow 320ms ease;
+}
+
+.float:hover,
+.float:focus-visible {
+  transform: translateY(-2px);
+  background: var(--ds-brand-deep, #044d99);
+  box-shadow: 0 16px 36px rgba(0, 103, 197, 0.4);
+  outline: none;
+}
+
+.float:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  flex-shrink: 0;
+}
+
+.label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+/* On small screens, collapse to icon-only circle so it doesn't dominate the
+ * viewport. Tap target stays comfortable at 48x48. */
+@media (max-width: 640px) {
+  .float {
+    right: 14px;
+    bottom: 86px;
+    padding: 0;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .iconWrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .label {
+    display: none;
+  }
+}
+
+/* Respect users who prefer no motion */
+@media (prefers-reduced-motion: reduce) {
+  .float {
+    transition: none;
+  }
+
+  .float:hover,
+  .float:focus-visible {
+    transform: none;
+  }
+}
