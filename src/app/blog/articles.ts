@@ -68,49 +68,130 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "silica-gel-vs-clay-desiccant",
     label: "Comparison",
-    title: "Silica gel vs clay desiccant for industrial packaging",
+    title: "Silica gel vs clay desiccant: a buyer's selection guide",
     description:
-      "Compare silica gel and clay desiccants for cartons, electronics, pharma support packaging, leather exports, and container moisture control.",
-    readTime: "6 min read",
+      "A buyer-grade comparison of silica gel and clay desiccants — adsorption capacity, cost, format compatibility, document support, regeneration, and the specific use cases each material fits best for industrial export packaging.",
+    readTime: "13 min read",
     sections: [
       {
-        heading: "Silica gel is preferred for cleaner product packaging",
-        body: "Silica gel is widely used where buyers want a clean, stable desiccant format for sachets, packets, and controlled product packaging.",
+        heading: "The chemistry difference, in plain language",
+        body: "Silica gel and clay desiccants both absorb humidity, but they do it through different chemistry. Silica gel is amorphous silicon dioxide (SiO₂) — a synthetic, highly porous bead. Its huge internal surface area is what makes it grab water vapor through physical adsorption. Activated clay (typically bentonite or montmorillonite) is a natural mineral that has been heat-treated to expose its layered structure. Both work, but they behave differently across humidity ranges, temperature swings, and packaging environments. Understanding the chemistry is the first step in buying the right one for your shipment.",
         bullets: [
-          "Useful for electronics, pharma support packaging, food-adjacent outer packs, leather goods, and retail products.",
-          "Available as white non-indicating and indicating gel for visual humidity checks.",
-          "Works well where low dust and neat sachet presentation matter.",
+          "Silica gel is synthetic, manufactured to consistent porosity and bead size — every sachet performs the same.",
+          "Clay is mined and activated; performance varies more between batches and suppliers.",
+          "Silica gel is chemically inert against most cargo materials; clay is also inert but can leave fine dust if the sachet is damaged.",
+          "Neither is toxic at human-contact level, but neither is meant to be eaten — both should be packed with DO NOT EAT printed.",
         ],
       },
       {
-        heading: "Clay can be useful for some cargo conditions",
-        body: "Clay desiccants may be considered for certain industrial or cargo applications, but buyers must compare dust profile, packaging compatibility, and documentation needs.",
+        heading: "Adsorption capacity: the real numbers",
+        body: "This is the single most important number to compare. DryGelWorld silica gel adsorbs up to one-third (about 33%) of its own weight in water vapor. Typical activated clay adsorbs around 24-28% of its own weight under the same conditions. That makes silica gel roughly 35% more efficient on a per-gram basis — meaning a 5g silica gel sachet does the work of about a 7g clay sachet. For high-volume export programs that translates into less weight in your container, smaller sachets in your cartons, and cheaper freight per protected unit. Where clay can win is at very low humidity (below 20% RH), where it picks up moisture more aggressively in the early hours; silica gel maintains a steadier curve across the whole humidity range.",
         bullets: [
-          "Often evaluated for container and storage use.",
-          "May not suit every clean-packaging or private-label requirement.",
-          "Document requests should be checked before procurement approval.",
+          "Silica gel: up to 33% of own weight in water vapor adsorbed.",
+          "Activated clay: typically 24-28% of own weight.",
+          "Per-gram: silica gel is ~35% more efficient overall.",
+          "Below 20% RH: clay's adsorption rate is initially faster.",
+          "Above 40% RH: silica gel pulls clearly ahead and holds more vapor.",
+          "For container shipments crossing tropical-to-temperate routes, silica gel's higher upper-end capacity matters more than clay's low-RH advantage.",
         ],
       },
       {
-        heading: "Choose based on buyer risk, not only price",
-        body: "The cheapest desiccant can become expensive if product damage, claims, rejected cartons, or missing documentation delay shipment clearance.",
+        heading: "Cost vs performance — the trade-off most buyers miss",
+        body: "Clay desiccant is cheaper per kilogram than silica gel. That's the headline. But the real cost comparison is per-unit-of-protection, not per-kilogram. Because silica gel adsorbs ~35% more per gram, a buyer who switches to clay 'to save cost' often ends up using more grams per carton to get equivalent protection — and the saving narrows quickly. For cost-sensitive industrial cargo (durable goods, parts, machinery) where the moisture risk is mainly mild oxidation, clay is a reasonable choice. For precision cargo, leather, electronics, pharma-style packaging, or any situation where damage costs more than the desiccant, silica gel almost always pencils out cheaper once you account for the actual protection delivered.",
         bullets: [
-          "Compare moisture risk, packet strength, printing needs, and QC consistency.",
-          "Ask for batch COA and SDS when buying at scale.",
-          "Use supplier guidance for dosage and carton placement.",
+          "Per kilogram: clay is cheaper.",
+          "Per-unit-of-moisture-adsorbed: silica gel is competitive or cheaper.",
+          "For low-risk industrial cargo: clay can win on raw cost.",
+          "For high-value cargo: silica gel almost always wins on total cost of risk.",
+          "Many programs use BOTH: clay for cost-tier carton-level protection, silica gel for precision-tier and container-level protection.",
+        ],
+      },
+      {
+        heading: "Format compatibility: which packs into what",
+        body: "Both materials are available as sachets, bags, and bulk fill — but the format range is not symmetric. Silica gel comes in cleaner small-format sachets (0.5g, 1g, 2g, 3g, 5g, 10g) which fit inside individual product packs and pharma-style bottles; that small-sachet range is genuinely silica-gel territory. Clay is more commonly supplied in larger formats (5g and above) because the bead structure of clay makes very small sachets harder to manufacture cleanly. At the container level, both are available as 1kg-5kg cargo strips, and either material works for hanging-strip placement on a container ceiling. For private-label sachet programs — printed sachets with carton labeling — silica gel is the cleaner choice because the breathable paper sachet stays neater and the printing prints crisper on a low-dust filling.",
+        bullets: [
+          "Silica gel sachets: 0.5g, 1g, 2g, 3g, 5g, 10g, 25g, 50g, 100g, 250g, 500g.",
+          "Silica gel container strips: 1kg, 2kg, 3kg, 5kg.",
+          "Clay sachets: typically 5g and above, less common at the unit-pack level.",
+          "Clay container strips: yes, comparable kg formats.",
+          "Private-label printing on sachets: cleaner on silica gel paper sachets.",
+          "Bulk loose for re-packers: both available, kg pricing applies.",
+        ],
+      },
+      {
+        heading: "Documentation and compliance: where buyers get burned",
+        body: "Documentation is where the silica-gel-vs-clay decision turns from a price question into a regulatory one. Silica gel has a well-established document trail in international export — most reputable manufacturers can supply ISO 9001:2015 quality references, batch COAs, SDS sheets, and DMF-free product statements. Clay desiccant has the same document categories on paper, but the document quality varies more by supplier. For buyers exporting to regulated markets (EU REACH-aware, US FDA-aware, or Saudi/UAE-Halal-aware), silica gel typically has the cleaner paperwork story. DryGelWorld supports ISO 9001:2015, SDS, COA, and DMF-free statements on request. Buyers requiring formal FDA, REACH, Halal, or food-grade certifications should confirm those discussions before commercial terms — those are buyer-driven discussions, not held credentials.",
+        bullets: [
+          "ISO 9001:2015: held for the silica gel manufacturing line.",
+          "SDS, COA: available for both silica gel and clay on request.",
+          "DMF-free statement: product-level claim for the silica gel.",
+          "FDA, REACH, Halal, food-grade certification: buyer-driven discussion territory — confirm before commercial terms, do not assume coverage.",
+          "For pharma packaging programs: silica gel's cleaner document story matters more than the per-kg price.",
+        ],
+      },
+      {
+        heading: "Reusability and regeneration",
+        body: "Both materials can be regenerated by driving off the absorbed moisture with heat. Silica gel regenerates at 150°C (max 250°C); activated clay regenerates at lower temperatures, typically 100-120°C. Sounds like clay is the easier-to-reuse option — but in practice, clay's lower regen temperature is offset by its lower upper-bound capacity, so the energy-per-unit-of-future-protection is similar. For most B2B buyers, regeneration is not the main consideration: container-level cargo strips are sized to be saturated by end-of-voyage and treated as single-use consumables, regardless of material. Regeneration is more useful in laboratory and small-scale industrial contexts.",
+        bullets: [
+          "Silica gel regen: 150°C (max 250°C).",
+          "Clay regen: typically 100-120°C.",
+          "Per-unit-of-protection energy cost: roughly comparable.",
+          "Container-grade strips: usually single-voyage consumables either way.",
+          "Lab and small industrial use: regeneration is genuinely cost-saving for both materials.",
+        ],
+      },
+      {
+        heading: "When to pick each — a decision matrix",
+        body: "After all the chemistry and pricing, the practical decision usually comes down to four questions: what cargo, what value, what route, and what document requirements. Use this as a quick-reference matrix when sizing a moisture program. Most established export programs end up using both materials at different layers — clay at the cost-tier carton level for industrial cargo, silica gel at the precision-tier carton level and at the container ceiling for high-value and high-risk routes.",
+        bullets: [
+          "Pick silica gel when: cargo is precision/leather/electronics/pharma; route is tropical-to-temperate; documents are scrutinized; private-label printing matters; small sachets are needed.",
+          "Pick clay when: cargo is durable industrial goods; route is short and climate-stable; cost-per-kg is the dominant constraint; sachet format is 5g or above.",
+          "Use BOTH when: program has mixed cargo types and you want a tiered moisture-control portfolio across the same shipment.",
+          "Default to silica gel when: in doubt, or when the cost of cargo damage exceeds 10x the cost of the desiccant.",
+        ],
+      },
+      {
+        heading: "Common mistakes buyers make",
+        body: "The most common mistake is buying on per-kilogram price without doing the per-unit-of-protection math — which is how a cost-saving switch from silica gel to clay can quietly increase total moisture-related claim cost. The second-most-common is assuming clay is automatically food-grade or pharma-compliant because it's a 'natural' material — neither material is automatically certified for either market without supplier-specific documentation. The third is mixing up terminology: 'silica' is sometimes used loosely to mean any desiccant, but technically only synthetic silicon dioxide qualifies. When in doubt, ask the supplier for a material datasheet that names the specific material (silicon dioxide vs activated bentonite vs activated montmorillonite) and confirms the document set.",
+        bullets: [
+          "Mistake: buying on per-kg price instead of per-unit-of-protection.",
+          "Mistake: assuming 'natural' clay is automatically food-grade.",
+          "Mistake: confusing silica gel with molecular sieve or activated alumina.",
+          "Mistake: not requesting batch COA when buying at export scale.",
+          "Mistake: ordering small sachets (under 5g) in clay format — likely won't pack cleanly.",
         ],
       },
     ],
     faqs: [
       {
-        question: "Is silica gel better than clay desiccant?",
+        question: "Is silica gel always better than clay desiccant?",
         answer:
-          "It depends on the application. Silica gel is commonly preferred for clean sachets and product packaging; clay may suit some cargo and storage needs.",
+          "No. Silica gel adsorbs ~35% more per gram and has a cleaner document story for regulated markets, but clay is cheaper per kilogram and reasonable for low-risk industrial cargo on short routes. Most established export programs use both materials at different cargo tiers.",
       },
       {
-        question: "Which desiccant is better for private-label packets?",
+        question: "What's the cost difference?",
         answer:
-          "Silica gel packets are usually the stronger choice for neat printing, clean presentation, and small sachet formats.",
+          "Clay is roughly 30-50% cheaper per kilogram, but silica gel adsorbs ~35% more per gram — so the per-unit-of-protection cost difference is much smaller than the per-kg sticker would suggest. For high-value cargo, silica gel is often cheaper after accounting for damage risk.",
+      },
+      {
+        question: "Can I use both silica gel and clay desiccant in one shipment?",
+        answer:
+          "Yes — and it's a common pattern. Use clay at the cost-tier carton level for industrial cargo, and silica gel at the precision-tier carton level (electronics, pharma packs, leather goods) and at the container ceiling for condensation control. DryGelWorld supplies both formats and can quote a combined program.",
+      },
+      {
+        question: "Which holds capacity longer over a 30-day ocean voyage?",
+        answer:
+          "Silica gel maintains a steadier adsorption curve and a higher upper-bound capacity, so it generally holds longer on tropical-to-temperate routes (Karachi → Hamburg, Karachi → New York, Karachi → Vancouver). Clay can outperform silica gel briefly at very low humidity but loses ground quickly above 40% RH, which is the regime container shipments spend most of their time in.",
+      },
+      {
+        question: "What about food-grade applications?",
+        answer:
+          "Neither material is automatically food-grade. Formal food-grade compliance (FDA, FSSC 22000, EU 1935/2004) requires supplier-specific documentation tied to the exact product format. Both silica gel and clay can be supplied for food-adjacent packaging, but the certifications must be confirmed against the buyer's market requirement before commercial terms.",
+      },
+      {
+        question: "What about regeneration temperatures?",
+        answer:
+          "Silica gel regenerates at 150°C (max 250°C); activated clay regenerates at 100-120°C. Clay's lower regen temperature is sometimes cited as an advantage, but for most B2B buyers — especially those running container-grade single-voyage strips — regeneration is not the primary economic factor. It matters more for laboratory and small-industrial reuse contexts.",
       },
     ],
   },
@@ -647,6 +728,126 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "why-hair-nets-matter-in-food-export",
+    label: "PPE Buyer Guide",
+    title: "Why hair nets and beard covers matter in food and manufacturing exports",
+    description:
+      "A buyer guide to bouffant hair nets and beard covers for food processing, manufacturing, and healthcare PPE programs — sizing, color zoning, document expectations, and how to source PPE alongside moisture-control programs.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Why hair containment is part of the food export checklist",
+        body: "Hair nets and beard covers are not optional PPE in food processing — they are a regulator-driven control on physical contamination. Loose hair, eyebrow hair, and beard hair are among the most commonly cited contaminants in food-safety audits, and importing markets like the EU, UK, US, and the GCC explicitly require visible PPE compliance during processing and packaging. For exporters, the question is rarely 'do we use hair nets' — the question is which size, which color zone, what carton count, and which compliance evidence the destination market expects. Building hair-containment PPE into your export program protects against shipment rejection, audit findings, and the harder-to-quantify reputation cost of a contamination event.",
+        bullets: [
+          "Loose hair is among the most-cited physical contaminants in food-safety audits.",
+          "EU, UK, US, and GCC markets all expect visible PPE compliance during food handling.",
+          "Hair containment is required during processing AND packaging, not just one stage.",
+          "Beard covers are a separate control from hair nets — both are needed where facial hair is present.",
+          "Audit findings on missing PPE can hold a shipment at port even if the cargo itself is clean.",
+        ],
+      },
+      {
+        heading: "Color zoning: green vs white in a production facility",
+        body: "Most food and manufacturing facilities use color zoning to visually separate production areas — for example, raw meat zones from packaging zones, or low-care zones from high-care zones. Hair nets are color-coded to match. Green is commonly used to mark a designated zone (raw, low-care, or a specific line), and white is the general-use default. The point is that a worker walking into the wrong zone in the wrong color cap is visibly out of place — supervisors and auditors can spot the breach instantly. DryGelWorld supplies bouffant hair nets in both green and white. When sizing an order, buyers should think about how many people work in each zone and order the carton mix accordingly, not just a flat split.",
+        bullets: [
+          "Green: commonly used to mark a designated zone (raw materials, low-care, or a specific production line).",
+          "White: general-use default for most production hygiene programs.",
+          "Other industry colors (blue, red): used by some facilities for specific zone codes — confirm the buyer's color standard before ordering.",
+          "Order mix should match headcount per zone, not a flat 50/50 split.",
+          "Color zoning works best when paired with matching beard cover colors.",
+        ],
+      },
+      {
+        heading: "Hair nets and beard covers as a pair, not separate buys",
+        body: "Hair nets cover the head; beard covers contain facial hair. Many buyers under-order beard covers because they only think about hair-on-head when planning PPE — but any worker with facial hair needs both. As a rough planning rule, expect 30-50% of male workers to need beard covers, depending on the workforce demographic. Order the two products together so the per-shift distribution is balanced. Mixing brands or carton-count formats across hair nets and beard covers also creates inventory friction at distribution time, so consistency matters.",
+        bullets: [
+          "Plan beard cover quantity at 30-50% of male workforce headcount as a starting estimate.",
+          "Hair nets and beard covers should be sourced together to keep distribution simple.",
+          "Match carton counts across both products (e.g., both at 100/carton or both at 1000/carton) to simplify inventory.",
+          "Color-match where possible: green hair net with white beard cover, or vice versa, can also be used as a zone signal.",
+          "Don't substitute hair nets for beard covers — the elastic fit is different and the containment outcome is different.",
+        ],
+      },
+      {
+        heading: "Sizing: 18, 20, 21, 22 inches and what they actually mean",
+        body: "Bouffant hair nets are described by their flat-laid diameter — 18, 20, 21, or 22 inches. The number is not the head circumference; it's the gathered flat measurement before elastic. As a working guide: 18 inch is for smaller heads and snug fit (pediatric, slim build, lab-tight requirement); 20 inch is the most common production-line size and fits most adult workers comfortably; 21 inch is a mid-range option that allows for hair volume; 22 inch is preferred where workers have longer or thicker hair, or where the facility wants extra coverage and slack. For volume buyers, 20 and 22 are usually the best two sizes to stock. Smaller orders can use a single 21 inch size as a one-size-fits-most.",
+        bullets: [
+          "18 inch: smaller heads, snug fit, lab and pediatric use.",
+          "20 inch: most common production-line size, fits most adult workers.",
+          "21 inch: mid-range universal option for smaller orders.",
+          "22 inch: longer or thicker hair, extra slack, broader fit.",
+          "Volume buyers: stock 20 and 22 as the primary two sizes.",
+          "Custom diameters can be discussed for specific brand or workforce requirements.",
+        ],
+      },
+      {
+        heading: "Documentation: what to expect, what NOT to expect",
+        body: "Industrial-safety hair nets and beard covers are typically supplied as PPE without formal food-grade certification by default — even though they are widely used in food production. Formal food-grade certification (FDA compliance, FSSC 22000, EU Regulation 1935/2004) is a separate certification track that depends on the manufacturer's facility audit, not just the product itself. A reputable supplier should be able to confirm: ISO 9001:2015 (or equivalent quality system), material datasheet identifying non-woven polypropylene, and any specific destination compliance discussions. What buyers should NOT expect from generic industrial-safety PPE: assumed FDA approval, assumed Halal certification, or assumed REACH registration. Confirm those discussions per buyer market before commercial terms — do not assume coverage.",
+        bullets: [
+          "Expect: ISO 9001:2015 or equivalent quality reference.",
+          "Expect: material datasheet identifying non-woven polypropylene or specified material.",
+          "Expect: discussion of compliance per buyer market.",
+          "Do NOT assume: FDA approval, FSSC 22000 alignment, EU 1935/2004 compliance, Halal certification, REACH registration — confirm explicitly per shipment.",
+          "Pharma cleanroom programs (ISO 13485, EN ISO 14644 alignment): require explicit confirmation; do not assume from a general industrial PPE supply.",
+        ],
+      },
+      {
+        heading: "Common mistakes when buying PPE at export scale",
+        body: "Three mistakes show up repeatedly in B2B PPE procurement. First: ordering only one size. A flat 22-inch order under-fits a third of the workforce and over-fits another third. Order at least two sizes for any production-line program. Second: under-ordering beard covers. Buyers think about hair-on-head and forget that any worker with facial hair needs separate containment. Third: assuming color is interchangeable. Green and white serve different purposes in zone-coded facilities; ordering whichever is cheapest defeats the purpose of having color zoning at all. The fourth, less common but more expensive, is assuming food-grade compliance from generic industrial PPE — which can hold a shipment at port if a destination auditor asks for the certification paperwork.",
+        bullets: [
+          "Mistake: ordering only one size of hair net.",
+          "Mistake: under-ordering beard covers relative to workforce demographic.",
+          "Mistake: ignoring color zoning when ordering.",
+          "Mistake: assuming food-grade compliance without explicit certification confirmation.",
+          "Mistake: mixing carton counts across hair nets and beard covers, which complicates distribution.",
+        ],
+      },
+      {
+        heading: "PPE alongside moisture control — a complete export program",
+        body: "For exporters who already buy silica gel desiccant for cargo moisture control, adding hair nets and beard covers to the same RFQ flow is a small lift with a real benefit. Sourcing PPE and moisture-control products from the same supplier means one set of commercial terms, one set of documents, one shipment plan, and one Incoterm conversation — instead of three. DryGelWorld supports both desiccant programs (silica gel sachets, dry clay packs, container strips) and PPE supply (bouffant hair nets, beard covers) under one buyer relationship. For buyers building a complete food-export or manufacturing-export supply chain, the combined RFQ saves coordination overhead.",
+        bullets: [
+          "Combined RFQ: silica gel + dry clay + hair nets + beard covers in one supply program.",
+          "Single Incoterms negotiation across desiccant and PPE.",
+          "One document set covers both product lines.",
+          "Same dispatch schedule, same carton planning, same destination support.",
+          "Tier the program: desiccant for cargo, PPE for the production line that loads the cargo.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Why are hair nets necessary in food production?",
+        answer:
+          "Hair is one of the most-cited physical contaminants in food-safety audits. Importing markets like the EU, UK, US, and GCC require visible PPE compliance during food processing and packaging. Hair nets are not optional — they are a regulator-driven control.",
+      },
+      {
+        question: "What's the difference between a hair net and a bouffant cap?",
+        answer:
+          "Bouffant cap is another term for a bouffant-style hair net — the round, gathered, elasticated PPE format used in food processing. The terms are usually interchangeable in B2B procurement.",
+      },
+      {
+        question: "Are these hair nets formally food-grade certified?",
+        answer:
+          "Hair nets are supplied as industrial-safety PPE. Formal food-grade certifications (FDA, FSSC 22000, EU Regulation 1935/2004) are a separate certification track and should be confirmed against the buyer's destination market before commercial terms — do not assume coverage.",
+      },
+      {
+        question: "What sizes should I order for a production line?",
+        answer:
+          "Start with 20 and 22 inch as the two primary sizes — those fit the majority of adult workers. 18 inch is for smaller heads and lab-tight requirements; 21 inch is a mid-range one-size-fits-most for smaller orders.",
+      },
+      {
+        question: "How many beard covers should I order vs hair nets?",
+        answer:
+          "Plan beard cover quantity at roughly 30-50% of male workforce headcount, depending on demographic. Beard covers are a separate control from hair nets — under-ordering them is one of the most common B2B PPE procurement mistakes.",
+      },
+      {
+        question: "Can I source hair nets and silica gel desiccant from the same supplier?",
+        answer:
+          "Yes. DryGelWorld supplies both desiccant programs (silica gel sachets, dry clay packs, container strips) and PPE (bouffant hair nets, beard covers). Combining the two product lines under one supplier simplifies commercial terms, documents, and dispatch coordination.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -673,6 +874,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-01" },
   "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-01" },
   "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
+  "why-hair-nets-matter-in-food-export": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {

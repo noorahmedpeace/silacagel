@@ -140,6 +140,68 @@ export const productCatalog: ProductItem[] = [
     featuredSizes: ["1 kg maritime strip"],
   },
   {
+    slug: "hair-nets",
+    name: "Bouffant Hair Nets — Safety & PPE",
+    shortName: "Hair Nets",
+    eyebrow: "Industrial Safety PPE",
+    summary:
+      "Disposable bouffant hair nets in green and white for food processing, manufacturing, healthcare, and industrial PPE programs.",
+    useCaseLine: "Standard hair-containment PPE for safety-critical workspaces.",
+    description:
+      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white — green is commonly used to mark designated zones and white is the general-use default.",
+    // PLACEHOLDER. Real hair-net product photo still needed.
+    // Drop a real product photo into /public/products/ (e.g. hair-nets.webp)
+    // and update this path AND the catalogImages map in src/app/products/page.tsx.
+    heroImage: "/products/real-bulk-supply.webp",
+    useCases: [
+      "Food processing and packaging line PPE",
+      "Manufacturing and assembly hairshed prevention",
+      "Healthcare, pharma, and laboratory hygiene",
+      "Foodservice, catering, and hospitality compliance",
+    ],
+    packingOptions: [
+      "Material: non-woven polypropylene (PP) with elasticated edge",
+      "Standard sizes: 18\", 20\", 21\", 22\" diameter",
+      "Colors stocked: green and white",
+      // TODO: confirm real certifications held by the supply source.
+      // Food-grade PPE often expects FDA / FSSC 22000 / EU 1935/2004 alignment;
+      // do not advertise certs that are not formally held.
+      "Document support: discuss compliance requirements per buyer market",
+    ],
+    leadTime: "Quoted by carton volume and dispatch schedule",
+    priceBand: "B2B reference rates available on request",
+    featuredSizes: ["18 inch", "20 inch", "21 inch", "22 inch"],
+  },
+  {
+    slug: "beard-covers",
+    name: "Disposable Beard Covers — Safety & PPE",
+    shortName: "Beard Covers",
+    eyebrow: "Industrial Safety PPE",
+    summary:
+      "Disposable beard covers (beard nets) for food handling, manufacturing, healthcare, and other safety-critical workspaces where facial-hair containment is required.",
+    useCaseLine: "PPE compliance for facial-hair containment in safety-critical operations.",
+    description:
+      "Beard covers — also called beard nets or beard guards — contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
+    // PLACEHOLDER. Real beard-cover product photo still needed.
+    heroImage: "/products/real-bulk-supply.webp",
+    useCases: [
+      "Food processing and bakery handling",
+      "Manufacturing and assembly safety programs",
+      "Healthcare, pharma, and laboratory hygiene",
+      "Foodservice and catering compliance",
+    ],
+    packingOptions: [
+      "Material: non-woven polypropylene with elasticated edge",
+      "Carton packs: typical 100 or 1000 pieces per carton",
+      // TODO: confirm real certifications. Same caveat as hair nets — do not
+      // advertise certs not formally held.
+      "Document support: discuss compliance per buyer market",
+    ],
+    leadTime: "Quoted by carton volume and dispatch schedule",
+    priceBand: "B2B reference rates available on request",
+    featuredSizes: ["Standard", "Custom"],
+  },
+  {
     slug: "dry-clay-desiccant",
     name: "Industrial Dry Clay Desiccant",
     shortName: "Dry Clay",

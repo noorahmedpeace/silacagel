@@ -101,6 +101,36 @@ const procurementDetails = {
       { label: "Document hub", href: "/documents" },
     ],
   },
+  "hair-nets": {
+    moq: "Discuss MOQ by carton size and monthly volume",
+    sample: "Sample packs available; confirm size, color, and material on request",
+    documents: ["ISO 9001:2015"],
+    skuRows: [
+      { size: "18\" diameter", material: "Non-woven polypropylene with elasticated edge", fit: "Standard production line PPE", pack: "Cartons of 100 or 1000" },
+      { size: "20\"-22\" diameter", material: "Non-woven polypropylene with elasticated edge", fit: "General industrial / food / healthcare PPE", pack: "Cartons of 100 or 1000" },
+      { size: "Custom diameter / color", material: "Non-woven polypropylene", fit: "Brand-specific or zone-coded production", pack: "Custom packaging by requirement" },
+    ],
+    packaging: ["Standard carton 100 ct", "Bulk carton 1000 ct", "Color-coded by zone (white/blue/green/red)", "Private label discussion"],
+    related: [
+      { label: "Beard covers", href: "/products/beard-covers" },
+      { label: "Food industry PPE blog", href: "/blog/why-hair-nets-matter-in-food-export" },
+      { label: "Document hub", href: "/documents" },
+    ],
+  },
+  "beard-covers": {
+    moq: "Discuss MOQ by carton size and monthly volume",
+    sample: "Sample packs available on request",
+    documents: ["ISO 9001:2015"],
+    skuRows: [
+      { size: "Standard", material: "Non-woven polypropylene with elasticated edge", fit: "Food handling, healthcare, manufacturing", pack: "Cartons of 100 or 1000" },
+      { size: "Custom", material: "Non-woven polypropylene", fit: "Brand-specific production", pack: "Custom packaging by requirement" },
+    ],
+    packaging: ["Standard carton 100 ct", "Bulk carton 1000 ct", "Color options on request", "Private label discussion"],
+    related: [
+      { label: "Hair nets", href: "/products/hair-nets" },
+      { label: "Document hub", href: "/documents" },
+    ],
+  },
 } as const;
 
 export async function generateStaticParams() {

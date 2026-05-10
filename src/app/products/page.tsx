@@ -22,6 +22,9 @@ const catalogImages: Record<string, string> = {
   // Placeholder. Real dry clay product photo still needed — drop in
   // /public/products/ and update this path.
   "dry-clay-desiccant": "/products/real-kraft-bond.webp",
+  // PLACEHOLDER for new PPE product lines. Real photos still needed.
+  "hair-nets": "/products/real-bulk-supply.webp",
+  "beard-covers": "/products/real-bulk-supply.webp",
 };
 
 export default function ProductsPage() {
