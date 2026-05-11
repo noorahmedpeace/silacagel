@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useReducer } from "react";
 import Link from "next/link";
 import { displayPhone, productCatalog, whatsappNumber } from "@/lib/product-data";
 import styles from "./quote-form.module.css";
@@ -11,6 +11,60 @@ type QuoteFormProps = {
   defaultProduct?: string;
 };
 
+type FormFields = {
+  product: string;
+  company: string;
+  email: string;
+  phone: string;
+  quantity: string;
+  country: string;
+  currency: string;
+  destination: string;
+  incoterm: string;
+  packaging: string;
+  documents: string;
+  application: string;
+  targetPrice: string;
+  sampleNeed: string;
+  message: string;
+};
+
+type FormState = FormFields & { submitted: boolean };
+
+type FormAction =
+  | { type: "set"; field: keyof FormFields; value: string }
+  | { type: "submit" };
+
+// Single reducer collapses 16 useState slots into one. On mobile each
+// keystroke previously forced React to walk 16 hook slots; one slot
+// keeps the per-input work small enough to stay under the 200ms INP
+// budget that Speed Insights flagged at 304ms.
+function reducer(state: FormState, action: FormAction): FormState {
+  if (action.type === "submit") return { ...state, submitted: true };
+  return { ...state, [action.field]: action.value };
+}
+
+function initialState(defaultProduct: string): FormState {
+  return {
+    product: defaultProduct,
+    company: "",
+    email: "",
+    phone: "",
+    quantity: "",
+    country: "",
+    currency: "USD",
+    destination: "",
+    incoterm: "FOB",
+    packaging: "",
+    documents: "",
+    application: "",
+    targetPrice: "",
+    sampleNeed: "Need sample before bulk order",
+    message: "",
+    submitted: false,
+  };
+}
+
 export function QuoteForm({
   title = "Request Industrial Quote",
   compact = false,
@@ -18,48 +72,33 @@ export function QuoteForm({
 }: QuoteFormProps) {
   const hasDefaultProductOption =
     defaultProduct.length > 0 && productCatalog.some((item) => item.name === defaultProduct);
-  const [product, setProduct] = useState(defaultProduct);
-  const [company, setCompany] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [quantity, setQuantity] = useState("");
-  const [country, setCountry] = useState("");
-  const [currency, setCurrency] = useState("USD");
-  const [destination, setDestination] = useState("");
-  const [incoterm, setIncoterm] = useState("FOB");
-  const [packaging, setPackaging] = useState("");
-  const [documents, setDocuments] = useState("");
-  const [application, setApplication] = useState("");
-  const [targetPrice, setTargetPrice] = useState("");
-  const [sampleNeed, setSampleNeed] = useState("Need sample before bulk order");
-  const [message, setMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [state, dispatch] = useReducer(reducer, defaultProduct, initialState);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const rfqMessage = [
       "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
-      `Company Name: ${company || "Not provided"}`,
-      `Business Email: ${email || "Not provided"}`,
-      `Product Type / Format: ${product || "General silica gel inquiry"}`,
-      `Point of Contact: ${phone || "Not provided"}`,
-      `Country / Market: ${country || "Not provided"}`,
-      `Preferred Currency: ${currency}`,
-      `Quantity (Tons/Kgs): ${quantity || "Not provided"}`,
-      `Destination Port or City: ${destination || "Not provided"}`,
-      `Incoterms: ${incoterm}`,
-      `Application / Industry: ${application || "Not provided"}`,
-      `Packaging / Private Label: ${packaging || "Not provided"}`,
-      `Required Documents: ${documents || "Not specified"}`,
-      `Target Price / Current Supplier Benchmark: ${targetPrice || "Not provided"}`,
-      `Sample Requirement: ${sampleNeed}`,
-      `Additional Notes: ${message || "Not provided"}`,
+      `Company Name: ${state.company || "Not provided"}`,
+      `Business Email: ${state.email || "Not provided"}`,
+      `Product Type / Format: ${state.product || "General silica gel inquiry"}`,
+      `Point of Contact: ${state.phone || "Not provided"}`,
+      `Country / Market: ${state.country || "Not provided"}`,
+      `Preferred Currency: ${state.currency}`,
+      `Quantity (Tons/Kgs): ${state.quantity || "Not provided"}`,
+      `Destination Port or City: ${state.destination || "Not provided"}`,
+      `Incoterms: ${state.incoterm}`,
+      `Application / Industry: ${state.application || "Not provided"}`,
+      `Packaging / Private Label: ${state.packaging || "Not provided"}`,
+      `Required Documents: ${state.documents || "Not specified"}`,
+      `Target Price / Current Supplier Benchmark: ${state.targetPrice || "Not provided"}`,
+      `Sample Requirement: ${state.sampleNeed}`,
+      `Additional Notes: ${state.message || "Not provided"}`,
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(rfqMessage)}`;
-    setSubmitted(true);
+    dispatch({ type: "submit" });
     window.open(url, "_blank", "noopener,noreferrer");
   }
 
@@ -75,8 +114,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Company Name</span>
           <input
-            value={company}
-            onChange={(event) => setCompany(event.target.value)}
+            value={state.company}
+            onChange={(event) => dispatch({ type: "set", field: "company", value: event.target.value })}
             placeholder="Registered business / importer name"
             type="text"
           />
@@ -85,8 +124,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Business Email</span>
           <input
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
+            value={state.email}
+            onChange={(event) => dispatch({ type: "set", field: "email", value: event.target.value })}
             placeholder="procurement@company.com"
             type="email"
           />
@@ -94,7 +133,10 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>Product Type / Format</span>
-          <select value={product} onChange={(event) => setProduct(event.target.value)}>
+          <select
+            value={state.product}
+            onChange={(event) => dispatch({ type: "set", field: "product", value: event.target.value })}
+          >
             <option value="">Select silica gel format</option>
             {defaultProduct && !hasDefaultProductOption ? (
               <option value={defaultProduct}>{defaultProduct}</option>
@@ -113,8 +155,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Quantity / Monthly Volume</span>
           <input
-            value={quantity}
-            onChange={(event) => setQuantity(event.target.value)}
+            value={state.quantity}
+            onChange={(event) => dispatch({ type: "set", field: "quantity", value: event.target.value })}
             placeholder="e.g. 500 kg, 2 tons, 100k sachets monthly"
             type="text"
           />
@@ -123,8 +165,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Business Contact Number</span>
           <input
-            value={phone}
-            onChange={(event) => setPhone(event.target.value)}
+            value={state.phone}
+            onChange={(event) => dispatch({ type: "set", field: "phone", value: event.target.value })}
             placeholder="International format encouraged"
             type="tel"
           />
@@ -133,8 +175,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Country / Market</span>
           <input
-            value={country}
-            onChange={(event) => setCountry(event.target.value)}
+            value={state.country}
+            onChange={(event) => dispatch({ type: "set", field: "country", value: event.target.value })}
             placeholder="e.g. United States, UAE, Germany"
             type="text"
           />
@@ -142,7 +184,10 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>Preferred Currency</span>
-          <select value={currency} onChange={(event) => setCurrency(event.target.value)}>
+          <select
+            value={state.currency}
+            onChange={(event) => dispatch({ type: "set", field: "currency", value: event.target.value })}
+          >
             <option value="USD">USD - US Dollar</option>
             <option value="EUR">EUR - Euro</option>
             <option value="GBP">GBP - Pound</option>
@@ -155,8 +200,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Destination Port or City</span>
           <input
-            value={destination}
-            onChange={(event) => setDestination(event.target.value)}
+            value={state.destination}
+            onChange={(event) => dispatch({ type: "set", field: "destination", value: event.target.value })}
             placeholder="e.g. Jebel Ali, Hamburg, Houston"
             type="text"
           />
@@ -164,7 +209,10 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>Incoterms</span>
-          <select value={incoterm} onChange={(event) => setIncoterm(event.target.value)}>
+          <select
+            value={state.incoterm}
+            onChange={(event) => dispatch({ type: "set", field: "incoterm", value: event.target.value })}
+          >
             <option value="FOB">FOB - Free On Board</option>
             <option value="CIF">CIF - Cost, Insurance & Freight</option>
             <option value="EXW">EXW - Ex Works</option>
@@ -176,8 +224,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Packaging / Private Label</span>
           <input
-            value={packaging}
-            onChange={(event) => setPackaging(event.target.value)}
+            value={state.packaging}
+            onChange={(event) => dispatch({ type: "set", field: "packaging", value: event.target.value })}
             placeholder="e.g. printed sachet, bulk carton, distributor label"
             type="text"
           />
@@ -186,8 +234,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Required Documents</span>
           <input
-            value={documents}
-            onChange={(event) => setDocuments(event.target.value)}
+            value={state.documents}
+            onChange={(event) => dispatch({ type: "set", field: "documents", value: event.target.value })}
             placeholder="e.g. SDS, COA, ISO 9001, DMF-free statement"
             type="text"
           />
@@ -195,7 +243,10 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>Application / Industry</span>
-          <select value={application} onChange={(event) => setApplication(event.target.value)}>
+          <select
+            value={state.application}
+            onChange={(event) => dispatch({ type: "set", field: "application", value: event.target.value })}
+          >
             <option value="">Select use case</option>
             <option value="Pharmaceutical packaging">Pharmaceutical packaging</option>
             <option value="Electronics packaging">Electronics packaging</option>
@@ -210,8 +261,8 @@ export function QuoteForm({
         <label className={styles.field}>
           <span>Target Price / Benchmark</span>
           <input
-            value={targetPrice}
-            onChange={(event) => setTargetPrice(event.target.value)}
+            value={state.targetPrice}
+            onChange={(event) => dispatch({ type: "set", field: "targetPrice", value: event.target.value })}
             placeholder="e.g. current price, target FOB, or supplier quote"
             type="text"
           />
@@ -219,7 +270,10 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>Sample Requirement</span>
-          <select value={sampleNeed} onChange={(event) => setSampleNeed(event.target.value)}>
+          <select
+            value={state.sampleNeed}
+            onChange={(event) => dispatch({ type: "set", field: "sampleNeed", value: event.target.value })}
+          >
             <option value="Need sample before bulk order">Need sample before bulk order</option>
             <option value="Bulk quote only">Bulk quote only</option>
             <option value="Repeat purchase / already tested">Repeat purchase / already tested</option>
@@ -229,8 +283,8 @@ export function QuoteForm({
         <label className={`${styles.field} ${styles.fullField}`}>
           <span>Additional Notes</span>
           <textarea
-            value={message}
-            onChange={(event) => setMessage(event.target.value)}
+            value={state.message}
+            onChange={(event) => dispatch({ type: "set", field: "message", value: event.target.value })}
             placeholder="Share packet size, carton dimensions, logo print, delivery deadline, current supplier issue, or special compliance request."
             rows={5}
           />
@@ -240,7 +294,7 @@ export function QuoteForm({
           Prepare WhatsApp RFQ
         </button>
 
-        {submitted ? (
+        {state.submitted ? (
           <div className={styles.successNote} role="status">
             <strong>RFQ prepared.</strong>
             <span>
