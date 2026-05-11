@@ -159,7 +159,7 @@ export default function RootLayout({
                     width: 192,
                     height: 192,
                   },
-                  image: absoluteUrl("/opengraph-image"),
+                  image: absoluteUrl("/dry-gel-world-banner.jpg"),
                   description:
                     "DryGelWorld is a silica gel desiccant manufacturer-exporter and industrial PPE supplier based in Karachi, Pakistan. Operating company Kamran Enterprises has manufactured silica gel sachets since 1983 and expanded into dry clay desiccant, bouffant hair nets, and beard covers for international B2B buyers.",
                   foundingDate: "1983",

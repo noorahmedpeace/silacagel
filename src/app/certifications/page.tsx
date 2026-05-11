@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
@@ -141,6 +142,28 @@ const documentTypes = [
 export default function CertificationsPage() {
   return (
     <main className={shared.page}>
+      <section
+        style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "1024 / 540",
+          maxHeight: "520px",
+          overflow: "hidden",
+          margin: "0 auto",
+          borderRadius: "0 0 var(--ds-radius-hero) var(--ds-radius-hero)",
+        }}
+        aria-label="Dry Gel World branded product range banner"
+      >
+        <Image
+          src="/dry-gel-world-banner.jpg"
+          alt="DryGelWorld branded silica gel sachet, indicating gel, and industrial bulk packs — ultimate moisture protection"
+          fill
+          priority
+          sizes="100vw"
+          style={{ objectFit: "cover", objectPosition: "center" }}
+        />
+      </section>
+
       <section className={shared.hero}>
         <Reveal direction="up">
           <span className={shared.kicker}>Certifications & Compliance</span>
@@ -256,6 +279,125 @@ export default function CertificationsPage() {
               <p>{item.note}</p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Manufacturing & operations</h2>
+          <p>
+            Karachi manufacturing facility, finished-goods staging, and global logistics handover —
+            the operational backbone behind the certifications above.
+          </p>
+        </div>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+            gap: "clamp(16px, 2vw, 24px)",
+            maxWidth: "var(--ds-container-max)",
+            margin: "0 auto",
+          }}
+        >
+          <figure
+            style={{
+              margin: 0,
+              borderRadius: "var(--ds-radius-card)",
+              overflow: "hidden",
+              border: "1px solid var(--ds-hairline)",
+              boxShadow: "var(--ds-shadow-soft)",
+              background: "var(--ds-surface)",
+            }}
+          >
+            <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
+              <Image
+                src="/dry-gel-world-factory.jpg"
+                alt="DryGelWorld production line — workers in hair nets, packaging machines, robotic arms, finished-goods staging"
+                fill
+                sizes="(max-width: 720px) 100vw, 33vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <figcaption
+              style={{
+                padding: "16px 18px",
+                fontSize: "0.92rem",
+                lineHeight: 1.55,
+                color: "var(--ds-text-muted)",
+              }}
+            >
+              <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
+                Production line
+              </strong>
+              Karachi manufacturing floor — packaging lines, finished inventory, and shipment staging.
+            </figcaption>
+          </figure>
+          <figure
+            style={{
+              margin: 0,
+              borderRadius: "var(--ds-radius-card)",
+              overflow: "hidden",
+              border: "1px solid var(--ds-hairline)",
+              boxShadow: "var(--ds-shadow-soft)",
+              background: "var(--ds-surface)",
+            }}
+          >
+            <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
+              <Image
+                src="/dry-gel-world-fulfillment.jpg"
+                alt="DryGelWorld fulfillment — branded industrial bulk packs on pallets, forklift loading, global logistics dispatch"
+                fill
+                sizes="(max-width: 720px) 100vw, 33vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <figcaption
+              style={{
+                padding: "16px 18px",
+                fontSize: "0.92rem",
+                lineHeight: 1.55,
+                color: "var(--ds-text-muted)",
+              }}
+            >
+              <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
+                Fulfillment & global logistics
+              </strong>
+              Branded industrial bulk pack staging, pallet build, and global dispatch handover.
+            </figcaption>
+          </figure>
+          <figure
+            style={{
+              margin: 0,
+              borderRadius: "var(--ds-radius-card)",
+              overflow: "hidden",
+              border: "1px solid var(--ds-hairline)",
+              boxShadow: "var(--ds-shadow-soft)",
+              background: "var(--ds-surface)",
+            }}
+          >
+            <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
+              <Image
+                src="/dry-gel-world-product-display.jpg"
+                alt="DryGelWorld branded product range — silica gel sachets, indicating bead variants (white, blue, orange), industrial bulk pouches"
+                fill
+                sizes="(max-width: 720px) 100vw, 33vw"
+                style={{ objectFit: "cover" }}
+              />
+            </div>
+            <figcaption
+              style={{
+                padding: "16px 18px",
+                fontSize: "0.92rem",
+                lineHeight: 1.55,
+                color: "var(--ds-text-muted)",
+              }}
+            >
+              <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
+                Product range
+              </strong>
+              Branded silica gel sachets, indicating bead variants (white / blue / orange), industrial bulk pouches.
+            </figcaption>
+          </figure>
         </div>
       </section>
 
