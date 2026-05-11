@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+
+// GA4 measurement ID. Override via NEXT_PUBLIC_GA_ID in Vercel env if regenerated.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -123,6 +127,18 @@ export default function RootLayout({
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_ID}', { anonymize_ip: true });
+          `}
+        </Script>
         <script
           type="application/ld+json"
           suppressHydrationWarning
