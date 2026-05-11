@@ -947,45 +947,97 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "private-label-silica-gel-packets-guide",
     label: "Private Label",
-    title: "Private label silica gel packets: OEM buyer guide",
+    title: "Private label silica gel packets: a complete OEM buyer guide",
     description:
-      "How brands, distributors, and packaging buyers should plan private label silica gel packets, printed warning text, carton labels, MOQ, and documents.",
-    readTime: "8 min read",
+      "How brands, distributors, and packaging companies should plan private-label silica gel programs — sachet selection, artwork and warning text rules, MOQ economics, carton labeling, document workflow, and the procurement patterns that scale across repeat orders.",
+    readTime: "12 min read",
     sections: [
       {
-        heading: "Private label packets need more than a logo",
-        body: "OEM silica gel packets must work as a packaging component, not just a branded accessory. The packet should protect the product, carry clear warning text, fit the packaging line, pass buyer document review, and remain consistent across repeat orders. Before asking for a price, the buyer should decide packet size, material, text, carton packing, and destination requirements.",
+        heading: "Private label isn't just printing a logo — it's process design",
+        body: "When a B2B buyer thinks 'private label silica gel,' the mental model is often 'standard packet with our logo on it.' That undersells what's actually happening. A private-label sachet is a packaging component that has to: (1) protect the product across its lifecycle, (2) carry legally-required safety warnings in the destination market's language, (3) fit the buyer's packaging line — automatic insertion, manual handling, or carton inclusion, (4) survive transit and shelf without losing legibility, (5) pass the buyer's QC document review, and (6) be reproducible across orders months apart. Treating private-label as a process design problem rather than an artwork problem is what separates programs that scale from programs that hit issues at order three.",
         bullets: [
-          "Define gram size and use case before artwork is reviewed.",
-          "Confirm whether the packet needs plain warning text or buyer-specific branding.",
-          "Include carton label, SKU, lot reference, and document needs in the RFQ.",
+          "Private-label sachets are packaging components, not branded merchandise.",
+          "Six functional requirements compete: protection, safety warnings, line compatibility, durability, QC, repeatability.",
+          "Process-design framing prevents most order-three issues (artwork drift, packet inconsistency, document gaps).",
+          "The buying team that gets private-label right at order one saves 2-3 cycles of rework on order three.",
         ],
       },
       {
-        heading: "Warning text should be clear and market-appropriate",
-        body: "Common sachet wording includes SILICA GEL, DESICCANT, DO NOT EAT, and THROW AWAY. Some buyers need additional text, different languages, gram size, item code, or distributor details. The key is to lock the wording before sampling, because packet size and material can limit what prints clearly.",
+        heading: "Sachet selection: size, material, and printing surface",
+        body: "Three decisions drive most of the private-label outcome. First, gram size: 0.5g-1g sachets have very limited print surface; 3g-10g sachets give enough surface for legible warning text and modest branding; 25g+ bags can carry full multi-line branding. Second, material: breathable paper sachets are the default for clean low-dust packaging; non-woven fiber for higher abrasion resistance; Tyvek for cleanroom-grade pharma (not yet in DryGelWorld catalog). Third, printing method: pre-printed packets are cost-effective at scale but require longer lead time; print-on-demand reduces lead time but raises per-unit cost. Most B2B programs settle on a 5g or 10g paper sachet with pre-printed warning text + buyer's brand identifier — good balance of print legibility, cost, and lead time.",
         bullets: [
-          "Keep essential safety wording readable on small packets.",
-          "Review print contrast, font size, and packet material before approving bulk production.",
-          "Use buyer-approved text for regulated or customer-facing packaging.",
+          "0.5g-1g: limited print surface — typically only warning text fits.",
+          "3g-10g: enough surface for warning text + buyer's brand identifier.",
+          "25g+: full multi-line branding viable.",
+          "Material: breathable paper (default), woven/non-woven fiber, Tyvek (expansion roadmap).",
+          "Pre-printed at scale = cost-effective; print-on-demand = faster lead time, higher unit cost.",
+          "Sweet spot for B2B: 5g-10g paper sachet, pre-printed.",
         ],
       },
       {
-        heading: "MOQ depends on size, material, and print scope",
-        body: "Private-label MOQ is not only about the number of packets. MOQ changes with packet material, custom print setup, carton labels, size range, and repeat order plan. Buyers with recurring monthly or quarterly volume can usually create a cleaner program than one-time buyers asking for heavy customization.",
+        heading: "Warning text rules: what's required, what's optional",
+        body: "Every silica gel sachet in B2B commerce should carry standard safety text — typically SILICA GEL, DESICCANT, DO NOT EAT, and THROW AWAY. These are non-negotiable. Beyond that, market-specific requirements vary: EU markets may require multilingual warning text; US consumer-facing packaging may require specific CPSIA language; GCC markets may require Arabic translation. Pharma packaging programs may require additional batch identifier or DMF-free statement on the packet. Lock the warning text language at RFQ stage — printing changes after artwork approval is expensive and slow.",
         bullets: [
-          "Share monthly or annual expected quantity, not only first order volume.",
-          "Separate sample requirements from bulk production requirements.",
-          "Ask whether plain packets can ship faster while custom packets are planned.",
+          "Universal standard: SILICA GEL · DESICCANT · DO NOT EAT · THROW AWAY.",
+          "EU markets: consider multilingual text (EN + destination language).",
+          "GCC markets: Arabic translation often expected on consumer-facing packs.",
+          "Pharma packaging: batch identifier, DMF-free statement, or buyer-specific code.",
+          "Print contrast: dark text on light packet material reads best; check legibility on a sample before bulk approval.",
+          "Artwork changes after approval cost more than locking the text correctly upfront.",
         ],
       },
       {
-        heading: "Documents and carton identity matter for distributors",
-        body: "Distributor programs need clean outer-carton labeling and document trails. The receiving team should know what size, lot, product type, and customer SKU is inside each carton. Without this, private-label orders can look attractive on the packet but weak in warehouse handling.",
+        heading: "MOQ and lead time economics",
+        body: "Private-label MOQ depends on three things: packet size and material (small packets are cheaper per unit but require higher run quantity to make economic sense), custom print setup (plate and tooling cost amortizes across the order quantity), and the buyer's repeat-volume signal (monthly recurring programs unlock better MOQ and lead time than one-off orders). A standard rule of thumb: private label gets economically viable above 5,000 cartons per design for a 5g-10g paper sachet. Below that, plain packets with a separate carton label often deliver similar buyer-facing branding at a fraction of the cost. Buyers with strong forecast volume should share it explicitly at RFQ — it changes the supplier's MOQ math significantly.",
         bullets: [
-          "Request SDS, COA, and any required product statement early.",
-          "Confirm carton label fields and packing quantity per carton.",
-          "Keep a record of approved artwork, carton label, and product specification.",
+          "MOQ drivers: packet size, material, print complexity, repeat-volume signal.",
+          "Standard private-label viability: 5,000+ cartons per design for a 5g-10g paper sachet.",
+          "Below 5,000 cartons: plain packets + custom carton label is often the better economic choice.",
+          "Forecast volume changes MOQ math — share monthly/quarterly forecast explicitly at RFQ.",
+          "Lead time: plain packets ~2-3 weeks; custom print ~4-6 weeks from artwork approval.",
+        ],
+      },
+      {
+        heading: "Carton labeling — the part most buyers under-invest in",
+        body: "The carton label is the warehouse-facing identity of the order. It tells receiving, QC, and inventory teams what SKU, what lot, what gram size, and what customer is in the box. Without good carton labeling, even perfectly printed sachets get lost in distribution. A standard private-label carton label should include: customer brand or SKU code, packet gram size, packet count per carton, lot or batch number, production date, destination market, and any specific compliance markings (e.g. Halal logo if certified, EU CE if applicable). DryGelWorld supplies carton labels in standard format and can discuss custom formats at RFQ stage.",
+        bullets: [
+          "Required fields: brand/SKU, gram size, count per carton, lot/batch, production date, destination.",
+          "Optional: customer logo, compliance markings, distributor identifier, recycling codes.",
+          "Standard carton label format available; custom formats discussed at RFQ.",
+          "Carton labeling is often the difference between a program that runs smoothly and one that creates inventory chaos.",
+        ],
+      },
+      {
+        heading: "Document workflow for private-label programs",
+        body: "Private-label adds a documentation layer beyond standard supply. Buyers should request: artwork approval record (so future orders match approved spec), product specification sheet tied to the private-label SKU, SDS, COA per batch, ISO 9001:2015 reference, DMF-free statement (for EU-bound leather and consumer goods), and any market-specific document the destination requires. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request. The artwork approval record and product spec sheet should be maintained by both supplier and buyer as the canonical reference for future orders.",
+        bullets: [
+          "Artwork approval record — locks visual identity across reorders.",
+          "Product specification sheet — links the private-label SKU to the underlying product.",
+          "SDS, COA, ISO 9001:2015 reference — standard documentation supplied on request.",
+          "DMF-free statement — critical for EU-bound leather, footwear, consumer goods.",
+          "Market-specific docs (FDA, REACH, Halal, FSSC, etc.) — buyer-driven discussions per destination market; not held credentials, must be confirmed at RFQ.",
+        ],
+      },
+      {
+        heading: "Building a private-label program that scales across reorders",
+        body: "First-order private label is the easy part. The discipline matters at orders three through ten — when artwork drift, supplier confusion, and inconsistent QC start to compound. Patterns that work for scaling: lock the artwork in version-numbered files (artwork-v1.pdf, etc.) shared between buyer and supplier, keep a master product spec sheet that names sachet weight, material, print spec, and carton format, schedule a quarterly artwork-and-spec review even if no changes are planned, maintain photo records of approved samples to compare future shipments against, and pre-clear any artwork changes through both supplier QC and buyer marketing before triggering reprints. These are mechanical disciplines, not strategic ones — but they're what separates B2B private-label programs that run for years from programs that quietly break at order four.",
+        bullets: [
+          "Version-control artwork files; share v-numbered PDFs explicitly.",
+          "Master product spec sheet maintained jointly by supplier and buyer.",
+          "Quarterly artwork-and-spec review even if no changes planned.",
+          "Approved-sample photo record for shipment comparison.",
+          "Pre-clear artwork changes through supplier QC and buyer marketing before reprint triggers.",
+          "Mechanical disciplines, not strategic — but the difference between programs that scale and programs that quietly break.",
+        ],
+      },
+      {
+        heading: "OEM vs distributor private label — different procurement patterns",
+        body: "Two B2B private-label models share the same supplier infrastructure but follow different procurement patterns. OEM private label (where the buyer is the brand and the sachet goes into their consumer product) is print-intensive — packet artwork matters, branding compliance matters, line integration matters. Distributor private label (where the buyer resells the sachets under their own brand to downstream customers) is carton-intensive — outer carton branding, distributor logo, and supplier identification matter more than packet-level print. Match the procurement effort to which model you're running; over-investing in OEM-level print for a distributor program (or vice versa) wastes setup cost and lead time.",
+        bullets: [
+          "OEM private label: packet artwork primary; carton labeling secondary.",
+          "Distributor private label: carton labeling primary; packet print often plain or minimal.",
+          "Hybrid (brand owner + distributor): both layers customized; highest setup cost but cleanest scaling.",
+          "Match procurement effort to model — over-investing wastes setup cost and lead time.",
         ],
       },
     ],
@@ -1655,6 +1707,129 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "industrial-packaging-protection-solutions",
+    label: "Industrial Packaging",
+    title: "Industrial packaging protection solutions: a B2B export buyer guide",
+    description:
+      "How B2B industrial exporters design complete packaging protection programs — desiccant tiers, VCI corrosion control, dunnage and bracing, PPE and contamination control, and the documentation that holds the whole program together.",
+    readTime: "11 min read",
+    sections: [
+      {
+        heading: "Industrial packaging protection is a system, not a product",
+        body: "When industrial exporters think 'packaging protection,' the conversation often defaults to one product — desiccant sachets, or stretch wrap, or VCI paper. The reality is that effective B2B industrial packaging is a layered system, where each layer addresses a different threat: moisture, corrosion, physical shock, contamination, theft, and regulatory compliance. Designing the system means deciding which threats apply to your cargo, what controls address each threat, and how the documentation ties the whole program together for QC, insurance, and audit purposes. Single-product thinking under-protects high-value cargo; system-thinking is what separates mature export programs from amateur ones.",
+        bullets: [
+          "Six threat categories: moisture, corrosion, physical shock, contamination, theft, regulatory non-compliance.",
+          "Each threat needs a dedicated control — single-product thinking under-protects.",
+          "Documentation ties the system together for QC, insurance, and audit purposes.",
+          "Mature export programs design the system once and reuse it; amateur programs improvise per shipment.",
+        ],
+      },
+      {
+        heading: "Moisture control — the largest non-physical threat",
+        body: "For most B2B industrial cargo, moisture damage is the single largest source of non-physical loss. The control program runs three tiers: silica gel sachets inside unit packs (0.5g-5g per pack), larger sachets or bags inside master cartons (10g-50g per carton), and 1kg-5kg multi-chamber strips at the container ceiling. Material choice (silica gel vs dry clay) depends on cargo value and route — silica gel for precision and high-value cargo, dry clay for cost-tier industrial durable goods. Total cost runs 0.3-1% of cargo value; prevention-to-damage ratio is 1:20 to 1:40.",
+        bullets: [
+          "Three-tier desiccant program: unit pack + carton + container.",
+          "Silica gel for high-value cargo (precision, leather, electronics, pharma).",
+          "Dry clay for cost-tier industrial durable goods on shorter routes.",
+          "Cost: 0.3-1% of cargo value; prevention-to-damage ratio 1:20 to 1:40.",
+          "See /blog/best-desiccant-for-shipping-containers for full sizing math.",
+        ],
+      },
+      {
+        heading: "Corrosion control — what desiccant doesn't fix",
+        body: "Desiccant manages humidity but doesn't directly protect exposed metal surfaces from corrosive attack. For cargo with exposed metal — connectors, machine parts, automotive components, military hardware — pair desiccant with VCI (volatile corrosion inhibitor) paper or emitters. VCI works by releasing molecules that form a protective monolayer on metal surfaces, preventing oxidation even in trace humidity. VCI doesn't replace desiccant; it complements it. For high-value metal cargo on long-haul routes, the combination program is standard.",
+        bullets: [
+          "Desiccant manages air humidity; VCI protects metal surfaces directly.",
+          "VCI paper for wrapping individual parts; VCI emitters for cartons.",
+          "Combine with desiccant — not a substitute for moisture control.",
+          "Standard for: automotive parts, electronics with exposed connectors, machinery, military hardware.",
+          "VCI is not in DryGelWorld's current catalog — sourced from specialist suppliers when needed.",
+        ],
+      },
+      {
+        heading: "Physical shock and bracing",
+        body: "Physical damage during transit comes from three sources: vibration (truck and rail), compression (carton stacking and pallet load), and impact (handling at ports). Controls: foam padding inside cartons for vibration-sensitive products, stretch-wrap and shrink-wrap for carton-to-pallet load consolidation, dunnage bags or wood bracing for container load stability, and proper pallet design for compression resistance. None of this is the desiccant supplier's domain — but it should be part of the integrated packaging program. Industrial buyers building complete protection programs should source physical-protection components from packaging specialists and coordinate with the desiccant supplier on dimensions and load placement.",
+        bullets: [
+          "Vibration: foam padding, internal corners, suspension packaging for fragile cargo.",
+          "Compression: pallet design, carton stacking limits, shrink-wrap for load stability.",
+          "Impact: stretch-wrap, edge protectors, corner boards for handling resistance.",
+          "Container stability: dunnage bags, wood bracing, void-fill material.",
+          "Sourced from packaging specialists, not desiccant suppliers — coordinate dimensions at planning stage.",
+        ],
+      },
+      {
+        heading: "Contamination control — PPE and clean handling",
+        body: "For cargo in regulated industries (food, pharma, electronics, cosmetics), the packaging program includes contamination controls beyond the packaging itself. Worker PPE — hair nets, beard covers, gloves, masks — prevents hair and skin contamination during packing. Clean-room or clean-handling protocols prevent foreign-particle introduction during line operations. Material isolation (food zones vs non-food zones) prevents cross-contamination at the warehouse level. DryGelWorld supplies the PPE side of this program: bouffant hair nets (18\"-22\") and disposable beard covers in non-woven polypropylene.",
+        bullets: [
+          "Worker PPE: hair nets + beard covers prevent hair/skin contamination during packing.",
+          "Clean-handling protocols: gloves, hand-wash stations, line-area discipline.",
+          "Material isolation: food vs non-food zones at the warehouse level.",
+          "DryGelWorld supplies hair nets and beard covers — coordinate with desiccant supply in one program.",
+          "Color zoning (green vs white PPE) for production-zone separation.",
+        ],
+      },
+      {
+        heading: "Theft, tampering, and seal integrity",
+        body: "For high-value industrial cargo on long-haul routes, tampering and theft control matters as much as moisture protection. Standard tools: tamper-evident container seals (numbered bolt seals or cable seals), GPS tracking devices on high-value containers, broken-cable or magnetic-disturbance alerts on premium freight, and warehouse-handover documentation with photo evidence. Like physical bracing, this isn't the desiccant supplier's domain — but the seal number should be recorded in the desiccant loading photo log so that a future tampering investigation can correlate the photo record with the seal-integrity record.",
+        bullets: [
+          "Tamper-evident seals: numbered bolt seals or cable seals as the standard.",
+          "GPS tracking: optional for premium-value containers.",
+          "Photo evidence: load + seal at dispatch, integrity check at destination.",
+          "Seal number recorded in desiccant loading log for correlation.",
+        ],
+      },
+      {
+        heading: "Documentation — the glue that holds the system together",
+        body: "Each protection layer has a documentation requirement. Desiccant: SDS, COA, ISO 9001:2015 reference. Corrosion control: VCI product specification and material safety information. Physical protection: pallet certification (ISPM-15 for international wood pallets), packaging specification per cargo unit. PPE: ISO 9001:2015 quality reference, market-specific compliance evidence (buyer-driven discussions per market). Seal integrity: seal number record. Insurance: combined evidence pack including all of the above. When a damage claim happens, the underwriter looks for evidence that the shipper implemented appropriate controls — missing documentation is often the reason claims fail.",
+        bullets: [
+          "Desiccant docs: SDS, COA, ISO 9001:2015 reference, DMF-free statement (where applicable).",
+          "Pallet docs: ISPM-15 stamp for international wood pallets.",
+          "PPE docs: ISO 9001:2015 reference; market-specific compliance per buyer requirement.",
+          "Seal docs: numbered seal records, dispatch-to-destination correlation.",
+          "Combined evidence pack: SDS + COA + pallet cert + loading photos + seal number + packing list.",
+        ],
+      },
+      {
+        heading: "Cost reality — protection is fixed overhead, not variable cost",
+        body: "Across the layered industrial packaging protection program, total cost typically runs 1-3% of cargo value for a full implementation. For a USD 80,000 industrial cargo shipment, that's roughly USD 800-2,400 in combined protection: desiccant + corrosion + physical bracing + PPE for the packing team. A single damaged or rejected shipment can cost 20-50% of cargo value. The math is consistent across the desiccant-only analysis: prevention-to-damage ratio of 1:10 to 1:30. The economic case for the full program is identical to the case for any individual layer — and skipping any single layer creates a weak point that the rest of the program can't compensate for.",
+        bullets: [
+          "Total program cost: 1-3% of cargo value for full implementation.",
+          "Damage cost: 20-50% of cargo value for major events.",
+          "Prevention-to-damage ratio: 1:10 to 1:30.",
+          "Skip any single layer → creates weak point others can't compensate for.",
+          "Protection is fixed overhead, not variable cost to negotiate down.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What does 'industrial packaging protection' actually cover?",
+        answer:
+          "Six layers: moisture control (desiccants), corrosion control (VCI), physical protection (foam, bracing, pallets), contamination control (PPE, clean handling), security (seals, tracking), and documentation. Effective programs design all six together rather than treating them as separate purchases.",
+      },
+      {
+        question: "Can I get all this from one supplier?",
+        answer:
+          "DryGelWorld supplies moisture control (silica gel, dry clay, container strips) and PPE (hair nets, beard covers). Other layers — VCI paper, physical bracing, security seals — typically come from specialist packaging suppliers. Mature export programs coordinate across 2-3 suppliers; that's normal.",
+      },
+      {
+        question: "What's the most under-invested protection layer?",
+        answer:
+          "Documentation — the part that holds the whole system together when an insurance claim happens. Buyers under-invest in the photo log, the packing list with desiccant detail, and the seal-number correlation. The result: claims that fail because evidence is missing.",
+      },
+      {
+        question: "Total cost for a full industrial packaging protection program?",
+        answer:
+          "Typically 1-3% of cargo value for a complete program covering moisture, corrosion, physical, contamination, security, and documentation. Compared to typical damage costs of 20-50% for major events, the prevention-to-damage ratio is 1:10 to 1:30 — among the highest-ROI overhead in international export.",
+      },
+      {
+        question: "Which protection layer matters most for ocean freight?",
+        answer:
+          "Moisture control is the largest non-physical loss source — typically 70-80% of avoidable cargo damage on long-haul ocean routes. Pair with physical bracing for container stability. VCI matters for cargo with exposed metal; PPE matters for regulated industries.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -1679,7 +1854,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-05-01" },
   "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-05-10" },
   "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-11" },
-  "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-01" },
+  "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-11" },
   "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
   "why-hair-nets-matter-in-food-export": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
@@ -1688,6 +1863,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "ppe-products-for-factories": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "importance-of-beard-covers-in-manufacturing": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "moisture-protection-for-international-shipping": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
+  "industrial-packaging-protection-solutions": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
