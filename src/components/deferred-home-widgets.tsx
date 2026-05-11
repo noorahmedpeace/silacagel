@@ -3,7 +3,12 @@
 import { useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
 import type { IndustryData } from "@/components/industry-slider";
 
-const fallbackStyle = {
+// Base fallback styling for deferred-widget placeholders. The min-height
+// is set per-widget by the caller so the placeholder matches the loaded
+// widget's expected height — preventing Cumulative Layout Shift when
+// the real component swaps in. This is the largest CLS source on the
+// home page (Vercel Speed Insights showed CLS 0.13 on mobile before).
+const baseFallbackStyle = {
   alignItems: "center",
   border: "1px solid rgba(0, 103, 197, 0.14)",
   borderRadius: "12px",
@@ -14,23 +19,25 @@ const fallbackStyle = {
   fontWeight: 800,
   justifyContent: "center",
   letterSpacing: "0.08em",
-  minHeight: "180px",
   textAlign: "center",
   textTransform: "uppercase",
+  width: "100%",
 } as const;
 
-function WidgetFallback({ label }: { label: string }) {
-  return <div style={fallbackStyle}>{label}</div>;
+function WidgetFallback({ label, minHeight }: { label: string; minHeight: number }) {
+  return <div style={{ ...baseFallbackStyle, minHeight: `${minHeight}px` }}>{label}</div>;
 }
 
 function LoadWhenVisible<P extends object>({
   label,
   loader,
   props,
+  minHeight,
 }: {
   label: string;
   loader: () => Promise<ComponentType<P>>;
   props: P;
+  minHeight: number;
 }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [Component, setComponent] = useState<ComponentType<P> | null>(null);
@@ -74,12 +81,27 @@ function LoadWhenVisible<P extends object>({
     };
   }, [Component, loader]);
 
+  // The wrapper holds the same min-height as the fallback so even before
+  // the inner component renders, the slot in the layout is reserved.
   return (
-    <div ref={frameRef}>
-      {Component ? <Component {...props} /> : <WidgetFallback label={label} />}
+    <div ref={frameRef} style={{ minHeight: Component ? undefined : `${minHeight}px` }}>
+      {Component ? <Component {...props} /> : <WidgetFallback label={label} minHeight={minHeight} />}
     </div>
   );
 }
+
+// Per-widget min-heights match the approximate rendered height of the
+// real component on mobile widths. Conservative estimates — if the real
+// component renders taller, the browser handles the extra naturally; if
+// shorter, the small extra whitespace is preferable to a CLS spike.
+const WIDGET_MIN_HEIGHTS = {
+  priceCalculator: 600,
+  industrySlider: 640,
+  moistureCalculator: 720,
+  quoteForm: 1100,
+  quoteFormCompact: 900,
+  emblaCarousel: 360,
+} as const;
 
 export function DeferredPriceCalculator() {
   return (
@@ -87,6 +109,7 @@ export function DeferredPriceCalculator() {
       label="Loading procurement calculator"
       loader={() => import("@/components/price-calculator").then((mod) => mod.PriceCalculator)}
       props={{}}
+      minHeight={WIDGET_MIN_HEIGHTS.priceCalculator}
     />
   );
 }
@@ -97,6 +120,7 @@ export function DeferredIndustrySlider({ industries }: { industries: IndustryDat
       label="Loading industry slider"
       loader={() => import("@/components/industry-slider").then((mod) => mod.IndustrySlider)}
       props={{ industries }}
+      minHeight={WIDGET_MIN_HEIGHTS.industrySlider}
     />
   );
 }
@@ -107,6 +131,7 @@ export function DeferredMoistureCalculator() {
       label="Loading moisture calculator"
       loader={() => import("@/components/moisture-calculator").then((mod) => mod.MoistureCalculator)}
       props={{}}
+      minHeight={WIDGET_MIN_HEIGHTS.moistureCalculator}
     />
   );
 }
@@ -125,6 +150,7 @@ export function DeferredQuoteForm({
       label="Loading RFQ form"
       loader={() => import("@/components/quote-form").then((mod) => mod.QuoteForm)}
       props={{ title, compact, defaultProduct }}
+      minHeight={compact ? WIDGET_MIN_HEIGHTS.quoteFormCompact : WIDGET_MIN_HEIGHTS.quoteForm}
     />
   );
 }
@@ -141,6 +167,7 @@ export function DeferredEmblaCarousel({
       label="Loading buyer proof carousel"
       loader={() => import("@/components/embla-carousel").then((mod) => mod.EmblaCarousel)}
       props={{ children, options }}
+      minHeight={WIDGET_MIN_HEIGHTS.emblaCarousel}
     />
   );
 }
