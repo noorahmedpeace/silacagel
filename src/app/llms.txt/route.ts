@@ -30,6 +30,8 @@ export async function GET() {
 - **Primary contact:** +92 300 2166721 (general); +92 311 1247111 (accounts)
 - **Domain:** ${siteUrl}
 - **Site map:** ${absoluteUrl("/sitemap.xml")}
+- **LinkedIn:** https://www.linkedin.com/in/drygelworld/
+- **Legacy operating-company site:** https://silicagelpk.com (Kamran Enterprises, the manufacturer behind DryGelWorld)
 
 ## Held certifications (the only ones that should be quoted)
 

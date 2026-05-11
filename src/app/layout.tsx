@@ -211,6 +211,7 @@ export default function RootLayout({
                   slogan: "Industrial silica gel desiccants for global moisture protection",
                   sameAs: [
                     "https://silicagelpk.com",
+                    "https://www.linkedin.com/in/drygelworld/",
                   ],
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",
