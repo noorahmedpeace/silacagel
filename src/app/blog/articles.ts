@@ -2092,6 +2092,107 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "how-exporters-protect-cargo-from-humidity",
+    label: "Export Operations",
+    title: "How exporters protect cargo from humidity: an operational playbook",
+    description:
+      "How experienced B2B exporters build cargo-humidity protection into their operations — Incoterms framing, supplier coordination, pre-load humidity checks, layered desiccant programs, documentation discipline, and the operational patterns that prevent moisture-damage claims.",
+    readTime: "10 min read",
+    sections: [
+      {
+        heading: "Cargo humidity protection is an operational discipline, not a product",
+        body: "Most cargo-humidity damage doesn't happen because exporters chose the wrong desiccant. It happens because exporters don't have an operational playbook — humidity protection is treated as a procurement decision (buy sachets, hang strips, ship) rather than a workflow with checks, dosage rules, and documentation. The exporters who consistently avoid moisture-damage claims aren't using a secret product; they're running a disciplined workflow. This guide is that workflow.",
+        bullets: [
+          "Most moisture damage comes from operational gaps, not product choice.",
+          "Disciplined exporters run a humidity-protection workflow alongside their packing workflow.",
+          "Sachets and strips are the tools — the workflow is what actually prevents claims.",
+        ],
+      },
+      {
+        heading: "Step 1 — Incoterms framing: who owns the humidity risk",
+        body: "Different Incoterms shift cargo-condition responsibility between buyer and seller at different points. EXW: buyer takes all risk at the seller's gate. FOB: seller responsibility ends when cargo crosses the rail at origin port. CIF: seller pays insurance to destination port but cargo-condition responsibility transfers at origin. DAP: seller delivers to named destination — cargo-condition responsibility extends to the destination handover. The Incoterms decision determines who the moisture-damage claim falls on. Exporters should align humidity protection to whichever party owns the risk at each stage.",
+        bullets: [
+          "EXW: buyer owns all post-handover risk.",
+          "FOB: seller responsibility ends at origin port rail.",
+          "CIF: seller pays insurance but condition risk transfers at origin.",
+          "DAP: seller responsibility extends through to destination handover.",
+          "Align humidity protection to whichever party owns the risk at each stage.",
+        ],
+      },
+      {
+        heading: "Step 2 — Pre-load humidity discipline",
+        body: "The biggest humidity protection wins happen before the container is sealed. Pre-load checks: cargo moisture content (reject above 12-14% for woven goods, 8-10% for paper-based), cardboard storage (48+ hours in dry indoor area before packing), pallet inspection (kiln-dried or plastic only — reject damp or split wood), staging climate control. These aren't optional steps for serious exporters; they're the foundation that desiccant builds on. Exporters who skip pre-load discipline end up needing 2-3× more desiccant to compensate.",
+        bullets: [
+          "Cargo moisture content check: reject above-threshold material.",
+          "Cardboard storage: 48+ hours dry indoor before use.",
+          "Pallet inspection: kiln-dried or plastic; reject damp wood.",
+          "Staging climate control: avoid packing in ambient-humid factory floor.",
+          "Pre-load discipline reduces desiccant requirement by 30-50%.",
+        ],
+      },
+      {
+        heading: "Step 3 — Layered desiccant program",
+        body: "Effective humidity protection layers three tiers: unit-pack sachets (0.5g-5g) inside each consumer-facing pack or antistatic bag; carton-level sachets (10g-50g) inside each master carton; container-level cargo strips (1kg-5kg) at the container ceiling. Each tier addresses different humidity sources — unit-pack handles product micro-environment, carton handles air pocket inside the box, container handles condensation cycling at the ceiling. Skipping any tier creates a weak point that the other tiers can't fully compensate for.",
+        bullets: [
+          "Tier 1 (unit pack): 0.5g-5g sachet inside each pack or antistatic bag.",
+          "Tier 2 (carton): 10g-50g sachet inside each master carton.",
+          "Tier 3 (container): 1kg-5kg cargo strips at container ceiling.",
+          "All three tiers compound; skipping any creates a weak point.",
+          "Material choice (silica gel vs clay) per tier depends on cargo value.",
+        ],
+      },
+      {
+        heading: "Step 4 — Documentation discipline that defends claims",
+        body: "When a moisture-damage claim happens, the documentation is what determines whether the exporter recovers or eats the loss. Standard pack: SDS for the desiccant used, COA tied to the shipment batch, ISO 9001:2015 reference for the manufacturer, dated loading photo log showing strip placement and seal number, and a packing list naming desiccant format and quantity per container. Exporters who maintain this documentation per shipment win moisture-damage arbitrations consistently; exporters who skip it lose even when their actual program was solid.",
+        bullets: [
+          "Desiccant SDS, COA, ISO 9001:2015 reference, DMF-free statement on request.",
+          "Loading photo log: dated, showing strip placement and seal number.",
+          "Packing list: names desiccant format and total quantity per container.",
+          "Voyage temperature/humidity log from carrier if available.",
+          "Build the documentation discipline into the shipping workflow, not after-the-fact.",
+        ],
+      },
+      {
+        heading: "Step 5 — Repeat-shipment patterns that scale",
+        body: "First-shipment humidity protection is the easy part. The discipline matters across orders 3 through 100 — when supplier turnover, staff turnover, and operational drift start to compound. Patterns that work for scaling: standardize the desiccant SKUs across shipments (same gram size, same material, same supplier), maintain a master humidity-protection spec sheet that names sachet weights and strip counts per cargo type and route, schedule quarterly review even if no changes are planned, audit a sample of shipments per quarter to confirm workflow compliance.",
+        bullets: [
+          "Standardize SKUs across shipments — consistent dosage discipline.",
+          "Master spec sheet per cargo type and route.",
+          "Quarterly review and sample audit.",
+          "Train new packing staff on the workflow, not just on packet placement.",
+          "Mechanical discipline beats heroic single-shipment effort.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What's the single biggest mistake exporters make with humidity protection?",
+        answer:
+          "Treating it as a procurement decision instead of an operational workflow. Buying the right desiccant is necessary but not sufficient — you also need pre-load discipline, layered placement, and documentation. Exporters who treat humidity protection as 'buy sachets, hang strips, ship' lose more claims than they should.",
+      },
+      {
+        question: "How do Incoterms affect humidity protection responsibility?",
+        answer:
+          "Different Incoterms shift responsibility at different points. EXW: buyer owns everything post-gate. FOB: seller responsibility ends at origin port rail. CIF: insurance paid but condition risk transfers at origin. DAP: seller responsibility extends to destination handover. Align humidity protection investment to whichever party owns the risk at each stage.",
+      },
+      {
+        question: "What's pre-load humidity discipline?",
+        answer:
+          "The cargo-handling discipline BEFORE the container is sealed: moisture-check cargo at receiving, store cardboard 48+ hours dry indoors, use kiln-dried pallets, climate-control the packing staging area. Exporters who skip pre-load discipline need 2-3× more desiccant to compensate.",
+      },
+      {
+        question: "How does documentation help if there's a moisture-damage claim?",
+        answer:
+          "Documentation determines whether the exporter recovers in arbitration. Standard pack: SDS, COA, ISO 9001:2015 reference, dated loading photo log, packing list naming desiccant detail. Exporters with consistent documentation win claims; exporters who skip documentation lose even when their actual humidity program was solid.",
+      },
+      {
+        question: "Can I outsource humidity protection workflow?",
+        answer:
+          "Parts of it. The desiccant SDS, COA, and ISO reference can come from the supplier. The loading photo log and packing list documentation are the shipper's responsibility — these can be outsourced to a logistics provider but only if you build the workflow into the contract explicitly. Default 'I'll figure it out per shipment' fails reliably.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -2129,6 +2230,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "container-desiccant-vs-silica-gel": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "reusable-vs-disposable-desiccants": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "how-long-does-silica-gel-last": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
+  "how-exporters-protect-cargo-from-humidity": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
