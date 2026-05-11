@@ -104,7 +104,7 @@ export function ContactContent() {
 
         <Reveal direction="up" delay={0.25}>
           <div id="rfq-form">
-            <QuoteForm title="Export Quote Request" />
+            <QuoteForm title="Export Quote Request" compact />
           </div>
         </Reveal>
       </section>

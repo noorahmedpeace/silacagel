@@ -389,7 +389,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </p>
               </div>
 
-              <QuoteForm title={`Quote for ${product.shortName}`} defaultProduct={product.name} />
+              <QuoteForm title={`Quote for ${product.shortName}`} defaultProduct={product.name} compact />
             </section>
           </Reveal>
         </main>
