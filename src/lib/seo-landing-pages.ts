@@ -2679,6 +2679,50 @@ const highIntentSeoLandingPages = {
       { question: "What about long-haul Karachi-to-EU leather shipments?", answer: "Tropical-to-temperate routes (Karachi-Hamburg ~25 days, Karachi-Rotterdam similar) are the worst case for leather moisture damage. Use full tiered program: shoe-level + carton-level + container ceiling strips. DMF-free silica gel throughout." },
     ],
   }),
+  "silica-gel-beads": keywordClusterPage({
+    slug: "silica-gel-beads",
+    title: "Silica Gel Beads | Bulk Bead Supplier for Industrial Re-Packers",
+    metaDescription:
+      "Silica gel beads for industrial re-packers, distributors, and high-volume packaging operations. Bulk 25kg bags of loose amorphous silicon dioxide beads, 1-3mm uniform size, B2B export supply from Karachi.",
+    kicker: "Silica Gel Beads",
+    h1: "Silica gel beads for industrial re-packers and bulk wholesale supply.",
+    lead:
+      "Loose silica gel beads in 25kg bulk bags — amorphous silicon dioxide with uniform 1-3mm bead size, designed for industrial re-packers, distributors, and high-volume packaging operations that fill their own sachets and sell to downstream customers.",
+    searchIntent: "B2B buyer keyword: silica gel beads, bulk silica gel beads, silica gel bead supplier, loose silica beads",
+    primaryCta: "Request Bead Quote",
+    proofPoints: [
+      "Amorphous silicon dioxide (SiO₂)",
+      "Uniform 1-3mm bead size",
+      "25kg bulk bag standard",
+      "ISO 9001:2015, SDS, COA documentation",
+    ],
+    image: "/macro_silica_beads_1775989669467.webp",
+    imageAlt: "Macro view of silica gel beads supplied for industrial re-packers",
+    imageCaption: "Loose silica gel beads in 25kg bags for re-packers and high-volume packaging operations.",
+    chips: ["Beads", "Bulk", "Re-packers", "Industrial"],
+    fitTitle: "Silica gel bead buying paths",
+    useCases: [
+      { label: "Re-packers", title: "Industrial re-packers", text: "25kg bulk bead bags for re-packers who fill their own sachets, label them, and sell to downstream customers." },
+      { label: "Distributors", title: "Distributor stock programs", text: "Loose beads for distributors maintaining stock that can be packed into custom-format sachets on demand." },
+      { label: "Industrial", title: "High-volume industrial users", text: "Bulk beads for industrial dryers, custom packaging lines, and large-scale moisture-control programs." },
+    ],
+    targetKeywords: "silica gel beads, bulk silica gel beads, silica gel bead supplier, loose silica beads",
+    formats: "Loose beads in 25kg bulk bags; uniform 1-3mm size; white non-indicating standard",
+    buyerTypes: "Industrial re-packers, distributors, large-scale industrial users, custom packaging lines",
+    documents: "ISO 9001:2015, SDS, COA, DMF-free statement on request",
+    buyerRisk: "Buying non-uniform bead size — irregular bead size causes inconsistent adsorption performance and sachet-filling complications",
+    quoteBasis: "Bead quantity (25kg bag count), monthly tonnage, destination, Incoterms, document expectations",
+    relatedLinks: [
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Bulk silica gel supplier checklist (blog)", href: "/blog/bulk-silica-gel-supplier-checklist" },
+      { label: "What is silica gel (blog)", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
+    ],
+    faqs: [
+      { question: "What are silica gel beads?", answer: "Silica gel beads are loose pellets of amorphous silicon dioxide — the raw material that goes inside sachets and packets. Sold in 25kg bulk bags for industrial re-packers who fill their own sachets. DryGelWorld supplies uniform 1-3mm bead size for consistent adsorption performance." },
+      { question: "What's the typical bead size?", answer: "Industrial-grade silica gel beads are typically 1-3mm uniform. Irregular bead size causes inconsistent adsorption performance and complicates sachet-filling lines. Always specify uniform bead size in the RFQ." },
+      { question: "Are these beads indicating or non-indicating?", answer: "Standard supply is white non-indicating silica gel. Orange and blue indicating beads (color change when saturated) are on the DryGelWorld expansion roadmap. Confirm at RFQ stage if indicating is required." },
+    ],
+  }),
 } satisfies Record<string, SeoLandingPage>;
 
 export const seoLandingPages = {
