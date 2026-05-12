@@ -1,112 +1,88 @@
 "use client";
 
 import { QuoteForm } from "@/components/quote-form";
-import { Reveal } from "@/components/reveal";
-import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
+import { displayPhone, phoneHref, salesEmail, whatsappNumber } from "@/lib/product-data";
 import styles from "./contact.module.css";
 
-const contactCards = [
-  {
-    icon: "01",
-    title: "Structured RFQ",
-    text: "Best for MOQ, carton size, documents, private label, and repeat supply.",
-  },
-  {
-    icon: "02",
-    title: "WhatsApp Support",
-    text: "Use for urgent clarification after sending your requirement.",
-    href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I am requesting a Dry Gel World export quotation. Product type, quantity, destination, and documents are below.")}`,
-    label: "Open WhatsApp",
-  },
-  {
-    icon: "03",
-    title: "Direct Phone",
-    text: "For shipment planning, sample follow-up, or procurement desk coordination.",
-    href: `tel:${phoneHref}`,
-    label: displayPhone,
-  },
-  {
-    icon: "04",
-    title: "Buyer Response",
-    text: "Qualified export RFQs are reviewed for format, MOQ, documents, and route.",
-  },
-];
-
-const quoteChecklist = [
-  "Product format and packet size",
-  "Monthly or one-time quantity",
-  "Destination country or port",
-  "FOB, CIF, EXW, or DAP preference",
-  "SDS, COA, ISO, or private-label needs",
-];
+const whatsappPrefill = encodeURIComponent(
+  "Hello, I am requesting a Dry Gel World export quotation. Product type, quantity, destination, and documents are below.",
+);
 
 export function ContactContent() {
   return (
     <main className={styles.page}>
-      <section className={styles.hero}>
-        <Reveal direction="up">
-          <span className={styles.kicker}>Export RFQ Desk</span>
-          <h1>Send a quote request buyers can actually act on.</h1>
-          <p>
-            Share product format, packet size, order volume, destination, Incoterms,
-            and document requirements. The form prepares a complete procurement
-            message for faster silica gel export quotation.
-          </p>
+      <div className={styles.ambient} aria-hidden="true">
+        <span className={styles.blobOne} />
+        <span className={styles.blobTwo} />
+        <span className={styles.blobThree} />
+      </div>
+
+      <section className={styles.bento}>
+        <article className={`${styles.tile} ${styles.tileHero}`}>
+          <span className={styles.kicker}>Export Desk</span>
+          <h1>Quote requests, answered in 24 hours.</h1>
+          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 60+ countries.</p>
           <div className={styles.heroActions}>
-            <a href="#rfq-form">Start export RFQ</a>
+            <a href="#rfq-form" className={styles.primaryAction}>
+              Start RFQ
+            </a>
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I need SDS / COA support for a silica gel procurement inquiry.")}`}
               target="_blank"
               rel="noopener noreferrer"
+              className={styles.ghostAction}
             >
-              Ask for SDS / COA
+              Request SDS / COA
             </a>
           </div>
-        </Reveal>
-      </section>
+        </article>
 
-      <section className={styles.contactLayout}>
-        <div className={styles.contactInfo}>
-          <Reveal direction="up" delay={0.2}>
-            <span className={styles.kicker}>Before You Submit</span>
-            <h2>Prepare the details export teams need.</h2>
-            <p>
-              A strong RFQ reduces back-and-forth and helps the export desk quote
-              the right product, packaging, documentation, and shipment route.
-            </p>
-          </Reveal>
+        <article className={`${styles.tile} ${styles.tileTrust}`}>
+          <span className={styles.trustNumber}>1983</span>
+          <span className={styles.trustLabel}>Manufacturing</span>
+          <div className={styles.trustDivider} />
+          <span className={styles.trustNumber}>60+</span>
+          <span className={styles.trustLabel}>Export markets</span>
+          <div className={styles.trustDivider} />
+          <span className={styles.trustNumber}>ISO</span>
+          <span className={styles.trustLabel}>9001:2015</span>
+        </article>
 
-          <ul className={styles.checklist}>
-            {quoteChecklist.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+        <article className={`${styles.tile} ${styles.tileForm}`} id="rfq-form">
+          <QuoteForm title="Export Quote Request" compact />
+        </article>
 
-          <div className={styles.contactCards}>
-            {contactCards.map((card, idx) => (
-              <Reveal key={card.title} direction="left" delay={0.08 * idx}>
-                <div className={styles.contactCard}>
-                  <span className={styles.contactIcon}>{card.icon}</span>
-                  <div>
-                    <strong>{card.title}</strong>
-                    <p>{card.text}</p>
-                    {card.href ? (
-                      <a href={card.href} target={card.href.startsWith("http") ? "_blank" : undefined} rel={card.href.startsWith("http") ? "noopener noreferrer" : undefined}>
-                        {card.label}
-                      </a>
-                    ) : null}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+        <a
+          className={`${styles.tile} ${styles.tileAction}`}
+          href={`https://wa.me/${whatsappNumber}?text=${whatsappPrefill}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.actionKicker}>WhatsApp</span>
+          <span className={styles.actionValue}>Instant chat</span>
+        </a>
+
+        <a className={`${styles.tile} ${styles.tileAction}`} href={`tel:${phoneHref}`}>
+          <span className={styles.actionKicker}>Direct line</span>
+          <span className={styles.actionValue}>{displayPhone}</span>
+        </a>
+
+        {salesEmail ? (
+          <a className={`${styles.tile} ${styles.tileAction}`} href={`mailto:${salesEmail}`}>
+            <span className={styles.actionKicker}>Email desk</span>
+            <span className={styles.actionValue}>{salesEmail}</span>
+          </a>
+        ) : (
+          <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
+            <span className={styles.actionKicker}>Response</span>
+            <span className={styles.actionValue}>Under 24h</span>
           </div>
+        )}
+
+        <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
+          <span className={styles.actionKicker}>Hours</span>
+          <span className={styles.actionValue}>Mon–Sat · PKT</span>
         </div>
-
-        <Reveal direction="up" delay={0.25}>
-          <div id="rfq-form">
-            <QuoteForm title="Export Quote Request" compact />
-          </div>
-        </Reveal>
       </section>
     </main>
   );

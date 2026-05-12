@@ -1,300 +1,345 @@
 .page {
+  position: relative;
   width: 100%;
-  max-width: 1420px;
+  max-width: 1380px;
   margin: 0 auto;
-  padding: 92px 32px 140px;
-  display: flex;
-  flex-direction: column;
-  gap: 56px;
+  padding: 88px 32px 132px;
+  isolation: isolate;
 }
 
-.hero {
+.ambient {
+  position: absolute;
+  inset: -80px -40px 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.ambient span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.55;
+}
+
+.blobOne {
+  top: -120px;
+  left: -80px;
+  width: 540px;
+  height: 540px;
+  background: radial-gradient(circle at 30% 30%, #c7dcff 0%, transparent 70%);
+}
+
+.blobTwo {
+  top: 280px;
+  right: -120px;
+  width: 620px;
+  height: 620px;
+  background: radial-gradient(circle at 70% 30%, #e6efff 0%, transparent 70%);
+  opacity: 0.7;
+}
+
+.blobThree {
+  bottom: -160px;
+  left: 32%;
+  width: 720px;
+  height: 720px;
+  background: radial-gradient(circle at 50% 50%, #f0e6ff 0%, transparent 72%);
+  opacity: 0.45;
+}
+
+/* 12-col asymmetric bento: hero spans 8, trust 4. Form 8, action stack 4. */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.tile {
   position: relative;
-  max-width: 1120px;
-  padding: 54px;
-  border-radius: 8px;
-  border: 1px solid rgba(191, 193, 194, 0.36);
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.86) 50%, rgba(239, 246, 255, 0.78) 100%),
-    url("/backgrounds/bento-silica-panel.webp");
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 34px 74px -54px rgba(15, 23, 42, 0.3);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(22px) saturate(160%);
+  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.25),
+    0 30px 60px -38px rgba(15, 23, 42, 0.22);
   overflow: hidden;
   isolation: isolate;
 }
 
-.hero::after {
+.tile::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background-image: url("/backgrounds/blue-particle-board-wide.webp");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: max(1500px, 120%) auto;
-  opacity: 0.12;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%);
   pointer-events: none;
-  mix-blend-mode: multiply;
 }
 
-.hero > * {
-  position: relative;
-  z-index: 1;
+.tileHero {
+  grid-column: span 8;
+  padding: 64px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 380px;
 }
 
 .kicker {
   display: inline-flex;
-  width: fit-content;
-  margin-bottom: 20px;
-  padding: 9px 14px;
-  border-radius: 6px;
-  background: rgba(219, 234, 254, 0.9);
-  border: 1px solid rgba(0, 103, 197, 0.16);
-  color: #064a91;
+  align-self: flex-start;
+  padding: 7px 13px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  color: #1e3a8a;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
-.hero h1,
-.contactInfo h2 {
+.tileHero h1 {
+  max-width: 14ch;
+  margin: 0 0 18px;
   font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.2vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.045em;
   color: var(--ink);
-  letter-spacing: -0.07em;
-  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
-.hero h1 {
-  max-width: 13ch;
-  margin-bottom: 22px;
-  font-size: clamp(3.6rem, 6vw, 5.4rem);
-  font-weight: 900;
-  line-height: 0.96;
+.tileHero p {
+  max-width: 520px;
+  margin: 0 0 28px;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .heroActions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 26px;
-}
-
-.heroActions a {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 0 18px;
-  border-radius: 6px;
-  color: #ffffff;
-  background: var(--accent);
-  font-weight: 900;
-}
-
-.heroActions a:last-child {
-  color: #064a91;
-  background: #ffffff;
-  border: 1px solid rgba(0, 103, 197, 0.16);
-}
-
-.hero p {
-  max-width: 760px;
-  color: var(--muted);
-  font-size: 1.12rem;
-  line-height: 1.78;
-}
-
-.contactLayout {
-  display: grid;
-  grid-template-columns: minmax(320px, 0.78fr) minmax(0, 1.22fr);
-  gap: 42px;
-  align-items: start;
-}
-
-.contactInfo {
-  position: sticky;
-  top: 112px;
-  display: flex;
-  flex-direction: column;
-  gap: 34px;
-}
-
-.checklist {
-  display: grid;
   gap: 10px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  flex-wrap: wrap;
 }
 
-.checklist li {
-  position: relative;
-  padding: 13px 14px 13px 34px;
-  border: 1px solid rgba(0, 103, 197, 0.12);
-  border-radius: 8px;
-  background: #ffffff;
-  color: #334155;
+.primaryAction,
+.ghostAction {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  padding: 0 22px;
+  border-radius: 999px;
   font-size: 0.92rem;
   font-weight: 800;
+  letter-spacing: -0.005em;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.checklist li::before {
-  content: "";
-  position: absolute;
-  top: 19px;
-  left: 16px;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-.contactInfo h2 {
-  max-width: 12ch;
-  margin-bottom: 16px;
-  font-size: clamp(2.4rem, 4vw, 3.5rem);
-  font-weight: 900;
-  line-height: 1;
-}
-
-.contactInfo p {
-  max-width: 520px;
-  color: var(--muted);
-  line-height: 1.75;
-  font-size: 1rem;
-}
-
-.contactCards {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.contactCard {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  padding: 22px;
-  border: 1px solid rgba(191, 193, 194, 0.36);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 22px 48px -38px rgba(15, 23, 42, 0.24);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  overflow: hidden;
-}
-
-.contactCard::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("/backgrounds/blue-particle-board-wide.webp");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: 620px auto;
-  opacity: 0.07;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
-
-.contactCard > * {
-  position: relative;
-  z-index: 1;
-}
-
-.contactCard:hover {
-  transform: translateX(6px);
-  border-color: rgba(15, 23, 42, 0.22);
-  box-shadow: 0 28px 62px -42px rgba(15, 23, 42, 0.34);
-}
-
-.contactIcon {
-  display: inline-flex;
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
+.primaryAction {
   background: #0f172a;
   color: #ffffff;
+  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.6);
+}
+
+.primaryAction:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 38px -18px rgba(15, 23, 42, 0.75);
+}
+
+.ghostAction {
+  background: rgba(255, 255, 255, 0.7);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.ghostAction:hover {
+  background: #ffffff;
+}
+
+/* Trust tile — tall narrow column, large numerals stacked */
+.tileTrust {
+  grid-column: span 4;
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 380px;
+}
+
+.trustNumber {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.trustLabel {
+  margin-bottom: 4px;
+  color: #64748b;
   font-family: var(--font-mono);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.trustDivider {
+  height: 1px;
+  margin: 14px 0;
+  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+}
+
+/* Form tile */
+.tileForm {
+  grid-column: span 8;
+  grid-row: span 4;
+  padding: 32px;
+}
+
+.tileForm :global(form) {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+/* Right-rail action tiles */
+.tileAction {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  padding: 28px 30px;
+  min-height: 110px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+a.tileAction:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 32px 64px -36px rgba(15, 23, 42, 0.3);
+}
+
+.tileMuted {
+  cursor: default;
+}
+
+.actionKicker {
+  color: #64748b;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.actionValue {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
   font-weight: 800;
-}
-
-.contactCard strong {
-  display: block;
-  margin-bottom: 5px;
-  color: var(--ink);
-  font-weight: 900;
-  font-size: 1rem;
-}
-
-.contactCard p,
-.contactCard a,
-.contactCard div > span {
-  color: #475569;
-  font-size: 0.94rem;
-  line-height: 1.55;
-}
-
-.contactCard a {
-  display: inline-flex;
-  margin-top: 8px;
-  color: #d80d2a;
-  font-weight: 900;
-}
-
-.contactCard a:hover {
-  color: var(--ink);
+  letter-spacing: -0.02em;
 }
 
 @media (max-width: 1100px) {
-  .contactLayout {
-    grid-template-columns: 1fr;
+  .tileHero {
+    grid-column: span 12;
+    padding: 48px 40px;
+    min-height: 320px;
   }
 
-  .contactInfo {
-    position: static;
+  .tileTrust {
+    grid-column: span 12;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 0;
+    padding: 28px 32px;
+  }
+
+  .tileTrust .trustDivider {
+    width: 1px;
+    height: 38px;
+    margin: 0 12px;
+    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.14), transparent);
+  }
+
+  .tileTrust .trustLabel {
+    margin-bottom: 0;
+  }
+
+  .tileForm {
+    grid-column: span 12;
+    grid-row: auto;
+  }
+
+  .tileAction {
+    grid-column: span 6;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .page {
-    padding: 56px 18px 100px;
-    gap: 36px;
+    padding: 52px 16px 80px;
   }
 
-  .hero {
-    padding: 30px;
-    border-radius: 8px;
-  }
-
-  .hero h1 {
-    font-size: 2.55rem;
-  }
-
-  .heroActions {
-    gap: 10px;
-  }
-
-  .heroActions a {
-    width: 100%;
-  }
-
-  .contactInfo h2 {
-    font-size: 2.3rem;
-  }
-
-  .contactCard {
-    padding: 18px;
+  .bento {
     gap: 14px;
+  }
+
+  .tileHero {
+    padding: 36px 28px;
+    min-height: 0;
+  }
+
+  .tileHero h1 {
+    font-size: 2.4rem;
+  }
+
+  .tileTrust {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding: 24px 28px;
+  }
+
+  .tileTrust .trustDivider {
+    width: 100%;
+    height: 1px;
+    margin: 12px 0;
+    background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+  }
+
+  .tileForm {
+    padding: 20px;
+  }
+
+  .tileAction {
+    grid-column: span 12;
+    min-height: 88px;
+    padding: 22px 24px;
+  }
+
+  .actionValue {
+    font-size: 1.15rem;
+  }
+
+  .primaryAction,
+  .ghostAction {
+    flex: 1;
+    justify-content: center;
   }
 }
