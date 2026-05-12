@@ -3073,17 +3073,35 @@
   display: grid;
   grid-template-columns: minmax(300px, 0.72fr) minmax(520px, 1.28fr);
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .priceGrid {
   grid-template-columns: 1fr;
+  grid-auto-rows: 1fr;
   gap: 12px;
+  height: 100%;
 }
 
 .priceCard {
-  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   border-radius: 14px;
+}
+
+.priceCard .priceList {
+  flex: 1;
+}
+
+.calculatorAnchor {
+  display: flex;
+}
+
+.calculatorAnchor .calculatorPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .priceCard h3 {
