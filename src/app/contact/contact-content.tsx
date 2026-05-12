@@ -1,7 +1,13 @@
 "use client";
 
 import { QuoteForm } from "@/components/quote-form";
-import { displayPhone, phoneHref, salesEmail, whatsappNumber } from "@/lib/product-data";
+import {
+  contactEmailChannels,
+  createMailtoHref,
+  displayPhone,
+  phoneHref,
+  whatsappNumber,
+} from "@/lib/product-data";
 import styles from "./contact.module.css";
 
 const whatsappPrefill = encodeURIComponent(
@@ -50,7 +56,7 @@ export function ContactContent() {
         </article>
 
         <article className={`${styles.tile} ${styles.tileForm}`} id="rfq-form">
-          <QuoteForm title="Export Quote Request" compact />
+          <QuoteForm title="Export Quote Request" compact defaultDepartment="export" />
         </article>
 
         <a
@@ -68,17 +74,23 @@ export function ContactContent() {
           <span className={styles.actionValue}>{displayPhone}</span>
         </a>
 
-        {salesEmail ? (
-          <a className={`${styles.tile} ${styles.tileAction}`} href={`mailto:${salesEmail}`}>
-            <span className={styles.actionKicker}>Email desk</span>
-            <span className={styles.actionValue}>{salesEmail}</span>
-          </a>
-        ) : (
-          <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
-            <span className={styles.actionKicker}>Response</span>
-            <span className={styles.actionValue}>Under 24h</span>
+        <article className={`${styles.tile} ${styles.emailDirectoryTile}`}>
+          <span className={styles.actionKicker}>Email routing</span>
+          <div className={styles.emailDirectory}>
+            {contactEmailChannels.map((channel) => (
+              <a
+                className={styles.emailRoute}
+                href={createMailtoHref(channel.email, channel.defaultSubject)}
+                key={channel.id}
+                rel="nofollow"
+              >
+                <span>{channel.label}</span>
+                <strong>{channel.email}</strong>
+                <small>{channel.purpose}</small>
+              </a>
+            ))}
           </div>
-        )}
+        </article>
 
         <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
           <span className={styles.actionKicker}>Hours</span>

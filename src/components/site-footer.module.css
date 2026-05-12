@@ -110,6 +110,77 @@
   color: #147842;
 }
 
+.emailDesk {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 14px;
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  border-radius: 10px;
+  background: rgba(239, 247, 255, 0.72);
+}
+
+.emailDeskLabel {
+  color: #064a91;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.emailDirectory {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.emailRoute {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.86);
+  text-decoration: none;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.emailRoute:hover {
+  border-color: rgba(0, 103, 197, 0.32);
+  background: #ffffff;
+  transform: translateY(-1px);
+}
+
+.emailRoute span {
+  color: #5b6d83;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.emailRoute strong {
+  min-width: 0;
+  color: var(--industrial-blue-deep);
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1.25;
+  word-break: break-word;
+}
+
+.emailRoute small {
+  color: #5b6d83;
+  font-size: 0.74rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
 .linkGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -196,6 +267,10 @@
   }
 
   .linkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .emailDirectory {
     grid-template-columns: 1fr;
   }
 

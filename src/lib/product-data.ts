@@ -29,10 +29,74 @@ export type PriceGroup = {
 export const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "923330223337";
 export const displayPhone = process.env.NEXT_PUBLIC_SALES_PHONE_DISPLAY?.trim() || "+92 333 022 3337";
 export const phoneHref = process.env.NEXT_PUBLIC_SALES_PHONE_HREF?.trim() || "+923330223337";
-export const salesEmail = process.env.NEXT_PUBLIC_SALES_EMAIL?.trim() || "";
+export const infoEmail = process.env.NEXT_PUBLIC_INFO_EMAIL?.trim() || "info@drygelworld.com";
+export const salesEmail = process.env.NEXT_PUBLIC_SALES_EMAIL?.trim() || "sales@drygelworld.com";
+export const exportEmail = process.env.NEXT_PUBLIC_EXPORT_EMAIL?.trim() || "export@drygelworld.com";
+export const supportEmail = process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || "support@drygelworld.com";
 export const companyCity = process.env.NEXT_PUBLIC_COMPANY_CITY?.trim() || "Karachi";
 export const companyCountry = process.env.NEXT_PUBLIC_COMPANY_COUNTRY?.trim() || "Pakistan";
 export const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA?.trim() || "Worldwide";
+
+export type ContactDepartment = "general" | "sales" | "export" | "support";
+
+export const contactEmailChannels: Array<{
+  id: ContactDepartment;
+  label: string;
+  shortLabel: string;
+  email: string;
+  purpose: string;
+  schemaContactType: string;
+  defaultSubject: string;
+}> = [
+  {
+    id: "general",
+    label: "General Contact",
+    shortLabel: "General",
+    email: infoEmail,
+    purpose: "Company questions, introductions, and non-urgent requests.",
+    schemaContactType: "customer service",
+    defaultSubject: "DryGelWorld general inquiry",
+  },
+  {
+    id: "sales",
+    label: "Sales Inquiries / Quotations",
+    shortLabel: "Sales",
+    email: salesEmail,
+    purpose: "MOQ, prices, product selection, samples, and repeat orders.",
+    schemaContactType: "sales",
+    defaultSubject: "DryGelWorld quotation request",
+  },
+  {
+    id: "export",
+    label: "Export / International Buyers",
+    shortLabel: "Export",
+    email: exportEmail,
+    purpose: "FOB / CIF / EXW quotes, destinations, documents, and logistics.",
+    schemaContactType: "export sales",
+    defaultSubject: "DryGelWorld export inquiry",
+  },
+  {
+    id: "support",
+    label: "Customer Support / Issues",
+    shortLabel: "Support",
+    email: supportEmail,
+    purpose: "Order follow-up, quality concerns, document updates, and claims.",
+    schemaContactType: "customer support",
+    defaultSubject: "DryGelWorld customer support request",
+  },
+];
+
+export function getContactEmailChannel(department?: ContactDepartment | string) {
+  return contactEmailChannels.find((channel) => channel.id === department) ?? contactEmailChannels[1];
+}
+
+export function createMailtoHref(email: string, subject?: string, body?: string) {
+  const params = new URLSearchParams();
+  if (subject) params.set("subject", subject);
+  if (body) params.set("body", body);
+  const query = params.toString();
+  return query ? `mailto:${email}?${query}` : `mailto:${email}`;
+}
 
 export const productCatalog: ProductItem[] = [
   {

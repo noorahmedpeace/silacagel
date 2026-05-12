@@ -9,7 +9,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
+import { contactEmailChannels, phoneHref, serviceArea } from "@/lib/product-data";
 import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
 import "./design-tokens.css";
 import "./globals.css";
@@ -93,14 +93,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const salesContactPoint = {
+  const contactPoints = contactEmailChannels.map((channel) => ({
     "@type": "ContactPoint",
     telephone: phoneHref,
-    contactType: "sales",
+    contactType: channel.schemaContactType,
     areaServed: serviceArea,
     availableLanguage: ["en"],
-    ...(salesEmail ? { email: salesEmail } : {}),
-  };
+    email: channel.email,
+  }));
 
   return (
     <html lang="en" className={body.variable}>
@@ -196,7 +196,7 @@ export default function RootLayout({
                     postalCode: "75950",
                     addressCountry: "PK",
                   },
-                  contactPoint: salesContactPoint,
+                  contactPoint: contactPoints,
                   areaServed: [
                     "Worldwide",
                     "United Arab Emirates",

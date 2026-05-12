@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
+import {
+  contactEmailChannels,
+  createMailtoHref,
+  displayPhone,
+  phoneHref,
+  whatsappNumber,
+} from "@/lib/product-data";
 import styles from "./site-footer.module.css";
 
 const footerGroups = [
@@ -84,6 +90,23 @@ export function SiteFooter() {
             <a className={styles.whatsapp} href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>
+          </div>
+          <div className={styles.emailDesk}>
+            <span className={styles.emailDeskLabel}>Official email desk</span>
+            <div className={styles.emailDirectory} aria-label="Department email directory">
+              {contactEmailChannels.map((channel) => (
+                <a
+                  className={styles.emailRoute}
+                  href={createMailtoHref(channel.email, channel.defaultSubject)}
+                  key={channel.id}
+                  rel="nofollow"
+                >
+                  <span>{channel.shortLabel}</span>
+                  <strong>{channel.email}</strong>
+                  <small>{channel.purpose}</small>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

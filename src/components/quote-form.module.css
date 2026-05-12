@@ -168,6 +168,25 @@
   padding-right: 38px;
 }
 
+.routeHint {
+  margin-top: -1px;
+  color: var(--ds-text-muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.routeHint a {
+  color: var(--ds-brand);
+  font-weight: 800;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.routeHint a:hover {
+  text-decoration: underline;
+}
+
 /* ───────────────────── SUBMIT + SUCCESS ───────────────────── */
 
 .submit {

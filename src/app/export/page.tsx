@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import styles from "../strategy-pages.module.css";
+import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
@@ -30,6 +31,10 @@ const exportBlocks = [
   },
 ];
 
+const exportDeskChannels = contactEmailChannels.filter((channel) =>
+  ["export", "sales", "support"].includes(channel.id),
+);
+
 export default function ExportPage() {
   return (
     <main className={styles.page}>
@@ -42,6 +47,32 @@ export default function ExportPage() {
           moisture-control products.
         </p>
         <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Route international inquiries to the right desk.</h2>
+          <p>
+            Use the export desk for overseas buying, the sales desk for price and MOQ,
+            and support for order or document follow-up after dispatch.
+          </p>
+        </div>
+        <div className={styles.grid}>
+          {exportDeskChannels.map((channel) => (
+            <article className={styles.articleCard} key={channel.id}>
+              <span>{channel.label}</span>
+              <h3>{channel.email}</h3>
+              <p>{channel.purpose}</p>
+              <a
+                className={styles.textLink}
+                href={createMailtoHref(channel.email, channel.defaultSubject)}
+                rel="nofollow"
+              >
+                Email {channel.shortLabel}
+              </a>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className={styles.section}>

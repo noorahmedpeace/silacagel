@@ -2,16 +2,25 @@
 
 import { FormEvent, useReducer } from "react";
 import Link from "next/link";
-import { displayPhone, productCatalog, whatsappNumber } from "@/lib/product-data";
+import {
+  contactEmailChannels,
+  createMailtoHref,
+  displayPhone,
+  getContactEmailChannel,
+  productCatalog,
+  type ContactDepartment,
+} from "@/lib/product-data";
 import styles from "./quote-form.module.css";
 
 type QuoteFormProps = {
   title?: string;
   compact?: boolean;
   defaultProduct?: string;
+  defaultDepartment?: ContactDepartment;
 };
 
 type FormFields = {
+  department: ContactDepartment;
   product: string;
   company: string;
   email: string;
@@ -44,8 +53,15 @@ function reducer(state: FormState, action: FormAction): FormState {
   return { ...state, [action.field]: action.value };
 }
 
-function initialState(defaultProduct: string): FormState {
+function initialState({
+  defaultProduct,
+  defaultDepartment,
+}: {
+  defaultProduct: string;
+  defaultDepartment: ContactDepartment;
+}): FormState {
   return {
+    department: defaultDepartment,
     product: defaultProduct,
     company: "",
     email: "",
@@ -69,16 +85,24 @@ export function QuoteForm({
   title = "Request Industrial Quote",
   compact = false,
   defaultProduct = "",
+  defaultDepartment = "sales",
 }: QuoteFormProps) {
   const hasDefaultProductOption =
     defaultProduct.length > 0 && productCatalog.some((item) => item.name === defaultProduct);
-  const [state, dispatch] = useReducer(reducer, defaultProduct, initialState);
+  const [state, dispatch] = useReducer(
+    reducer,
+    { defaultProduct, defaultDepartment },
+    initialState,
+  );
+  const routedChannel = getContactEmailChannel(state.department);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const route = getContactEmailChannel(state.department);
 
     const rfqMessage = [
       "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
+      `Department Route: ${route.label} (${route.email})`,
       `Company Name: ${state.company || "Not provided"}`,
       `Business Email: ${state.email || "Not provided"}`,
       `Product Type / Format: ${state.product || "General silica gel inquiry"}`,
@@ -97,9 +121,10 @@ export function QuoteForm({
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(rfqMessage)}`;
+    const subject = `${route.defaultSubject} - ${state.product || "Silica gel inquiry"}`;
+    const url = createMailtoHref(route.email, subject, rfqMessage);
     dispatch({ type: "submit" });
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.location.href = url;
   }
 
   return (
@@ -129,6 +154,32 @@ export function QuoteForm({
             placeholder="procurement@company.com"
             type="email"
           />
+        </label>
+
+        <label className={styles.field}>
+          <span>Send to Department</span>
+          <select
+            value={state.department}
+            onChange={(event) =>
+              dispatch({
+                type: "set",
+                field: "department",
+                value: event.target.value as ContactDepartment,
+              })
+            }
+          >
+            {contactEmailChannels.map((channel) => (
+              <option key={channel.id} value={channel.id}>
+                {channel.label}
+              </option>
+            ))}
+          </select>
+          <small className={styles.routeHint}>
+            Routes to{" "}
+            <a href={createMailtoHref(routedChannel.email, routedChannel.defaultSubject)} rel="nofollow">
+              {routedChannel.email}
+            </a>
+          </small>
         </label>
 
         <label className={styles.field}>
@@ -291,15 +342,15 @@ export function QuoteForm({
         </label>
 
         <button className={styles.submit} type="submit">
-          Prepare WhatsApp RFQ
+          Prepare Routed Email RFQ
         </button>
 
         {state.submitted ? (
           <div className={styles.successNote} role="status">
             <strong>RFQ prepared.</strong>
             <span>
-              WhatsApp opened with your structured inquiry. The export desk can now
-              review format, MOQ, documents, and route faster.
+              Your email client opened with a structured inquiry routed to {routedChannel.label}.
+              WhatsApp remains available for urgent follow-up.
             </span>
           </div>
         ) : null}
@@ -309,6 +360,7 @@ export function QuoteForm({
         <span className={styles.sidebarKicker}>Quote Checklist</span>
         <strong>Faster quotes start with cleaner buyer data.</strong>
         <div className={styles.sidebarStats}>
+          <span>Correct department route before the RFQ leaves</span>
           <span>Product format, size, and packing style</span>
           <span>Quantity, MOQ target, and repeat volume</span>
           <span>Destination country, port, and Incoterms</span>
