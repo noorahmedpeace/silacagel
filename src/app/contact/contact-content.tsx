@@ -5,6 +5,7 @@ import {
   contactEmailChannels,
   createMailtoHref,
   displayPhone,
+  mainEmail,
   phoneHref,
   whatsappNumber,
 } from "@/lib/product-data";
@@ -72,6 +73,15 @@ export function ContactContent() {
         <a className={`${styles.tile} ${styles.tileAction}`} href={`tel:${phoneHref}`}>
           <span className={styles.actionKicker}>Direct line</span>
           <span className={styles.actionValue}>{displayPhone}</span>
+        </a>
+
+        <a
+          className={`${styles.tile} ${styles.tileAction} ${styles.tilePrimaryEmail}`}
+          href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
+          rel="nofollow"
+        >
+          <span className={styles.actionKicker}>Main email</span>
+          <span className={styles.actionValue}>{mainEmail}</span>
         </a>
 
         <article className={`${styles.tile} ${styles.emailDirectoryTile}`}>

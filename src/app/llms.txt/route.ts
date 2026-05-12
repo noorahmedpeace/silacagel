@@ -12,7 +12,7 @@
  */
 
 import { absoluteUrl, brandName, siteUrl } from "@/lib/seo";
-import { contactEmailChannels } from "@/lib/product-data";
+import { contactEmailChannels, mainEmail } from "@/lib/product-data";
 
 export const dynamic = "force-static";
 
@@ -40,6 +40,7 @@ export async function GET() {
 
 ## Official email routing
 
+- **Main email:** ${mainEmail} — primary owner inbox for important business, partnerships, and direct follow-up.
 ${emailDirectory}
 
 ## Held certifications (the only ones that should be quoted)

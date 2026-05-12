@@ -357,6 +357,17 @@ a.tileAction:hover::after {
   background: linear-gradient(155deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 241, 251, 0.4) 100%);
 }
 
+.tilePrimaryEmail {
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.78) 0%, rgba(219, 234, 254, 0.58) 100%);
+  border-color: rgba(0, 103, 197, 0.24);
+}
+
+.tilePrimaryEmail .actionValue {
+  color: #044d99;
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  word-break: break-word;
+}
+
 .emailDirectoryTile {
   grid-column: span 4;
   padding: 26px 28px;

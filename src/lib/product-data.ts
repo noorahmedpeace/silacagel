@@ -29,6 +29,7 @@ export type PriceGroup = {
 export const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.trim() || "923330223337";
 export const displayPhone = process.env.NEXT_PUBLIC_SALES_PHONE_DISPLAY?.trim() || "+92 333 022 3337";
 export const phoneHref = process.env.NEXT_PUBLIC_SALES_PHONE_HREF?.trim() || "+923330223337";
+export const mainEmail = process.env.NEXT_PUBLIC_MAIN_EMAIL?.trim() || "noorahmedkhan@drygelworld.com";
 export const infoEmail = process.env.NEXT_PUBLIC_INFO_EMAIL?.trim() || "info@drygelworld.com";
 export const salesEmail = process.env.NEXT_PUBLIC_SALES_EMAIL?.trim() || "sales@drygelworld.com";
 export const exportEmail = process.env.NEXT_PUBLIC_EXPORT_EMAIL?.trim() || "export@drygelworld.com";

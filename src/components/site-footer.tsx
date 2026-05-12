@@ -3,6 +3,7 @@ import {
   contactEmailChannels,
   createMailtoHref,
   displayPhone,
+  mainEmail,
   phoneHref,
   whatsappNumber,
 } from "@/lib/product-data";
@@ -93,6 +94,15 @@ export function SiteFooter() {
           </div>
           <div className={styles.emailDesk}>
             <span className={styles.emailDeskLabel}>Official email desk</span>
+            <a
+              className={styles.mainEmailRoute}
+              href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
+              rel="nofollow"
+            >
+              <span>Main email</span>
+              <strong>{mainEmail}</strong>
+              <small>Primary owner inbox for important business, partnerships, and direct follow-up.</small>
+            </a>
             <div className={styles.emailDirectory} aria-label="Department email directory">
               {contactEmailChannels.map((channel) => (
                 <a
