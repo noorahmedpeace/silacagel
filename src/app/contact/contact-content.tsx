@@ -19,6 +19,7 @@ export function ContactContent() {
 
       <section className={styles.bento}>
         <article className={`${styles.tile} ${styles.tileHero}`}>
+          <span className={styles.heroOrb} aria-hidden="true" />
           <span className={styles.kicker}>Export Desk</span>
           <h1>Quote requests, answered in 24 hours.</h1>
           <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 60+ countries.</p>

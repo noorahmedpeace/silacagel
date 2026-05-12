@@ -28,25 +28,26 @@
   left: -80px;
   width: 540px;
   height: 540px;
-  background: radial-gradient(circle at 30% 30%, #c7dcff 0%, transparent 70%);
+  background: radial-gradient(circle at 30% 30%, #5a9bff 0%, transparent 70%);
+  opacity: 0.45;
 }
 
 .blobTwo {
-  top: 280px;
-  right: -120px;
-  width: 620px;
-  height: 620px;
-  background: radial-gradient(circle at 70% 30%, #e6efff 0%, transparent 70%);
-  opacity: 0.7;
+  top: 240px;
+  right: -140px;
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle at 70% 30%, #0067c5 0%, transparent 70%);
+  opacity: 0.28;
 }
 
 .blobThree {
-  bottom: -160px;
-  left: 32%;
-  width: 720px;
-  height: 720px;
-  background: radial-gradient(circle at 50% 50%, #f0e6ff 0%, transparent 72%);
-  opacity: 0.45;
+  bottom: -180px;
+  left: 28%;
+  width: 760px;
+  height: 760px;
+  background: radial-gradient(circle at 50% 50%, #c7dcff 0%, transparent 72%);
+  opacity: 0.55;
 }
 
 /* 12-col asymmetric bento: hero spans 8, trust 4. Form 8, action stack 4. */
@@ -75,8 +76,9 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, transparent 45%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, transparent 45%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .tileHero {
@@ -88,20 +90,69 @@
   min-height: 380px;
 }
 
+.tileHero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, #0067c5 30%, #1f5eff 50%, #0067c5 70%, transparent 100%);
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.tileHero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.heroOrb {
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, rgba(31, 94, 255, 0.55) 0%, rgba(0, 103, 197, 0.15) 40%, transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .kicker {
   display: inline-flex;
+  align-items: center;
+  gap: 8px;
   align-self: flex-start;
-  padding: 7px 13px;
+  padding: 8px 14px;
   margin-bottom: 28px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: #1e3a8a;
+  background: linear-gradient(135deg, rgba(0, 103, 197, 0.12) 0%, rgba(31, 94, 255, 0.08) 100%);
+  border: 1px solid rgba(0, 103, 197, 0.22);
+  color: #044d99;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.kicker::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0067c5;
+  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.2);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.2); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 103, 197, 0); }
 }
 
 .tileHero h1 {
@@ -112,15 +163,20 @@
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.045em;
-  color: var(--ink);
+  background: linear-gradient(135deg, #0e1620 0%, #143b8f 55%, #1f5eff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .tileHero p {
   max-width: 520px;
   margin: 0 0 28px;
-  color: #475569;
+  color: #3b556f;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-weight: 500;
 }
 
 .heroActions {
@@ -143,24 +199,41 @@
 }
 
 .primaryAction {
-  background: #0f172a;
+  position: relative;
+  background: linear-gradient(135deg, #0067c5 0%, #044d99 100%);
   color: #ffffff;
-  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.6);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 18px 32px -14px rgba(0, 103, 197, 0.55);
+  overflow: hidden;
+}
+
+.primaryAction::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .primaryAction:hover {
   transform: translateY(-1px);
-  box-shadow: 0 22px 38px -18px rgba(15, 23, 42, 0.75);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 24px 42px -14px rgba(0, 103, 197, 0.7);
 }
 
 .ghostAction {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.75);
   color: #0f172a;
-  border: 1px solid rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(0, 103, 197, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
 }
 
 .ghostAction:hover {
   background: #ffffff;
+  border-color: rgba(0, 103, 197, 0.4);
+  color: #044d99;
 }
 
 /* Trust tile — tall narrow column, large numerals stacked */
@@ -172,6 +245,25 @@
   justify-content: center;
   gap: 4px;
   min-height: 380px;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.7) 0%, rgba(232, 241, 251, 0.5) 100%);
+}
+
+.tileTrust > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tileTrust::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(0, 103, 197, 0.18) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .trustNumber {
@@ -180,12 +272,16 @@
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.04em;
-  color: var(--ink);
+  background: linear-gradient(135deg, #143b8f 0%, #1f5eff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .trustLabel {
   margin-bottom: 4px;
-  color: #64748b;
+  color: #5b6d83;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
@@ -196,7 +292,7 @@
 .trustDivider {
   height: 1px;
   margin: 14px 0;
-  background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 103, 197, 0.28), transparent);
 }
 
 /* Form tile */
@@ -222,23 +318,55 @@
   gap: 6px;
   padding: 28px 30px;
   min-height: 110px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
+}
+
+.tileAction > * {
+  position: relative;
+  z-index: 1;
+}
+
+a.tileAction::after {
+  content: "→";
+  position: absolute;
+  top: 24px;
+  right: 26px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(0, 103, 197, 0.1);
+  color: #0067c5;
+  font-size: 0.95rem;
+  font-weight: 800;
+  transition: transform 0.25s ease, background 0.25s ease;
+  z-index: 1;
 }
 
 a.tileAction:hover {
   transform: translateY(-2px);
+  border-color: rgba(0, 103, 197, 0.4);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 32px 64px -36px rgba(15, 23, 42, 0.3);
+    0 32px 64px -32px rgba(0, 103, 197, 0.35);
+}
+
+a.tileAction:hover::after {
+  transform: translateX(3px);
+  background: #0067c5;
+  color: #ffffff;
 }
 
 .tileMuted {
   cursor: default;
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 241, 251, 0.4) 100%);
 }
 
 .actionKicker {
-  color: #64748b;
+  color: #5b6d83;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
@@ -252,6 +380,14 @@ a.tileAction:hover {
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+a.tileAction .actionValue {
+  background: linear-gradient(135deg, #0e1620 0%, #044d99 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 @media (max-width: 1100px) {
