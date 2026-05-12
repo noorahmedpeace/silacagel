@@ -1213,19 +1213,6 @@ export default function Home() {
             </section>
           </Reveal>
         </main>
-
-
-        <a
-          href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            "Hello, I'm requesting a technical Dry Gel World procurement quote for my international requirement.",
-          )}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.whatsAppFloat}
-          aria-label="Request a WhatsApp quote"
-        >
-          WhatsApp Quote
-        </a>
       </div>
     </div>
   );

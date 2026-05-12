@@ -9,7 +9,8 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { contactEmailChannels, phoneHref, serviceArea } from "@/lib/product-data";
+import { WhatsAppFloat } from "@/components/whatsapp-float";
+import { contactEmailChannels, mainEmail, phoneHref, serviceArea } from "@/lib/product-data";
 import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
 import "./design-tokens.css";
 import "./globals.css";
@@ -93,14 +94,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const contactPoints = contactEmailChannels.map((channel) => ({
-    "@type": "ContactPoint",
-    telephone: phoneHref,
-    contactType: channel.schemaContactType,
-    areaServed: serviceArea,
-    availableLanguage: ["en"],
-    email: channel.email,
-  }));
+  const contactPoints = [
+    {
+      "@type": "ContactPoint",
+      telephone: phoneHref,
+      contactType: "primary business contact",
+      areaServed: serviceArea,
+      availableLanguage: ["en"],
+      email: mainEmail,
+    },
+    ...contactEmailChannels.map((channel) => ({
+      "@type": "ContactPoint",
+      telephone: phoneHref,
+      contactType: channel.schemaContactType,
+      areaServed: serviceArea,
+      availableLanguage: ["en"],
+      email: channel.email,
+    })),
+  ];
 
   return (
     <html lang="en" className={body.variable}>
@@ -124,6 +135,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <MoistureCalcFloat />
+        <WhatsAppFloat />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />

@@ -1,0 +1,99 @@
+/*
+ * Floating WhatsApp button — bottom-RIGHT on every page. Mirrors the
+ * bottom-left Moisture Calculator float so the two floats balance the
+ * screen visually. Uses official WhatsApp brand green so buyers
+ * recognize it without reading.
+ */
+
+.float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px 12px 14px;
+
+  background: linear-gradient(135deg, #1fa855 0%, #25d366 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 14px 30px -10px rgba(37, 211, 102, 0.5);
+
+  text-decoration: none;
+  transition:
+    transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 320ms ease,
+    filter 220ms ease;
+}
+
+.float:hover,
+.float:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 22px 44px -14px rgba(37, 211, 102, 0.6);
+  outline: none;
+}
+
+.float:focus-visible {
+  outline: 2px solid #25d366;
+  outline-offset: 2px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.label {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .float {
+    right: 14px;
+    bottom: 16px;
+    padding: 0;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .iconWrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .label {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float {
+    transition: none;
+  }
+
+  .float:hover,
+  .float:focus-visible {
+    transform: none;
+  }
+}
