@@ -9,7 +9,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { companyCity, companyCountry, phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
+import { phoneHref, salesEmail, serviceArea } from "@/lib/product-data";
 import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
 import "./design-tokens.css";
 import "./globals.css";
@@ -127,16 +127,37 @@ export default function RootLayout({
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4-idle-loader" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_ID}', { anonymize_ip: true });
+            (function () {
+              var measurementId = ${JSON.stringify(GA_ID)};
+              var loadAnalytics = function () {
+                if (window.__drygelGaLoaded) return;
+                window.__drygelGaLoaded = true;
+                window.dataLayer = window.dataLayer || [];
+                window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
+                window.gtag('js', new Date());
+                window.gtag('config', measurementId, { anonymize_ip: true });
+                var script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);
+                document.head.appendChild(script);
+              };
+              var scheduleAnalytics = function () {
+                window.setTimeout(function () {
+                  if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(loadAnalytics, { timeout: 3000 });
+                  } else {
+                    loadAnalytics();
+                  }
+                }, 8000);
+              };
+              if (document.readyState === 'complete') {
+                scheduleAnalytics();
+              } else {
+                window.addEventListener('load', scheduleAnalytics, { once: true });
+              }
+            })();
           `}
         </Script>
         <script

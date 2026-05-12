@@ -288,6 +288,15 @@ const pricingHighlights = [
   "Bulk contracts quoted by requirement",
 ];
 
+const globalPresenceFlags = [
+  { country: "USA", currency: "USD", src: "/flags/usa.svg" },
+  { country: "European Union", currency: "EUR", src: "/flags/eu.svg" },
+  { country: "United Kingdom", currency: "GBP", src: "/flags/uk.svg" },
+  { country: "Pakistan", currency: "PKR", src: "/flags/pakistan.svg" },
+  { country: "India", currency: "INR", src: "/flags/india.svg" },
+  { country: "China", currency: "CNY", src: "/flags/china.svg" },
+];
+
 const exportDetails = [
   {
     label: "Documentation",
@@ -687,6 +696,39 @@ export default function Home() {
                     </article>
                   ))}
                 </div>
+
+                <section className={styles.globalPresencePanel} aria-label="Global shipping and presence">
+                  <div className={styles.globalPresenceCopy}>
+                    <span>Export Lanes</span>
+                    <h3>Global Shipping &amp; Presence</h3>
+                    <p>Quote planning can align currency, destination, documentation, and Incoterms before the final procurement request.</p>
+                  </div>
+                  <div className={styles.globalFlagViewport}>
+                    <div className={styles.globalFlagTrack}>
+                      {[0, 1].map((copyIndex) =>
+                        globalPresenceFlags.map((flag) => (
+                          <div
+                            className={styles.globalFlagItem}
+                            key={`${flag.country}-${copyIndex}`}
+                            aria-hidden={copyIndex === 1}
+                          >
+                            <Image
+                              src={flag.src}
+                              alt={copyIndex === 0 ? `${flag.country} flag` : ""}
+                              width={64}
+                              height={64}
+                              unoptimized
+                              loading="lazy"
+                              className={styles.globalFlagImage}
+                            />
+                            <strong>{flag.country}</strong>
+                            <span>{flag.currency}</span>
+                          </div>
+                        )),
+                      )}
+                    </div>
+                  </div>
+                </section>
 
                 <div id="purchase-calculator" className={styles.calculatorAnchor}>
                   <div className={styles.calculatorPanel}>
