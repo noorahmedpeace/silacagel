@@ -139,6 +139,53 @@ export default function RootLayout({
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
+        <Script id="drygel-conversion-clicks" strategy="afterInteractive">
+          {`
+            (function () {
+              if (window.__drygelClickTracking) return;
+              window.__drygelClickTracking = true;
+              window.__drygelEventQueue = window.__drygelEventQueue || [];
+              window.__drygelTrackEvent = function (name, params) {
+                var payload = params || {};
+                if (window.__drygelGaLoaded && typeof window.gtag === 'function') {
+                  window.gtag('event', name, payload);
+                } else {
+                  window.__drygelEventQueue.push({ name: name, params: payload });
+                }
+              };
+              document.addEventListener('click', function (event) {
+                var target = event.target && event.target.closest ? event.target.closest('a,button') : null;
+                if (!target) return;
+                var href = target.getAttribute('href') || '';
+                var label = (target.innerText || target.getAttribute('aria-label') || '').replace(/\\s+/g, ' ').trim().slice(0, 120);
+                var base = { link_url: href || undefined, link_text: label || undefined };
+                if (href.indexOf('mailto:') === 0) {
+                  window.__drygelTrackEvent('email_click', Object.assign({}, base, { contact_method: 'email' }));
+                  return;
+                }
+                if (href.indexOf('tel:') === 0) {
+                  window.__drygelTrackEvent('phone_click', Object.assign({}, base, { contact_method: 'phone' }));
+                  return;
+                }
+                if (href.indexOf('https://wa.me/') === 0 || href.indexOf('https://api.whatsapp.com/') === 0) {
+                  window.__drygelTrackEvent('whatsapp_click', Object.assign({}, base, { contact_method: 'whatsapp' }));
+                  return;
+                }
+                if (href === '/contact' || href.indexOf('/contact') === 0 || /quote|rfq/i.test(label)) {
+                  window.__drygelTrackEvent('quote_cta_click', base);
+                  return;
+                }
+                if (href.indexOf('#purchase-calculator') >= 0 || /calculator|requirement/i.test(label)) {
+                  window.__drygelTrackEvent('calculator_click', base);
+                  return;
+                }
+                if (href.indexOf('/documents') === 0 || /sds|coa|documents?/i.test(label)) {
+                  window.__drygelTrackEvent('document_cta_click', base);
+                }
+              }, { passive: true });
+            })();
+          `}
+        </Script>
         <Script id="ga4-idle-loader" strategy="afterInteractive">
           {`
             (function () {
@@ -150,6 +197,11 @@ export default function RootLayout({
                 window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
                 window.gtag('js', new Date());
                 window.gtag('config', measurementId, { anonymize_ip: true });
+                var queuedEvents = window.__drygelEventQueue || [];
+                queuedEvents.forEach(function (item) {
+                  window.gtag('event', item.name, item.params || {});
+                });
+                window.__drygelEventQueue = [];
                 var script = document.createElement('script');
                 script.async = true;
                 script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(measurementId);

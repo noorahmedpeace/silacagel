@@ -69,6 +69,146 @@ export const exportMarkets: ExportMarket[] = [
     rfqTip: "Share state, destination port or forwarder, pack count, warning-text requirement, and whether you need private label.",
   },
   {
+    slug: "vietnam",
+    country: "Vietnam",
+    title: "Silica gel desiccant supply for Vietnam packaging and export buyers.",
+    description:
+      "Factory-direct silica gel sachets, bulk beads, and container moisture-control formats for Vietnam garment, footwear, electronics, seafood, and logistics buyers.",
+    buyerTypes: ["Garment and footwear exporters", "Electronics packaging teams", "Seafood and dry-goods packers", "Ho Chi Minh and Hanoi importers"],
+    ports: ["Cat Lai", "Cai Mep-Thi Vai", "Hai Phong", "Da Nang logistics routing"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "1kg-5kg cargo strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Vietnam buyers often compare carton-level sachets with container-level strips for humid sea freight. Share the export industry, port, carton volume, and storage time before pricing.",
+    rfqTip: "Send Vietnam port, industry, product format, monthly volume, and whether the order protects garments, footwear, electronics, or food packaging.",
+  },
+  {
+    slug: "russia",
+    country: "Russia",
+    title: "Silica gel export supply for Russian industrial and packaging buyers.",
+    description:
+      "Moisture-control supply for Russian distributors, warehouse teams, machinery packers, electronics importers, and industrial packaging buyers.",
+    buyerTypes: ["Industrial distributors", "Machinery and spare-parts packers", "Electronics importers", "Warehouse procurement teams"],
+    ports: ["Saint Petersburg", "Novorossiysk", "Vladivostok", "Buyer-nominated forwarders"],
+    products: ["1g-10g sachets", "50g-500g industrial packs", "25kg loose bulk", "Container strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Russian inquiries should clarify target port, language requirements, importer documentation, and whether the application is storage, machinery export, or consumer packaging.",
+    rfqTip: "Send destination city or port, shipment volume, required document language, Incoterms, and product sensitivity.",
+  },
+  {
+    slug: "bangladesh",
+    country: "Bangladesh",
+    title: "Silica gel supplier for Bangladesh garment, leather, and packaging exporters.",
+    description:
+      "Silica gel sachets, bulk packs, and cargo strips for Bangladesh garment factories, footwear exporters, packaging distributors, and warehouse buyers.",
+    buyerTypes: ["Garment exporters", "Leather and footwear factories", "Packaging distributors", "Warehouse and cargo teams"],
+    ports: ["Chittagong", "Mongla", "Dhaka inland routing", "Air sample shipments"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "Private-label sachets", "1kg-5kg cargo strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Bangladesh export buyers should match sachet size to carton volume and humidity risk, especially for garments, leather goods, footwear, and long-haul sea freight.",
+    rfqTip: "Send carton type, monthly quantity, destination port, private-label needs, and whether container strips are also required.",
+  },
+  {
+    slug: "indonesia",
+    country: "Indonesia",
+    title: "Silica gel desiccant supplier for Indonesia importers and exporters.",
+    description:
+      "Desiccant sachets, bulk silica gel, and container moisture-control support for Indonesian packaging, footwear, electronics, food, and logistics buyers.",
+    buyerTypes: ["Jakarta and Surabaya importers", "Footwear and garment packers", "Electronics packaging teams", "Food and dry-goods exporters"],
+    ports: ["Tanjung Priok", "Tanjung Perak", "Belawan", "Makassar logistics routing"],
+    products: ["0.5g-10g sachets", "25g-500g packs", "25kg loose bulk", "Container desiccant strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Indonesia's humid logistics environment makes destination, storage time, and packaging material important quote inputs before selecting sachets or container strips.",
+    rfqTip: "Send island or port, product application, order quantity, sample need, and whether the buyer requires carton or container-level moisture control.",
+  },
+  {
+    slug: "mexico",
+    country: "Mexico",
+    title: "Silica gel export supply for Mexico packaging and industrial buyers.",
+    description:
+      "Factory-direct silica gel packets, bulk beads, private-label sachets, and cargo strips for Mexican distributors, electronics packagers, warehouses, and importers.",
+    buyerTypes: ["Packaging distributors", "Electronics and automotive suppliers", "Warehouse teams", "Private-label buyers"],
+    ports: ["Manzanillo", "Veracruz", "Lazaro Cardenas", "Altamira"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "Private-label programs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Mexico buyers should clarify port, labeling language, private-label expectations, and whether the buying route is distributor stock or direct factory use.",
+    rfqTip: "Send destination port, Spanish/English labeling needs, quantity, Incoterms, and target product format.",
+  },
+  {
+    slug: "turkey",
+    country: "Turkey",
+    title: "Silica gel desiccant supplier for Turkey importers and textile exporters.",
+    description:
+      "Moisture-control supply for Turkey textile, leather, machinery, packaging, and regional distribution buyers sourcing silica gel sachets and bulk desiccants.",
+    buyerTypes: ["Textile and garment exporters", "Leather and footwear buyers", "Machinery packaging teams", "Istanbul and Izmir distributors"],
+    ports: ["Istanbul / Ambarli", "Mersin", "Izmir", "Gemlik"],
+    products: ["0.5g-10g sachets", "25g-500g packs", "Bulk beads", "Container strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Turkey inquiries should separate domestic distributor stock from export-carton protection because product format, carton text, and route assumptions change the quote.",
+    rfqTip: "Send target city or port, application, carton or bulk format, monthly volume, and labeling language needs.",
+  },
+  {
+    slug: "india",
+    country: "India",
+    title: "Silica gel supplier for India packaging, pharma, electronics, and export buyers.",
+    description:
+      "Silica gel sachets, bulk beads, container strips, and private-label desiccant support for Indian distributors, exporters, pharma packaging, and electronics buyers.",
+    buyerTypes: ["Packaging distributors", "Pharma and healthcare packagers", "Electronics packaging teams", "Leather and textile exporters"],
+    ports: ["Nhava Sheva", "Mundra", "Chennai", "Kolkata"],
+    products: ["0.5g-10g sachets", "25g-500g packs", "25kg loose bulk", "Private-label sachets"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Indian buyers usually compare local supply with import alternatives. Clear price discussion needs format, monthly volume, destination, documents, and whether private label is required.",
+    rfqTip: "Send city or port, use case, volume, compliance expectations, and whether the inquiry is for resale, factory use, or export packaging.",
+  },
+  {
+    slug: "brazil",
+    country: "Brazil",
+    title: "Silica gel export supply for Brazil importers and industrial packaging buyers.",
+    description:
+      "Industrial silica gel sachets, bulk desiccants, and cargo moisture-control formats for Brazil distributors, packaging buyers, warehouses, and import teams.",
+    buyerTypes: ["Brazilian distributors", "Industrial packaging buyers", "Warehouse and logistics teams", "Private-label importers"],
+    ports: ["Santos", "Paranagua", "Rio de Janeiro", "Itajai"],
+    products: ["1g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "1kg-5kg cargo strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Brazil inquiries should define port, import documentation expectations, labeling language, and whether the buyer is stocking distributors or protecting export cartons.",
+    rfqTip: "Send port, Portuguese/English labeling needs, monthly volume, Incoterms, and required document list.",
+  },
+  {
+    slug: "malaysia",
+    country: "Malaysia",
+    title: "Silica gel desiccant supplier for Malaysia electronics, packaging, and logistics buyers.",
+    description:
+      "Silica gel packets, bulk beads, private-label sachets, and container strips for Malaysian electronics packagers, food packaging, warehouses, and importers.",
+    buyerTypes: ["Electronics and component packagers", "Food and dry-goods packaging teams", "Packaging distributors", "Port Klang importers"],
+    ports: ["Port Klang", "Tanjung Pelepas", "Penang", "Pasir Gudang"],
+    products: ["0.5g-10g sachets", "25g-500g bags", "25kg loose bulk", "Container strips"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Malaysia buyers should confirm whether the risk is electronics packaging humidity, food packaging shelf protection, warehouse stock, or container route exposure.",
+    rfqTip: "Send destination port, industry, packet size or gram range, quantity, and whether SDS/COA are required before sample dispatch.",
+  },
+  {
+    slug: "pakistan",
+    country: "Pakistan",
+    title: "Silica gel manufacturer in Pakistan for local and export packaging buyers.",
+    description:
+      "Karachi-origin silica gel sachets, bulk beads, cargo strips, and private-label desiccant support for Pakistan manufacturers, warehouses, exporters, and distributors.",
+    buyerTypes: ["Karachi manufacturers", "Lahore and Faisalabad exporters", "Packaging distributors", "Warehouse and textile buyers"],
+    ports: ["Karachi", "Port Qasim", "Lahore / Faisalabad inland routing", "Domestic courier samples"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "Bulk silica gel", "Private-label sachets"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Pakistan buyers should share city, application, packet size, quantity, and whether the goods are for domestic storage or export-carton moisture protection.",
+    rfqTip: "Send city, required gram size, carton quantity, industry, and whether the order is sample, one-time bulk, or monthly repeat supply.",
+  },
+  {
     slug: "fob-karachi",
     country: "FOB Karachi",
     title: "FOB Karachi silica gel quotes for global importers.",

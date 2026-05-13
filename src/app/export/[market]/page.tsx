@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../../strategy-pages.module.css";
 import { exportMarkets, getExportMarket } from "../markets";
 
@@ -24,8 +24,21 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
   return {
     title: `${market.country} Silica Gel Supplier | Export Desiccant Supply`,
     description: market.description,
+    keywords: [
+      `silica gel supplier ${market.country}`,
+      `desiccant supplier ${market.country}`,
+      `silica gel exporter ${market.country}`,
+      `bulk silica gel ${market.country}`,
+      `container desiccant ${market.country}`,
+    ],
     alternates: {
       canonical: `/export/${market.slug}`,
+    },
+    openGraph: {
+      title: `${market.country} Silica Gel Supplier | DryGelWorld`,
+      description: market.description,
+      url: `/export/${market.slug}`,
+      type: "website",
     },
   };
 }
@@ -60,6 +73,64 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
       items: market.documents,
     },
   ];
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", href: "/" },
+    { name: "Export", href: "/export" },
+    { name: market.country, href: `/export/${market.slug}` },
+  ]);
+  const breadcrumbGraph = {
+    "@type": breadcrumb["@type"],
+    itemListElement: breadcrumb.itemListElement,
+  };
+  const pageUrl = absoluteUrl(`/export/${market.slug}`);
+  const marketJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: market.title,
+        description: market.description,
+        url: pageUrl,
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${absoluteUrl()}#website`,
+          name: brandName,
+        },
+      },
+      {
+        "@type": "Service",
+        name: `${market.country} silica gel export supply`,
+        serviceType: "Industrial desiccant export supply",
+        description: market.description,
+        provider: {
+          "@type": "Organization",
+          "@id": `${absoluteUrl()}#organization`,
+          name: brandName,
+        },
+        areaServed: market.country,
+        audience: market.buyerTypes.map((buyer) => ({
+          "@type": "BusinessAudience",
+          audienceType: buyer,
+        })),
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: `${market.country} desiccant supply formats`,
+          itemListElement: market.products.map((product) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product",
+              name: product,
+              brand: {
+                "@type": "Brand",
+                name: brandName,
+              },
+            },
+          })),
+        },
+      },
+      breadcrumbGraph,
+    ],
+  };
 
   return (
     <main className={styles.page}>
@@ -129,11 +200,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: "Home", href: "/" },
-              { name: "Export", href: "/export" },
-              { name: market.country, href: `/export/${market.slug}` },
-            ]),
+            marketJsonLd,
           ),
         }}
       />

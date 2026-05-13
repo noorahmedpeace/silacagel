@@ -98,7 +98,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 ## Export support
 
 - FOB Karachi, CIF, DAP, EXW available
-- Documented export to: UAE, Saudi Arabia, Qatar, USA, UK, Germany, Canada, Australia, EU-wide
+- Priority export market pages: USA, Vietnam, Russia, Bangladesh, Indonesia, Mexico, Turkey, India, Brazil, Malaysia, Pakistan, UAE, Saudi Arabia, Qatar, UK, Germany, Canada, Australia, EU-wide
 - Documents on request: ISO 9001:2015 reference, SDS, COA, DMF-free statement
 - WhatsApp sales: +92 300 2166721
 
