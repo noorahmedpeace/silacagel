@@ -28,8 +28,41 @@ html {
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
   background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Mobile ergonomics — removes the 300ms tap delay, kills the dark
+ * tap-highlight flash on iOS, and clamps every interactive element
+ * to a 44px minimum hit target per WCAG / Apple HIG. */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent iOS Safari from auto-zooming when an input is focused.
+ * Anything below 16px triggers the zoom, which feels broken. We
+ * raise inputs/textareas/selects to 16px just on small screens —
+ * desktop styling stays untouched. */
+@media (max-width: 760px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  /* Ensure tappable controls hit the 44x44 minimum on mobile. */
+  button:not([class*="iconOnly"]):not([class*="float"]),
+  a[role="button"],
+  input[type="submit"] {
+    min-height: 44px;
+  }
 }
 
 body {

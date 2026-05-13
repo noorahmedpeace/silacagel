@@ -540,8 +540,24 @@ a.tileAction:hover .actionValue {
     padding: 22px 24px;
   }
 
+  .emailRoute span {
+    font-size: 0.7rem;
+  }
+
+  .emailRoute strong {
+    font-size: 1.05rem;
+  }
+
+  .emailRoute small {
+    font-size: 0.82rem;
+  }
+
   .actionValue {
     font-size: 1.15rem;
+  }
+
+  .actionKicker {
+    font-size: 0.74rem;
   }
 
   .primaryAction,
