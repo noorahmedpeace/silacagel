@@ -1213,6 +1213,38 @@ export default function Home() {
             </section>
           </Reveal>
         </main>
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              name: "How to order silica gel desiccants from DryGelWorld",
+              description:
+                "Three-step procurement flow for international buyers requesting silica gel sachets, container desiccants, or bulk industrial silica gel from DryGelWorld.",
+              totalTime: "P3D",
+              estimatedCost: {
+                "@type": "MonetaryAmount",
+                currency: "USD",
+                value: "0",
+              },
+              supply: [
+                { "@type": "HowToSupply", name: "Product format requirement (sachet, strip, bulk)" },
+                { "@type": "HowToSupply", name: "Monthly or one-time quantity estimate" },
+                { "@type": "HowToSupply", name: "Destination port or city" },
+                { "@type": "HowToSupply", name: "Incoterm preference (FOB, CIF, EXW, DAP)" },
+              ],
+              step: procurementFlow.map((item, index) => ({
+                "@type": "HowToStep",
+                position: index + 1,
+                name: item.title,
+                text: item.text,
+                image: `https://www.drygelworld.com${item.image}`,
+              })),
+            }),
+          }}
+        />
       </div>
     </div>
   );

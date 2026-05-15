@@ -133,6 +133,138 @@ const procurementDetails = {
   },
 } as const;
 
+// FAQs per product slug. Visible on the page AND emitted as FAQPage
+// JSON-LD so Google can render the FAQ rich result on commercial-intent
+// queries (e.g. "silica gel sachet MOQ", "container desiccant lead time").
+const productFaqs = {
+  "retail-sachets": [
+    {
+      q: "What is the minimum order quantity for retail silica gel sachets?",
+      a: "Retail silica gel sachets are quoted in carton quantities — typical recurring buyers start at 50,000 to 100,000 sachets per month across 0.5g, 1g, 2g, and 3g sizes. Smaller pilot orders are reviewed case-by-case for export buyers with a clear ramp plan.",
+    },
+    {
+      q: "Which compliance documents are provided with retail sachets?",
+      a: "Each export shipment ships with ISO 9001:2015 manufacturer certification, a Safety Data Sheet (SDS) per shipment, a Certificate of Analysis (COA) where required, and a DMF-free statement on request. FDA, JEDEC, and food-contact certifications are not currently held.",
+    },
+    {
+      q: "Can sachets be printed with our private label?",
+      a: "Yes — non-woven and Tyvek-style sachets accept private-label print for distributor branding, multilingual warning text, and SKU codes. Minimum print runs are agreed with the export desk to fit the buyer's monthly volume.",
+    },
+    {
+      q: "How long is the lead time for retail silica gel sachet orders?",
+      a: "Standard sizes (0.5g-3g) typically ship in 3-7 days from confirmation. Private-label print runs add 5-10 days for plate set-up and approval. Final dispatch is confirmed at quote stage with the buyer's Incoterm.",
+    },
+  ],
+  "paper-sachets": [
+    {
+      q: "What sizes of paper silica gel sachets are available?",
+      a: "Paper silica gel sachets are produced in 1g, 2g, 3g, 5g, 10g, 20g, and custom sizes up to 100g. The material is technical bond porous paper with a non-woven option for larger formats. Size depends on carton volume and target moisture load.",
+    },
+    {
+      q: "What is the shelf life of a sealed paper silica gel sachet?",
+      a: "Sealed paper sachets in their factory outer pouch retain full adsorption capacity for 24-36 months at standard warehouse temperature and humidity. Once removed from the outer pouch, exposure should be limited to a few hours before insertion into the buyer's final packaging.",
+    },
+    {
+      q: "Can paper sachets be regenerated or reused?",
+      a: "Silica gel itself is regenerable by heating at 120-150 degrees Celsius, but the breathable paper outer is single-use. In packaging applications, paper sachets are treated as consumables and replaced with each shipment cycle.",
+    },
+    {
+      q: "Do paper sachets meet pharmaceutical packaging requirements?",
+      a: "Paper sachets ship with ISO 9001:2015 manufacturer certification, SDS, COA, and a DMF-free statement on request. Buyers requiring FDA Drug Master File, REACH, or specific pharmacopoeia compliance should confirm regional requirements with the export desk before order placement.",
+    },
+  ],
+  "bulk-industrial": [
+    {
+      q: "What is the typical MOQ for bulk industrial silica gel?",
+      a: "Bulk silica gel beads and bulk-bagged desiccant are quoted by metric tonnage. Export-grade buyers typically start at 1-5 metric tons per shipment with recurring monthly tonnage agreements. Drum, paper bag, and jumbo bag packaging are available.",
+    },
+    {
+      q: "How is bulk silica gel packaged for ocean freight?",
+      a: "Standard export packaging is 25kg or 50kg paper bags inside cartons, 200kg drums, or 1000kg jumbo bags depending on warehouse handling. All packaging is sealed for ocean freight and labelled per the destination port's customs requirement.",
+    },
+    {
+      q: "Can bulk silica gel be regenerated after use?",
+      a: "Yes — industrial silica gel beads are fully regenerable by heating at 120-150 degrees Celsius for 2-4 hours, depending on bead size. Reactivation restores most adsorption capacity, making bulk silica gel suitable for closed-system industrial applications that reuse the desiccant.",
+    },
+    {
+      q: "What pore sizes and bead grades are available in bulk?",
+      a: "Bulk silica gel ships in standard Type A (medium pore, 2-5mm beads) for general moisture protection and Type B options for specific industrial uses. Indicating silica gel (orange or blue) is also available for visual saturation tracking. Confirm grade requirement at quote stage.",
+    },
+  ],
+  "container-strips": [
+    {
+      q: "How many container desiccant strips are needed per shipping container?",
+      a: "Typical loading is 6-10 strips per 20-foot container and 10-16 strips per 40-foot container, depending on cargo type and route humidity. Higher-humidity routes (transpacific, equatorial) and moisture-sensitive cargo (leather, electronics, pharma) need the upper end of the range.",
+    },
+    {
+      q: "How are container desiccant strips installed?",
+      a: "Strips are hung from the inside corrugations of the container or attached to vertical posts using built-in hooks or adhesive. Installation takes 5-10 minutes per container and should be done immediately before doors are sealed. The strips begin absorbing moisture as soon as they're hung.",
+    },
+    {
+      q: "What is the active absorption capacity of one container strip?",
+      a: "A standard 1kg container desiccant strip absorbs up to 200% of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake — performance data sheets are available at quote stage.",
+    },
+    {
+      q: "Are container strips reusable after a single voyage?",
+      a: "Container desiccant strips are designed as single-voyage consumables. Strips reach near-saturation by the end of a 25-35 day ocean voyage and are removed and disposed of with the cargo. Regenerable bulk silica gel is the right product for closed-loop reuse.",
+    },
+  ],
+  "dry-clay-desiccant": [
+    {
+      q: "What is the difference between dry clay desiccant and silica gel?",
+      a: "Dry clay desiccant (montmorillonite/bentonite) is a naturally occurring mineral that adsorbs moisture at a lower cost per kg than silica gel, but has a lower total capacity (around 25% by weight versus silica gel's 30-40%). Clay is preferred for cost-sensitive bulk shipments and applications under 50 degrees Celsius.",
+    },
+    {
+      q: "When should buyers choose clay desiccant over silica gel?",
+      a: "Clay desiccant is the right choice for high-volume export cargo, container loadings, and warehouse stock protection where unit cost matters more than peak capacity. Silica gel remains the standard for pharma, electronics, and high-value precision packaging where maximum adsorption per gram is required.",
+    },
+    {
+      q: "Is dry clay desiccant FDA or food-grade certified?",
+      a: "DryGelWorld's clay desiccant ships with ISO 9001:2015 manufacturer certification, SDS, and COA. FDA food-contact and pharma-grade certifications are not currently held. Buyers needing those certifications for direct food or pharmaceutical contact should specify the requirement at quote stage.",
+    },
+    {
+      q: "What packaging is available for dry clay desiccant?",
+      a: "Clay desiccant is supplied in Tyvek and non-woven sachets from 1g to 500g, plus container strips. Bulk paper-bag and jumbo-bag formats are available for high-volume buyers. Private-label and multi-language printing are supported on the same minimum-run basis as silica gel sachets.",
+    },
+  ],
+  "hair-nets": [
+    {
+      q: "What sizes of bouffant hair nets are available?",
+      a: "Standard sizes are 18-inch, 20-inch, 21-inch, and 22-inch diameter, with custom diameters available for specific production environments. All sizes use non-woven polypropylene with an elasticated edge designed for full hair containment.",
+    },
+    {
+      q: "What is the minimum order quantity for hair nets?",
+      a: "Hair nets are quoted by carton (100 count or 1000 count) with monthly volume agreements for recurring industrial buyers. Standard MOQs start at 50 cartons; private-label and color-coded runs are agreed at quote stage.",
+    },
+    {
+      q: "Are color-coded hair nets available for zone-based hygiene compliance?",
+      a: "Yes — white, blue, green, and red hair nets are supplied for zone-based production hygiene (food, pharma, electronics). Custom colors and private-label printing are supported above a minimum run agreed with the export desk.",
+    },
+    {
+      q: "Which industries use bouffant hair nets from DryGelWorld?",
+      a: "Hair nets are supplied to food processing, pharmaceutical manufacturing, electronics assembly, healthcare, and general industrial production where personnel hair containment is required. ISO 9001:2015 manufacturer certification applies; FDA food-contact certification is not currently held.",
+    },
+  ],
+  "beard-covers": [
+    {
+      q: "What size of disposable beard cover does DryGelWorld supply?",
+      a: "Standard disposable beard covers fit most production environments, with custom sizing available for specific industries. The material is non-woven polypropylene with an elasticated edge to fully contain facial hair during food, pharma, electronics, or industrial production.",
+    },
+    {
+      q: "How are beard covers packaged for export?",
+      a: "Beard covers ship in cartons of 100 or 1000, with bulk monthly carton agreements for recurring industrial buyers. Color options and private-label printing are supported above a minimum run that's agreed at quote stage.",
+    },
+    {
+      q: "Are beard covers required for food production environments?",
+      a: "Many food safety standards (BRC, HACCP, regional food production codes) require facial hair containment in production zones. Beard covers meet that requirement in combination with bouffant hair nets. Specific national or buyer-side compliance requirements should be confirmed with the export desk.",
+    },
+    {
+      q: "Can beard covers be supplied in matching colors with hair nets?",
+      a: "Yes — beard covers can be supplied in white, blue, green, and red to match hair net zone-coding systems for food, pharma, electronics, and general industrial production. Color matching is agreed at quote stage and shipped together to simplify zone enforcement.",
+    },
+  ],
+} as const;
+
 export async function generateStaticParams() {
   return productCatalog.map((product) => ({
     slug: product.slug,
@@ -181,6 +313,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const procurement = procurementDetails[product.slug as keyof typeof procurementDetails];
+  const faqs = productFaqs[product.slug as keyof typeof productFaqs] ?? [];
 
   const purchaseMessage = [
     "Hello, I want to purchase Dry Gel World.",
@@ -378,6 +511,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </section>
           </Reveal>
 
+          {faqs.length > 0 ? (
+            <Reveal>
+              <section className={styles.faqSection} aria-labelledby="product-faq-heading">
+                <div className={styles.sectionHead}>
+                  <p className={styles.eyebrow}>Buyer FAQ</p>
+                  <h2 id="product-faq-heading">{product.shortName} questions buyers ask before quote.</h2>
+                </div>
+                <div className={styles.faqList}>
+                  {faqs.map((item) => (
+                    <details key={item.q} className={styles.faqItem}>
+                      <summary>{item.q}</summary>
+                      <p>{item.a}</p>
+                    </details>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+          ) : null}
+
           <Reveal>
             <section id="quote-form" className={styles.quoteSection}>
               <div className={styles.quoteCopy}>
@@ -402,9 +554,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
               "@graph": [
                 {
                   "@type": "Product",
+                  "@id": `${absoluteUrl(`/products/${product.slug}`)}#product`,
                   name: product.name,
+                  sku: product.slug,
                   description: product.description,
-                  category: "Industrial silica gel desiccant",
+                  category: product.slug.includes("hair-net") || product.slug.includes("beard-cover")
+                    ? "Industrial disposable PPE"
+                    : product.slug === "dry-clay-desiccant"
+                      ? "Industrial clay desiccant"
+                      : "Industrial silica gel desiccant",
                   image: absoluteUrl(product.heroImage),
                   url: absoluteUrl(`/products/${product.slug}`),
                   brand: {
@@ -416,7 +574,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     name: siteName,
                     url: absoluteUrl(),
                   },
-                  material: "Silicon dioxide",
+                  material: product.slug === "dry-clay-desiccant"
+                    ? "Montmorillonite / bentonite clay"
+                    : product.slug.includes("hair-net") || product.slug.includes("beard-cover")
+                      ? "Non-woven polypropylene"
+                      : "Silicon dioxide",
                   countryOfOrigin: "Pakistan",
                   additionalProperty: [
                     {
@@ -431,22 +593,36 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     },
                   ],
                   offers: {
-                    "@type": "Offer",
+                    "@type": "AggregateOffer",
                     availability: "https://schema.org/InStock",
                     areaServed: "Worldwide",
                     url: absoluteUrl("/contact"),
+                    priceCurrency: "USD",
+                    offerCount: procurement?.skuRows?.length ?? 1,
+                    description: product.priceBand,
                     seller: {
                       "@type": "Organization",
                       name: siteName,
                       url: absoluteUrl(),
                     },
-                    priceSpecification: {
-                      "@type": "PriceSpecification",
-                      priceCurrency: "USD",
-                      description: product.priceBand,
-                    },
                   },
                 },
+                ...(faqs.length > 0
+                  ? [
+                      {
+                        "@type": "FAQPage",
+                        "@id": `${absoluteUrl(`/products/${product.slug}`)}#faq`,
+                        mainEntity: faqs.map((item) => ({
+                          "@type": "Question",
+                          name: item.q,
+                          acceptedAnswer: {
+                            "@type": "Answer",
+                            text: item.a,
+                          },
+                        })),
+                      },
+                    ]
+                  : []),
                 breadcrumbJsonLd([
                   { name: "Home", href: "/" },
                   { name: "Products", href: "/products" },
