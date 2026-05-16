@@ -49,6 +49,28 @@ const industryPages = {
       "Route regulated inquiries into the RFQ form before commercial confirmation.",
     ],
   },
+  "textile-garment-export": {
+    title: "Silica Gel for Textile and Garment Export",
+    h1: "Reduce mildew, dye-migration, and odor risk in textile and garment export cartons.",
+    description:
+      "Silica gel sachets and bulk desiccant for textile mills, garment exporters, fabric rolls, and long-haul humid routes from South Asia to USA, EU, and the Middle East.",
+    points: [
+      "Mildew, dye migration, and musty-odor claims are the failure modes garment buyers reject for. Size desiccant against humidity exposure, not unit volume alone.",
+      "Use 10g-50g sachets per carton on long-haul routes; container-ceiling cargo strips on trans-equatorial passages.",
+      "Combine desiccant with kiln-dried pallets and 24-48h pre-pack moisture conditioning of the fabric itself.",
+    ],
+  },
+  "container-shipping": {
+    title: "Container Desiccant for Ocean Freight",
+    h1: "Container desiccant supply for sealed ocean freight, transit humidity, and condensation cycling.",
+    description:
+      "Container desiccant strips, pole desiccants, and bulk silica gel for 20ft and 40ft containers on transpacific, trans-Atlantic, and trans-equatorial routes.",
+    points: [
+      "Standard loading: 6-10 strips per 20ft container, 10-16 per 40ft. Long-haul tropical routes use the upper end.",
+      "Container desiccant is single-voyage consumable. For reusable closed-loop applications, regenerable bulk silica gel beads are the right product.",
+      "Match strip placement (ceiling, corrugations) to cargo geometry; even distribution beats concentrated placement.",
+    ],
+  },
 };
 
 type IndustrySlug = keyof typeof industryPages;

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
+import { getBlogCluster } from "@/lib/blog-clusters";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
 
@@ -51,6 +53,8 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   }
 
   const { publishedAt, updatedAt } = getArticlePublication(slug);
+  const author = getAuthor(defaultAuthorSlug);
+  const cluster = getBlogCluster(slug);
 
   return (
     <main className={styles.page}>
@@ -60,9 +64,16 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <h1>{article.title}</h1>
           <p>{article.description}</p>
           <div className={styles.articleMeta}>
+            {author ? (
+              <span>
+                By{" "}
+                <Link href={`/authors/${author.slug}`} rel="author">
+                  {author.name}
+                </Link>
+              </span>
+            ) : null}
             <span>{article.readTime}</span>
-            <span>Procurement guide</span>
-            <span>Export packaging</span>
+            <span>Updated {new Date(updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
           </div>
         </section>
 
@@ -101,6 +112,52 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
             Request export quote
           </Link>
         </section>
+
+        <section className={styles.section} aria-label="Related content">
+          <div className={styles.sectionHead}>
+            <h2>Continue exploring</h2>
+            <p>Related guides, products, and supplier comparison for buyers in this topic cluster.</p>
+          </div>
+          <div className={styles.relatedGrid}>
+            <div className={styles.relatedColumn}>
+              <h3>Related guides</h3>
+              <ul>
+                {cluster.guides.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className={styles.relatedColumn}>
+              <h3>Related products</h3>
+              <ul>
+                {cluster.products.map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href}>{link.label}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {cluster.compare || cluster.industry ? (
+              <div className={styles.relatedColumn}>
+                <h3>Buyer decision</h3>
+                <ul>
+                  {cluster.compare ? (
+                    <li>
+                      <Link href={cluster.compare.href}>{cluster.compare.label}</Link>
+                    </li>
+                  ) : null}
+                  {cluster.industry ? (
+                    <li>
+                      <Link href={cluster.industry.href}>{cluster.industry.label}</Link>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+        </section>
       </article>
       <script
         type="application/ld+json"
@@ -111,18 +168,28 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
             "@graph": [
               {
                 "@type": "Article",
+                "@id": `${absoluteUrl(`/blog/${article.slug}`)}#article`,
                 headline: article.title,
                 description: article.description,
                 datePublished: publishedAt,
                 dateModified: updatedAt,
                 inLanguage: "en",
-                articleSection: "Buyer Guides",
+                articleSection: article.label,
                 image: absoluteUrl("/opengraph-image"),
-                author: {
-                  "@type": "Organization",
-                  name: siteName,
-                  url: absoluteUrl(),
-                },
+                author: author
+                  ? {
+                      "@type": "Organization",
+                      "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
+                      name: author.name,
+                      url: absoluteUrl(`/authors/${author.slug}`),
+                      description: author.shortBio,
+                      knowsAbout: author.topics,
+                    }
+                  : {
+                      "@type": "Organization",
+                      name: siteName,
+                      url: absoluteUrl(),
+                    },
                 publisher: {
                   "@type": "Organization",
                   name: siteName,
@@ -135,6 +202,22 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
                 url: absoluteUrl(`/blog/${article.slug}`),
               },
+              ...(article.faqs.length > 0
+                ? [
+                    {
+                      "@type": "FAQPage",
+                      "@id": `${absoluteUrl(`/blog/${article.slug}`)}#faq`,
+                      mainEntity: article.faqs.map((faq) => ({
+                        "@type": "Question",
+                        name: faq.question,
+                        acceptedAnswer: {
+                          "@type": "Answer",
+                          text: faq.answer,
+                        },
+                      })),
+                    },
+                  ]
+                : []),
               breadcrumbJsonLd([
                 { name: "Home", href: "/" },
                 { name: "Blog", href: "/blog" },

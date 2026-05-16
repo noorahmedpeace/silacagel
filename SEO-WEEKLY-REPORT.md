@@ -1,4 +1,4 @@
-# Dry Gel World Weekly SEO Health Report Template
+x# Dry Gel World Weekly SEO Health Report Template
 
 Site: https://www.drygelworld.com  
 Date range: LAST_7_OR_30_DAYS  

@@ -11,7 +11,17 @@ const INDUSTRY_SLUGS = [
   "pharma-packaging",
   "leather-footwear-export",
   "food-packaging",
+  "textile-garment-export",
+  "container-shipping",
 ] as const;
+
+const COMPARE_SLUGS = [
+  "silica-gel-vs-clay-desiccant",
+  "silica-gel-vs-molecular-sieve",
+  "silica-gel-vs-oxygen-absorber",
+] as const;
+
+const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
 
 const STATIC_ROUTES = [
   "",
@@ -86,6 +96,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.6,
+    });
+  }
+
+  for (const slug of COMPARE_SLUGS) {
+    entries.push({
+      url: absoluteUrl(`/compare/${slug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.8,
+    });
+  }
+
+  for (const slug of AUTHOR_SLUGS) {
+    entries.push({
+      url: absoluteUrl(`/authors/${slug}`),
+      lastModified,
+      changeFrequency: "yearly",
+      priority: 0.4,
     });
   }
 
