@@ -32,9 +32,9 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drygelworld.com"),
   applicationName: brandName,
-  title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
+  title: "Silica Gel Manufacturer Since 1983 — ISO 9001 Export Supply | DryGelWorld",
   description:
-    "DryGelWorld is a silica gel manufacturer, supplier, and exporter providing industrial desiccants, container desiccants, packaging desiccants, and moisture absorber solutions worldwide.",
+    "Silica gel desiccant manufacturer-exporter since 1983. ISO 9001:2015 certified. Industrial sachets, container desiccants, bulk beads & private-label packets shipped to 60+ countries with SDS, COA, and DMF-free statement per shipment.",
   keywords: [
     "DryGelWorld",
     "silica gel manufacturer",

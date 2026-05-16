@@ -5,9 +5,9 @@ import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Manufacturer Exporter | Bulk Desiccant Supply",
+  title: "Silica Gel Exporter to 60+ Countries — Karachi Manufacturer | DryGelWorld",
   description:
-    "Export-ready silica gel desiccant packets, cargo strips, bulk beads, SDS, COA, Incoterms, and logistics support for international packaging buyers.",
+    "Silica gel desiccant exporter shipping to 60+ countries from Karachi since 1983. ISO 9001:2015 manufacturer. FOB / CIF / EXW / DAP support with SDS, COA, and DMF-free statement per shipment.",
   alternates: {
     canonical: "/export",
   },

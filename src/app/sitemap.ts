@@ -42,6 +42,7 @@ const STATIC_ROUTES = [
   "/drygelworld",
   "/compare",
   "/guides/silica-gel-buyer-guide",
+  "/media-kit",
 ] as const;
 
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {

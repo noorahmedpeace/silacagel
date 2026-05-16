@@ -79,6 +79,37 @@ export default function SilicaGelBuyerGuide() {
           </div>
         </header>
 
+        <aside className={styles.execSummary} aria-label="Executive summary">
+          <h2>Executive summary — 60 second read</h2>
+          <ul>
+            <li>
+              Industrial silica gel procurement is <strong>five connected decisions</strong> —
+              format, sizing math, container deployment, packaging discipline, and
+              documentation scope. Get them right at shortlist stage; retrofitting
+              mid-program is materially more expensive.
+            </li>
+            <li>
+              Sachet sizing math: silica gel adsorbs <strong>~33% of its weight</strong>{" "}
+              in water vapor. A sealed carton at average export humidity holds ~V × 20g
+              of vapor; allocate ~V × 60g of silica gel as the base.
+            </li>
+            <li>
+              Container desiccant deployment: <strong>6-10 strips per 20ft, 10-16 per 40ft</strong>{" "}
+              on long-haul tropical routes. Distribute evenly; concentrated placement
+              doesn&apos;t protect the opposite end of a 40ft container.
+            </li>
+            <li>
+              Route multipliers matter: trans-Pacific and trans-equatorial routes need{" "}
+              <strong>1.5-2.0× base sizing</strong> over intra-region short-haul.
+            </li>
+            <li>
+              Documentation: ISO 9001:2015 + SDS + COA + DMF-free is the B2B baseline.
+              FDA DMF, food-contact, and pharma DMF are separate regulatory categories
+              that need specifically-certified manufacturers.
+            </li>
+          </ul>
+        </aside>
+
         <nav className={styles.toc} aria-label="Guide contents">
           <h2>What this guide covers</h2>
           <ol>
@@ -591,6 +622,45 @@ export default function SilicaGelBuyerGuide() {
             transparent suppliers.
           </p>
         </section>
+
+        <aside className={styles.citeBlock} aria-label="Cite this guide">
+          <h2>Cite this guide</h2>
+          <p>
+            Editorial and academic references — please use the citation format below
+            so corrections or updates can be tracked properly.
+          </p>
+          <div className={styles.citationVariants}>
+            <div className={styles.citationCard}>
+              <h3>Inline reference</h3>
+              <p className={styles.citationBody}>
+                {author ? `${author.name}, ` : ""}&quot;The Industrial Silica Gel Buyer Guide&quot;,{" "}
+                {siteName}, {new Date(UPDATED).toLocaleDateString("en-US", { year: "numeric", month: "long" })}.
+              </p>
+            </div>
+            <div className={styles.citationCard}>
+              <h3>Bibliography (APA-style)</h3>
+              <p className={styles.citationBody}>
+                {author ? `${author.name}. ` : ""}({new Date(UPDATED).getFullYear()}).{" "}
+                <em>The industrial silica gel buyer guide: Selection, sizing, container desiccants,
+                and export packaging protection.</em> {siteName}. {absoluteUrl(GUIDE_PATH)}
+              </p>
+            </div>
+            <div className={styles.citationCard}>
+              <h3>URL only</h3>
+              <p className={styles.citationBody}>
+                <a href={absoluteUrl(GUIDE_PATH)}>{absoluteUrl(GUIDE_PATH)}</a>
+              </p>
+            </div>
+          </div>
+          <p className={styles.citationFooter}>
+            For source verification, fact-checking, or interview requests on any data
+            point in this guide, contact the {siteName} Export Desk at{" "}
+            <a href="mailto:press@drygelworld.com">press@drygelworld.com</a>. Editorial
+            scope, certifications held, and honest disclosure of certifications NOT
+            held are documented in the{" "}
+            <Link href="/media-kit">Press &amp; Media Kit</Link>.
+          </p>
+        </aside>
 
         <section className={styles.ctaSection}>
           <h2>Next step</h2>

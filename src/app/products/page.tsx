@@ -6,9 +6,9 @@ import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Products | Sachets, Bulk Packs & Cargo Strips",
+  title: "Silica Gel Products: 0.5g–100g Sachets, Bulk Beads, Container Strips | DryGelWorld",
   description:
-    "Browse Dry Gel World silica gel desiccant products including small sachets, paper packets, bulk industrial bags, and container cargo strips for export buyers.",
+    "Industrial silica gel catalog — 0.5g to 100g sachets, bulk silica gel beads, container desiccant strips, dry clay desiccant, and hygiene PPE. ISO 9001:2015 manufacturer. SDS, COA, DMF-free statement per shipment.",
   alternates: {
     canonical: "/products",
   },

@@ -351,3 +351,119 @@
     text-decoration: underline;
   }
 }
+
+/* ─────────────────────── EXECUTIVE SUMMARY ─────────────────────── */
+
+.execSummary {
+  padding: 26px 30px;
+  border: 1px solid rgba(0, 103, 197, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 103, 197, 0.05) 0%, rgba(31, 94, 255, 0.03) 100%);
+}
+
+.execSummary h2 {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #044d99;
+  margin-bottom: 14px;
+}
+
+.execSummary ul {
+  margin: 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 0.96rem;
+  line-height: 1.6;
+}
+
+.execSummary strong {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+/* ─────────────────────── CITATION BLOCK ─────────────────────── */
+
+.citeBlock {
+  padding: 28px 32px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.citeBlock h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.citeBlock > p {
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  margin-bottom: 18px;
+  max-width: 70ch;
+}
+
+.citationVariants {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 880px) {
+  .citationVariants {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.citationCard {
+  padding: 16px 18px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 12px;
+  background: rgba(248, 251, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.citationCard h3 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #044d99;
+}
+
+.citationBody {
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.citationBody a {
+  color: #0067c5;
+  word-break: break-all;
+}
+
+.citationFooter {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.citationFooter a {
+  color: #0067c5;
+  font-weight: 700;
+}
