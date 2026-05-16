@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getBlogCluster } from "@/lib/blog-clusters";
+import { getBlogSeoImage } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
 
@@ -29,6 +31,8 @@ export async function generateMetadata({
     return {};
   }
 
+  const heroImage = getBlogSeoImage(article.slug);
+
   return {
     title: `${article.title} | Silica Gel Buyer Guide`,
     description: article.description,
@@ -39,6 +43,14 @@ export async function generateMetadata({
       title: article.title,
       description: article.description,
       url: `/blog/${article.slug}`,
+      images: [
+        {
+          url: heroImage.src,
+          width: heroImage.width,
+          height: heroImage.height,
+          alt: heroImage.alt,
+        },
+      ],
       type: "article",
     },
   };
@@ -55,6 +67,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   const { publishedAt, updatedAt } = getArticlePublication(slug);
   const author = getAuthor(defaultAuthorSlug);
   const cluster = getBlogCluster(slug);
+  const heroImage = getBlogSeoImage(article.slug);
 
   return (
     <main className={styles.page}>
@@ -76,6 +89,19 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
             <span>Updated {new Date(updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
           </div>
         </section>
+
+        <figure className={styles.articleVisual}>
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            title={heroImage.title}
+            fill
+            className={styles.articleVisualImage}
+            sizes="(max-width: 900px) 100vw, 820px"
+            priority
+          />
+          <figcaption>{heroImage.caption}</figcaption>
+        </figure>
 
         <section className={styles.articleBody}>
           {article.sections.map((section) => (
@@ -175,7 +201,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 dateModified: updatedAt,
                 inLanguage: "en",
                 articleSection: article.label,
-                image: absoluteUrl("/opengraph-image"),
+                image: absoluteUrl(heroImage.src),
                 author: author
                   ? {
                       "@type": "Organization",

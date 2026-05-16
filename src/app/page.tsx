@@ -52,13 +52,14 @@ import {
   priceGroups,
   whatsappNumber,
 } from "@/lib/product-data";
+import { seoImages } from "@/lib/seo-images";
 import styles from "./page.module.css";
 
 const visuals = {
   warehouse: "/applications/warehouse-inventory.webp",
-  cargo: "/applications/export-logistics.webp",
+  cargo: seoImages.exportLogistics.src,
   leather: "/applications/leather-footwear.webp",
-  electronics: "/applications/electronics-packaging.webp",
+  electronics: seoImages.electronicsPackaging.src,
 };
 
 const reasons = [
@@ -260,7 +261,7 @@ const industrialBentoCards = [
     title: "White Non-Indicating",
     label: "Bulk Supply",
     text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: "/products/white-nonindicating-clean-sachets.webp",
+    image: seoImages.silicaGelSachets.src,
     href: "/products/retail-sachets",
     stat: "0.5g-20g",
   },
@@ -268,7 +269,7 @@ const industrialBentoCards = [
     title: "Orange / Blue Indicating",
     label: "RH Monitoring",
     text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
-    image: "/macro_silica_beads_1775989669467.webp",
+    image: seoImages.desiccantSizing.src,
     href: "/documents",
     stat: "RH signal",
   },
@@ -276,7 +277,7 @@ const industrialBentoCards = [
     title: "Global Logistics",
     label: "190+ Countries",
     text: "Cargo strips and high-capacity formats for long-haul shipments, warehouses, pallets, and container routes.",
-    image: "/products/real-cargo-strips.webp",
+    image: seoImages.containerDesiccant.src,
     href: "/products/container-strips",
     stat: "FOB / CIF",
   },
@@ -366,7 +367,7 @@ const documentationMatrix = [
 const trustedIndustries = [
   {
     name: "International Pharmaceuticals",
-    image: "/industry-pharma.webp",
+    image: seoImages.pharmaDesiccant.src,
     description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
   },
   {
@@ -376,17 +377,17 @@ const trustedIndustries = [
   },
   {
     name: "Precision Tech Assembly",
-    image: "/macro_silica_beads_1775989669467.webp",
+    image: seoImages.electronicsPackaging.src,
     description: "Ensuring zero-fail moisture elimination around microchips, PCBs, and sensitive aerospace computer components to prevent short circuits.",
   },
   {
     name: "Export Food Packaging",
-    image: "/silicagel_bulk_enterprise.webp",
+    image: seoImages.foodPackaging.src,
     description: "Food-grade desiccant solutions engineered to keep crispy snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
   },
   {
     name: "Maritime Logistics & Cargo",
-    image: "/silicagel_cargo_strips.webp",
+    image: seoImages.containerDesiccant.src,
     description: "Container-scale absorption for massive export shipments, preventing container rain, condensation, and catastrophic inventory losses at sea.",
   },
 ];
@@ -426,7 +427,7 @@ const caseStudies = [
     challenge: "Seasonal shipments needed repeatable sachet sizing for cartons moving through humid storage and sea freight.",
     solution: "Mapped carton volume to 5g, 10g, and 50g sachet options with COA/SDS request path before recurring orders.",
     result: "Cleaner RFQs, faster size selection, and better pre-shipment moisture-control planning.",
-    image: "/applications/leather-footwear.webp",
+    image: seoImages.moistureProtection.src,
   },
   {
     label: "Anonymous Case 02",
@@ -435,7 +436,7 @@ const caseStudies = [
     challenge: "The buyer needed desiccant guidance for mixed PCB, accessories, and boxed components without over-ordering.",
     solution: "Used unit-level sachet formats, application notes, and document checklist to prepare a clearer procurement request.",
     result: "Fewer back-and-forth questions before quote, with product format and documents aligned earlier.",
-    image: "/applications/electronics-packaging.webp",
+    image: seoImages.electronicsPackaging.src,
   },
   {
     label: "Anonymous Case 03",
@@ -444,7 +445,7 @@ const caseStudies = [
     challenge: "Long-haul cargo needed humidity protection guidance before selecting 1kg to 5kg container strips.",
     solution: "Matched shipment route, container size, dispatch window, and Incoterms with cargo strip options.",
     result: "More useful RFQ inputs for FOB/CIF discussion and better route-based desiccant planning.",
-    image: "/applications/export-logistics.webp",
+    image: seoImages.exportLogistics.src,
   },
 ];
 
@@ -587,8 +588,9 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
                   <Image
-                    src="/products/product-range-export-showcase.webp"
-                    alt="Premium silica gel product formats for export quote planning"
+                    src={seoImages.silicaGelSachets.src}
+                    alt={seoImages.silicaGelSachets.alt}
+                    title={seoImages.silicaGelSachets.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -607,6 +609,7 @@ export default function Home() {
                       <Image
                         src={card.image}
                         alt={card.title}
+                        title={`${card.title} visual`}
                         fill
                         className={styles.image}
                         sizes="(max-width: 1100px) 100vw, 38vw"
@@ -678,8 +681,9 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
                   <Image
-                    src="/section-export-quote-premium.webp"
-                    alt="Silica gel procurement documents, calculator, and product packs"
+                    src={seoImages.exportLogistics.src}
+                    alt={seoImages.exportLogistics.alt}
+                    title={seoImages.exportLogistics.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -757,8 +761,9 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/procurement-checks-silica-sachets.webp"
-                    alt="Silica gel desiccant sachets printed with do not eat and throw away warning text"
+                    src={seoImages.desiccantSizing.src}
+                    alt={seoImages.desiccantSizing.alt}
+                    title={seoImages.desiccantSizing.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -789,8 +794,9 @@ export default function Home() {
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
                   <Image
-                    src="/products/real-cargo-strips.webp"
-                    alt="Premium silica gel desiccant protection across electronics, leather, cartons, warehouse, and cargo industries"
+                    src={seoImages.containerDesiccant.src}
+                    alt={seoImages.containerDesiccant.alt}
+                    title={seoImages.containerDesiccant.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -814,8 +820,9 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/real-kraft-bond.webp"
-                    alt="Premium silica gel sachet protection for electronics, leather, cartons, and packaging environments"
+                    src={seoImages.moistureProtection.src}
+                    alt={seoImages.moistureProtection.alt}
+                    title={seoImages.moistureProtection.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"
@@ -830,6 +837,7 @@ export default function Home() {
                       <Image
                         src={item.image}
                         alt={item.title}
+                        title={`${item.title} silica gel use case`}
                         fill
                         className={styles.image}
                         sizes="(max-width: 1100px) 100vw, 33vw"
@@ -863,6 +871,7 @@ export default function Home() {
                       <Image
                         src={item.image}
                         alt={item.industry}
+                        title={`${item.industry} moisture protection case study`}
                         fill
                         className={styles.image}
                         sizes="(max-width: 1100px) 100vw, 33vw"
@@ -984,8 +993,9 @@ export default function Home() {
                 </div>
                 <div className={styles.shippingBannerImage}>
                   <Image
-                    src="/products/real-cargo-strips.webp"
-                    alt="Silica gel desiccant supply for worldwide packaging and freight delivery"
+                    src={seoImages.exportLogistics.src}
+                    alt={seoImages.exportLogistics.alt}
+                    title={seoImages.exportLogistics.title}
                     fill
                     className={styles.image}
                     sizes="(max-width: 900px) 100vw, 48vw"
@@ -1112,8 +1122,9 @@ export default function Home() {
                 </div>
                 <div className={styles.sectionVisual}>
                   <Image
-                    src="/products/real-bulk-supply.webp"
-                    alt="Silica gel sachets with technical documents and procurement tools"
+                    src={seoImages.pharmaDesiccant.src}
+                    alt={seoImages.pharmaDesiccant.alt}
+                    title={seoImages.pharmaDesiccant.title}
                     fill
                     className={styles.sectionVisualImage}
                     sizes="(max-width: 900px) 100vw, 42vw"

@@ -66,7 +66,10 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  max-width: 22ch;
+  width: 100%;
+  max-width: min(22ch, 100%);
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 .hero p,
@@ -80,6 +83,7 @@
 .hero p {
   font-size: var(--ds-lead);
   line-height: 1.6;
+  width: 100%;
   max-width: 60ch;
 }
 
@@ -242,6 +246,48 @@
 
 /* ─────────────────────── ARTICLE BODY (blog post) ─────────────────────── */
 
+.articleVisual {
+  position: relative;
+  max-width: min(920px, calc(100% - (var(--ds-page-px) * 2)));
+  aspect-ratio: 16 / 9;
+  margin: clamp(-28px, -3vw, -12px) auto clamp(34px, 5vw, 56px);
+  overflow: hidden;
+  border: 1px solid rgba(11, 91, 168, 0.18);
+  border-radius: 22px;
+  background: #eff6ff;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.14);
+}
+
+.articleVisualImage {
+  object-fit: cover;
+}
+
+.articleVisual figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #17365f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.45;
+  backdrop-filter: blur(12px);
+}
+
+.articleCardVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #eff6ff;
+  margin-bottom: 6px;
+}
+
 .articleBody {
   max-width: 760px;
   margin: 0 auto;
@@ -363,4 +409,30 @@
 .relatedColumn li a:hover {
   color: #0067c5;
   border-color: rgba(0, 103, 197, 0.4);
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding-inline: 18px;
+  }
+
+  .hero h1 {
+    max-width: 8.5ch;
+    font-size: clamp(1.85rem, 8.2vw, 2.28rem);
+  }
+
+  .hero p {
+    max-width: 34ch;
+  }
+
+  .articleMeta {
+    max-width: 100%;
+  }
+
+  .articleVisual figcaption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.72rem;
+  }
 }

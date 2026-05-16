@@ -102,7 +102,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
         <section className={styles.section}>
           <h2 className={styles.sectionHeading}>Which one to choose</h2>
           <p className={styles.sectionLead}>
-            Decision matrix by scenario. Match the buyer's cargo type to the recommended product.
+            Decision matrix by scenario. Match the buyer&apos;s cargo type to the recommended product.
           </p>
           <div className={styles.decisionList}>
             {page.decisions.map((decision) => (

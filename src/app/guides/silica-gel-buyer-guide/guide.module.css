@@ -1,0 +1,353 @@
+.page {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 56px 24px 120px;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.kicker {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 103, 197, 0.1);
+  color: #044d99;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  max-width: 70ch;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.meta a {
+  color: #0067c5;
+  font-weight: 700;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.printAction,
+.ctaAction,
+.primaryCta,
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  letter-spacing: -0.005em;
+  font-size: 0.92rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.printAction {
+  background: rgba(255, 255, 255, 0.9);
+  color: #044d99;
+  border: 1px solid rgba(0, 103, 197, 0.28);
+}
+
+.printAction:hover {
+  background: #ffffff;
+  border-color: rgba(0, 103, 197, 0.5);
+}
+
+.ctaAction,
+.primaryCta {
+  background: linear-gradient(135deg, #1976d2 0%, #0067c5 100%);
+  color: #ffffff;
+  box-shadow: 0 14px 28px -14px rgba(0, 103, 197, 0.5);
+  border: none;
+}
+
+.ctaAction:hover,
+.primaryCta:hover {
+  filter: brightness(1.05);
+}
+
+.secondaryCta {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0a1f3d;
+  border: 1px solid rgba(0, 103, 197, 0.22);
+}
+
+.secondaryCta:hover {
+  background: #ffffff;
+  border-color: rgba(0, 103, 197, 0.45);
+  color: #044d99;
+}
+
+.toc {
+  padding: 24px 28px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.toc h2 {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #044d99;
+  margin-bottom: 14px;
+}
+
+.toc ol {
+  margin: 0;
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--ink);
+}
+
+.toc a {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.toc a:hover {
+  color: #0067c5;
+  border-color: rgba(0, 103, 197, 0.4);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  scroll-margin-top: 96px;
+}
+
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.section h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin-top: 8px;
+}
+
+.section p {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.section strong {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94rem;
+}
+
+.table thead {
+  background: rgba(0, 103, 197, 0.06);
+}
+
+.table th,
+.table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--ds-hairline);
+  vertical-align: top;
+}
+
+.table th {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #044d99;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.steps,
+.list {
+  margin: 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.list {
+  list-style: disc;
+}
+
+.summarySection {
+  padding: 28px 32px;
+  border-radius: 16px;
+  background: rgba(0, 103, 197, 0.05);
+  border-left: 4px solid #0067c5;
+}
+
+.summarySection h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.summarySection p {
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.ctaSection {
+  margin-top: 8px;
+  padding: 30px 32px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(0, 103, 197, 0.06) 0%, rgba(31, 94, 255, 0.04) 100%);
+  border: 1px solid rgba(0, 103, 197, 0.18);
+}
+
+.ctaSection h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+
+.ctaSection p {
+  color: var(--ink);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 70ch;
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 40px 18px 80px;
+  }
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+}
+
+/* Print stylesheet — users can use the browser's "Save as PDF" to
+ * produce a clean offline-friendly version of this guide.  */
+@media print {
+  body {
+    background: #ffffff !important;
+    padding: 0 !important;
+    color: #000 !important;
+  }
+  .page {
+    max-width: 100%;
+    padding: 0;
+  }
+  .toc,
+  .heroActions,
+  .ctaSection {
+    display: none !important;
+  }
+  .section {
+    break-inside: avoid;
+  }
+  .table th {
+    color: #000 !important;
+  }
+  .hero h1 {
+    font-size: 24pt;
+  }
+  .section h2 {
+    font-size: 16pt;
+  }
+  .section h3 {
+    font-size: 13pt;
+  }
+  .section p,
+  .steps,
+  .list,
+  .table {
+    font-size: 10pt;
+    line-height: 1.5;
+  }
+  .page a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+}

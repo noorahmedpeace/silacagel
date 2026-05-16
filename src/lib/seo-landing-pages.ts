@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { absoluteUrl, brandDomain, brandName, defaultSeoImage, siteName } from "@/lib/seo";
+import { getLandingSeoImage } from "@/lib/seo-images";
 
 export type SeoLandingPage = {
   slug: string;
@@ -4087,6 +4088,7 @@ export function getSeoLandingPage(slug: SeoLandingSlug) {
 
 export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
   const page = getSeoLandingPage(slug);
+  const heroImage = getLandingSeoImage(page);
 
   return {
     title: page.title,
@@ -4101,8 +4103,10 @@ export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
       siteName,
       images: [
         {
-          url: defaultSeoImage,
-          alt: `${siteName} ${page.kicker}`,
+          url: heroImage.src || defaultSeoImage,
+          width: heroImage.width,
+          height: heroImage.height,
+          alt: heroImage.alt,
         },
       ],
       type: "website",
@@ -4111,6 +4115,8 @@ export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
 }
 
 export function landingPageJsonLd(page: SeoLandingPage) {
+  const heroImage = getLandingSeoImage(page);
+
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -4119,6 +4125,7 @@ export function landingPageJsonLd(page: SeoLandingPage) {
         name: page.title,
         description: page.metaDescription,
         url: absoluteUrl(`/${page.slug}`),
+        image: absoluteUrl(heroImage.src),
         isPartOf: {
           "@type": "WebSite",
           "@id": `${absoluteUrl()}#website`,
@@ -4131,6 +4138,7 @@ export function landingPageJsonLd(page: SeoLandingPage) {
         "@type": "Service",
         name: page.kicker,
         description: page.lead,
+        image: absoluteUrl(heroImage.src),
         provider: {
           "@type": "Organization",
           "@id": `${absoluteUrl()}#organization`,

@@ -354,3 +354,87 @@
     padding: 40px 18px 80px;
   }
 }
+
+/* ─────────────────────── COMPARE HUB ─────────────────────── */
+
+.hubGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+@media (min-width: 760px) {
+  .hubGrid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+}
+
+.hubCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 26px 28px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 32px -28px rgba(15, 23, 42, 0.18);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  color: inherit;
+}
+
+.hubCard:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 103, 197, 0.4);
+  box-shadow: 0 24px 48px -28px rgba(0, 103, 197, 0.3);
+}
+
+.cardLabel {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 103, 197, 0.1);
+  color: #044d99;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hubCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.hubCard p {
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.cardCta {
+  margin-top: auto;
+  color: #0067c5;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.howList {
+  margin: 12px 0 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.howList strong {
+  color: var(--ink);
+  font-weight: 800;
+}

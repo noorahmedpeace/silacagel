@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { getIndustrySeoImage } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 
 const industryPages = {
@@ -94,11 +96,27 @@ export async function generateMetadata({
     return {};
   }
 
+  const heroImage = getIndustrySeoImage(industry);
+
   return {
     title: page.title,
     description: page.description,
     alternates: {
       canonical: `/industries/${industry}`,
+    },
+    openGraph: {
+      title: page.title,
+      description: page.description,
+      url: `/industries/${industry}`,
+      images: [
+        {
+          url: heroImage.src,
+          width: heroImage.width,
+          height: heroImage.height,
+          alt: heroImage.alt,
+        },
+      ],
+      type: "website",
     },
   };
 }
@@ -113,6 +131,47 @@ export default async function IndustryPage({
     notFound();
   }
 
+  const heroImage = getIndustrySeoImage(industry);
+  const pageUrl = absoluteUrl(`/industries/${industry}`);
+  const breadcrumb = breadcrumbJsonLd([
+    { name: "Home", href: "/" },
+    { name: "Industries", href: "/industries/electronics-packaging" },
+    { name: page.title, href: `/industries/${industry}` },
+  ]);
+  const industryJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        name: page.title,
+        description: page.description,
+        url: pageUrl,
+        image: absoluteUrl(heroImage.src),
+        isPartOf: {
+          "@type": "WebSite",
+          "@id": `${absoluteUrl()}#website`,
+          name: brandName,
+        },
+      },
+      {
+        "@type": "Service",
+        name: page.title,
+        serviceType: "Industrial desiccant application support",
+        description: page.description,
+        image: absoluteUrl(heroImage.src),
+        provider: {
+          "@type": "Organization",
+          "@id": `${absoluteUrl()}#organization`,
+          name: brandName,
+        },
+      },
+      {
+        "@type": breadcrumb["@type"],
+        itemListElement: breadcrumb.itemListElement,
+      },
+    ],
+  };
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -121,6 +180,19 @@ export default async function IndustryPage({
         <p>{page.description}</p>
         <Link href="/contact" className={styles.cta}>Request Industry Quote</Link>
       </section>
+
+      <figure className={styles.articleVisual}>
+        <Image
+          src={heroImage.src}
+          alt={heroImage.alt}
+          title={heroImage.title}
+          fill
+          className={styles.articleVisualImage}
+          sizes="(max-width: 900px) 100vw, 920px"
+          priority
+        />
+        <figcaption>{heroImage.caption}</figcaption>
+      </figure>
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
@@ -144,13 +216,7 @@ export default async function IndustryPage({
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            breadcrumbJsonLd([
-              { name: "Home", href: "/" },
-              { name: "Industries", href: "/industries/electronics-packaging" },
-              { name: page.title, href: `/industries/${industry}` },
-            ]),
-          ),
+          __html: JSON.stringify(industryJsonLd),
         }}
       />
     </main>

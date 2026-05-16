@@ -1,12 +1,42 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { exportMarkets, getExportMarket } from "../markets";
 
 type ExportMarketPageProps = {
   params: Promise<{ market: string }>;
+};
+
+// hreflang code per market slug. All content is in English so we use
+// region-specific en-XX variants (en-US, en-AE, en-DE) so Google can
+// route each regional Google index to the matching landing page. Slugs
+// that don't map to a single country (fob-karachi, europe) fall back
+// to "en" or a regional code.
+const MARKET_HREFLANG: Record<string, string> = {
+  uae: "en-AE",
+  "saudi-arabia": "en-SA",
+  qatar: "en-QA",
+  usa: "en-US",
+  vietnam: "en-VN",
+  russia: "en-RU",
+  bangladesh: "en-BD",
+  indonesia: "en-ID",
+  mexico: "en-MX",
+  turkey: "en-TR",
+  india: "en-IN",
+  brazil: "en-BR",
+  malaysia: "en-MY",
+  pakistan: "en-PK",
+  uk: "en-GB",
+  germany: "en-DE",
+  canada: "en-CA",
+  australia: "en-AU",
+  europe: "en",
+  "fob-karachi": "en",
 };
 
 export function generateStaticParams() {
@@ -21,6 +51,18 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     return {};
   }
 
+  const hreflang = MARKET_HREFLANG[market.slug] ?? "en";
+  const heroImage = seoImages.exportLogistics;
+
+  // hreflang annotations:
+  // - this market's region code maps to its own URL
+  // - x-default points at the home page (signals to Google: when no
+  //   regional match, show the brand homepage instead of guessing)
+  const languages: Record<string, string> = {
+    [hreflang]: `/export/${market.slug}`,
+    "x-default": "/",
+  };
+
   return {
     title: `${market.country} Silica Gel Supplier | Export Desiccant Supply`,
     description: market.description,
@@ -33,12 +75,22 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     ],
     alternates: {
       canonical: `/export/${market.slug}`,
+      languages,
     },
     openGraph: {
       title: `${market.country} Silica Gel Supplier | DryGelWorld`,
       description: market.description,
       url: `/export/${market.slug}`,
+      images: [
+        {
+          url: heroImage.src,
+          width: heroImage.width,
+          height: heroImage.height,
+          alt: `${market.country} ${heroImage.alt}`,
+        },
+      ],
       type: "website",
+      locale: hreflang.replace("-", "_"),
     },
   };
 }
@@ -83,6 +135,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
     itemListElement: breadcrumb.itemListElement,
   };
   const pageUrl = absoluteUrl(`/export/${market.slug}`);
+  const heroImage = seoImages.exportLogistics;
   const marketJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -91,6 +144,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         name: market.title,
         description: market.description,
         url: pageUrl,
+        image: absoluteUrl(heroImage.src),
         isPartOf: {
           "@type": "WebSite",
           "@id": `${absoluteUrl()}#website`,
@@ -102,6 +156,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         name: `${market.country} silica gel export supply`,
         serviceType: "Industrial desiccant export supply",
         description: market.description,
+        image: absoluteUrl(heroImage.src),
         provider: {
           "@type": "Organization",
           "@id": `${absoluteUrl()}#organization`,
@@ -140,6 +195,19 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <p>{market.description}</p>
         <Link className={styles.cta} href="/contact">Request Export Quote</Link>
       </section>
+
+      <figure className={styles.articleVisual}>
+        <Image
+          src={heroImage.src}
+          alt={`${market.country} ${heroImage.alt}`}
+          title={`${market.country} ${heroImage.title}`}
+          fill
+          className={styles.articleVisualImage}
+          sizes="(max-width: 900px) 100vw, 920px"
+          priority
+        />
+        <figcaption>{heroImage.caption}</figcaption>
+      </figure>
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>

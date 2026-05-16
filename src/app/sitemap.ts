@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
 import { seoLandingPages } from "@/lib/seo-landing-pages";
 import { productCatalog } from "@/lib/product-data";
+import { getBlogSeoImage, getIndustrySeoImage, getLandingSeoImage, seoImages } from "@/lib/seo-images";
 import { exportMarkets } from "./export/markets";
 import { blogArticles } from "./blog/articles";
 
@@ -39,7 +40,24 @@ const STATIC_ROUTES = [
   "/videos",
   "/export",
   "/drygelworld",
+  "/compare",
+  "/guides/silica-gel-buyer-guide",
 ] as const;
+
+const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {
+  "": [seoImages.defaultOg.src, seoImages.silicaGelSachets.src],
+  "/products": [seoImages.silicaGelSachets.src, seoImages.industrialBulk.src, seoImages.containerDesiccant.src],
+  "/blog": [seoImages.desiccantSizing.src],
+  "/export": [seoImages.exportLogistics.src],
+  "/case-studies": [seoImages.moistureProtection.src],
+  "/bulk-sales": [seoImages.industrialBulk.src],
+  "/private-label": [seoImages.silicaGelSachets.src],
+  "/documents": [seoImages.pharmaDesiccant.src],
+};
+
+function sitemapImages(paths: string[]) {
+  return paths.map((path) => absoluteUrl(path));
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
@@ -51,6 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: route === "" ? "weekly" : "monthly",
       priority: route === "" ? 1 : 0.7,
+      images: sitemapImages(staticRouteImages[route] ?? [seoImages.defaultOg.src]),
     });
   }
 
@@ -60,24 +79,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.85,
+      images: sitemapImages([product.heroImage]),
     });
   }
 
   for (const slug of Object.keys(seoLandingPages)) {
+    const page = seoLandingPages[slug as keyof typeof seoLandingPages];
+    const image = getLandingSeoImage(page);
+
     entries.push({
       url: absoluteUrl(`/${slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
+      images: sitemapImages([image.src]),
     });
   }
 
   for (const slug of INDUSTRY_SLUGS) {
+    const image = getIndustrySeoImage(slug);
+
     entries.push({
       url: absoluteUrl(`/industries/${slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+      images: sitemapImages([image.src]),
     });
   }
 
@@ -87,15 +114,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
+      images: sitemapImages([seoImages.exportLogistics.src]),
     });
   }
 
   for (const article of blogArticles) {
+    const image = getBlogSeoImage(article.slug);
+
     entries.push({
       url: absoluteUrl(`/blog/${article.slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.6,
+      images: sitemapImages([image.src]),
     });
   }
 
@@ -105,6 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
+      images: sitemapImages([seoImages.moistureProtection.src]),
     });
   }
 

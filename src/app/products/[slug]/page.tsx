@@ -133,6 +133,76 @@ const procurementDetails = {
   },
 } as const;
 
+// Related-content map for each product slug. Builds entity-based
+// internal linking from products → blogs/comparison/industry so the
+// topical authority cluster around each product slug is connected
+// from both ends (products linking out; blogs linking in via clusters).
+type ProductClusterLink = { label: string; href: string };
+type ProductCluster = {
+  guides: ProductClusterLink[];
+  compare?: ProductClusterLink;
+  industry?: ProductClusterLink;
+};
+const productClusters: Record<string, ProductCluster> = {
+  "retail-sachets": {
+    guides: [
+      { label: "How to choose silica gel packet size", href: "/blog/how-to-choose-silica-gel-packet-size" },
+      { label: "Desiccant for electronics packaging", href: "/blog/desiccant-for-electronics-packaging" },
+      { label: "Private-label silica gel packets guide", href: "/blog/private-label-silica-gel-packets-guide" },
+    ],
+    compare: { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
+    industry: { label: "Electronics packaging", href: "/industries/electronics-packaging" },
+  },
+  "paper-sachets": {
+    guides: [
+      { label: "How to prevent moisture in export cartons", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
+      { label: "Silica gel for leather and footwear export", href: "/blog/silica-gel-for-leather-and-footwear-export" },
+      { label: "Silica gel SDS and COA requirements", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
+    ],
+    compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
+    industry: { label: "Leather and footwear export", href: "/industries/leather-footwear-export" },
+  },
+  "bulk-industrial": {
+    guides: [
+      { label: "Silica gel bulk pricing factors", href: "/blog/silica-gel-bulk-pricing-factors-for-exporters" },
+      { label: "Bulk silica gel supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
+      { label: "Can you reuse silica gel?", href: "/blog/can-you-reuse-silica-gel" },
+    ],
+    compare: { label: "Silica gel vs molecular sieve", href: "/compare/silica-gel-vs-molecular-sieve" },
+  },
+  "container-strips": {
+    guides: [
+      { label: "Best desiccant for shipping containers", href: "/blog/best-desiccant-for-shipping-containers" },
+      { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
+      { label: "How exporters protect cargo from humidity", href: "/blog/how-exporters-protect-cargo-from-humidity" },
+    ],
+    compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
+    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+  },
+  "dry-clay-desiccant": {
+    guides: [
+      { label: "Silica gel vs clay desiccant", href: "/blog/silica-gel-vs-clay-desiccant" },
+      { label: "Container desiccant vs silica gel", href: "/blog/container-desiccant-vs-silica-gel" },
+      { label: "Industrial packaging protection solutions", href: "/blog/industrial-packaging-protection-solutions" },
+    ],
+    compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
+  },
+  "hair-nets": {
+    guides: [
+      { label: "Why hair nets matter in food export", href: "/blog/why-hair-nets-matter-in-food-export" },
+      { label: "PPE products for factories", href: "/blog/ppe-products-for-factories" },
+    ],
+    industry: { label: "Food packaging", href: "/industries/food-packaging" },
+  },
+  "beard-covers": {
+    guides: [
+      { label: "Importance of beard covers in manufacturing", href: "/blog/importance-of-beard-covers-in-manufacturing" },
+      { label: "PPE products for factories", href: "/blog/ppe-products-for-factories" },
+    ],
+    industry: { label: "Food packaging", href: "/industries/food-packaging" },
+  },
+};
+
 // FAQs per product slug. Visible on the page AND emitted as FAQPage
 // JSON-LD so Google can render the FAQ rich result on commercial-intent
 // queries (e.g. "silica gel sachet MOQ", "container desiccant lead time").
@@ -296,6 +366,8 @@ export async function generateMetadata({
       images: [
         {
           url: product.heroImage,
+          width: 1600,
+          height: 900,
           alt: product.name,
         },
       ],
@@ -314,6 +386,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   const procurement = procurementDetails[product.slug as keyof typeof procurementDetails];
   const faqs = productFaqs[product.slug as keyof typeof productFaqs] ?? [];
+  const cluster = productClusters[product.slug];
 
   const purchaseMessage = [
     "Hello, I want to purchase Dry Gel World.",
@@ -376,6 +449,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <Image
                     src={product.heroImage}
                     alt={product.name}
+                    title={`${product.name} product visual`}
                     fill
                     className={styles.image}
                     sizes="(max-width: 960px) 100vw, 42vw"
@@ -525,6 +599,46 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       <p>{item.a}</p>
                     </details>
                   ))}
+                </div>
+              </section>
+            </Reveal>
+          ) : null}
+
+          {cluster ? (
+            <Reveal>
+              <section className={styles.clusterSection} aria-labelledby="product-cluster-heading">
+                <div className={styles.sectionHead}>
+                  <p className={styles.eyebrow}>Continue Exploring</p>
+                  <h2 id="product-cluster-heading">Related guides, comparison, and industry pages.</h2>
+                </div>
+                <div className={styles.clusterGrid}>
+                  <div className={styles.clusterColumn}>
+                    <h3>Buyer guides</h3>
+                    <ul>
+                      {cluster.guides.map((link) => (
+                        <li key={link.href}>
+                          <Link href={link.href}>{link.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  {(cluster.compare || cluster.industry) ? (
+                    <div className={styles.clusterColumn}>
+                      <h3>Buyer decision</h3>
+                      <ul>
+                        {cluster.compare ? (
+                          <li>
+                            <Link href={cluster.compare.href}>{cluster.compare.label}</Link>
+                          </li>
+                        ) : null}
+                        {cluster.industry ? (
+                          <li>
+                            <Link href={cluster.industry.href}>{cluster.industry.label}</Link>
+                          </li>
+                        ) : null}
+                      </ul>
+                    </div>
+                  ) : null}
                 </div>
               </section>
             </Reveal>

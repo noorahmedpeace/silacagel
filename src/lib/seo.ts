@@ -16,7 +16,10 @@ export const brandName = publicEnv("NEXT_PUBLIC_BRAND_NAME", "DryGelWorld");
 
 export const brandDomain = publicEnv("NEXT_PUBLIC_BRAND_DOMAIN", "drygelworld.com");
 
-export const defaultSeoImage = publicEnv("NEXT_PUBLIC_DEFAULT_SEO_IMAGE", "/opengraph-image");
+export const defaultSeoImage = publicEnv(
+  "NEXT_PUBLIC_DEFAULT_SEO_IMAGE",
+  "/seo-images/drygelworld-industrial-silica-gel-og.webp",
+);
 
 export const googleSiteVerification =
   process.env.GOOGLE_SITE_VERIFICATION?.trim() ||

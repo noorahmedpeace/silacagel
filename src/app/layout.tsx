@@ -11,7 +11,15 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
 import { contactEmailChannels, mainEmail, phoneHref, serviceArea } from "@/lib/product-data";
-import { absoluteUrl, brandDomain, brandName, googleSiteVerification, siteName, siteUrl } from "@/lib/seo";
+import {
+  absoluteUrl,
+  brandDomain,
+  brandName,
+  defaultSeoImage,
+  googleSiteVerification,
+  siteName,
+  siteUrl,
+} from "@/lib/seo";
 import "./design-tokens.css";
 import "./globals.css";
 
@@ -47,10 +55,10 @@ export const metadata: Metadata = {
     description:
       "Official DryGelWorld.com industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
     url: siteUrl,
-    siteName: brandName,
-    images: [
-      {
-        url: "/opengraph-image",
+      siteName: brandName,
+      images: [
+        {
+        url: defaultSeoImage,
         width: 1200,
         height: 630,
         alt: "Dry Gel World industrial silica gel desiccant export supply",
@@ -60,6 +68,30 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    // Reciprocal hreflang: declare all regional export landings as
+    // language/region alternates of the home page so Google can route
+    // each regional SERP to the matching /export/[market] page.
+    languages: {
+      "en-US": "/export/usa",
+      "en-GB": "/export/uk",
+      "en-DE": "/export/germany",
+      "en-AE": "/export/uae",
+      "en-SA": "/export/saudi-arabia",
+      "en-QA": "/export/qatar",
+      "en-IN": "/export/india",
+      "en-PK": "/export/pakistan",
+      "en-CA": "/export/canada",
+      "en-AU": "/export/australia",
+      "en-BD": "/export/bangladesh",
+      "en-ID": "/export/indonesia",
+      "en-MY": "/export/malaysia",
+      "en-TR": "/export/turkey",
+      "en-MX": "/export/mexico",
+      "en-BR": "/export/brazil",
+      "en-VN": "/export/vietnam",
+      "en-RU": "/export/russia",
+      "x-default": "/",
+    },
   },
   icons: {
     icon: [
@@ -85,7 +117,7 @@ export const metadata: Metadata = {
     title: "DryGelWorld | Silica Gel Manufacturer Exporter",
     description:
       "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
-    images: ["/opengraph-image"],
+    images: [defaultSeoImage],
   },
 };
 

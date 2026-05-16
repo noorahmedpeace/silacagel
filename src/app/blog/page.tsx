@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { seoImages, getBlogSeoImage } from "@/lib/seo-images";
 import styles from "../strategy-pages.module.css";
 import { blogArticles } from "./articles";
 
@@ -9,6 +11,21 @@ export const metadata: Metadata = {
     "Technical buyer guides for silica gel packets, desiccant sizing, container rain, SDS, COA, indicating gel, and export packaging moisture control.",
   alternates: {
     canonical: "/blog",
+  },
+  openGraph: {
+    title: "Silica Gel Export Knowledge Center | DryGelWorld",
+    description:
+      "Technical buyer guides for silica gel packets, desiccant sizing, container rain, SDS, COA, indicating gel, and export packaging moisture control.",
+    url: "/blog",
+    images: [
+      {
+        url: seoImages.desiccantSizing.src,
+        width: seoImages.desiccantSizing.width,
+        height: seoImages.desiccantSizing.height,
+        alt: seoImages.desiccantSizing.alt,
+      },
+    ],
+    type: "website",
   },
 };
 
@@ -32,16 +49,30 @@ export default function BlogPage() {
           </p>
         </div>
         <div className={styles.grid}>
-          {blogArticles.map((article) => (
-            <article className={styles.articleCard} key={article.slug}>
-              <span>{article.label}</span>
-              <h3>{article.title}</h3>
-              <p>{article.description}</p>
-              <Link className={styles.textLink} href={`/blog/${article.slug}`}>
-                Read buyer guide
-              </Link>
-            </article>
-          ))}
+          {blogArticles.map((article) => {
+            const image = getBlogSeoImage(article.slug);
+
+            return (
+              <article className={styles.articleCard} key={article.slug}>
+                <div className={styles.articleCardVisual}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    title={image.title}
+                    fill
+                    className={styles.articleVisualImage}
+                    sizes="(max-width: 760px) 100vw, 33vw"
+                  />
+                </div>
+                <span>{article.label}</span>
+                <h3>{article.title}</h3>
+                <p>{article.description}</p>
+                <Link className={styles.textLink} href={`/blog/${article.slug}`}>
+                  Read buyer guide
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </section>
     </main>

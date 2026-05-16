@@ -1,3 +1,5 @@
+import { seoImages } from "@/lib/seo-images";
+
 export type ProductItem = {
   slug: string;
   name: string;
@@ -110,7 +112,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Optimal for high-precision components and unit-level packaging.",
     description:
       "Our precision-grade units are designed for integration directly within technical packaging. They are critical for high-end electronics, precision apertures, and luxury leather exports where unit-level integrity is non-negotiable.",
-    heroImage: "/silicagel_hero_elite.webp",
+    heroImage: seoImages.silicaGelSachets.src,
     useCases: [
       "Aerospace and semiconductor shielding",
       "High-end footwear and luxury leather",
@@ -136,7 +138,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Standard protection for industrial warehousing and scale logistics.",
     description:
       "Technical Bond sachets provide a high-performance balance for general industrial cargo. These are the workhorse of global trade, protecting everything from heavy machinery parts to large-scale textile shipments.",
-    heroImage: "/silicagel_paper_technical.webp",
+    heroImage: seoImages.silicaGelSachets.src,
     useCases: [
       "Standard export carton stabilization",
       "Industrial spare parts inventory",
@@ -162,7 +164,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Heavy-duty coverage for expansive industrial and logistics environments.",
     description:
       "Our enterprise bulk range is designed for facility-scale moisture control programs. These high-capacity units are essential for maintaining dry-state integrity in large-scale warehouses and heavy industrial manufacturing zones.",
-    heroImage: "/silicagel_bulk_enterprise.webp",
+    heroImage: seoImages.industrialBulk.src,
     useCases: [
       "Facility-wide moisture management",
       "Continuous industrial assembly lines",
@@ -188,7 +190,7 @@ export const productCatalog: ProductItem[] = [
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
       "Our cargo strips are specifically engineered for the extreme humidity shifts of maritime transit. They are the global standard for protecting high-value export containers over long-haul oceanic routes.",
-    heroImage: "/silicagel_cargo_strips.webp",
+    heroImage: seoImages.containerDesiccant.src,
     useCases: [
       "International ocean freight containers",
       "Extreme-humidity logistics routes",

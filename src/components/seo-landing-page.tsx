@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { breadcrumbJsonLd } from "@/lib/seo";
+import { getLandingSeoImage } from "@/lib/seo-images";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
 
@@ -10,6 +11,8 @@ type SeoLandingPageProps = {
 };
 
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
+  const heroImage = getLandingSeoImage(page);
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -29,27 +32,26 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </div>
 
         <aside className={styles.proofPanel} aria-label="Procurement proof points">
-          {page.heroImage ? (
-            <div className={styles.visualCard}>
-              <Image
-                src={page.heroImage.src}
-                alt={page.heroImage.alt}
-                fill
-                className={styles.visualImage}
-                sizes="(max-width: 1080px) 100vw, 38vw"
-                priority
-              />
-              <div className={styles.visualScrim} />
-              <div className={styles.visualCaption}>
-                <p>{page.heroImage.caption}</p>
-                <div>
-                  {page.heroImage.chips.map((chip) => (
-                    <span key={chip}>{chip}</span>
-                  ))}
-                </div>
+          <div className={styles.visualCard}>
+            <Image
+              src={heroImage.src}
+              alt={heroImage.alt}
+              title={heroImage.title}
+              fill
+              className={styles.visualImage}
+              sizes="(max-width: 1080px) 100vw, 38vw"
+              priority
+            />
+            <div className={styles.visualScrim} />
+            <div className={styles.visualCaption}>
+              <p>{heroImage.caption}</p>
+              <div>
+                {(page.heroImage?.chips ?? []).map((chip) => (
+                  <span key={chip}>{chip}</span>
+                ))}
               </div>
             </div>
-          ) : null}
+          </div>
           <div>
             <span className={styles.kicker}>Buyer proof</span>
             <h2>Quote-ready details buyers check before contacting a supplier.</h2>
