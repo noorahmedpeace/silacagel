@@ -706,20 +706,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       value: product.leadTime,
                     },
                   ],
-                  offers: {
-                    "@type": "AggregateOffer",
-                    availability: "https://schema.org/InStock",
-                    areaServed: "Worldwide",
-                    url: absoluteUrl("/contact"),
-                    priceCurrency: "USD",
-                    offerCount: procurement?.skuRows?.length ?? 1,
-                    description: product.priceBand,
-                    seller: {
-                      "@type": "Organization",
-                      name: siteName,
-                      url: absoluteUrl(),
-                    },
-                  },
+                  // Note: omitted offers/AggregateOffer because DryGelWorld is a
+                  // B2B quote-on-request supplier and does not publish public
+                  // prices. Google's Product rich result requires price /
+                  // lowPrice / highPrice on Offer, and emitting any of those
+                  // values without real pricing would either fail validation
+                  // (current state — "1 invalid item detected") or misrepresent
+                  // the commercial model (worse). Product, brand, manufacturer,
+                  // material, and PropertyValue fields are kept — they pass
+                  // Schema.org validation and surface in non-shopping rich
+                  // results (image, name, brand) without requiring prices.
                 },
                 ...(faqs.length > 0
                   ? [
