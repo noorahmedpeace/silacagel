@@ -153,12 +153,12 @@ const procurementFlow = [
 ];
 
 const categoryLanes = [
-  "Silica gel packets",
-  "Paper sachets",
-  "Indicating gel",
-  "Container strips",
-  "Bulk beads",
-  "Dispensers",
+  { label: "Silica gel packets", href: "/silica-gel-packets" },
+  { label: "Paper sachets", href: "/products/paper-sachets" },
+  { label: "Indicating gel", href: "/orange-silica-gel-supplier" },
+  { label: "Container strips", href: "/container-desiccant-strips" },
+  { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
+  { label: "Dispensers", href: "/dispensers" },
 ];
 
 const capabilityBlocks = [
@@ -629,7 +629,9 @@ export default function Home() {
 
               <div className={styles.categoryRail} aria-label="Core product category landing pages">
                 {categoryLanes.map((item) => (
-                  <span key={item}>{item}</span>
+                  <Link key={item.label} href={item.href}>
+                    {item.label}
+                  </Link>
                 ))}
               </div>
             </section>

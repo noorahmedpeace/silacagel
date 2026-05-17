@@ -4601,7 +4601,8 @@
   margin-top: 22px;
 }
 
-.categoryRail span {
+.categoryRail span,
+.categoryRail a {
   display: inline-flex;
   min-height: 54px;
   align-items: center;
@@ -4614,6 +4615,15 @@
   font-size: 0.82rem;
   font-weight: 900;
   text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.categoryRail a:hover {
+  background: #ffffff;
+  border-color: rgba(0, 103, 197, 0.4);
+  color: #044d99;
+  transform: translateY(-1px);
 }
 
 .capabilityGrid {
