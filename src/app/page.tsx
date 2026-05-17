@@ -462,6 +462,7 @@ export default function Home() {
               fill
               className={styles.heroBgImage}
               sizes="100vw"
+              priority
               fetchPriority="high"
             />
             <div className={styles.heroShade} />
