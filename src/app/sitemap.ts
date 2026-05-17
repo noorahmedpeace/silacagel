@@ -2,7 +2,14 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
 import { seoLandingPages } from "@/lib/seo-landing-pages";
 import { productCatalog } from "@/lib/product-data";
-import { getBlogSeoImage, getIndustrySeoImage, getLandingSeoImage, seoImages } from "@/lib/seo-images";
+import {
+  getBlogSeoImage,
+  getCompareSeoImage,
+  getExportMarketSeoImage,
+  getIndustrySeoImage,
+  getLandingSeoImage,
+  seoImages,
+} from "@/lib/seo-images";
 import { exportMarkets } from "./export/markets";
 import { blogArticles } from "./blog/articles";
 
@@ -48,11 +55,17 @@ const STATIC_ROUTES = [
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {
   "": [seoImages.defaultOg.src, seoImages.silicaGelSachets.src],
   "/products": [seoImages.silicaGelSachets.src, seoImages.industrialBulk.src, seoImages.containerDesiccant.src],
-  "/blog": [seoImages.desiccantSizing.src],
-  "/export": [seoImages.exportLogistics.src],
+  "/blog": [seoImages.buyerGuideProcess.src, seoImages.desiccantSizing.src],
+  "/export": [seoImages.exportRouteHumidity.src, seoImages.exportLogistics.src],
+  "/compare": [
+    seoImages.silicaGelVsClay.src,
+    seoImages.silicaGelVsMolecularSieve.src,
+    seoImages.silicaGelVsOxygenAbsorber.src,
+  ],
+  "/guides/silica-gel-buyer-guide": [seoImages.buyerGuideProcess.src],
   "/case-studies": [seoImages.moistureProtection.src],
   "/bulk-sales": [seoImages.industrialBulk.src],
-  "/private-label": [seoImages.silicaGelSachets.src],
+  "/private-label": [seoImages.privateLabelPackaging.src],
   "/documents": [seoImages.pharmaDesiccant.src],
 };
 
@@ -110,12 +123,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const market of exportMarkets) {
+    const image = getExportMarketSeoImage(market.slug);
+
     entries.push({
       url: absoluteUrl(`/export/${market.slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
-      images: sitemapImages([seoImages.exportLogistics.src]),
+      images: sitemapImages([image.src]),
     });
   }
 
@@ -132,12 +147,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const slug of COMPARE_SLUGS) {
+    const image = getCompareSeoImage(slug);
+
     entries.push({
       url: absoluteUrl(`/compare/${slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
-      images: sitemapImages([seoImages.moistureProtection.src]),
+      images: sitemapImages([image.src]),
     });
   }
 

@@ -21,10 +21,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: seoImages.desiccantSizing.src,
-        width: seoImages.desiccantSizing.width,
-        height: seoImages.desiccantSizing.height,
-        alt: "Desiccant comparison hub — silica gel vs clay vs molecular sieve vs oxygen absorber decision matrix",
+        url: seoImages.silicaGelVsClay.src,
+        width: seoImages.silicaGelVsClay.width,
+        height: seoImages.silicaGelVsClay.height,
+        alt: seoImages.silicaGelVsClay.alt,
       },
     ],
   },
@@ -134,6 +134,7 @@ export default function CompareHub() {
                 name: "Desiccant Buyer Comparison Hub",
                 description: metadata.description,
                 url: absoluteUrl("/compare"),
+                image: absoluteUrl(seoImages.silicaGelVsClay.src),
                 inLanguage: "en",
                 isPartOf: {
                   "@type": "WebSite",

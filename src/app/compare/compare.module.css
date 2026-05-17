@@ -53,6 +53,38 @@
   font-weight: 700;
 }
 
+.heroVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 42px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 197, 0.18);
+  border-radius: 18px;
+  background: #eef6ff;
+  box-shadow: 0 24px 60px -42px rgba(15, 23, 42, 0.34);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+.heroVisual figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.82);
+  color: #17365f;
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.45;
+  backdrop-filter: blur(12px);
+}
+
 .section {
   margin: 0 0 48px;
 }
@@ -352,6 +384,16 @@
 @media (max-width: 640px) {
   .page {
     padding: 40px 18px 80px;
+  }
+  .heroVisual {
+    margin-bottom: 30px;
+    border-radius: 14px;
+  }
+  .heroVisual figcaption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.72rem;
   }
 }
 

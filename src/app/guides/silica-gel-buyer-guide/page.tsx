@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
@@ -10,6 +11,8 @@ const GUIDE_TITLE =
   "The Industrial Silica Gel Buyer Guide: Selection, Sizing, Container Desiccants, and Export Packaging Protection";
 const GUIDE_DESCRIPTION =
   "The definitive long-form buyer guide for industrial silica gel and desiccant procurement — selection criteria, sizing math, container desiccant deployment, route-humidity adjustments, regulatory documentation, and export packaging discipline. Written by the DryGelWorld Export Desk for B2B procurement teams.";
+
+const GUIDE_IMAGE = seoImages.buyerGuideProcess;
 
 export const metadata: Metadata = {
   title: `${GUIDE_TITLE} | ${siteName}`,
@@ -24,10 +27,10 @@ export const metadata: Metadata = {
     type: "article",
     images: [
       {
-        url: seoImages.desiccantSizing.src,
-        width: seoImages.desiccantSizing.width,
-        height: seoImages.desiccantSizing.height,
-        alt: "Industrial silica gel buyer guide — sachet sizing math, container desiccant deployment, route humidity adjustments, and export packaging protection",
+        url: GUIDE_IMAGE.src,
+        width: GUIDE_IMAGE.width,
+        height: GUIDE_IMAGE.height,
+        alt: GUIDE_IMAGE.alt,
       },
     ],
   },
@@ -87,6 +90,19 @@ export default function SilicaGelBuyerGuide() {
             </Link>
           </div>
         </header>
+
+        <figure className={styles.guideVisual}>
+          <Image
+            src={GUIDE_IMAGE.src}
+            alt={GUIDE_IMAGE.alt}
+            title={GUIDE_IMAGE.title}
+            fill
+            className={styles.guideImage}
+            sizes="(max-width: 900px) 100vw, 880px"
+            priority
+          />
+          <figcaption>{GUIDE_IMAGE.caption}</figcaption>
+        </figure>
 
         <aside className={styles.execSummary} aria-label="Executive summary">
           <h2>Executive summary — 60 second read</h2>
@@ -722,6 +738,7 @@ export default function SilicaGelBuyerGuide() {
                 dateModified: UPDATED,
                 inLanguage: "en",
                 articleSection: "Authority Guide",
+                image: absoluteUrl(GUIDE_IMAGE.src),
                 author: author
                   ? {
                       "@type": "Organization",

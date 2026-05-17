@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { comparePages, getComparePage } from "@/lib/compare-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
-import { seoImages } from "@/lib/seo-images";
+import { getCompareSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../compare.module.css";
 
 type ComparePageProps = {
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
   const { slug } = await params;
   const page = getComparePage(slug);
   if (!page) return {};
+  const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
 
   return {
     title: `${page.productA} vs ${page.productB} — Buyer Comparison | ${siteName}`,
@@ -35,10 +37,10 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
       type: "article",
       images: [
         {
-          url: seoImages.desiccantSizing.src,
-          width: seoImages.desiccantSizing.width,
-          height: seoImages.desiccantSizing.height,
-          alt: `${page.productA} vs ${page.productB} — side-by-side comparison and buyer decision matrix`,
+          url: heroImage.src,
+          width: heroImage.width,
+          height: heroImage.height,
+          alt: heroImage.alt,
         },
       ],
     },
@@ -51,6 +53,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
   if (!page) notFound();
 
   const author = getAuthor(defaultAuthorSlug);
+  const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
 
   return (
     <main className={styles.page}>
@@ -68,6 +71,19 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
             </p>
           ) : null}
         </header>
+
+        <figure className={styles.heroVisual}>
+          <Image
+            src={heroImage.src}
+            alt={heroImage.alt}
+            title={heroImage.title}
+            fill
+            className={styles.heroImage}
+            sizes="(max-width: 900px) 100vw, 1080px"
+            priority
+          />
+          <figcaption>{heroImage.caption}</figcaption>
+        </figure>
 
         <section className={styles.section}>
           <div className={styles.introGrid}>
@@ -177,6 +193,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                 description: page.description,
                 inLanguage: "en",
                 articleSection: "Product Comparison",
+                image: absoluteUrl(heroImage.src),
                 author: author
                   ? {
                       "@type": "Organization",

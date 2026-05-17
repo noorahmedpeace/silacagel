@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
-import { seoImages } from "@/lib/seo-images";
+import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { exportMarkets, getExportMarket } from "../markets";
 
@@ -52,7 +52,10 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
   }
 
   const hreflang = MARKET_HREFLANG[market.slug] ?? "en";
-  const heroImage = seoImages.exportLogistics;
+  const heroImage = withPageImageContext(
+    getExportMarketSeoImage(market.slug),
+    `${market.country} silica gel export supply`,
+  );
 
   // hreflang annotations:
   // - this market's region code maps to its own URL
@@ -86,7 +89,7 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
           url: heroImage.src,
           width: heroImage.width,
           height: heroImage.height,
-          alt: `${market.country} ${heroImage.alt}`,
+          alt: heroImage.alt,
         },
       ],
       type: "website",
@@ -135,7 +138,10 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
     itemListElement: breadcrumb.itemListElement,
   };
   const pageUrl = absoluteUrl(`/export/${market.slug}`);
-  const heroImage = seoImages.exportLogistics;
+  const heroImage = withPageImageContext(
+    getExportMarketSeoImage(market.slug),
+    `${market.country} silica gel export supply`,
+  );
   const marketJsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -199,8 +205,8 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
       <figure className={styles.articleVisual}>
         <Image
           src={heroImage.src}
-          alt={`${market.country} ${heroImage.alt}`}
-          title={`${market.country} ${heroImage.title}`}
+          alt={heroImage.alt}
+          title={heroImage.title}
           fill
           className={styles.articleVisualImage}
           sizes="(max-width: 900px) 100vw, 920px"

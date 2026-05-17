@@ -121,6 +121,38 @@
   color: #044d99;
 }
 
+.guideVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(0, 103, 197, 0.18);
+  border-radius: 18px;
+  background: #eef6ff;
+  box-shadow: 0 24px 60px -44px rgba(15, 23, 42, 0.32);
+  break-inside: avoid;
+}
+
+.guideImage {
+  object-fit: cover;
+}
+
+.guideVisual figcaption {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 103, 197, 0.14);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.84);
+  color: #17365f;
+  font-size: 0.82rem;
+  font-weight: 750;
+  line-height: 1.45;
+  backdrop-filter: blur(12px);
+}
+
 .toc {
   padding: 24px 28px;
   border: 1px solid var(--ds-hairline);
@@ -305,6 +337,15 @@
   .hero h1 {
     font-size: 1.9rem;
   }
+  .guideVisual {
+    border-radius: 14px;
+  }
+  .guideVisual figcaption {
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    font-size: 0.72rem;
+  }
 }
 
 /* Print stylesheet — users can use the browser's "Save as PDF" to
@@ -321,6 +362,7 @@
   }
   .toc,
   .heroActions,
+  .guideVisual,
   .ctaSection {
     display: none !important;
   }
