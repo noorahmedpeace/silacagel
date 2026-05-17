@@ -3,6 +3,7 @@ import Link from "next/link";
 import { comparePages } from "@/lib/compare-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
+import { seoImages } from "@/lib/seo-images";
 import styles from "./compare.module.css";
 
 export const metadata: Metadata = {
@@ -18,6 +19,14 @@ export const metadata: Metadata = {
       "Side-by-side desiccant comparisons for industrial procurement teams across cargo type, route humidity, and regulatory requirements.",
     url: "/compare",
     type: "website",
+    images: [
+      {
+        url: seoImages.desiccantSizing.src,
+        width: seoImages.desiccantSizing.width,
+        height: seoImages.desiccantSizing.height,
+        alt: "Desiccant comparison hub — silica gel vs clay vs molecular sieve vs oxygen absorber decision matrix",
+      },
+    ],
   },
 };
 

@@ -368,7 +368,7 @@ export async function generateMetadata({
           url: product.heroImage,
           width: 1600,
           height: 900,
-          alt: product.name,
+          alt: `${product.name} — ${product.summary}`,
         },
       ],
       type: "website",
@@ -448,8 +448,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className={styles.imageWrap}>
                   <Image
                     src={product.heroImage}
-                    alt={product.name}
-                    title={`${product.name} product visual`}
+                    alt={`${product.name} — ${product.summary}`}
+                    title={`${product.name} | ${siteName} silica gel desiccant supply`}
                     fill
                     className={styles.image}
                     sizes="(max-width: 960px) 100vw, 42vw"

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
-import { getIndustrySeoImage } from "@/lib/seo-images";
+import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 
 const industryPages = {
@@ -96,7 +96,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const heroImage = getIndustrySeoImage(industry);
+  const heroImage = withPageImageContext(getIndustrySeoImage(industry), page.title);
 
   return {
     title: page.title,
@@ -131,7 +131,7 @@ export default async function IndustryPage({
     notFound();
   }
 
-  const heroImage = getIndustrySeoImage(industry);
+  const heroImage = withPageImageContext(getIndustrySeoImage(industry), page.title);
   const pageUrl = absoluteUrl(`/industries/${industry}`);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", href: "/" },

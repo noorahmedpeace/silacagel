@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getBlogCluster } from "@/lib/blog-clusters";
-import { getBlogSeoImage } from "@/lib/seo-images";
+import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
 
@@ -31,7 +31,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const heroImage = getBlogSeoImage(article.slug);
+  const heroImage = withPageImageContext(getBlogSeoImage(article.slug), article.title);
 
   return {
     title: `${article.title} | Silica Gel Buyer Guide`,
@@ -67,7 +67,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
   const { publishedAt, updatedAt } = getArticlePublication(slug);
   const author = getAuthor(defaultAuthorSlug);
   const cluster = getBlogCluster(slug);
-  const heroImage = getBlogSeoImage(article.slug);
+  const heroImage = withPageImageContext(getBlogSeoImage(article.slug), article.title);
 
   return (
     <main className={styles.page}>

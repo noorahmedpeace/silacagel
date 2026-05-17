@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { comparePages, getComparePage } from "@/lib/compare-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../compare.module.css";
 
 type ComparePageProps = {
@@ -32,6 +33,14 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
       description: page.description,
       url: `/compare/${slug}`,
       type: "article",
+      images: [
+        {
+          url: seoImages.desiccantSizing.src,
+          width: seoImages.desiccantSizing.width,
+          height: seoImages.desiccantSizing.height,
+          alt: `${page.productA} vs ${page.productB} — side-by-side comparison and buyer decision matrix`,
+        },
+      ],
     },
   };
 }

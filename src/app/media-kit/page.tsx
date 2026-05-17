@@ -14,6 +14,7 @@ import {
   mainEmail,
   phoneHref,
 } from "@/lib/product-data";
+import { seoImages } from "@/lib/seo-images";
 import styles from "./media-kit.module.css";
 
 export const metadata: Metadata = {
@@ -29,6 +30,14 @@ export const metadata: Metadata = {
       "Boilerplate text, brand assets, fact sheet, leadership and certifications for media coverage of DryGelWorld.",
     url: "/media-kit",
     type: "website",
+    images: [
+      {
+        url: seoImages.defaultOg.src,
+        width: seoImages.defaultOg.width,
+        height: seoImages.defaultOg.height,
+        alt: `${siteName} press kit — silica gel manufacturer-exporter since 1983, fact sheet and brand assets for editorial coverage`,
+      },
+    ],
   },
 };
 

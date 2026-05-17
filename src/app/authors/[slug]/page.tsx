@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { authors, getAuthor } from "@/lib/authors";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { phoneHref, displayPhone } from "@/lib/product-data";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../authors.module.css";
 
 type AuthorPageProps = {
@@ -26,6 +27,20 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
     description: author.shortBio,
     alternates: {
       canonical: `/authors/${slug}`,
+    },
+    openGraph: {
+      title: `${author.name} | ${siteName} Export Desk`,
+      description: author.shortBio,
+      url: `/authors/${slug}`,
+      type: "profile",
+      images: [
+        {
+          url: seoImages.defaultOg.src,
+          width: seoImages.defaultOg.width,
+          height: seoImages.defaultOg.height,
+          alt: `${author.name} — ${author.role}`,
+        },
+      ],
     },
   };
 }

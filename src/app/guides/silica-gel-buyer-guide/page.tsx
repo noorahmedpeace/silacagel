@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
+import { seoImages } from "@/lib/seo-images";
 import styles from "./guide.module.css";
 
 const GUIDE_PATH = "/guides/silica-gel-buyer-guide";
@@ -21,6 +22,14 @@ export const metadata: Metadata = {
     description: GUIDE_DESCRIPTION,
     url: GUIDE_PATH,
     type: "article",
+    images: [
+      {
+        url: seoImages.desiccantSizing.src,
+        width: seoImages.desiccantSizing.width,
+        height: seoImages.desiccantSizing.height,
+        alt: "Industrial silica gel buyer guide — sachet sizing math, container desiccant deployment, route humidity adjustments, and export packaging protection",
+      },
+    ],
   },
 };
 
