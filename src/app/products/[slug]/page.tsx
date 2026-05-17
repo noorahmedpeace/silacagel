@@ -666,57 +666,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                {
-                  "@type": "Product",
-                  "@id": `${absoluteUrl(`/products/${product.slug}`)}#product`,
-                  name: product.name,
-                  sku: product.slug,
-                  description: product.description,
-                  category: product.slug.includes("hair-net") || product.slug.includes("beard-cover")
-                    ? "Industrial disposable PPE"
-                    : product.slug === "dry-clay-desiccant"
-                      ? "Industrial clay desiccant"
-                      : "Industrial silica gel desiccant",
-                  image: absoluteUrl(product.heroImage),
-                  url: absoluteUrl(`/products/${product.slug}`),
-                  brand: {
-                    "@type": "Brand",
-                    name: siteName,
-                  },
-                  manufacturer: {
-                    "@type": "Organization",
-                    name: siteName,
-                    url: absoluteUrl(),
-                  },
-                  material: product.slug === "dry-clay-desiccant"
-                    ? "Montmorillonite / bentonite clay"
-                    : product.slug.includes("hair-net") || product.slug.includes("beard-cover")
-                      ? "Non-woven polypropylene"
-                      : "Silicon dioxide",
-                  countryOfOrigin: "Pakistan",
-                  additionalProperty: [
-                    {
-                      "@type": "PropertyValue",
-                      name: "Available sizes",
-                      value: product.featuredSizes.join(", "),
-                    },
-                    {
-                      "@type": "PropertyValue",
-                      name: "Lead time",
-                      value: product.leadTime,
-                    },
-                  ],
-                  // Note: omitted offers/AggregateOffer because DryGelWorld is a
-                  // B2B quote-on-request supplier and does not publish public
-                  // prices. Google's Product rich result requires price /
-                  // lowPrice / highPrice on Offer, and emitting any of those
-                  // values without real pricing would either fail validation
-                  // (current state — "1 invalid item detected") or misrepresent
-                  // the commercial model (worse). Product, brand, manufacturer,
-                  // material, and PropertyValue fields are kept — they pass
-                  // Schema.org validation and surface in non-shopping rich
-                  // results (image, name, brand) without requiring prices.
-                },
+                // Product schema deliberately removed — Google's Product rich-
+                // result validator requires offers/review/aggregateRating, none
+                // of which apply to a B2B quote-on-request supplier. Emitting
+                // a Product node without those fields generates a persistent
+                // "1 invalid item detected" warning in GSC. Inventing prices
+                // or ratings would pass validation but misrepresent the
+                // commercial model and risk manual penalty.
+                //
+                // The page is still indexable, breadcrumbs and FAQ rich
+                // results (which actually matter for B2B SERP CTR) remain
+                // valid below. Entity context for Google's Knowledge Graph
+                // is carried by the Organization schema on the home/about
+                // pages, which already declares the same brand/manufacturer
+                // identity.
                 ...(faqs.length > 0
                   ? [
                       {
