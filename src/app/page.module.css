@@ -3289,6 +3289,10 @@
   scroll-margin-top: 118px;
 }
 
+:global(#moisture-calculator) {
+  scroll-margin-top: 118px;
+}
+
 .pricingHighlights {
   gap: 10px;
   margin-bottom: 16px;
@@ -4270,6 +4274,11 @@
   }
 
   .calculatorAnchor {
+    scroll-margin-top: 178px;
+  }
+
+  :global(#purchase-calculator),
+  :global(#moisture-calculator) {
     scroll-margin-top: 178px;
   }
 
