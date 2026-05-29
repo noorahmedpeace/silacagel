@@ -4274,12 +4274,12 @@
   }
 
   .calculatorAnchor {
-    scroll-margin-top: 178px;
+    scroll-margin-top: 132px;
   }
 
   :global(#purchase-calculator),
   :global(#moisture-calculator) {
-    scroll-margin-top: 178px;
+    scroll-margin-top: 132px;
   }
 
   .hero {
