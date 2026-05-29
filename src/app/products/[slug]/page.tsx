@@ -341,6 +341,15 @@ export async function generateStaticParams() {
   }));
 }
 
+function compactProductDescription(product: { summary: string; priceBand: string }) {
+  const base = `${product.summary} ${product.priceBand}.`;
+
+  if (base.length <= 155) return base;
+  if (product.summary.length <= 155) return product.summary;
+
+  return `${product.summary.slice(0, 152).replace(/\s+\S*$/, "")}.`;
+}
+
 export async function generateMetadata({
   params,
 }: ProductPageProps): Promise<Metadata> {
@@ -353,15 +362,18 @@ export async function generateMetadata({
     };
   }
 
+  const title = `${product.shortName} | DryGelWorld`;
+  const description = compactProductDescription(product);
+
   return {
-    title: `${product.name} | Dry Gel World`,
-    description: `${product.summary} ${product.priceBand}. Factory-direct inquiries available on ${displayPhone}.`,
+    title,
+    description,
     alternates: {
       canonical: `/products/${product.slug}`,
     },
     openGraph: {
-      title: `${product.name} | Dry Gel World`,
-      description: product.summary,
+      title,
+      description,
       url: `/products/${product.slug}`,
       images: [
         {
@@ -372,6 +384,12 @@ export async function generateMetadata({
         },
       ],
       type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.heroImage],
     },
   };
 }

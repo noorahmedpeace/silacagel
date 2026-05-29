@@ -118,6 +118,12 @@ export async function generateMetadata({
       ],
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: page.title,
+      description: page.description,
+      images: [heroImage.src],
+    },
   };
 }
 

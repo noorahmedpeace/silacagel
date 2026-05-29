@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
@@ -32,9 +32,9 @@ const body = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drygelworld.com"),
   applicationName: brandName,
-  title: "Silica Gel Manufacturer Since 1983 — ISO 9001 Export Supply | DryGelWorld",
+  title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
   description:
-    "Silica gel desiccant manufacturer-exporter since 1983. ISO 9001:2015 certified. Industrial sachets, container desiccants, bulk beads & private-label packets shipped to 60+ countries with SDS, COA, and DMF-free statement per shipment.",
+    "Silica gel desiccant manufacturer-exporter since 1983. Industrial sachets, bulk beads, container desiccants, and private-label packets with SDS and COA support.",
   keywords: [
     "DryGelWorld",
     "silica gel manufacturer",
@@ -67,31 +67,14 @@ export const metadata: Metadata = {
     type: "website",
   },
   alternates: {
-    canonical: "/",
-    // Reciprocal hreflang: declare all regional export landings as
-    // language/region alternates of the home page so Google can route
-    // each regional SERP to the matching /export/[market] page.
-    languages: {
-      "en-US": "/export/usa",
-      "en-GB": "/export/uk",
-      "en-DE": "/export/germany",
-      "en-AE": "/export/uae",
-      "en-SA": "/export/saudi-arabia",
-      "en-QA": "/export/qatar",
-      "en-IN": "/export/india",
-      "en-PK": "/export/pakistan",
-      "en-CA": "/export/canada",
-      "en-AU": "/export/australia",
-      "en-BD": "/export/bangladesh",
-      "en-ID": "/export/indonesia",
-      "en-MY": "/export/malaysia",
-      "en-TR": "/export/turkey",
-      "en-MX": "/export/mexico",
-      "en-BR": "/export/brazil",
-      "en-VN": "/export/vietnam",
-      "en-RU": "/export/russia",
-      "x-default": "/",
-    },
+    // The home page is a single English page. It must NOT declare the
+    // regional /export/[market] pages as its language alternates: those are
+    // different-content pages with their own self-canonicals, so the cluster
+    // was non-reciprocal and silently discarded by Google. The reciprocal
+    // hreflang cluster now lives entirely on /export/[market] (see that
+    // route's generateMetadata). Canonical is the slash-consistent absolute
+    // URL so it byte-matches the sitemap and every JSON-LD @id.
+    canonical: siteUrl,
   },
   icons: {
     icon: [
@@ -119,6 +102,17 @@ export const metadata: Metadata = {
       "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
     images: [defaultSeoImage],
   },
+};
+
+// Next 16 requires the viewport to be a dedicated export, separate from
+// `metadata`. Without this there is no <meta name="viewport"> at all, which
+// breaks mobile rendering and mobile-first ranking. Do NOT add maximum-scale
+// or user-scalable=no (accessibility + Google mobile-usability penalty).
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover", // respects iOS safe-area for the bottom floats
+  themeColor: "#0067c5",
 };
 
 export default function RootLayout({

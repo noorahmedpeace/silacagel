@@ -90,7 +90,13 @@ export default function CaseStudiesPage() {
         {caseStudies.map((item) => (
           <article className={styles.caseCard} key={item.title}>
             <div className={styles.caseImage}>
-              <Image src={item.image} alt={item.industry} fill className={styles.image} sizes="(max-width: 1000px) 100vw, 38vw" />
+              <Image
+                src={item.image}
+                alt={`${item.industry} packaging protected with silica gel desiccant`}
+                fill
+                className={styles.image}
+                sizes="(max-width: 1000px) 100vw, 38vw"
+              />
             </div>
             <div className={styles.caseCopy}>
               <span>{item.label} / {item.industry}</span>

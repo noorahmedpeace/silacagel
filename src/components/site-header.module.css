@@ -295,7 +295,7 @@
   display: grid;
   gap: 1px;
   text-align: left;
-  font-size: 0.6rem;
+  font-size: var(--ds-eyebrow); /* was 0.6rem / 9.6px — too small to read */
   font-weight: 850;
   letter-spacing: 0.06em;
   line-height: 1;
@@ -517,7 +517,7 @@
   }
 
   .calcText {
-    font-size: 0.62rem;
+    font-size: var(--ds-eyebrow); /* was 0.62rem / ~10px on mobile */
   }
 
   .calcText strong {

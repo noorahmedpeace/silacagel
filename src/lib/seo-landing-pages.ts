@@ -4086,19 +4086,41 @@ export function getSeoLandingPage(slug: SeoLandingSlug) {
   return seoLandingPages[slug];
 }
 
+function compactSeoTitle(title: string) {
+  if (title.length <= 60) return title;
+
+  const primaryTitle = title.split("|")[0].trim();
+  if (primaryTitle.length <= 60) return primaryTitle;
+
+  return `${primaryTitle.slice(0, 57).replace(/\s+\S*$/, "")}...`;
+}
+
+function compactSeoDescription(description: string) {
+  if (description.length <= 158) return description;
+
+  const firstSentence = description.split(". ")[0];
+  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
+    return `${firstSentence}.`;
+  }
+
+  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
+}
+
 export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
   const page = getSeoLandingPage(slug);
   const heroImage = getLandingSeoImage(page);
+  const metaTitle = compactSeoTitle(page.title);
+  const metaDescription = compactSeoDescription(page.metaDescription);
 
   return {
-    title: page.title,
-    description: page.metaDescription,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `/${page.slug}`,
     },
     openGraph: {
-      title: page.title,
-      description: page.metaDescription,
+      title: metaTitle,
+      description: metaDescription,
       url: `/${page.slug}`,
       siteName,
       images: [
@@ -4110,6 +4132,15 @@ export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
         },
       ],
       type: "website",
+    },
+    // Per-page Twitter card. Next does not derive twitter from openGraph when a
+    // parent layout already defines a twitter block, so without this every one
+    // of the 70+ landing pages shared the homepage's generic card on X.
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDescription,
+      images: [heroImage.src || defaultSeoImage],
     },
   };
 }

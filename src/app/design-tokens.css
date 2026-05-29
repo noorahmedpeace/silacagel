@@ -64,15 +64,42 @@
   --ds-stack-lg: 24px;
   --ds-stack-xl: 32px;
 
-  /* Type scale (clamp-based for fluid sizing) */
-  --ds-h1: clamp(2.125rem, 4.4vw, 3.75rem);
-  --ds-h2: clamp(1.625rem, 2.8vw, 2.375rem);
-  --ds-h3: 1.18rem;
-  --ds-lead: clamp(1rem, 1.4vw, 1.18rem);
-  --ds-body: 1rem;
-  --ds-small: 0.92rem;
-  --ds-meta: 0.85rem;
-  --ds-eyebrow: 11px;
+  /* ─────────────────────────────────────────────────────────────────
+   * UNIFIED FLUID TYPE SCALE — single source of truth for ALL text.
+   * Each step is clamp(min, preferred(rem+vw), max): the rem floor keeps
+   * phones readable (tuned for ~360px), the rem+vw preferred term scales
+   * smoothly through tablet, the max caps desktop. Prefer these tokens
+   * over hardcoded px/rem in any module so every section matches.
+   * ───────────────────────────────────────────────────────────────── */
+  --ds-h1: clamp(2rem, 1.4rem + 3vw, 3.75rem);        /* 32 → 60px */
+  --ds-h2: clamp(1.5rem, 1.15rem + 1.75vw, 2.375rem); /* 24 → 38px */
+  --ds-h3: clamp(1.2rem, 1.08rem + 0.6vw, 1.5rem);    /* 19 → 24px (now fluid) */
+  --ds-h4: clamp(1.05rem, 1rem + 0.25vw, 1.1875rem);  /* 17 → 19px */
+  --ds-lead: clamp(1.05rem, 1rem + 0.45vw, 1.25rem);  /* 17 → 20px */
+  --ds-body: clamp(0.95rem, 0.92rem + 0.18vw, 1.0625rem); /* 15.2 → 17px */
+  --ds-small: 0.9rem;                                 /* 14.4px (≥ readable floor) */
+  --ds-meta: 0.8rem;                                  /* 12.8px — captions/labels */
+  --ds-eyebrow: 0.6875rem;                            /* 11px — kicker pills */
+
+  /* Line-heights — pair with the sizes above for a clean vertical rhythm. */
+  --ds-lh-tight: 1.12;  /* hero / h1 */
+  --ds-lh-snug: 1.22;   /* h2 / h3 / h4 */
+  --ds-lh-base: 1.5;    /* leads, UI text */
+  --ds-lh-body: 1.65;   /* paragraphs — readability */
+
+  /* Letter-spacing — headings tighten, eyebrows/labels open up. */
+  --ds-ls-tight: -0.02em;  /* large display headings */
+  --ds-ls-snug: -0.01em;   /* h2 / h3 */
+  --ds-ls-wide: 0.02em;
+  --ds-ls-eyebrow: 0.12em; /* uppercase kickers */
+
+  /* Canonical responsive breakpoints — standardize on THREE. CSS @media
+   * cannot read custom properties, so treat these as the documented values
+   * to use (mobile ≤640, tablet ≤900, desktop >900) instead of inventing
+   * new ones per file. */
+  --bp-mobile: 640px;
+  --bp-tablet: 900px;
+  --bp-desktop: 1200px;
 
   /* Motion */
   --ds-ease: cubic-bezier(0.2, 0.8, 0.2, 1);

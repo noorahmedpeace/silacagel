@@ -11,18 +11,21 @@ const GUIDE_TITLE =
   "The Industrial Silica Gel Buyer Guide: Selection, Sizing, Container Desiccants, and Export Packaging Protection";
 const GUIDE_DESCRIPTION =
   "The definitive long-form buyer guide for industrial silica gel and desiccant procurement — selection criteria, sizing math, container desiccant deployment, route-humidity adjustments, regulatory documentation, and export packaging discipline. Written by the DryGelWorld Export Desk for B2B procurement teams.";
+const GUIDE_META_TITLE = "Industrial Silica Gel Buyer Guide";
+const GUIDE_META_DESCRIPTION =
+  "Industrial silica gel buyer guide covering selection, sizing, container desiccants, route humidity, export packaging, and document checks.";
 
 const GUIDE_IMAGE = seoImages.buyerGuideProcess;
 
 export const metadata: Metadata = {
-  title: `${GUIDE_TITLE} | ${siteName}`,
-  description: GUIDE_DESCRIPTION,
+  title: GUIDE_META_TITLE,
+  description: GUIDE_META_DESCRIPTION,
   alternates: {
     canonical: GUIDE_PATH,
   },
   openGraph: {
-    title: GUIDE_TITLE,
-    description: GUIDE_DESCRIPTION,
+    title: GUIDE_META_TITLE,
+    description: GUIDE_META_DESCRIPTION,
     url: GUIDE_PATH,
     type: "article",
     images: [

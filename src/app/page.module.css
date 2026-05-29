@@ -152,26 +152,28 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: none;
   border-radius: 999px;
-  font-size: 0.72rem;
+  font-size: var(--ds-eyebrow);
   font-weight: 800;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--ds-ls-eyebrow);
   text-transform: uppercase;
   margin-bottom: 24px;
 }
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(4.25rem, 7vw, 5.7rem);
-  line-height: 0.94;
-  letter-spacing: -0.06em;
+  /* Was clamp(4.25rem, 7vw, 5.7rem) — a 68px floor that was enormous on
+     phones. Fluid hero display with a phone-safe 40px floor up to 91px. */
+  font-size: clamp(2.5rem, 1.6rem + 4.5vw, 5.7rem);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: -0.04em;
   margin-bottom: 24px;
   color: white;
-  max-width: 10.6ch;
+  max-width: 14ch;
   text-wrap: balance;
 }
 
 .lead {
-  font-size: 1.12rem;
+  font-size: var(--ds-lead);
   color: rgba(255, 255, 255, 0.82);
   max-width: 50ch;
   margin-bottom: 30px;
@@ -569,8 +571,12 @@
 .announcementBar {
   position: relative;
   overflow: hidden;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  /* 100vw includes the scrollbar width and pushed a horizontal scroll on any
+     device with a classic scrollbar. Full-width by default; only go full-bleed
+     where the scrollbar-aware dynamic viewport unit (dvw) is supported. */
+  width: 100%;
+  margin-left: 0;
+  max-width: 100%;
   min-height: 40px;
   display: flex;
   align-items: center;
@@ -579,6 +585,13 @@
   background: #0067c5;
   box-shadow: 0 16px 32px -28px rgba(0, 103, 197, 0.5);
   isolation: isolate;
+}
+@supports (width: 100dvw) {
+  .announcementBar {
+    width: 100dvw;
+    margin-left: calc(50% - 50dvw);
+    max-width: 100dvw;
+  }
 }
 
 .announcementBar::before {
@@ -959,16 +972,17 @@
 
 .sectionHead h2 {
   font-family: var(--font-display);
-  font-size: 3.2rem;
-  line-height: 1.1;
-  letter-spacing: -0.065em;
+  /* Was a fixed 3.2rem (51px) — oversized on phones. Unified fluid h2. */
+  font-size: var(--ds-h2);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-snug);
   margin: 18px 0 14px;
   color: var(--ink);
   background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  max-width: 14ch;
+  max-width: 18ch;
 }
 
 .sectionHead .kicker {
@@ -979,7 +993,8 @@
 }
 
 .sectionHead p {
-  font-size: 1.06rem;
+  font-size: var(--ds-lead);
+  line-height: var(--ds-lh-base);
   color: var(--muted);
   max-width: 58ch;
 }
@@ -3902,8 +3917,12 @@
 
 .hero h1 {
   max-width: 16ch;
-  font-size: clamp(3.15rem, 6.2vw, 6.2rem);
-  line-height: 0.92;
+  /* Effective hero rule (this "redesign pass" overrides the earlier ones).
+     Was clamp(3.15rem, 6.2vw, 6.2rem) — a 50px floor that was oversized on
+     phones. Phone-safe fluid display: 40px floor → 99px ceiling. */
+  font-size: clamp(2.5rem, 1.5rem + 5vw, 6.2rem);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: -0.04em;
 }
 
 .lead {
@@ -4889,5 +4908,57 @@
   .ctaBanner {
     content-visibility: auto;
     contain-intrinsic-size: 820px;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+ * UNIFIED TYPOGRAPHY NORMALIZATION (appended last, on purpose).
+ * This file accumulated several stacked "redesign passes" that re-declare
+ * the same heading selectors with large, fixed/clamp mobile floors, so
+ * headings rendered oversized and inconsistently on phones. Rather than
+ * untangle every duplicate inline (regression-prone), this block — last in
+ * source order and specificity-matched to those selectors — caps every
+ * heading variant to the unified fluid scale on tablet/mobile. Desktop
+ * design above is untouched (rules only apply ≤900px).
+ * ────────────────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero h1,
+  .heroCopy h1 {
+    font-size: clamp(2.25rem, 1.4rem + 4.2vw, 3.25rem);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: -0.03em;
+  }
+
+  .sectionHead h2,
+  .scienceSection .sectionHead h2,
+  .whySection .sectionHead h2,
+  .applicationSection .sectionHead h2,
+  .productSection .sectionHead h2,
+  .pricingSection .sectionHead h2,
+  .partnerSection .sectionHead h2,
+  .proofSection .sectionHead h2,
+  .exportSection .sectionHead h2,
+  .quoteStage h2 {
+    font-size: var(--ds-h2);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: var(--ds-ls-snug);
+  }
+
+  .sectionHead p,
+  .lead {
+    font-size: var(--ds-lead);
+    line-height: var(--ds-lh-base);
+  }
+
+  /* Keep every eyebrow/kicker on one consistent small size on phones. */
+  .kicker,
+  .scienceSection .sectionHead .kicker,
+  .whySection .sectionHead .kicker,
+  .applicationSection .sectionHead .kicker,
+  .productSection .sectionHead .kicker,
+  .pricingSection .sectionHead .kicker,
+  .partnerSection .sectionHead .kicker {
+    font-size: var(--ds-eyebrow);
+    letter-spacing: var(--ds-ls-eyebrow);
   }
 }

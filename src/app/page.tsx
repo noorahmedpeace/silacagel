@@ -361,7 +361,7 @@ const documentationMatrix = [
   { name: "SDS / MSDS", status: "Request", use: "Safety and handling document matched to product format." },
   { name: "COA", status: "Request", use: "Batch or product-level quality reference for buyer files." },
   { name: "DMF-free statement", status: "Supported", use: "Product-level claim for buyers avoiding DMF-risk materials." },
-  { name: "FDA / REACH / Halal / GMP", status: "Do not claim yet", use: "Show only if valid documents are obtained for the exact order." },
+  { name: "FDA / REACH / Halal / GMP", status: "Buyer-driven", use: "Discussed per destination market and confirmed against valid documents before commercial terms." },
 ];
 
 const trustedIndustries = [
@@ -609,7 +609,7 @@ export default function Home() {
                       <div className={styles.industrialBentoImage}>
                       <Image
                         src={card.image}
-                        alt={card.title}
+                        alt={`${card.title} silica gel desiccant product format for export buyers`}
                         title={`${card.title} visual`}
                         fill
                         className={styles.image}
@@ -839,7 +839,7 @@ export default function Home() {
                     <div className={styles.applicationImage}>
                       <Image
                         src={item.image}
-                        alt={item.title}
+                        alt={`${item.title} protected with silica gel desiccant in packaging`}
                         title={`${item.title} silica gel use case`}
                         fill
                         className={styles.image}
@@ -873,7 +873,7 @@ export default function Home() {
                     <div className={styles.caseStudyImage}>
                       <Image
                         src={item.image}
-                        alt={item.industry}
+                        alt={`${item.industry} moisture protection case study for silica gel buyers`}
                         title={`${item.industry} moisture protection case study`}
                         fill
                         className={styles.image}
@@ -1196,7 +1196,7 @@ export default function Home() {
           </section>
 
           <Reveal direction="up">
-            <section className={styles.homeRfqSection} aria-label="International RFQ form">
+            <section id="contact" className={styles.homeRfqSection} aria-label="International RFQ form">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Serious Buyer RFQ</p>
                 <AnimatedText text="Make the form the primary conversion path for bulk orders." mode="rise" />

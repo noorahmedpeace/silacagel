@@ -236,7 +236,7 @@ export default function DocumentsPage() {
               <div className={styles.proofImage}>
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={`${item.title} proof asset for silica gel export documentation`}
                   fill
                   className={styles.image}
                   sizes="(max-width: 900px) 100vw, 30vw"

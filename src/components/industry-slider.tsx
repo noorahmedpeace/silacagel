@@ -46,7 +46,7 @@ export const IndustrySlider = ({ industries }: IndustrySliderProps) => {
           >
             <Image
               src={activeIndustry.image}
-              alt={activeIndustry.name}
+              alt={`${activeIndustry.name} packaging protected with silica gel desiccant`}
               fill
               className={styles.image}
               style={{ objectFit: "cover" }}

@@ -129,6 +129,70 @@ button {
   cursor: pointer;
 }
 
+/* ----------------------------------------------------------------------
+ * BASE TYPOGRAPHY — unified fluid scale (tokens in design-tokens.css).
+ * Every page inherits these defaults so headings and body text stay
+ * consistent across sections without each CSS module re-declaring sizes.
+ * Module classes can still override intentionally (class beats element),
+ * so this is a safe consistency floor, not a hard override.
+ * -------------------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: var(--ds-lh-snug);
+  text-wrap: balance; /* progressive: avoids ragged / orphaned heading lines */
+}
+
+h1 {
+  font-size: var(--ds-h1);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-tight);
+}
+
+h2 {
+  font-size: var(--ds-h2);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-snug);
+}
+
+h3 {
+  font-size: var(--ds-h3);
+  letter-spacing: var(--ds-ls-snug);
+}
+
+h4 {
+  font-size: var(--ds-h4);
+}
+
+p {
+  font-size: var(--ds-body);
+  line-height: var(--ds-lh-body);
+  text-wrap: pretty; /* progressive: better line breaks / no single-word last line */
+}
+
+li {
+  font-size: var(--ds-body);
+  line-height: var(--ds-lh-body);
+}
+
+small {
+  font-size: var(--ds-small);
+}
+
+/* Never let a CTA label overflow its pill on narrow phones. */
+button,
+a[role="button"],
+input[type="submit"],
+input[type="button"] {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
 .glass-panel {
   background: var(--surface);
   backdrop-filter: blur(16px);

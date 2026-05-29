@@ -61,11 +61,11 @@
 
 .hero h1 {
   font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-size: var(--ds-h1); /* was 3.5rem fixed — now unified fluid */
   font-weight: 900;
   color: var(--ink);
-  line-height: 1.04;
-  letter-spacing: -0.065em;
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-tight);
   background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -88,11 +88,11 @@
 
 .sectionHead h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: var(--ds-h2); /* was 2.4rem fixed */
   font-weight: 900;
   color: var(--ink);
-  line-height: 1.08;
-  letter-spacing: -0.055em;
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-snug);
   background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -156,15 +156,16 @@
 
 .ctaBanner h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: var(--ds-h2); /* was 2.4rem fixed */
   font-weight: 900;
   color: white;
-  letter-spacing: -0.055em;
+  letter-spacing: var(--ds-ls-snug);
 }
 
 .ctaBanner p {
   color: rgba(255,255,255,0.75);
-  font-size: 1.1rem;
+  font-size: var(--ds-lead);
+  line-height: var(--ds-lh-base);
   max-width: 500px;
 }
 
@@ -173,8 +174,7 @@
     padding: 32px 16px 80px;
     gap: 64px;
   }
-  .hero h1 { font-size: 2.2rem; }
-  .sectionHead h2 { font-size: 1.8rem; }
+  /* Heading sizes now come from the fluid --ds-* tokens (phone-safe floors),
+     so the old per-breakpoint font-size overrides are no longer needed. */
   .ctaBanner { padding: 48px 24px; }
-  .ctaBanner h2 { font-size: 1.8rem; }
 }

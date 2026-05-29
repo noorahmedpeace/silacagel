@@ -163,6 +163,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    industry: IND_TEXTILE,
   },
   "container-desiccant-vs-silica-gel": {
     guides: [

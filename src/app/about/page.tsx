@@ -9,7 +9,7 @@ import styles from "./about.module.css";
 export const metadata: Metadata = {
   title: "About Dry Gel World | Silica Gel Manufacturer Since 1983",
   description:
-    "DryGelWorld (Kamran Enterprises) has manufactured industrial silica gel desiccants in Karachi since 1983. ISO 9001:2015 certified; supplying 60+ export markets with SDS, COA, and DMF-free documentation per shipment.",
+    "DryGelWorld is a Karachi silica gel manufacturer since 1983, supplying export buyers with industrial desiccants, SDS, COA, and ISO support.",
   alternates: {
     canonical: "/about",
   },

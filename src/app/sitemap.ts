@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, sitemapLastModified } from "@/lib/seo";
 import { seoLandingPages } from "@/lib/seo-landing-pages";
 import { productCatalog } from "@/lib/product-data";
 import {
@@ -74,7 +74,12 @@ function sitemapImages(paths: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  // Use a real, stable last-modified date rather than build time. Stamping
+  // `new Date()` on every URL on every deploy told Google the lastmod was
+  // untrustworthy, so it discounted the signal for the whole sitemap. Bump
+  // `sitemapLastModified` in src/lib/seo.ts when content materially changes
+  // (and wire per-article dates here once articles carry date fields).
+  const lastModified = new Date(sitemapLastModified);
   const entries: MetadataRoute.Sitemap = [];
 
   for (const route of STATIC_ROUTES) {

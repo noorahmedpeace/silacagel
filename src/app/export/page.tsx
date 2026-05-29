@@ -5,9 +5,9 @@ import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Exporter to 60+ Countries — Karachi Manufacturer | DryGelWorld",
+  title: "Silica Gel Exporter | Global Desiccant Supply",
   description:
-    "Silica gel desiccant exporter shipping to 60+ countries from Karachi since 1983. ISO 9001:2015 manufacturer. FOB / CIF / EXW / DAP support with SDS, COA, and DMF-free statement per shipment.",
+    "Silica gel exporter from Karachi for global B2B buyers. FOB, CIF, EXW, and DAP quote support for sachets, bulk beads, and container strips.",
   alternates: {
     canonical: "/export",
   },
@@ -22,7 +22,7 @@ const exportBlocks = [
   {
     label: "02",
     title: "Documents before dispatch",
-    text: "SDS, COA, ISO 9001:2015, and DMF-free support can be aligned early. FDA, REACH, Halal, or GMP claims should only be used when valid proof exists.",
+    text: "Every shipment ships with ISO 9001:2015, SDS, COA, and a DMF-free statement. We do not hold FDA, REACH, Halal, or GMP certification; any region-specific compliance is a buyer-led discussion handled before terms.",
   },
   {
     label: "03",

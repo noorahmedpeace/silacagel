@@ -6,16 +6,16 @@ import styles from "../strategy-pages.module.css";
 import { blogArticles } from "./articles";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Buyer Guides — 30 B2B Procurement Articles | DryGelWorld",
+  title: "Silica Gel Buyer Guides | DryGelWorld",
   description:
-    "30 long-form buyer guides for industrial silica gel procurement — sachet sizing math, container desiccant deployment, route humidity adjustments, indicating gel, SDS / COA, private-label, pharma / food / electronics export packaging.",
+    "Buyer guides for silica gel procurement, sachet sizing, container desiccants, indicating gel, SDS, COA, private label, pharma, and food packaging.",
   alternates: {
     canonical: "/blog",
   },
   openGraph: {
-    title: "Silica Gel Buyer Guides — 30 B2B Procurement Articles | DryGelWorld",
+    title: "Silica Gel Buyer Guides | DryGelWorld",
     description:
-      "30 long-form buyer guides for industrial silica gel procurement — sachet sizing math, container desiccant deployment, route humidity adjustments, indicating gel, SDS / COA, private-label, pharma / food / electronics export packaging.",
+      "Buyer guides for silica gel procurement, sachet sizing, container desiccants, indicating gel, SDS, COA, private label, pharma, and food packaging.",
     url: "/blog",
     images: [
       {

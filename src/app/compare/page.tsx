@@ -9,7 +9,7 @@ import styles from "./compare.module.css";
 export const metadata: Metadata = {
   title: `Desiccant Comparison Hub | ${siteName}`,
   description:
-    "Side-by-side desiccant comparisons for industrial procurement teams. Silica gel vs clay desiccant, silica gel vs molecular sieve, silica gel vs oxygen absorber — spec tables, decision matrices, and the buyer logic for picking the right desiccant per cargo type.",
+    "Compare silica gel vs clay desiccant, molecular sieve, and oxygen absorbers for industrial cargo, packaging, route humidity, and buyer documents.",
   alternates: {
     canonical: "/compare",
   },

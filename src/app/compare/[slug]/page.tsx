@@ -18,21 +18,34 @@ export function generateStaticParams() {
   return comparePages.map((page) => ({ slug: page.slug }));
 }
 
+function compactCompareDescription(description: string) {
+  if (description.length <= 158) return description;
+
+  const firstSentence = description.split(". ")[0];
+  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
+    return `${firstSentence}.`;
+  }
+
+  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
+}
+
 export async function generateMetadata({ params }: ComparePageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = getComparePage(slug);
   if (!page) return {};
   const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
+  const metaTitle = `${page.productA} vs ${page.productB}`;
+  const metaDescription = compactCompareDescription(page.description);
 
   return {
-    title: `${page.productA} vs ${page.productB} — Buyer Comparison | ${siteName}`,
-    description: page.description,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `/compare/${slug}`,
     },
     openGraph: {
-      title: `${page.productA} vs ${page.productB} — Buyer Comparison`,
-      description: page.description,
+      title: metaTitle,
+      description: metaDescription,
       url: `/compare/${slug}`,
       type: "article",
       images: [
@@ -43,6 +56,12 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
           alt: heroImage.alt,
         },
       ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDescription,
+      images: [heroImage.src],
     },
   };
 }

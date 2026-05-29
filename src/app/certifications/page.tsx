@@ -8,9 +8,9 @@ import shared from "../shared-page.module.css";
 import styles from "../strategy-pages.module.css";
 
 export const metadata: Metadata = {
-  title: "Certifications & Compliance | DryGelWorld Quality & Documentation",
+  title: "Certifications & Compliance | DryGelWorld",
   description:
-    "Certifications and compliance documentation for DryGelWorld silica gel desiccants — ISO 9001:2015 quality system, DMF-free product statement, SDS, COA, and the documentation framework for regulated B2B export buyers.",
+    "DryGelWorld certification and document scope: ISO 9001:2015, DMF-free product statement, SDS, COA, and buyer-led compliance discussion.",
   alternates: {
     canonical: "/certifications",
   },

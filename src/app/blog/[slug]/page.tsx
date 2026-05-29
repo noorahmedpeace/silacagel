@@ -21,6 +21,27 @@ export function generateStaticParams() {
   }));
 }
 
+function compactMetaDescription(description: string) {
+  if (description.length <= 158) return description;
+
+  const firstSentence = description.split(". ")[0];
+  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
+    return `${firstSentence}.`;
+  }
+
+  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
+}
+
+function compactArticleTitle(article: { label: string; title: string }) {
+  const primaryTitle = article.title.split(":")[0];
+  const withLabel = `${article.label}: ${primaryTitle}`;
+
+  if (withLabel.length <= 60) return withLabel;
+  if (primaryTitle.length <= 60) return primaryTitle;
+
+  return `${primaryTitle.slice(0, 57).replace(/\s+\S*$/, "")}...`;
+}
+
 export async function generateMetadata({
   params,
 }: BlogArticlePageProps): Promise<Metadata> {
@@ -32,16 +53,18 @@ export async function generateMetadata({
   }
 
   const heroImage = withPageImageContext(getBlogSeoImage(article.slug), article.title);
+  const metaTitle = compactArticleTitle(article);
+  const metaDescription = compactMetaDescription(article.description);
 
   return {
-    title: `${article.title} | Silica Gel Buyer Guide`,
-    description: article.description,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `/blog/${article.slug}`,
     },
     openGraph: {
-      title: article.title,
-      description: article.description,
+      title: metaTitle,
+      description: metaDescription,
       url: `/blog/${article.slug}`,
       images: [
         {
@@ -52,6 +75,12 @@ export async function generateMetadata({
         },
       ],
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metaTitle,
+      description: metaDescription,
+      images: [heroImage.src],
     },
   };
 }

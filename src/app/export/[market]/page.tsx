@@ -35,12 +35,23 @@ const MARKET_HREFLANG: Record<string, string> = {
   germany: "en-DE",
   canada: "en-CA",
   australia: "en-AU",
-  europe: "en",
-  "fob-karachi": "en",
+  europe: "en-150", // Europe (UN M49 region code) — distinct & valid, avoids colliding on bare "en"
+  "fob-karachi": "en", // the single bare-"en" default for the whole cluster
 };
 
 export function generateStaticParams() {
   return exportMarkets.map((market) => ({ market: market.slug }));
+}
+
+function compactExportDescription(description: string) {
+  if (description.length <= 158) return description;
+
+  const firstSentence = description.split(". ")[0];
+  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
+    return `${firstSentence}.`;
+  }
+
+  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
 }
 
 export async function generateMetadata({ params }: ExportMarketPageProps): Promise<Metadata> {
@@ -57,18 +68,21 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     `${market.country} silica gel export supply`,
   );
 
-  // hreflang annotations:
-  // - this market's region code maps to its own URL
-  // - x-default points at the home page (signals to Google: when no
-  //   regional match, show the brand homepage instead of guessing)
-  const languages: Record<string, string> = {
-    [hreflang]: `/export/${market.slug}`,
-    "x-default": "/",
-  };
+  // Valid hreflang requires a COMPLETE, RECIPROCAL cluster: every member page
+  // must list every other member plus an x-default, and codes must be unique.
+  // Previously each market emitted only its own code + x-default → / (the home
+  // page, different content), so the set was non-reciprocal and Google
+  // discarded it. We now generate the full cluster from exportMarkets on every
+  // market page, with x-default pointing at the export hub (not the homepage).
+  const languages: Record<string, string> = Object.fromEntries(
+    exportMarkets.map((m) => [MARKET_HREFLANG[m.slug] ?? "en", `/export/${m.slug}`]),
+  );
+  languages["x-default"] = "/export";
+  const metaDescription = compactExportDescription(market.description);
 
   return {
     title: `${market.country} Silica Gel Supplier | Export Desiccant Supply`,
-    description: market.description,
+    description: metaDescription,
     keywords: [
       `silica gel supplier ${market.country}`,
       `desiccant supplier ${market.country}`,
@@ -82,7 +96,7 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     },
     openGraph: {
       title: `${market.country} Silica Gel Supplier | DryGelWorld`,
-      description: market.description,
+      description: metaDescription,
       url: `/export/${market.slug}`,
       images: [
         {
@@ -94,6 +108,12 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
       ],
       type: "website",
       locale: hreflang.replace("-", "_"),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${market.country} Silica Gel Supplier | DryGelWorld`,
+      description: metaDescription,
+      images: [heroImage.src],
     },
   };
 }
@@ -178,13 +198,15 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
           name: `${market.country} desiccant supply formats`,
           itemListElement: market.products.map((product) => ({
             "@type": "Offer",
+            // Modeled as a Service (not a bare Product): a Product node with no
+            // offers/price/availability triggers a persistent GSC "invalid item"
+            // warning — the exact issue the product pages were fixed to avoid.
             itemOffered: {
-              "@type": "Product",
+              "@type": "Service",
               name: product,
-              brand: {
-                "@type": "Brand",
-                name: brandName,
-              },
+              serviceType: "Industrial desiccant export supply",
+              provider: { "@id": `${absoluteUrl()}#organization` },
+              areaServed: market.country,
             },
           })),
         },

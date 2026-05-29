@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   absoluteUrl,
   brandDomain,
-  brandName,
   breadcrumbJsonLd,
   siteName,
 } from "@/lib/seo";
@@ -20,7 +19,7 @@ import styles from "./media-kit.module.css";
 export const metadata: Metadata = {
   title: `Press & Media Kit | ${siteName}`,
   description:
-    "Press resources for journalists, editors, and trade publications covering DryGelWorld (Kamran Enterprises) — boilerplate text, brand assets, fact sheet, leadership, certifications, and direct press contact for silica gel manufacturer-exporter coverage.",
+    "DryGelWorld press kit with boilerplate, brand assets, fact sheet, certifications, company profile, and press contact for silica gel coverage.",
   alternates: {
     canonical: "/media-kit",
   },
