@@ -4,8 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-// GA4 measurement ID. Override via NEXT_PUBLIC_GA_ID in Vercel env if regenerated.
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
+import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -22,6 +21,9 @@ import {
 } from "@/lib/seo";
 import "./design-tokens.css";
 import "./globals.css";
+
+// GA4 measurement ID. Override via NEXT_PUBLIC_GA_ID in Vercel env if regenerated.
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 
 const body = Inter({
   variable: "--font-body",
@@ -159,6 +161,7 @@ export default function RootLayout({
       </head>
       <body>
         <SiteHeader />
+        <HashAnchorScroll />
         {children}
         <MoistureCalcFloat />
         <WhatsAppFloat />
