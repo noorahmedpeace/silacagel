@@ -496,7 +496,7 @@
 
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(200px, 52vw);
+    width: min(150px, 39vw);
     height: 32px;
     max-height: 32px;
     object-position: left center;
@@ -507,11 +507,16 @@
     width: auto;
     order: 0;
     display: flex;
-    gap: 0;
+    gap: 6px;
   }
 
   .calcCta {
-    display: none;
+    display: inline-flex;
+    min-width: 96px;
+    min-height: 34px;
+    gap: 6px;
+    padding: 0 9px;
+    border-radius: 9px;
   }
 
   .calcIcon {
@@ -522,21 +527,31 @@
   }
 
   .calcText {
-    font-size: 0.58rem;
+    font-size: 0;
     letter-spacing: 0.04em;
+  }
+
+  .calcText > span {
+    display: none;
   }
 
   .calcText strong {
     font-size: 0.68rem;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   .navCta {
-    min-width: 126px;
+    min-width: 112px;
     min-height: 34px;
     gap: 6px;
-    padding: 0 11px;
+    padding: 0 10px;
     border-radius: 9px;
     font-size: 0.7rem;
+  }
+
+  .navCtaIcon {
+    display: none;
   }
 
   .nav {
@@ -576,12 +591,39 @@
 
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(190px, 52vw);
+    width: min(138px, 36vw);
     object-position: left center;
   }
 
   .headerActions {
     width: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    width: min(126px, 34vw);
+  }
+
+  .calcCta {
+    min-width: 36px;
+    width: 36px;
+    padding: 0;
+  }
+
+  .calcText {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .navCta {
+    min-width: 104px;
+    padding: 0 8px;
   }
 }
 
