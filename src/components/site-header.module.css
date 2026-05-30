@@ -496,27 +496,26 @@
 
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(150px, 39vw);
+    width: min(200px, 52vw);
     height: 32px;
     max-height: 32px;
     object-position: left center;
   }
 
   .headerActions {
-    grid-column: 2;
-    width: auto;
-    order: 0;
-    display: flex;
-    gap: 6px;
+    display: contents;
   }
 
   .calcCta {
+    grid-column: 1 / -1;
+    grid-row: 2;
     display: inline-flex;
-    min-width: 96px;
-    min-height: 34px;
-    gap: 6px;
-    padding: 0 9px;
-    border-radius: 9px;
+    width: 100%;
+    min-height: 38px;
+    gap: 8px;
+    padding: 0 12px;
+    border-radius: 10px;
+    justify-content: center;
   }
 
   .calcIcon {
@@ -527,25 +526,31 @@
   }
 
   .calcText {
-    font-size: 0;
-    letter-spacing: 0.04em;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    line-height: 1;
   }
 
   .calcText > span {
-    display: none;
+    display: inline;
   }
 
   .calcText strong {
-    font-size: 0.68rem;
+    font-size: 0.78rem;
     line-height: 1;
     white-space: nowrap;
   }
 
   .navCta {
-    min-width: 112px;
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 126px;
     min-height: 34px;
     gap: 6px;
-    padding: 0 10px;
+    padding: 0 11px;
     border-radius: 9px;
     font-size: 0.7rem;
   }
@@ -591,39 +596,33 @@
 
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(138px, 36vw);
+    width: min(190px, 52vw);
     object-position: left center;
   }
 
-  .headerActions {
-    width: auto;
+  .navCta {
+    min-width: 120px;
+    padding: 0 10px;
   }
 }
 
 @media (max-width: 380px) {
   .brandLogo,
   .headerWrapScrolled .brandLogo {
-    width: min(126px, 34vw);
-  }
-
-  .calcCta {
-    min-width: 36px;
-    width: 36px;
-    padding: 0;
+    width: min(164px, 48vw);
   }
 
   .calcText {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-    white-space: nowrap;
+    font-size: 0.68rem;
+  }
+
+  .calcText strong {
+    font-size: 0.74rem;
   }
 
   .navCta {
-    min-width: 104px;
-    padding: 0 8px;
+    min-width: 112px;
+    padding: 0 9px;
   }
 }
 
