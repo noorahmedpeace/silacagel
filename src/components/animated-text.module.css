@@ -63,9 +63,29 @@
 }
 
 @media (max-width: 760px) {
+  .text {
+    letter-spacing: 0;
+    word-spacing: 0;
+  }
+
+  .line {
+    display: inline;
+  }
+
   .word {
-    animation-duration: 0.28s;
+    display: inline;
+    animation: none !important;
+    transform: none !important;
     opacity: 1 !important;
     filter: none !important;
+    will-change: auto;
+  }
+
+  .bubble .word {
+    margin-right: 0;
+  }
+
+  .wordSpace {
+    width: 0.24em;
   }
 }

@@ -4334,6 +4334,7 @@
   .primaryCta,
   .secondaryCta {
     display: inline-flex;
+    align-items: center;
     min-height: 46px;
     padding: 0 16px;
     width: 100%;
@@ -5022,12 +5023,19 @@
   .proofSection .sectionHead h2,
   .exportSection .sectionHead h2,
   .quoteStage h2,
+  .procurementFlowIntro h2,
   .scienceOverlay h2,
   .globalPresenceCopy h3 {
     max-width: 100%;
     font-size: var(--ds-h2);
-    line-height: var(--ds-lh-tight);
+    line-height: 1.12;
     letter-spacing: 0;
+  }
+
+  .procurementFlowIntro h2 {
+    font-size: clamp(2.05rem, 8.8vw, 2.55rem);
+    line-height: 1.08;
+    word-spacing: 0.02em;
   }
 
   .sectionHead p,
@@ -5087,8 +5095,28 @@
   .ctaBannerActions a,
   .heroActions a {
     width: 100%;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
     min-height: 46px;
+    line-height: 1;
     text-align: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero .primaryCta,
+  .hero .secondaryCta {
+    display: flex;
+    align-items: center !important;
+    justify-content: center !important;
+    min-height: 46px;
+    padding: 0 16px;
+    line-height: 1 !important;
+    text-align: center;
+  }
+
+  .hero .primaryCta {
+    padding-top: 1px;
   }
 }
