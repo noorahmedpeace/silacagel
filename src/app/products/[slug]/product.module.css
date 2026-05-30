@@ -678,3 +678,111 @@
   color: #0067c5;
   border-color: rgba(0, 103, 197, 0.4);
 }
+
+@media (max-width: 760px) {
+  .topbar {
+    padding-inline: var(--ds-page-px);
+    gap: 10px;
+  }
+
+  .backLink,
+  .phoneLink {
+    min-height: 42px;
+    flex: 1 1 150px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero {
+    margin-inline: var(--ds-page-px);
+    padding: 28px 18px 32px;
+    gap: 24px;
+    border-radius: 12px;
+  }
+
+  .copy h1 {
+    font-size: var(--ds-h1);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+  }
+
+  .summary,
+  .description,
+  .sectionHead p,
+  .quoteCopy p,
+  .list li,
+  .faqItem p {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
+  }
+
+  .eyebrow,
+  .statRow span,
+  .buyingPanel span,
+  .clusterColumn h3,
+  .skuTable th {
+    letter-spacing: 0.08em;
+  }
+
+  .heroActions,
+  .quoteSection {
+    width: 100%;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .imageWrap,
+  .panel,
+  .buyingPanel,
+  .supportCard,
+  .faqItem,
+  .clusterColumn {
+    border-radius: 10px;
+  }
+
+  .gridSection,
+  .supportSection,
+  .procurementSection,
+  .quoteSection,
+  .clusterSection,
+  .faqSection {
+    padding-block: var(--ds-section-py-tight);
+  }
+
+  .panel,
+  .supportCard,
+  .buyingPanel,
+  .clusterColumn {
+    padding: 18px 16px;
+  }
+
+  .tableWrap {
+    overflow-x: auto;
+  }
+
+  .skuTable {
+    min-width: 620px;
+  }
+
+  .skuTable th,
+  .skuTable td {
+    padding: 12px 14px;
+    font-size: 0.86rem;
+  }
+
+  .statRow {
+    gap: 10px;
+  }
+
+  .statRow article {
+    min-width: min(100%, 150px);
+  }
+}

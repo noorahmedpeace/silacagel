@@ -275,6 +275,45 @@ input[type="button"] {
     background: none;
     animation: none;
   }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: 0;
+    overflow-wrap: break-word;
+    hyphens: none;
+  }
+
+  p,
+  li,
+  summary,
+  figcaption {
+    letter-spacing: 0;
+    word-spacing: 0;
+    overflow-wrap: break-word;
+  }
+
+  p,
+  li {
+    line-height: var(--ds-lh-body);
+  }
+
+  a,
+  button {
+    line-height: 1.15;
+  }
+
+  img,
+  video,
+  canvas,
+  svg {
+    max-width: 100%;
+  }
+
+  table {
+    max-width: 100%;
+  }
 }
 
 [data-reveal-direction] {

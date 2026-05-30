@@ -172,19 +172,48 @@
 }
 
 @media (max-width: 768px) {
+  .grid {
+    gap: 18px;
+  }
+
   .card {
     grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 14px;
+    border-radius: 12px;
   }
 
   .imageWrap {
     aspect-ratio: 4 / 3;
+    border-radius: 10px;
   }
 
   .copy {
-    padding: 4px;
+    gap: 10px;
+    padding: 2px;
   }
 
   .copy h2 {
-    font-size: 1.7rem;
+    font-size: clamp(1.35rem, 6vw, 1.7rem);
+    line-height: 1.12;
+    letter-spacing: 0;
+    -webkit-text-fill-color: currentColor;
+    background: none;
+  }
+
+  .copy p {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
+  }
+
+  .eyebrow,
+  .globalBadge {
+    letter-spacing: 0.08em;
+  }
+
+  .formatBadge,
+  .meta span {
+    font-size: 0.82rem;
+    line-height: 1.2;
   }
 }

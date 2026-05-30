@@ -693,3 +693,123 @@
 }
 
 .ctaBand .primaryCta { align-self: flex-start; }
+
+@media (max-width: 760px) {
+  .hero {
+    padding: var(--ds-hero-py) var(--ds-page-px) var(--ds-section-py-tight);
+    gap: 28px;
+  }
+
+  .heroCopy {
+    gap: 16px;
+  }
+
+  .kicker,
+  .card span,
+  .buyerGuideCard span,
+  .step span,
+  .related span,
+  .faq span,
+  .comparisonHeader strong,
+  .quoteChecklist li::before {
+    letter-spacing: 0.08em;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: var(--ds-h1);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+  }
+
+  .lead,
+  .sectionHead p,
+  .ctaBand p,
+  .quoteChecklist li {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
+  }
+
+  .intent {
+    align-self: stretch;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.35;
+  }
+
+  .actions {
+    width: 100%;
+    gap: 10px;
+  }
+
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+    min-height: 46px;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 0.92rem;
+    line-height: 1.15;
+  }
+
+  .proofPanel,
+  .card,
+  .buyerGuideCard,
+  .step,
+  .related,
+  .faq,
+  .sizeGuideCard,
+  .quoteChecklist,
+  .quoteFormShell {
+    border-radius: 10px;
+    padding: 18px 16px;
+  }
+
+  .visualCaption {
+    position: static;
+    margin-top: 8px;
+    background: rgba(10, 22, 40, 0.9);
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .section {
+    padding-block: var(--ds-section-py-tight);
+  }
+
+  .sectionHead {
+    margin-bottom: 28px;
+  }
+
+  .card h3,
+  .buyerGuideCard h3,
+  .step h3,
+  .faq h3,
+  .sizeGuideCard h3,
+  .ctaBand h2 {
+    letter-spacing: 0;
+    line-height: 1.22;
+  }
+
+  .specRow,
+  .comparisonHeader strong,
+  .comparisonRow strong,
+  .comparisonRow span {
+    padding: 13px 16px;
+  }
+
+  .quoteSection {
+    padding-block: var(--ds-section-py-tight);
+    gap: 18px;
+  }
+
+  .quoteChecklist ul {
+    gap: 9px;
+  }
+
+  .ctaBand {
+    padding-block: var(--ds-section-py-tight);
+  }
+}

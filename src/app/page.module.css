@@ -4270,7 +4270,7 @@
   }
 
   .shell {
-    padding-inline: 12px;
+    padding-inline: 14px;
   }
 
   .calculatorAnchor {
@@ -4283,8 +4283,8 @@
   }
 
   .hero {
-    min-height: 452px;
-    padding: 18px 14px;
+    min-height: 472px;
+    padding: 22px 16px;
     width: 100%;
     overflow: hidden;
     background:
@@ -4293,17 +4293,18 @@
   }
 
   .hero h1 {
-    max-width: 12.4ch;
-    margin-bottom: 12px;
-    font-size: clamp(2rem, 10.8vw, 2.66rem);
-    line-height: 0.94;
+    max-width: 13.2ch;
+    margin-bottom: 14px;
+    font-size: clamp(2.08rem, 9.8vw, 2.68rem);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
   }
 
   .lead {
     max-width: 100%;
-    margin-bottom: 14px;
-    font-size: 0.84rem;
-    line-height: 1.48;
+    margin-bottom: 16px;
+    font-size: 0.96rem;
+    line-height: 1.55;
   }
 
   .heroBgImage {
@@ -4317,25 +4318,29 @@
   }
 
   .hero .kicker {
-    margin-bottom: 10px;
-    padding: 6px 9px;
-    font-size: 0.54rem;
+    margin-bottom: 12px;
+    padding: 7px 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
   }
 
   .ctaRow {
     width: 100%;
-    gap: 8px;
-    margin-bottom: 12px;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 14px;
   }
 
   .primaryCta,
   .secondaryCta {
     display: inline-flex;
-    min-height: 38px;
-    padding: 0 12px;
+    min-height: 46px;
+    padding: 0 16px;
     width: 100%;
     justify-content: center;
-    font-size: 0.72rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    line-height: 1.15;
     text-align: center;
   }
 
@@ -4344,8 +4349,9 @@
     display: flex;
     gap: 7px 10px;
     margin-bottom: 0;
-    border-radius: 6px;
-    font-size: 0.58rem;
+    border-radius: 8px;
+    font-size: 0.72rem;
+    line-height: 1.35;
   }
 
   .globalPresencePanel {
@@ -4408,8 +4414,10 @@
   }
 
   .procurementFlowIntro h2 {
-    max-width: 12ch;
-    font-size: clamp(2rem, 9.5vw, 2.55rem);
+    max-width: 100%;
+    font-size: clamp(1.92rem, 8vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: 0;
   }
 
   .scienceSection,
@@ -4969,5 +4977,118 @@
   .partnerSection .sectionHead .kicker {
     font-size: var(--ds-eyebrow);
     letter-spacing: var(--ds-ls-eyebrow);
+  }
+}
+
+@media (max-width: 760px) {
+  .scienceSection,
+  .productSection,
+  .pricingSection,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .exportSection,
+  .resourceSection,
+  .shippingBanner,
+  .ctaBanner,
+  .proofVaultSection,
+  .skuSection,
+  .seoRoadmapSection,
+  .homeRfqSection,
+  .buyerGuideSection,
+  .certStrip,
+  .proofVaultCard,
+  .capabilityCard,
+  .seoClusterCard,
+  .buyerGuideCard,
+  .procurementFlowCard {
+    border-radius: 10px;
+  }
+
+  .sectionHead,
+  .procurementFlowIntro,
+  .scienceOverlay {
+    gap: 10px;
+  }
+
+  .sectionHead h2,
+  .scienceSection .sectionHead h2,
+  .whySection .sectionHead h2,
+  .applicationSection .sectionHead h2,
+  .productSection .sectionHead h2,
+  .pricingSection .sectionHead h2,
+  .partnerSection .sectionHead h2,
+  .proofSection .sectionHead h2,
+  .exportSection .sectionHead h2,
+  .quoteStage h2,
+  .scienceOverlay h2,
+  .globalPresenceCopy h3 {
+    max-width: 100%;
+    font-size: var(--ds-h2);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+  }
+
+  .sectionHead p,
+  .scienceSection .sectionHead p,
+  .whySection .sectionHead p,
+  .applicationSection .sectionHead p,
+  .productSection .sectionHead p,
+  .pricingSection .sectionHead p,
+  .partnerSection .sectionHead p,
+  .proofSection .sectionHead p,
+  .exportSection .sectionHead p,
+  .procurementFlowCard p,
+  .buyerGuideCard p,
+  .proofVaultCard p,
+  .seoClusterCard p,
+  .capabilityCard p {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
+    letter-spacing: 0;
+  }
+
+  .proofVaultCard,
+  .capabilityCard,
+  .seoClusterCard,
+  .buyerGuideCard,
+  .procurementFlowCard {
+    min-height: 0;
+    padding: 18px 16px;
+  }
+
+  .proofVaultCard strong {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  .categoryRail span,
+  .categoryRail a,
+  .seoClusterLinks a {
+    min-height: 44px;
+    font-size: 0.86rem;
+    line-height: 1.25;
+  }
+
+  .skuTable th,
+  .skuTable td {
+    padding: 12px 14px;
+    font-size: 0.86rem;
+    line-height: 1.45;
+  }
+
+  .ctaBannerActions,
+  .heroActions {
+    width: 100%;
+  }
+
+  .ctaBannerActions a,
+  .heroActions a {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    text-align: center;
   }
 }

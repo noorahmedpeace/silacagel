@@ -413,26 +413,88 @@
 
 @media (max-width: 760px) {
   .hero {
-    padding-inline: 18px;
+    padding: clamp(44px, 11vw, 64px) 18px clamp(42px, 10vw, 58px);
+    gap: 14px;
   }
 
   .hero h1 {
-    max-width: 8.5ch;
-    font-size: clamp(1.85rem, 8.2vw, 2.28rem);
+    max-width: 100%;
+    font-size: var(--ds-h1);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
   }
 
   .hero p {
-    max-width: 34ch;
+    max-width: 38ch;
+    font-size: var(--ds-lead);
+    line-height: var(--ds-lh-base);
+  }
+
+  .kicker,
+  .card span,
+  .articleCard span,
+  .relatedColumn h3 {
+    letter-spacing: 0.08em;
+  }
+
+  .section {
+    padding-block: var(--ds-section-py-tight);
+  }
+
+  .sectionHead {
+    margin-bottom: 28px;
+  }
+
+  .sectionHead h2,
+  .articleBlock h2 {
+    font-size: var(--ds-h2);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+  }
+
+  .card,
+  .articleCard,
+  .relatedColumn,
+  .bulletList {
+    border-radius: 10px;
+    padding: 18px 16px;
+  }
+
+  .card h3,
+  .articleCard h3 {
+    line-height: 1.22;
+    letter-spacing: 0;
+  }
+
+  .card p,
+  .articleCard p,
+  .articleBlock p,
+  .bulletList li {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
   }
 
   .articleMeta {
     max-width: 100%;
+    gap: 8px;
   }
 
   .articleVisual figcaption {
     left: 10px;
     right: 10px;
     bottom: 10px;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .articleBody {
+    padding-inline: 18px;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+    min-height: 46px;
+    text-align: center;
   }
 }

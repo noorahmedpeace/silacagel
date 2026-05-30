@@ -385,6 +385,22 @@
   .page {
     padding: 40px 18px 80px;
   }
+  .hero h1 {
+    font-size: var(--ds-h1);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+  }
+  .description,
+  .sectionLead,
+  .introCard p,
+  .decisionNote,
+  .faqItem p,
+  .ctaSection p,
+  .hubCard p,
+  .howList {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
+  }
   .heroVisual {
     margin-bottom: 30px;
     border-radius: 14px;
@@ -393,7 +409,36 @@
     left: 10px;
     right: 10px;
     bottom: 10px;
-    font-size: 0.72rem;
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+  .kicker,
+  .label,
+  .decisionPick,
+  .cardLabel {
+    letter-spacing: 0.08em;
+  }
+  .introCard,
+  .decisionRow,
+  .faqItem,
+  .ctaSection,
+  .hubCard,
+  .tableWrap {
+    border-radius: 10px;
+  }
+  .introCard,
+  .hubCard {
+    padding: 18px 16px;
+  }
+  .table {
+    min-width: 620px;
+  }
+  .primaryCta,
+  .secondaryCta {
+    width: 100%;
+    justify-content: center;
+    border-radius: 12px;
+    text-align: center;
   }
 }
 

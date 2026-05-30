@@ -82,17 +82,17 @@
 @media (max-width: 640px) {
   .float {
     left: 14px;
-    bottom: 16px;
+    bottom: max(14px, env(safe-area-inset-bottom));
     padding: 0;
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     justify-content: center;
     gap: 0;
   }
 
   .iconWrap {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
   }
 
   .label {

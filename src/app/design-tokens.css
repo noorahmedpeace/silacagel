@@ -107,6 +107,30 @@
   --ds-dur-base: 300ms;
 }
 
+@media (max-width: 760px) {
+  :root {
+    --ds-page-px: clamp(16px, 4.4vw, 22px);
+    --ds-hero-py: clamp(42px, 10vw, 64px);
+    --ds-section-py-tight: clamp(42px, 10vw, 64px);
+    --ds-section-py: clamp(48px, 11vw, 72px);
+    --ds-section-py-loose: clamp(54px, 12vw, 78px);
+    --ds-h1: clamp(2rem, 8.6vw, 2.65rem);
+    --ds-h2: clamp(1.55rem, 6.3vw, 2.05rem);
+    --ds-h3: clamp(1.12rem, 4.5vw, 1.35rem);
+    --ds-h4: clamp(1rem, 3.8vw, 1.14rem);
+    --ds-lead: clamp(0.98rem, 3.7vw, 1.08rem);
+    --ds-body: 0.96rem;
+    --ds-small: 0.88rem;
+    --ds-lh-tight: 1.08;
+    --ds-lh-snug: 1.22;
+    --ds-lh-base: 1.52;
+    --ds-lh-body: 1.62;
+    --ds-ls-tight: -0.01em;
+    --ds-ls-snug: 0;
+    --ds-ls-eyebrow: 0.08em;
+  }
+}
+
 /* Universal scroll-triggered fade. Add `ds-fade-up` to any element. */
 @keyframes ds-fade-up {
   from { opacity: 0; transform: translateY(20px); }

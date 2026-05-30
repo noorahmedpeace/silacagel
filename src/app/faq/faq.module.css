@@ -18,4 +18,17 @@
 .ctaBanner p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 500px; }
 .ctaBtn { display: inline-flex; background: white; color: var(--accent); font-size: 0.95rem; font-weight: 800; padding: 14px 28px; border-radius: 12px; transition: transform 0.2s ease; }
 .ctaBtn:hover { transform: translateY(-2px); opacity: 1; }
-@media (max-width: 768px) { .page { padding: 32px 16px 80px; } .hero h1 { font-size: 2.2rem; } .question { padding: 20px 20px; } .ctaBanner { padding: 48px 24px; } }
+@media (max-width: 768px) {
+  .page { padding: 32px 16px 80px; gap: 52px; }
+  .hero { padding-top: 24px; }
+  .hero h1 { font-size: var(--ds-h1); line-height: var(--ds-lh-tight); letter-spacing: 0; }
+  .hero p, .answer p, .ctaBanner p { font-size: var(--ds-body); line-height: var(--ds-lh-body); }
+  .kicker { letter-spacing: 0.08em; }
+  .accordion, .ctaBanner { border-radius: 12px; }
+  .question { padding: 18px 16px; gap: 14px; }
+  .question span:first-child { font-size: 0.96rem; line-height: 1.35; }
+  .answer { padding: 0 16px 18px; }
+  .ctaBanner { padding: 36px 20px; }
+  .ctaBanner h2 { font-size: var(--ds-h2); line-height: var(--ds-lh-tight); letter-spacing: 0; }
+  .ctaBtn { width: 100%; min-height: 46px; justify-content: center; text-align: center; }
+}

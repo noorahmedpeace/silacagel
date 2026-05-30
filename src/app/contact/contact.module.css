@@ -495,7 +495,7 @@ a.tileAction:hover .actionValue {
 
 @media (max-width: 640px) {
   .page {
-    padding: 52px 16px 80px;
+    padding: 42px 16px 80px;
   }
 
   /* Reduce the cost of three large filter:blur layers on mobile GPUs.
@@ -532,19 +532,29 @@ a.tileAction:hover .actionValue {
   }
 
   .tileHero {
-    padding: 36px 28px;
+    padding: 28px 20px;
     min-height: 0;
+    border-radius: 12px;
   }
 
   .tileHero h1 {
-    font-size: 2.4rem;
+    font-size: var(--ds-h1);
+    line-height: var(--ds-lh-tight);
+    letter-spacing: 0;
+    max-width: 100%;
+  }
+
+  .tileHero p {
+    font-size: var(--ds-body);
+    line-height: var(--ds-lh-body);
   }
 
   .tileTrust {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
-    padding: 24px 28px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .tileTrust .trustDivider {
@@ -555,22 +565,26 @@ a.tileAction:hover .actionValue {
   }
 
   .tileForm {
-    padding: 20px;
+    padding: 16px;
+    border-radius: 12px;
   }
 
   .tileAction {
     grid-column: span 12;
     min-height: 88px;
-    padding: 22px 24px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .emailDirectoryTile {
     grid-column: span 12;
-    padding: 22px 24px;
+    padding: 20px;
+    border-radius: 12px;
   }
 
   .emailRoute span {
     font-size: 0.7rem;
+    letter-spacing: 0.08em;
   }
 
   .emailRoute strong {
@@ -583,15 +597,19 @@ a.tileAction:hover .actionValue {
 
   .actionValue {
     font-size: 1.15rem;
+    line-height: 1.25;
   }
 
   .actionKicker {
     font-size: 0.74rem;
+    letter-spacing: 0.08em;
   }
 
   .primaryAction,
   .ghostAction {
-    flex: 1;
+    flex: 1 1 100%;
     justify-content: center;
+    min-height: 46px;
+    text-align: center;
   }
 }

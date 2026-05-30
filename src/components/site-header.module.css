@@ -529,8 +529,8 @@
     display: flex;
     align-items: baseline;
     gap: 4px;
-    font-size: 0.72rem;
-    letter-spacing: 0.02em;
+    font-size: 0.76rem;
+    letter-spacing: 0;
     line-height: 1;
   }
 
@@ -539,7 +539,7 @@
   }
 
   .calcText strong {
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     line-height: 1;
     white-space: nowrap;
   }
@@ -552,7 +552,8 @@
     gap: 6px;
     padding: 0 11px;
     border-radius: 9px;
-    font-size: 0.7rem;
+    font-size: 0.76rem;
+    letter-spacing: 0;
   }
 
   .navCtaIcon {
@@ -582,7 +583,8 @@
     min-height: 30px;
     flex: 0 0 auto;
     padding: 0 10px;
-    font-size: 0.7rem;
+    font-size: 0.74rem;
+    letter-spacing: 0;
   }
 
   /* No more hiding the last two nav items — they were unreachable.
@@ -613,11 +615,11 @@
   }
 
   .calcText {
-    font-size: 0.68rem;
+    font-size: 0.7rem;
   }
 
   .calcText strong {
-    font-size: 0.74rem;
+    font-size: 0.76rem;
   }
 
   .navCta {

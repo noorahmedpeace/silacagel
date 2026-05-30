@@ -192,8 +192,77 @@
 }
 
 @media (max-width: 620px) {
+  .calculator {
+    gap: 14px;
+  }
+
+  .head {
+    margin-bottom: 4px;
+  }
+
+  .head p {
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+  }
+
+  .head h3 {
+    font-size: clamp(1.35rem, 6.2vw, 1.62rem);
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .head span {
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+
+  .field {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .fieldStep {
+    letter-spacing: 0.08em;
+  }
+
+  .fieldLabel strong {
+    font-size: 0.94rem;
+    line-height: 1.22;
+    letter-spacing: 0;
+  }
+
+  .fieldLabel small,
+  .meta {
+    font-size: 0.82rem;
+    line-height: 1.48;
+  }
+
+  .field input,
+  .field select {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
   .summaryGrid {
     grid-template-columns: 1fr;
+  }
+
+  .summaryCard {
+    padding: 14px;
+  }
+
+  .summaryCard span {
+    letter-spacing: 0.06em;
+  }
+
+  .summaryCard strong {
+    font-size: 1.12rem;
+  }
+
+  .submit {
+    min-height: 52px;
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
   }
 }
 
