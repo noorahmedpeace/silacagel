@@ -280,9 +280,16 @@ input[type="button"] {
   h2,
   h3,
   h4 {
-    letter-spacing: 0;
+    /* Override tight module-level tracking that cramps headings on phones. */
+    letter-spacing: 0 !important;
     overflow-wrap: break-word;
     hyphens: none;
+  }
+
+  /* Keep mobile hero headings consistent without changing desktop. */
+  h1 {
+    font-size: var(--ds-h1) !important;
+    line-height: var(--ds-lh-tight) !important;
   }
 
   p,
