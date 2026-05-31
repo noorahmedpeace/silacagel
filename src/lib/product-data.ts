@@ -18,7 +18,13 @@ export type ProductItem = {
 
 export type PriceItem = {
   label: string;
+  /** Domestic Pakistan reference price, in PKR per piece. */
   unitPrice: number;
+  /**
+   * Fixed export reference price, in USD per piece. De-linked from PKR so
+   * rupee depreciation does not silently discount international quotes.
+   */
+  exportUsd: number;
   grams: number;
 };
 
@@ -233,7 +239,7 @@ export const productCatalog: ProductItem[] = [
       "Document support: discuss compliance requirements per buyer market",
     ],
     leadTime: "Quoted by carton volume and dispatch schedule",
-    priceBand: "B2B reference rates available on request",
+    priceBand: "Export reference from ~USD 0.055 / piece (B2B) · tiered by carton volume",
     featuredSizes: ["18 inch", "20 inch", "21 inch", "22 inch"],
   },
   {
@@ -261,7 +267,7 @@ export const productCatalog: ProductItem[] = [
       "Document support: discuss compliance per buyer market",
     ],
     leadTime: "Quoted by carton volume and dispatch schedule",
-    priceBand: "B2B reference rates available on request",
+    priceBand: "Export reference from ~USD 0.04 / piece (B2B) · tiered by carton volume",
     featuredSizes: ["Standard", "Custom"],
   },
   {
@@ -287,48 +293,51 @@ export const productCatalog: ProductItem[] = [
       "Document support: ISO 9001:2015, SDS, COA, DMF-free statement on request",
     ],
     leadTime: "Quoted by format, volume, and dispatch schedule",
-    priceBand: "Cost-sensitive industrial reference rates available",
+    priceBand: "Export reference from ~USD 2.00 / kg packed · tiered by format & volume",
     featuredSizes: ["1 g", "5 g", "10 g", "25 g", "50 g", "Custom"],
   },
 ];
 
+// Pricing basis (reviewed 2026-05): domestic = PKR per piece (kept at market
+// for Pakistan), export = fixed USD per piece set against India/China/UAE B2B
+// ranges so the brand reads premium internationally without rupee erosion.
 export const priceGroups: PriceGroup[] = [
   {
     title: "Small Sizes",
     note: "Compact retail and light packing",
     items: [
-      { label: "0.5 gm", unitPrice: 0.65, grams: 0.5 },
-      { label: "1 gm", unitPrice: 0.85, grams: 1 },
-      { label: "1 gm XL", unitPrice: 1.0, grams: 1 },
-      { label: "2 gm", unitPrice: 1.45, grams: 2 },
-      { label: "3 gm", unitPrice: 1.9, grams: 3 },
-      { label: "4 gm", unitPrice: 2.7, grams: 4 },
-      { label: "5 gm", unitPrice: 3.25, grams: 5 },
+      { label: "0.5 gm", unitPrice: 0.75, exportUsd: 0.0035, grams: 0.5 },
+      { label: "1 gm", unitPrice: 1.0, exportUsd: 0.0045, grams: 1 },
+      { label: "1 gm XL", unitPrice: 1.15, exportUsd: 0.0052, grams: 1 },
+      { label: "2 gm", unitPrice: 1.65, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 1.9, exportUsd: 0.009, grams: 3 },
+      { label: "4 gm", unitPrice: 2.7, exportUsd: 0.011, grams: 4 },
+      { label: "5 gm", unitPrice: 3.25, exportUsd: 0.014, grams: 5 },
     ],
   },
   {
     title: "Paper Sachet",
     note: "Popular sachet range",
     items: [
-      { label: "1 gm", unitPrice: 0.95, grams: 1 },
-      { label: "2 gm", unitPrice: 1.75, grams: 2 },
-      { label: "3 gm", unitPrice: 2.2, grams: 3 },
-      { label: "10 gm", unitPrice: 7, grams: 10 },
-      { label: "15 gm", unitPrice: 13, grams: 15 },
-      { label: "20 gm", unitPrice: 18, grams: 20 },
+      { label: "1 gm", unitPrice: 1.1, exportUsd: 0.0045, grams: 1 },
+      { label: "2 gm", unitPrice: 1.95, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 2.2, exportUsd: 0.0095, grams: 3 },
+      { label: "10 gm", unitPrice: 7, exportUsd: 0.029, grams: 10 },
+      { label: "15 gm", unitPrice: 13, exportUsd: 0.052, grams: 15 },
+      { label: "20 gm", unitPrice: 18, exportUsd: 0.068, grams: 20 },
     ],
   },
   {
     title: "Bulk & Strip",
     note: "Industrial and shipment formats",
     items: [
-      { label: "25 grams", unitPrice: 20, grams: 25 },
-      { label: "50 grams", unitPrice: 40, grams: 50 },
-      { label: "100 grams", unitPrice: 100, grams: 100 },
-      { label: "200 grams", unitPrice: 200, grams: 200 },
-      { label: "250 grams", unitPrice: 250, grams: 250 },
-      { label: "500 grams", unitPrice: 500, grams: 500 },
-      { label: "1 kg strip", unitPrice: 950, grams: 1000 },
+      { label: "25 grams", unitPrice: 20, exportUsd: 0.078, grams: 25 },
+      { label: "50 grams", unitPrice: 40, exportUsd: 0.155, grams: 50 },
+      { label: "100 grams", unitPrice: 100, exportUsd: 0.39, grams: 100 },
+      { label: "200 grams", unitPrice: 200, exportUsd: 0.78, grams: 200 },
+      { label: "250 grams", unitPrice: 250, exportUsd: 0.95, grams: 250 },
+      { label: "500 grams", unitPrice: 500, exportUsd: 1.85, grams: 500 },
+      { label: "1 kg strip", unitPrice: 950, exportUsd: 4.2, grams: 1000 },
     ],
   },
 ];
