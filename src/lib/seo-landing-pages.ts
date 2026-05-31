@@ -113,6 +113,9 @@ type KeywordClusterInput = {
   buyerRisk: string;
   quoteBasis: string;
   buyerGuide?: SeoLandingPage["buyerGuide"];
+  sizeGuide?: SeoLandingPage["sizeGuide"];
+  comparison?: SeoLandingPage["comparison"];
+  quoteChecklist?: SeoLandingPage["quoteChecklist"];
   relatedLinks: SeoLandingPage["relatedLinks"];
   faqs: SeoLandingPage["faqs"];
 };
@@ -150,6 +153,9 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
       { label: "Quote basis", value: input.quoteBasis },
     ],
     buyerGuide: input.buyerGuide,
+    sizeGuide: input.sizeGuide,
+    comparison: input.comparison,
+    quoteChecklist: input.quoteChecklist,
     buyingTitle: `How to request ${input.kicker.toLowerCase()}`,
     buyingIntro:
       "A useful B2B inquiry should explain the product application, commercial quantity, destination, and document requirements before price negotiation starts.",
@@ -169,6 +175,75 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     ],
     relatedLinks: input.relatedLinks,
     faqs: input.faqs,
+  };
+}
+
+const silicaGelCommercialSizeGuide: SeoLandingPage["sizeGuide"] = {
+  title: "Available sizes and packing formats for commercial buyers",
+  intro:
+    "Use these size ranges as an RFQ starting point. Final sizing depends on carton volume, product sensitivity, route humidity, storage time, and whether the buyer needs sachets, bags, or bulk beads.",
+  rows: [
+    {
+      size: "0.5g-5g sachets",
+      bestFor: "Small product packs, bottles, electronics accessories, precision parts, and retail cartons.",
+      buyerNote: "Best when desiccant sits inside the unit pack and needs clean insertion during packing.",
+    },
+    {
+      size: "10g-50g bags",
+      bestFor: "Master cartons, footwear boxes, garments, tools, industrial parts, and larger product cartons.",
+      buyerNote: "Use when carton-level protection matters more than unit-level insertion.",
+    },
+    {
+      size: "Bulk beads / 25kg bags",
+      bestFor: "Repackers, distributors, warehouses, and industrial moisture-control workflows.",
+      buyerNote: "Quote by kg, pallet, recurring monthly volume, bead grade, and export packing requirement.",
+    },
+    {
+      size: "Private label / custom",
+      bestFor: "Brands, distributors, OEM packers, and repeated export programs.",
+      buyerNote: "Confirm packet text, warning copy, material, carton labels, MOQ, and document requirements early.",
+    },
+  ],
+};
+
+const containerDesiccantSizeGuide: SeoLandingPage["sizeGuide"] = {
+  title: "Container desiccant strip planning guide",
+  intro:
+    "Container strip quantity should be planned by container size, route humidity, transit days, cargo sensitivity, pallet density, and whether cartons already contain product-level silica gel packets.",
+  rows: [
+    {
+      size: "1kg strips",
+      bestFor: "Shorter routes, lower-humidity lanes, mixed cartons, and lighter cargo loads.",
+      buyerNote: "Start with route and cargo details before assuming a fixed strip count.",
+    },
+    {
+      size: "2kg-3kg strips",
+      bestFor: "20ft/40ft export containers, leather, textiles, cartons, electronics, and humid routes.",
+      buyerNote: "Common for export programs where container rain or carton softening is a real claim risk.",
+    },
+    {
+      size: "5kg high-capacity strips",
+      bestFor: "Long-haul sea freight, tropical destinations, dense pallet loads, and high-value cargo.",
+      buyerNote: "Use for higher-risk lanes where transit time and temperature swings increase condensation risk.",
+    },
+  ],
+};
+
+function desiccantQuoteChecklist(defaultProduct: string): SeoLandingPage["quoteChecklist"] {
+  return {
+    title: "Send these details for a faster export quote",
+    formTitle: `Quote for ${defaultProduct}`,
+    intro:
+      "A complete RFQ helps the export desk recommend the right format, avoid wrong claims, and quote by realistic MOQ, packing, and destination terms.",
+    defaultProduct,
+    items: [
+      "Product format needed: packets, bags, bulk beads, cargo strips, or private label",
+      "Size or capacity target: gram size, kg, strip count, carton volume, or container size",
+      "Application: product pack, master carton, warehouse, pharma, electronics, leather, food, or container cargo",
+      "Quantity: trial order, monthly volume, pallet count, or container schedule",
+      "Destination country, port or city, and preferred Incoterm",
+      "Required documents: SDS, COA, ISO 9001:2015, DMF-free statement, or buyer-specific paperwork",
+    ],
   };
 }
 
@@ -859,15 +934,50 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, material and destination statements where valid",
     buyerRisk: "Ordering indicating gel when the application requires non-indicating clean packets",
     quoteBasis: "White/non-indicating format, size, quantity, application, destination, documents",
+    buyerGuide: {
+      title: "White silica gel buyer guide for export packaging",
+      intro:
+        "White silica gel is normally selected when buyers want moisture adsorption without color-change chemistry. It works best when the RFQ explains the packaging layer, target industry, and documentation requirements.",
+      sections: [
+        { label: "Definition", title: "What is white silica gel?", text: "White silica gel is a non-indicating desiccant made for moisture adsorption without a visible color signal. It is commonly packed into sachets, bags, or bulk bead formats." },
+        { label: "How it works", title: "How white silica gel protects goods", text: "The bead structure adsorbs water vapor from the surrounding pack, carton, or storage space, reducing humidity exposure around moisture-sensitive goods." },
+        { label: "Industries", title: "Industries that use white silica gel", text: "Common buyers include electronics packers, pharma and healthcare packaging teams, leather exporters, food packaging teams, warehouses, and distributors." },
+        { label: "Mistakes", title: "Common white silica gel buying mistakes", text: "Avoid choosing packet size by guesswork, mixing food/pharma claims without documents, or ordering bulk beads when finished sachets are needed for production-line insertion." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "White silica gel vs indicating alternatives",
+      intro:
+        "Choose the gel type based on whether the buyer needs clean non-indicating adsorption or a visible humidity signal.",
+      columns: ["White silica gel", "Orange silica gel", "Blue silica gel"],
+      rows: [
+        { label: "Main purpose", values: ["Clean non-indicating adsorption", "Visible moisture indication", "Visible moisture indication"] },
+        { label: "Best fit", values: ["Product packs, cartons, bulk supply", "/orange-silica-gel", "/blue-silica-gel"] },
+        { label: "Buyer risk", values: ["Wrong size or unsupported compliance claim", "Color chemistry not checked", "Destination restriction not checked"] },
+        { label: "Documents", values: ["SDS, COA, ISO support", "SDS, COA, composition review", "SDS, COA, composition review"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("White silica gel"),
     relatedLinks: [
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Food grade silica gel", href: "/food-grade-silica-gel" },
+      { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Silica gel vs clay", href: "/compare/silica-gel-vs-clay-desiccant" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
-      { question: "What is white silica gel?", answer: "White silica gel is commonly used as a non-indicating desiccant where moisture adsorption is needed without a color-change signal." },
-      { question: "Is white silica gel used in packaging?", answer: "Yes. White silica gel is widely requested for packaging sachets, carton packs, and bulk moisture-control programs." },
-      { question: "What documents should buyers request?", answer: "Ask for SDS, COA, and application-specific statements where relevant." },
+      { question: "What is white silica gel used for?", answer: "White silica gel is used for non-indicating moisture control inside product packs, cartons, bulk bags, warehouse stock, electronics packaging, pharma packaging review, leather goods, and export shipments." },
+      { question: "Is white silica gel the same as non-indicating silica gel?", answer: "In most buyer RFQs, white silica gel means non-indicating silica gel. It adsorbs moisture without a color-change signal, unlike blue or orange indicating silica gel." },
+      { question: "Is white silica gel food safe?", answer: "Food packaging claims depend on the exact product, packet material, documents, and destination requirement. Buyers should request SDS, COA, material statements, and any market-specific proof before using food-safe wording." },
+      { question: "What industries use white silica gel?", answer: "White silica gel is used by electronics, pharma packaging, food packaging, leather and footwear exporters, garment exporters, tool manufacturers, warehouses, distributors, and private-label packaging teams." },
+      { question: "Can white silica gel be regenerated?", answer: "Silica gel beads can generally be regenerated with controlled heat, but finished sachets may not be practical to reuse because the packet material and contamination risk matter." },
+      { question: "What packaging sizes are available?", answer: "Common formats include 0.5g-5g sachets, 10g-50g bags, larger carton bags, bulk beads, 25kg bags, and private-label sachets depending on MOQ and buyer requirements." },
+      { question: "Do you export white silica gel internationally?", answer: "Yes. DryGelWorld supports international B2B RFQs with destination, Incoterms, packing, SDS, COA, ISO 9001:2015 support, and export documentation discussion." },
+      { question: "How should white silica gel be stored?", answer: "Keep white silica gel sealed in moisture-barrier packaging until use, store it in a dry warehouse, and limit open-air exposure before insertion into final packaging." },
+      { question: "When should I use white silica gel instead of orange silica gel?", answer: "Use white silica gel when the buyer does not need a visible moisture signal. Use orange indicating gel when inspection teams need a color-based humidity indication." },
+      { question: "What should I include in a white silica gel RFQ?", answer: "Include packet size or bulk format, monthly quantity, application, carton size, destination country, Incoterms, required documents, and whether private-label packing is needed." },
     ],
   }),
   "indicating-silica-gel": keywordClusterPage({
@@ -900,15 +1010,50 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, composition notes, destination compliance review",
     buyerRisk: "Choosing an indicating color that conflicts with buyer or destination requirements",
     quoteBasis: "Color, bead size, quantity, packing, destination, documents",
+    buyerGuide: {
+      title: "Indicating silica gel buyer guide",
+      intro:
+        "Indicating silica gel is selected when users need a visible humidity signal. Buyers should choose color and packing only after checking application, documents, and destination rules.",
+      sections: [
+        { label: "Definition", title: "What is indicating silica gel?", text: "Indicating silica gel is a desiccant that changes color or signals moisture exposure so handlers can visually identify when the material has absorbed humidity." },
+        { label: "How it works", title: "How the humidity signal works", text: "The beads adsorb moisture like standard silica gel, while an indicator chemistry changes appearance as humidity exposure increases." },
+        { label: "When to use", title: "When indicating silica gel should be used", text: "Use it for labs, inspection workflows, reusable desiccant systems, storage checks, and situations where buyers need a quick visual moisture-status signal." },
+        { label: "Mistakes", title: "Common indicating gel mistakes", text: "Do not choose by color alone. Confirm SDS, COA, composition, market restrictions, regeneration plan, and whether the gel will touch customer-facing packaging." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Indicating vs non-indicating silica gel",
+      intro:
+        "The right choice depends on whether the buyer needs a visible humidity signal or simple clean adsorption.",
+      columns: ["Indicating silica gel", "Non-indicating silica gel", "Container strips"],
+      rows: [
+        { label: "Purpose", values: ["Visible humidity signal", "Clean moisture adsorption", "Container-level moisture control"] },
+        { label: "Best fit", values: ["Labs, storage checks, monitored packs", "/non-indicating-silica-gel", "/container-desiccant-strips"] },
+        { label: "Commercial risk", values: ["Color chemistry not approved", "No visual saturation signal", "Wrong strip count for route"] },
+        { label: "RFQ detail", values: ["Color, bead size, documents", "Size, format, application", "Route, container size, cargo"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Indicating silica gel"),
     relatedLinks: [
       { label: "Blue silica gel", href: "/blue-silica-gel" },
       { label: "Orange silica gel", href: "/orange-silica-gel" },
       { label: "Documents hub", href: "/documents" },
+      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
-      { question: "What is indicating silica gel?", answer: "Indicating silica gel changes color or provides a visible signal when moisture exposure reaches a certain state." },
-      { question: "Should I choose blue or orange silica gel?", answer: "Choose based on use case, destination rules, composition review, and buyer document requirements." },
-      { question: "Can indicating silica gel be supplied in bulk?", answer: "Bulk or packet-ready RFQs can be discussed when color, quantity, packing, and documents are clear." },
+      { question: "What is indicating silica gel?", answer: "Indicating silica gel is a moisture-adsorbing desiccant with a visible color signal that helps users identify moisture exposure or saturation status." },
+      { question: "How does indicating silica gel work?", answer: "It adsorbs water vapor like standard silica gel, while the indicator component changes color as humidity exposure increases. Exact color behavior depends on the product chemistry." },
+      { question: "Should I choose blue or orange silica gel?", answer: "Choose based on use case, destination rules, composition review, buyer policy, SDS, COA, and whether color-change visibility matters more than regulatory simplicity." },
+      { question: "When should indicating silica gel be used?", answer: "Use indicating gel where teams need visual moisture checks, such as labs, storage containers, reusable desiccant workflows, inspection packs, and controlled storage systems." },
+      { question: "What industries use indicating silica gel?", answer: "Common buyers include laboratories, industrial storage teams, electronics packaging teams, distributors, warehouses, instrument suppliers, and maintenance departments." },
+      { question: "Can indicating silica gel be regenerated?", answer: "Many indicating silica gel beads can be regenerated with controlled heating, but the regeneration temperature and safety handling should follow the exact product SDS." },
+      { question: "Can indicating silica gel be supplied in packets?", answer: "Packet, jar, and bulk bead formats can be discussed depending on color, bead size, quantity, labeling, destination, and document requirements." },
+      { question: "Is indicating silica gel food safe?", answer: "Indicating gel is usually not the first choice for direct food packaging. Buyers should request documents and confirm market requirements before using food-related claims." },
+      { question: "What documents should I request?", answer: "Request SDS, COA, composition notes where relevant, ISO 9001:2015 support, and destination-specific compliance review before approving the color and format." },
+      { question: "What should I include in an indicating silica gel RFQ?", answer: "Include color preference, bead size, pack format, quantity, application, destination country, required documents, and whether regeneration or visual monitoring is required." },
     ],
   }),
   "non-indicating-silica-gel": keywordClusterPage({
@@ -939,15 +1084,50 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, material statements, ISO support on request",
     buyerRisk: "Using indicating gel in applications where color chemistry or visible color is not wanted",
     quoteBasis: "White/non-indicating format, packet size, kg, quantity, destination, documents",
+    buyerGuide: {
+      title: "Non-indicating silica gel buyer guide",
+      intro:
+        "Non-indicating silica gel is the default choice for buyers who want moisture adsorption without a color signal. The key is matching format, size, MOQ, and documents to the packaging layer.",
+      sections: [
+        { label: "Definition", title: "What is non-indicating silica gel?", text: "Non-indicating silica gel is a desiccant that adsorbs moisture without changing color. It is commonly white and used where a clean, neutral packet is preferred." },
+        { label: "How it works", title: "How non-indicating gel protects products", text: "It lowers humidity around the product, carton, or storage area by adsorbing water vapor into the silica gel bead structure." },
+        { label: "When to use", title: "When buyers should choose non-indicating gel", text: "Choose it for electronics, pharma packaging review, food packaging review, leather, garments, tools, cartons, and private-label sachet programs." },
+        { label: "Mistakes", title: "Common non-indicating gel mistakes", text: "Do not assume one sachet size fits every carton, and do not use food/pharma claims unless the exact documents support them." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Non-indicating vs indicating silica gel",
+      intro:
+        "Both adsorb moisture. The difference is whether the buyer needs a visible humidity signal.",
+      columns: ["Non-indicating", "Indicating", "Bulk silica gel"],
+      rows: [
+        { label: "Signal", values: ["No color change", "/indicating-silica-gel", "No signal unless mixed with indicator"] },
+        { label: "Best fit", values: ["Clean packets and cartons", "Visual checks and monitoring", "/bulk-silica-gel-desiccant"] },
+        { label: "Common format", values: ["White sachets, bags, bulk", "Blue/orange beads, jars, packets", "25kg bags, drums, jumbo bags"] },
+        { label: "Buyer risk", values: ["Wrong size or unsupported claim", "Color chemistry not approved", "Wrong grade or packing"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Non-indicating silica gel"),
     relatedLinks: [
       { label: "White silica gel", href: "/white-silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Indicating silica gel", href: "/indicating-silica-gel" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
-      { question: "What does non-indicating silica gel mean?", answer: "Non-indicating silica gel adsorbs moisture without changing color as a visible humidity signal." },
-      { question: "Is white silica gel non-indicating?", answer: "White silica gel is commonly requested as a non-indicating desiccant, subject to exact product confirmation." },
-      { question: "Where is non-indicating gel used?", answer: "It is used in packaging, cartons, electronics, food/pharma review applications, and bulk industrial programs." },
+      { question: "What does non-indicating silica gel mean?", answer: "Non-indicating silica gel adsorbs moisture without changing color. It is normally selected where buyers need clean adsorption rather than a visual humidity signal." },
+      { question: "Is white silica gel non-indicating?", answer: "White silica gel is commonly requested as non-indicating silica gel, but buyers should confirm the exact product grade, packet material, and documents." },
+      { question: "Where is non-indicating silica gel used?", answer: "It is used in product packaging, cartons, electronics, pharma packaging review, food packaging review, leather goods, garments, tools, storage, and bulk industrial programs." },
+      { question: "Is non-indicating silica gel food safe?", answer: "Food-safe or food-grade wording depends on exact product documents and destination requirements. Ask for SDS, COA, material statements, and buyer-specific compliance proof." },
+      { question: "What sizes are available?", answer: "Common options include 0.5g-5g sachets, 10g-50g carton bags, larger desiccant bags, bulk beads, 25kg bags, and private-label packet formats." },
+      { question: "Can non-indicating silica gel be regenerated?", answer: "Bulk beads can generally be regenerated with controlled heat, while finished sachets are usually treated as single-use packaging consumables." },
+      { question: "When should I use indicating silica gel instead?", answer: "Use indicating silica gel when inspection teams need a visual moisture signal. Use non-indicating gel when clean adsorption and simple packaging are more important." },
+      { question: "Do you export non-indicating silica gel?", answer: "Yes. DryGelWorld supports international RFQs with export packing, destination details, SDS, COA, ISO 9001:2015 support, and Incoterms discussion." },
+      { question: "How should non-indicating gel be stored?", answer: "Keep it sealed in moisture-barrier packaging, store in a dry warehouse, and open only shortly before insertion into the buyer's final packaging." },
+      { question: "What should a non-indicating silica gel RFQ include?", answer: "Share format, gram size or kg, application, carton volume, quantity, destination, required documents, and whether private-label packaging is needed." },
     ],
   }),
   "moisture-absorber-manufacturer": keywordClusterPage({
@@ -1261,15 +1441,50 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, composition notes and destination review",
     buyerRisk: "Choosing indication color without checking documents and market requirements",
     quoteBasis: "Color, quantity, packing, use case, destination, documents",
+    buyerGuide: {
+      title: "Orange silica gel buyer guide",
+      intro:
+        "Orange silica gel is an indicating desiccant chosen for visible humidity checks. It should be quoted with color behavior, format, documents, and destination rules clearly defined.",
+      sections: [
+        { label: "Definition", title: "What is orange silica gel?", text: "Orange silica gel is an indicating desiccant used when buyers need a visible moisture-status signal during storage, monitoring, or inspection." },
+        { label: "How it works", title: "How orange silica gel indicates moisture", text: "It adsorbs moisture while an indicator system changes color as humidity exposure increases. Exact behavior depends on the selected product and documents." },
+        { label: "When to use", title: "When orange gel is the better choice", text: "Use orange gel where visual checks are important and the buyer wants an indicating alternative to blue silica gel after document review." },
+        { label: "Mistakes", title: "Common orange gel buying mistakes", text: "Avoid ordering only by color. Confirm bead size, pack format, quantity, SDS, COA, market requirements, and whether direct product contact is allowed." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Orange silica gel vs white and blue alternatives",
+      intro:
+        "Orange gel is useful when visible indication matters, while white gel is cleaner for non-indicating packaging.",
+      columns: ["Orange silica gel", "White silica gel", "Blue silica gel"],
+      rows: [
+        { label: "Indicator", values: ["Visible humidity signal", "/white-silica-gel", "/blue-silica-gel"] },
+        { label: "Best fit", values: ["Monitoring and storage checks", "Clean packets and cartons", "Visual indication with color review"] },
+        { label: "Documents", values: ["SDS, COA, composition review", "SDS, COA, material statement", "SDS, COA, composition review"] },
+        { label: "Buyer risk", values: ["Color selected without compliance review", "No visual saturation signal", "Destination restrictions not checked"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Orange silica gel"),
     relatedLinks: [
       { label: "Orange supplier", href: "/orange-silica-gel-supplier" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
       { label: "Blue silica gel", href: "/blue-silica-gel" },
+      { label: "White silica gel", href: "/white-silica-gel" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
-      { question: "What is orange silica gel?", answer: "Orange silica gel is an indicating desiccant used when a visible moisture-state signal is needed." },
-      { question: "Can orange silica gel be used in packets?", answer: "Packet and bulk formats can be discussed based on use case, quantity, and documents." },
-      { question: "Does orange silica gel need SDS and COA?", answer: "Yes. Buyers should request SDS, COA, and composition information where relevant." },
+      { question: "What is orange silica gel?", answer: "Orange silica gel is an indicating desiccant that provides a visible moisture signal while adsorbing water vapor from the surrounding packaging or storage environment." },
+      { question: "How does orange silica gel work?", answer: "It adsorbs moisture like standard silica gel, while the indicator component changes color as humidity exposure increases. The exact color transition depends on the product." },
+      { question: "What is orange silica gel used for?", answer: "It is used for visual humidity checks in storage, labs, inspection packs, reusable desiccant workflows, industrial monitoring, and distributor supply." },
+      { question: "Is orange silica gel safer than blue silica gel?", answer: "Safety depends on exact composition and documents. Orange gel is often requested as an alternative to blue gel, but buyers should still review SDS, COA, and destination rules." },
+      { question: "Can orange silica gel be used in packets?", answer: "Yes, packet, jar, and bulk formats can be discussed based on use case, quantity, packing requirement, label text, documents, and destination." },
+      { question: "Can orange silica gel be regenerated?", answer: "Many orange indicating gels can be regenerated under controlled conditions, but the heating temperature and handling should follow the exact SDS." },
+      { question: "Is orange silica gel food safe?", answer: "Orange indicating gel is usually not the default for direct food packaging claims. Buyers should confirm exact documents and market requirements before using food-related wording." },
+      { question: "What sizes are available?", answer: "Common options include bulk beads, jars, sachets, carton packs, and private-label or distributor packing depending on MOQ and buyer requirements." },
+      { question: "Do you export orange silica gel internationally?", answer: "Yes. DryGelWorld can discuss international RFQs with destination, Incoterms, SDS, COA, composition notes, packing, and repeat volume." },
+      { question: "What should I include in an orange silica gel RFQ?", answer: "Include color requirement, bead size, packet or bulk format, quantity, application, destination, documents, and whether visual indication or regeneration is required." },
     ],
   }),
   "hair-net-supplier": keywordClusterPage({
@@ -3126,6 +3341,31 @@ export const seoLandingPages = {
       { label: "Planning inputs", value: "Transit days, humidity exposure, container loading, destination port" },
       { label: "Commercial basis", value: "Quoted by strip count, shipment schedule, Incoterms, and route" },
     ],
+    buyerGuide: {
+      title: "Container desiccant buyer guide for export shipments",
+      intro:
+        "Container desiccant strips protect the cargo environment during sea freight. They should be planned before loading, not after moisture damage appears at destination.",
+      sections: [
+        { label: "Definition", title: "What are container desiccant strips?", text: "Container desiccant strips are high-capacity moisture absorbers hung inside shipping containers to reduce humidity, condensation, and container rain risk during transit." },
+        { label: "How it works", title: "How container strips protect cargo", text: "The strip absorbs water vapor from the container airspace as humidity rises, helping protect cartons, pallets, labels, metal parts, leather, textiles, and moisture-sensitive goods." },
+        { label: "When to use", title: "When container desiccants should be used", text: "Use them for long sea routes, humid destinations, tropical lanes, dense pallet loads, leather, garments, electronics, food cartons, machinery, and high-claim-risk shipments." },
+        { label: "Mistakes", title: "Common container desiccant mistakes", text: "Do not use a fixed strip count without route data, load wet pallets, block airflow completely, skip carton-level protection, or request pricing without container size and transit days." },
+      ],
+    },
+    sizeGuide: containerDesiccantSizeGuide,
+    comparison: {
+      title: "Container desiccant strips vs silica gel packets",
+      intro:
+        "Many export shipments need both formats because they protect different moisture zones.",
+      columns: ["Container strips", "Silica gel packets", "Bulk silica gel"],
+      rows: [
+        { label: "Protection zone", values: ["Whole container airspace", "/silica-gel-packets", "/bulk-silica-gel-desiccant"] },
+        { label: "Best use", values: ["Sea freight and container rain", "Product packs and cartons", "Repacking and warehouse use"] },
+        { label: "Quote basis", values: ["Route, container, cargo, strip count", "Gram size, carton volume, quantity", "Kg, grade, packing, pallet"] },
+        { label: "Common mistake", values: ["Too few strips for humid routes", "Expecting packets to protect entire container", "Buying loose gel when finished packs are needed"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Container desiccant strips"),
     buyingTitle: "How to request container desiccant strips",
     buyingIntro:
       "A cargo desiccant quote should start with container and route details, not only product price.",
@@ -3147,6 +3387,9 @@ export const seoLandingPages = {
       { label: "Cargo strip product page", href: "/products/container-strips" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "FOB Karachi quotes", href: "/export/fob-karachi" },
+      { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
       {
@@ -3160,6 +3403,34 @@ export const seoLandingPages = {
       {
         question: "Can Dry Gel World quote by Incoterms?",
         answer: "Yes. FOB, CIF, EXW, and other commercial paths can be discussed once destination, quantity, and dispatch schedule are clear.",
+      },
+      {
+        question: "What are container desiccant strips used for?",
+        answer: "They are used to reduce humidity and condensation risk inside export shipping containers, especially on long sea routes or humid destination lanes.",
+      },
+      {
+        question: "Do container desiccants prevent container rain?",
+        answer: "They help reduce container rain risk by absorbing moisture from container air, but dry loading, pallet condition, packing method, and route planning also matter.",
+      },
+      {
+        question: "What cargo needs container desiccants?",
+        answer: "Leather, footwear, garments, textiles, electronics, food cartons, machinery, metal parts, paper products, and high-value palletized cargo often need container moisture planning.",
+      },
+      {
+        question: "Are container desiccant strips reusable?",
+        answer: "Most cargo strips are single-voyage consumables. They are removed after discharge because they absorb moisture throughout the transit cycle.",
+      },
+      {
+        question: "Can container strips replace silica gel packets?",
+        answer: "No. Container strips protect the container environment, while silica gel packets protect the product or carton. Many export programs use both.",
+      },
+      {
+        question: "What documents are available for container desiccants?",
+        answer: "Buyers can request SDS, COA, ISO 9001:2015 support, technical specifications, packing details, and export documentation discussion.",
+      },
+      {
+        question: "What details are needed for a container desiccant quote?",
+        answer: "Send container size, route, transit days, cargo type, packing method, loading density, strip count target, destination, Incoterms, and document requirements.",
       },
     ],
   },
