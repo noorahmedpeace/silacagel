@@ -70,6 +70,13 @@ const footerGroups = [
   },
 ];
 
+const featuredLinkCounts: Record<string, number> = {
+  Products: 5,
+  "Export / OEM": 5,
+  Industries: 5,
+  "Buyer Resources": 6,
+};
+
 export function SiteFooter() {
   const whatsappMessage = encodeURIComponent(
     "Hello, I'm requesting a Dry Gel World silica gel export quote. Please advise MOQ, lead time, documentation, and shipping terms.",
@@ -125,10 +132,17 @@ export function SiteFooter() {
             <section className={styles.column} key={group.title}>
               <h3>{group.title}</h3>
               <nav aria-label={`${group.title} footer links`}>
-                {group.links.map((link) => (
-                  <Link href={link.href} key={link.href}>{link.label}</Link>
+                {group.links.slice(0, featuredLinkCounts[group.title]).map((link) => (
+                  <Link className={styles.featuredLink} href={link.href} key={link.href}>{link.label}</Link>
                 ))}
               </nav>
+              {group.links.length > featuredLinkCounts[group.title] ? (
+                <div className={styles.supportLinks} aria-label={`${group.title} supporting links`}>
+                  {group.links.slice(featuredLinkCounts[group.title]).map((link) => (
+                    <Link href={link.href} key={link.href}>{link.label}</Link>
+                  ))}
+                </div>
+              ) : null}
             </section>
           ))}
         </div>
