@@ -225,6 +225,11 @@ export function getCompareSeoImage(slug: string) {
   if (slug.includes("clay")) return seoImages.silicaGelVsClay;
   if (slug.includes("molecular-sieve")) return seoImages.silicaGelVsMolecularSieve;
   if (slug.includes("oxygen-absorber")) return seoImages.silicaGelVsOxygenAbsorber;
+  if (slug.includes("container-desiccant")) return seoImages.containerHumidityDamage;
+  if (slug.includes("bulk")) return seoImages.industrialBulk;
+  if (slug.includes("indicating") || slug.includes("orange") || slug.includes("white")) {
+    return seoImages.moistureAbsorberCloseup;
+  }
   return seoImages.desiccantSizing;
 }
 

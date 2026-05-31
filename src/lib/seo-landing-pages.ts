@@ -964,6 +964,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
       { label: "Silica gel vs clay", href: "/compare/silica-gel-vs-clay-desiccant" },
       { label: "Request quote", href: "/contact" },
     ],
@@ -1041,6 +1042,7 @@ const highIntentSeoLandingPages = {
       { label: "Documents hub", href: "/documents" },
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -1115,6 +1117,7 @@ const highIntentSeoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -1472,6 +1475,7 @@ const highIntentSeoLandingPages = {
       { label: "Blue silica gel", href: "/blue-silica-gel" },
       { label: "White silica gel", href: "/white-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -3281,6 +3285,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Bulk product page", href: "/products/bulk-industrial" },
+      { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
       { label: "Bulk sales calculator", href: "/bulk-sales" },
       { label: "Export support", href: "/export" },
     ],
@@ -3389,6 +3394,7 @@ export const seoLandingPages = {
       { label: "FOB Karachi quotes", href: "/export/fob-karachi" },
       { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [

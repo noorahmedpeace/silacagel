@@ -12,6 +12,7 @@ import {
 } from "@/lib/seo-images";
 import { exportMarkets } from "./export/markets";
 import { blogArticles } from "./blog/articles";
+import { comparePages } from "@/lib/compare-data";
 
 // Industry slugs are mirrored from src/app/industries/[industry]/page.tsx — keep both in sync.
 const INDUSTRY_SLUGS = [
@@ -21,12 +22,6 @@ const INDUSTRY_SLUGS = [
   "food-packaging",
   "textile-garment-export",
   "container-shipping",
-] as const;
-
-const COMPARE_SLUGS = [
-  "silica-gel-vs-clay-desiccant",
-  "silica-gel-vs-molecular-sieve",
-  "silica-gel-vs-oxygen-absorber",
 ] as const;
 
 const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
@@ -151,11 +146,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const slug of COMPARE_SLUGS) {
-    const image = getCompareSeoImage(slug);
+  for (const page of comparePages) {
+    const image = getCompareSeoImage(page.slug);
 
     entries.push({
-      url: absoluteUrl(`/compare/${slug}`),
+      url: absoluteUrl(`/compare/${page.slug}`),
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,

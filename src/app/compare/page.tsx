@@ -9,7 +9,7 @@ import styles from "./compare.module.css";
 export const metadata: Metadata = {
   title: `Desiccant Comparison Hub | ${siteName}`,
   description:
-    "Compare silica gel vs clay desiccant, molecular sieve, and oxygen absorbers for industrial cargo, packaging, route humidity, and buyer documents.",
+    "Compare silica gel formats, indicating vs non-indicating gel, container desiccants, bulk gel, clay desiccant, molecular sieve, and oxygen absorbers for B2B buying decisions.",
   alternates: {
     canonical: "/compare",
   },
@@ -40,10 +40,10 @@ export default function CompareHub() {
         <h1>Desiccant buyer comparisons — pick the right product per cargo type.</h1>
         <p className={styles.description}>
           Industrial moisture control is a decision problem before it&apos;s a purchase. These
-          side-by-side guides cover the three comparisons procurement teams ask about most:
-          silica gel vs clay desiccant for cost-tier bulk shipping, silica gel vs molecular
-          sieve for deep-drying applications, and silica gel vs oxygen absorbers for food
-          and pharma packaging where the failure mode isn&apos;t moisture at all.
+          side-by-side guides cover the comparisons procurement teams ask about most:
+          white vs orange silica gel, indicating vs non-indicating gel, bulk gel vs packets,
+          container desiccants vs packets, and material alternatives like clay, molecular
+          sieve, and oxygen absorbers.
         </p>
         {author ? (
           <p className={styles.byline}>
