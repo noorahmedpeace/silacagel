@@ -5528,3 +5528,86 @@
     font-size: 0.72rem;
   }
 }
+
+/* Alignment correction: boxed sections live inside the centered shell, so their
+   width should be shell-relative. Using 100vw here made cards look shifted on
+   desktop because the viewport includes the browser scrollbar. */
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.partnerSection,
+.applicationSection,
+.proofSection,
+.exportSection,
+.resourceSection,
+.buyerGuideSection,
+.proofVaultSection,
+.skuSection,
+.seoRoadmapSection,
+.homeRfqSection,
+.ctaBanner,
+.globalPresencePanel {
+  width: 100%;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+@supports (width: 100dvw) {
+  .hero,
+  .procurementFlowSection {
+    width: 100dvw;
+    margin-left: calc(50% - 50dvw);
+    margin-right: calc(50% - 50dvw);
+  }
+
+  .hero {
+    padding-inline: max(2rem, calc((100dvw - 1400px) / 2 + 2rem));
+  }
+
+  .procurementFlowSection {
+    padding-inline: max(2rem, calc((100dvw - 1400px) / 2 + 2rem));
+  }
+}
+
+@media (max-width: 1100px) {
+  .scienceSection,
+  .productSection,
+  .pricingSection,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .exportSection,
+  .resourceSection,
+  .buyerGuideSection,
+  .proofVaultSection,
+  .skuSection,
+  .seoRoadmapSection,
+  .homeRfqSection,
+  .ctaBanner,
+  .globalPresencePanel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .scienceSection,
+  .productSection,
+  .pricingSection,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .exportSection,
+  .resourceSection,
+  .buyerGuideSection,
+  .proofVaultSection,
+  .skuSection,
+  .seoRoadmapSection,
+  .homeRfqSection,
+  .ctaBanner,
+  .globalPresencePanel {
+    width: 100%;
+  }
+}
