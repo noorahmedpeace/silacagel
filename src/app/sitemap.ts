@@ -13,6 +13,7 @@ import {
 import { exportMarkets } from "./export/markets";
 import { blogArticles } from "./blog/articles";
 import { comparePages } from "@/lib/compare-data";
+import { caseStudies } from "@/lib/case-study-data";
 
 // Industry slugs are mirrored from src/app/industries/[industry]/page.tsx — keep both in sync.
 const INDUSTRY_SLUGS = [
@@ -164,6 +165,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "yearly",
       priority: 0.4,
+    });
+  }
+
+  for (const study of caseStudies) {
+    entries.push({
+      url: absoluteUrl(`/case-studies/${study.slug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.75,
+      images: sitemapImages([study.image]),
     });
   }
 

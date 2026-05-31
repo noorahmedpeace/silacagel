@@ -1247,6 +1247,7 @@ const highIntentSeoLandingPages = {
       { label: "Pharma industry page", href: "/industries/pharma-packaging" },
       { label: "Documents hub", href: "/documents" },
       { label: "Food grade silica gel", href: "/food-grade-silica-gel" },
+      { label: "Pharma packaging case study", href: "/case-studies/pharmaceutical-packaging-desiccants" },
     ],
     faqs: [
       { question: "What is a pharmaceutical desiccant?", answer: "It is a moisture-control product used in healthcare or pharma packaging contexts, subject to document and application review." },
@@ -3392,6 +3393,7 @@ export const seoLandingPages = {
       { label: "Cargo strip product page", href: "/products/container-strips" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "FOB Karachi quotes", href: "/export/fob-karachi" },
+      { label: "Container export case study", href: "/case-studies/container-export-moisture-protection" },
       { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
