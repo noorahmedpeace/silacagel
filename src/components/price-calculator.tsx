@@ -68,11 +68,31 @@ export function PriceCalculator() {
     Number.isFinite(parsedQuantity) && parsedQuantity > 0 ? parsedQuantity : 0;
   const totalGrams = selectedOption ? selectedOption.grams * quantityValue : 0;
   const totalKilograms = totalGrams / 1000;
-  const referenceTotalPkr = selectedOption ? selectedOption.unitPrice * quantityValue : 0;
-  const referenceTotal = referenceTotalPkr * selectedCurrency.rateFromPkr;
+  // PKR shows the domestic Pakistan rate; every other currency shows the fixed
+  // USD export rate converted across, so a falling rupee never discounts exports.
+  const usdRateFromPkr =
+    currencyOptions.find((currency) => currency.code === "USD")?.rateFromPkr ?? 0.0036;
+  const unitInSelectedCurrency = selectedOption
+    ? selectedCurrency.code === "PKR"
+      ? selectedOption.unitPrice
+      : selectedOption.exportUsd * (selectedCurrency.rateFromPkr / usdRateFromPkr)
+    : 0;
+  const referenceTotal = unitInSelectedCurrency * quantityValue;
   const hasBulkSignal = totalKilograms >= 25 || quantityValue >= 50000;
   const currencyFormatter = new Intl.NumberFormat(selectedCurrency.locale, {
     maximumFractionDigits: referenceTotal >= 100 ? 0 : 2,
+    minimumFractionDigits: 0,
+  });
+  // Sub-cent unit prices (e.g. a 1 gm sachet at $0.0045) round to "$0" with the
+  // total formatter. Give the per-unit figure enough decimals to stay legible.
+  const unitFractionDigits =
+    unitInSelectedCurrency > 0 && unitInSelectedCurrency < 1
+      ? 4
+      : unitInSelectedCurrency < 100
+        ? 2
+        : 0;
+  const unitFormatter = new Intl.NumberFormat(selectedCurrency.locale, {
+    maximumFractionDigits: unitFractionDigits,
     minimumFractionDigits: 0,
   });
 
@@ -154,8 +174,8 @@ export function PriceCalculator() {
         <article className={styles.summaryCard}>
           <span>Reference Unit</span>
           <AnimatedCounter
-            value={(selectedOption?.unitPrice ?? 0) * selectedCurrency.rateFromPkr}
-            formatter={currencyFormatter}
+            value={unitInSelectedCurrency}
+            formatter={unitFormatter}
             prefix={selectedCurrency.symbol}
           />
         </article>
@@ -178,8 +198,11 @@ export function PriceCalculator() {
           Technical Selection: <strong>{selectedOption?.label}</strong> | Group: <strong>{selectedOption?.groupTitle}</strong>.
         </p>
         <p>
-          Reference estimate shown in <strong>{selectedCurrency.code}</strong>. Final export pricing is quoted by format,
-          quantity, destination, documents, and dispatch schedule.
+          Reference estimate shown in <strong>{selectedCurrency.code}</strong>.{" "}
+          {selectedCurrency.code === "PKR"
+            ? "PKR reflects the domestic Pakistan rate."
+            : "Non-PKR currencies reflect the fixed export rate."}{" "}
+          Final export pricing is quoted by format, quantity, destination, documents, and dispatch schedule.
         </p>
         {hasBulkSignal ? (
           <p className={styles.bulkHint}>
