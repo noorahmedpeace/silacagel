@@ -546,7 +546,7 @@
   }
 
   .calcText > span {
-    display: inline;
+    display: none;
     text-transform: none;
   }
 
