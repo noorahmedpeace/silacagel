@@ -360,4 +360,22 @@
   min-height: 48px;
 }
 
+/* ───────────────────── MOBILE CASCADE FIX ─────────────────────
+ * The "compact desktop workbench" rules above are declared AFTER the
+ * @media (max-width: 620px) block and, carrying equal specificity,
+ * win on phones too (media queries add no specificity). That silently
+ * drops the calculator inputs to ~15px — which triggers iOS zoom-on-
+ * focus — and shrinks the tap targets. Re-assert the mobile-critical
+ * control sizing here as the last matching rule, scoped to ≤620px so
+ * desktop (the intended target of the workbench block) is untouched. */
+@media (max-width: 620px) {
+  .field input,
+  .field select {
+    min-height: 50px;
+    font-size: 16px;
+  }
 
+  .submit {
+    min-height: 52px;
+  }
+}

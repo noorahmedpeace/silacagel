@@ -83,6 +83,18 @@ export function PriceCalculator() {
     maximumFractionDigits: referenceTotal >= 100 ? 0 : 2,
     minimumFractionDigits: 0,
   });
+  // Sub-cent unit prices (e.g. a 1 gm sachet at $0.0045) round to "$0" with the
+  // total formatter. Give the per-unit figure enough decimals to stay legible.
+  const unitFractionDigits =
+    unitInSelectedCurrency > 0 && unitInSelectedCurrency < 1
+      ? 4
+      : unitInSelectedCurrency < 100
+        ? 2
+        : 0;
+  const unitFormatter = new Intl.NumberFormat(selectedCurrency.locale, {
+    maximumFractionDigits: unitFractionDigits,
+    minimumFractionDigits: 0,
+  });
 
   function handleWhatsAppQuote() {
     if (!selectedOption || quantityValue <= 0) {
@@ -163,7 +175,7 @@ export function PriceCalculator() {
           <span>Reference Unit</span>
           <AnimatedCounter
             value={unitInSelectedCurrency}
-            formatter={currencyFormatter}
+            formatter={unitFormatter}
             prefix={selectedCurrency.symbol}
           />
         </article>
