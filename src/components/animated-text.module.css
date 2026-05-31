@@ -1,5 +1,6 @@
 .text {
   display: block;
+  word-spacing: 0;
 }
 
 .line {
@@ -10,6 +11,8 @@
   display: inline-block;
   color: currentColor;
   -webkit-text-fill-color: currentColor;
+  vertical-align: baseline;
+  line-height: inherit;
   animation: wordRise 0.66s cubic-bezier(0.16, 1, 0.3, 1) both;
   transform-origin: 50% 100%;
   will-change: transform, opacity, filter;
@@ -17,12 +20,14 @@
 
 .bubble .word {
   animation-name: wordBubble;
-  margin-right: 0.16em;
+  margin-right: 0;
 }
 
 .wordSpace {
   display: inline-block;
-  width: 0.22em;
+  width: 0.24em;
+  line-height: inherit;
+  vertical-align: baseline;
 }
 
 @keyframes wordRise {

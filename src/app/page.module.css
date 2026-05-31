@@ -5239,3 +5239,292 @@
     display: none;
   }
 }
+
+/* Premium hybrid layout system: full-bleed narrative bands with centered content,
+   alternating with floating boxed product/technical sections. */
+.hero,
+.procurementFlowSection {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+
+.hero {
+  padding-inline: max(2rem, calc((100vw - 1400px) / 2 + 2rem));
+}
+
+.procurementFlowSection {
+  padding-inline: max(2rem, calc((100vw - 1400px) / 2 + 2rem));
+}
+
+.heroCopy,
+.procurementFlowIntro,
+.procurementFlowGrid {
+  max-width: 1400px;
+}
+
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.partnerSection,
+.applicationSection,
+.proofSection,
+.exportSection,
+.resourceSection,
+.buyerGuideSection,
+.proofVaultSection,
+.skuSection,
+.seoRoadmapSection,
+.homeRfqSection,
+.ctaBanner,
+.globalPresencePanel {
+  width: min(1400px, calc(100vw - 4rem));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scienceSection,
+.productSection,
+.pricingSection,
+.whySection,
+.partnerSection,
+.applicationSection,
+.resourceSection,
+.buyerGuideSection {
+  border: 1px solid rgba(0, 103, 197, 0.12);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0, 103, 197, 0.1), transparent 28%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 255, 0.92));
+  box-shadow:
+    0 34px 90px -62px rgba(16, 24, 32, 0.42),
+    0 1px 0 rgba(255, 255, 255, 0.82) inset;
+}
+
+.scienceSection,
+.productSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.scienceSection::before,
+.productSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.72), transparent 34%),
+    radial-gradient(circle at 14% 92%, rgba(216, 13, 42, 0.08), transparent 24%);
+}
+
+.scienceSection > *,
+.productSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionVisual,
+.scienceStage,
+.calculatorPanel,
+.industrialBentoCard,
+.priceCard,
+.reasonCard,
+.applicationCard,
+.exportCard,
+.resourceCard,
+.testimonialCard {
+  box-shadow: 0 22px 54px -38px rgba(16, 24, 32, 0.36);
+}
+
+.scienceVideoColumn {
+  transform: translateX(-10px);
+}
+
+.scienceCopyPanel {
+  transform: translateX(8px);
+}
+
+.productSection .sectionIntro,
+.pricingSection .sectionIntro {
+  align-items: center;
+}
+
+.productLineVisual,
+.pricingVisual {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 1100px) {
+  .hero,
+  .procurementFlowSection {
+    padding-inline: max(1.25rem, calc((100vw - 1400px) / 2 + 1.25rem));
+  }
+
+  .scienceSection,
+  .productSection,
+  .pricingSection,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .exportSection,
+  .resourceSection,
+  .buyerGuideSection,
+  .proofVaultSection,
+  .skuSection,
+  .seoRoadmapSection,
+  .homeRfqSection,
+  .ctaBanner,
+  .globalPresencePanel {
+    width: min(1400px, calc(100vw - 2.5rem));
+  }
+
+  .scienceVideoColumn,
+  .scienceCopyPanel,
+  .productLineVisual,
+  .pricingVisual {
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .procurementFlowSection {
+    padding-inline: 1rem;
+  }
+
+  .scienceSection,
+  .productSection,
+  .pricingSection,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .exportSection,
+  .resourceSection,
+  .buyerGuideSection,
+  .proofVaultSection,
+  .skuSection,
+  .seoRoadmapSection,
+  .homeRfqSection,
+  .ctaBanner,
+  .globalPresencePanel {
+    width: calc(100vw - 1.5rem);
+  }
+
+  .productSection,
+  .pricingSection,
+  .exportSection,
+  .homeRfqSection,
+  .ctaBanner,
+  :global(#moisture-calculator) {
+    padding-inline: 1rem;
+  }
+}
+
+/* Clean hero correction after hybrid pass: remove noisy lower-card clutter and
+   keep the first screen corporate, readable, and conversion focused. */
+.hero {
+  align-items: center;
+  min-height: min(680px, calc(100vh - 118px));
+  padding-block: clamp(64px, 7vw, 104px);
+}
+
+.heroCopy {
+  max-width: 790px;
+}
+
+.hero h1 {
+  max-width: 15ch;
+  margin-bottom: 18px;
+  font-size: clamp(3.15rem, 4.6vw, 5.55rem);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+}
+
+.lead {
+  max-width: 60ch;
+  margin-bottom: 28px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.02rem, 1.05vw, 1.16rem);
+  line-height: 1.68;
+}
+
+.ctaRow {
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.hero .primaryCta,
+.hero .secondaryCta {
+  min-width: 180px;
+  min-height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 0 24px;
+  font-size: 0.92rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.hero .secondaryCta {
+  background: rgba(255, 255, 255, 0.94);
+  border-color: rgba(255, 255, 255, 0.82);
+  color: #101820;
+}
+
+.heroProofLine {
+  width: fit-content;
+  max-width: 760px;
+  margin-bottom: 0;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 8px;
+  background: rgba(9, 16, 28, 0.46);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.heroProofLine span::before {
+  width: 4px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.hero .trustSignals {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    align-items: flex-end;
+    min-height: 560px;
+    padding-block: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 10.2vw, 3.05rem);
+    line-height: 1.03;
+    letter-spacing: -0.015em;
+  }
+
+  .ctaRow {
+    margin-bottom: 12px;
+  }
+
+  .heroProofLine {
+    width: 100%;
+    padding: 10px;
+    font-size: 0.72rem;
+  }
+}
