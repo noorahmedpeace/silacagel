@@ -5138,8 +5138,7 @@
   .skuSection,
   .resourceSection,
   .buyerGuideSection,
-  .seoRoadmapSection,
-  :global(#moisture-calculator) {
+  .seoRoadmapSection {
     display: none !important;
   }
 
@@ -5204,8 +5203,13 @@
   .pricingSection,
   .exportSection,
   .homeRfqSection,
-  .ctaBanner {
+  .ctaBanner,
+  :global(#moisture-calculator) {
     padding-block: 30px;
+  }
+
+  :global(#moisture-calculator) {
+    scroll-margin-top: 132px;
   }
 
   .productSection .sectionVisual,

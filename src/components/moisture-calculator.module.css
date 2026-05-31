@@ -186,15 +186,136 @@
 }
 
 @media (max-width: 768px) {
-  .calculatorCard {
-    padding: 32px;
+  .calculatorWrapper {
+    padding: 0 14px;
   }
+
+  .calculatorCard {
+    gap: 18px;
+    padding: 20px 16px;
+    border-radius: 14px;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 255, 0.9));
+    border-color: rgba(0, 103, 197, 0.14);
+    box-shadow: 0 18px 40px -30px rgba(8, 30, 80, 0.32);
+  }
+
+  .calcHead {
+    text-align: left;
+  }
+
+  .calcHead h2 {
+    margin: 8px 0;
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    line-height: 1.12;
+    letter-spacing: 0;
+    -webkit-text-fill-color: currentColor;
+    background: none;
+    color: #0b2447;
+  }
+
+  .calcHead p:not(.kicker) {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #475569;
+  }
+
+  .kicker {
+    width: fit-content;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(0, 103, 197, 0.1);
+    color: #064a91;
+    font-size: 0.68rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .controls {
+    gap: 14px;
+  }
+
+  .unitToggle {
+    width: 100%;
+    padding: 4px;
+    border-radius: 12px;
+  }
+
+  .unitToggle button {
+    flex: 1;
+    min-height: 42px;
+    padding: 0 10px;
+    border-radius: 9px;
+    font-size: 0.86rem;
+    line-height: 1.1;
+  }
+
   .inputGrid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
+
+  .inputGroup {
+    gap: 6px;
+  }
+
+  .inputGroup label {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  .inputGroup input {
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: 10px;
+    font-size: 16px;
+  }
+
   .resultDisplay {
-    flex-direction: column;
-    text-align: center;
-    padding: 32px;
+    display: grid;
+    grid-template-columns: 92px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.86);
+  }
+
+  .resultCircle {
+    min-width: 92px;
+    width: 92px;
+    height: 92px;
+    box-shadow: 0 16px 28px -18px var(--cta-glow);
+  }
+
+  .resultValue {
+    font-size: 1.8rem;
+  }
+
+  .resultUnit {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+  }
+
+  .resultInfo {
+    gap: 6px;
+    min-width: 0;
+  }
+
+  .resultInfo h4 {
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .resultInfo p {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  .procureLink {
+    margin-top: 2px;
+    font-size: 0.84rem;
   }
 }
