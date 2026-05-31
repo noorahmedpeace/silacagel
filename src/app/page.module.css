@@ -5591,6 +5591,54 @@
   }
 }
 
+/* Desktop hero image text placement: keep the first-screen copy sitting over
+   the left third of the image, like a clean industrial banner. */
+@media (min-width: 761px) {
+  .hero {
+    align-items: center;
+    min-height: clamp(520px, 52vw, 640px);
+    padding-block: clamp(72px, 7vw, 112px);
+  }
+
+  .heroCopy {
+    max-width: 650px;
+    transform: translateY(28px);
+  }
+
+  .hero .kicker {
+    display: none;
+  }
+
+  .hero h1 {
+    max-width: 13.6ch;
+    margin-bottom: 18px;
+    font-size: clamp(3rem, 3.45vw, 4.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.42);
+  }
+
+  .lead {
+    max-width: 38ch;
+    margin-bottom: 0;
+    font-size: clamp(1.08rem, 1.2vw, 1.32rem);
+    line-height: 1.42;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.36);
+  }
+
+  .hero .ctaRow,
+  .heroProofLine {
+    display: none;
+  }
+
+  .heroShade {
+    background:
+      linear-gradient(90deg, rgba(8, 15, 25, 0.88) 0%, rgba(8, 15, 25, 0.66) 28%, rgba(8, 15, 25, 0.16) 62%, rgba(8, 15, 25, 0.04) 100%),
+      linear-gradient(180deg, rgba(8, 15, 25, 0.08) 0%, rgba(8, 15, 25, 0.24) 100%);
+  }
+}
+
 @media (max-width: 760px) {
   .scienceSection,
   .productSection,
