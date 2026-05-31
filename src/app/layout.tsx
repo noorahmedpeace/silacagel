@@ -275,7 +275,7 @@ export default function RootLayout({
                   },
                   image: absoluteUrl("/dry-gel-world-banner.jpg"),
                   description:
-                    "DryGelWorld is a silica gel desiccant manufacturer-exporter and industrial PPE supplier based in Karachi, Pakistan. Operating company Kamran Enterprises has manufactured silica gel sachets since 1983 and expanded into dry clay desiccant, bouffant hair nets, and beard covers for international B2B buyers.",
+                    "DryGelWorld is a silica gel desiccant manufacturer-exporter based in Karachi, Pakistan. Operating company Kamran Enterprises has manufactured silica gel sachets since 1983 and supplies industrial moisture-control products including silica gel packets, bulk silica gel, container desiccants, dry clay desiccants, and private-label desiccant sachets for international B2B buyers.",
                   foundingDate: "1983",
                   founder: {
                     "@type": "Person",
@@ -308,8 +308,6 @@ export default function RootLayout({
                     "Industrial moisture control",
                     "Container desiccant for ocean freight",
                     "Dry clay desiccant",
-                    "Bouffant hair nets",
-                    "Disposable beard covers",
                     "Private-label desiccant sachets",
                     "Export packaging protection",
                     "Pharmaceutical packaging desiccants",
@@ -346,7 +344,7 @@ export default function RootLayout({
                         "@type": "Offer",
                         itemOffered: {
                           "@type": "Service",
-                          name: "Silica gel cargo strip supply",
+                          name: "Shipping container desiccant supply",
                           serviceType: "Export moisture-control procurement",
                           category: "Container and cargo desiccants",
                           material: "Silicon dioxide",
