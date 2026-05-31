@@ -511,7 +511,8 @@
     grid-row: 2;
     display: inline-flex;
     width: 100%;
-    min-height: 38px;
+    min-height: 40px;
+    align-items: center;
     gap: 8px;
     padding: 0 12px;
     border-radius: 10px;
@@ -527,19 +528,23 @@
 
   .calcText {
     display: flex;
-    align-items: baseline;
+    align-items: center;
     gap: 4px;
-    font-size: 0.76rem;
+    font-size: 0.86rem;
+    font-weight: 850;
     letter-spacing: 0;
     line-height: 1;
+    text-transform: none;
   }
 
   .calcText > span {
     display: inline;
+    text-transform: none;
   }
 
   .calcText strong {
-    font-size: 0.82rem;
+    font-size: inherit;
+    font-weight: 850;
     line-height: 1;
     white-space: nowrap;
   }
@@ -615,11 +620,11 @@
   }
 
   .calcText {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 
   .calcText strong {
-    font-size: 0.76rem;
+    font-size: inherit;
   }
 
   .navCta {
