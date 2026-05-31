@@ -117,13 +117,13 @@
 
 .header {
   display: grid;
-  width: min(1360px, 100%);
+  width: min(1280px, calc(100% - 24px));
   min-height: 62px;
   margin: 0 auto;
-  grid-template-columns: 274px minmax(0, 1fr) 292px;
+  grid-template-columns: 236px minmax(0, 1fr) auto;
   align-items: center;
-  gap: 12px;
-  padding: 6px 10px 6px 16px;
+  gap: 10px;
+  padding: 6px 10px 6px 14px;
   border: 1px solid rgba(0, 103, 197, 0.14);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.66);
@@ -149,7 +149,7 @@
 
 .brand {
   display: inline-flex;
-  width: 274px;
+  width: 236px;
   min-width: 0;
   align-items: center;
   color: currentColor;
@@ -157,7 +157,7 @@
 
 .brandLogo {
   display: block;
-  width: 258px;
+  width: 214px;
   height: 48px;
   max-height: 48px;
   object-fit: contain;
@@ -196,7 +196,7 @@
   min-height: 34px;
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  padding: 0 9px;
   border-radius: 999px;
   color: currentColor;
   font-size: 0.76rem;
@@ -223,7 +223,7 @@
   display: flex;
   justify-self: end;
   align-items: center;
-  gap: 9px;
+  gap: 8px;
 }
 
 .calcCta,
@@ -239,13 +239,13 @@
   position: relative;
   isolation: isolate;
   display: inline-flex;
-  min-height: 38px;
-  min-width: 148px;
+  min-height: 40px;
+  min-width: 116px;
   align-items: center;
   justify-content: center;
   gap: 7px;
   overflow: hidden;
-  padding: 0 12px;
+  padding: 0 11px;
   border: 1px solid rgba(0, 103, 197, 0.3);
   border-radius: 10px;
   background:
@@ -296,12 +296,16 @@
   align-items: center;
   gap: 4px;
   text-align: left;
-  font-size: 0.72rem;
+  font-size: 0.76rem;
   font-weight: 850;
   letter-spacing: 0.02em;
   line-height: 1;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.calcText > span {
+  display: none;
 }
 
 .calcText strong {
@@ -316,12 +320,12 @@
   position: relative;
   overflow: hidden;
   display: inline-flex;
-  min-height: 38px;
-  min-width: 132px;
+  min-height: 40px;
+  min-width: 128px;
   align-items: center;
   justify-content: center;
   gap: 7px;
-  padding: 0 14px;
+  padding: 0 13px;
   border: 1px solid rgba(216, 13, 42, 0.18);
   border-radius: 10px;
   background: linear-gradient(135deg, #d80d2a, #b50922);
