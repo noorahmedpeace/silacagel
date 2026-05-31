@@ -78,7 +78,7 @@ export function SiteHeader() {
               </span>
               <span className={styles.calcText}>
                 <span>Requirement</span>
-                <strong>Calculator</strong>
+                <strong>Moisture Calculator</strong>
               </span>
             </Link>
 
