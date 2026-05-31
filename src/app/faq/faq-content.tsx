@@ -7,6 +7,9 @@ import styles from "./faq.module.css";
 export type FaqItem = {
   q: string;
   a: string;
+  // Optional contextual internal links shown under the answer. Kept separate
+  // from `a` so the FAQPage JSON-LD answer text stays plain (schema-safe).
+  links?: { label: string; href: string }[];
 };
 
 export function FAQContent({ faqs }: { faqs: FaqItem[] }) {
@@ -24,6 +27,16 @@ export function FAQContent({ faqs }: { faqs: FaqItem[] }) {
             {open === i && (
               <div className={styles.answer}>
                 <p>{f.a}</p>
+                {f.links && f.links.length > 0 && (
+                  <div className={styles.answerLinks}>
+                    <span className={styles.answerLinksLabel}>Related</span>
+                    {f.links.map((link) => (
+                      <Link key={link.href} href={link.href}>
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
           </article>
