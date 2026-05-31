@@ -5120,3 +5120,118 @@
     padding-top: 1px;
   }
 }
+
+@media (max-width: 760px) {
+  .main {
+    gap: 28px;
+  }
+
+  .scienceSection,
+  .globalPresencePanel,
+  .whySection,
+  .partnerSection,
+  .applicationSection,
+  .proofSection,
+  .shippingBanner,
+  .certStrip,
+  .proofVaultSection,
+  .skuSection,
+  .resourceSection,
+  .buyerGuideSection,
+  .seoRoadmapSection,
+  :global(#moisture-calculator) {
+    display: none !important;
+  }
+
+  .procurementFlowSection {
+    padding: 22px 16px;
+  }
+
+  .procurementFlowIntro h2 {
+    display: none;
+  }
+
+  .procurementFlowGrid {
+    gap: 10px;
+  }
+
+  .procurementFlowCard {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .procurementFlowMedia {
+    min-height: 54px;
+    aspect-ratio: 1;
+  }
+
+  .procurementFlowImage {
+    transform: none;
+  }
+
+  .procurementFlowIcon {
+    width: 28px;
+    height: 28px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .procurementFlowContent {
+    padding: 0;
+  }
+
+  .procurementFlowCard span {
+    font-size: 0.64rem;
+  }
+
+  .procurementFlowCard h3 {
+    margin-top: 3px;
+    font-size: 1rem;
+    line-height: 1.18;
+  }
+
+  .procurementFlowCard p {
+    margin-top: 5px;
+    font-size: 0.82rem;
+    line-height: 1.42;
+  }
+
+  .productSection,
+  .pricingSection,
+  .exportSection,
+  .homeRfqSection,
+  .ctaBanner {
+    padding-block: 30px;
+  }
+
+  .productSection .sectionVisual,
+  .pricingSection .sectionVisual {
+    display: none;
+  }
+
+  .industrialBentoGrid,
+  .priceGrid,
+  .exportGrid,
+  .capabilityGrid {
+    gap: 12px;
+  }
+
+  .industrialBentoCard:nth-child(n + 4),
+  .priceCard:nth-child(n + 3),
+  .exportCard:nth-child(n + 4),
+  .capabilityCard:nth-child(n + 3) {
+    display: none;
+  }
+
+  .categoryRail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pricingHighlights {
+    display: none;
+  }
+}
