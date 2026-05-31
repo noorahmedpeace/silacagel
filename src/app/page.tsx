@@ -105,16 +105,19 @@ const trustSignalsArray = [
     icon: PackageCheck,
     title: "0.5g to 1kg supply range",
     label: "Formats",
+    href: "/guides/silica-gel-buyer-guide",
   },
   {
     icon: Globe,
     title: "Export quotes for global buyers",
     label: "Quoting",
+    href: "/blog/silica-gel-bulk-pricing-factors-for-exporters",
   },
   {
     icon: ShieldCheck,
     title: "Technical docs on request",
     label: "Documents",
+    href: "/documents",
   },
 ];
 
@@ -494,16 +497,16 @@ export default function Home() {
               </div>
 
               <div className={`${styles.trustSignals} gsap-hero-fade`}>
-                {trustSignalsArray.map((signal, index) => {
+                {trustSignalsArray.map((signal) => {
                   const Icon = signal.icon;
                   return (
-                    <div key={index} className={styles.signal}>
+                    <Link key={signal.href} href={signal.href} className={styles.signal}>
                       <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
                       <div className={styles.signalText}>
                         <span>{signal.label}</span>
                         <strong>{signal.title}</strong>
                       </div>
-                    </div>
+                    </Link>
                   );
                 })}
               </div>
