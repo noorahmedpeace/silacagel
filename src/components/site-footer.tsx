@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  companyAddressFull,
   contactEmailChannels,
   createMailtoHref,
   displayPhone,
@@ -191,6 +192,7 @@ export function SiteFooter() {
 
       <div className={styles.bottom}>
         <span><strong>DryGelWorld.com</strong> official Dry Gel World website for industrial silica gel and desiccant export supply.</span>
+        <address style={{ fontStyle: "normal" }}>{companyAddressFull}</address>
         <a href={`tel:${phoneHref}`}>{displayPhone}</a>
       </div>
     </footer>

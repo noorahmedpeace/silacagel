@@ -2,11 +2,17 @@
 
 import { QuoteForm } from "@/components/quote-form";
 import {
+  companyAddressFull,
   contactEmailChannels,
   createMailtoHref,
   displayPhone,
+  googleMapsUrl,
   mainEmail,
+  mapEmbedUrl,
+  openingHoursDisplay,
   phoneHref,
+  salesOfficeFull,
+  salesOfficeMapEmbedUrl,
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./contact.module.css";
@@ -104,7 +110,45 @@ export function ContactContent() {
 
         <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
           <span className={styles.actionKicker}>Hours</span>
-          <span className={styles.actionValue}>Mon–Sat · PKT</span>
+          <span className={styles.actionValue}>{openingHoursDisplay}</span>
+        </div>
+
+        <article className={`${styles.tile} ${styles.tileAction}`}>
+          <span className={styles.actionKicker}>Manufacturing Facility (Primary) · ISO 9001:2015</span>
+          <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{companyAddressFull}</address>
+          <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" style={{ marginTop: 10, fontWeight: 700 }}>
+            View on Google Maps →
+          </a>
+        </article>
+
+        <article className={`${styles.tile} ${styles.tileAction}`}>
+          <span className={styles.actionKicker}>Sales Office (Secondary)</span>
+          <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{salesOfficeFull}</address>
+        </article>
+      </section>
+
+      <section style={{ width: "100%", maxWidth: 1100, margin: "32px auto 0", padding: "0 16px", display: "grid", gap: 16 }}>
+        <div>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Facility — North Karachi Industrial Area</p>
+          <iframe
+            title="DryGelWorld manufacturing facility — North Karachi Industrial Area, Karachi"
+            src={mapEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{ border: 0, width: "100%", height: 300, borderRadius: 14 }}
+            allowFullScreen
+          />
+        </div>
+        <div>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Sales Office — Gulshan-e-Iqbal</p>
+          <iframe
+            title="DryGelWorld sales office — Gulshan-e-Iqbal, Karachi"
+            src={salesOfficeMapEmbedUrl}
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            style={{ border: 0, width: "100%", height: 300, borderRadius: 14 }}
+            allowFullScreen
+          />
         </div>
       </section>
     </main>

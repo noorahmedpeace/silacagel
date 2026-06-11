@@ -46,6 +46,33 @@ export const companyCity = process.env.NEXT_PUBLIC_COMPANY_CITY?.trim() || "Kara
 export const companyCountry = process.env.NEXT_PUBLIC_COMPANY_COUNTRY?.trim() || "Pakistan";
 export const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA?.trim() || "Worldwide";
 
+// ── Physical location / NAP — single source of truth ────────────────────────
+// Aligned to the ISO 9001:2015 certificate (Kamran Enterprises). Keep IDENTICAL
+// across schema, contact page, footer, about, media-kit, llms.txt and your
+// Google Business Profile + directories. Do not let this drift.
+// PRIMARY NAP = manufacturing facility (owner-confirmed 2026-06-11).
+export const companyStreet = "1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town";
+export const companyAddressLocality = "Karachi";
+export const companyAddressRegion = "Sindh";
+export const companyPostalCode = "75950";
+export const companyAddressFull = `${companyStreet}, ${companyAddressLocality}, ${companyAddressRegion} ${companyPostalCode}, ${companyCountry}`;
+// = "1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan"
+// Approximate coordinates for North Karachi Industrial Area, Sector 6B.
+// REPLACE with the exact lat/long from your verified Google Business Profile pin.
+export const companyGeo = { latitude: 24.9847, longitude: 67.0571 };
+export const googleMapsUrl =
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyAddressFull)}`;
+export const mapEmbedUrl =
+  `https://www.google.com/maps?q=${encodeURIComponent(companyAddressFull)}&output=embed`;
+export const openingHoursDisplay = "Mon–Sat, 8:00 AM – 5:00 PM (PKT)";
+export const openingHoursDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+export const openingHoursOpen = "08:00";
+export const openingHoursClose = "17:00";
+// Secondary, clearly-labeled SALES OFFICE (NOT the primary registered NAP).
+export const salesOfficeFull = "A-488, Block-1, Gulshan-e-Iqbal, Karachi, Pakistan";
+export const salesOfficeMapEmbedUrl =
+  `https://www.google.com/maps?q=${encodeURIComponent(salesOfficeFull)}&output=embed`;
+
 export type ContactDepartment = "general" | "sales" | "export" | "support";
 
 export const contactEmailChannels: Array<{

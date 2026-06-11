@@ -7,6 +7,7 @@ import {
   siteName,
 } from "@/lib/seo";
 import {
+  companyAddressFull,
   companyCity,
   companyCountry,
   displayPhone,
@@ -48,7 +49,7 @@ const factSheet = [
   { label: "Headquarters", value: `${companyCity}, ${companyCountry}` },
   {
     label: "Full address",
-    value: "1 St. 13, North Karachi Industrial Area Sector 6 B, New Karachi Town, Karachi 75950, Pakistan",
+    value: companyAddressFull,
   },
   { label: "Manufacturer certification", value: "ISO 9001:2015" },
   {

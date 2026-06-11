@@ -30,9 +30,10 @@ export async function GET() {
 - **Legal entity:** Kamran Enterprises (founded 1983 by Kamran, Waseem & Sons; family enterprise)
 - **Brand:** DryGelWorld (relaunched 2026)
 - **Country of origin:** Pakistan
-- **Head office:** 1 St. 13, North Karachi Industrial Area Sector 6 B, New Karachi Town, Karachi 75950
+- **Manufacturing facility (primary, ISO-certified):** 1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan
+- **Sales office:** A-488, Block-1, Gulshan-e-Iqbal, Karachi, Pakistan
 - **Working hours:** Mon–Sat 8am–5pm PKT
-- **Primary contact:** +92 300 2166721 (general); +92 311 1247111 (accounts)
+- **Primary contact:** +92 333 022 3337 (phone & WhatsApp)
 - **Domain:** ${siteUrl}
 - **Site map:** ${absoluteUrl("/sitemap.xml")}
 - **LinkedIn:** https://www.linkedin.com/in/drygelworld/
@@ -100,7 +101,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 - FOB Karachi, CIF, DAP, EXW available
 - Priority export market pages: USA, Vietnam, Russia, Bangladesh, Indonesia, Mexico, Turkey, India, Brazil, Malaysia, Pakistan, UAE, Saudi Arabia, Qatar, UK, Germany, Canada, Australia, EU-wide
 - Documents on request: ISO 9001:2015 reference, SDS, COA, DMF-free statement
-- WhatsApp sales: +92 300 2166721
+- WhatsApp sales: +92 333 022 3337
 
 ## Core resources
 

@@ -9,7 +9,21 @@ import { MoistureCalcFloat } from "@/components/moisture-calc-float";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
-import { contactEmailChannels, mainEmail, phoneHref, serviceArea } from "@/lib/product-data";
+import {
+  companyAddressLocality,
+  companyAddressRegion,
+  companyGeo,
+  companyPostalCode,
+  companyStreet,
+  contactEmailChannels,
+  googleMapsUrl,
+  mainEmail,
+  openingHoursClose,
+  openingHoursDays,
+  openingHoursOpen,
+  phoneHref,
+  serviceArea,
+} from "@/lib/product-data";
 import {
   absoluteUrl,
   brandDomain,
@@ -283,10 +297,10 @@ export default function RootLayout({
                   },
                   address: {
                     "@type": "PostalAddress",
-                    streetAddress: "1 St. 13, North Karachi Industrial Area Sector 6 B",
-                    addressLocality: "New Karachi Town",
-                    addressRegion: "Karachi",
-                    postalCode: "75950",
+                    streetAddress: companyStreet,
+                    addressLocality: companyAddressLocality,
+                    addressRegion: companyAddressRegion,
+                    postalCode: companyPostalCode,
                     addressCountry: "PK",
                   },
                   contactPoint: contactPoints,
@@ -378,6 +392,37 @@ export default function RootLayout({
                     "@type": "SearchAction",
                     target: "https://www.drygelworld.com/products?query={search_term_string}",
                     "query-input": "required name=search_term_string",
+                  },
+                },
+                {
+                  "@type": "LocalBusiness",
+                  "@id": `${absoluteUrl()}#localbusiness`,
+                  name: brandName,
+                  parentOrganization: { "@id": `${absoluteUrl()}#organization` },
+                  url: absoluteUrl(),
+                  image: absoluteUrl(defaultSeoImage),
+                  telephone: phoneHref,
+                  email: mainEmail,
+                  address: {
+                    "@type": "PostalAddress",
+                    streetAddress: companyStreet,
+                    addressLocality: companyAddressLocality,
+                    addressRegion: companyAddressRegion,
+                    postalCode: companyPostalCode,
+                    addressCountry: "PK",
+                  },
+                  geo: {
+                    "@type": "GeoCoordinates",
+                    latitude: companyGeo.latitude,
+                    longitude: companyGeo.longitude,
+                  },
+                  hasMap: googleMapsUrl,
+                  areaServed: serviceArea,
+                  openingHoursSpecification: {
+                    "@type": "OpeningHoursSpecification",
+                    dayOfWeek: openingHoursDays,
+                    opens: openingHoursOpen,
+                    closes: openingHoursClose,
                   },
                 },
               ],

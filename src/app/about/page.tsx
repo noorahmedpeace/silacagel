@@ -4,6 +4,13 @@ import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import {
+  companyAddressFull,
+  companyAddressLocality,
+  companyAddressRegion,
+  companyPostalCode,
+  companyStreet,
+} from "@/lib/product-data";
 import styles from "./about.module.css";
 
 export const metadata: Metadata = {
@@ -38,8 +45,8 @@ const verifiableClaims = [
   },
   {
     label: "Manufacturing site",
-    value: "1 St. 13, North Karachi Industrial Area Sector 6 B, Karachi 75950, Pakistan",
-    note: "Single integrated manufacturing facility; both silica gel and industrial PPE lines produced on-site.",
+    value: companyAddressFull,
+    note: "Integrated production facility — silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
   },
   {
     label: "Manufacturer certification",
@@ -248,10 +255,10 @@ export default function AboutPage() {
                   url: absoluteUrl(),
                   address: {
                     "@type": "PostalAddress",
-                    streetAddress: "1 St. 13, North Karachi Industrial Area Sector 6 B",
-                    addressLocality: "New Karachi Town",
-                    addressRegion: "Karachi",
-                    postalCode: "75950",
+                    streetAddress: companyStreet,
+                    addressLocality: companyAddressLocality,
+                    addressRegion: companyAddressRegion,
+                    postalCode: companyPostalCode,
                     addressCountry: "PK",
                   },
                   hasCredential: {
