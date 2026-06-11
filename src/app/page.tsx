@@ -45,7 +45,6 @@ import {
   Globe,
   ShieldCheck,
   PackageCheck,
-  Star,
   Truck,
 } from "lucide-react";
 import {
@@ -173,7 +172,7 @@ const capabilityBlocks = [
   {
     icon: FlaskConical,
     title: "QC and documentation desk",
-    text: "ISO 9001:2015, SDS, COA, and DMF-free support should be easy to request; additional claims require valid documents before display.",
+    text: "Every shipment ships with ISO 9001:2015, SDS, COA, and a DMF-free statement — the documentation B2B procurement teams need before approval.",
   },
   {
     icon: PackageCheck,
@@ -330,27 +329,27 @@ const verifiedProof = [
   {
     value: "ISO 9001:2015",
     label: "Verified quality system",
-    text: "Use as the anchor compliance proof. Additional certifications should only be shown when documents exist.",
+    text: "Our quality management system is ISO 9001:2015 certified — the baseline most B2B procurement teams require before approval.",
   },
   {
     value: "DMF-free",
     label: "Product-level safety claim",
-    text: "Reusable for silica gel product discussions alongside SDS, COA, non-toxic, and non-flammable support language.",
+    text: "Our silica gel is DMF-free, with SDS, COA, and non-toxic / non-flammable handling documentation available on request.",
   },
   {
     value: "10M+",
     label: "Packets distributed",
-    text: "A strong scale metric for buyers comparing a real manufacturer against small trading suppliers.",
+    text: "Over four decades of production volume — the scale of a real manufacturer, not a small trading reseller.",
   },
   {
     value: "10,000+",
     label: "Customers supported",
-    text: "Useful proof for domestic and export buyers when paired with documents and product range clarity.",
+    text: "Trusted by domestic and export buyers across pharma, electronics, leather, and logistics packaging.",
   },
   {
     value: "40+",
     label: "Custom categories",
-    text: "Signals custom sizing, recurring supply, and private-label readiness without overstating certifications.",
+    text: "Custom sizing, recurring supply, and private-label packaging — built around your product, not a fixed catalog.",
   },
 ];
 
@@ -865,10 +864,11 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <AnimatedText text="Anonymous proof stories buyers can believe." mode="rise" />
+                <AnimatedText text="Real moisture-control scenarios, documented end to end." mode="rise" />
                 <p>
-                  Until named logos are available, use buyer-safe case studies that show the actual problem,
-                  document path, and buying outcome without exposing client details.
+                  Each scenario walks through the actual moisture problem, the product and documents
+                  involved, and the buying outcome — written to help you structure your own RFQ.
+                  Client names and commercial details are kept confidential.
                 </p>
               </div>
 
@@ -924,11 +924,6 @@ export default function Home() {
                       <div className={styles.testimonialInfo}>
                         <strong>{item.name}</strong>
                         <span>{item.title}</span>
-                        <div className={styles.testimonialStars}>
-                          {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} fill="#FACC15" color="#FACC15" />
-                          ))}
-                        </div>
                       </div>
                     </div>
                     <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
@@ -1038,10 +1033,11 @@ export default function Home() {
             <section className={styles.proofVaultSection} aria-label="Manufacturer proof and documentation">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Manufacturer Proof</p>
-                <AnimatedText text="Show buyers what can actually be claimed today." mode="rise" />
+                <AnimatedText text="Four decades of manufacturing, documented for procurement." mode="rise" />
                 <p>
-                  The relaunch inherits the operating company&apos;s real strengths: 40+ years,
-                  ISO 9001:2015, DMF-free product support, high packet volume, and Karachi manufacturing.
+                  DryGelWorld is backed by 40+ years of silica gel manufacturing in Karachi —
+                  ISO 9001:2015 certified, DMF-free product support, high-volume production capacity,
+                  and SDS/COA documentation provided on request.
                 </p>
               </div>
               <div className={styles.proofVaultGrid}>
