@@ -168,7 +168,161 @@ export function withPageImageContext(image: SeoImage, context: string): SeoImage
   };
 }
 
+function blogImage(slug: string, title: string, caption: string): SeoImage {
+  return {
+    src: `/blog-images/${slug}.webp`,
+    alt: `${title} visual for DryGelWorld industrial desiccant buyers`,
+    title,
+    caption,
+    ...seoImageSize,
+  };
+}
+
+const blogSeoImages: Record<string, SeoImage> = {
+  "how-to-choose-silica-gel-packet-size": blogImage(
+    "how-to-choose-silica-gel-packet-size",
+    "Silica gel packet sizing guide visual",
+    "Dedicated sizing-guide thumbnail for carton volume, sachet grams, pallet protection, and RFQ planning.",
+  ),
+  "silica-gel-vs-clay-desiccant": blogImage(
+    "silica-gel-vs-clay-desiccant",
+    "Silica gel versus clay desiccant comparison visual",
+    "Comparison thumbnail for buyers choosing between silica gel and dry clay desiccant formats.",
+  ),
+  "container-rain-prevention": blogImage(
+    "container-rain-prevention",
+    "Container rain prevention visual",
+    "Dedicated shipping-container moisture visual for condensation, cargo sweat, and route-risk prevention.",
+  ),
+  "desiccant-for-electronics-packaging": blogImage(
+    "desiccant-for-electronics-packaging",
+    "Electronics packaging desiccant visual",
+    "Electronics-focused thumbnail for PCB, component, and anti-static packaging moisture protection.",
+  ),
+  "can-you-reuse-silica-gel": blogImage(
+    "can-you-reuse-silica-gel",
+    "Reusable silica gel reactivation visual",
+    "Dedicated thumbnail for silica gel reuse, saturation, heating, and regeneration guidance.",
+  ),
+  "what-is-silica-gel-and-how-does-it-work": blogImage(
+    "what-is-silica-gel-and-how-does-it-work",
+    "Silica gel adsorption science visual",
+    "Educational thumbnail for explaining how silica gel adsorbs moisture in industrial packaging.",
+  ),
+  "silica-gel-vs-molecular-sieve-vs-activated-alumina": blogImage(
+    "silica-gel-vs-molecular-sieve-vs-activated-alumina",
+    "Silica gel molecular sieve activated alumina comparison visual",
+    "Technical comparison thumbnail for three common industrial desiccant materials.",
+  ),
+  "how-to-prevent-moisture-in-export-cartons": blogImage(
+    "how-to-prevent-moisture-in-export-cartons",
+    "Export carton moisture prevention visual",
+    "Carton-protection thumbnail for preventing humidity damage before export shipping.",
+  ),
+  "silica-gel-sds-coa-requirements-for-buyers": blogImage(
+    "silica-gel-sds-coa-requirements-for-buyers",
+    "Silica gel SDS and COA buyer document visual",
+    "Documentation thumbnail for SDS, COA, compliance notes, and procurement checks.",
+  ),
+  "private-label-silica-gel-packets-guide": blogImage(
+    "private-label-silica-gel-packets-guide",
+    "Private label silica gel packets visual",
+    "Private-label thumbnail for sachet artwork, carton marks, MOQ, and repeat buyer programs.",
+  ),
+  "bulk-silica-gel-supplier-checklist": blogImage(
+    "bulk-silica-gel-supplier-checklist",
+    "Bulk silica gel supplier checklist visual",
+    "Bulk-procurement thumbnail for warehouse supply, repackers, distributors, and high-volume buyers.",
+  ),
+  "why-hair-nets-matter-in-food-export": blogImage(
+    "why-hair-nets-matter-in-food-export",
+    "Hair nets for food export visual",
+    "PPE thumbnail for food export contamination control and production-line hair containment.",
+  ),
+  "best-desiccant-for-shipping-containers": blogImage(
+    "best-desiccant-for-shipping-containers",
+    "Best desiccant for shipping containers visual",
+    "Container-desiccant thumbnail for cargo strips, dosage planning, and ocean freight protection.",
+  ),
+  "ppe-products-for-factories": blogImage(
+    "ppe-products-for-factories",
+    "Factory PPE products visual",
+    "PPE thumbnail for hair nets, beard covers, and factory contamination-control programs.",
+  ),
+  "importance-of-beard-covers-in-manufacturing": blogImage(
+    "importance-of-beard-covers-in-manufacturing",
+    "Beard covers in manufacturing visual",
+    "Dedicated beard-cover thumbnail for facial-hair containment in food, pharma, and manufacturing zones.",
+  ),
+  "moisture-protection-for-international-shipping": blogImage(
+    "moisture-protection-for-international-shipping",
+    "International shipping moisture protection visual",
+    "Global shipping thumbnail for humidity exposure, transit routes, and cargo protection planning.",
+  ),
+  "industrial-packaging-protection-solutions": blogImage(
+    "industrial-packaging-protection-solutions",
+    "Industrial packaging protection visual",
+    "Industrial packaging thumbnail for cartons, pallets, documents, and desiccant protection programs.",
+  ),
+  "container-desiccant-vs-silica-gel": blogImage(
+    "container-desiccant-vs-silica-gel",
+    "Container desiccant versus silica gel visual",
+    "Comparison thumbnail for container strips, sachets, and format selection by shipment risk.",
+  ),
+  "reusable-vs-disposable-desiccants": blogImage(
+    "reusable-vs-disposable-desiccants",
+    "Reusable versus disposable desiccants visual",
+    "Operational comparison thumbnail for reusable indicating gel and single-use desiccant programs.",
+  ),
+  "how-long-does-silica-gel-last": blogImage(
+    "how-long-does-silica-gel-last",
+    "Silica gel shelf life visual",
+    "Shelf-life thumbnail for storage conditions, saturation, humidity exposure, and replacement timing.",
+  ),
+  "how-exporters-protect-cargo-from-humidity": blogImage(
+    "how-exporters-protect-cargo-from-humidity",
+    "Cargo humidity protection for exporters visual",
+    "Export-workflow thumbnail for protecting palletized cargo from route humidity and container condensation.",
+  ),
+  "silica-gel-for-pharma-packaging-buyer-guide": blogImage(
+    "silica-gel-for-pharma-packaging-buyer-guide",
+    "Pharma packaging silica gel buyer guide visual",
+    "Pharma-focused thumbnail for clean packaging, stability concerns, SDS, COA, and buyer documentation.",
+  ),
+  "indicating-silica-gel-orange-blue-color-change-guide": blogImage(
+    "indicating-silica-gel-orange-blue-color-change-guide",
+    "Indicating silica gel orange blue color change visual",
+    "Indicating-gel thumbnail for color change, saturation checks, and QC visual confirmation.",
+  ),
+  "oxygen-absorber-vs-silica-gel-when-to-use-each": blogImage(
+    "oxygen-absorber-vs-silica-gel-when-to-use-each",
+    "Oxygen absorber versus silica gel visual",
+    "Comparison thumbnail separating oxygen-control packets from moisture-control desiccants.",
+  ),
+  "food-grade-silica-gel-procurement-guide": blogImage(
+    "food-grade-silica-gel-procurement-guide",
+    "Food packaging silica gel procurement visual",
+    "Food-packaging thumbnail for compliance questions, incidental contact, and procurement documentation.",
+  ),
+  "silica-gel-bulk-pricing-factors-for-exporters": blogImage(
+    "silica-gel-bulk-pricing-factors-for-exporters",
+    "Bulk silica gel pricing factors visual",
+    "Pricing thumbnail for MOQ, Incoterms, certification scope, packaging format, and export quote planning.",
+  ),
+  "silica-gel-for-leather-and-footwear-export": blogImage(
+    "silica-gel-for-leather-and-footwear-export",
+    "Leather and footwear export silica gel visual",
+    "Leather-export thumbnail for mold prevention, footwear cartons, humid routes, and container protection.",
+  ),
+};
+
 export function getBlogSeoImage(slug: string) {
+  const exactImage = blogSeoImages[slug];
+
+  if (exactImage) {
+    return exactImage;
+  }
+
   if (slug.includes("private-label") || slug.includes("oem")) {
     return seoImages.privateLabelPackaging;
   }
