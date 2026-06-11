@@ -195,6 +195,7 @@ const seoClusters = [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Container strips", href: "/container-desiccant-strips" },
+      { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
   },
   {
@@ -212,6 +213,7 @@ const seoClusters = [
     links: [
       { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Export support", href: "/export" },
     ],
   },

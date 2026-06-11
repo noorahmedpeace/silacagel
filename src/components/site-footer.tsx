@@ -22,6 +22,8 @@ const footerGroups = [
       { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
+      { label: "Silica gel beads", href: "/silica-gel-beads" },
+      { label: "Bentonite clay desiccant", href: "/bentonite-clay" },
     ],
   },
   {
@@ -39,6 +41,26 @@ const footerGroups = [
     ],
   },
   {
+    // NEW — export-country pages had NO footer link before; this surfaces the
+    // export hub + priority market pages site-wide and de-orphans the
+    // per-country exporter landing pages.
+    title: "Export Markets",
+    links: [
+      { label: "Export support hub", href: "/export" },
+      { label: "UAE silica gel supplier", href: "/export/uae" },
+      { label: "Saudi Arabia supplier", href: "/export/saudi-arabia" },
+      { label: "Qatar supplier", href: "/export/qatar" },
+      { label: "USA export", href: "/export/usa" },
+      { label: "UK supplier", href: "/export/uk" },
+      { label: "Germany supplier", href: "/export/germany" },
+      { label: "India supplier", href: "/export/india" },
+      { label: "Silica gel exporter USA", href: "/silica-gel-exporter-usa" },
+      { label: "Silica gel exporter Germany", href: "/silica-gel-exporter-germany" },
+      { label: "Silica gel exporter Canada", href: "/silica-gel-exporter-canada" },
+      { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
+    ],
+  },
+  {
     title: "Industries",
     links: [
       { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
@@ -47,12 +69,13 @@ const footerGroups = [
       { label: "Pharma packaging", href: "/industries/pharma-packaging" },
       { label: "Leather and footwear export", href: "/industries/leather-footwear-export" },
       { label: "Food packaging", href: "/industries/food-packaging" },
+      { label: "All industries", href: "/industries" },
       { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
       { label: "Case studies", href: "/case-studies" },
     ],
   },
   {
-    title: "Buyer Resources",
+    title: "Desiccant Range",
     links: [
       { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
@@ -62,9 +85,25 @@ const footerGroups = [
       { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
       { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
       { label: "Container moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
+      { label: "Dry clay supplier UAE", href: "/dry-clay-desiccant-supplier-uae" },
+      { label: "Dry clay supplier Saudi Arabia", href: "/dry-clay-desiccant-supplier-saudi-arabia" },
+    ],
+  },
+  {
+    // NEW — knowledge/trust hub: guides, comparisons, documents, certifications.
+    title: "Resources",
+    links: [
+      { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Desiccant comparisons", href: "/compare" },
+      { label: "Documents (SDS, COA)", href: "/documents" },
+      { label: "Certifications", href: "/certifications" },
       { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
       { label: "Export carton moisture guide", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
       { label: "SDS and COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
+      { label: "Buyer blog", href: "/blog" },
+      { label: "Media kit", href: "/media-kit" },
       { label: "Technical FAQ", href: "/faq" },
     ],
   },
@@ -73,8 +112,10 @@ const footerGroups = [
 const featuredLinkCounts: Record<string, number> = {
   Products: 5,
   "Export / OEM": 5,
+  "Export Markets": 5,
   Industries: 5,
-  "Buyer Resources": 6,
+  "Desiccant Range": 5,
+  Resources: 6,
 };
 
 export function SiteFooter() {

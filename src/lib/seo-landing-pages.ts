@@ -2188,7 +2188,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Dry clay desiccant product page", href: "/products/dry-clay-desiccant" },
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
-      { label: "Industrial dry clay", href: "/industrial-dry-clay" },
+      { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
     ],
     faqs: [
       { question: "What's the difference between bentonite and montmorillonite clay?", answer: "Bentonite is a rock composed predominantly of montmorillonite clay — the terms are often used interchangeably in industrial desiccant supply. Both are activated by heat treatment to expose the layered structure that adsorbs moisture." },

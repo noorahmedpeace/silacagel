@@ -9,6 +9,13 @@ export type ExportMarket = {
   documents: string[];
   routeNote: string;
   rfqTip: string;
+  // Optional commercial terms — populated for priority (GCC) markets so buyers
+  // see MOQ, lead time, currency, and Incoterms before sending an RFQ.
+  moq?: string;
+  leadTime?: string;
+  currency?: string;
+  incoterms?: string[];
+  faqs?: Array<{ question: string; answer: string }>;
 };
 
 export const exportMarkets: ExportMarket[] = [
@@ -25,6 +32,16 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "Karachi-to-UAE routing is one of the clearest export stories for Pakistan-based desiccant supply because buyers can compare FOB Karachi, CIF UAE, and DAP UAE options early.",
     rfqTip: "Send destination emirate, required format, quantity, and whether you need Arabic/English carton labeling.",
+    moq: "Typically from 100 kg or 100,000 sachets per format; trial/sample quantities available before bulk.",
+    leadTime: "Production 7–15 days after artwork/spec sign-off; sea transit Karachi → Jebel Ali ~3–5 days.",
+    currency: "Quoted in USD (AED on request)",
+    incoterms: ["FOB Karachi", "CIF Jebel Ali", "DAP UAE"],
+    faqs: [
+      { question: "What is the MOQ for silica gel to the UAE?", answer: "Orders typically start from around 100 kg or 100,000 sachets per format, with smaller trial and sample quantities available before a bulk commitment. Exact MOQ depends on packet size and private-label requirements." },
+      { question: "Which Incoterms do you offer for UAE shipments?", answer: "FOB Karachi, CIF Jebel Ali, and DAP UAE are all available, so buyers can choose factory handover, freight-included delivery to port, or delivered terms based on their logistics setup." },
+      { question: "How long is the lead time to the UAE?", answer: "Production usually takes 7–15 days after artwork and specification sign-off, and Karachi to Jebel Ali sea transit is roughly 3–5 days. Recurring programs can be scheduled in advance." },
+      { question: "Do you supply Arabic/English carton labeling for the UAE?", answer: "Yes — private-label and bilingual carton labeling can be arranged. Share your label artwork and destination emirate with the RFQ." },
+    ],
   },
   {
     slug: "saudi-arabia",
@@ -39,6 +56,16 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "Saudi buyers usually need the product format, quantity, destination city or port, labeling requirements, and document set aligned before pricing is useful.",
     rfqTip: "Share target port, destination city, application, and whether the order is one-time or recurring monthly supply.",
+    moq: "From 100 kg or 100,000 sachets per format; bulk beads from 500 kg; samples available pre-order.",
+    leadTime: "Production 7–15 days after sign-off; sea transit Karachi → Jeddah/Dammam ~6–9 days.",
+    currency: "Quoted in USD (SAR on request)",
+    incoterms: ["FOB Karachi", "CIF Jeddah", "CIF Dammam", "DAP Saudi Arabia"],
+    faqs: [
+      { question: "What is the MOQ for silica gel to Saudi Arabia?", answer: "Sachet formats typically start from around 100 kg or 100,000 pieces, and bulk silica gel beads from about 500 kg. Trial and sample quantities are available before a bulk order." },
+      { question: "Which ports do you ship to in Saudi Arabia?", answer: "Common destinations are Jeddah Islamic Port and King Abdulaziz Port in Dammam, with onward routing to Riyadh and other cities via dry-port and forwarding partners." },
+      { question: "What Incoterms are available for Saudi orders?", answer: "FOB Karachi, CIF Jeddah, CIF Dammam, and DAP Saudi Arabia, so buyers can match terms to their freight and customs arrangements." },
+      { question: "Do you support recurring monthly supply to Saudi Arabia?", answer: "Yes — recurring distributor and industrial supply programs can be scheduled with a fixed spec, MOQ, and lead-time baseline so repeat orders only need volume and destination updates." },
+    ],
   },
   {
     slug: "qatar",
@@ -53,6 +80,16 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "For Qatar inquiries, sample shipment, carton labeling, and import-document expectations should be confirmed before bulk order planning.",
     rfqTip: "Send the project/application, target quantity, destination in Qatar, and sample requirement before asking for final price.",
+    moq: "From 100 kg or 100,000 sachets per format; sample packs available before bulk commitment.",
+    leadTime: "Production 7–15 days after sign-off; sea transit Karachi → Hamad Port ~5–8 days.",
+    currency: "Quoted in USD (QAR on request)",
+    incoterms: ["FOB Karachi", "CIF Hamad Port", "DAP Qatar"],
+    faqs: [
+      { question: "What is the MOQ for silica gel to Qatar?", answer: "Orders generally start from around 100 kg or 100,000 sachets per format, with sample packs available before a bulk commitment — useful for project-supply buyers validating fit." },
+      { question: "Which port serves Qatar shipments?", answer: "Hamad Port is the main sea-freight destination, with air-cargo available for samples and urgent project requirements." },
+      { question: "Can I get samples before ordering for a Qatar project?", answer: "Yes — sample packs can ship ahead of a bulk order so project and packaging teams can validate format and quality before committing." },
+      { question: "What Incoterms do you offer for Qatar?", answer: "FOB Karachi, CIF Hamad Port, and DAP Qatar, depending on whether you want factory handover, freight to port, or delivered terms." },
+    ],
   },
   {
     slug: "usa",

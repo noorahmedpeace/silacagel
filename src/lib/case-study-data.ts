@@ -17,6 +17,74 @@ export type CaseStudy = {
 
 export const caseStudies: CaseStudy[] = [
   {
+    slug: "uae-container-rain-electronics",
+    label: "GCC Case",
+    industry: "UAE Container Export",
+    title: "Sizing container desiccant for a Karachi–Jebel Ali electronics shipment.",
+    metaDescription:
+      "Anonymous UAE container export case study: sizing cargo desiccant strips for electronics moving Karachi to Jebel Ali, with route humidity, MOQ, Incoterms, SDS, and COA planning.",
+    image: "/applications/export-logistics.webp",
+    context:
+      "A UAE importer moving boxed electronics on the Karachi–Jebel Ali route needed a defensible container desiccant plan before confirming CIF terms.",
+    challenge:
+      "The buyer asked only for a strip price, but container size, ~3–5 day transit plus warehouse dwell, Gulf humidity, and electronics sensitivity all changed the real requirement.",
+    approach:
+      "The RFQ was reframed around 40ft container size, voyage and dwell time, subtropical route humidity, and sensitive-cargo loading — the same inputs as the container desiccant dosage calculator — then matched to MOQ, Incoterms (FOB Karachi / CIF Jebel Ali / DAP UAE), SDS, and COA.",
+    proof:
+      "The buyer received a documented strip allocation, ceiling-placement guidance, and a clear UAE supply-terms summary (MOQ, lead time, currency) before pricing — the supporting metrics and dated loading photos are added from the buyer's own shipment records.",
+    outcome:
+      "The conversation moved from a bare strip price to a documented, repeatable UAE container program the importer could reorder against.",
+    products: [
+      { label: "UAE silica gel supplier", href: "/export/uae" },
+      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
+      { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
+    ],
+    nextLinks: [
+      { label: "Container shipping industry", href: "/industries/container-shipping" },
+      { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
+      { label: "Request UAE container quote", href: "/contact" },
+    ],
+    faqs: [
+      { q: "How was the UAE container dosage estimated?", a: "From container size, voyage and dwell time, Gulf route humidity, and electronics sensitivity — the same factors in the container desiccant dosage calculator — then confirmed by the export desk." },
+      { q: "What UAE commercial terms were confirmed before pricing?", a: "MOQ, lead time, currency, and Incoterms (FOB Karachi, CIF Jebel Ali, DAP UAE), plus SDS and COA document support." },
+      { q: "Does this case claim specific damage-reduction figures?", a: "No. It describes the planning and RFQ workflow. Quantified results, client names, and loading photos are supplied from the buyer's own shipment records." },
+    ],
+  },
+  {
+    slug: "saudi-bulk-silica-gel-supply",
+    label: "GCC Case",
+    industry: "Saudi Bulk Supply",
+    title: "Structuring a recurring bulk silica gel program for a Saudi distributor.",
+    metaDescription:
+      "Anonymous Saudi Arabia bulk silica gel case study: building a recurring distributor supply program with MOQ, lead time, Jeddah/Dammam routing, Incoterms, SDS, and COA.",
+    image: "/applications/warehouse-inventory.webp",
+    context:
+      "A Saudi distributor wanted predictable, repeatable bulk silica gel supply instead of re-quoting every shipment from scratch.",
+    challenge:
+      "Volume, destination city, packing format, and document needs shifted between orders, so the distributor needed a fixed MOQ, lead-time, and Incoterm baseline to plan against.",
+    approach:
+      "DryGelWorld set a recurring template: bulk-bead MOQ, production and Karachi → Jeddah/Dammam transit windows, Incoterms (FOB Karachi / CIF Jeddah / CIF Dammam / DAP Saudi Arabia), SDS, COA, and DMF-free support — so repeat orders only update volume and destination.",
+    proof:
+      "The distributor compared each new order against one consistent commercial and documentation baseline; pricing and quantity histories come from the buyer's own purchase records.",
+    outcome:
+      "Repeat RFQs became faster and more predictable, supporting a recurring Saudi distribution relationship rather than one-off transactions.",
+    products: [
+      { label: "Saudi Arabia silica gel supplier", href: "/export/saudi-arabia" },
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Silica gel manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+    ],
+    nextLinks: [
+      { label: "Documents hub", href: "/documents" },
+      { label: "Silica gel SDS & COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
+      { label: "Request Saudi bulk quote", href: "/contact" },
+    ],
+    faqs: [
+      { q: "What is the bulk silica gel MOQ for Saudi Arabia?", a: "Bulk silica gel beads typically start from around 500 kg, with sachet formats from about 100 kg or 100,000 pieces. Trial quantities are available before a recurring commitment." },
+      { q: "Which Saudi ports and Incoterms were used?", a: "Jeddah Islamic Port and King Abdulaziz Port Dammam, with FOB Karachi, CIF Jeddah, CIF Dammam, and DAP Saudi Arabia terms available." },
+      { q: "How does a recurring supply template help?", a: "A fixed MOQ, lead-time, Incoterm, and document baseline means repeat orders only need volume and destination updates, making quotes faster and more predictable." },
+    ],
+  },
+  {
     slug: "pharmaceutical-packaging-desiccants",
     label: "Case 01",
     industry: "Pharmaceutical Packaging",

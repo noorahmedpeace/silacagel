@@ -212,6 +212,18 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         },
       },
       breadcrumbGraph,
+      ...(market.faqs && market.faqs.length
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: market.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: { "@type": "Answer", text: faq.answer },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -291,6 +303,74 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
           ))}
         </div>
       </section>
+
+      {market.moq ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{market.country} supply terms.</h2>
+            <p>
+              Clear commercial terms up front so {market.country} buyers can plan an RFQ without
+              back-and-forth on the basics.
+            </p>
+          </div>
+          <div className={styles.grid}>
+            <article className={styles.card}>
+              <span>MOQ</span>
+              <h3>Minimum order</h3>
+              <p>{market.moq}</p>
+            </article>
+            {market.leadTime ? (
+              <article className={styles.card}>
+                <span>Lead time</span>
+                <h3>Production &amp; transit</h3>
+                <p>{market.leadTime}</p>
+              </article>
+            ) : null}
+            <article className={styles.card}>
+              <span>Incoterms</span>
+              <h3>Terms available</h3>
+              <p>{(market.incoterms ?? []).join(" · ")}</p>
+              {market.currency ? <p>{market.currency}</p> : null}
+            </article>
+            <article className={styles.card}>
+              <span>Plan dosage</span>
+              <h3>Container desiccant calculator</h3>
+              <p>
+                Estimate cargo strips before you quote with our{" "}
+                <Link href="/tools/container-desiccant-calculator">container desiccant dosage calculator</Link>.
+              </p>
+            </article>
+          </div>
+        </section>
+      ) : null}
+
+      {market.faqs && market.faqs.length ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{market.country} silica gel supply FAQ.</h2>
+          </div>
+          <div className={styles.grid}>
+            {market.faqs.map((faq) => (
+              <article className={styles.card} key={faq.question}>
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Request a {market.country} export quote.</h2>
+          <p>
+            Send your format, quantity, destination port or city, and Incoterms — and the export
+            desk returns a documented quote with MOQ, lead time, and shipping options.
+          </p>
+        </div>
+        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+      </section>
+
       <script
         type="application/ld+json"
         suppressHydrationWarning
