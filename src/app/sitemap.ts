@@ -46,6 +46,8 @@ const STATIC_ROUTES = [
   "/compare",
   "/guides/silica-gel-buyer-guide",
   "/media-kit",
+  "/industries",
+  "/tools/container-desiccant-calculator",
 ] as const;
 
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {
