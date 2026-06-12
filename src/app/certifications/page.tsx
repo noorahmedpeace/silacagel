@@ -29,7 +29,7 @@ const credentials: CredentialRow[] = [
     status: "held",
     category: "Quality Management System",
     detail:
-      "Formally certified quality management system for the operating company (Kamran Enterprises). Anchor credential for B2B procurement review. Reference available on request.",
+      "Formally certified quality management system covering DryGelWorld's manufacturing operations (certificate issued to the registered legal entity, Kamran Enterprises). Anchor credential for B2B procurement review. Reference available on request.",
   },
   {
     name: "DMF-free Product Statement",
@@ -188,8 +188,9 @@ export default function CertificationsPage() {
             <span>✓ Held</span>
             <h3>ISO 9001:2015</h3>
             <p>
-              Formally certified quality management system for Kamran Enterprises, the operating
-              company behind DryGelWorld. Documented process controls, customer-feedback handling,
+              Formally certified quality management system covering DryGelWorld's manufacturing
+              operations. The ISO 9001:2015 certificate is issued to the registered legal entity,
+              Kamran Enterprises. Documented process controls, customer-feedback handling,
               supplier evaluation, and continuous-improvement program. Reference available on request
               for procurement-team review.
             </p>

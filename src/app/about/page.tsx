@@ -37,17 +37,17 @@ const verifiableClaims = [
   {
     label: "Founded",
     value: "1983",
-    note: "Kamran Enterprises (operating company); trading as DryGelWorld for industrial silica gel desiccant export supply.",
+    note: "DryGelWorld has manufactured industrial silica gel desiccants in Karachi since 1983 (registered legal entity: Kamran Enterprises).",
   },
   {
-    label: "Founders",
-    value: "Kamran, Waseem & Sons",
-    note: "Family-led manufacturer-exporter; second-generation operating team currently leads the export desk.",
+    label: "Ownership",
+    value: "Family-led, second generation",
+    note: "Family-led manufacturer-exporter; the second-generation team currently leads the DryGelWorld export desk.",
   },
   {
     label: "Brand structure",
     value: "Two brands, one manufacturer",
-    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is the global export division — both operated by Kamran Enterprises since 1983.",
+    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is our global export brand — one manufacturer, operating since 1983.",
   },
   {
     label: "Head office",
@@ -222,7 +222,7 @@ export default function AboutPage() {
                 Buyer guides, comparison content, and procurement documentation on this
                 site are edited by the{" "}
                 <Link href={`/authors/${author.slug}`}>{author.name}</Link> — the
-                buyer-facing team inside Kamran Enterprises. Editorial scope is limited
+                buyer-facing team at DryGelWorld. Editorial scope is limited
                 to product, packaging, and export logistics that the desk handles directly.
                 Regulatory claims are limited to certifications actually held.
               </p>
@@ -254,7 +254,7 @@ export default function AboutPage() {
                 "@id": `${absoluteUrl("/about")}#aboutpage`,
                 name: `About ${siteName}`,
                 description:
-                  "Kamran Enterprises (DryGelWorld) is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983.",
+                  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983.",
                 url: absoluteUrl("/about"),
                 inLanguage: "en",
                 mainEntity: {

@@ -1003,7 +1003,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "ISO 9001:2015 — the quality system anchor",
-        body: "ISO 9001:2015 certifies that the manufacturer operates a documented quality management system — process controls, document management, customer-feedback handling, supplier evaluation, and continuous improvement. Most B2B buyers require ISO 9001:2015 as a baseline before commercial terms; without it, the supplier is essentially asking the buyer to trust unverified processes. DryGelWorld's operating company (Kamran Enterprises) holds ISO 9001:2015 — this is the most universally-accepted credential and the right anchor for procurement-team trust.",
+        body: "ISO 9001:2015 certifies that the manufacturer operates a documented quality management system — process controls, document management, customer-feedback handling, supplier evaluation, and continuous improvement. Most B2B buyers require ISO 9001:2015 as a baseline before commercial terms; without it, the supplier is essentially asking the buyer to trust unverified processes. DryGelWorld holds ISO 9001:2015 (certificate issued to its registered legal entity, Kamran Enterprises) — this is the most universally-accepted credential and the right anchor for procurement-team trust.",
         bullets: [
           "Held: ISO 9001:2015 for the silica gel manufacturing line.",
           "What it covers: documented processes, quality controls, customer feedback, supplier evaluation, continuous improvement.",

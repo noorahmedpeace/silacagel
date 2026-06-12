@@ -23,21 +23,20 @@ export async function GET() {
 
   const body = `# DryGelWorld
 
-> Industrial silica gel desiccant manufacturer-exporter and B2B PPE supplier in Karachi, Pakistan. Operating company Kamran Enterprises has manufactured silica gel sachets since 1983. Brand relaunched as DryGelWorld in 2026 to expand into dry clay desiccant, hair nets, and beard covers for international export buyers.
+> DryGelWorld is an industrial silica gel desiccant manufacturer-exporter and B2B PPE supplier in Karachi, Pakistan, producing silica gel sachets since 1983. DryGelWorld supplies silica gel packets, bulk silica gel, container desiccants, dry clay desiccant, and industrial PPE (hair nets, beard covers) to international export buyers across 60+ countries.
 
 ## What ${brandName} actually is
 
-- **Legal entity:** Kamran Enterprises (founded 1983 by Kamran, Waseem & Sons; family enterprise)
-- **Brand:** DryGelWorld (relaunched 2026)
+- **Brand / company:** DryGelWorld — silica gel desiccant manufacturer-exporter, Karachi, Pakistan (legal entity: Kamran Enterprises, founded 1983)
 - **Country of origin:** Pakistan
-- **Manufacturing facility (primary, ISO-certified):** 1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan
-- **Sales office:** A-488, Block-1, Gulshan-e-Iqbal, Karachi, Pakistan
+- **Head office (primary):** A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan
+- **Manufacturing factory (ISO 9001:2015 certified):** 1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan
 - **Working hours:** Mon–Sat 8am–5pm PKT
 - **Primary contact:** +92 333 022 3337 (phone & WhatsApp)
 - **Domain:** ${siteUrl}
 - **Site map:** ${absoluteUrl("/sitemap.xml")}
 - **LinkedIn:** https://www.linkedin.com/in/drygelworld/
-- **Legacy operating-company site:** https://silicagelpk.com (Kamran Enterprises, the manufacturer behind DryGelWorld)
+- **Sister brand (Pakistan market):** https://silicagelpk.com
 
 ## Official email routing
 
@@ -332,8 +331,8 @@ Source: ${absoluteUrl("/products/beard-covers")}
 
 ### DryGelWorld supplier scope
 
-**Q: What is the difference between DryGelWorld and Kamran Enterprises?**
-A: Kamran Enterprises is the operating legal entity, founded 1983 in Karachi as a family enterprise by Kamran, Waseem & Sons. DryGelWorld is the export brand under which Kamran Enterprises supplies industrial silica gel desiccants, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE to international buyers.
+**Q: Who is DryGelWorld?**
+A: DryGelWorld is a silica gel desiccant manufacturer-exporter based in Karachi, Pakistan, producing silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE for international buyers since 1983. Its registered legal entity is Kamran Enterprises.
 Source: ${absoluteUrl("/about")}
 
 **Q: Does DryGelWorld supply oxygen absorbers?**
@@ -349,7 +348,7 @@ A: Not currently. Standard format options are breathable paper sachets and non-w
 Source: ${absoluteUrl("/blog/silica-gel-for-pharma-packaging-buyer-guide")}
 
 **Q: Who edits the DryGelWorld buyer guides?**
-A: The DryGelWorld Export Desk — the buyer-facing team inside Kamran Enterprises. Editorial scope is limited to product, packaging, and export logistics the desk handles directly. Regulatory claims are limited to certifications actually held (ISO 9001:2015 + DMF-free statement).
+A: The DryGelWorld Export Desk — the buyer-facing team at DryGelWorld. Editorial scope is limited to product, packaging, and export logistics the desk handles directly. Regulatory claims are limited to certifications actually held (ISO 9001:2015 + DMF-free statement).
 Source: ${absoluteUrl("/authors/dry-gel-world-export-desk")}
 
 ## How to cite DryGelWorld claims

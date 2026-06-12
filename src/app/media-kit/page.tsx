@@ -43,9 +43,9 @@ export const metadata: Metadata = {
 
 const factSheet = [
   { label: "Brand", value: "DryGelWorld" },
-  { label: "Operating company", value: "Kamran Enterprises" },
+  { label: "Registered legal entity", value: "Kamran Enterprises" },
   { label: "Founded", value: "1983" },
-  { label: "Founders", value: "Kamran, Waseem & Sons" },
+  { label: "Ownership", value: "Family-led, second generation" },
   { label: "Headquarters", value: `${companyCity}, ${companyCountry}` },
   {
     label: "Full address",
@@ -67,10 +67,10 @@ const factSheet = [
 ];
 
 const boilerplate100 =
-  "DryGelWorld (Kamran Enterprises) is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983. ISO 9001:2015 certified. Supplies industrial silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE to importers in 60+ countries.";
+  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983. ISO 9001:2015 certified. Supplies industrial silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE to importers in 60+ countries.";
 
 const boilerplate250 =
-  "DryGelWorld is the export brand of Kamran Enterprises, a Karachi-based silica gel desiccant manufacturer operating continuously since 1983. The company manufactures industrial silica gel sachets (0.5g to 100g), container desiccant strips for ocean freight, bulk silica gel beads, dry clay desiccant, and disposable industrial PPE including bouffant hair nets and beard covers. DryGelWorld is ISO 9001:2015 certified at the manufacturer level, and ships every export consignment with a Safety Data Sheet (SDS), Certificate of Analysis (COA), and DMF-free statement. The company serves industrial procurement teams in over 60 countries across the Middle East, European Union, North America, and Asia-Pacific. Press inquiries are handled by the DryGelWorld Export Desk at press@drygelworld.com.";
+  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating continuously since 1983. The company manufactures industrial silica gel sachets (0.5g to 100g), container desiccant strips for ocean freight, bulk silica gel beads, dry clay desiccant, and disposable industrial PPE including bouffant hair nets and beard covers. DryGelWorld is ISO 9001:2015 certified at the manufacturer level, and ships every export consignment with a Safety Data Sheet (SDS), Certificate of Analysis (COA), and DMF-free statement. The company serves industrial procurement teams in over 60 countries across the Middle East, European Union, North America, and Asia-Pacific. Press inquiries are handled by the DryGelWorld Export Desk at press@drygelworld.com.";
 
 const honestScope = [
   "FDA Drug Master File (DMF) — required for direct-contact pharmaceutical silica gel.",
@@ -124,7 +124,7 @@ const leadership = [
     role: "Export Desk",
     name: `${siteName} Export Desk`,
     description:
-      "Buyer-facing team inside Kamran Enterprises handling RFQ qualification, format and MOQ sizing, and documentation routing for international buyers. Primary press contact for editorial questions on product, packaging, and export logistics.",
+      "Buyer-facing team at DryGelWorld handling RFQ qualification, format and MOQ sizing, and documentation routing for international buyers. Primary press contact for editorial questions on product, packaging, and export logistics.",
     href: "/authors/dry-gel-world-export-desk",
   },
 ];
@@ -278,7 +278,7 @@ export default function MediaKitPage() {
                 "@id": `${absoluteUrl("/media-kit")}#webpage`,
                 name: `${siteName} Press & Media Kit`,
                 description:
-                  "Press kit for journalists and trade publications covering DryGelWorld (Kamran Enterprises).",
+                  "Press kit for journalists and trade publications covering DryGelWorld.",
                 url: absoluteUrl("/media-kit"),
                 inLanguage: "en",
                 about: {

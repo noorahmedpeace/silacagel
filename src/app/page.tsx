@@ -324,7 +324,7 @@ const verifiedProof = [
   {
     value: "Since 1983",
     label: "Karachi manufacturing heritage",
-    text: "Backed by Kamran Enterprises and 40+ years of silica gel sachet manufacturing in Pakistan.",
+    text: "Backed by 40+ years of silica gel sachet manufacturing heritage in Karachi, Pakistan.",
   },
   {
     value: "ISO 9001:2015",
