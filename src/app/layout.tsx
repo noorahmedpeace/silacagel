@@ -344,8 +344,9 @@ export default function RootLayout({
                   award: "ISO 9001:2015 certified (cert #9101225, valid to 2028)",
                   slogan: "Industrial silica gel desiccants for global moisture protection",
                   sameAs: [
-                    "https://silicagelpk.com",
+                    "https://www.facebook.com/drygelworld",
                     "https://www.linkedin.com/in/drygelworld/",
+                    "https://silicagelpk.com",
                   ],
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",
