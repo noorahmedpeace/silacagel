@@ -44,6 +44,11 @@ const verifiableClaims = [
     note: "Family-led manufacturer-exporter; second-generation operating team currently leads the export desk.",
   },
   {
+    label: "Brand structure",
+    value: "Two brands, one manufacturer",
+    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is the global export division — both operated by Kamran Enterprises since 1983.",
+  },
+  {
     label: "Manufacturing site",
     value: companyAddressFull,
     note: "Integrated production facility — silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
