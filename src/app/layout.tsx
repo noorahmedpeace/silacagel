@@ -347,6 +347,7 @@ export default function RootLayout({
                     "https://www.facebook.com/drygelworld",
                     "https://www.linkedin.com/in/drygelworld/",
                     "https://silicagelpk.com",
+                    "https://www.wikidata.org/wiki/Q140185858",
                   ],
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",

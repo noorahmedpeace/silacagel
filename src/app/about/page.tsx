@@ -271,6 +271,12 @@ export default function AboutPage() {
                     name: "ISO 9001:2015",
                     credentialCategory: "Quality Management System Certification",
                   },
+                  sameAs: [
+                    "https://www.facebook.com/drygelworld",
+                    "https://www.linkedin.com/in/drygelworld/",
+                    "https://silicagelpk.com",
+                    "https://www.wikidata.org/wiki/Q140185858",
+                  ],
                 },
               },
               breadcrumbJsonLd([
