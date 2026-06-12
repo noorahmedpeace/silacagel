@@ -47,19 +47,24 @@ export const companyCountry = process.env.NEXT_PUBLIC_COMPANY_COUNTRY?.trim() ||
 export const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA?.trim() || "Worldwide";
 
 // ── Physical location / NAP — single source of truth ────────────────────────
-// Aligned to the ISO 9001:2015 certificate (Kamran Enterprises). Keep IDENTICAL
-// across schema, contact page, footer, about, media-kit, llms.txt and your
-// Google Business Profile + directories. Do not let this drift.
-// PRIMARY NAP = manufacturing facility (owner-confirmed 2026-06-11).
-export const companyStreet = "1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town";
+// PRIMARY NAP = the public HEAD OFFICE in Gulshan-e-Iqbal. This is the address
+// VERIFIED on the Google Business Profile (with reviews + interactions), so
+// schema, contact, footer, about, media-kit, every directory citation AND the
+// GBP must all show THIS, identically. Do not let it drift — NAP consistency is
+// the local-ranking signal. The manufacturing factory in North Karachi is a
+// separate, clearly-labeled secondary location (factoryAddressFull below);
+// never substitute it for the primary NAP in citations.
+export const companyStreet = "A-488, Block 1, Gulshan-e-Iqbal";
 export const companyAddressLocality = "Karachi";
 export const companyAddressRegion = "Sindh";
-export const companyPostalCode = "75950";
+export const companyPostalCode = "74000";
 export const companyAddressFull = `${companyStreet}, ${companyAddressLocality}, ${companyAddressRegion} ${companyPostalCode}, ${companyCountry}`;
-// = "1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan"
-// Approximate coordinates for North Karachi Industrial Area, Sector 6B.
-// REPLACE with the exact lat/long from your verified Google Business Profile pin.
-export const companyGeo = { latitude: 24.9847, longitude: 67.0571 };
+// = "A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan"
+// Approximate coordinates for Gulshan-e-Iqbal Block 1. REPLACE with the EXACT
+// lat/long from the verified Google Business Profile pin (open the GBP location
+// on Google Maps → right-click the pin → the top row is the coordinates) so the
+// LocalBusiness geo matches the GBP exactly.
+export const companyGeo = { latitude: 24.9215, longitude: 67.095 };
 export const googleMapsUrl =
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyAddressFull)}`;
 export const mapEmbedUrl =
@@ -68,10 +73,11 @@ export const openingHoursDisplay = "Mon–Sat, 8:00 AM – 5:00 PM (PKT)";
 export const openingHoursDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const openingHoursOpen = "08:00";
 export const openingHoursClose = "17:00";
-// Secondary, clearly-labeled SALES OFFICE (NOT the primary registered NAP).
-export const salesOfficeFull = "A-488, Block-1, Gulshan-e-Iqbal, Karachi, Pakistan";
-export const salesOfficeMapEmbedUrl =
-  `https://www.google.com/maps?q=${encodeURIComponent(salesOfficeFull)}&output=embed`;
+// Secondary, clearly-labeled MANUFACTURING FACTORY (NOT the GBP/primary NAP).
+export const factoryAddressFull =
+  "1 St. 13, North Karachi Industrial Area Sector 6B, New Karachi Town, Karachi, Sindh 75950, Pakistan";
+export const factoryMapEmbedUrl =
+  `https://www.google.com/maps?q=${encodeURIComponent(factoryAddressFull)}&output=embed`;
 
 export type ContactDepartment = "general" | "sales" | "export" | "support";
 

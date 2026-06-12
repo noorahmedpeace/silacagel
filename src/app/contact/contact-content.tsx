@@ -11,8 +11,8 @@ import {
   mapEmbedUrl,
   openingHoursDisplay,
   phoneHref,
-  salesOfficeFull,
-  salesOfficeMapEmbedUrl,
+  factoryAddressFull,
+  factoryMapEmbedUrl,
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./contact.module.css";
@@ -114,7 +114,7 @@ export function ContactContent() {
         </div>
 
         <article className={`${styles.tile} ${styles.tileAction}`}>
-          <span className={styles.actionKicker}>Manufacturing Facility (Primary) · ISO 9001:2015</span>
+          <span className={styles.actionKicker}>Head Office (Primary) · Gulshan-e-Iqbal</span>
           <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{companyAddressFull}</address>
           <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" style={{ marginTop: 10, fontWeight: 700 }}>
             View on Google Maps →
@@ -122,16 +122,16 @@ export function ContactContent() {
         </article>
 
         <article className={`${styles.tile} ${styles.tileAction}`}>
-          <span className={styles.actionKicker}>Sales Office (Secondary)</span>
-          <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{salesOfficeFull}</address>
+          <span className={styles.actionKicker}>Manufacturing Factory · ISO 9001:2015</span>
+          <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{factoryAddressFull}</address>
         </article>
       </section>
 
       <section style={{ width: "100%", maxWidth: 1100, margin: "32px auto 0", padding: "0 16px", display: "grid", gap: 16 }}>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Facility — North Karachi Industrial Area</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Head Office — Gulshan-e-Iqbal</p>
           <iframe
-            title="DryGelWorld manufacturing facility — North Karachi Industrial Area, Karachi"
+            title="DryGelWorld head office — Gulshan-e-Iqbal, Karachi"
             src={mapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -140,10 +140,10 @@ export function ContactContent() {
           />
         </div>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Sales Office — Gulshan-e-Iqbal</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Factory — North Karachi Industrial Area</p>
           <iframe
-            title="DryGelWorld sales office — Gulshan-e-Iqbal, Karachi"
-            src={salesOfficeMapEmbedUrl}
+            title="DryGelWorld manufacturing factory — North Karachi Industrial Area, Karachi"
+            src={factoryMapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             style={{ border: 0, width: "100%", height: 300, borderRadius: 14 }}

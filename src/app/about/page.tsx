@@ -10,6 +10,7 @@ import {
   companyAddressRegion,
   companyPostalCode,
   companyStreet,
+  factoryAddressFull,
 } from "@/lib/product-data";
 import styles from "./about.module.css";
 
@@ -49,9 +50,14 @@ const verifiableClaims = [
     note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is the global export division — both operated by Kamran Enterprises since 1983.",
   },
   {
-    label: "Manufacturing site",
+    label: "Head office",
     value: companyAddressFull,
-    note: "Integrated production facility — silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
+    note: "Public head office and sales desk (Gulshan-e-Iqbal, Karachi) — primary point of contact for quotes, documentation, and buyer coordination.",
+  },
+  {
+    label: "Manufacturing site",
+    value: factoryAddressFull,
+    note: "Production factory in North Karachi Industrial Area — silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
   },
   {
     label: "Manufacturer certification",

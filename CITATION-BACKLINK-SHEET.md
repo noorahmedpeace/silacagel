@@ -12,8 +12,7 @@
 Business name:   DryGelWorld
 Operated by:     Kamran Enterprises
 Founded:         1983
-Address:         1 St. 13, North Karachi Industrial Area Sector 6B,
-                 New Karachi Town, Karachi, Sindh 75950, Pakistan
+Address:         A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan
 Phone:           +92 333 022 3337
 WhatsApp:        +92 333 022 3337  (wa.me/923330223337)
 Email:           info@drygelworld.com
@@ -21,7 +20,7 @@ Website:         https://www.drygelworld.com
 Hours:           Mon–Sat, 8:00 AM – 5:00 PM (PKT)
 ```
 
-> **Use ONE address for all citations = the factory above (New Karachi).** This must match your Google Business Profile exactly. Do NOT mix in the Gulshan-e-Iqbal sales office on directory listings — pick one and stay consistent. (Sales office can stay on the website "Contact" page only.)
+> **Use ONE address for all citations = the Gulshan-e-Iqbal HEAD OFFICE above.** This is the address VERIFIED on the Google Business Profile, so every directory must match it exactly. Do NOT use the North Karachi factory address on directory listings — that is the manufacturing site only (it stays on the website "Contact"/"About" pages as a clearly-labeled secondary location). Mixing the two addresses splits the local signal and weakens ranking.
 
 ---
 
