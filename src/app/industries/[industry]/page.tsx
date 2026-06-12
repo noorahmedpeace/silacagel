@@ -73,6 +73,17 @@ const industryPages = {
       "Match strip placement (ceiling, corrugations) to cargo geometry; even distribution beats concentrated placement.",
     ],
   },
+  "automotive-parts": {
+    title: "Silica Gel for Automotive Parts Export",
+    h1: "Moisture and corrosion protection for exported automotive parts and components.",
+    description:
+      "Silica gel sachets and container desiccants for automotive parts exporters — protecting bearings, electronics, and metal components from rust and condensation during ocean freight and warehouse storage.",
+    points: [
+      "Metal automotive components rust when container condensation forms on long-haul routes — sachets at the carton level plus container strips protect the part and the packaging.",
+      "Match sachet dosage to carton volume and route humidity; add bulk desiccant for high-value bearings and electronic control units.",
+      "Request SDS, COA, and DMF-free documentation for buyers who audit packaging in incoming-quality checks.",
+    ],
+  },
 };
 
 type IndustrySlug = keyof typeof industryPages;

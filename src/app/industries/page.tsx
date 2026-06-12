@@ -44,6 +44,12 @@ const industries = [
     blurb:
       "Moisture-control support for dry goods, snacks, and spice exporters with buyer-led documentation.",
   },
+  {
+    slug: "automotive-parts",
+    title: "Automotive Parts Export",
+    blurb:
+      "Rust and condensation protection for exported bearings, electronics, and metal automotive components.",
+  },
 ] as const;
 
 const pageTitle = "Industries We Serve — Silica Gel & Desiccant Applications";

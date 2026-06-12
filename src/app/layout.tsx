@@ -329,11 +329,19 @@ export default function RootLayout({
                     "Food packaging desiccants",
                     "Leather and footwear export protection",
                   ],
+                  isicV4: "8292",
                   hasCredential: {
                     "@type": "EducationalOccupationalCredential",
-                    name: "ISO 9001:2015",
+                    name: "ISO 9001:2015 — Packaging and Supply of Silica Desiccant",
                     credentialCategory: "Quality Management System Certification",
+                    identifier: "9101225",
+                    recognizedBy: {
+                      "@type": "Organization",
+                      name: "QMEC Group Intl",
+                      url: "https://www.qmecgroup.org",
+                    },
                   },
+                  award: "ISO 9001:2015 certified (cert #9101225, valid to 2028)",
                   slogan: "Industrial silica gel desiccants for global moisture protection",
                   sameAs: [
                     "https://silicagelpk.com",

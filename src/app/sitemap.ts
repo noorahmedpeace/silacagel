@@ -23,6 +23,7 @@ const INDUSTRY_SLUGS = [
   "food-packaging",
   "textile-garment-export",
   "container-shipping",
+  "automotive-parts",
 ] as const;
 
 const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
