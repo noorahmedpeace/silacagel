@@ -248,6 +248,88 @@ function desiccantQuoteChecklist(defaultProduct: string): SeoLandingPage["quoteC
 }
 
 const highIntentSeoLandingPages = {
+  "silica-gel": keywordClusterPage({
+    slug: "silica-gel",
+    title: "Silica Gel | Types, Uses & Industrial Desiccant Supply",
+    metaDescription:
+      "Silica gel explained: what it is, how it works, white vs indicating (orange/blue) types, uses, and how to buy industrial silica gel in packets, beads, and bulk from DryGelWorld.",
+    kicker: "Silica gel",
+    h1: "Silica gel: what it is, how it works, and how to buy it for industry and export.",
+    lead:
+      "Silica gel is the most widely used industrial desiccant for moisture control in packaging, shipping, and storage. This is the DryGelWorld hub for silica gel types, uses, and buyer-ready supply in packets, beads, and bulk.",
+    searchIntent: "Pillar / head term: silica gel (what it is, types, uses, where to buy)",
+    primaryCta: "Request Silica Gel Quote",
+    proofPoints: ["Manufacturer-exporter since 1983", "Packets, beads & bulk", "SDS / COA per shipment", "ISO 9001:2015"],
+    image: "/products/product-range-export-showcase.webp",
+    imageAlt: "Industrial silica gel desiccant in sachets, beads, and bulk from DryGelWorld",
+    imageCaption: "Silica gel is supplied as packets, loose beads, and bulk for packaging, container, and storage moisture control.",
+    chips: ["Silica gel", "Desiccant", "Moisture control", "Export"],
+    fitTitle: "What silica gel is used for",
+    useCases: [
+      { label: "Packaging", title: "Product & carton protection", text: "Silica gel packets keep moisture away from electronics, pharma, leather, food packaging, and export cartons during storage and transit." },
+      { label: "Containers", title: "Shipping moisture control", text: "Container desiccants and bulk silica gel prevent container rain, condensation, mold, and rust on long-haul ocean freight." },
+      { label: "Industry", title: "Bulk & process drying", text: "Loose silica gel beads are used by repackers, warehouses, and industrial workflows for ongoing moisture adsorption by kg and pallet." },
+    ],
+    targetKeywords: "Silica gel, what is silica gel, silica gel desiccant, industrial silica gel, silica gel beads, silica gel packets",
+    formats: "Silica gel packets (0.5g-100g), loose beads, 25kg bulk bags, container strips, private-label sachets",
+    buyerTypes: "Importers, distributors, packagers, exporters, warehouses, OEM and private-label buyers",
+    documents: "SDS, COA, ISO 9001:2015 support, DMF-free statement, labeling where valid",
+    buyerRisk: "Wrong type or dosage — using non-indicating gel where colour indication is needed, or under-dosing a humid export route",
+    quoteBasis: "Type (white/indicating), format, gram or kg quantity, application, destination, and documents",
+    buyerGuide: {
+      title: "Silica gel explained for buyers",
+      intro:
+        "Silica gel is a porous, granular form of amorphous silicon dioxide (SiO₂). Despite the name it is a solid, not a gel. Its huge internal surface area lets it adsorb and hold water vapour from the surrounding air, which is why it is the default desiccant for moisture protection.",
+      sections: [
+        {
+          label: "How it works",
+          title: "Adsorption, not absorption",
+          text: "Each silica gel bead is riddled with microscopic pores. Water molecules in the air stick to these pore walls (adsorption), holding moisture inside the bead. A small amount of silica gel can hold a meaningful share of its own weight in water, keeping the packed environment dry.",
+        },
+        {
+          label: "Types",
+          title: "White, orange, and blue silica gel",
+          text: "White (non-indicating) silica gel is the standard for most packaging and export use. Orange indicating silica gel changes colour as it saturates (a safe, cobalt-free indicator) so you can see when it is spent. Blue indicating gel is the older cobalt-chloride type. Choose indicating gel when you need a visible saturation check.",
+        },
+        {
+          label: "Reuse",
+          title: "Can silica gel be recharged?",
+          text: "Yes — silica gel is regenerable. Heating it (typically 110-130°C) drives off the adsorbed moisture so the beads can be reused. Single-voyage packaging sachets are usually treated as consumables, while bulk beads in closed-loop industrial use are often regenerated.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Silica gel vs other desiccants",
+      intro: "Silica gel is the general-purpose choice; clay and molecular sieve fit narrower needs. Match the desiccant to the application, not just the price.",
+      columns: ["Silica gel", "Clay desiccant", "Molecular sieve"],
+      rows: [
+        { label: "Best use", values: ["General packaging, export, electronics, pharma", "Low-cost bulk, basic moisture control", "Deep drying at low humidity / tight specs"] },
+        { label: "Adsorption capacity", values: ["High across normal humidity", "Lower than silica gel", "Highest at very low humidity"] },
+        { label: "Indicating option", values: ["Yes (orange / blue)", "No", "No"] },
+        { label: "Typical cost", values: ["Moderate", "Lowest", "Highest"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Silica Gel"),
+    relatedLinks: [
+      { label: "White (non-indicating) silica gel", href: "/white-silica-gel" },
+      { label: "Orange indicating silica gel", href: "/orange-silica-gel" },
+      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
+      { label: "Silica gel beads", href: "/silica-gel-beads" },
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Container desiccant", href: "/container-desiccant" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
+    ],
+    faqs: [
+      { question: "What is silica gel?", answer: "Silica gel is a porous, granular form of silicon dioxide (SiO₂) used as a desiccant. Its microscopic pores give it a very large internal surface area that adsorbs and holds water vapour, keeping packaged or stored goods dry. Despite the name it is a solid bead, not a liquid gel." },
+      { question: "How does silica gel work?", answer: "Silica gel works by adsorption: water molecules from the surrounding air bond to the walls of its internal pores and are held inside the beads. This lowers the humidity inside a sealed pack, carton, or container and prevents moisture damage, mold, and corrosion." },
+      { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic — it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
+      { question: "What are the types of silica gel?", answer: "The main types are white/clear non-indicating silica gel (standard packaging use), orange indicating silica gel (cobalt-free, changes colour when saturated), and blue indicating silica gel (older cobalt-chloride type). Formats include small sachets, larger desiccant bags, loose beads, and container strips." },
+      { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable — heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
+      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer-exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 60+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
+    ],
+  }),
   "silica-gel-manufacturer": keywordClusterPage({
     slug: "silica-gel-manufacturer",
     title: "Silica Gel Manufacturer | Industrial Desiccant Supplier",

@@ -14,6 +14,7 @@ const footerGroups = [
   {
     title: "Products",
     links: [
+      { label: "Silica gel (overview)", href: "/silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Packets manufacturer", href: "/silica-gel-packets-manufacturer" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
