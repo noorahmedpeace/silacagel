@@ -33,6 +33,7 @@ export function LazyScienceVideo({ className }: LazyScienceVideoProps) {
       ref={videoRef}
       className={className}
       src={shouldLoad ? "/videos/silica-beads-glass-container-3d.mp4" : undefined}
+      poster="/macro_silica_beads_1775989669467.webp"
       autoPlay={shouldLoad}
       muted
       loop
