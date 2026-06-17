@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "indexnow": "node scripts/indexnow-ping.mjs"
+    "indexnow": "node scripts/indexnow-ping.mjs",
+    "freshness:pick": "node scripts/daily-freshness.mjs pick",
+    "freshness:bump": "node scripts/daily-freshness.mjs bump"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
