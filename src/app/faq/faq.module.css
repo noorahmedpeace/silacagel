@@ -13,6 +13,10 @@
 .itemOpen .question { background: var(--accent-glow); }
 .answer { padding: 0 32px 28px; background: var(--surface-elevated); }
 .answer p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+.answerLinks { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 10px; }
+.answerLinksLabel { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--industrial-blue); }
+.answerLinks a { font-size: 0.85rem; font-weight: 700; color: var(--industrial-blue); text-decoration: none; }
+.answerLinks a:hover { text-decoration: underline; }
 .ctaBanner { background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); border-radius: 32px; padding: 80px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
 .ctaBanner h2 { font-size: 2.4rem; font-weight: 900; color: white; }
 .ctaBanner p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 500px; }
