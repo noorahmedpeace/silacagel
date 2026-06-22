@@ -28,7 +28,7 @@ export const googleSiteVerification =
 
 // Used by blog JSON-LD as a fallback datePublished/dateModified.
 // Per-article dates are preferable; tracked in the SEO action plan.
-export const sitemapLastModified = "2026-05-31";
+export const sitemapLastModified = "2026-06-19";
 
 export function absoluteUrl(path = "") {
   if (!path) {

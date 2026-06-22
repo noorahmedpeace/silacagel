@@ -2993,6 +2993,111 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "is-silica-gel-toxic-safety-guide",
+    label: "Safety Guide",
+    title: "Is silica gel toxic? A safety guide for buyers, workers, and packers",
+    description:
+      "A clear, practical safety guide to silica gel for B2B buyers and packing teams — what the 'DO NOT EAT' label really means, the difference between non-toxic amorphous desiccant gel and hazardous crystalline silica, the cobalt-chloride question on indicating gel, worker handling, food contact, and disposal.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Short answer: standard silica gel is non-toxic",
+        body: "Plain silica gel is amorphous silicon dioxide (SiO2) — chemically inert, non-flammable, and non-toxic in the poisonous sense. It does not react with the products it protects, which is exactly why it is the default desiccant for food, pharma, electronics, and leather export. The familiar 'DO NOT EAT' warning is not because the gel is poison; it is because the beads are a choking hazard, they are not food, and swallowing them serves no purpose. DryGelWorld supplies standard non-indicating silica gel that is safe for incidental contact in B2B packaging.",
+        bullets: [
+          "Standard silica gel = amorphous SiO2: inert, non-toxic, non-flammable.",
+          "'DO NOT EAT' = choking/not-food warning, not a poison warning.",
+          "Inert chemistry is why it is the default desiccant across industries.",
+          "Safe for incidental contact in food, pharma, and electronics packaging.",
+        ],
+      },
+      {
+        heading: "The important distinction: amorphous vs crystalline silica",
+        body: "Buyers sometimes confuse desiccant silica gel with crystalline silica, and the safety profiles are completely different. Crystalline silica (respirable quartz dust, as found in cutting stone, concrete, or sandblasting) is a recognised occupational hazard linked to silicosis on long-term inhalation. Desiccant silica gel is amorphous, not crystalline — it does not carry the same silicosis classification. The only real airborne concern with desiccant gel is ordinary nuisance dust from broken beads, which is managed with basic ventilation and not inhaling the powder. Always read the SDS for the exact grade you are buying.",
+        bullets: [
+          "Crystalline silica (quartz dust): occupational silicosis hazard.",
+          "Desiccant silica gel: amorphous — not the same classification.",
+          "Real-world airborne concern is nuisance bead dust only.",
+          "Confirm grade and hazard statements on the product SDS.",
+        ],
+      },
+      {
+        heading: "Indicating gel: the cobalt-chloride question",
+        body: "The one place a genuine toxicity question arises is indicating (colour-changing) silica gel. Traditional blue indicating gel uses cobalt(II) chloride, which is classed as a suspected carcinogen and is restricted in several markets. Modern orange indicating gel typically uses safer cobalt-free indicators. If your destination market or end-use is regulated, specify cobalt-free orange indicating gel, or use plain non-indicating gel and verify desiccant performance by sizing math and sample testing instead. State the requirement at quote stage so the right grade is supplied from the start.",
+        bullets: [
+          "Blue indicating gel often uses cobalt chloride (restricted in some markets).",
+          "Orange indicating gel is commonly cobalt-free and safer.",
+          "Regulated end-use → specify cobalt-free or non-indicating gel.",
+          "Declare the requirement in the RFQ, not after shipment.",
+        ],
+      },
+      {
+        heading: "Worker handling and packing-line safety",
+        body: "For packing teams handling silica gel sachets in volume, the precautions are simple and low-cost. Work in a ventilated area so any fine dust from damaged sachets disperses; avoid rubbing eyes with dusty hands; and wash hands before eating. The gel is a strong desiccant, so prolonged skin contact with loose beads can feel drying — gloves solve this for high-volume loose-fill operations. No special respiratory equipment is needed for intact sachets in normal packing work. Keep an SDS on the floor so supervisors can answer worker questions quickly.",
+        bullets: [
+          "Ventilate the area; avoid inhaling dust from broken sachets.",
+          "Don't rub eyes with dusty hands; wash hands before eating.",
+          "Gloves for high-volume loose-bead handling (drying effect).",
+          "Intact sachets need no respirator in normal packing work.",
+          "Keep the SDS accessible on the packing floor.",
+        ],
+      },
+      {
+        heading: "Food contact, pets, and 'someone swallowed a packet'",
+        body: "For food packaging, plain silica gel is widely used because incidental contact is considered low risk; food-grade documentation is a separate compliance question handled at procurement, not a sign the gel is otherwise unsafe. If a person or pet swallows a small non-indicating sachet, the realistic risk is choking or mild stomach upset and dryness rather than poisoning — standard advice is to stay calm, remove any remaining sachet, drink water, and seek medical or veterinary advice if symptoms persist or if the sachet was a large or indicating type. This is exactly why the beads carry the keep-away-from-children warning.",
+        bullets: [
+          "Plain gel is widely used in food packaging (incidental contact, low risk).",
+          "Food-grade compliance is a documentation step, not a safety red flag.",
+          "Swallowed small sachet: choking/dryness risk, not poisoning.",
+          "Indicating or large sachets ingested → seek medical/vet advice.",
+          "Keep sachets away from children and pets.",
+        ],
+      },
+      {
+        heading: "Disposal, reuse, and shipping classification",
+        body: "Used non-indicating silica gel is generally non-hazardous waste and can go to normal landfill; many operations instead reactivate it by drying the beads in an oven to restore adsorption capacity. For freight, standard silica gel is chemically stable and classed as non-dangerous goods, so it does not require dangerous-goods documentation for air or sea — confirm the exact line entry with your forwarder. For indicating grades, follow local rules for the specific indicator used. Request the SDS from DryGelWorld at quote stage so your customs broker and EHS team have it on file before the first shipment.",
+        bullets: [
+          "Used plain gel: typically non-hazardous landfill waste.",
+          "Reactivate by oven-drying to reuse adsorption capacity.",
+          "Standard gel ships as non-dangerous goods (confirm with forwarder).",
+          "Indicating grades: follow rules for the specific indicator.",
+          "Get the SDS at quote stage for customs and EHS files.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is silica gel poisonous if you eat it?",
+        answer:
+          "Standard non-indicating silica gel is not poisonous — it is inert amorphous silicon dioxide. Swallowing a small sachet mainly risks choking or mild dryness and stomach upset, not poisoning. The 'DO NOT EAT' label is a not-food and choking warning. For large amounts, indicating (coloured) gel, or if symptoms persist, seek medical advice.",
+      },
+      {
+        question: "Why does silica gel say 'DO NOT EAT' if it is non-toxic?",
+        answer:
+          "Because it is not food and the beads are a choking hazard, especially for children. The warning discourages ingestion rather than signalling poison. Standard silica gel is chemically inert, which is why it is safe to pack alongside food, medicine, and electronics.",
+      },
+      {
+        question: "Is silica gel the same as the crystalline silica that causes silicosis?",
+        answer:
+          "No. Desiccant silica gel is amorphous silicon dioxide and does not carry the silicosis classification associated with respirable crystalline silica (quartz dust from cutting stone or sandblasting). The only routine airborne concern with desiccant gel is nuisance dust from broken beads, managed with basic ventilation.",
+      },
+      {
+        question: "Which silica gel is safest for regulated or food-contact packaging?",
+        answer:
+          "Use plain non-indicating silica gel, or cobalt-free orange indicating gel where a visual saturation signal is needed. Avoid traditional cobalt-chloride blue indicating gel for regulated markets. Specify the requirement at quote stage and request the SDS and food-grade documentation so compliance is confirmed before bulk commitment.",
+      },
+      {
+        question: "Do packing workers need protective equipment to handle silica gel?",
+        answer:
+          "For intact sachets in normal packing work, no respirator is needed. Work in a ventilated area, avoid inhaling dust from damaged sachets, and wash hands before eating. For high-volume loose-bead handling, gloves prevent the drying effect on skin. Keep the product SDS accessible on the packing floor.",
+      },
+      {
+        question: "Can DryGelWorld supply an SDS and confirm non-dangerous-goods status?",
+        answer:
+          "Yes. DryGelWorld provides a Safety Data Sheet at quote stage so your customs broker and EHS team have it on file. Standard silica gel is chemically stable and generally classed as non-dangerous goods for air and sea freight — confirm the exact line entry with your forwarder, and specify indicating vs non-indicating grade in your RFQ.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -3037,6 +3142,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "food-grade-silica-gel-procurement-guide": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "silica-gel-bulk-pricing-factors-for-exporters": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "silica-gel-for-leather-and-footwear-export": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
+  "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
