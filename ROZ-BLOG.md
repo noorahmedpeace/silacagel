@@ -32,3 +32,4 @@
 ### 🔁 Pichle blogs ka record (Claude khud yahan add karta jayega)
 <!-- DO NOT EDIT — Claude maintains this list -->
 - 2026-06-19 — Is silica gel toxic? A safety guide for buyers, workers, and packers (`/blog/is-silica-gel-toxic-safety-guide`)
+- 2026-06-19 — Silica gel colours explained: white vs blue vs orange (`/blog/silica-gel-colors-white-blue-orange-explained`)

@@ -3098,6 +3098,110 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "silica-gel-colors-white-blue-orange-explained",
+    label: "Product Guide",
+    title: "Silica gel colours explained: white vs blue vs orange",
+    description:
+      "What the white, blue, and orange variants of silica gel actually mean for B2B buyers — which is indicating and which is not, how the colour change signals saturation, why blue cobalt-chloride gel is being replaced by orange, and how to choose the right colour for your shipment.",
+    readTime: "8 min read",
+    sections: [
+      {
+        heading: "Colour tells you whether the gel indicates saturation",
+        body: "The colour of silica gel is not decoration — it tells you whether the gel is a plain (non-indicating) desiccant or an indicating one that visibly signals when it is saturated. White or translucent beads are standard non-indicating gel: they adsorb moisture but never change colour. Blue and orange beads are indicating gels treated with a moisture-sensitive indicator, so they shift colour as they fill with water vapour. All three are the same base material — amorphous silicon dioxide that adsorbs up to about one-third of its weight in water — only the indicator differs.",
+        bullets: [
+          "White/clear: non-indicating — works, but never changes colour.",
+          "Blue and orange: indicating — colour shifts as the gel saturates.",
+          "Same base material (amorphous SiO2); only the indicator differs.",
+          "All three adsorb up to ~33% of their weight in water vapour.",
+        ],
+      },
+      {
+        heading: "White / clear silica gel — the B2B workhorse",
+        body: "White or translucent non-indicating silica gel is the most widely used grade in B2B export packaging. It is the lowest cost per kilo, carries no indicator chemistry, and is the default for high-volume sachets inside cartons where you do not need a visual saturation check on every unit. Because it never changes colour, you verify performance by sizing math and pre-shipment sample testing rather than by looking at the beads. For most standard export programmes, white non-indicating gel is the correct and most economical choice.",
+        bullets: [
+          "Lowest cost per kilo; no indicator chemistry.",
+          "Default for high-volume carton-level sachets.",
+          "Performance verified by sizing math and sample tests, not by colour.",
+          "Correct choice for most standard export programmes.",
+        ],
+      },
+      {
+        heading: "Blue indicating silica gel — and why it is being phased out",
+        body: "Blue indicating gel is treated with cobalt(II) chloride: it is deep blue when dry and turns pink as it saturates. The visual signal is useful, but cobalt chloride is classified as a suspected carcinogen and is restricted under regulations such as EU REACH. For that reason many buyers and markets are moving away from blue gel, especially for food-adjacent, pharma, or consumer-facing packaging. If you still see blue indicating gel specified, check whether the destination market permits it before committing to bulk.",
+        bullets: [
+          "Cobalt chloride indicator: blue when dry, pink when saturated.",
+          "Cobalt chloride is a suspected carcinogen, restricted (e.g. EU REACH).",
+          "Being phased out for food, pharma, and consumer-facing use.",
+          "Confirm destination-market acceptance before ordering blue gel.",
+        ],
+      },
+      {
+        heading: "Orange indicating silica gel — the safer signal",
+        body: "Orange indicating gel is the cobalt-free replacement for blue. It is orange when dry and shifts to dark green, brown, or colourless as it saturates, giving the same at-a-glance check without the cobalt-chloride concern. This makes it the preferred indicating grade for regulated and safety-sensitive shipments where a visual QC signal still matters — for example high-risk long-haul routes where the receiving buyer wants to confirm desiccant performance without lab testing. Specify cobalt-free orange explicitly in your RFQ so the right grade is supplied.",
+        bullets: [
+          "Cobalt-free indicator: orange when dry, green/brown/colourless when saturated.",
+          "Same visual QC signal as blue, without the cobalt-chloride concern.",
+          "Preferred indicating grade for regulated and safety-sensitive cargo.",
+          "Useful for long-haul QC verification without lab testing.",
+          "Specify 'cobalt-free orange indicating' explicitly in the RFQ.",
+        ],
+      },
+      {
+        heading: "How to choose the colour for your shipment",
+        body: "The decision is mostly cost versus visibility. Use white non-indicating gel for the bulk of your sachets when correct sizing gives you confidence and you do not need a per-unit visual check — this is the most economical path. Add indicating gel where someone needs to read saturation by eye: a sample sachet per carton, container-ceiling placement, or high-value cargo on humid routes. When you do use indicating gel, default to cobalt-free orange unless a specific reason requires otherwise. Mixing — mostly white with a few indicating sachets as a check — is a common, cost-effective pattern.",
+        bullets: [
+          "White non-indicating: bulk default, lowest cost.",
+          "Indicating gel: where a human reads saturation by eye.",
+          "Default indicating choice: cobalt-free orange.",
+          "Common pattern: mostly white + a few indicating sachets as a check.",
+          "Match colour choice to cargo value and route humidity.",
+        ],
+      },
+      {
+        heading: "Common colour myths",
+        body: "Two myths cause confusion. First: that white gel is 'weaker' than blue or orange. It is not — non-indicating white gel has the same adsorption capacity; it simply lacks the indicator, so it cannot show saturation. Second: that a colour change means the gel is 'used up' and useless. The change signals saturation, but most silica gel can be reactivated by oven-drying to restore capacity, and indicating gel returns to its dry colour once dried. Buy on grade, sizing, and indicator chemistry — not on the assumption that a brighter colour means a better desiccant.",
+        bullets: [
+          "Myth: white gel is weaker — false; same adsorption capacity.",
+          "Myth: colour change means it's useless — it means saturated, often reactivatable.",
+          "Reactivated indicating gel returns to its dry colour.",
+          "Choose by grade, sizing, and indicator — not by brightness.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the difference between white, blue, and orange silica gel?",
+        answer:
+          "White (or clear) is non-indicating gel that adsorbs moisture but never changes colour. Blue and orange are indicating gels that change colour as they saturate — blue uses cobalt chloride (blue to pink), orange is cobalt-free (orange to green/colourless). All three share the same base desiccant; only the indicator differs.",
+      },
+      {
+        question: "Which silica gel colour is best for export packaging?",
+        answer:
+          "For most B2B export, white non-indicating gel is the economical default, with sizing math and sample testing confirming performance. Add cobalt-free orange indicating gel where a human needs to read saturation by eye — high-value cargo, humid long-haul routes, or destination QC checks. Avoid cobalt-chloride blue for regulated or food-adjacent use.",
+      },
+      {
+        question: "Is blue silica gel dangerous?",
+        answer:
+          "Blue indicating gel contains cobalt(II) chloride, a suspected carcinogen restricted under regulations such as EU REACH. The base silica is inert, but the cobalt-chloride indicator is why many markets restrict blue gel for food, pharma, and consumer-facing packaging. Cobalt-free orange indicating gel provides the same visual signal without that concern.",
+      },
+      {
+        question: "Does the colour of silica gel affect how well it absorbs moisture?",
+        answer:
+          "No. The colour comes from the indicator, not the adsorption capacity. White non-indicating gel adsorbs just as much moisture as indicating gel of the same grade — it simply cannot show saturation visually. Choose by grade, correct sizing, and indicator chemistry rather than by colour brightness.",
+      },
+      {
+        question: "What does it mean when orange silica gel turns green?",
+        answer:
+          "Orange cobalt-free indicating gel shifts from orange toward dark green, brown, or colourless as it adsorbs moisture and approaches saturation. A green or colourless state signals the gel is largely spent for that cycle. It can usually be reactivated by oven-drying, which restores capacity and returns it to the dry orange colour.",
+      },
+      {
+        question: "Can DryGelWorld supply both indicating and non-indicating silica gel?",
+        answer:
+          "Yes. DryGelWorld supplies standard white non-indicating gel for bulk B2B packaging and cobalt-free orange indicating gel where a visual saturation check is needed. Specify indicating vs non-indicating, sachet size, and any regulatory requirement in your RFQ, and request the SDS so your compliance and customs teams have it on file.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -3143,6 +3247,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "silica-gel-bulk-pricing-factors-for-exporters": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "silica-gel-for-leather-and-footwear-export": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
+  "silica-gel-colors-white-blue-orange-explained": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
