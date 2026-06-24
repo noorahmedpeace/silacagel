@@ -1197,3 +1197,18 @@
   gap: 2px;
   padding: 2px 0 12px;
 }
+
+/* ---- Fix: logo overflowing its column on scroll and overlapping "Home" ---- */
+/* The scrolled state grew the logo to 264px while the brand column is 236px,
+   so it spilled over the first nav item. Keep the logo a steady width that
+   always fits its column, with a clear gap before the nav. */
+.brandLogo,
+.headerWrapScrolled .brandLogo {
+  width: 210px;
+  height: 46px;
+  max-height: 46px;
+}
+
+.brand {
+  padding-right: 12px;
+}
