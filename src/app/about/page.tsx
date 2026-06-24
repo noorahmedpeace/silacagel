@@ -167,7 +167,9 @@ export default function AboutPage() {
         {stats.map((stat, idx) => (
           <Reveal key={stat.label} direction="up" delay={0.1 * idx}>
             <div className={styles.statCard}>
-              <strong>{stat.value}</strong>
+              <strong className={stat.value.length > 8 ? styles.statValueCompact : undefined}>
+                {stat.value}
+              </strong>
               <span>{stat.label}</span>
             </div>
           </Reveal>
