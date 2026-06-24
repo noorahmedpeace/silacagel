@@ -337,6 +337,166 @@ export const comparePages: ComparePage[] = [
     relatedBlog: "/blog/bulk-silica-gel-supplier-checklist",
     relatedProduct: "/bulk-silica-gel-desiccant",
   },
+  {
+    slug: "silica-gel-vs-calcium-chloride-container-desiccant",
+    productA: "Silica Gel / Clay Container Desiccant",
+    productB: "Calcium Chloride Container Desiccant",
+    h1: "Silica gel vs calcium chloride container desiccant: the ocean-freight buyer decision",
+    description:
+      "Side-by-side comparison of adsorbing desiccants (silica gel and clay) versus deliquescent calcium chloride container desiccants for sea-freight 'container rain' — adsorption capacity, gel/leak risk, dosing, cost, and which to specify per cargo and route.",
+    introA:
+      "Silica gel and clay container strips are adsorbing desiccants: they hold water vapor inside a porous structure (silica gel up to ~33% of its weight, clay up to ~25%) without changing into a liquid. They are the standard for protecting moisture-sensitive cargo (leather, electronics, textiles, packaged goods) where any free liquid near the cargo is unacceptable. DryGelWorld supplies both as 1–5 kg hanging cargo strips and bulk.",
+    introB:
+      "Calcium chloride container desiccants (the AbsorbKing / Container Dri II style product) are deliquescent: the salt pulls in far more than its own weight in water — often 150–300% — and converts it into a thick gel held inside a leak-resistant pouch. They are engineered specifically for high-volume container rain on long tropical voyages. Calcium chloride desiccants are NOT in the DryGelWorld catalog; this comparison is published so buyers can specify the right tool honestly.",
+    criteria: [
+      { label: "Mechanism", a: "Adsorption (vapor held in solid pore structure)", b: "Deliquescence (vapor converted to liquid/gel)" },
+      { label: "Water capacity (by own weight)", a: "Silica gel ~33%, clay up to ~25%", b: "150–300% — far higher per gram" },
+      { label: "End state when saturated", a: "Stays solid; no free liquid", b: "Becomes a contained gel/brine inside the pouch" },
+      { label: "Leak risk near cargo", a: "None — solid stays solid", b: "Low if pouch intact; brine damages cargo if a pouch fails" },
+      { label: "Best voyage length", a: "Short to medium hauls; carton + container layering", b: "Long tropical-to-temperate hauls (25–40+ days)" },
+      { label: "Regenerable", a: "Silica gel yes (120–150°C); clay typically single-use", b: "No — single-use consumable" },
+      { label: "Cost per unit", a: "Lower per strip", b: "Higher per pouch, but fewer units per container" },
+      { label: "In DryGelWorld catalog", a: "Yes (silica gel + clay strips, ISO 9001:2015 + DMF-free)", b: "No — source from a calcium chloride specialist" },
+    ],
+    decisions: [
+      { scenario: "Leather / footwear on a long tropical route", recommended: "both", note: "Calcium chloride poles for raw container-air capacity, plus silica gel sachets inside cartons — but only if the cargo tolerates any remote brine risk; for premium leather many exporters stay all-silica-gel to eliminate liquid entirely." },
+      { scenario: "Electronics and precision goods", recommended: "a", note: "Silica gel (and indicating gel for QC). Zero free liquid is the priority; calcium chloride's brine, however contained, is an unnecessary risk near boards and connectors." },
+      { scenario: "High-volume bulk commodities, very humid 30–40 day haul", recommended: "b", note: "Calcium chloride — when sheer container-air water removal over weeks is the goal and cargo is robust, its 150–300% capacity does more per kg than adsorbing strips." },
+      { scenario: "Short intra-region container (≤14 days)", recommended: "a", note: "Silica gel / clay strips — the deliquescent capacity premium isn't needed on a short voyage." },
+      { scenario: "Cargo that cannot tolerate any liquid risk", recommended: "a", note: "Adsorbing desiccants only. A solid desiccant cannot leak; this is the deciding factor for many pharma-adjacent and high-value shipments." },
+      { scenario: "Claim-defensible documentation matters", recommended: "a", note: "DryGelWorld silica gel/clay ship with ISO 9001:2015, SDS, COA and DMF-free statement; pair with a dated loading-photo log for arbitration." },
+    ],
+    faqs: [
+      {
+        q: "What is the real difference between silica gel and calcium chloride container desiccants?",
+        a: "Silica gel adsorbs water vapor into a solid porous bead and stays solid (~33% of its weight). Calcium chloride is deliquescent — it pulls in 150–300% of its weight and turns the water into a contained gel. Calcium chloride removes far more water per gram on long humid voyages; silica gel carries zero free-liquid risk and is regenerable.",
+      },
+      {
+        q: "Does DryGelWorld supply calcium chloride container desiccants?",
+        a: "No. DryGelWorld supplies silica gel and dry clay container strips and bulk desiccant under ISO 9001:2015. Calcium chloride (Container Dri / AbsorbKing style) deliquescent poles are a separate product category not in our catalog — buyers needing them should source from a calcium chloride specialist, and we are happy to advise on where adsorbing strips fit alongside them.",
+      },
+      {
+        q: "Which is better for container rain on a long ocean voyage?",
+        a: "For pure container-air water removal across 25–40+ humid days on robust cargo, calcium chloride's far higher capacity is hard to beat. For moisture-sensitive or high-value cargo where any liquid risk is unacceptable, adsorbing silica gel/clay strips combined with carton-level sachets are the safer specification. Many programs layer both.",
+      },
+      {
+        q: "Can calcium chloride desiccant leak onto cargo?",
+        a: "Modern calcium chloride pouches are designed to contain the gel/brine and rarely leak when intact and correctly hung. The residual risk — a damaged or overfilled pouch releasing brine — is why exporters of premium leather, electronics, and regulated goods often stay with solid adsorbing desiccants that physically cannot release liquid.",
+      },
+      {
+        q: "How do I quote container desiccant from DryGelWorld?",
+        a: "Send container size (20ft/40ft/HC), route and transit days, cargo type and sensitivity, target strip count, destination, Incoterms (FOB/CIF/DAP/EXW), and required documents (SDS, COA, ISO 9001:2015 reference, DMF-free statement).",
+      },
+    ],
+    relatedBlog: "/blog/best-desiccant-for-shipping-containers",
+    relatedProduct: "/container-desiccant-strips",
+  },
+  {
+    slug: "desiccant-vs-vci-corrosion-protection",
+    productA: "Silica Gel Desiccant",
+    productB: "VCI (Vapor Corrosion Inhibitor)",
+    h1: "Desiccant vs VCI for corrosion protection: which protects metal parts in export packaging?",
+    description:
+      "Buyer comparison of silica gel desiccant and VCI (vapor corrosion inhibitor) for protecting metal parts, automotive components, and machinery during export — how each works, when to use which, and why many metal exporters use both together.",
+    introA:
+      "Silica gel desiccant controls corrosion indirectly: by keeping the relative humidity inside the package low, it removes the water film that metal corrosion needs to start. It protects everything in the package (metal and non-metal alike), is regenerable, and ships with SDS/COA. It does not chemically passivate the metal surface.",
+    introB:
+      "VCI (vapor corrosion inhibitor) protects metal directly: VCI chemicals volatilize and deposit a microscopic protective layer on metal surfaces that interrupts the electrochemical corrosion reaction, even at higher humidity. VCI is metal-specific (ferrous, non-ferrous, multi-metal grades) and is delivered as films, papers, emitters, or powders. VCI is NOT in the DryGelWorld catalog.",
+    criteria: [
+      { label: "How it protects", a: "Lowers humidity so corrosion can't start", b: "Deposits a protective molecular layer on the metal" },
+      { label: "Protects non-metal cargo too", a: "Yes — all contents", b: "No — targets metal surfaces" },
+      { label: "Works in a leaky / vented package", a: "Less effective if the barrier is poor", b: "Tolerates some air exchange better (active until depleted)" },
+      { label: "Metal specificity", a: "Universal (humidity-based)", b: "Must match grade to ferrous / non-ferrous / multi-metal" },
+      { label: "Regenerable / reusable", a: "Silica gel yes (120–150°C)", b: "No — consumable, depletes over time" },
+      { label: "Typical formats", a: "Sachets, strips, bulk beads", b: "Films, papers, emitters, powders" },
+      { label: "In DryGelWorld catalog", a: "Yes (ISO 9001:2015 + DMF-free)", b: "No — source from a VCI specialist" },
+    ],
+    decisions: [
+      { scenario: "Mixed cargo (metal + packaging + electronics)", recommended: "a", note: "Silica gel — humidity control protects the whole package, not just bare metal." },
+      { scenario: "Bare machined steel parts, long humid voyage", recommended: "both", note: "VCI film/paper on the parts for direct surface protection, plus silica gel to suppress overall package humidity — the standard belt-and-braces metal-export combination." },
+      { scenario: "Automotive spare parts in retail packaging", recommended: "both", note: "VCI for the metal component, silica gel for the carton micro-environment and any non-metal contents." },
+      { scenario: "High humidity with imperfect packaging barrier", recommended: "b", note: "VCI — it keeps inhibiting at higher RH where a humidity-only approach struggles if the moisture barrier leaks." },
+      { scenario: "Non-metal moisture-sensitive cargo", recommended: "a", note: "Silica gel — VCI does nothing for leather, textiles, electronics boards, or paper; humidity control is the lever." },
+      { scenario: "Reusable / closed-loop tooling protection", recommended: "a", note: "Silica gel — regenerable at 120–150°C; VCI is a single-use consumable." },
+    ],
+    faqs: [
+      {
+        q: "Is silica gel or VCI better for stopping rust?",
+        a: "They work differently. Silica gel lowers package humidity so corrosion can't start, protecting everything inside. VCI deposits a protective layer directly on metal and keeps working even at higher humidity, but only protects metal. For bare metal on long humid routes, the most reliable approach is usually both: VCI on the parts plus silica gel to suppress overall humidity.",
+      },
+      {
+        q: "Does DryGelWorld supply VCI products?",
+        a: "No. VCI films, papers, and emitters are a separate product category not in the DryGelWorld catalog. DryGelWorld supplies silica gel and clay desiccants (ISO 9001:2015 + DMF-free); for metal-corrosion programs we can advise on the desiccant side and where VCI from a specialist fits alongside it.",
+      },
+      {
+        q: "Can I use silica gel instead of VCI for metal parts?",
+        a: "Often yes, if the package is a good moisture barrier and you size the desiccant correctly — keeping RH low enough prevents the water film corrosion needs. But for bare, high-value, or critical metal surfaces on long tropical voyages, VCI's direct surface protection plus silica gel humidity control is the safer specification.",
+      },
+      {
+        q: "Why combine VCI and desiccant?",
+        a: "They cover each other's gaps: silica gel handles overall humidity and protects non-metal contents but depends on a good moisture barrier; VCI protects the metal surface directly and tolerates some air exchange but does nothing for non-metal cargo. Together they give layered protection for mixed metal export shipments.",
+      },
+      {
+        q: "Which industries ask for this comparison most?",
+        a: "Automotive parts, machinery and spare-parts exporters, hardware and tooling, and any program shipping bare or machined metal through humid ports. See the automotive parts industry guidance and the container shipping pages for sizing and loading context.",
+      },
+    ],
+    relatedBlog: "/blog/best-desiccant-for-shipping-containers",
+    relatedProduct: "/products/container-strips",
+  },
+  {
+    slug: "silica-gel-vs-activated-carbon",
+    productA: "Silica Gel",
+    productB: "Activated Carbon",
+    h1: "Silica gel vs activated carbon: moisture control vs odor and gas adsorption",
+    description:
+      "Comparison of silica gel and activated carbon — silica gel removes water vapor (humidity), activated carbon removes odors and volatile organic compounds. What each protects against, and why they are complements, not substitutes.",
+    introA:
+      "Silica gel adsorbs water vapor. It is the moisture-control tool: it protects against corrosion, mold, mildew, condensation, and humidity damage in packaging, containers, electronics, leather, and warehouse stock. It does little for smells or gases.",
+    introB:
+      "Activated carbon (activated charcoal) adsorbs odors, volatile organic compounds (VOCs), and many gases via its enormous microporous surface area. It is the odor/gas-control tool, used in air and water filtration, odor management, and off-gassing control. It does relatively little to lower humidity. Activated carbon is NOT in the DryGelWorld catalog.",
+    criteria: [
+      { label: "What it removes", a: "Water vapor (humidity)", b: "Odors, VOCs, many gases" },
+      { label: "Protects against", a: "Moisture damage (corrosion, mold, mildew)", b: "Smells, off-gassing, certain gas contaminants" },
+      { label: "Effect on humidity", a: "Strong — this is its job", b: "Minimal" },
+      { label: "Effect on odor", a: "Minimal", b: "Strong — this is its job" },
+      { label: "Regenerable", a: "Yes (120–150°C)", b: "Yes, but conditions differ by application" },
+      { label: "Typical use", a: "Packaging, container, warehouse moisture control", b: "Air/water filters, odor control, off-gassing" },
+      { label: "In DryGelWorld catalog", a: "Yes (ISO 9001:2015 + DMF-free)", b: "No — source from an activated carbon specialist" },
+    ],
+    decisions: [
+      { scenario: "Moisture / humidity protection in packaging", recommended: "a", note: "Silica gel — activated carbon barely touches humidity." },
+      { scenario: "Odor or VOC control in a shipment", recommended: "b", note: "Activated carbon — silica gel does not remove smells or gases." },
+      { scenario: "Container shipping of general cargo", recommended: "a", note: "Silica gel / clay desiccant — condensation and humidity are the failure mode." },
+      { scenario: "New leather goods with strong residual odor", recommended: "both", note: "Silica gel for humidity plus activated carbon for the odor — different problems, both present." },
+      { scenario: "Electronics and precision goods", recommended: "a", note: "Silica gel — moisture is the risk; carbon adds nothing relevant." },
+      { scenario: "Sensitive goods that off-gas in sealed packs", recommended: "both", note: "Carbon to capture the off-gassing VOCs, silica gel to control any humidity in the same pack." },
+    ],
+    faqs: [
+      {
+        q: "Is activated carbon the same as silica gel?",
+        a: "No. They are different materials solving different problems. Silica gel adsorbs water vapor (humidity control). Activated carbon adsorbs odors, VOCs, and gases (odor/gas control). They are complements, not substitutes — using one where you need the other will not work.",
+      },
+      {
+        q: "Can activated carbon replace silica gel for moisture control?",
+        a: "No. Activated carbon has high surface area but is not optimized to hold water vapor the way silica gel is, so it does little to lower humidity. For moisture protection in packaging, containers, or storage, use silica gel or clay desiccant.",
+      },
+      {
+        q: "Does DryGelWorld supply activated carbon?",
+        a: "No — activated carbon is not in the DryGelWorld catalog. DryGelWorld supplies silica gel and clay desiccants under ISO 9001:2015 + DMF-free. Buyers needing combined moisture-plus-odor protection can source carbon from a specialist and silica gel from DryGelWorld.",
+      },
+      {
+        q: "When would I use both silica gel and activated carbon?",
+        a: "When a shipment has both a humidity problem and an odor/off-gassing problem — for example new leather goods, or sealed packs that develop VOC smells. Silica gel controls the moisture; activated carbon captures the odors and gases. Place both in the package per their separate dosing guidance.",
+      },
+      {
+        q: "Which is better for a musty smell in stored goods?",
+        a: "A musty smell usually has two causes: active humidity (use silica gel to stop mold/mildew at the source) and already-present odor molecules (use activated carbon to adsorb them). Address the humidity first with silica gel, then use activated carbon to clear residual odor.",
+      },
+    ],
+    relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
+    relatedProduct: "/products/bulk-industrial",
+  },
 ];
 
 export function getComparePage(slug: string): ComparePage | undefined {

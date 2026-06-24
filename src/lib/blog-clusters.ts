@@ -80,6 +80,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -116,6 +117,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
       guide("silica-gel-bulk-pricing-factors-for-exporters", "What drives silica gel bulk pricing"),
+      guide("silica-gel-import-customs-hs-code-guide", "Silica gel HS code and import customs guide"),
     ],
     products: [PRODUCT_BULK, PRODUCT_CONTAINER],
   },
@@ -238,6 +240,22 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
     industry: IND_LEATHER,
+  },
+  "silica-gel-import-customs-hs-code-guide": {
+    guides: [
+      guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+      guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
+      guide("bulk-silica-gel-supplier-checklist", "Bulk silica gel supplier checklist"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_PAPER, PRODUCT_CONTAINER],
+  },
+  "how-silica-gel-is-made-manufacturing-process": {
+    guides: [
+      guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color change guide"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_PAPER],
   },
 };
 
