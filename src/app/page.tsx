@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { BentoGrid } from "@/components/bento-grid";
 import { TrustBand } from "@/components/trust-band";
-import { CountUp } from "@/components/count-up";
 import { AnimatedText } from "@/components/animated-text";
 import { LazyScienceVideo } from "@/components/lazy-science-video";
 import {
@@ -41,9 +40,7 @@ const splitTextToBubbleSpans = (text: string) => {
 };
 
 import {
-  Building2,
   FileCheck2,
-  FlaskConical,
   Globe,
   ShieldCheck,
   PackageCheck,
@@ -55,51 +52,6 @@ import {
 } from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
 import styles from "./page.module.css";
-
-const visuals = {
-  warehouse: "/applications/warehouse-inventory.webp",
-  cargo: seoImages.exportLogistics.src,
-  leather: "/applications/leather-footwear.webp",
-  electronics: seoImages.electronicsPackaging.src,
-};
-
-const reasons = [
-  {
-    title: "Fast humidity capture",
-    text: "Adsorption starts quickly inside packed cartons, helping reduce moisture build-up before it becomes product damage.",
-  },
-  {
-    title: "Cleaner packet construction",
-    text: "Breathable paper sachets are prepared for tidy insertion, cleaner handling, and dependable use across packaging lines.",
-  },
-  {
-    title: "Supply that scales",
-    text: "From small sachets to container formats, the range supports repeat bulk buying without changing vendors every cycle.",
-  },
-];
-
-const useCases = [
-  {
-    title: "Electronics packaging",
-    text: "Helps protect boards, batteries, and delicate assemblies from humidity during storage and shipment.",
-    image: visuals.electronics,
-  },
-  {
-    title: "Leather and footwear",
-    text: "Reduces mold risk and protects finish quality in shoes, garments, and stored leather stock.",
-    image: visuals.leather,
-  },
-  {
-    title: "Export logistics",
-    text: "Supports long-haul dispatch where cartons, pallets, and containers face humidity swings in transit.",
-    image: visuals.cargo,
-  },
-  {
-    title: "Warehouse inventory",
-    text: "Keeps stored goods drier and dispatch-ready across shelves, stock rooms, and bulk holding spaces.",
-    image: visuals.warehouse,
-  },
-];
 
 const trustSignalsArray = [
   {
@@ -163,70 +115,6 @@ const categoryLanes = [
   { label: "Container strips", href: "/container-desiccant-strips" },
   { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
   { label: "Dispensers", href: "/dispensers" },
-];
-
-const capabilityBlocks = [
-  {
-    icon: Building2,
-    title: "Factory-direct export supply",
-    text: "Build every quote around product format, recurring volume, destination market, and dispatch window.",
-  },
-  {
-    icon: FlaskConical,
-    title: "QC and documentation desk",
-    text: "Every shipment ships with ISO 9001:2015, SDS, COA, and a DMF-free statement — the documentation B2B procurement teams need before approval.",
-  },
-  {
-    icon: PackageCheck,
-    title: "OEM and private label ready",
-    text: "Offer buyer-specific sachet printing, carton labeling, and recurring distributor supply programs.",
-  },
-  {
-    icon: Truck,
-    title: "Logistics-first RFQ flow",
-    text: "Capture Incoterms, port/city, carton quantity, shipment mode, and lead-time urgency before WhatsApp.",
-  },
-];
-
-const seoClusters = [
-  {
-    title: "Product intent",
-    keywords: "silica gel packets, bulk silica gel desiccant, non indicating silica gel, indicating silica gel, container desiccant strips",
-    links: [
-      { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container strips", href: "/container-desiccant-strips" },
-      { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
-    ],
-  },
-  {
-    title: "Industry intent",
-    keywords: "silica gel for electronics packaging, desiccant for pharma packaging, silica gel for leather export, desiccant for food packaging",
-    links: [
-      { label: "Electronics", href: "/industries/electronics-packaging" },
-      { label: "Pharma", href: "/industries/pharma-packaging" },
-      { label: "Leather", href: "/industries/leather-footwear-export" },
-    ],
-  },
-  {
-    title: "Export intent",
-    keywords: "silica gel manufacturer exporter, bulk desiccant supplier, private label desiccant packets, silica gel supplier Pakistan Asia global",
-    links: [
-      { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
-      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
-      { label: "Export support", href: "/export" },
-    ],
-  },
-  {
-    title: "Compliance intent",
-    keywords: "silica gel SDS, COA silica gel, DMF free desiccant, RoHS REACH desiccant",
-    links: [
-      { label: "Documents", href: "/documents" },
-      { label: "FAQ", href: "/faq" },
-      { label: "Buyer guides", href: "/blog" },
-    ],
-  },
 ];
 
 const buyerGuideLinks = [
@@ -302,57 +190,6 @@ const globalPresenceFlags = [
   { country: "Pakistan", currency: "PKR", src: "/flags/pakistan.svg" },
   { country: "India", currency: "INR", src: "/flags/india.svg" },
   { country: "China", currency: "CNY", src: "/flags/china.svg" },
-];
-
-const exportDetails = [
-  {
-    label: "Documentation",
-    title: "COA, SDS, compliance notes",
-    text: "Share the destination market and product format so the team can prepare the right document set for review.",
-  },
-  {
-    label: "Commercial Terms",
-    title: "MOQ, lead time, Incoterms",
-    text: "Export quotes can be aligned around MOQ, dispatch timing, FOB / CIF / EXW terms, and carton or pallet quantities.",
-  },
-  {
-    label: "Packaging",
-    title: "Private label and bulk cartons",
-    text: "Sachet formats, bulk packs, and cargo strips can be discussed for repeat procurement and distributor supply.",
-  },
-];
-
-const verifiedProof = [
-  {
-    value: "Since 1983",
-    label: "Karachi manufacturing heritage",
-    text: "Backed by 40+ years of silica gel sachet manufacturing heritage in Karachi, Pakistan.",
-  },
-  {
-    value: "ISO 9001:2015",
-    label: "Verified quality system",
-    text: "Our quality management system is ISO 9001:2015 certified — the baseline most B2B procurement teams require before approval.",
-  },
-  {
-    value: "DMF-free",
-    label: "Product-level safety claim",
-    text: "Our silica gel is DMF-free, with SDS, COA, and non-toxic / non-flammable handling documentation available on request.",
-  },
-  {
-    value: "10M+",
-    label: "Packets distributed",
-    text: "Over four decades of production volume — the scale of a real manufacturer, not a small trading reseller.",
-  },
-  {
-    value: "10,000+",
-    label: "Customers supported",
-    text: "Trusted by domestic and export buyers across pharma, electronics, leather, and logistics packaging.",
-  },
-  {
-    value: "40+",
-    label: "Custom categories",
-    text: "Custom sizing, recurring supply, and private-label packaging — built around your product, not a fixed catalog.",
-  },
 ];
 
 const skuRows = [
@@ -763,39 +600,6 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <section id="why" className={styles.whySection}>
-              <div className={styles.sectionIntro}>
-                <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Why It Works</p>
-                  <AnimatedText text="Moisture control that fits real procurement checks." mode="bubble" />
-                  <p>
-                    A tighter technical story makes the product easier to trust: what it does, where it fits, and why the format matters.
-                  </p>
-                </div>
-                <div className={styles.sectionVisual}>
-                  <Image
-                    src={seoImages.desiccantSizing.src}
-                    alt={seoImages.desiccantSizing.alt}
-                    title={seoImages.desiccantSizing.title}
-                    fill
-                    className={styles.sectionVisualImage}
-                    sizes="(max-width: 900px) 100vw, 42vw"
-                  />
-                </div>
-              </div>
-
-              <div className={styles.reasonGrid}>
-                {reasons.map((item) => (
-                  <article key={item.title} className={styles.reasonCard}>
-                    <h3 className="text-gradient">{item.title}</h3>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
             <section id="industries" className={styles.partnerSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
@@ -818,51 +622,6 @@ export default function Home() {
               </div>
 
               <DeferredIndustrySlider industries={trustedIndustries} />
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="applications" className={styles.applicationSection}>
-              <div className={styles.sectionIntro}>
-                <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Applications</p>
-                  <AnimatedText text="Protection across real packaging environments." mode="bubble" />
-                  <p>
-                    From electronics and leather to pharma and export cartons, the use cases should feel visual before the visitor reads every card.
-                  </p>
-                </div>
-                <div className={styles.sectionVisual}>
-                  <Image
-                    src={seoImages.moistureProtection.src}
-                    alt={seoImages.moistureProtection.alt}
-                    title={seoImages.moistureProtection.title}
-                    fill
-                    className={styles.sectionVisualImage}
-                    sizes="(max-width: 900px) 100vw, 42vw"
-                  />
-                </div>
-              </div>
-
-              <div className={styles.applicationGrid}>
-                {useCases.map((item) => (
-                  <article key={item.title} className={styles.applicationCard}>
-                    <div className={styles.applicationImage}>
-                      <Image
-                        src={item.image}
-                        alt={`${item.title} protected with silica gel desiccant in packaging`}
-                        title={`${item.title} silica gel use case`}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 33vw"
-                      />
-                    </div>
-                    <div className={styles.applicationCopy}>
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </div>
-                  </article>
-                ))}
-              </div>
             </section>
           </Reveal>
 
@@ -952,41 +711,6 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <section className={styles.exportSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Global Supply Readiness</p>
-                <AnimatedText text="Built for buyers who need clarity before committing." mode="rise" />
-                <p>
-                  International procurement teams need the commercial and technical basics quickly. This layer makes the site feel more export-ready and less local.
-                </p>
-              </div>
-
-              <div className={styles.exportGrid}>
-                {exportDetails.map((item) => (
-                  <article key={item.title} className={styles.exportCard}>
-                    <span>{item.label}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-
-              <div className={styles.capabilityGrid}>
-                {capabilityBlocks.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <article key={item.title} className={styles.capabilityCard}>
-                      <Icon size={24} strokeWidth={1.8} />
-                      <h3>{item.title}</h3>
-                      <p>{item.text}</p>
-                    </article>
-                  );
-                })}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
             <section className={styles.shippingBanner}>
               <div className={styles.shippingBannerInner}>
                 <div className={styles.shippingBannerLeft}>
@@ -1010,29 +734,6 @@ export default function Home() {
                     sizes="(max-width: 900px) 100vw, 48vw"
                   />
                 </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.proofVaultSection} aria-label="Manufacturer proof and documentation">
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Manufacturer Proof</p>
-                <AnimatedText text="Four decades of manufacturing, documented for procurement." mode="rise" />
-                <p>
-                  DryGelWorld is backed by 40+ years of silica gel manufacturing in Karachi —
-                  ISO 9001:2015 certified, DMF-free product support, high-volume production capacity,
-                  and SDS/COA documentation provided on request.
-                </p>
-              </div>
-              <div className={styles.proofVaultGrid}>
-                {verifiedProof.map((item) => (
-                  <article className={styles.proofVaultCard} key={item.label}>
-                    <strong><CountUp value={item.value} /></strong>
-                    <span>{item.label}</span>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
               </div>
             </section>
           </Reveal>
@@ -1142,34 +843,6 @@ export default function Home() {
                     <p>{guide.text}</p>
                     <strong>Read guide</strong>
                   </Link>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.seoRoadmapSection} aria-label="Global SEO roadmap">
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Global SEO Architecture</p>
-                <AnimatedText text="Build landing pages around buyer intent, not just products." mode="rise" />
-                <p>
-                  The global search strategy should create product, industry, export, and compliance
-                  clusters that answer procurement questions before the buyer asks for price.
-                </p>
-              </div>
-              <div className={styles.seoClusterGrid}>
-                {seoClusters.map((cluster) => (
-                  <article key={cluster.title} className={styles.seoClusterCard}>
-                    <h3>{cluster.title}</h3>
-                    <p>{cluster.keywords}</p>
-                    <div className={styles.seoClusterLinks}>
-                      {cluster.links.map((link) => (
-                        <Link href={link.href} key={link.href}>
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
-                  </article>
                 ))}
               </div>
             </section>
