@@ -1015,14 +1015,16 @@
    drops onto its own line below the logo. */
 @media (min-width: 1025px) and (max-width: 1240px) {
   .header {
-    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+    /* Brand column is a FIXED width here (was minmax(0,auto), which could
+       shrink to 0 and let the logo spill onto the first nav item). */
+    grid-template-columns: 232px minmax(0, 1fr) auto;
     min-height: 62px;
     gap: 12px;
     padding: 6px 10px;
   }
 
   .brand {
-    width: auto;
+    width: 232px;
   }
 
   .brandLogo,
@@ -1211,4 +1213,22 @@
 
 .brand {
   padding-right: 12px;
+}
+
+/* ---- Safety: logo never overflows; tighter nav so the bar always fits ---- */
+.brand {
+  flex: 0 0 auto;
+  overflow: hidden;
+}
+
+.brandLogo {
+  flex: 0 0 auto;
+}
+
+.navItem {
+  padding: 0 10px;
+}
+
+.nav {
+  gap: 4px;
 }
