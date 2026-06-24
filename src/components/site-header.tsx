@@ -3,16 +3,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { Calculator, ChevronDown, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Boxes,
+  BookOpen,
+  Building2,
+  Calculator,
+  ChevronDown,
+  Factory,
+  Globe,
+  Menu,
+  X,
+  type LucideIcon,
+} from "lucide-react";
 import styles from "./site-header.module.css";
 
 type NavLink = { label: string; href: string };
-type NavGroup = { label: string; href?: string; children: NavLink[] };
+type NavGroup = { label: string; icon: LucideIcon; href?: string; children: NavLink[] };
 
 const navGroups: NavGroup[] = [
   {
     label: "Products",
+    icon: Boxes,
     href: "/products",
     children: [
       { label: "All products", href: "/products" },
@@ -27,6 +39,7 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Industries",
+    icon: Factory,
     href: "/industries",
     children: [
       { label: "All industries", href: "/industries" },
@@ -42,6 +55,7 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Export",
+    icon: Globe,
     href: "/export",
     children: [
       { label: "Export hub", href: "/export" },
@@ -57,6 +71,7 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Resources",
+    icon: BookOpen,
     children: [
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant glossary", href: "/guides/desiccant-glossary" },
@@ -69,6 +84,7 @@ const navGroups: NavGroup[] = [
   },
   {
     label: "Company",
+    icon: Building2,
     children: [
       { label: "About", href: "/about" },
       { label: "Certifications", href: "/certifications" },
@@ -100,7 +116,6 @@ export function SiteHeader() {
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const updateHeaderState = () => setIsScrolled(window.scrollY > 24);
@@ -159,10 +174,11 @@ export function SiteHeader() {
             />
           </Link>
 
-          <nav className={styles.nav} aria-label="Primary" ref={navRef}>
+          <nav className={styles.nav} aria-label="Primary">
             {navGroups.map((group) => {
               const open = openMenu === group.label;
               const active = isGroupActive(group, pathname);
+              const GroupIcon = group.icon;
               return (
                 <div
                   className={styles.navItemWrap}
@@ -177,6 +193,7 @@ export function SiteHeader() {
                     aria-expanded={open}
                     onClick={() => setOpenMenu((current) => (current === group.label ? null : group.label))}
                   >
+                    <GroupIcon size={15} strokeWidth={2.1} className={styles.triggerIcon} aria-hidden="true" />
                     {group.label}
                     <ChevronDown
                       size={13}
@@ -189,17 +206,25 @@ export function SiteHeader() {
                     role="menu"
                     aria-label={group.label}
                   >
-                    {group.children.map((child) => (
-                      <Link
-                        key={child.href}
-                        href={child.href}
-                        role="menuitem"
-                        className={styles.dropdownLink}
-                        onClick={() => setOpenMenu(null)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
+                    <div className={styles.dropdownHead}>
+                      <span className={styles.dropdownHeadIcon}>
+                        <GroupIcon size={15} strokeWidth={2.2} aria-hidden="true" />
+                      </span>
+                      {group.label}
+                    </div>
+                    <div className={styles.dropdownList}>
+                      {group.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          role="menuitem"
+                          className={styles.dropdownLink}
+                          onClick={() => setOpenMenu(null)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               );
@@ -241,6 +266,7 @@ export function SiteHeader() {
           <div className={styles.mobileDrawer} aria-label="Mobile navigation">
             {navGroups.map((group) => {
               const expanded = mobileExpanded === group.label;
+              const GroupIcon = group.icon;
               return (
                 <div className={styles.mobileGroup} key={group.label}>
                   <button
@@ -251,7 +277,12 @@ export function SiteHeader() {
                       setMobileExpanded((current) => (current === group.label ? null : group.label))
                     }
                   >
-                    {group.label}
+                    <span className={styles.mobileGroupLabel}>
+                      <span className={styles.dropdownHeadIcon}>
+                        <GroupIcon size={15} strokeWidth={2.2} aria-hidden="true" />
+                      </span>
+                      {group.label}
+                    </span>
                     <ChevronDown
                       size={18}
                       className={`${styles.triggerChevron} ${expanded ? styles.triggerChevronOpen : ""}`}
