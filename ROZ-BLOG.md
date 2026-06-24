@@ -34,3 +34,4 @@
 - 2026-06-19 — Is silica gel toxic? A safety guide for buyers, workers, and packers (`/blog/is-silica-gel-toxic-safety-guide`)
 - 2026-06-19 — Silica gel colours explained: white vs blue vs orange (`/blog/silica-gel-colors-white-blue-orange-explained`)
 - 2026-06-23 — Silica gel shelf life: how long unused stock lasts and how to store it (`/blog/silica-gel-shelf-life-and-storage-guide`)
+- 2026-06-24 — Silica gel for rice, grain, and spice export: moisture and mould control (`/blog/silica-gel-for-rice-grain-spice-export`)

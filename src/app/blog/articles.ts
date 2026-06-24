@@ -3308,6 +3308,114 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "silica-gel-for-rice-grain-spice-export",
+    label: "Industry Guide",
+    title: "Silica gel for rice, grain, and spice export: moisture and mould control",
+    description:
+      "How food-commodity exporters use silica gel and container desiccants to protect rice, grains, pulses, and spices from container condensation, mould, and aflatoxin during ocean freight — placement, sizing per container, food-contact rules, and rejection-risk reduction.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Why bagged food commodities are high-risk cargo",
+        body: "Rice, wheat, pulses, spices, and dried produce are hygroscopic — they hold and exchange moisture with the air around them. Packed in jute or PP bags and stacked in a steel container across humid sea routes, they face condensation ('container rain') as temperatures cycle between day and night and between climate zones. Trapped moisture drives mould growth and, in grains and nuts, the conditions that allow aflatoxin-producing moulds to develop — a leading cause of rejected and downgraded food shipments. Desiccant protection is not a luxury for these cargoes; it is rejection-risk insurance.",
+        bullets: [
+          "Grains, pulses, spices, dried produce are hygroscopic.",
+          "Temperature cycling in containers causes condensation ('container rain').",
+          "Trapped moisture drives mould and aflatoxin-favouring conditions.",
+          "Mould/aflatoxin is a top cause of rejected food shipments.",
+          "Desiccant = rejection-risk insurance for food commodities.",
+        ],
+      },
+      {
+        heading: "Container desiccants do the heavy lifting",
+        body: "For bagged food commodities the primary defence is container-level desiccant: high-capacity desiccant bags or poles (typically 1kg–2kg units) hung along the container walls or placed between the cargo and the doors. These manage the large volume of humid air inside the container that condenses onto the ceiling and walls and drips back onto the top bags. Silica gel and calcium-chloride blends are both used here; silica gel is inert, non-leaking, and predictable, which matters when the desiccant sits directly against food packaging. The goal is to keep container-air humidity below the dew point so condensation never forms.",
+        bullets: [
+          "Primary defence: container desiccant bags/poles (1kg–2kg units).",
+          "Hung on walls / placed near doors to control container air.",
+          "Stops ceiling and wall condensation dripping onto top bags.",
+          "Silica gel is inert and non-leaking against food packaging.",
+          "Target: keep container humidity below the dew point.",
+        ],
+      },
+      {
+        heading: "How much desiccant per container",
+        body: "Sizing depends on cargo moisture content, route humidity, and voyage length, but working starting points help. A standard 20ft container of bagged dry commodity typically uses roughly 4–8 desiccant units of 1kg–2kg, and a 40ft container roughly 8–16, increased for long tropical-to-temperate routes and for cargo with higher residual moisture. Very moisture-active cargo (freshly milled grain, high-moisture spices) needs the upper end. Always validate on a first shipment by checking the desiccant condition and cargo on arrival, then tune the quantity for that route rather than carrying the same number blindly every time.",
+        bullets: [
+          "20ft bagged dry commodity: roughly 4–8 units of 1–2kg.",
+          "40ft: roughly 8–16 units; more on long tropical routes.",
+          "High residual-moisture cargo → upper end of the range.",
+          "Validate on the first shipment, then tune per route.",
+          "Don't carry a fixed number blindly across different routes.",
+        ],
+      },
+      {
+        heading: "Food-contact rules: keep it in the air, not in the food",
+        body: "For loose food commodities the safe pattern is to control the air and packaging environment, not to mix desiccant into the food itself. Container desiccant bags hang in the container space; they are not buried in the grain. Where sachets are used inside retail or export packaging, use a food-appropriate grade and keep the sachet separated from direct loose-food contact by the packaging structure. Plain silica gel is inert, but food-grade documentation and any direct-contact decision is a compliance question to settle with your buyer and destination regulator before shipping — specify it in the RFQ.",
+        bullets: [
+          "Control the air/packaging environment, not the food mass.",
+          "Container desiccants hang in the space, not buried in grain.",
+          "In-pack sachets: food-appropriate grade, separated by packaging.",
+          "Direct-contact and food-grade status = a compliance decision.",
+          "Settle grade and documentation with buyer/regulator in the RFQ.",
+        ],
+      },
+      {
+        heading: "Packaging and loading practices that multiply the effect",
+        body: "Desiccant works best alongside good loading discipline. Make sure commodities are within safe moisture content before bagging — desiccant manages transit humidity, it cannot dry out cargo that was loaded wet. Use breathable but barrier-appropriate bags, avoid loading after rain, and where the cargo value justifies it, line the container or use kraft/poly cover sheets under the ceiling to intercept drips. Place container desiccants high and near the doors where condensation concentrates. These practices cost little and significantly cut the moisture load the desiccant has to handle.",
+        bullets: [
+          "Load cargo at safe moisture content — desiccant isn't a dryer.",
+          "Avoid loading after rain; keep bags and floor dry.",
+          "Consider container liners or cover sheets for high-value cargo.",
+          "Place desiccants high and near the doors (condensation zone).",
+          "Good loading reduces the moisture load on the desiccant.",
+        ],
+      },
+      {
+        heading: "Indicating gel and arrival verification",
+        body: "For high-risk food-commodity routes, a small amount of indicating silica gel gives the receiving buyer a visual check that moisture control held during transit — useful for QC sign-off and for resolving disputes without lab testing. Prefer cobalt-free orange indicating gel near food packaging. On arrival, inspect the container ceiling for condensation marks, check the desiccant saturation, and sample top-layer bags for any musty smell or clumping. Feeding that arrival data back into your sizing keeps each route dialled in and steadily lowers rejection risk over a season of shipments.",
+        bullets: [
+          "Indicating gel gives buyers a visual transit-moisture check.",
+          "Use cobalt-free orange indicating gel near food packaging.",
+          "On arrival: inspect ceiling, desiccant saturation, top-layer bags.",
+          "Feed arrival data back into sizing for each route.",
+          "Iterating per route steadily lowers rejection risk.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Does silica gel stop mould in rice and grain shipments?",
+        answer:
+          "Silica gel and container desiccants control the humidity that allows mould to grow, which substantially lowers mould and aflatoxin risk in transit. They cannot fix cargo that was loaded above safe moisture content — the commodity must be dry before bagging. Used correctly with good loading, desiccant is one of the most cost-effective ways to cut food-cargo rejection risk.",
+      },
+      {
+        question: "How much silica gel desiccant do I need for a container of grain?",
+        answer:
+          "As a working start, a 20ft container of bagged dry commodity uses roughly 4–8 desiccant units of 1–2kg, and a 40ft container roughly 8–16, with more on long tropical routes and for higher-moisture cargo. Validate on your first shipment by checking desiccant saturation and cargo on arrival, then tune the quantity for that specific route.",
+      },
+      {
+        question: "Can silica gel touch food directly in export packaging?",
+        answer:
+          "The safe pattern is to control the air and packaging environment rather than mix desiccant into loose food. Container desiccants hang in the container space; in-pack sachets should be a food-appropriate grade separated from direct contact by the packaging. Direct-contact and food-grade status is a compliance decision to settle with your buyer and destination regulator before shipping.",
+      },
+      {
+        question: "Which is better for food commodities: silica gel or calcium chloride desiccant?",
+        answer:
+          "Both are used for container-level protection. Silica gel is inert, non-leaking, and predictable, which is reassuring directly against food packaging; high-absorption calcium-chloride blends pull more water in very humid conditions but can produce liquid that must be contained. Many food exporters prefer inert silica-gel-based container desiccants near packaging; choose by route humidity and packaging contact.",
+      },
+      {
+        question: "Why do food shipments get rejected for moisture damage?",
+        answer:
+          "Condensation inside the container ('container rain') wets the top and outer bags, triggering mould, caking, off-odours, and in grains and nuts the conditions for aflatoxin — all grounds for rejection or downgrade at destination. Container desiccants plus dry loading and good packaging keep humidity below the dew point so condensation never forms, protecting the shipment's grade.",
+      },
+      {
+        question: "Can DryGelWorld supply container desiccants for food-commodity export?",
+        answer:
+          "Yes. DryGelWorld supplies inert silica gel container desiccants and sachets suitable for protecting rice, grains, pulses, and spices in ocean freight from Karachi and the wider region. Specify cargo type, container size, route, and any food-grade or indicating requirement in your RFQ, and request the SDS so your compliance and customs teams have it on file.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -3355,6 +3463,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
   "silica-gel-colors-white-blue-orange-explained": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
   "silica-gel-shelf-life-and-storage-guide": { publishedAt: "2026-06-23", updatedAt: "2026-06-23" },
+  "silica-gel-for-rice-grain-spice-export": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
