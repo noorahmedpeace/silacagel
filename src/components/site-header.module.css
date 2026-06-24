@@ -1232,3 +1232,25 @@
 .nav {
   gap: 4px;
 }
+
+/* =====================================================================
+   FINAL logo sizing — authoritative, wins over every earlier rule.
+   Logo is sized by HEIGHT with hard width/height caps so it can never
+   grow tall (no height:auto blow-up) or wide enough to reach the nav.
+   overflow is visible so the wordmark is never clipped to "DRYG".
+   ===================================================================== */
+.brand {
+  overflow: visible;
+  padding-right: 22px;
+}
+
+.brandLogo,
+.headerWrapScrolled .brandLogo {
+  width: auto;
+  max-width: 150px;
+  height: 38px;
+  min-height: 38px;
+  max-height: 38px;
+  object-fit: contain;
+  object-position: left center;
+}
