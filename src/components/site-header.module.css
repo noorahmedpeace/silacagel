@@ -1254,3 +1254,17 @@
   object-fit: contain;
   object-position: left center;
 }
+
+/* =====================================================================
+   FINAL layout: deterministic logo<->nav spacing.
+   Nav starts right after the brand with a clear gap (justify-self:start),
+   instead of justify-self:end which let a wide nav drift onto the logo.
+   ===================================================================== */
+.header {
+  gap: 24px;
+}
+
+.nav {
+  justify-self: start;
+  margin-left: 4px;
+}
