@@ -3978,6 +3978,366 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "how-to-regenerate-silica-gel-oven-temperature-guide",
+    label: "Reuse & Lifespan",
+    title: "How to regenerate silica gel: oven temperature and time guide",
+    description:
+      "How to regenerate (reactivate) silica gel by driving off adsorbed moisture — the correct oven temperatures and times for bead and packet forms, what not to do, and when regeneration makes sense for industrial buyers versus single-use.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "What regeneration actually does",
+        body: "Silica gel adsorbs water by physical adsorption, and that process is reversible: heat the saturated gel and the water is driven back out of the pores, restoring most of the original capacity. This is regeneration (or reactivation). It is one of silica gel's structural advantages over single-use deliquescent desiccants — the same beads can cycle many times in a closed-loop industrial system. The key is using enough heat to drive off the water without so much heat that you damage the pore structure or scorch any indicator dye. Done correctly, regenerated silica gel returns to near its original adsorption capacity; done with excess heat, capacity is permanently reduced.",
+        bullets: [
+          "Adsorption is reversible — heat drives the water back out of the pores.",
+          "Restores most of the original capacity; beads can cycle many times.",
+          "A structural advantage over single-use deliquescent desiccants.",
+          "Too little heat: incomplete; too much heat: permanent capacity loss.",
+        ],
+      },
+      {
+        heading: "Correct oven temperature and time",
+        body: "For standard silica gel beads, regenerate at 120–150°C (250–300°F) for 2–4 hours, depending on bead size and how saturated the gel is. Larger beads and heavily saturated gel need the longer end. Spread the gel in a thin, single layer on a tray so heat and escaping vapor reach all of it; a deep pile regenerates unevenly. Allow the oven to vent the released moisture (crack the door or use a fan oven) so the driven-off water doesn't just re-adsorb on cooling. After heating, cool the gel in a sealed, dry container — hot gel left in open air will re-adsorb ambient humidity within minutes and waste the whole cycle.",
+        bullets: [
+          "Standard beads: 120–150°C (250–300°F) for 2–4 hours.",
+          "Larger / heavily saturated beads: use the longer time.",
+          "Thin single layer on a tray — deep piles regenerate unevenly.",
+          "Vent the oven so released vapor escapes rather than re-adsorbing.",
+          "Cool in a sealed dry container — open-air cooling re-saturates in minutes.",
+        ],
+      },
+      {
+        heading: "Indicating gel and special cases",
+        body: "Indicating silica gel can be regenerated, but watch the dye and the temperature. Orange (non-cobalt) and legacy blue indicating gels both reactivate in the same 120–150°C window and visibly return to their dry color, which is a convenient end-point signal — when the color is fully back, regeneration is essentially complete. Do not exceed ~150°C for indicating gel, as excessive heat can degrade the dye. Microwave regeneration is sometimes suggested for small amounts but is risky (uneven heating, hot spots, dye damage, and container hazards) and is not recommended for anything beyond tiny hobby quantities. For industrial reactivation, a vented convection oven or a purpose-built desiccant reactivation unit is the reliable method.",
+        bullets: [
+          "Indicating gel reactivates in the same 120–150°C window.",
+          "Color returning to 'dry' is a convenient completion signal.",
+          "Don't exceed ~150°C for indicating gel — excess heat degrades the dye.",
+          "Microwave regeneration: risky and uneven — avoid beyond tiny quantities.",
+          "Industrial: vented convection oven or dedicated reactivation unit.",
+        ],
+      },
+      {
+        heading: "When regeneration makes sense — and when it doesn't",
+        body: "Regeneration pays off for bulk beads in reusable industrial systems (dry cabinets, desiccant dryers, closed-loop moisture control) where the same charge cycles repeatedly. It rarely makes sense for finished export sachets: the paper or non-woven sachet outer is single-use, oven heat can scorch or weaken it, and the labor of de-bagging, baking, and re-bagging usually exceeds the cost of fresh sachets. The honest rule: regenerate loose bulk beads; treat finished sachets and strips as single-use. Buyers running dry cabinets or reusable dryers should buy bulk beads specifically; buyers protecting one-way export shipments should buy fresh sachets and not attempt to reuse them.",
+        bullets: [
+          "Worth it: bulk beads in dry cabinets, desiccant dryers, closed-loop systems.",
+          "Not worth it: finished export sachets (single-use outer, scorch risk, labor cost).",
+          "Rule of thumb: regenerate bulk beads; treat sachets/strips as single-use.",
+          "Reusable systems → buy bulk beads; one-way export → buy fresh sachets.",
+        ],
+      },
+      {
+        heading: "Safety and capacity over repeated cycles",
+        body: "Silica gel is non-toxic and non-flammable, but regeneration still has safety basics: use oven mitts (beads hold heat), keep the gel away from open flame, and vent the moisture in a ventilated space. Over many cycles, capacity gradually declines as some pore structure is lost and fines accumulate — expect very good recovery for the first several cycles and a slow fade after that. For QC-critical applications, periodically verify capacity (weigh dry, expose to known humidity, reweigh) rather than assuming infinite reuse. When recovered capacity drops noticeably below fresh, retire the charge. DryGelWorld supplies bulk beads suited to reusable systems and can advise on a regeneration regime for your equipment.",
+        bullets: [
+          "Non-toxic/non-flammable, but use mitts, avoid open flame, vent the moisture.",
+          "Capacity slowly declines over many cycles (pore loss + fines).",
+          "Strong recovery early; slow fade later — verify capacity for QC-critical use.",
+          "Retire the charge when recovered capacity drops well below fresh.",
+          "Bulk beads are the right format for reusable, regenerated systems.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "At what temperature do you regenerate silica gel?",
+        answer:
+          "Regenerate standard silica gel beads at 120–150°C (250–300°F) for 2–4 hours, using the longer time for larger or heavily saturated beads. Spread the gel in a thin single layer, vent the oven so released moisture escapes, and cool the gel in a sealed dry container so it doesn't re-adsorb ambient humidity. Don't exceed ~150°C, especially for indicating gel.",
+      },
+      {
+        question: "How long does it take to reactivate silica gel?",
+        answer:
+          "Typically 2–4 hours in a vented oven at 120–150°C, depending on bead size and saturation. A thin single layer regenerates faster and more evenly than a deep pile. With indicating gel, the color returning fully to its dry state is a practical signal that regeneration is essentially complete.",
+      },
+      {
+        question: "Can you regenerate silica gel sachets in the oven?",
+        answer:
+          "It's generally not worth it. The paper or non-woven sachet outer is single-use and oven heat can scorch or weaken it, and the labor usually exceeds the cost of fresh sachets. Regeneration makes sense for loose bulk beads in reusable systems; finished export sachets and strips are best treated as single-use.",
+      },
+      {
+        question: "Can you reuse silica gel forever?",
+        answer:
+          "Not indefinitely. Silica gel recovers most of its capacity for the first several regeneration cycles, then capacity slowly fades as pore structure is lost and fines accumulate. For QC-critical use, periodically verify capacity and retire the charge when recovered capacity drops well below fresh beads.",
+      },
+      {
+        question: "Is it safe to regenerate silica gel at home or in a factory?",
+        answer:
+          "Silica gel is non-toxic and non-flammable, so regeneration is low-risk if you use oven mitts (beads retain heat), keep it away from open flame, and vent the released moisture in a ventilated area. Avoid microwave regeneration beyond tiny quantities due to uneven heating and dye/container hazards; use a vented convection oven or a dedicated reactivation unit for any real volume.",
+      },
+    ],
+  },
+  {
+    slug: "cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
+    label: "Compliance",
+    title: "Cobalt-free orange vs blue indicating silica gel: the safety and REACH question",
+    description:
+      "Why orange (cobalt-free) indicating silica gel has replaced blue (cobalt chloride) gel in regulated markets — the REACH classification, where blue is restricted, color-change behavior, and how buyers should specify indicating gel by destination.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Two indicating gels, one important difference",
+        body: "Indicating silica gel changes color as it adsorbs moisture, giving a visible saturation signal for QC, storage, and reusable workflows. There are two main chemistries. Traditional blue indicating gel uses cobalt(II) chloride as the indicator: deep blue when dry, turning pink as it saturates. Modern orange indicating gel uses a non-cobalt organic dye: orange when dry, turning colorless or pale green as it saturates. They do the same job. The difference that matters for buyers is regulatory: cobalt chloride is now classified as a hazard in major markets, which has made orange the default industrial standard and restricted blue in several regions.",
+        bullets: [
+          "Both signal moisture saturation by changing color.",
+          "Blue = cobalt(II) chloride: blue (dry) → pink (saturated).",
+          "Orange = non-cobalt dye: orange (dry) → colorless/pale green (saturated).",
+          "Functionally equivalent; the real difference is regulatory.",
+        ],
+      },
+      {
+        heading: "Why cobalt chloride (blue) is restricted",
+        body: "Cobalt(II) chloride is classified under EU REACH as a Category 1B carcinogen and is a Substance of Very High Concern (SVHC). As a result, blue indicating silica gel is restricted or effectively avoided in the EU, UK, Australia, and Canada, and many multinational buyers ban it from their supply chains regardless of destination as a precautionary standard. This is a genuine compliance issue, not marketing: shipping blue indicating gel into a market that restricts cobalt chloride can cause a customs or buyer-compliance rejection. Orange indicating gel, using a non-cobalt dye, avoids the classification and is accepted in those markets, which is why it has become the modern industrial default.",
+        bullets: [
+          "Cobalt(II) chloride: EU REACH Category 1B carcinogen and SVHC.",
+          "Blue gel restricted/avoided in EU, UK, Australia, Canada.",
+          "Many multinationals ban blue chain-wide as a precaution.",
+          "Shipping blue into a restricting market risks compliance rejection.",
+          "Orange (non-cobalt) avoids the classification — the modern default.",
+        ],
+      },
+      {
+        heading: "Reading the color change correctly",
+        body: "The color signal is only useful if read correctly. Orange gel: fresh/dry is orange and shifts toward colorless or pale green as it saturates — replace or regenerate at about 70–80% of the color shift, not at the first hint of change, so you act before protection is exhausted. Blue gel (where still used): dry is blue and turns pink when saturated. In a mixed bed, indicating beads are often blended a few percent into non-indicating gel so the visible beads represent the bed's overall state. Remember the indicator shows the gel's saturation, not directly the cargo's humidity — but in a sealed package the two track closely enough to be a reliable field check.",
+        bullets: [
+          "Orange: orange (dry) → colorless/pale green (saturated).",
+          "Replace/regenerate at ~70–80% color shift, not first change.",
+          "Blue: blue (dry) → pink (saturated).",
+          "Indicating beads are often a few % blended into a non-indicating bed.",
+          "Indicator shows gel saturation; in a sealed pack it tracks cargo humidity closely.",
+        ],
+      },
+      {
+        heading: "How to specify indicating gel by destination",
+        body: "The buyer's decision rule is simple. For the EU, UK, Australia, Canada, and any multinational with a cobalt ban: specify orange (cobalt-free) indicating gel, full stop. For markets without the restriction where a buyer specifically requests blue (often on cost or familiarity): it can be supplied, but confirm in writing that the destination and the end-buyer accept cobalt chloride, because the liability for a restricted-substance rejection sits with the importer. When in doubt, default to orange — it is accepted everywhere blue is, plus the restricted markets, so it is the safe universal choice. Always pair the order with the SDS so the buyer's compliance team has the indicator chemistry on file.",
+        bullets: [
+          "EU/UK/AU/CA or cobalt-ban buyers: specify orange (cobalt-free), always.",
+          "Blue only where the destination + end-buyer accept cobalt chloride, in writing.",
+          "Liability for a restricted-substance rejection sits with the importer.",
+          "Default to orange — accepted everywhere blue is, plus the restricted markets.",
+          "Always supply the SDS stating the indicator chemistry.",
+        ],
+      },
+      {
+        heading: "What DryGelWorld supplies and how it's framed",
+        body: "DryGelWorld supplies orange (cobalt-free) indicating silica gel as the recommended indicating option for regulated and multinational buyers, and can supply blue indicating gel only for markets that accept cobalt chloride, on written confirmation. This is framed honestly as a buyer-led documentation discussion: DryGelWorld holds ISO 9001:2015 + a DMF-free statement and provides the SDS stating the indicator chemistry; it does not claim a separate REACH food-contact registration. The compliance call — does your market and end-buyer accept the chosen indicator — is settled with your regulator and buyer using the SDS, before shipping. Non-indicating white gel remains the cleanest choice where no color signal is needed.",
+        bullets: [
+          "Orange (cobalt-free) is the recommended indicating option for regulated buyers.",
+          "Blue available only for cobalt-accepting markets, on written confirmation.",
+          "Held documents: ISO 9001:2015 + DMF-free statement + SDS (indicator chemistry stated).",
+          "Compliance is a buyer-led discussion settled with regulator + buyer pre-shipment.",
+          "Non-indicating white gel is cleanest where no color signal is required.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Why is blue indicating silica gel being phased out?",
+        answer:
+          "Blue indicating gel uses cobalt(II) chloride, which EU REACH classifies as a Category 1B carcinogen and a Substance of Very High Concern. It is restricted or avoided in the EU, UK, Australia, and Canada, and many multinationals ban it chain-wide. Orange (cobalt-free) indicating gel does the same job without that classification, so it has become the industrial default.",
+      },
+      {
+        question: "Is orange silica gel safer than blue?",
+        answer:
+          "From a regulatory standpoint, orange (cobalt-free) indicating gel avoids the cobalt chloride hazard classification that applies to blue gel, which is why it is accepted in markets that restrict cobalt chloride. Both should still be handled as non-food industrial desiccants with 'DO NOT EAT' packaging and per-SDS handling; the key difference is the indicator chemistry and its regulatory acceptance.",
+      },
+      {
+        question: "Can I ship blue indicating silica gel to Europe?",
+        answer:
+          "It is restricted — cobalt chloride is a REACH SVHC and Category 1B carcinogen, so blue indicating gel is effectively avoided in the EU (and UK, Australia, Canada). Specify orange (cobalt-free) indicating gel for those markets. If a buyer outside the restriction insists on blue, confirm in writing that the destination and end-buyer accept cobalt chloride before shipping.",
+      },
+      {
+        question: "When does the indicating gel need replacing?",
+        answer:
+          "Replace or regenerate at about 70–80% of the color shift, not at the first sign of change, so you act before the gel's protective capacity is exhausted. Orange shifts from orange toward colorless/pale green; blue shifts from blue to pink. In a sealed package the indicator's saturation tracks the cargo humidity closely enough to be a reliable field check.",
+      },
+      {
+        question: "Does DryGelWorld supply cobalt-free indicating silica gel?",
+        answer:
+          "Yes — orange (cobalt-free) indicating silica gel is the recommended indicating option for regulated and multinational buyers, supplied with an SDS stating the indicator chemistry. Blue indicating gel can be supplied only for markets that accept cobalt chloride, on written confirmation. DryGelWorld holds ISO 9001:2015 + a DMF-free statement; market acceptance of the indicator is a buyer-led compliance discussion.",
+      },
+    ],
+  },
+  {
+    slug: "paper-vs-tyvek-vs-film-desiccant-sachet-materials",
+    label: "Technical Basics",
+    title: "Paper vs Tyvek vs film desiccant sachet materials: a buyer's guide",
+    description:
+      "How desiccant sachet materials differ — breathable paper, Tyvek, and laminated film — in dust, strength, print, cleanroom suitability, and cost, so buyers can match the sachet outer to their packaging and end-market.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "The sachet outer is a real engineering choice",
+        body: "Buyers focus on what's inside the sachet (silica gel, clay, grams) and overlook the outer material — but the outer determines dust, strength, print quality, breathability, and whether the sachet is acceptable in a given end-market. A desiccant sachet has to be permeable enough to let water vapor in quickly while strong enough to survive packing lines and shipping without splitting or shedding dust onto the product. Different outer materials trade these properties off differently, and the right choice depends on the cargo and the cleanliness requirement of the destination. The three common families are breathable paper, Tyvek (spunbonded polyethylene), and laminated/perforated film.",
+        bullets: [
+          "The sachet outer sets dust, strength, print, breathability, and market acceptance.",
+          "It must be permeable (fast vapor uptake) yet strong (no splitting/dust on the line).",
+          "Right choice depends on cargo and destination cleanliness requirements.",
+          "Three families: breathable paper, Tyvek, laminated/perforated film.",
+        ],
+      },
+      {
+        heading: "Breathable paper sachets",
+        body: "Breathable paper is the B2B default and DryGelWorld's standard sachet outer. It offers good vapor permeability for fast moisture uptake, a clean printable surface for 'DO NOT EAT' and branding, low cost, and adequate strength for most packaging lines. Its limits: it is more prone to dusting and tearing than Tyvek if abused, and it is not a cleanroom-grade material. For the vast majority of export applications — packaged goods, leather, textiles, general industrial cargo, container-level protection — breathable paper is the correct, cost-effective choice. It is where most buyers should start unless a specific requirement (cleanroom, very low dust, high abrasion) pushes them elsewhere.",
+        bullets: [
+          "B2B default and DryGelWorld's standard outer.",
+          "Good permeability, clean print surface, low cost, adequate strength.",
+          "Limits: more dusting/tearing than Tyvek if abused; not cleanroom-grade.",
+          "Correct choice for most export, leather, textile, and general industrial cargo.",
+        ],
+      },
+      {
+        heading: "Tyvek sachets",
+        body: "Tyvek (spunbonded high-density polyethylene) is the premium outer for low-dust and cleanroom-adjacent applications. It is very strong (resists tearing and puncture), essentially lint- and dust-free, and still highly breathable. That makes it the format of choice for electronics and pharmaceutical packaging where particulate contamination matters, and where a sachet must survive automated insertion without shedding. The trade-offs are cost (notably higher than paper) and that it is a specialized format. Note: Tyvek-format sachets are on DryGelWorld's expansion roadmap but are not currently in the catalog — buyers needing cleanroom-grade Tyvek today should source from a cleanroom-format-specific manufacturer.",
+        bullets: [
+          "Spunbonded HDPE: very strong, lint-/dust-free, highly breathable.",
+          "Preferred for electronics and pharma where particulates matter.",
+          "Survives automated insertion without shedding.",
+          "Higher cost than paper; specialized format.",
+          "Not yet in the DryGelWorld catalog (roadmap) — source cleanroom Tyvek elsewhere for now.",
+        ],
+      },
+      {
+        heading: "Laminated and perforated film sachets",
+        body: "Film-based sachets use a laminated or perforated plastic outer. Perforated film gives a moisture-permeable, low-dust, often glossy and highly printable sachet used in some retail and consumer-facing packs. Fully laminated (non-perforated) film is essentially a moisture barrier and is used for outer over-pouches that keep fresh sachets sealed until use, not for the working desiccant sachet itself. The buyer pitfall here is confusing the two: a non-perforated film sachet won't adsorb because vapor can't reach the gel. If you see 'film sachet', confirm it is perforated/breathable for in-pack use, or understand it is a barrier over-pouch for storage.",
+        bullets: [
+          "Perforated film: permeable, low-dust, glossy/printable — some retail packs.",
+          "Laminated (non-perforated) film: a moisture barrier, used for storage over-pouches.",
+          "Pitfall: a non-perforated film sachet won't adsorb — vapor can't reach the gel.",
+          "Confirm 'film sachet' is perforated for in-pack use vs a barrier over-pouch.",
+        ],
+      },
+      {
+        heading: "Choosing the right outer",
+        body: "Match the outer to the requirement. General industrial/export cargo, leather, textiles, container protection: breathable paper (default, cost-effective). Electronics and pharma where low dust/particulates and automated insertion matter: Tyvek (source accordingly while DryGelWorld's Tyvek line is on roadmap). Retail/consumer-facing packs wanting a glossy printed look: perforated film. Long-term storage of unused sachets: keep them in their laminated barrier over-pouch and only open near point of use. When requesting a quote, state the cargo, the destination's cleanliness expectations, whether insertion is manual or automated, and any print/branding needs — the outer recommendation follows directly from those.",
+        bullets: [
+          "General/export/leather/textile/container: breathable paper.",
+          "Electronics/pharma, low-dust, automated insertion: Tyvek.",
+          "Retail/consumer glossy print: perforated film.",
+          "Unused-sachet storage: keep in the laminated barrier over-pouch until use.",
+          "Quote inputs: cargo, cleanliness need, manual/automated insertion, print needs.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What are desiccant sachets made of?",
+        answer:
+          "The outer is usually one of three materials: breathable paper (the B2B default — permeable, printable, low cost), Tyvek (spunbonded HDPE — very strong, dust-free, used for electronics/pharma cleanroom needs), or perforated film (permeable, glossy, used in some retail packs). The outer must let vapor reach the gel while surviving packing and shipping without shedding dust.",
+      },
+      {
+        question: "Is Tyvek better than paper for desiccant sachets?",
+        answer:
+          "Tyvek is stronger and essentially dust-free, which matters for electronics and pharmaceutical packaging and automated insertion, but it costs more and is a specialized format. For most export, leather, textile, and general industrial cargo, breathable paper is the correct, cost-effective choice. Tyvek is only worth the premium when low particulates or high strength is a real requirement.",
+      },
+      {
+        question: "Does DryGelWorld supply Tyvek desiccant sachets?",
+        answer:
+          "Not currently — Tyvek format is on the expansion roadmap. DryGelWorld's standard outer is breathable paper, with non-woven options for larger formats. Buyers needing cleanroom-grade Tyvek sachets today should source from a cleanroom-format-specific manufacturer; DryGelWorld can advise on the desiccant fill and sizing.",
+      },
+      {
+        question: "Why won't my film desiccant sachet absorb moisture?",
+        answer:
+          "Probably because it is a non-perforated laminated film, which is a moisture barrier rather than a breathable sachet — vapor can't reach the gel. Laminated film is meant for over-pouches that keep unused sachets sealed. For an in-pack working sachet, use breathable paper, Tyvek, or perforated film, and confirm any 'film sachet' is perforated.",
+      },
+      {
+        question: "How do I choose the right sachet material for my product?",
+        answer:
+          "Match it to the requirement: breathable paper for general/export/leather/textile/container cargo; Tyvek for electronics/pharma low-dust and automated insertion; perforated film for glossy retail packs. When requesting a quote, state your cargo, the destination's cleanliness expectations, whether insertion is manual or automated, and your print/branding needs.",
+      },
+    ],
+  },
+  {
+    slug: "silica-gel-export-documentation-coo-coa-packing-list",
+    label: "Export Operations",
+    title: "Silica gel export documentation: COO, COA, packing list, and SDS explained",
+    description:
+      "The export document set for silica gel shipments explained — commercial invoice, packing list, certificate of origin (COO), certificate of analysis (COA), SDS, and DMF-free statement — what each is for, who needs it, and how to avoid document-driven clearance delays.",
+    readTime: "10 min read",
+    sections: [
+      {
+        heading: "The document set, and why it exists",
+        body: "An international silica gel shipment travels with a document set that does three jobs: it lets customs classify and clear the goods, it lets the buyer verify what they received, and it satisfies any regulatory or contractual conditions. The core documents are the commercial invoice, the packing list, the bill of lading (or air waybill), the certificate of origin (COO), the certificate of analysis (COA), the Safety Data Sheet (SDS), and — for some buyers — a DMF-free statement. Not every shipment needs all of them, but knowing what each does lets a buyer request exactly the right set and avoid both missing-document holds and unnecessary paperwork friction.",
+        bullets: [
+          "The document set serves customs clearance, buyer verification, and compliance.",
+          "Core: commercial invoice, packing list, B/L or AWB, COO, COA, SDS, DMF-free statement.",
+          "Not every shipment needs all of them — request the right set.",
+          "Knowing each document's purpose avoids both holds and paperwork friction.",
+        ],
+      },
+      {
+        heading: "Commercial invoice and packing list",
+        body: "The commercial invoice is the transactional and customs backbone: it states the seller and buyer, the goods description, the HS code (2811.22 for silica gel), quantity, unit price, total value, Incoterm, and currency. Customs values duty from it, so the description and HS code must be accurate and consistent. The packing list details the physical shipment: number of cartons, net and gross weights, sachet format and gram size, and how the goods are packed. Customs and the buyer's receiving team reconcile the packing list against the invoice and the physical goods — the most common document-driven delay is a mismatch between these three, so they must all describe the same shipment in the same terms.",
+        bullets: [
+          "Commercial invoice: parties, description, HS code, qty, price, value, Incoterm, currency.",
+          "Customs values duty from the invoice — accuracy and consistency are essential.",
+          "Packing list: carton count, net/gross weight, format, gram size, packing detail.",
+          "Reconcile invoice ↔ packing list ↔ physical goods — mismatches cause holds.",
+        ],
+      },
+      {
+        heading: "Certificate of origin (COO)",
+        body: "The certificate of origin states the country where the goods were manufactured — Pakistan, for DryGelWorld silica gel. It matters mainly for duty: under trade agreements, goods of a qualifying origin may get preferential (lower or zero) duty, but only if a valid COO in the correct format accompanies the shipment. COOs come in non-preferential (general origin proof) and preferential (agreement-specific, e.g. GSP forms) variants, and the buyer's broker specifies which is needed for the claim. A buyer who expects a duty preference but doesn't request the right COO format pays full duty unnecessarily; one who claims a preference without the valid COO risks a penalty. Confirm the COO type with the broker before shipping.",
+        bullets: [
+          "COO states the manufacturing country (Pakistan for DryGelWorld).",
+          "Drives trade-agreement duty preference — only valid with the correct COO.",
+          "Non-preferential (general) vs preferential (agreement-specific) variants.",
+          "Wrong/missing COO: pay full duty, or risk penalty on an unsupported claim.",
+          "Confirm the required COO type with your broker before shipping.",
+        ],
+      },
+      {
+        heading: "COA, SDS, and the DMF-free statement",
+        body: "These three are quality and compliance documents, mostly buyer-driven rather than customs-required. The Certificate of Analysis (COA) reports the tested properties of the supplied lot — typically purity, moisture content, bead size, and adsorption capacity — so the buyer's QC can verify the material meets spec. The Safety Data Sheet (SDS) covers identity, hazards (silica gel is inert/non-hazardous; note indicator chemistry for indicating gel), handling, and transport classification; it also clears the inorganic-chemical border check. The DMF-free statement is a manufacturer-letterhead declaration that the silica gel is not produced under or referenced to a regulatory Drug Master File — requested by some pharma buyers for non-direct-contact secondary packaging. DryGelWorld provides all three on request; only ISO 9001:2015 + DMF-free are claimed as held credentials.",
+        bullets: [
+          "COA: tested lot properties (purity, moisture, bead size, capacity) for buyer QC.",
+          "SDS: identity, hazards, handling, transport class; clears the chemical border check.",
+          "DMF-free statement: letterhead declaration of no Drug Master File reference.",
+          "These are mostly buyer-driven, not customs-required.",
+          "DryGelWorld provides all three on request; claims only ISO 9001:2015 + DMF-free.",
+        ],
+      },
+      {
+        heading: "Avoiding document-driven delays",
+        body: "Most document delays are preventable with a little front-loading. Agree the full document set with the buyer and broker before production, so nothing is discovered missing at the port. Keep the invoice description, HS code, and packing list mutually consistent. Send the SDS to the broker ahead of vessel arrival to clear the chemical-chapter flag early. Confirm the COO type matches any duty-preference claim. For first shipments, have the supplier share a draft document set for the broker to review before goods leave origin — catching an error on paper is free; catching it at destination means demurrage and rework. DryGelWorld aligns documentation to the silica gel classification and confirms the set per destination at quote stage.",
+        bullets: [
+          "Agree the full document set with buyer + broker before production.",
+          "Keep invoice description, HS code, and packing list consistent.",
+          "Send the SDS to the broker before vessel arrival.",
+          "Match the COO type to any duty-preference claim.",
+          "Review a draft document set with the broker before goods leave origin.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What documents are needed to export silica gel?",
+        answer:
+          "The core set is a commercial invoice (with HS code 2811.22), a packing list, a bill of lading or air waybill, and the SDS. A certificate of origin (COO) is added when claiming a trade-agreement duty preference, and a certificate of analysis (COA) and DMF-free statement are added when the buyer requests them. Not every shipment needs all of them — agree the set with your broker and buyer.",
+      },
+      {
+        question: "What is a certificate of origin and do I need one?",
+        answer:
+          "A certificate of origin states the country where the goods were made (Pakistan for DryGelWorld). You need one mainly to claim a preferential (lower or zero) duty rate under a trade agreement, and it must be the correct format for that agreement. Without the right COO you pay full duty; claiming a preference without a valid COO risks a penalty. Confirm the type with your broker.",
+      },
+      {
+        question: "What is the difference between a COA and an SDS?",
+        answer:
+          "A Certificate of Analysis (COA) reports the tested properties of the specific lot you received — purity, moisture, bead size, adsorption capacity — for QC verification. A Safety Data Sheet (SDS) covers identity, hazards, handling, and transport classification of the product in general, and clears the inorganic-chemical border check. The COA verifies your lot; the SDS covers safety and transport.",
+      },
+      {
+        question: "Does DryGelWorld provide a DMF-free statement?",
+        answer:
+          "Yes — DryGelWorld provides a DMF-free statement on request, declaring that the silica gel is not produced under or referenced to a regulatory Drug Master File, which some pharma buyers need for non-direct-contact secondary packaging. DryGelWorld's held credentials are ISO 9001:2015 + the DMF-free statement; other certifications (FDA, food-grade, REACH food-contact) are not held.",
+      },
+      {
+        question: "How do I avoid customs delays on silica gel documents?",
+        answer:
+          "Agree the full document set with your buyer and broker before production, keep the invoice description, HS code (2811.22), and packing list mutually consistent, send the SDS to the broker before the vessel arrives, and confirm the COO format matches any duty-preference claim. For first shipments, review a draft document set with the broker before goods leave origin.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -4032,6 +4392,10 @@ const articlePublication: Record<string, ArticlePublication> = {
   "desiccant-units-explained-din-55473-and-unit-sizing": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "how-many-desiccant-packets-per-box-calculation-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "desiccant-placement-best-practices-in-packaging": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "how-to-regenerate-silica-gel-oven-temperature-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "paper-vs-tyvek-vs-film-desiccant-sachet-materials": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "silica-gel-export-documentation-coo-coa-packing-list": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
