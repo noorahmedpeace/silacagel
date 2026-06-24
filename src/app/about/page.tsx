@@ -228,6 +228,18 @@ export default function AboutPage() {
               </p>
             </div>
           ) : null}
+
+          <div className={styles.editorial}>
+            <h3>Follow DryGelWorld</h3>
+            <p>
+              Connect with DryGelWorld for product updates, factory and packaging videos,
+              and export announcements:{" "}
+              <Link href="https://www.facebook.com/drygelworld" rel="me noopener noreferrer" target="_blank">Facebook</Link>,{" "}
+              <Link href="https://www.instagram.com/drygelworld" rel="me noopener noreferrer" target="_blank">Instagram</Link>,{" "}
+              <Link href="https://www.youtube.com/@DryGelWorld" rel="me noopener noreferrer" target="_blank">YouTube</Link>, and{" "}
+              <Link href="https://www.linkedin.com/in/drygelworld/" rel="me noopener noreferrer" target="_blank">LinkedIn</Link>.
+            </p>
+          </div>
         </section>
       </Reveal>
 
@@ -279,6 +291,8 @@ export default function AboutPage() {
                   },
                   sameAs: [
                     "https://www.facebook.com/drygelworld",
+                    "https://www.instagram.com/drygelworld",
+                    "https://www.youtube.com/@DryGelWorld",
                     "https://www.linkedin.com/in/drygelworld/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",
