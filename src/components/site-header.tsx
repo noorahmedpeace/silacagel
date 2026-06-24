@@ -19,12 +19,13 @@ import {
 import styles from "./site-header.module.css";
 
 type NavLink = { label: string; href: string };
-type NavGroup = { label: string; icon: LucideIcon; href?: string; children: NavLink[] };
+type NavGroup = { label: string; icon: LucideIcon; accent: string; href?: string; children: NavLink[] };
 
 const navGroups: NavGroup[] = [
   {
     label: "Products",
     icon: Boxes,
+    accent: "#0067c5",
     href: "/products",
     children: [
       { label: "All products", href: "/products" },
@@ -40,6 +41,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Industries",
     icon: Factory,
+    accent: "#0d9488",
     href: "/industries",
     children: [
       { label: "All industries", href: "/industries" },
@@ -56,6 +58,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Export",
     icon: Globe,
+    accent: "#16a34a",
     href: "/export",
     children: [
       { label: "Export hub", href: "/export" },
@@ -72,6 +75,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Resources",
     icon: BookOpen,
+    accent: "#7c3aed",
     children: [
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant glossary", href: "/guides/desiccant-glossary" },
@@ -85,6 +89,7 @@ const navGroups: NavGroup[] = [
   {
     label: "Company",
     icon: Building2,
+    accent: "#d97706",
     children: [
       { label: "About", href: "/about" },
       { label: "Certifications", href: "/certifications" },
@@ -102,6 +107,10 @@ const announcementStats = [
   { value: "40+", label: "Custom categories" },
   { value: "Worldwide", label: "Delivery support available" },
 ];
+
+function tint(accent: string, amount: number) {
+  return `color-mix(in srgb, ${accent} ${amount}%, white)`;
+}
 
 function isGroupActive(group: NavGroup, pathname: string) {
   if (group.href && pathname === group.href) return true;
@@ -189,11 +198,18 @@ export function SiteHeader() {
                   <button
                     type="button"
                     className={`${styles.navItem} ${styles.navTrigger} ${active ? styles.navItemActive : ""}`}
+                    style={active ? { color: group.accent } : undefined}
                     aria-haspopup="true"
                     aria-expanded={open}
                     onClick={() => setOpenMenu((current) => (current === group.label ? null : group.label))}
                   >
-                    <GroupIcon size={15} strokeWidth={2.1} className={styles.triggerIcon} aria-hidden="true" />
+                    <GroupIcon
+                      size={16}
+                      strokeWidth={2.2}
+                      className={styles.triggerIcon}
+                      style={{ color: group.accent }}
+                      aria-hidden="true"
+                    />
                     {group.label}
                     <ChevronDown
                       size={13}
@@ -205,9 +221,13 @@ export function SiteHeader() {
                     className={`${styles.dropdown} ${open ? styles.dropdownOpen : ""}`}
                     role="menu"
                     aria-label={group.label}
+                    style={{ borderTopColor: group.accent }}
                   >
                     <div className={styles.dropdownHead}>
-                      <span className={styles.dropdownHeadIcon}>
+                      <span
+                        className={styles.dropdownHeadIcon}
+                        style={{ color: group.accent, background: tint(group.accent, 14) }}
+                      >
                         <GroupIcon size={15} strokeWidth={2.2} aria-hidden="true" />
                       </span>
                       {group.label}
@@ -219,6 +239,7 @@ export function SiteHeader() {
                           href={child.href}
                           role="menuitem"
                           className={styles.dropdownLink}
+                          style={{ "--accent": group.accent } as React.CSSProperties}
                           onClick={() => setOpenMenu(null)}
                         >
                           {child.label}
@@ -278,7 +299,10 @@ export function SiteHeader() {
                     }
                   >
                     <span className={styles.mobileGroupLabel}>
-                      <span className={styles.dropdownHeadIcon}>
+                      <span
+                        className={styles.dropdownHeadIcon}
+                        style={{ color: group.accent, background: tint(group.accent, 14) }}
+                      >
                         <GroupIcon size={15} strokeWidth={2.2} aria-hidden="true" />
                       </span>
                       {group.label}

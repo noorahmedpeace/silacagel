@@ -455,3 +455,60 @@
   color: #0067c5;
   font-weight: 800;
 }
+
+/* Social profile icons (About page "Follow DryGelWorld") */
+.socialRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.socialIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 103, 197, 0.16);
+  background: #ffffff;
+  color: #334155;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.socialIcon:hover {
+  transform: translateY(-3px);
+  color: #ffffff;
+  box-shadow: 0 16px 30px -18px rgba(15, 23, 42, 0.5);
+}
+
+.socialFacebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+.socialInstagram:hover {
+  background: linear-gradient(45deg, #feda75, #d62976 45%, #962fbf 75%, #4f5bd5);
+  border-color: #d62976;
+}
+
+.socialYoutube:hover {
+  background: #ff0000;
+  border-color: #ff0000;
+}
+
+.socialLinkedin:hover {
+  background: #0a66c2;
+  border-color: #0a66c2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialIcon {
+    transition: none;
+  }
+}
