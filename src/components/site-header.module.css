@@ -1268,3 +1268,18 @@
   justify-self: start;
   margin-left: 4px;
 }
+
+/* =====================================================================
+   Fix: center the nav so it can never spill onto the logo (left) OR under
+   the action buttons (right) — the latter was hiding "Company". Slightly
+   more compact items give headroom so every item stays visible.
+   ===================================================================== */
+.nav {
+  justify-self: center;
+  margin-left: 0;
+  gap: 3px;
+}
+
+.navItem {
+  padding: 0 9px;
+}
