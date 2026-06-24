@@ -108,6 +108,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 - Export markets: ${absoluteUrl("/export")}
 - Industry use cases: ${absoluteUrl("/industries/electronics-packaging")}, ${absoluteUrl("/industries/pharma-packaging")}, ${absoluteUrl("/industries/leather-footwear-export")}, ${absoluteUrl("/industries/food-packaging")}
 - Buyer guides (blog): ${absoluteUrl("/blog")}
+- Desiccant & silica gel glossary (defined terms): ${absoluteUrl("/guides/desiccant-glossary")}
 - Documents hub: ${absoluteUrl("/documents")}
 - Direct quote: ${absoluteUrl("/contact")}
 
@@ -138,6 +139,16 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 - What is silica gel and how does it work: ${absoluteUrl("/blog/what-is-silica-gel-and-how-does-it-work")}
 - Desiccant for electronics packaging: ${absoluteUrl("/blog/desiccant-for-electronics-packaging")}
 - Best desiccant for shipping containers: ${absoluteUrl("/blog/best-desiccant-for-shipping-containers")}
+- How silica gel is made (manufacturing process): ${absoluteUrl("/blog/how-silica-gel-is-made-manufacturing-process")}
+- Relative humidity and adsorption isotherms explained: ${absoluteUrl("/blog/relative-humidity-and-adsorption-isotherms-explained")}
+- Desiccant units explained (DIN 55473 unit sizing): ${absoluteUrl("/blog/desiccant-units-explained-din-55473-and-unit-sizing")}
+- How many desiccant packets per box (calculation guide): ${absoluteUrl("/blog/how-many-desiccant-packets-per-box-calculation-guide")}
+- Desiccant placement best practices: ${absoluteUrl("/blog/desiccant-placement-best-practices-in-packaging")}
+- How to regenerate silica gel (oven temperature guide): ${absoluteUrl("/blog/how-to-regenerate-silica-gel-oven-temperature-guide")}
+- Cobalt-free orange vs blue indicating silica gel (REACH safety): ${absoluteUrl("/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety")}
+- Paper vs Tyvek vs film desiccant sachet materials: ${absoluteUrl("/blog/paper-vs-tyvek-vs-film-desiccant-sachet-materials")}
+- Silica gel HS code (2811.22) and import customs guide: ${absoluteUrl("/blog/silica-gel-import-customs-hs-code-guide")}
+- Silica gel export documentation (COO, COA, packing list): ${absoluteUrl("/blog/silica-gel-export-documentation-coo-coa-packing-list")}
 - PPE products for factories: ${absoluteUrl("/blog/ppe-products-for-factories")}
 - Why hair nets matter in food export: ${absoluteUrl("/blog/why-hair-nets-matter-in-food-export")}
 - Importance of beard covers in manufacturing: ${absoluteUrl("/blog/importance-of-beard-covers-in-manufacturing")}
@@ -147,6 +158,9 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 - Silica gel vs clay desiccant (decision matrix): ${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")}
 - Silica gel vs molecular sieve (decision matrix): ${absoluteUrl("/compare/silica-gel-vs-molecular-sieve")}
 - Silica gel vs oxygen absorber (decision matrix): ${absoluteUrl("/compare/silica-gel-vs-oxygen-absorber")}
+- Silica gel vs calcium chloride container desiccant (decision matrix): ${absoluteUrl("/compare/silica-gel-vs-calcium-chloride-container-desiccant")}
+- Desiccant vs VCI for corrosion protection (decision matrix): ${absoluteUrl("/compare/desiccant-vs-vci-corrosion-protection")}
+- Silica gel vs activated carbon (decision matrix): ${absoluteUrl("/compare/silica-gel-vs-activated-carbon")}
 - Comparison hub: ${absoluteUrl("/compare")}
 
 ## Press & media
@@ -346,6 +360,26 @@ Source: ${absoluteUrl("/compare/silica-gel-vs-molecular-sieve")}
 **Q: Does DryGelWorld supply Tyvek-format silica gel sachets?**
 A: Not currently. Standard format options are breathable paper sachets and non-woven polypropylene sachets. Tyvek format (cleanroom-grade direct-contact pharma applications) is on the expansion roadmap but not yet in catalog. Buyers needing Tyvek format should source from cleanroom-format-specific manufacturers.
 Source: ${absoluteUrl("/blog/silica-gel-for-pharma-packaging-buyer-guide")}
+
+**Q: Silica gel vs calcium chloride container desiccant — which is better?**
+A: Silica gel and clay are adsorbing desiccants that stay solid (silica gel holds ~33% of its weight, clay up to ~25%) — best where any free liquid near cargo is unacceptable (electronics, leather, high-value goods). Calcium chloride is deliquescent and holds 150–300% of its weight, converting water to a contained gel — best for high-volume robust cargo on long tropical voyages. Calcium chloride is NOT in the DryGelWorld catalog; DryGelWorld supplies silica gel and clay container strips.
+Source: ${absoluteUrl("/compare/silica-gel-vs-calcium-chloride-container-desiccant")}
+
+**Q: What is the HS code for silica gel?**
+A: Silica gel is classified under HS heading 2811.22 (silicon dioxide), in Chapter 28 (inorganic chemicals). The six-digit 2811.22 root is consistent internationally; each destination country adds its own 8–10 digit tariff suffix, confirmed with the importer's customs broker. Standard non-indicating silica gel is not a dangerous good and ships as general cargo.
+Source: ${absoluteUrl("/blog/silica-gel-import-customs-hs-code-guide")}
+
+**Q: At what temperature do you regenerate silica gel?**
+A: Regenerate standard silica gel beads at 120–150°C (250–300°F) for 2–4 hours in a vented oven, spread in a thin layer, then cool in a sealed dry container. Regeneration suits bulk beads in reusable systems; finished sachets are generally treated as single-use.
+Source: ${absoluteUrl("/blog/how-to-regenerate-silica-gel-oven-temperature-guide")}
+
+**Q: Is orange or blue indicating silica gel safer to import?**
+A: Orange (non-cobalt) indicating silica gel avoids the cobalt chloride hazard classification that applies to blue gel. Cobalt(II) chloride is an EU REACH Category 1B carcinogen and SVHC, so blue gel is restricted in the EU, UK, Australia, and Canada. Orange is the modern industrial default; DryGelWorld supplies orange as the recommended indicating option and treats market acceptance as a buyer-led compliance discussion.
+Source: ${absoluteUrl("/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety")}
+
+**Q: How many grams of silica gel is one desiccant unit (DIN 55473)?**
+A: Approximately 33–34 grams of silica gel per DIN 55473 unit. Units specify protection independent of material, so a unit-based spec can be met with silica gel or clay at their respective gram weights. Convert units to grams (~33 g/unit) before sizing sachets or container strips.
+Source: ${absoluteUrl("/blog/desiccant-units-explained-din-55473-and-unit-sizing")}
 
 **Q: Who edits the DryGelWorld buyer guides?**
 A: The DryGelWorld Export Desk — the buyer-facing team at DryGelWorld. Editorial scope is limited to product, packaging, and export logistics the desk handles directly. Regulatory claims are limited to certifications actually held (ISO 9001:2015 + DMF-free statement).
