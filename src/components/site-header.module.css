@@ -1424,3 +1424,85 @@
     padding-inline: 12px;
   }
 }
+
+/* =====================================================================
+   Final desktop collision guard.
+   At common laptop widths the full icon nav + two CTAs is wider than the
+   available header lane. Text stays; decorative nav icons collapse so the
+   Company item cannot sit underneath the calculator button.
+   ===================================================================== */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .header {
+    width: min(1248px, calc(100% - 28px));
+    grid-template-columns: 150px minmax(0, 1fr) 292px;
+    gap: 8px;
+    padding-inline: 10px;
+  }
+
+  .brand {
+    width: 150px;
+    padding-right: 0;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    max-width: 132px;
+    height: 36px;
+    min-height: 36px;
+    max-height: 36px;
+  }
+
+  .nav {
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+    justify-content: center;
+    gap: 1px;
+    overflow: hidden;
+  }
+
+  .navItem {
+    min-height: 36px;
+    padding-inline: 7px;
+    font-size: 0.74rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .triggerIcon,
+  .triggerChevron {
+    display: none;
+  }
+
+  .headerActions {
+    width: 292px;
+    flex: 0 0 292px;
+    gap: 7px;
+  }
+
+  .calcCta {
+    width: 166px;
+    min-width: 166px;
+    min-height: 40px;
+    padding-inline: 9px;
+  }
+
+  .calcIcon {
+    width: 22px;
+    height: 22px;
+    flex-basis: 22px;
+  }
+
+  .calcText {
+    font-size: 0.68rem;
+    letter-spacing: 0.01em;
+  }
+
+  .navCta {
+    width: 119px;
+    min-width: 119px;
+    min-height: 40px;
+    padding-inline: 10px;
+    font-size: 0.72rem;
+  }
+}
