@@ -24,6 +24,7 @@ const INDUSTRY_SLUGS = [
   "textile-garment-export",
   "container-shipping",
   "automotive-parts",
+  "defense-and-ammunition-packaging",
 ] as const;
 
 const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
@@ -46,6 +47,7 @@ const STATIC_ROUTES = [
   "/drygelworld",
   "/compare",
   "/guides/silica-gel-buyer-guide",
+  "/guides/desiccant-glossary",
   "/media-kit",
   "/industries",
   "/tools/container-desiccant-calculator",
