@@ -84,6 +84,17 @@ const industryPages = {
       "Request SDS, COA, and DMF-free documentation for buyers who audit packaging in incoming-quality checks.",
     ],
   },
+  "defense-and-ammunition-packaging": {
+    title: "Silica Gel for Defense and Ammunition Packaging",
+    h1: "Moisture and corrosion control for defense components, ammunition, and military spare-parts packaging.",
+    description:
+      "Silica gel and clay desiccant for defense-sector packaging — protecting metal components, ammunition, optics, and spare parts from corrosion and condensation in sealed transit and long-term storage.",
+    points: [
+      "Defense and ammunition packaging fails through corrosion and condensation on metal parts, primers, and optics — desiccant holds the sealed-pack humidity below the point where that damage starts.",
+      "Military specifications (such as MIL-D-3464) and desiccant 'unit' counts (DIN 55473) are buyer-supplied requirements: tell us the unit count and spec your contract calls for and we quote silica gel or clay to meet it. DryGelWorld holds ISO 9001:2015 + a DMF-free statement and does not claim a MIL-spec qualification itself.",
+      "Pair carton-level sachets with container strips for sealed long-term storage; request SDS, COA, and unit-count documentation for incoming-quality audits.",
+    ],
+  },
 };
 
 type IndustrySlug = keyof typeof industryPages;

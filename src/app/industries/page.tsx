@@ -50,6 +50,12 @@ const industries = [
     blurb:
       "Rust and condensation protection for exported bearings, electronics, and metal automotive components.",
   },
+  {
+    slug: "defense-and-ammunition-packaging",
+    title: "Defense & Ammunition Packaging",
+    blurb:
+      "Corrosion and condensation control for defense components, ammunition, and military spare parts — MIL/DIN unit counts quoted to buyer spec.",
+  },
 ] as const;
 
 const pageTitle = "Industries We Serve — Silica Gel & Desiccant Applications";
