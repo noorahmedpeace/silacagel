@@ -3416,6 +3416,210 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "silica-gel-import-customs-hs-code-guide",
+    label: "Export Operations",
+    title: "Silica gel HS code and import customs guide for buyers and exporters",
+    description:
+      "The HS code for silica gel desiccant, how it is classified for import customs, the documents customs and buyers expect, and how to avoid clearance delays when importing silica gel sachets, beads, and container desiccants internationally.",
+    readTime: "10 min read",
+    sections: [
+      {
+        heading: "The HS code for silica gel: 2811.22",
+        body: "Silica gel is classified under Harmonized System (HS) heading 2811.22 — 'Silicon dioxide' — within Chapter 28 (inorganic chemicals). Most countries use this as the six-digit root and then extend it with their own national tariff suffix: the United States HTS commonly lands silica gel under 2811.22.10 (synthetic silica gel) or 2811.22.50 depending on form, the EU CN code is typically 2811 22 00, and many South Asian and GCC tariffs mirror the 2811.22 root with local extensions. The exact eight- to ten-digit code is set by the destination country's customs tariff, not by the supplier, so always confirm the final code with your customs broker for the importing country. The supplier's job is to declare the correct six-digit root and an accurate goods description so the broker can map it.",
+        bullets: [
+          "Root HS code: 2811.22 (silicon dioxide), Chapter 28 inorganic chemicals.",
+          "Destination country extends it with its own 8–10 digit tariff suffix.",
+          "USA: HTS under 2811.22.xx; EU: CN 2811 22 00; confirm local extension per country.",
+          "Indicating silica gel with dye is still classified on the silica gel base unless a national note says otherwise — confirm with the broker.",
+          "The importing country's tariff schedule is authoritative, not the supplier.",
+        ],
+      },
+      {
+        heading: "Why the HS code matters to the buyer",
+        body: "The HS code drives three things the buyer cares about: the import duty rate, the regulatory controls applied at the border, and the speed of clearance. Get it wrong and the shipment can be reclassified at destination — triggering duty recalculation, penalties, demurrage while the container sits, and in the worst case a hold pending documentation. Because silica gel sits in the inorganic-chemicals chapter, some customs systems flag it for a chemical-safety documentation check (SDS) even though silica gel is inert and non-hazardous. Supplying the SDS and a clear goods description up front clears that flag before it becomes a delay. Buyers should pre-clear the final national code with their broker before the first order so the duty cost is known and budgeted.",
+        bullets: [
+          "HS code determines duty rate, border controls, and clearance speed.",
+          "Misclassification → reclassification, penalties, demurrage, and holds.",
+          "Inorganic-chemicals chapter can trigger an SDS / chemical-safety check.",
+          "Pre-clear the national code with a broker before the first shipment.",
+          "Budget landed cost = product + freight + duty (driven by the code) + clearance.",
+        ],
+      },
+      {
+        heading: "Is silica gel a hazardous material for shipping?",
+        body: "Standard non-indicating silica gel (amorphous silicon dioxide) is not classified as a dangerous good for ocean or air freight — it is inert, non-toxic, and non-flammable, so it ships as general cargo with no IMDG/IATA dangerous-goods declaration required. The nuance is indicating silica gel: legacy blue indicating gel uses cobalt chloride, which carries hazard classification and is restricted in the EU, UK, Australia, and Canada under REACH-type rules; modern orange indicating gel uses a non-cobalt dye and avoids that issue. For customs and freight purposes, confirm which gel you are importing — non-indicating and orange are routine; blue can attract additional handling and labelling requirements at some destinations.",
+        bullets: [
+          "Non-indicating silica gel: not a dangerous good; ships as general cargo.",
+          "No IMDG / IATA dangerous-goods declaration required for the base product.",
+          "Blue (cobalt chloride) indicating gel: hazard-classified and restricted in EU/UK/AU/CA.",
+          "Orange indicating gel: non-cobalt dye, routine to import.",
+          "Always match the SDS to the exact grade you are shipping.",
+        ],
+      },
+      {
+        heading: "Documents customs and buyers expect",
+        body: "A clean silica gel import clears fastest when the document set is complete and consistent. The core pack is: a commercial invoice (with the HS code and accurate goods description), a packing list (carton count, net/gross weight, sachet format and gram size), the bill of lading or air waybill, a certificate of origin where the buyer claims a trade-agreement duty preference, and the Safety Data Sheet (SDS) to satisfy the chemical-chapter check. Buyers in regulated end-markets may additionally request a Certificate of Analysis (COA) and a DMF-free statement; these are buyer-driven documents, not customs requirements. The single most common cause of delay is a mismatch between the invoice description, the packing list, and the HS code — keep all three saying the same thing.",
+        bullets: [
+          "Commercial invoice with HS code + accurate description.",
+          "Packing list: carton count, net/gross weight, format, gram size.",
+          "Bill of lading / air waybill.",
+          "Certificate of origin (for trade-agreement duty preference).",
+          "SDS to satisfy the inorganic-chemical border check.",
+          "Buyer-driven extras: COA, DMF-free statement (not customs requirements).",
+          "Keep invoice, packing list, and HS code mutually consistent.",
+        ],
+      },
+      {
+        heading: "How to avoid clearance delays",
+        body: "Most silica gel clearance delays are self-inflicted and preventable. Pre-clear the national HS code and duty rate with your broker before ordering, so there are no surprises. Make sure the supplier's invoice description matches the physical goods exactly — 'synthetic silica gel desiccant, paper sachets, 5g, non-indicating' is far better than a vague 'desiccant'. Send the SDS to your broker before the vessel arrives so any chemical-chapter flag is resolved in advance. If you claim a trade-agreement preference, confirm the certificate of origin is the correct format for that agreement. And for first shipments, ask the supplier to share a draft document set for your broker to review before goods leave the origin port — catching a description or code mismatch on paper is free; catching it at destination is expensive.",
+        bullets: [
+          "Pre-clear the code and duty with the broker before ordering.",
+          "Use a precise invoice description, not a vague 'desiccant'.",
+          "Send the SDS ahead of vessel arrival to clear the chemical flag early.",
+          "Verify the certificate-of-origin format for any duty-preference claim.",
+          "Review a draft document set with the broker before goods leave origin.",
+        ],
+      },
+      {
+        heading: "What to send DryGelWorld for an export-ready quote",
+        body: "DryGelWorld ships from Karachi with documentation aligned to the inorganic-chemicals classification. To get an export-ready quote with the right paperwork, send: the product and format (sachet gram size, beads, or container strips), monthly quantity, destination country and port, Incoterms (FOB Karachi / CIF / DAP / EXW), whether you need indicating or non-indicating gel, and which documents your buyer or customs require (SDS, COA, certificate of origin, DMF-free statement). With the destination country specified, the quote can flag the typical document set for that market, though the final national HS extension and duty rate are always confirmed by your own customs broker.",
+        bullets: [
+          "Product + format (gram size / beads / container strips).",
+          "Monthly quantity and destination country + port.",
+          "Incoterms: FOB Karachi / CIF / DAP / EXW.",
+          "Indicating vs non-indicating gel.",
+          "Required documents: SDS, COA, certificate of origin, DMF-free statement.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the HS code for silica gel?",
+        answer:
+          "Silica gel is classified under HS heading 2811.22 (silicon dioxide), in Chapter 28 (inorganic chemicals). The six-digit 2811.22 root is consistent internationally; each destination country adds its own 8–10 digit tariff suffix, so confirm the exact national code and duty rate with your customs broker for the importing country.",
+      },
+      {
+        question: "Is silica gel a hazardous material for import?",
+        answer:
+          "Standard non-indicating silica gel is inert, non-toxic, and non-flammable and is not a dangerous good — it ships as general cargo with no dangerous-goods declaration. The exception is legacy blue (cobalt chloride) indicating gel, which is hazard-classified and restricted in the EU, UK, Australia, and Canada; orange indicating gel uses a non-cobalt dye and avoids that.",
+      },
+      {
+        question: "What documents do I need to import silica gel?",
+        answer:
+          "The core set is a commercial invoice with the HS code, a packing list, the bill of lading or air waybill, a certificate of origin if claiming a trade-agreement duty preference, and the SDS to satisfy the inorganic-chemical border check. Buyers may also request a COA and DMF-free statement — these are buyer-driven, not customs requirements.",
+      },
+      {
+        question: "Why was my silica gel shipment held at customs?",
+        answer:
+          "The most common causes are a mismatch between the invoice description, packing list, and HS code; a missing SDS triggering the chemical-chapter check; or an incorrect national tariff code causing reclassification. Pre-clearing the code with your broker, using a precise goods description, and sending the SDS before arrival prevent nearly all of these holds.",
+      },
+      {
+        question: "Does the HS code change for indicating or container desiccant silica gel?",
+        answer:
+          "The silicon-dioxide base (2811.22) generally governs the classification for silica gel in indicating and container-strip forms, but some national tariffs have specific notes for dyed or packaged forms. Always confirm the final code for your specific product and destination with your customs broker rather than assuming the base code applies unchanged.",
+      },
+    ],
+  },
+  {
+    slug: "how-silica-gel-is-made-manufacturing-process",
+    label: "Technical Basics",
+    title: "How silica gel is made: the manufacturing process explained",
+    description:
+      "How silica gel desiccant is manufactured — from sodium silicate and acid to washed, graded, and activated beads — why pore structure controls adsorption capacity, and what buyers should ask a manufacturer about quality control.",
+    readTime: "11 min read",
+    sections: [
+      {
+        heading: "From sand to desiccant: the starting materials",
+        body: "Silica gel begins as sodium silicate — 'water glass' — which is itself made by fusing high-purity silica sand with sodium carbonate at high temperature and dissolving the result in water. Sodium silicate is the cheap, abundant, water-soluble source of the silicon dioxide (SiO₂) that will become the finished bead. The desiccant property is not in the chemistry of SiO₂ itself — quartz sand is also SiO₂ and adsorbs almost nothing. The magic is in the structure the manufacturing process builds: a rigid, internally porous network with an enormous surface area. That structure, not the formula, is what lets silica gel hold up to a third of its weight in water vapor.",
+        bullets: [
+          "Raw input: sodium silicate (water glass), made from silica sand + sodium carbonate.",
+          "Finished product is amorphous silicon dioxide (SiO₂).",
+          "The adsorption power comes from pore structure, not the SiO₂ formula.",
+          "Solid quartz is also SiO₂ but adsorbs almost nothing — structure is everything.",
+        ],
+      },
+      {
+        heading: "Step 1 — Gel formation: acid meets silicate",
+        body: "The process starts by reacting sodium silicate with a strong acid (typically sulphuric acid). This neutralization produces a silica hydrosol that rapidly polymerizes: microscopic SiO₂ particles link into a continuous three-dimensional network, trapping water in its pores and setting into a solid 'hydrogel'. The concentration, temperature, and pH at this stage are decisive — they set how big the eventual pores will be and how much internal surface area the gel will have. A manufacturer controlling these variables tightly produces consistent, predictable beads; one that does not produces gel whose adsorption performance drifts batch to batch. This is the single most important step for final quality.",
+        bullets: [
+          "Sodium silicate + sulphuric acid → silica hydrosol → solid hydrogel.",
+          "SiO₂ particles polymerize into a 3D porous network.",
+          "pH, concentration, and temperature here set pore size and surface area.",
+          "Tight process control = consistent beads; loose control = batch-to-batch drift.",
+        ],
+      },
+      {
+        heading: "Step 2 — Aging, washing, and removing salt",
+        body: "The fresh hydrogel is aged to let the pore structure mature, then washed extensively. Washing serves two purposes: it removes the sodium sulphate by-product of the acid reaction, and it removes residual salts that would otherwise sit in the pores and reduce capacity. Inadequate washing is a common quality shortcut — leftover salts lower adsorption performance and can cause the gel to deliquesce (turn sticky) in very humid conditions. Buyers comparing suppliers on price should remember that thorough washing costs time and water; a suspiciously cheap gel sometimes reflects a shortened wash. The wash water and aging time directly affect purity and capacity.",
+        bullets: [
+          "Hydrogel is aged so the pore network matures.",
+          "Extensive washing removes sodium sulphate by-product and residual salts.",
+          "Under-washing lowers capacity and can make gel sticky in high humidity.",
+          "Thorough washing is a real cost — very cheap gel may reflect a shortcut here.",
+        ],
+      },
+      {
+        heading: "Step 3 — Drying and activation",
+        body: "The washed gel is dried to drive off the pore water and 'activate' the desiccant — opening up the internal surface so it is ready to adsorb moisture again. Drying temperature controls the bead type: lower-temperature processing tends toward fine-pore Type A grades (high capacity at low-to-mid humidity, ideal for packaging desiccants), while different conditions yield wider-pore Type B grades. Over-drying or scorching damages the structure and reduces capacity, so activation is a controlled bake, not just heat. After activation the gel is screened and graded into bead-size fractions, because particle size affects how fast the gel works and how it flows into sachets and strips.",
+        bullets: [
+          "Drying removes pore water and activates the gel for re-adsorption.",
+          "Drying conditions determine bead type (e.g. fine-pore Type A vs wider-pore Type B).",
+          "Over-drying/scorching damages pore structure and cuts capacity.",
+          "Activated gel is screened and graded into bead-size fractions.",
+        ],
+      },
+      {
+        heading: "Indicating gel and final conversion",
+        body: "Standard non-indicating silica gel is clear/white at this point. Indicating gel is made by impregnating the beads with a moisture-sensitive dye: modern orange indicating gel uses a non-cobalt dye (REACH-compliant), while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. The graded beads are then converted into finished formats — filled into breathable paper sachets, woven or non-woven bead bags, or multi-chamber cargo strips — and sealed in moisture-barrier outer packaging so they reach the buyer fully active. The shelf life of a sealed sachet (24–36 months in its outer pouch) depends on that final barrier packaging being intact.",
+        bullets: [
+          "Non-indicating gel is clear/white; indicating gel is dye-impregnated.",
+          "Orange indicating dye: non-cobalt, REACH-compliant.",
+          "Blue indicating dye: cobalt chloride, restricted in EU/UK/AU/CA.",
+          "Beads are filled into sachets, bags, or strips and sealed in moisture-barrier packaging.",
+          "Sealed-sachet shelf life (24–36 months) depends on intact barrier packaging.",
+        ],
+      },
+      {
+        heading: "What to ask a silica gel manufacturer about quality",
+        body: "Because performance is built in during manufacturing, the right supplier questions are about process control, not just price. Ask what bead type and pore grade you are buying and whether it suits your humidity range. Ask how they verify adsorption capacity (RH-controlled gravimetric testing) and whether a Certificate of Analysis is available per lot. Ask about washing and residual-salt control, since that affects capacity and stickiness. Confirm quality-management certification — DryGelWorld manufactures under ISO 9001:2015 — and request the SDS and DMF-free statement if your end-market needs them. A manufacturer that can answer these clearly is controlling the steps above; one that only quotes a per-kg price may not be.",
+        bullets: [
+          "Ask bead type / pore grade and its humidity-range fit.",
+          "Ask how adsorption capacity is verified and whether a per-lot COA is available.",
+          "Ask about washing / residual-salt control (affects capacity and stickiness).",
+          "Confirm quality management — DryGelWorld manufactures under ISO 9001:2015.",
+          "Request SDS and DMF-free statement if your end-market requires them.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is silica gel made from?",
+        answer:
+          "Silica gel is made from sodium silicate ('water glass'), which is produced from high-purity silica sand and sodium carbonate. Reacting sodium silicate with acid forms a porous silicon dioxide (SiO₂) network that is then aged, washed, dried, and activated into the desiccant beads. The finished product is amorphous SiO₂ — its moisture power comes from the pore structure, not the chemistry alone.",
+      },
+      {
+        question: "Why does silica gel absorb water if it is just silicon dioxide?",
+        answer:
+          "Because the manufacturing process builds an internal network of microscopic pores with an enormous surface area. Water vapor is held on that surface by physical adsorption. Solid quartz is also silicon dioxide but has almost no internal surface area, so it adsorbs almost nothing. The pore structure created during gel formation and activation is what makes silica gel a desiccant.",
+      },
+      {
+        question: "What is the difference between Type A and Type B silica gel?",
+        answer:
+          "They differ in pore size, set by processing conditions. Fine-pore grades (often called Type A) give high adsorption at low-to-mid humidity and are ideal for packaging desiccants; wider-pore grades (Type B) behave differently at high humidity. The right grade depends on the humidity range your cargo will see — a manufacturer should tell you which grade you are buying.",
+      },
+      {
+        question: "Does cheap silica gel perform worse?",
+        answer:
+          "It can. Performance is built in during manufacturing — pore-structure control, thorough washing to remove residual salts, and controlled activation all cost time and resources. Suspiciously cheap gel sometimes reflects shortcuts (under-washing, poor activation) that lower adsorption capacity or cause stickiness in humid conditions. Ask for a Certificate of Analysis and verify capacity rather than buying on price alone.",
+      },
+      {
+        question: "Is the manufacturing process different for indicating (orange/blue) silica gel?",
+        answer:
+          "The base beads are made the same way; indicating gel adds a dye-impregnation step. Orange indicating gel uses a modern non-cobalt dye that is REACH-compliant, while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. Non-indicating gel skips this step and stays clear/white.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -3464,6 +3668,8 @@ const articlePublication: Record<string, ArticlePublication> = {
   "silica-gel-colors-white-blue-orange-explained": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
   "silica-gel-shelf-life-and-storage-guide": { publishedAt: "2026-06-23", updatedAt: "2026-06-23" },
   "silica-gel-for-rice-grain-spice-export": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "silica-gel-import-customs-hs-code-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "how-silica-gel-is-made-manufacturing-process": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
