@@ -345,6 +345,8 @@ export default function RootLayout({
                   slogan: "Industrial silica gel desiccants for global moisture protection",
                   sameAs: [
                     "https://www.facebook.com/drygelworld",
+                    "https://www.instagram.com/drygelworld",
+                    "https://www.youtube.com/@DryGelWorld",
                     "https://www.linkedin.com/in/drygelworld/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",
