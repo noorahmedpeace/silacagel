@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { BentoGrid } from "@/components/bento-grid";
+import { TrustBand } from "@/components/trust-band";
+import { CountUp } from "@/components/count-up";
 import { AnimatedText } from "@/components/animated-text";
 import { LazyScienceVideo } from "@/components/lazy-science-video";
 import {
@@ -514,6 +516,10 @@ export default function Home() {
             </div>
 
           </section>
+
+          <Reveal direction="up">
+            <TrustBand />
+          </Reveal>
 
           <Reveal direction="up">
             <section className={styles.procurementFlowSection} aria-label="Buyer workflow">
@@ -1043,7 +1049,7 @@ export default function Home() {
               <div className={styles.proofVaultGrid}>
                 {verifiedProof.map((item) => (
                   <article className={styles.proofVaultCard} key={item.label}>
-                    <strong>{item.value}</strong>
+                    <strong><CountUp value={item.value} /></strong>
                     <span>{item.label}</span>
                     <p>{item.text}</p>
                   </article>
