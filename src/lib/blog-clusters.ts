@@ -38,7 +38,8 @@ export const blogClusters: Record<string, BlogCluster> = {
   "how-to-choose-silica-gel-packet-size": {
     guides: [
       guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
-      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
       guide("desiccant-for-electronics-packaging", "Desiccant for electronics packaging"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
@@ -65,6 +66,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+      guide("paper-vs-tyvek-vs-film-desiccant-sachet-materials", "Paper vs Tyvek vs film sachet materials"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
     industry: IND_ELECTRONICS,
@@ -73,6 +75,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
       guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel (oven guide)"),
     ],
     products: [PRODUCT_BULK],
   },
@@ -81,6 +84,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
+      guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -205,6 +209,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "indicating-silica-gel-orange-blue-color-change-guide": {
     guides: [
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Cobalt-free orange vs blue: the REACH safety question"),
       guide("can-you-reuse-silica-gel", "Can you reuse silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
     ],
@@ -243,9 +248,9 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "silica-gel-import-customs-hs-code-guide": {
     guides: [
+      guide("silica-gel-export-documentation-coo-coa-packing-list", "Export documentation: COO, COA, packing list"),
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
-      guide("bulk-silica-gel-supplier-checklist", "Bulk silica gel supplier checklist"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER, PRODUCT_CONTAINER],
   },
@@ -256,6 +261,72 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color change guide"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER],
+  },
+  "relative-humidity-and-adsorption-isotherms-explained": {
+    guides: [
+      guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_BULK],
+  },
+  "desiccant-units-explained-din-55473-and-unit-sizing": {
+    guides: [
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
+  },
+  "how-many-desiccant-packets-per-box-calculation-guide": {
+    guides: [
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("desiccant-placement-best-practices-in-packaging", "Desiccant placement best practices"),
+      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+  },
+  "desiccant-placement-best-practices-in-packaging": {
+    guides: [
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
+      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
+    industry: IND_SHIPPING,
+  },
+  "how-to-regenerate-silica-gel-oven-temperature-guide": {
+    guides: [
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel"),
+      guide("how-long-does-silica-gel-last", "How long does silica gel last"),
+      guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
+    ],
+    products: [PRODUCT_BULK],
+  },
+  "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": {
+    guides: [
+      guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color change guide"),
+      guide("silica-gel-colors-white-blue-orange-explained", "Silica gel colors explained"),
+      guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_PAPER],
+    compare: { label: "Indicating vs non-indicating silica gel", href: "/compare/indicating-vs-non-indicating-silica-gel" },
+  },
+  "paper-vs-tyvek-vs-film-desiccant-sachet-materials": {
+    guides: [
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("desiccant-for-electronics-packaging", "Desiccant for electronics packaging"),
+      guide("silica-gel-for-pharma-packaging-buyer-guide", "Silica gel for pharma packaging"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+  },
+  "silica-gel-export-documentation-coo-coa-packing-list": {
+    guides: [
+      guide("silica-gel-import-customs-hs-code-guide", "Silica gel HS code and import customs guide"),
+      guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+      guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_CONTAINER, PRODUCT_PAPER],
   },
 };
 
