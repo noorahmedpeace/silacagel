@@ -1283,3 +1283,144 @@
 .navItem {
   padding: 0 9px;
 }
+
+/* =====================================================================
+   Header fit lock: keep logo, nav, calculator and quote button in one
+   clean row without overlap on laptop/desktop widths.
+   ===================================================================== */
+@media (min-width: 1025px) {
+  .navShell {
+    padding-inline: clamp(18px, 3vw, 40px);
+  }
+
+  .header {
+    width: min(1320px, calc(100% - 32px));
+    grid-template-columns: clamp(170px, 17vw, 214px) minmax(0, 1fr) max-content;
+    gap: clamp(10px, 1.3vw, 18px);
+    padding: 8px 10px 8px 16px;
+  }
+
+  .brand {
+    width: clamp(170px, 17vw, 214px);
+    padding-right: 0;
+    overflow: hidden;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    width: 100%;
+    max-width: 150px;
+    height: 38px;
+    min-height: 38px;
+    max-height: 38px;
+    object-fit: contain;
+    object-position: left center;
+  }
+
+  .nav {
+    width: 100%;
+    min-width: 0;
+    justify-self: stretch;
+    justify-content: center;
+    gap: clamp(1px, 0.35vw, 5px);
+    margin: 0;
+    overflow: visible;
+  }
+
+  .navItem {
+    min-height: 36px;
+    padding-inline: clamp(7px, 0.72vw, 11px);
+    font-size: clamp(0.72rem, 0.78vw, 0.8rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .navTrigger {
+    gap: clamp(3px, 0.42vw, 6px);
+  }
+
+  .triggerIcon {
+    width: 14px;
+    height: 14px;
+    flex: 0 0 14px;
+  }
+
+  .triggerChevron {
+    width: 11px;
+    height: 11px;
+    flex: 0 0 11px;
+  }
+
+  .headerActions {
+    flex: 0 0 auto;
+    justify-self: end;
+    gap: 8px;
+    margin-left: 0;
+  }
+
+  .calcCta {
+    min-width: 184px;
+    min-height: 42px;
+    padding-inline: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .calcIcon {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+  }
+
+  .calcText {
+    font-size: 0.72rem;
+    letter-spacing: 0.015em;
+  }
+
+  .navCta {
+    min-width: 122px;
+    min-height: 42px;
+    padding-inline: 15px;
+    border-radius: 10px;
+    font-size: 0.76rem;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .header {
+    grid-template-columns: 158px minmax(0, 1fr) max-content;
+    gap: 8px;
+  }
+
+  .brand {
+    width: 158px;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    max-width: 134px;
+  }
+
+  .navItem {
+    padding-inline: 6px;
+    font-size: 0.7rem;
+  }
+
+  .triggerIcon,
+  .triggerChevron {
+    display: none;
+  }
+
+  .calcCta {
+    min-width: 164px;
+  }
+
+  .calcText {
+    font-size: 0.68rem;
+  }
+
+  .navCta {
+    min-width: 112px;
+    padding-inline: 12px;
+  }
+}
