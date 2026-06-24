@@ -1105,3 +1105,95 @@
   color: var(--ink);
   opacity: 1;
 }
+
+/* =====================================================================
+   Mega-menu card dropdowns — icon tile + title + description, 2 columns
+   ===================================================================== */
+.dropdown {
+  width: 462px;
+  min-width: 0;
+  left: 0;
+  transform: translateY(8px);
+}
+
+.dropdownOpen {
+  transform: translateY(0);
+}
+
+.dropdownRight {
+  left: auto;
+  right: 0;
+}
+
+.dropdownGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.dropdownCard {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 10px;
+  border-radius: 11px;
+  color: var(--ink);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.dropdownCard:hover {
+  background: rgba(15, 23, 42, 0.05);
+}
+
+.cardIcon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cardTitle {
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.cardDesc {
+  font-size: 0.71rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #64748b;
+}
+
+/* Mobile drawer: Home link + single-column cards */
+.mobileHome {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 6px;
+  border-bottom: 1px solid rgba(0, 103, 197, 0.1);
+  color: var(--ink);
+  font-size: 0.98rem;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.mobileCardList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 2px 0 12px;
+}

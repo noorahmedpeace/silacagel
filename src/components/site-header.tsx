@@ -5,20 +5,46 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
-  Boxes,
+  Apple,
+  Award,
+  BadgeCheck,
   BookOpen,
+  Boxes,
   Building2,
   Calculator,
+  Car,
   ChevronDown,
+  Container,
+  Cpu,
   Factory,
+  FileText,
+  Footprints,
   Globe,
+  HardHat,
+  Home,
+  Info,
+  Layers,
+  Library,
+  Mail,
+  MapPin,
   Menu,
+  Newspaper,
+  Package,
+  Pill,
+  Scale,
+  Shield,
+  Ship,
+  ShoppingBag,
+  Shirt,
+  Tag,
+  Target,
+  Video,
   X,
   type LucideIcon,
 } from "lucide-react";
 import styles from "./site-header.module.css";
 
-type NavLink = { label: string; href: string };
+type NavLink = { label: string; href: string; icon: LucideIcon; desc?: string };
 type NavGroup = { label: string; icon: LucideIcon; accent: string; href?: string; children: NavLink[] };
 
 const navGroups: NavGroup[] = [
@@ -28,14 +54,14 @@ const navGroups: NavGroup[] = [
     accent: "#0067c5",
     href: "/products",
     children: [
-      { label: "All products", href: "/products" },
-      { label: "Paper silica gel sachets", href: "/products/paper-sachets" },
-      { label: "Retail sachets", href: "/products/retail-sachets" },
-      { label: "Bulk silica gel beads", href: "/products/bulk-industrial" },
-      { label: "Container desiccant strips", href: "/products/container-strips" },
-      { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant" },
-      { label: "Bouffant hair nets", href: "/products/hair-nets" },
-      { label: "Beard covers", href: "/products/beard-covers" },
+      { label: "All products", href: "/products", icon: Boxes, desc: "Full silica gel & desiccant range" },
+      { label: "Paper sachets", href: "/products/paper-sachets", icon: Package, desc: "Breathable B2B default sachets" },
+      { label: "Retail sachets", href: "/products/retail-sachets", icon: ShoppingBag, desc: "Printed consumer-ready packets" },
+      { label: "Bulk silica gel", href: "/products/bulk-industrial", icon: Layers, desc: "By kg, drums & jumbo bags" },
+      { label: "Container strips", href: "/products/container-strips", icon: Container, desc: "1–5 kg cargo hanging strips" },
+      { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
+      { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory PPE hair nets" },
+      { label: "Beard covers", href: "/products/beard-covers", icon: HardHat, desc: "Disposable PPE beard covers" },
     ],
   },
   {
@@ -44,15 +70,15 @@ const navGroups: NavGroup[] = [
     accent: "#0d9488",
     href: "/industries",
     children: [
-      { label: "All industries", href: "/industries" },
-      { label: "Electronics packaging", href: "/industries/electronics-packaging" },
-      { label: "Pharma packaging", href: "/industries/pharma-packaging" },
-      { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "Leather & footwear export", href: "/industries/leather-footwear-export" },
-      { label: "Textile & garment export", href: "/industries/textile-garment-export" },
-      { label: "Container shipping", href: "/industries/container-shipping" },
-      { label: "Automotive parts", href: "/industries/automotive-parts" },
-      { label: "Defense & ammunition", href: "/industries/defense-and-ammunition-packaging" },
+      { label: "All industries", href: "/industries", icon: Factory, desc: "Desiccants by application" },
+      { label: "Electronics", href: "/industries/electronics-packaging", icon: Cpu, desc: "PCBs, devices, MSL components" },
+      { label: "Pharma", href: "/industries/pharma-packaging", icon: Pill, desc: "Bottles, blisters, secondary packs" },
+      { label: "Food packaging", href: "/industries/food-packaging", icon: Apple, desc: "Dry goods & food cartons" },
+      { label: "Leather & footwear", href: "/industries/leather-footwear-export", icon: Footprints, desc: "Mould risk on long hauls" },
+      { label: "Textile & garment", href: "/industries/textile-garment-export", icon: Shirt, desc: "Mildew & dye-migration control" },
+      { label: "Container shipping", href: "/industries/container-shipping", icon: Ship, desc: "Container rain & condensation" },
+      { label: "Automotive parts", href: "/industries/automotive-parts", icon: Car, desc: "Rust on exported metal parts" },
+      { label: "Defense & ammunition", href: "/industries/defense-and-ammunition-packaging", icon: Target, desc: "Corrosion control to MIL/DIN spec" },
     ],
   },
   {
@@ -61,15 +87,15 @@ const navGroups: NavGroup[] = [
     accent: "#16a34a",
     href: "/export",
     children: [
-      { label: "Export hub", href: "/export" },
-      { label: "USA", href: "/export/usa" },
-      { label: "United Kingdom", href: "/export/uk" },
-      { label: "Germany", href: "/export/germany" },
-      { label: "UAE", href: "/export/uae" },
-      { label: "Saudi Arabia", href: "/export/saudi-arabia" },
-      { label: "India", href: "/export/india" },
-      { label: "Canada", href: "/export/canada" },
-      { label: "Australia", href: "/export/australia" },
+      { label: "Export hub", href: "/export", icon: Globe, desc: "Incoterms, MOQ & markets" },
+      { label: "USA", href: "/export/usa", icon: MapPin },
+      { label: "United Kingdom", href: "/export/uk", icon: MapPin },
+      { label: "Germany", href: "/export/germany", icon: MapPin },
+      { label: "UAE", href: "/export/uae", icon: MapPin },
+      { label: "Saudi Arabia", href: "/export/saudi-arabia", icon: MapPin },
+      { label: "India", href: "/export/india", icon: MapPin },
+      { label: "Canada", href: "/export/canada", icon: MapPin },
+      { label: "Australia", href: "/export/australia", icon: MapPin },
     ],
   },
   {
@@ -77,13 +103,13 @@ const navGroups: NavGroup[] = [
     icon: BookOpen,
     accent: "#7c3aed",
     children: [
-      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
-      { label: "Desiccant glossary", href: "/guides/desiccant-glossary" },
-      { label: "Compare desiccants", href: "/compare" },
-      { label: "Blog", href: "/blog" },
-      { label: "Videos", href: "/videos" },
-      { label: "Documents (SDS / COA)", href: "/documents" },
-      { label: "Requirement calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", icon: BookOpen, desc: "Definitive procurement reference" },
+      { label: "Desiccant glossary", href: "/guides/desiccant-glossary", icon: Library, desc: "Desiccant terms A–Z" },
+      { label: "Compare desiccants", href: "/compare", icon: Scale, desc: "Silica gel vs other desiccants" },
+      { label: "Blog", href: "/blog", icon: Newspaper, desc: "Buyer guides & how-tos" },
+      { label: "Videos", href: "/videos", icon: Video, desc: "Product & manufacturer footage" },
+      { label: "Documents", href: "/documents", icon: FileText, desc: "SDS, COA, DMF-free statement" },
+      { label: "Requirement calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
     ],
   },
   {
@@ -91,11 +117,11 @@ const navGroups: NavGroup[] = [
     icon: Building2,
     accent: "#d97706",
     children: [
-      { label: "About", href: "/about" },
-      { label: "Certifications", href: "/certifications" },
-      { label: "Case studies", href: "/case-studies" },
-      { label: "Private label", href: "/private-label" },
-      { label: "Contact", href: "/contact" },
+      { label: "About", href: "/about", icon: Info, desc: "Since 1983, Karachi manufacturer" },
+      { label: "Certifications", href: "/certifications", icon: BadgeCheck, desc: "ISO 9001:2015 & documents" },
+      { label: "Case studies", href: "/case-studies", icon: Award, desc: "Real export references" },
+      { label: "Private label", href: "/private-label", icon: Tag, desc: "OEM sachet branding" },
+      { label: "Contact", href: "/contact", icon: Mail, desc: "Talk to the export desk" },
     ],
   },
 ];
@@ -133,11 +159,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", updateHeaderState);
   }, []);
 
-  // Menus close from each link's onClick (below). We deliberately avoid a
-  // pathname effect that calls setState synchronously, which the lint rule
-  // (cascading-render guard) flags.
-
-  // Lock body scroll while the mobile drawer is open.
   useEffect(() => {
     if (typeof document === "undefined") return;
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -146,7 +167,6 @@ export function SiteHeader() {
     };
   }, [mobileOpen]);
 
-  // Escape closes the open desktop dropdown and the mobile drawer.
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -157,6 +177,8 @@ export function SiteHeader() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  const homeActive = pathname === "/";
 
   return (
     <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
@@ -184,10 +206,19 @@ export function SiteHeader() {
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
-            {navGroups.map((group) => {
+            <Link
+              href="/"
+              className={`${styles.navItem} ${styles.navTrigger} ${homeActive ? styles.navItemActive : ""}`}
+            >
+              <Home size={16} strokeWidth={2.2} className={styles.triggerIcon} aria-hidden="true" />
+              Home
+            </Link>
+
+            {navGroups.map((group, index) => {
               const open = openMenu === group.label;
               const active = isGroupActive(group, pathname);
               const GroupIcon = group.icon;
+              const alignRight = index >= navGroups.length - 2;
               return (
                 <div
                   className={styles.navItemWrap}
@@ -218,7 +249,7 @@ export function SiteHeader() {
                     />
                   </button>
                   <div
-                    className={`${styles.dropdown} ${open ? styles.dropdownOpen : ""}`}
+                    className={`${styles.dropdown} ${open ? styles.dropdownOpen : ""} ${alignRight ? styles.dropdownRight : ""}`}
                     role="menu"
                     aria-label={group.label}
                     style={{ borderTopColor: group.accent }}
@@ -232,19 +263,30 @@ export function SiteHeader() {
                       </span>
                       {group.label}
                     </div>
-                    <div className={styles.dropdownList}>
-                      {group.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          role="menuitem"
-                          className={styles.dropdownLink}
-                          style={{ "--accent": group.accent } as React.CSSProperties}
-                          onClick={() => setOpenMenu(null)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                    <div className={styles.dropdownGrid}>
+                      {group.children.map((child) => {
+                        const ItemIcon = child.icon;
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            role="menuitem"
+                            className={styles.dropdownCard}
+                            onClick={() => setOpenMenu(null)}
+                          >
+                            <span
+                              className={styles.cardIcon}
+                              style={{ color: group.accent, background: tint(group.accent, 12) }}
+                            >
+                              <ItemIcon size={18} strokeWidth={2} aria-hidden="true" />
+                            </span>
+                            <span className={styles.cardText}>
+                              <span className={styles.cardTitle}>{child.label}</span>
+                              {child.desc ? <span className={styles.cardDesc}>{child.desc}</span> : null}
+                            </span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -285,6 +327,11 @@ export function SiteHeader() {
 
         {mobileOpen ? (
           <div className={styles.mobileDrawer} aria-label="Mobile navigation">
+            <Link href="/" className={styles.mobileHome} onClick={() => setMobileOpen(false)}>
+              <Home size={18} strokeWidth={2.2} aria-hidden="true" />
+              Home
+            </Link>
+
             {navGroups.map((group) => {
               const expanded = mobileExpanded === group.label;
               const GroupIcon = group.icon;
@@ -314,20 +361,32 @@ export function SiteHeader() {
                     />
                   </button>
                   {expanded ? (
-                    <div className={styles.mobileSubList}>
-                      {group.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          className={styles.mobileSubLink}
-                          onClick={() => {
-                            setMobileOpen(false);
-                            setMobileExpanded(null);
-                          }}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                    <div className={styles.mobileCardList}>
+                      {group.children.map((child) => {
+                        const ItemIcon = child.icon;
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            className={styles.dropdownCard}
+                            onClick={() => {
+                              setMobileOpen(false);
+                              setMobileExpanded(null);
+                            }}
+                          >
+                            <span
+                              className={styles.cardIcon}
+                              style={{ color: group.accent, background: tint(group.accent, 12) }}
+                            >
+                              <ItemIcon size={18} strokeWidth={2} aria-hidden="true" />
+                            </span>
+                            <span className={styles.cardText}>
+                              <span className={styles.cardTitle}>{child.label}</span>
+                              {child.desc ? <span className={styles.cardDesc}>{child.desc}</span> : null}
+                            </span>
+                          </Link>
+                        );
+                      })}
                     </div>
                   ) : null}
                 </div>
