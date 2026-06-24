@@ -836,7 +836,7 @@
 }
 
 /* ---- Mobile breakpoint: dropdown bar -> hamburger drawer ---- */
-@media (max-width: 1100px) {
+@media (max-width: 1024px) {
   .nav {
     display: none;
   }
@@ -981,5 +981,78 @@
   .dropdownLink::before,
   .triggerIcon {
     transition: none;
+  }
+}
+
+/* =====================================================================
+   Nav layout fix — remove the oval pill container; keep logo + nav +
+   actions on ONE line across desktop; hamburger only at <=1024.
+   Appended last so it wins over the legacy pill + own-row rules.
+   ===================================================================== */
+.nav {
+  padding: 0;
+  margin-right: 2px;
+  gap: 2px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.headerWrapScrolled .nav {
+  background: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Softer hover chip instead of a full pill on each item */
+.navItem {
+  border-radius: 9px;
+}
+
+/* 1025-1240px: keep the three-column inline header (logo | nav | actions).
+   The calculator CTA is hidden in this band to make room, so the nav never
+   drops onto its own line below the logo. */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .header {
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr) auto;
+    min-height: 62px;
+    gap: 12px;
+    padding: 6px 10px;
+  }
+
+  .brand {
+    width: auto;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    width: 208px;
+    height: 46px;
+    max-height: 46px;
+  }
+
+  .nav {
+    grid-column: auto;
+    order: 0;
+    width: fit-content;
+    justify-self: end;
+    justify-content: flex-end;
+  }
+
+  .headerActions {
+    justify-self: end;
+  }
+
+  .calcCta {
+    display: none;
+  }
+
+  .menuToggle {
+    display: none;
+  }
+
+  .mobileDrawer {
+    display: none;
   }
 }
