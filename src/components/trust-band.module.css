@@ -83,11 +83,25 @@
   gap: var(--ds-stack-sm);
   padding: clamp(20px, 3vw, 30px);
   background: var(--ds-surface);
-  transition: background var(--ds-dur-base) var(--ds-ease);
+  text-decoration: none;
+  color: inherit;
+  transition: background var(--ds-dur-base) var(--ds-ease), box-shadow var(--ds-dur-base) var(--ds-ease);
 }
 
 .metric:hover {
   background: var(--ds-surface-tint);
+}
+
+/* Subtle actionable affordance: the label nudges toward brand on hover/focus
+ * so it's clear each metric is a link, without adding visual noise at rest. */
+.metric:hover .label,
+.metric:focus-visible .label {
+  color: var(--ds-brand);
+}
+
+.metric:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: -2px;
 }
 
 .value {
@@ -119,6 +133,7 @@
   font-size: var(--ds-h4);
   font-weight: 700;
   color: var(--ds-text);
+  transition: color var(--ds-dur-quick) var(--ds-ease);
 }
 
 .sub {

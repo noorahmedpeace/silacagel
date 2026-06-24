@@ -1,12 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { animate, useInView, useReducedMotion } from "motion/react";
 
 type CountUpProps = {
   /** Display string, e.g. "40+", "10M+", "10,000+", "190+". The numeric
-   *  run is animated; any prefix/suffix is preserved verbatim. Values with
-   *  no number (e.g. "ISO 9001:2015") render static — never pass those here. */
+   *  run is animated; any prefix/suffix is preserved verbatim. */
   value: string;
   durationMs?: number;
   className?: string;
@@ -28,30 +26,52 @@ function parseValue(value: string): Parsed {
   return { prefix: match[1], target, suffix: match[3], hasNumber: true };
 }
 
+// Deliberately dependency-free: a number counter does not justify pulling an
+// animation library into the home page's initial bundle. A single rAF loop +
+// IntersectionObserver (the same primitives deferred-home-widgets already uses)
+// gives the identical effect at ~zero JS cost. SSR / no-JS / reduced-motion all
+// keep rendering the final number, so the page is never wrong without scripts.
 export function CountUp({ value, durationMs = 1600, className }: CountUpProps) {
   const parsed = parseValue(value);
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px 0px" });
-  const reduce = useReducedMotion();
   const started = useRef(false);
-
-  // SSR / no-JS / reduced-motion all render the final number, so the page is
-  // never wrong without scripts. The climb-from-zero only happens once the
-  // band scrolls into view on a motion-enabled client.
   const [display, setDisplay] = useState(parsed.target);
 
   useEffect(() => {
-    if (!parsed.hasNumber || reduce || !inView || started.current) return;
-    started.current = true;
-    // animate() drives the first frame to ~0 itself, so there's no synchronous
-    // setState here — SSR/no-JS keep rendering the final number until this runs.
-    const controls = animate(0, parsed.target, {
-      duration: durationMs / 1000,
-      ease: [0.2, 0.8, 0.2, 1],
-      onUpdate: (v) => setDisplay(Math.round(v)),
-    });
-    return () => controls.stop();
-  }, [inView, reduce, parsed.hasNumber, parsed.target, durationMs]);
+    if (!parsed.hasNumber || started.current) return;
+    const node = ref.current;
+    if (!node || typeof window === "undefined") return;
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
+
+    let raf = 0;
+    let cancelled = false;
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting || started.current) return;
+        started.current = true;
+        observer.disconnect();
+        const startTime = performance.now();
+        const tick = (now: number) => {
+          if (cancelled) return;
+          const t = Math.min(1, (now - startTime) / durationMs);
+          setDisplay(Math.round(parsed.target * easeOutCubic(t)));
+          if (t < 1) raf = requestAnimationFrame(tick);
+        };
+        raf = requestAnimationFrame(tick);
+      },
+      { rootMargin: "-80px 0px" },
+    );
+
+    observer.observe(node);
+    return () => {
+      cancelled = true;
+      observer.disconnect();
+      cancelAnimationFrame(raf);
+    };
+  }, [parsed.hasNumber, parsed.target, durationMs]);
 
   if (!parsed.hasNumber) {
     return (

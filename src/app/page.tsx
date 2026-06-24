@@ -1015,27 +1015,6 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <section className={styles.certStrip}>
-              <p className={styles.certStripLabel}>Verified Proof Snapshot</p>
-              <div className={styles.certStripRow}>
-                {[
-                  { icon: "01", label: "Since 1983" },
-                  { icon: "02", label: "ISO 9001:2015" },
-                  { icon: "03", label: "DMF-free silica" },
-                  { icon: "04", label: "10M+ packets" },
-                  { icon: "05", label: "10,000+ customers" },
-                  { icon: "06", label: "40+ custom categories" },
-                ].map((c, index) => (
-                  <div key={c.label} className={styles.certPill} style={{ animationDelay: `${index * 60}ms` }}>
-                    <span>{c.icon}</span>
-                    <span>{c.label}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
             <section className={styles.proofVaultSection} aria-label="Manufacturer proof and documentation">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Manufacturer Proof</p>
