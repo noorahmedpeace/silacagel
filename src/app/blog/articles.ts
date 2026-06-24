@@ -3620,6 +3620,364 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "relative-humidity-and-adsorption-isotherms-explained",
+    label: "Technical Basics",
+    title: "Relative humidity and adsorption isotherms explained for desiccant buyers",
+    description:
+      "What relative humidity (RH) and the silica gel adsorption isotherm actually mean for packaging — why a desiccant's capacity changes with humidity, how to read an isotherm curve, and how to use it to size silica gel correctly for your route.",
+    readTime: "10 min read",
+    sections: [
+      {
+        heading: "Relative humidity is the number that matters, not 'wetness'",
+        body: "Relative humidity (RH) is the amount of water vapor in the air expressed as a percentage of the maximum the air can hold at that temperature. It is the single most important variable in moisture protection because cargo damage — corrosion, mold, mildew, caking — is driven by RH inside the package, not by the absolute amount of water. The same gram of water makes a hot container humid but barely registers in a cold one. This is also why condensation ('container rain') happens: warm humid air hits a cold surface, the air's capacity drops, RH hits 100%, and water condenses. A desiccant's job is to hold the package RH below the threshold where the specific cargo is damaged.",
+        bullets: [
+          "RH = current water vapor ÷ maximum the air can hold at that temperature.",
+          "Cargo damage tracks RH inside the package, not absolute water mass.",
+          "RH rises as temperature falls (same water, less capacity) — hence container rain.",
+          "Desiccant goal: keep package RH below the cargo's damage threshold.",
+        ],
+      },
+      {
+        heading: "What an adsorption isotherm is",
+        body: "An adsorption isotherm is the curve that shows how much water a desiccant holds (as a percentage of its own weight) at each equilibrium RH, at a fixed temperature. For silica gel the curve rises steeply at low-to-mid RH and continues climbing toward its ~33% capacity near high RH. The crucial buyer insight: capacity is not a single number — it depends on the RH the gel is working at. A silica gel sachet 'rated 33%' only reaches that near high humidity; at 20% RH it might hold 8–10%, at 40% RH around 20%. Clay desiccant has a flatter, lower curve. Molecular sieve has a steep early curve that plateaus (great at very low RH, limited total). The isotherm is the honest spec; the headline percentage is just one point on it.",
+        bullets: [
+          "Isotherm = water held (% of own weight) vs equilibrium RH, at fixed temperature.",
+          "Silica gel: rises steeply then climbs toward ~33% near high RH.",
+          "Capacity at 20% RH ≪ capacity at 80% RH — it is not one fixed number.",
+          "Clay: flatter, lower curve. Molecular sieve: steep early, plateaus low.",
+          "The headline '33%' is the top of the curve, not its everyday value.",
+        ],
+      },
+      {
+        heading: "Type A vs Type B silica gel on the isotherm",
+        body: "Pore size changes the isotherm shape. Fine-pore grades (often Type A) adsorb strongly at low-to-mid RH, making them ideal for packaging where you want to pull RH down and hold it there. Wider-pore grades (Type B) pick up more water at high RH but hold less at low RH — useful for humidity buffering in damp environments. For most export packaging the fine-pore behavior is what you want: aggressive moisture capture in the 20–60% RH band where cargo sits. When a manufacturer quotes a grade, the relevant question is 'what does its isotherm look like in my RH range?' rather than just 'what's the peak capacity?'.",
+        bullets: [
+          "Fine-pore (Type A): strong adsorption at low-to-mid RH — best for packaging.",
+          "Wider-pore (Type B): more capacity at high RH, less at low RH — humidity buffering.",
+          "Match grade to the RH band your cargo actually experiences.",
+          "Ask the manufacturer about isotherm behavior in your range, not just peak %.",
+        ],
+      },
+      {
+        heading: "Using the isotherm to size desiccant honestly",
+        body: "Correct sizing uses the isotherm value at your target RH, not the headline capacity. If you want to hold a carton at 40% RH and your gel holds ~20% of its weight at that equilibrium, then you must base the calculation on 20%, not 33% — otherwise you under-dose by 40%. Practically: estimate the water that will enter the package over the voyage (from packaging permeability, trapped air, and any moisture in the goods), then provide enough gel that, at the target RH point on its isotherm, it can hold that water with margin. DryGelWorld's sizing guidance and the container dosage calculator bake this in, but understanding the isotherm is what lets you sanity-check a supplier's recommendation rather than trust it blindly.",
+        bullets: [
+          "Size on the isotherm value at your target RH, not the peak %.",
+          "Targeting 40% RH with a gel holding ~20% there? Calculate on 20%.",
+          "Estimate water ingress (permeability + trapped air + goods moisture) over the voyage.",
+          "Provide capacity to hold that water at the target-RH point, with margin.",
+          "Use the container dosage calculator, then sanity-check against the isotherm.",
+        ],
+      },
+      {
+        heading: "Temperature shifts the whole curve",
+        body: "Isotherms are quoted at a fixed temperature (often 25°C). Raise the temperature and silica gel's capacity drops — the same gel holds less water when hot, which is why desiccant performance degrades in a sun-baked container roof and why high-temperature industrial drying needs more gel or a higher-temperature material. Lower the temperature and capacity rises, but that is also when RH spikes toward condensation. The takeaway for export buyers: voyages that cross big temperature swings (tropical load port, cold transhipment, warm destination) stress the desiccant more than a steady climate, so size up for routes with large day–night and port-to-port temperature ranges.",
+        bullets: [
+          "Isotherms are temperature-specific (commonly quoted at 25°C).",
+          "Higher temperature → lower silica gel capacity (hot containers underperform).",
+          "Lower temperature → higher capacity, but also condensation risk.",
+          "Big temperature swings on a route stress the desiccant — size up for them.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is relative humidity in simple terms?",
+        answer:
+          "Relative humidity (RH) is how much water vapor the air holds compared with the most it could hold at that temperature, as a percentage. It matters more than the absolute amount of water because cargo damage — corrosion, mold, caking — is driven by the RH inside the package. RH also rises as temperature falls, which is what causes condensation (container rain).",
+      },
+      {
+        question: "What does a silica gel adsorption isotherm show?",
+        answer:
+          "It shows how much water silica gel holds, as a percentage of its own weight, at each equilibrium relative humidity (at a fixed temperature). The curve reveals that capacity is not a single number: silica gel approaches its ~33% figure only near high humidity and holds much less at low RH. The isotherm is the honest spec for comparing desiccants.",
+      },
+      {
+        question: "Why does my silica gel not reach its rated capacity?",
+        answer:
+          "Because the rated ~33% is the top of the isotherm, reached near high humidity. If your package sits at 30–40% RH, the gel only holds the amount its isotherm shows at that RH — often around 10–20%. To size correctly, use the isotherm value at your target RH, not the headline capacity, or you will under-dose.",
+      },
+      {
+        question: "Does temperature change how much moisture silica gel absorbs?",
+        answer:
+          "Yes. Adsorption isotherms are temperature-specific. As temperature rises, silica gel's capacity falls — hot containers reduce performance. As temperature falls, capacity rises but RH climbs toward condensation. Routes with large temperature swings stress the desiccant more, so size up for them.",
+      },
+      {
+        question: "How do I use this to size silica gel for my shipment?",
+        answer:
+          "Pick the RH you want to hold, read the gel's capacity at that RH from its isotherm, estimate the water entering the package over the voyage, and provide enough gel to hold that water at the target RH with margin. The container dosage calculator automates this; understanding the isotherm lets you sanity-check the result.",
+      },
+    ],
+  },
+  {
+    slug: "desiccant-units-explained-din-55473-and-unit-sizing",
+    label: "Sizing Guide",
+    title: "Desiccant units explained: DIN 55473 and how unit sizing works",
+    description:
+      "What a 'desiccant unit' means under DIN 55473, how it relates to grams of silica gel, how to convert between units and sachet sizes, and how to use unit-based sizing to specify desiccant for packaging and containers.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "What a 'desiccant unit' actually is",
+        body: "Buyers often see desiccant specified in 'units' rather than grams, especially in European and military-derived specifications. The desiccant unit is defined by the German standard DIN 55473 (and echoed in older MIL-D-3464 practice): one unit of desiccant is the quantity that, under defined test conditions, adsorbs a specified amount of water vapor — roughly 6 grams of water at 20% RH and about 6.6 grams at higher reference conditions. In practical silica gel terms, one DIN unit corresponds to approximately 33–34 grams of silica gel, because silica gel holds about 20% of its weight at the lower reference RH. Units exist so that desiccants of different materials can be compared on capacity rather than raw weight.",
+        bullets: [
+          "Unit sizing comes from DIN 55473 (and legacy MIL-D-3464).",
+          "1 unit = quantity adsorbing a defined water amount (~6 g at 20% RH reference).",
+          "1 DIN unit ≈ 33–34 g of silica gel in practice.",
+          "Units compare desiccants by capacity, not by raw weight.",
+        ],
+      },
+      {
+        heading: "Why specs use units instead of grams",
+        body: "Units decouple the specification from the material. A purchasing spec that says '20 units per container' will be satisfied by the right quantity of silica gel, clay, or another adsorbent — each material needs a different gram weight to deliver one unit, but the protection is equivalent. This matters for buyers who second-source or mix materials: the unit is the protection currency. It also makes military and aerospace specs portable across suppliers. The catch is that a cheap supplier can quote 'units' loosely; a unit is only meaningful if it is the DIN/MIL-defined unit measured under the standard's conditions, so ask whether quoted units are DIN 55473 units or a marketing approximation.",
+        bullets: [
+          "A unit is material-independent — the 'currency' of moisture protection.",
+          "Different materials need different gram weights to equal one unit.",
+          "Lets buyers second-source or mix materials on equal protection.",
+          "Confirm quoted units are true DIN 55473 units, not a loose approximation.",
+        ],
+      },
+      {
+        heading: "Converting units to silica gel grams and sachets",
+        body: "For silica gel, the working conversion is: 1 unit ≈ 33 g. So a spec calling for 1/6 unit ≈ 5.5 g, 1/3 unit ≈ 11 g, 1/2 unit ≈ 16.5 g, 1 unit ≈ 33 g, 2 units ≈ 66 g, 10 units ≈ 330 g. DryGelWorld's sachet ladder (0.5 g up to 500 g) maps onto this cleanly: a 5 g sachet ≈ 1/6 unit, a 25–33 g sachet ≈ ~1 unit, a 250 g bag ≈ ~7.5 units. When a buyer hands over a unit-based spec, convert to grams using the ~33 g/unit factor, then pick the nearest standard sachet size at or above the requirement. Always round up — under-rounding a unit spec means under-protecting the cargo.",
+        bullets: [
+          "Working factor: 1 unit ≈ 33 g of silica gel.",
+          "1/6 unit ≈ 5.5 g · 1/3 ≈ 11 g · 1/2 ≈ 16.5 g · 1 unit ≈ 33 g.",
+          "5 g sachet ≈ 1/6 unit; 25–33 g ≈ ~1 unit; 250 g bag ≈ ~7.5 units.",
+          "Convert the spec to grams, then pick the nearest sachet at or above it.",
+          "Always round up — rounding down under-protects.",
+        ],
+      },
+      {
+        heading: "Unit sizing for containers and large packaging",
+        body: "Container and large-case specs are frequently written in units. A common reference point: a typical 20ft container loading might be specified at 16–24 units and a 40ft at 24–40 units for general cargo on a moderate route, scaling up for long tropical voyages — but the authoritative number always comes from the cargo's moisture load and route, not a rule of thumb. Translate the unit requirement into silica gel or clay strips: at ~33 g/unit, 24 units ≈ 0.8 kg of active desiccant, usually delivered as multiple 1 kg strips for distribution and hanging. The DryGelWorld container dosage calculator works in grams/strips; if your buyer specs units, convert first, then size the strip count.",
+        bullets: [
+          "Container/case specs are often written in units.",
+          "Reference only: ~16–24 units (20ft), ~24–40 units (40ft) general cargo, moderate route.",
+          "Authoritative number comes from cargo moisture load + route, not a rule of thumb.",
+          "Convert units → grams (~33 g/unit) → strip count for hanging distribution.",
+          "Use the container dosage calculator after converting units to grams.",
+        ],
+      },
+      {
+        heading: "Common unit-sizing mistakes",
+        body: "Three mistakes recur. First, treating a 'unit' as if it were a gram — a 20-unit spec is ~660 g of silica gel, not 20 g; misreading this under-doses by 30×. Second, assuming all materials give the same grams per unit — clay needs more grams per unit than silica gel because its capacity is lower, so a unit spec filled with clay weighs more. Third, accepting 'units' from a supplier without confirming they are DIN 55473 units; an undefined unit is a marketing number. When in doubt, ask for the spec in both units and grams and confirm the test standard, so the protection you pay for is the protection you get.",
+        bullets: [
+          "Mistake: reading units as grams (a 20-unit spec is ~660 g, not 20 g).",
+          "Mistake: assuming clay and silica gel give the same grams per unit (clay needs more).",
+          "Mistake: accepting undefined 'units' — confirm they are DIN 55473 units.",
+          "Ask for the spec in both units and grams plus the test standard.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is a desiccant unit?",
+        answer:
+          "A desiccant unit is defined by DIN 55473 (and legacy MIL-D-3464) as the quantity of desiccant that adsorbs a specified amount of water vapor under standard test conditions — roughly 6 grams of water at the reference RH. For silica gel, one unit corresponds to about 33–34 grams. Units let different desiccant materials be compared on protection rather than weight.",
+      },
+      {
+        question: "How many grams is one unit of silica gel?",
+        answer:
+          "Approximately 33 grams of silica gel per DIN 55473 unit. So 1/6 unit ≈ 5.5 g, 1/2 unit ≈ 16.5 g, 1 unit ≈ 33 g, and 10 units ≈ 330 g. When converting a unit-based spec to sachets, calculate the grams and pick the nearest standard sachet size at or above the requirement — always rounding up.",
+      },
+      {
+        question: "Why do specifications use units instead of grams?",
+        answer:
+          "Because a unit is material-independent — it specifies protection, not weight. A '20 units per container' spec can be met with silica gel or clay, each at its own gram weight, delivering equivalent moisture protection. This makes specs portable across suppliers and materials, which is why European and military-derived specifications favor units.",
+      },
+      {
+        question: "How do I convert a container unit spec to silica gel strips?",
+        answer:
+          "Multiply the units by ~33 g to get grams of silica gel, then divide by your strip weight (commonly 1 kg) to get strip count, rounding up. For example, 24 units ≈ 792 g ≈ one to two 1 kg strips of active desiccant. Use the container dosage calculator for the route- and cargo-adjusted figure after converting from units.",
+      },
+      {
+        question: "Are all 'desiccant units' the same?",
+        answer:
+          "Only if they are true DIN 55473 (or MIL-D-3464) units measured under the standard's conditions. Some suppliers quote 'units' loosely as a marketing figure. Always confirm the test standard and, where possible, ask for the requirement in both units and grams so the protection you pay for is the protection delivered.",
+      },
+    ],
+  },
+  {
+    slug: "how-many-desiccant-packets-per-box-calculation-guide",
+    label: "Sizing Guide",
+    title: "How many desiccant packets per box? A calculation guide for packers",
+    description:
+      "A step-by-step method to calculate how many silica gel packets a box needs — by box volume, packaging barrier, route humidity, and storage time — with worked examples and the common over- and under-packing mistakes to avoid.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Start with box volume, not guesswork",
+        body: "The number of desiccant packets per box is a calculation, not a habit. Begin with the box's internal volume in cubic meters (length × width × height in meters). Most product cartons fall between 0.01 and 0.1 m³. The baseline rule DryGelWorld uses: a sealed carton at average export humidity holds roughly its volume × 20 g of water vapor, and you provide silica gel at about 3× that — volume × 60 g — as the starting dose. Once you have the gram target, the packet count is simply the gram target divided by your chosen packet size, rounded up. Everything else (route, barrier, storage) adjusts that baseline up or down.",
+        bullets: [
+          "Internal volume V (m³) = length × width × height in meters.",
+          "Baseline water load ≈ V × 20 g; baseline silica gel ≈ V × 60 g.",
+          "Packet count = gram target ÷ packet size, rounded up.",
+          "Adjust the baseline for route, barrier quality, and storage time.",
+        ],
+      },
+      {
+        heading: "Worked example: a standard export carton",
+        body: "Take a 0.4 m × 0.3 m × 0.25 m carton = 0.03 m³. Baseline silica gel = 0.03 × 60 g = 1.8 g. With 1 g packets you would use 2; with a single 2 g packet, one. Now apply route: a tropical-to-temperate 25-day voyage adds 50–100%, so multiply by ~1.75 → ~3.2 g, i.e. one 5 g packet or three 1 g packets. If the carton is multi-walled corrugated with a good liner (a decent barrier) keep it there; if it is a vented or loosely sealed box, add margin. The point of the worked example is that the same carton can honestly need anywhere from 2 g (short route, sealed) to 5 g+ (long humid route, weak barrier) — and the math tells you which.",
+        bullets: [
+          "0.03 m³ carton → baseline 1.8 g.",
+          "25-day tropical route (×~1.75) → ~3.2 g → one 5 g packet.",
+          "Good liner/barrier: hold the figure; vented box: add margin.",
+          "Same carton ranges 2 g–5 g+ depending on route and barrier — the math decides.",
+        ],
+      },
+      {
+        heading: "Adjust for the packaging barrier",
+        body: "The desiccant only has to fight the water that gets in. A near-hermetic barrier (foil laminate, sealed moisture-barrier bag) means little new water enters, so you size for the trapped air plus goods moisture and can stay near baseline. A breathable or vented box continuously admits humid air, so the desiccant is fighting the whole voyage's humidity and needs sizing up — sometimes doubling. This is why a moisture-barrier bag (MBB) around electronics dramatically cuts the desiccant needed inside it: the bag does most of the work. Decide the barrier first; it changes the packet count more than almost any other factor.",
+        bullets: [
+          "Desiccant only fights the water that enters the package.",
+          "Near-hermetic barrier (foil/MBB): size for trapped air + goods moisture, near baseline.",
+          "Breathable/vented box: admits humidity all voyage — size up, sometimes 2×.",
+          "An MBB around the goods can slash the internal desiccant requirement.",
+          "Decide the barrier first — it dominates the packet count.",
+        ],
+      },
+      {
+        heading: "Add for storage time and stacking",
+        body: "Sizing for the voyage alone under-protects goods that then sit in a destination warehouse for months. Add 30–50% for multi-month storage before the package is opened. Also consider stacking and master cartons: a unit pack inside a master carton inside a pallet has nested micro-environments, so distribute desiccant at the level closest to the goods (unit pack) plus a supplementary dose at master-carton level for long storage. Do not put all the desiccant in the master carton and none in the unit packs — the goods inside each unit pack see their own micro-climate, and that is where damage starts.",
+        bullets: [
+          "Add 30–50% for multi-month destination storage before opening.",
+          "Nested packaging = nested micro-environments.",
+          "Put desiccant closest to the goods (unit pack), plus supplementary at master-carton level.",
+          "Don't load only the master carton — unit packs have their own micro-climate.",
+        ],
+      },
+      {
+        heading: "Validate, don't over-pack",
+        body: "Over-packing wastes money and space; under-packing loses cargo. For a serious program, validate before locking the count: pack a representative box with the calculated number of packets, include indicating gel or a humidity card, and run a 14–30 day humidity test simulating the route. If the indicator saturates early, add packets; if it stays fresh at the end, you may be over-packed and can trim 20–30% next order. This converts the calculation into a verified number for that exact product and route, which is worth far more than copying the previous shipment's count.",
+        bullets: [
+          "Over-packing wastes money/space; under-packing loses cargo.",
+          "Validate: pack the calculated count + an indicator, run a 14–30 day route simulation.",
+          "Saturates early → add packets; fresh at end → trim 20–30% next order.",
+          "A validated count beats inheriting the previous shipment's number.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I calculate desiccant packets per box?",
+        answer:
+          "Find the box internal volume in cubic meters (L×W×H in meters), multiply by 60 g for the baseline silica gel dose, then divide by your packet size and round up. Adjust the baseline up for long humid routes (+50–100%), weak packaging barriers, and multi-month storage (+30–50%); adjust down for short routes and near-hermetic barriers.",
+      },
+      {
+        question: "How many silica gel packets for a standard product carton?",
+        answer:
+          "A typical 0.01–0.1 m³ carton needs roughly 0.6–6 g of silica gel at baseline, i.e. one 2–5 g packet, before route adjustment. A long tropical voyage can push that to 5 g+ per carton. The exact count depends on volume, barrier quality, route, and storage time — calculate it rather than assuming a fixed number.",
+      },
+      {
+        question: "Is it bad to put too many desiccant packets in a box?",
+        answer:
+          "Over-packing is mostly a cost and space waste rather than a damage risk — extra desiccant won't harm the goods. The bigger risk is under-packing, which loses cargo to moisture. The efficient answer is to calculate the requirement and validate it with a humidity test, then trim if you find you are consistently over-packed.",
+      },
+      {
+        question: "Should desiccant go in the unit pack or the master carton?",
+        answer:
+          "Primarily in the unit pack closest to the goods, because each unit pack has its own micro-environment where damage starts. Add a supplementary dose at master-carton level for long storage. Putting all the desiccant in the master carton and none in the unit packs leaves the goods unprotected inside their own packaging.",
+      },
+      {
+        question: "Does the type of box change how many packets I need?",
+        answer:
+          "Yes — the packaging barrier is one of the biggest factors. A near-hermetic foil bag or moisture-barrier bag admits little new water, so you stay near baseline; a breathable or vented box admits humidity throughout the voyage and can need double the desiccant. Decide the barrier first, then calculate the packet count.",
+      },
+    ],
+  },
+  {
+    slug: "desiccant-placement-best-practices-in-packaging",
+    label: "Sizing Guide",
+    title: "Desiccant placement best practices in packaging and containers",
+    description:
+      "Where to put silica gel for it to actually work — packet placement inside cartons, master cartons and pallets, container strip hanging patterns, what to avoid, and how placement affects moisture protection as much as quantity.",
+    readTime: "9 min read",
+    sections: [
+      {
+        heading: "Placement matters as much as quantity",
+        body: "The right amount of desiccant in the wrong place still loses cargo. Silica gel protects the air around it; water vapor has to reach the gel by diffusion, and diffusion is slow in still, packed air. So placement is about giving the desiccant access to the whole package volume and putting it where moisture and condensation actually concentrate. The two failure modes are burying the gel where air can't circulate to it, and clustering all of it in one corner so the far side of the package stays humid. Good placement spreads the desiccant through the volume and positions it near the cold or moisture-prone surfaces.",
+        bullets: [
+          "Right quantity, wrong place = lost cargo.",
+          "Silica gel protects the air around it; vapor reaches it slowly by diffusion.",
+          "Failure modes: gel buried out of airflow, or all clustered in one corner.",
+          "Spread desiccant through the volume; place near cold/moisture-prone surfaces.",
+        ],
+      },
+      {
+        heading: "Inside the unit pack and carton",
+        body: "Place sachets in the air space, not crushed under dense goods where air can't reach them. For a product in a sealed bag, put the sachet inside the bag with the product. For a carton, distribute multiple smaller sachets rather than one large one in a corner — three 2 g sachets spread across a carton protect better than a single 6 g sachet in one place. Keep sachets away from sharp edges that could puncture them, and avoid direct contact with surfaces that must not be marked. For electronics in a moisture-barrier bag, the sachet goes inside the sealed bag; the bag is the barrier and the sachet manages the trapped air.",
+        bullets: [
+          "Put sachets in the air space, not crushed under dense goods.",
+          "Sealed-bag goods: sachet inside the bag with the product.",
+          "Distribute several small sachets over one large corner sachet.",
+          "Keep away from puncturing edges and surfaces that must stay unmarked.",
+          "MBB electronics: sachet inside the sealed bag to manage trapped air.",
+        ],
+      },
+      {
+        heading: "Master cartons, pallets, and stacking",
+        body: "At master-carton and pallet level, moisture concentrates at the top (warm humid air rises and condenses on the cold container roof, dripping down) and at the outer faces exposed to the container air. Place supplementary desiccant high in the load and around the perimeter, not just at the base. For palletized loads, a desiccant bag at the top of the stack under the cap sheet catches descending condensation. Wrap or cap pallets so the desiccant is working inside a defined volume rather than the open container. Remember the nested-environment rule: unit packs need their own desiccant; the pallet-level dose is supplementary, not a substitute.",
+        bullets: [
+          "Moisture concentrates at the top (roof condensation) and outer faces.",
+          "Place supplementary desiccant high in the load and around the perimeter.",
+          "Palletized loads: a bag at the top under the cap sheet catches dripping condensation.",
+          "Cap/wrap pallets so desiccant works inside a defined volume.",
+          "Pallet-level dose is supplementary to unit-pack desiccant, not a replacement.",
+        ],
+      },
+      {
+        heading: "Container strip hanging patterns",
+        body: "Container desiccant strips protect the container airspace and must be hung where condensation forms — high on the walls and near the doors and roof, distributed along the container length, not bunched at one end. The standard pattern hangs strips from the lashing rails down the side walls at regular intervals, with extra near the door end where temperature swings are sharpest. Do not lay strips on the floor or bury them in the cargo: they work by sitting in the moving container air. Hang them so saturated strips (which get heavy and, for high-capacity types, gel-filled) cannot fall onto or leak toward the cargo. Combine container strips with carton-level sachets — strips handle the airspace, sachets handle each carton's micro-climate.",
+        bullets: [
+          "Hang strips high on walls and near doors/roof where condensation forms.",
+          "Distribute along the container length; don't bunch at one end.",
+          "Standard: from lashing rails down side walls, extra at the door end.",
+          "Never lay strips on the floor or bury them — they need moving air.",
+          "Hang so saturated/heavy strips can't fall onto or leak toward cargo.",
+          "Pair container strips (airspace) with carton sachets (micro-climate).",
+        ],
+      },
+      {
+        heading: "What to avoid",
+        body: "A short list of placement mistakes that quietly cause claims: sealing desiccant outside the moisture barrier (it then protects the wrong volume); placing all desiccant at the floor of a load where rising warm air and roof condensation never reach it; letting sachets contact food, pharma, or finished surfaces directly when the spec requires separation; reusing positions from a different cargo geometry without rechecking airflow; and forgetting to remove the protective outer pouch from fresh sachets before insertion (or, conversely, leaving sachets exposed to ambient air for hours before sealing, which pre-saturates them). Each is cheap to avoid on the packing line and expensive to discover at destination.",
+        bullets: [
+          "Don't seal desiccant outside the moisture barrier.",
+          "Don't put all desiccant at the floor — it can't reach roof condensation.",
+          "Respect required separation from food/pharma/finished surfaces.",
+          "Recheck airflow when cargo geometry changes; don't blindly reuse positions.",
+          "Insert fresh sachets promptly; don't let them pre-saturate in ambient air.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Where should I place silica gel packets in a box?",
+        answer:
+          "In the air space where vapor can reach them, not crushed under dense goods. Distribute several smaller sachets across the carton rather than one large one in a corner, keep them away from puncturing edges, and for sealed-bag goods put the sachet inside the bag. Placement gives the desiccant access to the whole volume so it protects evenly.",
+      },
+      {
+        question: "Where do you hang container desiccant strips?",
+        answer:
+          "High on the side walls from the lashing rails, distributed along the container length, with extra near the door end where temperature swings are sharpest. Strips work by sitting in the moving container air, so never lay them on the floor or bury them in cargo, and hang them so saturated strips can't fall onto or leak toward the goods.",
+      },
+      {
+        question: "Does it matter where desiccant goes, or just how much?",
+        answer:
+          "Placement matters as much as quantity. Silica gel only protects the air around it, and vapor reaches it slowly by diffusion, so burying it out of airflow or clustering it in one corner leaves part of the package humid. Spreading desiccant through the volume and placing it near cold, condensation-prone surfaces is essential.",
+      },
+      {
+        question: "Should desiccant go at the top or bottom of a pallet load?",
+        answer:
+          "Place supplementary desiccant high in the load and around the perimeter, because warm humid air rises and condenses on the cold container roof, dripping down. A desiccant bag at the top of a capped pallet catches that descending condensation. Floor-only placement leaves the upper and outer cargo exposed to where moisture actually concentrates.",
+      },
+      {
+        question: "Can I put silica gel directly against my product?",
+        answer:
+          "For many industrial goods, yes, provided the sachet won't mark or scratch the surface. For food, pharma, or finished goods where the spec requires separation, keep the desiccant separated by packaging and confirm the requirement with your buyer. Always pack with 'DO NOT EAT' printed sachets and follow the SDS handling guidance.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -3670,6 +4028,10 @@ const articlePublication: Record<string, ArticlePublication> = {
   "silica-gel-for-rice-grain-spice-export": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "silica-gel-import-customs-hs-code-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "how-silica-gel-is-made-manufacturing-process": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "relative-humidity-and-adsorption-isotherms-explained": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "desiccant-units-explained-din-55473-and-unit-sizing": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "how-many-desiccant-packets-per-box-calculation-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "desiccant-placement-best-practices-in-packaging": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {

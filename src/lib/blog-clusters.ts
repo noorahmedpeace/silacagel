@@ -38,7 +38,8 @@ export const blogClusters: Record<string, BlogCluster> = {
   "how-to-choose-silica-gel-packet-size": {
     guides: [
       guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
-      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
       guide("desiccant-for-electronics-packaging", "Desiccant for electronics packaging"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
@@ -81,6 +82,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
+      guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -256,6 +258,39 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color change guide"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER],
+  },
+  "relative-humidity-and-adsorption-isotherms-explained": {
+    guides: [
+      guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_BULK],
+  },
+  "desiccant-units-explained-din-55473-and-unit-sizing": {
+    guides: [
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
+  },
+  "how-many-desiccant-packets-per-box-calculation-guide": {
+    guides: [
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("desiccant-placement-best-practices-in-packaging", "Desiccant placement best practices"),
+      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+  },
+  "desiccant-placement-best-practices-in-packaging": {
+    guides: [
+      guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
+      guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
+      guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
+    industry: IND_SHIPPING,
   },
 };
 
