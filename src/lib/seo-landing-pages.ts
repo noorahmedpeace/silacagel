@@ -340,16 +340,16 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-manufacturer": keywordClusterPage({
     slug: "silica-gel-manufacturer",
-    title: "Silica Gel Manufacturer | Industrial Desiccant Supplier",
+    title: "Silica Gel Manufacturer | Factory-Direct Production",
     metaDescription:
-      "Silica gel manufacturer page for industrial desiccant buyers needing packets, bulk silica gel, container desiccants, private-label sachets, SDS, COA, and export RFQs.",
+      "Factory-direct silica gel manufacturer producing desiccant packets, beads, and bulk supply since 1983. ISO 9001:2015, in-house QC, SDS/COA, export RFQ.",
     kicker: "Silica gel manufacturer",
-    h1: "Silica gel manufacturer for industrial packaging, bulk supply, and export buyers.",
+    h1: "Silica gel manufacturer producing desiccant packets, beads, and bulk supply since 1983.",
     lead:
-      "Use this buyer page when you need a manufacturer-level silica gel supplier for packets, bulk bags, cargo strips, packaging desiccants, or private-label supply.",
+      "Buy direct from the producer: in-house manufacturing of silica gel packets, beads, and bulk desiccant with ISO 9001:2015 quality control and full export documentation.",
     searchIntent: "High-intent buyer keyword: silica gel manufacturer",
     primaryCta: "Request Manufacturer Quote",
-    proofPoints: ["Manufacturer-level RFQ", "Packets and bulk supply", "Export documentation", "Private-label path"],
+    proofPoints: ["Manufacturer since 1983", "In-house production & QC", "ISO 9001:2015 certified", "Bead grades & all formats"],
     image: "/products/product-range-export-showcase.webp",
     imageAlt: "Silica gel manufacturer product range with sachets and export packaging",
     imageCaption: "A manufacturer RFQ should identify format, quantity, destination, documentation, and repeat-volume needs.",
@@ -389,9 +389,9 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
+      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
       { question: "What should I ask a silica gel manufacturer before ordering?", answer: "Ask about product format, size range, MOQ, repeat capacity, documents, packing, destination support, and private-label options." },
@@ -401,16 +401,16 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-supplier": keywordClusterPage({
     slug: "silica-gel-supplier",
-    title: "Silica Gel Supplier | Packets, Bulk & Export Desiccants",
+    title: "Silica Gel Supplier | Wholesale & B2B Desiccant Supply",
     metaDescription:
-      "Silica gel supplier for packets, bulk desiccants, packaging moisture control, container desiccants, private-label sachets, SDS, COA, and worldwide export RFQs.",
+      "Silica gel supplier with packets, bulk beads, and cargo strips in reliable B2B supply. Flexible MOQ, fast RFQ turnaround, SDS/COA, worldwide delivery.",
     kicker: "Silica gel supplier",
-    h1: "Silica gel supplier for buyers who need the right desiccant format, not just a price.",
+    h1: "Silica gel supplier with packet, bulk, and cargo formats in reliable B2B supply.",
     lead:
-      "Compare silica gel packets, bulk silica gel, cargo strips, and private-label programs through one supplier path built for B2B procurement.",
+      "One supplier for every silica gel format — packets, bulk beads, cargo strips, and private label — with flexible MOQ, dependable repeat supply, and fast quote turnaround.",
     searchIntent: "High-intent buyer keyword: silica gel supplier",
     primaryCta: "Request Supplier Quote",
-    proofPoints: ["Supplier RFQ path", "Product format matching", "SDS / COA support", "Worldwide buyer support"],
+    proofPoints: ["Reliable repeat supply", "Flexible MOQ", "All formats, one supplier", "Fast RFQ turnaround"],
     image: "/products/white-nonindicating-clean-sachets.webp",
     imageAlt: "Clean silica gel packets for supplier RFQ page",
     imageCaption: "A supplier inquiry should separate packets, bulk desiccant, packaging desiccant, and container moisture-control needs.",
@@ -428,9 +428,9 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Requesting a generic price without specifying format, size, quantity, or destination",
     quoteBasis: "Format, size, volume, packaging, destination, documents, repeat schedule",
     relatedLinks: [
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Silica gel wholesale", href: "/silica-gel-packets-wholesale" },
-      { label: "Bulk supplier", href: "/bulk-silica-gel-desiccant" },
+      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
     ],
     faqs: [
       { question: "What silica gel formats can a supplier quote?", answer: "Common RFQs include small packets, bulk silica gel, indicating gel, non-indicating gel, cargo strips, and private-label sachets." },
@@ -440,18 +440,18 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-exporter": keywordClusterPage({
     slug: "silica-gel-exporter",
-    title: "Silica Gel Exporter | Global Desiccant Supply & RFQ",
+    title: "Silica Gel Exporter | FOB/CIF Desiccant Export, Karachi",
     metaDescription:
-      "Silica gel exporter for global buyers needing packets, bulk desiccants, container strips, export documents, FOB/CIF/EXW support, SDS, COA, and private-label supply.",
+      "Silica gel exporter shipping desiccants worldwide on FOB, CIF, and EXW terms from Karachi. COO, COA, packing list, SDS, and full export documentation.",
     kicker: "Silica gel exporter",
-    h1: "Silica gel exporter for global procurement teams buying moisture-control products.",
+    h1: "Silica gel exporter shipping desiccants worldwide on FOB, CIF, and EXW terms.",
     lead:
       "Plan export silica gel orders around format, MOQ, Incoterms, destination country, documentation, private label, and dispatch route before price negotiation.",
     searchIntent: "Export buyer keyword: silica gel exporter, industrial silica gel exporter, desiccant exporter",
     primaryCta: "Request Export Quote",
     secondaryCta: "Explore Export Support",
     secondaryHref: "/export",
-    proofPoints: ["FOB / CIF / EXW support", "Export documents", "Global RFQ path", "Bulk and private-label"],
+    proofPoints: ["FOB / CIF / EXW terms", "COO, COA, packing list", "Karachi port dispatch", "Worldwide destinations"],
     image: "/applications/export-logistics.webp",
     imageAlt: "Silica gel exporter logistics and container dispatch planning",
     imageCaption: "Export buyers should send destination, Incoterms, product format, documents, and repeat schedule in the first RFQ.",
@@ -469,9 +469,9 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Late document requests, unclear Incoterms, missing destination or packing details",
     quoteBasis: "Destination, Incoterms, product format, quantity, packing, documents, repeat volume",
     relatedLinks: [
-      { label: "Export support", href: "/export" },
-      { label: "Pakistan exporter", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
+      { label: "Export support hub", href: "/export" },
     ],
     faqs: [
       { question: "What details should a silica gel export RFQ include?", answer: "Include product format, quantity, destination, Incoterms, required documents, packing needs, and repeat schedule." },
@@ -4048,18 +4048,18 @@ export const seoLandingPages = {
   },
   "silica-gel-manufacturer-exporter": {
     slug: "silica-gel-manufacturer-exporter",
-    title: "Silica Gel Manufacturer Exporter | Dry Gel World",
+    title: "Silica Gel Manufacturer & Exporter | Factory-Direct Supply",
     metaDescription:
-      "Dry Gel World supplies silica gel desiccant packets, bulk desiccants, cargo strips, private label sachets, export documentation, and worldwide RFQ support.",
+      "Factory-direct silica gel manufacturer and exporter — buy desiccants from the producer with no middleman. Manufacturing, supply, and export in one RFQ.",
     kicker: "Manufacturer exporter",
-    h1: "Silica gel manufacturer exporter for global B2B moisture-control buyers.",
+    h1: "Silica gel manufacturer and exporter — factory-direct desiccant supply, no middleman.",
     lead:
-      "Work with a desiccant export partner that understands product format, MOQ, documentation, private label, Incoterms, and destination requirements before quoting.",
-    searchIntent: "Supplier intent: silica gel manufacturer exporter, desiccant manufacturer, global silica gel supplier",
+      "Buy desiccants straight from the producer. As a combined manufacturer and exporter, Dry Gel World handles production, supply, and worldwide shipping through a single RFQ — pick a specialized path below or send one combined inquiry.",
+    searchIntent: "Long-tail combined intent: silica gel manufacturer exporter, factory-direct silica gel, manufacturer-direct desiccant export",
     primaryCta: "Request Export Quote",
     secondaryCta: "Explore Export Support",
     secondaryHref: "/export",
-    proofPoints: ["Factory-direct positioning", "SDS / COA support", "Private label discussion", "Worldwide buyer support"],
+    proofPoints: ["Factory-direct, no middleman", "Manufacturing since 1983", "FOB / CIF / EXW export", "SDS, COA, ISO 9001:2015"],
     fitTitle: "Why importers use a manufacturer-exporter page",
     fitItems: [
       {
@@ -4106,9 +4106,9 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
-      { label: "Export support", href: "/export" },
-      { label: "Product catalog", href: "/products" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
+      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
     ],
     faqs: [
       {
