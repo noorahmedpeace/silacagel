@@ -82,7 +82,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   "what-is-silica-gel-and-how-does-it-work": {
     guides: [
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
-      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
     ],
@@ -90,7 +90,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": {
     guides: [
-      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("oxygen-absorber-vs-silica-gel-when-to-use-each", "Oxygen absorber vs silica gel"),
     ],
     products: [PRODUCT_BULK],
@@ -174,7 +174,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   "container-desiccant-vs-silica-gel": {
     guides: [
       guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
-      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
   },
@@ -217,7 +217,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "oxygen-absorber-vs-silica-gel-when-to-use-each": {
     guides: [
-      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("silica-gel-vs-molecular-sieve-vs-activated-alumina", "Silica gel vs molecular sieve vs activated alumina"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
@@ -257,7 +257,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   "how-silica-gel-is-made-manufacturing-process": {
     guides: [
       guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
-      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color change guide"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER],

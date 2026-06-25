@@ -139,9 +139,9 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "silica-gel-vs-clay-desiccant",
     label: "Comparison",
-    title: "Silica gel vs clay desiccant: a buyer's selection guide",
+    title: "How silica gel and clay desiccant differ: chemistry, capacity & format",
     description:
-      "A buyer-grade comparison of silica gel and clay desiccants — adsorption capacity, cost, format compatibility, document support, regeneration, and the specific use cases each material fits best for industrial export packaging.",
+      "A deep-dive explainer on how silica gel and clay desiccants differ — chemistry, adsorption behaviour across humidity, sachet format sizing, regeneration temperatures, and the documentation buyers should check before choosing.",
     readTime: "13 min read",
     sections: [
       {
