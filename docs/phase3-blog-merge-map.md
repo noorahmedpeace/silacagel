@@ -14,17 +14,25 @@ folding them into the survivor FIRST. Each merge =
 
 ---
 
-## READY NOW (definite duplicates — no data needed)
+## DONE
 
-### C5 — blog↔compare exact-slug duplicate  [HIGHEST PRIORITY]
-- Source: `/blog/silica-gel-vs-clay-desiccant`
-- Target (survivor): `/compare/silica-gel-vs-clay-desiccant`
-- Rationale: identical intent + slug; compare cluster carries more authority
-  (sibling `/compare/silica-gel-vs-oxygen-absorber` has FAQPage schema, ranks ~pos 13).
-- Clear-first entanglement: 5× `guide()` refs in `blog-clusters.ts`,
-  freshness meta entry, and compare-page `relatedBlog`.
-- Steps: repoint the 5 cluster links → `/compare/…`, drop `relatedBlog`,
-  fold any unique blog facts into compare body, THEN 301.
+### C5 — blog↔compare overlap  ✅ RESOLVED BY DIFFERENTIATION (PR #27, 2026-06-26)
+- NOT redirected. On reading the article, `/blog/silica-gel-vs-clay-desiccant`
+  proved to be a 13-min guide with ~40% unique content the compare page lacks
+  (plain-language chemistry, low-RH adsorption nuance, sachet format-size
+  compatibility, clay regeneration temps, "common mistakes", 2 extra FAQs).
+  Redirecting would have destroyed that value.
+- Resolution: re-angled the blog to own the informational query
+  ("How silica gel and clay desiccant differ: chemistry, capacity & format")
+  while `/compare/silica-gel-vs-clay-desiccant` keeps the transactional head
+  term. Relabeled the 5 cluster `guide()` anchors to "…guide" so the bare head
+  anchor points only to `/compare`. No deletion, no content loss.
+- LESSON (apply to Cluster A + Clusters B/C/D below): READ each candidate
+  article's depth BEFORE tagging it a duplicate. A shared head query is cannibalization, but a
+  rich unique article is re-angled (keep both, differentiate intent), not 301'd.
+  Only thin/near-identical posts get merged.
+
+## READY NOW (definite duplicates — no data needed)
 
 ### Cluster A — shelf life (2 → 1)
 - Keep: `/blog/how-long-does-silica-gel-last`
