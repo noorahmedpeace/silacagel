@@ -4,6 +4,9 @@ export type ProductItem = {
   slug: string;
   name: string;
   shortName: string;
+  // Optional keyword-rich meta <title> override. Falls back to
+  // `${shortName} | DryGelWorld` when unset.
+  metaTitle?: string;
   eyebrow: string;
   summary: string;
   useCaseLine?: string;
@@ -307,6 +310,7 @@ export const productCatalog: ProductItem[] = [
     slug: "dry-clay-desiccant",
     name: "Industrial Dry Clay Desiccant",
     shortName: "Dry Clay",
+    metaTitle: "Dry Clay Desiccant | Industrial Clay Moisture Absorber",
     eyebrow: "Industrial Clay",
     summary:
       "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture-control programs.",
