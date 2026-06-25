@@ -500,8 +500,8 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Choosing a supplier without matching format, documentation, or repeat supply capability",
     quoteBasis: "Application, format, size, quantity, destination, documents, private-label scope",
     relatedLinks: [
-      { label: "Industrial desiccant", href: "/industrial-desiccant-supplier" },
-      { label: "Desiccant bags", href: "/desiccant-bags-supplier" },
+      { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
+      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
       { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
     ],
     faqs: [
@@ -541,7 +541,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Moisture absorber", href: "/moisture-absorber-manufacturer" },
+      { label: "Moisture absorber manufacturer", href: "/moisture-absorber-manufacturer" },
     ],
     faqs: [
       { question: "What makes a desiccant industrial grade?", answer: "Industrial desiccant buying is usually based on repeat volume, format control, documents, packaging needs, and application risk." },
@@ -1246,7 +1246,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
-      { label: "Container desiccant", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
     ],
     faqs: [
       { question: "Is silica gel a moisture absorber?", answer: "Yes. Silica gel is a desiccant moisture absorber used inside packaging, storage, and shipment environments." },
@@ -3361,7 +3361,7 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
-      { label: "Silica gel exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer & exporter", href: "/silica-gel-manufacturer-exporter" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Request quote", href: "/contact" },
     ],

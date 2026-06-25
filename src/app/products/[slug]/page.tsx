@@ -181,7 +181,7 @@ const productClusters: Record<string, ProductCluster> = {
   },
   "dry-clay-desiccant": {
     guides: [
-      { label: "Silica gel vs clay desiccant", href: "/blog/silica-gel-vs-clay-desiccant" },
+      { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
       { label: "Container desiccant vs silica gel", href: "/blog/container-desiccant-vs-silica-gel" },
       { label: "Industrial packaging protection solutions", href: "/blog/industrial-packaging-protection-solutions" },
     ],
