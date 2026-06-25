@@ -148,6 +148,7 @@ export const productCatalog: ProductItem[] = [
     slug: "retail-sachets",
     name: "Precision Grade Silica Gel",
     shortName: "Precision Units",
+    metaTitle: "Silica Gel Sachets | Retail & Unit-Pack Desiccant",
     eyebrow: "Unit-Level Protection",
     summary:
       "Engineered for sub-package moisture control in electronics, precision engineering, and elite consumer goods.",
@@ -174,6 +175,7 @@ export const productCatalog: ProductItem[] = [
     slug: "paper-sachets",
     name: "Technical Bond Moisture Control",
     shortName: "Technical Bond",
+    metaTitle: "Paper Silica Gel Sachets | Breathable B2B Packs",
     eyebrow: "Scale Applications",
     summary:
       "High-efficiency adsorption packs for general industrial cartons and volume inventory management.",
@@ -200,6 +202,7 @@ export const productCatalog: ProductItem[] = [
     slug: "bulk-industrial",
     name: "Enterprise Bulk Logistics Supply",
     shortName: "Enterprise Bulk",
+    metaTitle: "Bulk Silica Gel Beads | Drums, Sacks & Jumbo Bags",
     eyebrow: "Infrastructure Scale",
     summary:
       "High-capacity desiccant formats for warehouse stabilization, industrial lines, and regional distribution hub supply.",
@@ -226,6 +229,7 @@ export const productCatalog: ProductItem[] = [
     slug: "container-strips",
     name: "Maritime Export Cargo Protection",
     shortName: "Cargo Strips",
+    metaTitle: "Container Cargo Strips | 1–5 kg Hanging Desiccant",
     eyebrow: "Global Logistics",
     summary:
       "High-adsorption maritime strips for international container loads, long-haul shipping, and extreme humidity transit.",
@@ -252,6 +256,7 @@ export const productCatalog: ProductItem[] = [
     slug: "hair-nets",
     name: "Bouffant Hair Nets — Safety & PPE",
     shortName: "Hair Nets",
+    metaTitle: "Bouffant Hair Nets | Food & Factory PPE Supplier",
     eyebrow: "Industrial Safety PPE",
     summary:
       "Disposable bouffant hair nets in green and white for food processing, manufacturing, healthcare, and industrial PPE programs.",
@@ -282,6 +287,7 @@ export const productCatalog: ProductItem[] = [
     slug: "beard-covers",
     name: "Disposable Beard Covers — Safety & PPE",
     shortName: "Beard Covers",
+    metaTitle: "Disposable Beard Covers | Food-Industry PPE",
     eyebrow: "Industrial Safety PPE",
     summary:
       "Disposable beard covers (beard nets) for food handling, manufacturing, healthcare, and other safety-critical workspaces where facial-hair containment is required.",
