@@ -52,6 +52,50 @@ const nextConfig: NextConfig = {
         destination: "https://www.drygelworld.com/:path*",
         permanent: true,
       },
+      // --- SEO cannibalization consolidation (Phase 1) ---
+      // Each pair below targeted the same primary keyword/intent as its destination.
+      // Sources removed from seoLandingPages (so they leave the sitemap) and 301'd here.
+      // C1: food-grade duplicate -> supplier authority page.
+      {
+        source: "/food-grade-silica-gel",
+        destination: "/food-grade-silica-gel-supplier",
+        permanent: true,
+      },
+      // C2: blue silica gel duplicate -> manufacturer authority page.
+      {
+        source: "/blue-silica-gel",
+        destination: "/blue-silica-gel-manufacturer",
+        permanent: true,
+      },
+      // C3: orange silica gel duplicate -> supplier authority page.
+      {
+        source: "/orange-silica-gel",
+        destination: "/orange-silica-gel-supplier",
+        permanent: true,
+      },
+      // C4: electronics-packaging landing twin -> electronic-packaging-desiccant authority.
+      // (The /industries/electronics-packaging industry page is separate and retained.)
+      {
+        source: "/electronics-packaging",
+        destination: "/electronic-packaging-desiccant",
+        permanent: true,
+      },
+      // C6: container/cargo desiccant supplier duplicates -> shipping-container authority.
+      {
+        source: "/cargo-desiccant-supplier",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/container-desiccants-for-exporters",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/container-desiccant-supplier-worldwide",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
     ];
   },
   async headers() {
