@@ -6,9 +6,37 @@ import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 
-const industryPages = {
+type IndustryFormat = { label: string; text: string };
+type IndustryBody = {
+  heading: string;
+  intro: string;
+  formatsHeading: string;
+  formats: IndustryFormat[];
+  closingHeading: string;
+  closing: string;
+};
+type IndustryFaq = { question: string; answer: string };
+type IndustryPage = {
+  title: string;
+  h1: string;
+  description: string;
+  points: string[];
+  // Optional on-page SEO content. When present, the rich body + FAQ render
+  // instead of the generic "buyer requirement" scaffolding, and a FAQPage
+  // node is added to the JSON-LD graph.
+  metaTitle?: string;
+  metaDescription?: string;
+  body?: IndustryBody;
+  faqHeading?: string;
+  faqs?: IndustryFaq[];
+};
+
+const industryPages: Record<string, IndustryPage> = {
   "electronics-packaging": {
     title: "Silica Gel for Electronics Packaging",
+    metaTitle: "Silica Gel Desiccant for Electronics & PCB Packaging",
+    metaDescription:
+      "Anti-static & standard silica gel desiccant packets for PCBs, batteries & electronics export cartons. Prevent corrosion in ocean freight. Get an RFQ.",
     h1: "Moisture protection for electronics, PCBs, batteries, and precision assemblies.",
     description:
       "Silica gel desiccant packets for electronics packaging, circuit boards, batteries, precision assemblies, and export cartons.",
@@ -17,9 +45,49 @@ const industryPages = {
       "Use small sachets for unit packaging and larger formats for master cartons.",
       "Request SDS, COA, and RoHS/REACH support when electronics buyers require documentation.",
     ],
+    body: {
+      heading: "Moisture protection for electronics, PCBs, and batteries",
+      intro:
+        "Electronics and precision assemblies are highly sensitive to humidity during storage and ocean freight. DryGelWorld supplies anti-static and standard silica gel sachets sized for circuit boards, connectors, battery packs, and master export cartons — with the documentation electronics exporters require.",
+      formatsHeading: "Product formats for electronics buyers",
+      formats: [
+        { label: "Unit-level sachets", text: "Small packets for individual PCBs and connectors." },
+        { label: "Anti-static / ESD-safe options", text: "For sensitive electronic components." },
+        { label: "Master-carton desiccants", text: "Larger formats for palletized export cartons." },
+      ],
+      closingHeading: "Why moisture control matters for electronics export",
+      closing:
+        "Condensation inside sealed cartons (“container rain”) causes corrosion on solder joints, contacts, and battery terminals. Correctly sized silica gel keeps relative humidity below the corrosion threshold.",
+    },
+    faqHeading: "Electronics desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "What silica gel is best for packaging electronics and PCBs?",
+        answer:
+          "Standard or anti-static (ESD-safe) silica gel sachets are used for PCBs, connectors, and battery assemblies. Packet size is matched to sealed volume and transit duration.",
+      },
+      {
+        question: "How much silica gel do I need per carton?",
+        answer:
+          "Dosage depends on enclosed air volume, barrier material, and transit time. Send carton dimensions and route details in an RFQ and we recommend packet size and quantity.",
+      },
+      {
+        question: "Do you offer anti-static desiccant packets?",
+        answer:
+          "Yes. We supply ESD-safe desiccant packets for sensitive electronic components alongside standard sachets.",
+      },
+      {
+        question: "Can silica gel prevent corrosion during ocean freight?",
+        answer:
+          "Yes. Correctly sized silica gel holds humidity below the corrosion threshold, preventing condensation damage during long-haul container shipping.",
+      },
+    ],
   },
   "pharma-packaging": {
     title: "Desiccant for Pharma Packaging",
+    metaTitle: "Pharma Desiccant Packets | SDS/COA-Ready Healthcare Packaging",
+    metaDescription:
+      "Pharma-grade silica gel desiccant packets and canisters for pill bottles, blister cartons & diagnostic kits. SDS, COA, batch docs. Export RFQ in 24h.",
     h1: "Documentation-ready desiccant supply for pharma and healthcare packaging.",
     description:
       "Desiccant packets for pharma packaging, healthcare cartons, pill bottles, diagnostic kits, and regulated export requirements.",
@@ -27,6 +95,43 @@ const industryPages = {
       "Align packet material, size, warning text, and document requirements before quoting.",
       "Route buyers to SDS, COA, food/pharma support, and batch documentation discussions.",
       "Use clean product photography and compliance proof to build trust with regulated buyers.",
+    ],
+    body: {
+      heading: "Desiccant requirements for pharmaceutical & healthcare packaging",
+      intro:
+        "Pharmaceutical and nutraceutical packaging needs desiccants that protect moisture-sensitive products while matching strict documentation and labeling requirements. DryGelWorld supplies silica gel packets and canisters for pill bottles, blister cartons, diagnostic kits, and regulated export shipments — with SDS, COA, and batch documentation available for every order.",
+      formatsHeading: "Product formats for pharma buyers",
+      formats: [
+        { label: "Pharma-grade silica gel packets", text: "Tyvek and printed sachets for pill bottles, vials, and unit cartons." },
+        { label: "Canister desiccants", text: "Rigid canisters for tablet and capsule bottles." },
+        { label: "Master-carton desiccants", text: "Larger packs for export cartons and pallets." },
+      ],
+      closingHeading: "Documentation we provide",
+      closing:
+        "Every quote can include Safety Data Sheets (SDS), Certificates of Analysis (COA), “DO NOT EAT” warning compliance, and batch-level documentation for regulated supply chains.",
+    },
+    faqHeading: "Pharma desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "What grade of silica gel is used for pharmaceutical packaging?",
+        answer:
+          "Pharmaceutical packaging typically uses high-purity, food/pharma-grade silica gel in Tyvek or printed sachets and rigid canisters, supplied with SDS and COA documentation.",
+      },
+      {
+        question: "Do your pharma desiccants come with SDS and COA documentation?",
+        answer:
+          "Yes. Every pharma order can include Safety Data Sheets, Certificates of Analysis, and batch documentation for regulated and audited buyers.",
+      },
+      {
+        question: "Can you supply desiccants for pill bottles and diagnostic kits?",
+        answer:
+          "Yes. We supply canister desiccants for tablet bottles, small sachets for diagnostic kits, and master-carton packs for export healthcare shipments.",
+      },
+      {
+        question: "What is the minimum order quantity for pharma desiccants?",
+        answer:
+          "MOQs depend on format. Send your product type, packet size, and annual volume in an RFQ and we confirm MOQ, lead time, and Incoterms within 24 hours.",
+      },
     ],
   },
   "leather-footwear-export": {
@@ -119,16 +224,18 @@ export async function generateMetadata({
   }
 
   const heroImage = withPageImageContext(getIndustrySeoImage(industry), page.title);
+  const metaTitle = page.metaTitle ?? page.title;
+  const metaDescription = page.metaDescription ?? page.description;
 
   return {
-    title: page.title,
-    description: page.description,
+    title: metaTitle,
+    description: metaDescription,
     alternates: {
       canonical: `/industries/${industry}`,
     },
     openGraph: {
-      title: page.title,
-      description: page.description,
+      title: metaTitle,
+      description: metaDescription,
       url: `/industries/${industry}`,
       images: [
         {
@@ -142,8 +249,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: page.title,
-      description: page.description,
+      title: metaTitle,
+      description: metaDescription,
       images: [heroImage.src],
     },
   };
@@ -197,6 +304,21 @@ export default async function IndustryPage({
         "@type": breadcrumb["@type"],
         itemListElement: breadcrumb.itemListElement,
       },
+      ...(page.faqs
+        ? [
+            {
+              "@type": "FAQPage",
+              mainEntity: page.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            },
+          ]
+        : []),
     ],
   };
 
@@ -222,24 +344,64 @@ export default async function IndustryPage({
         <figcaption>{heroImage.caption}</figcaption>
       </figure>
 
-      <section className={styles.section}>
-        <div className={styles.sectionHead}>
-          <h2>What this page should prove to buyers.</h2>
-          <p>
-            Each industry page should become a focused landing page with use-case visuals,
-            product sizing, compliance language, and export inquiry routing.
-          </p>
-        </div>
-        <div className={styles.grid}>
-          {page.points.map((point, index) => (
-            <article className={styles.card} key={point}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>Buyer requirement</h3>
-              <p>{point}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      {page.body ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.body.heading}</h2>
+            <p>{page.body.intro}</p>
+          </div>
+          <div className={styles.sectionHead}>
+            <h3>{page.body.formatsHeading}</h3>
+          </div>
+          <div className={styles.grid}>
+            {page.body.formats.map((format) => (
+              <article className={styles.card} key={format.label}>
+                <h3>{format.label}</h3>
+                <p>{format.text}</p>
+              </article>
+            ))}
+          </div>
+          <div className={styles.sectionHead}>
+            <h3>{page.body.closingHeading}</h3>
+            <p>{page.body.closing}</p>
+          </div>
+        </section>
+      ) : (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>What this page should prove to buyers.</h2>
+            <p>
+              Each industry page should become a focused landing page with use-case visuals,
+              product sizing, compliance language, and export inquiry routing.
+            </p>
+          </div>
+          <div className={styles.grid}>
+            {page.points.map((point, index) => (
+              <article className={styles.card} key={point}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>Buyer requirement</h3>
+                <p>{point}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {page.faqs ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.faqHeading ?? "Buyer FAQs"}</h2>
+          </div>
+          <div className={styles.grid}>
+            {page.faqs.map((faq) => (
+              <article className={styles.card} key={faq.question}>
+                <h3>{faq.question}</h3>
+                <p>{faq.answer}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
       <script
         type="application/ld+json"
         suppressHydrationWarning

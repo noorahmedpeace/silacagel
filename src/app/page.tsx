@@ -717,7 +717,9 @@ export default function Home() {
                   <span className={styles.shippingTag}>Worldwide Delivery Support</span>
                   <AnimatedText text="Wherever your operation is, we can help arrange supply." mode="rise" />
                   <p>
-                    From local dispatch to international freight coordination, Dry Gel World can support desiccant delivery to buyers across regions. Share your destination and required format, and our team will guide the most practical supply route.
+                    From local dispatch to international freight coordination, Dry Gel World can support desiccant delivery to buyers across regions. As a{" "}
+                    <Link href="/shipping-container-desiccant-supplier">shipping container desiccant supplier</Link>, we help exporters with{" "}
+                    <Link href="/blog/container-rain-prevention">container rain prevention</Link> on long-haul sea routes. Share your destination and required format, and our team will guide the most practical supply route.
                   </p>
                   <div className={styles.shippingCtas}>
                     <Link href="/contact" className={styles.primaryCta}>Request Delivery Quote</Link>

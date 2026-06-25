@@ -66,6 +66,12 @@ export type SeoLandingPage = {
     items: string[];
     defaultProduct: string;
   };
+  // Optional in-content prose block with inline internal links (rendered as a
+  // paragraph of text spans + Next <Link> parts).
+  contentBlock?: {
+    heading: string;
+    parts: Array<{ text: string } | { href: string; label: string }>;
+  };
   buyingTitle: string;
   buyingIntro: string;
   buyingSteps: Array<{
@@ -116,6 +122,7 @@ type KeywordClusterInput = {
   sizeGuide?: SeoLandingPage["sizeGuide"];
   comparison?: SeoLandingPage["comparison"];
   quoteChecklist?: SeoLandingPage["quoteChecklist"];
+  contentBlock?: SeoLandingPage["contentBlock"];
   relatedLinks: SeoLandingPage["relatedLinks"];
   faqs: SeoLandingPage["faqs"];
 };
@@ -156,6 +163,7 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     sizeGuide: input.sizeGuide,
     comparison: input.comparison,
     quoteChecklist: input.quoteChecklist,
+    contentBlock: input.contentBlock,
     buyingTitle: `How to request ${input.kicker.toLowerCase()}`,
     buyingIntro:
       "A useful B2B inquiry should explain the product application, commercial quantity, destination, and document requirements before price negotiation starts.",
@@ -871,7 +879,7 @@ const highIntentSeoLandingPages = {
     slug: "desiccant-bags",
     title: "Desiccant Bags | Silica Gel Moisture Absorber Bags",
     metaDescription:
-      "Desiccant bags for silica gel moisture control in cartons, warehouses, export packaging, industrial storage, cargo shipments, SDS, COA, and B2B RFQs.",
+      "Industrial desiccant bags for cartons, warehouses & export cargo. Silica gel and clay options, bulk MOQ, SDS/COA. B2B supplier since 1983 — get a quote.",
     kicker: "Desiccant bags",
     h1: "Desiccant bags for packaging, storage, and industrial moisture control.",
     lead:
@@ -895,6 +903,14 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA and specification support on request",
     buyerRisk: "Undersizing desiccant bag requirements for larger cartons or humid routes",
     quoteBasis: "Bag size, quantity, application, destination, documents, repeat schedule",
+    contentBlock: {
+      heading: "Silica gel and clay desiccant bag options",
+      parts: [
+        { text: "Choose silica gel desiccant bags for clear humidity-indicator use, or " },
+        { href: "/products/dry-clay-desiccant", label: "activated clay desiccant bags" },
+        { text: " for cost-efficient bulk cargo and container protection. Both with SDS and COA support." },
+      ],
+    },
     relatedLinks: [
       { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
@@ -3036,6 +3052,14 @@ export const seoLandingPages = {
         text: "Include country, port or city, Incoterms, and document requirements before final quotation.",
       },
     ],
+    contentBlock: {
+      heading: "Plan your bulk order before you request a quote",
+      parts: [
+        { text: "Estimate format, quantity, and weight with our " },
+        { href: "/bulk-sales", label: "bulk silica gel sales planning" },
+        { text: " tools, then send a complete RFQ for accurate MOQ, lead time, and export pricing." },
+      ],
+    },
     relatedLinks: [
       { label: "Bulk product page", href: "/products/bulk-industrial" },
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
@@ -3829,9 +3853,9 @@ export const seoLandingPages = {
   },
   "shipping-container-desiccant-supplier": {
     slug: "shipping-container-desiccant-supplier",
-    title: "Shipping Container Desiccant Supplier | Cargo Moisture Control",
+    title: "Shipping Container Desiccant Supplier | Sea-Freight",
     metaDescription:
-      "Shipping container desiccant supplier for cargo moisture control, container rain prevention, sea-freight desiccants, export packaging, route planning, SDS, and COA.",
+      "Container desiccant supplier for sea-freight cargo. Prevent container rain on long-haul routes — strips, SDS/COA, MOQ, FOB/CIF. Request a quote in 24h.",
     kicker: "Shipping container desiccant",
     h1: "Shipping container desiccant supplier for sea freight and container rain prevention.",
     lead:
