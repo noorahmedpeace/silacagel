@@ -29,6 +29,7 @@ type IndustryPage = {
   body?: IndustryBody;
   faqHeading?: string;
   faqs?: IndustryFaq[];
+  relatedLinks?: Array<{ label: string; href: string }>;
 };
 
 const industryPages: Record<string, IndustryPage> = {
@@ -81,6 +82,9 @@ const industryPages: Record<string, IndustryPage> = {
         answer:
           "Yes. Correctly sized silica gel holds humidity below the corrosion threshold, preventing condensation damage during long-haul container shipping.",
       },
+    ],
+    relatedLinks: [
+      { label: "Silica gel packets for electronics", href: "/silica-gel-packets" },
     ],
   },
   "pharma-packaging": {
@@ -402,6 +406,24 @@ export default async function IndustryPage({
           </div>
         </section>
       ) : null}
+
+      {page.relatedLinks ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Related products &amp; guides</h2>
+          </div>
+          <div className={styles.grid}>
+            {page.relatedLinks.map((link) => (
+              <article className={styles.card} key={link.href}>
+                <h3>
+                  <Link href={link.href}>{link.label}</Link>
+                </h3>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <script
         type="application/ld+json"
         suppressHydrationWarning
