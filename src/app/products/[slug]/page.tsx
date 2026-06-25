@@ -362,7 +362,7 @@ export async function generateMetadata({
     };
   }
 
-  const title = `${product.shortName} | DryGelWorld`;
+  const title = product.metaTitle ?? `${product.shortName} | DryGelWorld`;
   const description = compactProductDescription(product);
 
   return {

@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
   const page = getComparePage(slug);
   if (!page) return {};
   const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
-  const metaTitle = `${page.productA} vs ${page.productB}`;
+  const metaTitle = `${page.productA} vs ${page.productB} | Buyer Comparison`;
   const metaDescription = compactCompareDescription(page.description);
 
   return {
