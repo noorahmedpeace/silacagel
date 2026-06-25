@@ -4,6 +4,25 @@ import Image from "next/image";
 import { productCatalog } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
+import { FaqBlock } from "@/components/faq-block";
+
+const productsFaqs = [
+  {
+    question: "What's the difference between silica gel sachets, beads, and cargo strips?",
+    answer:
+      "Sachets (0.5g–500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg–5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
+  },
+  {
+    question: "Should I choose silica gel or clay desiccant?",
+    answer:
+      "Silica gel adsorbs about 35% more per gram and has the cleaner document story for regulated cargo (pharma, electronics, leather). Activated clay costs less per kg for bulk industrial loadings on shorter, climate-stable routes. Many export programs use both at different cargo tiers.",
+  },
+  {
+    question: "Do you offer private-label or custom-printed sachets?",
+    answer:
+      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling — confirm packet text, material, MOQ, and document needs at the RFQ stage.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Silica Gel Products | Sachets, Bulk Beads & Strips",
@@ -77,6 +96,8 @@ export default function ProductsPage() {
           </article>
         ))}
       </section>
+
+      <FaqBlock title="Silica gel & desiccant product FAQs" faqs={productsFaqs} />
     </main>
   );
 }

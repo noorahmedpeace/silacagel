@@ -3,6 +3,30 @@ import Image from "next/image";
 import Link from "next/link";
 import { whatsappNumber } from "@/lib/product-data";
 import styles from "./documents.module.css";
+import { FaqBlock } from "@/components/faq-block";
+
+const documentsFaqs = [
+  {
+    question: "Do you provide SDS and COA documentation?",
+    answer:
+      "Yes. A Safety Data Sheet (SDS) and a batch-level Certificate of Analysis (COA) are available for every order, alongside an ISO 9001:2015 quality reference and a DMF-free product statement on request.",
+  },
+  {
+    question: "What export documents can you supply?",
+    answer:
+      "Standard export support covers the SDS, batch COA, ISO 9001:2015 reference, and DMF-free statement, plus shipment paperwork (packing list, certificate of origin) coordinated with your freight forwarder at dispatch.",
+  },
+  {
+    question: "Are your desiccants compliant for food or pharma packaging?",
+    answer:
+      "Silica gel is supplied DMF-free with SDS and COA. Formal food-grade (FSSC 22000) and pharmaceutical (FDA, USP) certifications are not held as blanket credentials — they are confirmed buyer-by-buyer against your market's requirement before commercial terms.",
+  },
+  {
+    question: "Can you provide documentation before I place an order?",
+    answer:
+      "Yes. The SDS, a sample COA, the ISO 9001:2015 reference, and the DMF-free statement can be shared during the RFQ stage so your compliance team can review before commercial terms.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Silica Gel Documents | SDS, COA, ISO & Export Compliance",
@@ -271,6 +295,8 @@ export default function DocumentsPage() {
         </p>
         <Link href="/contact" className={styles.ctaBtn}>Request documentation</Link>
       </section>
+
+      <FaqBlock title="Document & compliance FAQs" faqs={documentsFaqs} />
     </main>
   );
 }
