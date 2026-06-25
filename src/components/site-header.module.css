@@ -1283,3 +1283,131 @@
 .navItem {
   padding: 0 9px;
 }
+
+/* ---------------------------------------------------------------------
+   Clean icon navbar spacing pass.
+   Keep the current design intact; only balance widths/gaps so the nav and
+   CTA cluster breathe correctly on desktop.
+   --------------------------------------------------------------------- */
+@media (min-width: 1025px) {
+  .header {
+    width: min(1248px, calc(100% - 48px));
+    grid-template-columns: 168px minmax(0, 1fr) 342px;
+    gap: 16px;
+    padding: 7px 10px 7px 14px;
+  }
+
+  .brand {
+    width: 168px;
+    padding-right: 0;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    max-width: 144px;
+    height: 38px;
+    min-height: 38px;
+    max-height: 38px;
+  }
+
+  .nav {
+    width: 100%;
+    min-width: 0;
+    justify-self: center;
+    justify-content: center;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .navItem {
+    min-height: 38px;
+    padding-inline: 9px;
+    font-size: 0.78rem;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .navTrigger {
+    gap: 6px;
+  }
+
+  .triggerIcon {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 15px;
+  }
+
+  .triggerChevron {
+    width: 12px;
+    height: 12px;
+    flex: 0 0 12px;
+  }
+
+  .headerActions {
+    width: 342px;
+    justify-self: end;
+    gap: 9px;
+    margin-left: 0;
+  }
+
+  .calcCta {
+    min-width: 202px;
+    min-height: 42px;
+    padding-inline: 12px;
+  }
+
+  .calcText {
+    font-size: 0.72rem;
+    letter-spacing: 0.012em;
+  }
+
+  .navCta {
+    min-width: 130px;
+    min-height: 42px;
+    padding-inline: 14px;
+    font-size: 0.76rem;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1180px) {
+  .header {
+    width: min(1128px, calc(100% - 32px));
+    grid-template-columns: 142px minmax(0, 1fr) 312px;
+    gap: 10px;
+  }
+
+  .brand {
+    width: 142px;
+  }
+
+  .brandLogo,
+  .headerWrapScrolled .brandLogo {
+    max-width: 126px;
+  }
+
+  .nav {
+    gap: 2px;
+  }
+
+  .navItem {
+    padding-inline: 6px;
+    font-size: 0.72rem;
+  }
+
+  .navTrigger {
+    gap: 4px;
+  }
+
+  .headerActions {
+    width: 312px;
+    gap: 7px;
+  }
+
+  .calcCta {
+    min-width: 188px;
+  }
+
+  .navCta {
+    min-width: 117px;
+  }
+}
