@@ -6,6 +6,25 @@ import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "../strategy-pages.module.css";
+import { FaqBlock } from "@/components/faq-block";
+
+const certFaqs = [
+  {
+    question: "What certifications does DryGelWorld hold?",
+    answer:
+      "DryGelWorld holds an ISO 9001:2015 certified quality management system and supplies silica gel with a DMF-free product statement; SDS and batch COA accompany orders. Other certifications (FDA, REACH, Halal, FSSC 22000) are not held as blanket credentials and are confirmed buyer-by-buyer.",
+  },
+  {
+    question: "Are your products REACH and DMF-free compliant?",
+    answer:
+      "Silica gel is supplied DMF-free with a statement on request — important for EU-bound leather and consumer goods. A formal REACH registration is not currently held; for EU/UK shipments, SDS, COA, and the ISO 9001:2015 reference are supplied as standard and REACH requirements are discussed buyer-by-buyer.",
+  },
+  {
+    question: "Can you provide certificates for export shipments?",
+    answer:
+      "Yes. Each export order can include the SDS, a batch COA, the ISO 9001:2015 quality reference, and the DMF-free statement. Market-specific certifications are confirmed against your requirement at the RFQ stage.",
+  },
+];
 
 export const metadata: Metadata = {
   title: "Certifications & Compliance | DryGelWorld",
@@ -430,6 +449,8 @@ export default function CertificationsPage() {
           </a>
         </div>
       </section>
+
+      <FaqBlock title="Certification & compliance FAQs" faqs={certFaqs} />
 
       <script
         type="application/ld+json"
