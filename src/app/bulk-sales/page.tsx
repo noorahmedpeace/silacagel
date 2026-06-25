@@ -5,9 +5,9 @@ import shared from "../shared-page.module.css";
 import styles from "./bulk-sales.module.css";
 
 export const metadata: Metadata = {
-  title: "Bulk Silica Gel Sales | Industrial Desiccant Quote Planning",
+  title: "Bulk & Wholesale Silica Gel Desiccant Supplier USA",
   description:
-    "Plan bulk silica gel desiccant requirements by product format, quantity, and estimated weight before requesting an export quote from Dry Gel World.",
+    "Wholesale and bulk silica gel desiccant supply for distributors and exporters. Plan volume, format & weight, then request an export quote. SDS/COA ready.",
   alternates: {
     canonical: "/bulk-sales",
   },
