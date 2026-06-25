@@ -915,6 +915,7 @@ const highIntentSeoLandingPages = {
       { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
       { label: "Moisture absorber", href: "/moisture-absorber-supplier" },
+      { label: "Activated clay desiccant supplier", href: "/products/dry-clay-desiccant" },
     ],
     faqs: [
       { question: "What are desiccant bags used for?", answer: "Desiccant bags absorb moisture in packaging, cartons, storage spaces, and shipment environments." },
@@ -2866,6 +2867,7 @@ export const seoLandingPages = {
     relatedLinks: [
       { label: "Small sachet product page", href: "/products/retail-sachets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
       { label: "Request export quote", href: "/contact" },
     ],
     faqs: [

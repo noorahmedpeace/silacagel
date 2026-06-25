@@ -39,6 +39,12 @@ export default function ProductsPage() {
           <Link href="/shipping-container-desiccant-supplier">container desiccant strips for shipping</Link>, or plan{" "}
           <Link href="/bulk-sales">wholesale &amp; bulk desiccant supply</Link> for distributor and exporter volumes.
         </p>
+        <p>
+          New to desiccant formats? Start with{" "}
+          <Link href="/silica-gel-packets">silica gel packets &amp; sachets</Link> or{" "}
+          <Link href="/products/dry-clay-desiccant">activated clay desiccant</Link>, or see how they stack up in{" "}
+          <Link href="/compare/silica-gel-vs-oxygen-absorber">silica gel vs oxygen absorber</Link>.
+        </p>
       </section>
 
       <section className={styles.grid}>
