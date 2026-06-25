@@ -1292,7 +1292,7 @@
 @media (min-width: 1025px) {
   .header {
     width: min(1248px, calc(100% - 48px));
-    grid-template-columns: 168px minmax(0, 1fr) 342px;
+    grid-template-columns: 168px minmax(0, 1fr) 358px;
     gap: 16px;
     padding: 7px 10px 7px 14px;
   }
@@ -1344,20 +1344,20 @@
   }
 
   .headerActions {
-    width: 342px;
+    width: 358px;
     justify-self: end;
     gap: 9px;
     margin-left: 0;
   }
 
   .calcCta {
-    min-width: 202px;
+    min-width: 218px;
     min-height: 42px;
     padding-inline: 12px;
   }
 
   .calcText {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.012em;
   }
 
@@ -1372,7 +1372,7 @@
 @media (min-width: 1025px) and (max-width: 1180px) {
   .header {
     width: min(1128px, calc(100% - 32px));
-    grid-template-columns: 142px minmax(0, 1fr) 312px;
+    grid-template-columns: 142px minmax(0, 1fr) 328px;
     gap: 10px;
   }
 
@@ -1399,12 +1399,12 @@
   }
 
   .headerActions {
-    width: 312px;
+    width: 328px;
     gap: 7px;
   }
 
   .calcCta {
-    min-width: 188px;
+    min-width: 204px;
   }
 
   .navCta {
