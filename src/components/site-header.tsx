@@ -134,31 +134,6 @@ const announcementStats = [
   { value: "Worldwide", label: "Delivery support available" },
 ];
 
-const criticalHeaderCss = `
-body > header[class*="headerWrap"]{position:fixed;inset:0 0 auto 0;z-index:200;width:100%;color:#101923;pointer-events:none}
-body > header[class*="headerWrap"] *{box-sizing:border-box}
-body > header[class*="headerWrap"] [class*="announcementBar"]{position:relative;display:flex;width:100%;min-height:38px;max-height:38px;align-items:center;overflow:hidden;background:linear-gradient(135deg,#064a91 0%,#0067c5 54%,#0b75d1 100%)}
-body > header[class*="headerWrap"] [class*="announcementTrack"]{display:flex;width:max-content;min-width:max-content;align-items:center;gap:58px;padding:0 32px}
-body > header[class*="headerWrap"] [class*="announcementItem"]{display:inline-flex;min-width:max-content;align-items:center;gap:10px;color:#fff}
-body > header[class*="headerWrap"] [class*="announcementItem"] strong,body > header[class*="headerWrap"] [class*="announcementItem"] span{white-space:nowrap;font-size:.78rem;line-height:1.1}
-body > header[class*="headerWrap"] [class*="navShell"]{position:relative;pointer-events:auto;padding:10px 16px;background:rgba(255,255,255,.82);border-bottom:1px solid rgba(0,103,197,.12);backdrop-filter:blur(16px)}
-body > header[class*="headerWrap"] [class*="header"]{display:grid;width:min(1200px,calc(100% - 32px));min-height:56px;margin:0 auto;grid-template-columns:150px minmax(0,1fr) auto;align-items:center;gap:10px;padding:6px 10px 6px 14px;border:1px solid rgba(0,103,197,.14);border-radius:16px;background:rgba(255,255,255,.72)}
-body > header[class*="headerWrap"] [class*="brand"]{display:inline-flex;width:150px;min-width:0;align-items:center;overflow:hidden}
-body > header[class*="headerWrap"] [class*="brandLogo"]{display:block;width:132px;height:36px;max-height:36px;object-fit:contain;object-position:left center}
-body > header[class*="headerWrap"] nav[class*="nav"]{display:flex;min-width:0;align-items:center;justify-content:center;gap:2px;overflow:hidden}
-body > header[class*="headerWrap"] [class*="navItem"],body > header[class*="headerWrap"] [class*="navTrigger"]{display:inline-flex;min-height:36px;align-items:center;justify-content:center;gap:4px;padding:0 8px;border:0;border-radius:9px;background:transparent;color:inherit;font:inherit;font-size:.76rem;font-weight:800;line-height:1;white-space:nowrap;text-decoration:none}
-body > header[class*="headerWrap"] [class*="navItemWrap"]{position:relative;display:inline-flex}
-body > header[class*="headerWrap"] [class*="dropdown"]{position:absolute;top:calc(100% + 14px);left:0;z-index:50;min-width:260px;max-width:min(540px,calc(100vw - 32px));opacity:0;visibility:hidden;pointer-events:none;transform:translateY(8px)}
-body > header[class*="headerWrap"] [class*="dropdownOpen"]{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}
-body > header[class*="headerWrap"] [class*="headerActions"]{display:flex;justify-self:end;align-items:center;gap:8px}
-body > header[class*="headerWrap"] [class*="calcCta"],body > header[class*="headerWrap"] [class*="navCta"]{display:inline-flex;min-height:40px;align-items:center;justify-content:center;border-radius:10px;text-decoration:none;white-space:nowrap}
-body > header[class*="headerWrap"] [class*="calcCta"]{min-width:166px;gap:7px;padding:0 9px;background:linear-gradient(135deg,#0075d8 0%,#005aa9 53%,#063c76 100%);color:#fff;font-size:.68rem;font-weight:950;text-transform:uppercase}
-body > header[class*="headerWrap"] [class*="calcText"]>span{display:none}
-body > header[class*="headerWrap"] [class*="navCta"]{min-width:118px;padding:0 12px;background:#d80d2a;color:#fff;font-size:.74rem;font-weight:900}
-body > header[class*="headerWrap"] [class*="menuToggle"]{display:none}
-@media(max-width:1024px){body > header[class*="headerWrap"] [class*="header"]{grid-template-columns:1fr auto}body > header[class*="headerWrap"] nav[class*="nav"]{display:none}body > header[class*="headerWrap"] [class*="menuToggle"]{display:inline-flex}}
-`;
-
 function tint(accent: string, amount: number) {
   return `color-mix(in srgb, ${accent} ${amount}%, white)`;
 }
@@ -207,7 +182,6 @@ export function SiteHeader() {
 
   return (
     <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
-      <style dangerouslySetInnerHTML={{ __html: criticalHeaderCss }} />
       <section className={styles.announcementBar} aria-label="Dry Gel World supply highlights">
         <div className={styles.announcementTrack}>
           {[...announcementStats, ...announcementStats].map((item, index) => (
