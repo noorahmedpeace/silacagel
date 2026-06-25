@@ -34,6 +34,11 @@ export default function ProductsPage() {
           Browse all primary Dry Gel World formats in one place. Open any category for
           full detail, specifications, and direct purchase support.
         </p>
+        <p>
+          Shipping cargo by sea? Compare{" "}
+          <Link href="/shipping-container-desiccant-supplier">container desiccant strips for shipping</Link>, or plan{" "}
+          <Link href="/bulk-sales">wholesale &amp; bulk desiccant supply</Link> for distributor and exporter volumes.
+        </p>
       </section>
 
       <section className={styles.grid}>

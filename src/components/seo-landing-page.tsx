@@ -116,6 +116,25 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </section>
       ) : null}
 
+      {page.contentBlock ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{page.contentBlock.heading}</h2>
+            <p>
+              {page.contentBlock.parts.map((part, index) =>
+                "href" in part ? (
+                  <Link href={part.href} key={`${index}-${part.href}`}>
+                    {part.label}
+                  </Link>
+                ) : (
+                  <span key={`${index}-text`}>{part.text}</span>
+                ),
+              )}
+            </p>
+          </div>
+        </section>
+      ) : null}
+
       {page.sizeGuide ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>
