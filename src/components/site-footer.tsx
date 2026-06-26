@@ -9,6 +9,7 @@ import {
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./site-footer.module.css";
+import { SocialLinks } from "./social-links";
 
 const footerGroups = [
   {
@@ -142,6 +143,7 @@ export function SiteFooter() {
               WhatsApp
             </a>
           </div>
+          <SocialLinks label="Follow DryGelWorld" />
           <div className={styles.emailDesk}>
             <span className={styles.emailDeskLabel}>Official email desk</span>
             <a
