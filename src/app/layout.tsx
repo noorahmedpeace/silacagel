@@ -158,6 +158,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={body.variable}>
       <head>
+        {/* Discoverability for AI agents: point at the plain-text /llms.txt
+            grounding file so crawlers find it without guessing. */}
+        <link rel="alternate" type="text/plain" title="LLM guide (llms.txt)" href="/llms.txt" />
         <link
           rel="preload"
           as="image"
@@ -400,11 +403,10 @@ export default function RootLayout({
                   publisher: {
                     "@id": `${absoluteUrl()}#organization`,
                   },
-                  potentialAction: {
-                    "@type": "SearchAction",
-                    target: "https://www.drygelworld.com/products?query={search_term_string}",
-                    "query-input": "required name=search_term_string",
-                  },
+                  // SearchAction (sitelinks searchbox) intentionally omitted:
+                  // /products has no query-param search, so advertising
+                  // /products?query= was non-functional structured data. Re-add
+                  // a potentialAction here only once on-site search is wired.
                 },
                 {
                   "@type": "LocalBusiness",

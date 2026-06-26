@@ -11,7 +11,7 @@ import {
   seoImages,
 } from "@/lib/seo-images";
 import { exportMarkets } from "./export/markets";
-import { blogArticles } from "./blog/articles";
+import { blogArticles, getArticlePublication } from "./blog/articles";
 import { comparePages } from "@/lib/compare-data";
 import { caseStudies } from "@/lib/case-study-data";
 
@@ -142,10 +142,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const article of blogArticles) {
     const image = getBlogSeoImage(article.slug);
+    // Per-article freshness: use the real updatedAt date so Google sees genuine
+    // per-URL lastmod instead of one shared sitemap date across all articles.
+    const articleLastModified = new Date(getArticlePublication(article.slug).updatedAt);
 
     entries.push({
       url: absoluteUrl(`/blog/${article.slug}`),
-      lastModified,
+      lastModified: articleLastModified,
       changeFrequency: "monthly",
       priority: 0.6,
       images: sitemapImages([image.src]),

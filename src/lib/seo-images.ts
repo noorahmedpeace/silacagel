@@ -402,8 +402,21 @@ export function getExportMarketSeoImage(slug: string) {
 export function getLandingSeoImage(page: {
   slug: string;
   kicker: string;
-  heroImage?: { alt: string; caption: string };
+  heroImage?: { src?: string; alt?: string; caption?: string };
 }) {
+  // Prefer the page's own authored hero image when it provides a src, so each
+  // landing page keeps its specific OG/social image and alt text. Only fall
+  // back to the keyword-based picker when no hero image was authored.
+  if (page.heroImage?.src) {
+    return {
+      src: page.heroImage.src,
+      alt: page.heroImage.alt || withPageImageContext(seoImages.silicaGelSachets, page.kicker).alt,
+      title: page.heroImage.alt || `${page.kicker} | DryGelWorld industrial silica gel`,
+      caption: page.heroImage.caption || seoImages.silicaGelSachets.caption,
+      ...seoImageSize,
+    };
+  }
+
   const value = `${page.slug} ${page.kicker}`.toLowerCase();
   let image: SeoImage = seoImages.silicaGelSachets;
 

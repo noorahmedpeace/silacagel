@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -51,7 +52,32 @@ import {
   whatsappNumber,
 } from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
+import { defaultSeoImage } from "@/lib/seo";
 import styles from "./page.module.css";
+
+// The homepage is the site's most authoritative URL and must set its own
+// commercial metadata rather than inheriting the layout default. Title/H1 carry
+// transactional "buy silica gel" intent; canonical is the slash-consistent root.
+export const metadata: Metadata = {
+  title: "Buy Silica Gel in Bulk | Manufacturer & Exporter — DryGelWorld",
+  description:
+    "Buy silica gel desiccant in bulk direct from the manufacturer since 1983 — wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Buy Silica Gel in Bulk — Manufacturer & Exporter | DryGelWorld",
+    description:
+      "Manufacturer-direct silica gel: wholesale packets, bulk beads, and container desiccant strips with SDS/COA and worldwide export shipping.",
+    url: "/",
+    type: "website",
+    images: [{ url: defaultSeoImage, width: 1200, height: 630, alt: "Buy silica gel in bulk from DryGelWorld" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Buy Silica Gel in Bulk | DryGelWorld",
+    description: "Manufacturer-direct silica gel packets, bulk beads, and container strips. Low MOQ, SDS/COA, worldwide shipping.",
+    images: [defaultSeoImage],
+  },
+};
 
 const trustSignalsArray = [
   {
@@ -164,7 +190,7 @@ const industrialBentoCards = [
     label: "RH Monitoring",
     text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
     image: seoImages.desiccantSizing.src,
-    href: "/documents",
+    href: "/orange-silica-gel-supplier",
     stat: "RH signal",
   },
   {
@@ -315,19 +341,19 @@ export default function Home() {
                 Global industrial desiccant supply
               </span>
               <h1>
-                {splitTextToSpans("Worldwide silica gel desiccants for industrial moisture protection.")}
+                {splitTextToSpans("Buy silica gel in bulk — manufacturer & exporter since 1983.")}
               </h1>
               <p className={`${styles.lead} gsap-hero-fade`}>
-                Export-ready sachets, bulk packs, and cargo strips for manufacturers, importers, pharma, electronics, logistics, and packaging teams in any country.
+                Buy silica gel desiccant at manufacturer-direct, wholesale prices — export-ready sachets, bulk beads, and cargo strips with low MOQ, SDS/COA, and worldwide shipping for importers, pharma, electronics, logistics, and packaging teams in any country.
               </p>
 
               <div className={`${styles.ctaRow} gsap-hero-fade`}>
-                <a href="#contact" className={styles.primaryCta}>
-                  Request Export Quote
-                </a>
-                <a href="#products" className={styles.secondaryCta}>
+                <Link href="/buy-silica-gel" className={styles.primaryCta}>
+                  Buy Silica Gel
+                </Link>
+                <Link href="/products" className={styles.secondaryCta}>
                   View Product Range
-                </a>
+                </Link>
               </div>
 
               <div className={`${styles.heroProofLine} gsap-hero-fade`}>

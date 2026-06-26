@@ -21,12 +21,12 @@ type IndustryPage = {
   h1: string;
   description: string;
   points: string[];
-  // Optional on-page SEO content. When present, the rich body + FAQ render
-  // instead of the generic "buyer requirement" scaffolding, and a FAQPage
-  // node is added to the JSON-LD graph.
+  // Required on-page SEO content. Every industry page MUST author a real body
+  // (and should author faqs) — making `body` required means a missing page
+  // fails the build instead of leaking the editorial scaffold to the public.
   metaTitle?: string;
   metaDescription?: string;
-  body?: IndustryBody;
+  body: IndustryBody;
   faqHeading?: string;
   faqs?: IndustryFaq[];
   relatedLinks?: Array<{ label: string; href: string }>;
@@ -143,10 +143,54 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Reduce humidity risk in footwear, garments, leather goods, and export cartons.",
     description:
       "Silica gel sachets for leather export, footwear cartons, garments, textiles, mold prevention, and long-haul logistics.",
+    metaTitle: "Silica Gel for Leather & Footwear Export | Mold Prevention",
+    metaDescription:
+      "Silica gel desiccant for leather goods, footwear & garment export cartons. Stop mold, mildew, odor & finish damage on humid sea routes. SDS/COA. Get an RFQ.",
     points: [
       "Target mold, odor, finish damage, and warehouse humidity risks in export cartons.",
       "Offer printed sachets and carton-level packing guidance for footwear brands and exporters.",
-      "Build landing-page copy around buyer losses: claims, returns, and damaged stock.",
+      "Match sachet size to carton volume, route humidity, and transit time before quoting.",
+    ],
+    body: {
+      heading: "Moisture protection for leather, footwear, and garment exports",
+      intro:
+        "Leather and footwear lose value fast to humidity — mold blooms, white salt spew, musty odor, and adhesive failure are the top reasons buyers reject or claim against shipments. DryGelWorld supplies silica gel sachets sized for shoe boxes, leather goods, and master export cartons moving through humid storage and long-haul sea freight.",
+      formatsHeading: "Product formats for leather & footwear buyers",
+      formats: [
+        { label: "5g-10g sachets", text: "Inside shoe boxes, handbags, and small leather goods cartons." },
+        { label: "25g-50g bags", text: "Master cartons of footwear, garments, and bulk leather items." },
+        { label: "Container strips", text: "Ceiling-hung strips for full 20ft/40ft loads on tropical routes." },
+      ],
+      closingHeading: "Why mold and odor happen in transit",
+      closing:
+        "Sealed cartons trap warm, moist air; as the container cools at night, that moisture condenses onto leather and fabric, feeding mold and mildew. Correctly sized silica gel holds humidity below the mold threshold for the whole voyage, protecting both the product and the brand’s claim record.",
+    },
+    faqHeading: "Leather & footwear desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "How do I stop mold on leather and footwear during export?",
+        answer:
+          "Place correctly sized silica gel sachets inside each box and master carton, and add container strips for full sea-freight loads. Sized against route humidity and transit time, silica gel keeps relative humidity below the level where mold and mildew grow.",
+      },
+      {
+        question: "What size silica gel sachet should go in a shoe box?",
+        answer:
+          "A 5g-10g sachet per shoe box is typical, with 25g-50g bags added at master-carton level. Final sizing depends on carton volume, packaging film, and how humid and long the route is — send carton details in an RFQ for an exact recommendation.",
+      },
+      {
+        question: "Do you supply printed or private-label sachets for footwear brands?",
+        answer:
+          "Yes. We supply printed and private-label silica gel sachets with custom packet text and warning copy for footwear and leather-goods brands. Confirm size, material, artwork, and MOQ in your RFQ.",
+      },
+      {
+        question: "Can silica gel prevent salt spew and odor on leather?",
+        answer:
+          "Silica gel controls the in-carton humidity that drives mold, mildew, and musty odor, and reduces the moisture cycling linked to leather finish problems. Pair it with dry packing and conditioned cartons for best results on long humid routes.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Silica gel for leather export", href: "/silica-gel-for-leather-export" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
     ],
   },
   "food-packaging": {
@@ -154,10 +198,54 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Moisture-control support for food packaging and dry-goods exporters.",
     description:
       "Food packaging desiccant guidance for dry goods, snacks, spices, cartons, compliance support, and export moisture control.",
+    metaTitle: "Food-Grade Silica Gel Desiccant for Food Packaging Export",
+    metaDescription:
+      "Food-safe silica gel desiccant for dry goods, snacks, spices & export cartons. Protect shelf life and prevent clumping & mold. SDS/COA and compliance docs. RFQ.",
     points: [
-      "Only show food-grade or FDA/FSSC claims where valid documentation exists.",
-      "Focus copy on dry goods, carton protection, shelf stability, and buyer documentation.",
-      "Route regulated inquiries into the RFQ form before commercial confirmation.",
+      "Focus on dry goods, carton protection, shelf stability, and buyer documentation.",
+      "Match desiccant format to pack type — sachets in unit packs, larger bags for cartons.",
+      "Provide SDS, COA, and food-contact compliance support per destination market.",
+    ],
+    body: {
+      heading: "Moisture control for food packaging and dry-goods export",
+      intro:
+        "Dry foods, snacks, spices, and nutraceuticals lose crispness, clump, cake, and grow mold when humidity gets into the pack. DryGelWorld supplies silica gel desiccants for food-packaging and dry-goods exporters — with SDS, COA, and food-contact compliance documentation matched to the destination market.",
+      formatsHeading: "Product formats for food-packaging buyers",
+      formats: [
+        { label: "Small food-safe sachets", text: "Inside snack, spice, and dry-mix unit packs (used outside direct ingestion)." },
+        { label: "Master-carton desiccants", text: "Larger bags for export cartons of packaged food goods." },
+        { label: "Container desiccants", text: "Strips for sealed sea-freight loads of dry foodstuffs." },
+      ],
+      closingHeading: "Compliance and documentation",
+      closing:
+        "Food applications require careful claims. We supply Safety Data Sheets (SDS), Certificates of Analysis (COA), and a DMF-free statement, and discuss FDA/REACH/Halal documentation per destination — confirmed against valid paperwork before any food-grade claim is made.",
+    },
+    faqHeading: "Food packaging desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "Is silica gel safe to use in food packaging?",
+        answer:
+          "Silica gel (silicon dioxide) is chemically inert and is widely used as a desiccant in food packaging, placed in the pack rather than ingested and labeled 'do not eat'. For food-contact use we supply SDS, COA, and a DMF-free statement, and confirm market-specific documentation before any food-grade claim.",
+      },
+      {
+        question: "Which silica gel format is best for snacks and spices?",
+        answer:
+          "Small sachets sit inside unit packs of snacks, spices, and dry mixes, while larger bags protect master export cartons. Sizing depends on pack volume, barrier film, and shelf-life target — send your pack details for a recommendation.",
+      },
+      {
+        question: "Do you provide food-grade and compliance documentation?",
+        answer:
+          "Yes. We provide SDS, COA, and a DMF-free statement with orders, and discuss FDA, REACH, and Halal documentation per destination market, confirmed against valid documents before commercial terms.",
+      },
+      {
+        question: "How does silica gel extend the shelf life of dry foods?",
+        answer:
+          "By holding the in-pack humidity low, silica gel prevents the moisture pickup that causes clumping, caking, loss of crispness, and mold growth — keeping dry foods stable through storage and long export transit.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Food-grade silica gel supplier", href: "/food-grade-silica-gel-supplier" },
+      { label: "Silica gel for rice, grain & spice export", href: "/blog/silica-gel-for-rice-grain-spice-export" },
     ],
   },
   "textile-garment-export": {
@@ -165,10 +253,54 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Reduce mildew, dye-migration, and odor risk in textile and garment export cartons.",
     description:
       "Silica gel sachets and bulk desiccant for textile mills, garment exporters, fabric rolls, and long-haul humid routes from South Asia to USA, EU, and the Middle East.",
+    metaTitle: "Silica Gel for Textile & Garment Export | Mildew Control",
+    metaDescription:
+      "Silica gel desiccant for textile mills & garment exporters. Stop mildew, dye migration & musty odor in fabric rolls and export cartons on humid routes. RFQ.",
     points: [
       "Mildew, dye migration, and musty-odor claims are the failure modes garment buyers reject for. Size desiccant against humidity exposure, not unit volume alone.",
       "Use 10g-50g sachets per carton on long-haul routes; container-ceiling cargo strips on trans-equatorial passages.",
       "Combine desiccant with kiln-dried pallets and 24-48h pre-pack moisture conditioning of the fabric itself.",
+    ],
+    body: {
+      heading: "Moisture protection for textile and garment exports",
+      intro:
+        "Fabric is hygroscopic — it absorbs and releases moisture with the surrounding air, which is why textile and garment shipments fail through mildew, dye migration, and musty odor on long humid routes from South Asia to the USA, EU, and Middle East. DryGelWorld supplies silica gel sachets and bulk desiccant sized for fabric rolls, garment cartons, and full container loads.",
+      formatsHeading: "Product formats for textile & garment buyers",
+      formats: [
+        { label: "10g-50g sachets", text: "Per garment carton and inside fabric-roll wrapping on long-haul routes." },
+        { label: "Bulk desiccant bags", text: "For dense bale and roll shipments needing higher capacity." },
+        { label: "Container cargo strips", text: "Ceiling-hung strips for trans-equatorial and tropical passages." },
+      ],
+      closingHeading: "Why fabric shipments grow mildew",
+      closing:
+        "Warm, damp fabric sealed in a cooling container releases moisture that condenses on cartons and cloth, feeding mildew and shifting dyes. Sizing desiccant against route humidity and transit time — not carton volume alone — keeps the load below the mildew threshold for the full voyage.",
+    },
+    faqHeading: "Textile & garment desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "How do I prevent mildew on garment and textile exports?",
+        answer:
+          "Use 10g-50g silica gel sachets per carton and add container strips for full loads on long humid routes. Sized against route humidity and transit days, silica gel holds in-carton humidity below the level where mildew and musty odor develop.",
+      },
+      {
+        question: "Does silica gel stop dye migration in fabrics?",
+        answer:
+          "Dye migration is driven by excess moisture and heat in transit. By keeping the in-carton humidity low and stable, silica gel reduces the moisture cycling that causes dyes to bleed or transfer between layers.",
+      },
+      {
+        question: "How much silica gel per garment carton?",
+        answer:
+          "A common starting point is 10g-50g per carton depending on carton volume, fabric weight, packaging film, and route humidity. Send carton dimensions and the shipping lane in an RFQ for an exact dosage.",
+      },
+      {
+        question: "Should I condition fabric before packing?",
+        answer:
+          "Yes. Pair desiccant with kiln-dried pallets and 24-48 hours of pre-pack moisture conditioning of the fabric itself — desiccant controls residual and ambient moisture, but packing already-damp fabric overwhelms any desiccant load.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
     ],
   },
   "container-shipping": {
@@ -176,10 +308,55 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Container desiccant supply for sealed ocean freight, transit humidity, and condensation cycling.",
     description:
       "Container desiccant strips, pole desiccants, and bulk silica gel for 20ft and 40ft containers on transpacific, trans-Atlantic, and trans-equatorial routes.",
+    metaTitle: "Container Desiccant for Ocean Freight | Stop Container Rain",
+    metaDescription:
+      "Container desiccant strips & bulk silica gel for 20ft/40ft ocean freight. Stop container rain, condensation & mold on long-haul sea routes. SDS/COA. Get an RFQ.",
     points: [
       "Standard loading: 6-10 strips per 20ft container, 10-16 per 40ft. Long-haul tropical routes use the upper end.",
       "Container desiccant is single-voyage consumable. For reusable closed-loop applications, regenerable bulk silica gel beads are the right product.",
       "Match strip placement (ceiling, corrugations) to cargo geometry; even distribution beats concentrated placement.",
+    ],
+    body: {
+      heading: "Container desiccant for sealed ocean freight",
+      intro:
+        "On long ocean voyages, day-night temperature swings make trapped moisture condense on the container ceiling and walls and drip onto cargo — 'container rain'. DryGelWorld supplies container desiccant strips, pole desiccants, and bulk silica gel for 20ft and 40ft containers on transpacific, trans-Atlantic, and trans-equatorial routes.",
+      formatsHeading: "Product formats for container shipping",
+      formats: [
+        { label: "Ceiling-hung strips", text: "1kg-5kg multi-chamber strips hung at the container ceiling and along corrugations." },
+        { label: "Pole / hanging desiccants", text: "For even distribution across the cargo space on humid lanes." },
+        { label: "Bulk silica gel beads", text: "Regenerable beads for reusable closed-loop container applications." },
+      ],
+      closingHeading: "How much container desiccant you need",
+      closing:
+        "Standard loading is 6-10 strips per 20ft container and 10-16 per 40ft, with long-haul tropical routes using the upper end. Even distribution beats concentrated placement. Container desiccant is a single-voyage consumable; for reusable closed-loop systems, regenerable bulk silica gel beads are the right product.",
+    },
+    faqHeading: "Container desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "How many desiccant strips do I need for a 40ft container?",
+        answer:
+          "Typically 10-16 strips of 1-2kg per 40ft container on long-haul tropical-to-temperate routes (25+ days), 8-12 for medium-haul, and 6-8 for short-haul. High-cube containers use the upper end. Send your route and cargo for an exact recommendation.",
+      },
+      {
+        question: "What is container rain and how does desiccant prevent it?",
+        answer:
+          "Container rain is condensation that forms on the ceiling and walls when warm moist air cools at night, then drips onto cargo. Container desiccant adsorbs that moisture so humidity stays below the dew point, preventing the condensation cycle.",
+      },
+      {
+        question: "Where should container desiccant strips be placed?",
+        answer:
+          "Hang strips at the container ceiling and along the corrugations, distributed evenly across the cargo space rather than concentrated in one area. Even placement protects the whole load against localized condensation.",
+      },
+      {
+        question: "Can I reuse container desiccant?",
+        answer:
+          "Container strips are single-voyage consumables. For reusable closed-loop applications, regenerable bulk silica gel beads can be reactivated by heating and reused. Tell us your use case and we recommend the right format.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
+      { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" },
     ],
   },
   "automotive-parts": {
@@ -187,10 +364,54 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Moisture and corrosion protection for exported automotive parts and components.",
     description:
       "Silica gel sachets and container desiccants for automotive parts exporters — protecting bearings, electronics, and metal components from rust and condensation during ocean freight and warehouse storage.",
+    metaTitle: "Silica Gel for Automotive Parts Export | Rust Prevention",
+    metaDescription:
+      "Silica gel desiccant for automotive parts exporters — protect bearings, ECUs & metal components from rust and condensation in ocean freight & storage. RFQ.",
     points: [
       "Metal automotive components rust when container condensation forms on long-haul routes — sachets at the carton level plus container strips protect the part and the packaging.",
       "Match sachet dosage to carton volume and route humidity; add bulk desiccant for high-value bearings and electronic control units.",
       "Request SDS, COA, and DMF-free documentation for buyers who audit packaging in incoming-quality checks.",
+    ],
+    body: {
+      heading: "Corrosion protection for exported automotive parts",
+      intro:
+        "Automotive parts are mostly bare or coated metal, and metal rusts wherever container condensation forms on long-haul routes. DryGelWorld supplies silica gel sachets and container desiccants that protect bearings, fasteners, castings, electronic control units, and spare parts from rust and condensation through ocean freight and warehouse storage.",
+      formatsHeading: "Product formats for automotive buyers",
+      formats: [
+        { label: "Carton-level sachets", text: "Sized to carton air volume for boxed parts and components." },
+        { label: "Bulk desiccant", text: "Higher capacity for high-value bearings and electronic control units." },
+        { label: "Container strips", text: "For sealed full loads of metal parts on humid, long-haul lanes." },
+      ],
+      closingHeading: "Why automotive parts corrode in transit",
+      closing:
+        "Temperature swings inside a sealed container cause repeated condensation cycles onto cold metal surfaces — the start of rust, pitting, and contact corrosion on electronics. Carton-level sachets plus container strips hold humidity below the corrosion threshold and protect both the part and its packaging.",
+    },
+    faqHeading: "Automotive parts desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "How do I prevent rust on automotive parts during ocean freight?",
+        answer:
+          "Combine silica gel sachets inside each carton with container strips for the full load. Sized to carton volume and route humidity, silica gel holds the sealed-pack humidity below the level where condensation and rust form on metal parts.",
+      },
+      {
+        question: "What silica gel do I need for bearings and ECUs?",
+        answer:
+          "High-value bearings and electronic control units benefit from higher desiccant capacity — carton sachets plus bulk desiccant, and anti-static handling for electronics. Send the part type, packaging, and route for a dosage recommendation.",
+      },
+      {
+        question: "Do you provide documentation for incoming-quality audits?",
+        answer:
+          "Yes. We supply SDS, COA, and a DMF-free statement for buyers who audit packaging in incoming-quality checks. ISO 9001:2015 quality-management support is available on request.",
+      },
+      {
+        question: "How much silica gel per carton of automotive parts?",
+        answer:
+          "Dosage depends on enclosed air volume, metal mass, barrier material, and transit time. Send carton dimensions and the shipping lane in an RFQ and we recommend packet size and quantity.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
     ],
   },
   "defense-and-ammunition-packaging": {
@@ -198,10 +419,50 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Moisture and corrosion control for defense components, ammunition, and military spare-parts packaging.",
     description:
       "Silica gel and clay desiccant for defense-sector packaging — protecting metal components, ammunition, optics, and spare parts from corrosion and condensation in sealed transit and long-term storage.",
+    metaTitle: "Silica Gel for Defense & Ammunition Packaging | Desiccant",
+    metaDescription:
+      "Silica gel & clay desiccant for defense and ammunition packaging — corrosion control for metal parts, primers, optics & spares in sealed transit and storage. RFQ.",
     points: [
       "Defense and ammunition packaging fails through corrosion and condensation on metal parts, primers, and optics — desiccant holds the sealed-pack humidity below the point where that damage starts.",
-      "Military specifications (such as MIL-D-3464) and desiccant 'unit' counts (DIN 55473) are buyer-supplied requirements: tell us the unit count and spec your contract calls for and we quote silica gel or clay to meet it. DryGelWorld holds ISO 9001:2015 + a DMF-free statement and does not claim a MIL-spec qualification itself.",
+      "Military specifications (such as MIL-D-3464) and desiccant 'unit' counts (DIN 55473) are buyer-supplied requirements: tell us the unit count and spec your contract calls for and we quote silica gel or clay to meet it.",
       "Pair carton-level sachets with container strips for sealed long-term storage; request SDS, COA, and unit-count documentation for incoming-quality audits.",
+    ],
+    body: {
+      heading: "Corrosion and moisture control for defense packaging",
+      intro:
+        "Defense and ammunition packaging protects metal parts, primers, optics, and spares that must survive sealed transit and long-term storage without corrosion. DryGelWorld supplies silica gel and dry clay desiccant against buyer-supplied specifications and desiccant 'unit' counts, with the documentation procurement audits require.",
+      formatsHeading: "Product formats for defense buyers",
+      formats: [
+        { label: "Unit-rated desiccant", text: "Silica gel or clay quoted to DIN 55473 unit counts your contract specifies." },
+        { label: "Carton-level sachets", text: "Sized to enclosed volume for boxed components, primers, and optics." },
+        { label: "Container strips", text: "For sealed long-term storage and full-load transit." },
+      ],
+      closingHeading: "Specifications and what we do and don't claim",
+      closing:
+        "Military specifications (such as MIL-D-3464) and DIN 55473 'unit' counts are buyer-supplied requirements — tell us the unit count and spec your contract calls for and we quote silica gel or clay to meet it. DryGelWorld holds ISO 9001:2015 and supplies a DMF-free statement, and does not claim a MIL-spec qualification itself.",
+    },
+    faqHeading: "Defense & ammunition desiccant — buyer FAQs",
+    faqs: [
+      {
+        question: "Can you supply desiccant to MIL-D-3464 or DIN 55473 unit counts?",
+        answer:
+          "MIL-D-3464 and DIN 55473 unit counts are buyer-supplied requirements. Tell us the unit count and specification your contract calls for and we quote silica gel or clay desiccant to meet it. We hold ISO 9001:2015 and provide a DMF-free statement; we do not claim a MIL-spec qualification ourselves.",
+      },
+      {
+        question: "Which desiccant is best for ammunition and primers?",
+        answer:
+          "Both silica gel and dry clay desiccant are used; the choice depends on the unit count, temperature range, and storage duration your spec defines. Pair unit-rated desiccant with carton sachets and container strips for sealed long-term storage.",
+      },
+      {
+        question: "How does desiccant protect optics and metal defense parts?",
+        answer:
+          "By holding sealed-pack humidity below the corrosion and fogging threshold, desiccant prevents the condensation cycles that pit metal, degrade primers, and fog optics during transit and long-term storage.",
+      },
+      {
+        question: "What documentation do you provide for procurement audits?",
+        answer:
+          "We provide SDS, COA, unit-count documentation, ISO 9001:2015 support, and a DMF-free statement for incoming-quality and procurement audits. Specify your required paperwork in the RFQ.",
+      },
     ],
   },
 };
@@ -274,7 +535,7 @@ export default async function IndustryPage({
   const pageUrl = absoluteUrl(`/industries/${industry}`);
   const breadcrumb = breadcrumbJsonLd([
     { name: "Home", href: "/" },
-    { name: "Industries", href: "/industries/electronics-packaging" },
+    { name: "Industries", href: "/industries" },
     { name: page.title, href: `/industries/${industry}` },
   ]);
   const industryJsonLd = {
@@ -348,48 +609,27 @@ export default async function IndustryPage({
         <figcaption>{heroImage.caption}</figcaption>
       </figure>
 
-      {page.body ? (
-        <section className={styles.section}>
-          <div className={styles.sectionHead}>
-            <h2>{page.body.heading}</h2>
-            <p>{page.body.intro}</p>
-          </div>
-          <div className={styles.sectionHead}>
-            <h3>{page.body.formatsHeading}</h3>
-          </div>
-          <div className={styles.grid}>
-            {page.body.formats.map((format) => (
-              <article className={styles.card} key={format.label}>
-                <h3>{format.label}</h3>
-                <p>{format.text}</p>
-              </article>
-            ))}
-          </div>
-          <div className={styles.sectionHead}>
-            <h3>{page.body.closingHeading}</h3>
-            <p>{page.body.closing}</p>
-          </div>
-        </section>
-      ) : (
-        <section className={styles.section}>
-          <div className={styles.sectionHead}>
-            <h2>What this page should prove to buyers.</h2>
-            <p>
-              Each industry page should become a focused landing page with use-case visuals,
-              product sizing, compliance language, and export inquiry routing.
-            </p>
-          </div>
-          <div className={styles.grid}>
-            {page.points.map((point, index) => (
-              <article className={styles.card} key={point}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>Buyer requirement</h3>
-                <p>{point}</p>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>{page.body.heading}</h2>
+          <p>{page.body.intro}</p>
+        </div>
+        <div className={styles.sectionHead}>
+          <h3>{page.body.formatsHeading}</h3>
+        </div>
+        <div className={styles.grid}>
+          {page.body.formats.map((format) => (
+            <article className={styles.card} key={format.label}>
+              <h3>{format.label}</h3>
+              <p>{format.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className={styles.sectionHead}>
+          <h3>{page.body.closingHeading}</h3>
+          <p>{page.body.closing}</p>
+        </div>
+      </section>
 
       {page.faqs ? (
         <section className={styles.section}>

@@ -23,11 +23,25 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/preview", "/preview/"],
       },
-      // To block AI training crawlers explicitly (and reproducibly), uncomment:
-      // {
-      //   userAgent: ["GPTBot", "CCBot", "Google-Extended", "Bytespider", "Applebot-Extended"],
-      //   disallow: "/",
-      // },
+      // Explicit, version-controlled welcome for AI search / grounding crawlers
+      // so the policy is unambiguous. These agents consume /llms.txt and can
+      // cite the site in AI answers. To instead BLOCK them, change `allow: "/"`
+      // to `disallow: "/"` here.
+      {
+        userAgent: [
+          "GPTBot",
+          "OAI-SearchBot",
+          "ChatGPT-User",
+          "ClaudeBot",
+          "Claude-Web",
+          "anthropic-ai",
+          "PerplexityBot",
+          "Google-Extended",
+          "CCBot",
+        ],
+        allow: "/",
+        disallow: ["/preview", "/preview/"],
+      },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
     host: absoluteUrl(),

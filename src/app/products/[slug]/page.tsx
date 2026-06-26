@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
 import { Reveal } from "@/components/reveal";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import {
   displayPhone,
   getProductBySlug,
@@ -335,6 +335,19 @@ const productFaqs = {
   ],
 } as const;
 
+// Indicative USD price ranges per silica gel product, taken from the SAME
+// published export prices already shown on the homepage/buy pages
+// (src/lib/product-data.ts priceGroups). Used to emit a valid Product +
+// AggregateOffer node so price/availability is citable by Google and AI engines.
+// Only products with a real published price appear here; PPE/clay (quote-only)
+// are intentionally omitted rather than carrying invented prices.
+const productOfferPricing: Record<string, { lowPrice: number; highPrice: number; offerCount: number }> = {
+  "retail-sachets": { lowPrice: 0.0035, highPrice: 0.014, offerCount: 7 },
+  "paper-sachets": { lowPrice: 0.0045, highPrice: 0.068, offerCount: 6 },
+  "bulk-industrial": { lowPrice: 0.078, highPrice: 1.85, offerCount: 6 },
+  "container-strips": { lowPrice: 4.2, highPrice: 19.4, offerCount: 4 },
+};
+
 export async function generateStaticParams() {
   return productCatalog.map((product) => ({
     slug: product.slug,
@@ -405,6 +418,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const procurement = procurementDetails[product.slug as keyof typeof procurementDetails];
   const faqs = productFaqs[product.slug as keyof typeof productFaqs] ?? [];
   const cluster = productClusters[product.slug];
+  const offerPricing = productOfferPricing[product.slug];
 
   const purchaseMessage = [
     "Hello, I want to purchase Dry Gel World.",
@@ -684,20 +698,36 @@ export default async function ProductPage({ params }: ProductPageProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                // Product schema deliberately removed — Google's Product rich-
-                // result validator requires offers/review/aggregateRating, none
-                // of which apply to a B2B quote-on-request supplier. Emitting
-                // a Product node without those fields generates a persistent
-                // "1 invalid item detected" warning in GSC. Inventing prices
-                // or ratings would pass validation but misrepresent the
-                // commercial model and risk manual penalty.
-                //
-                // The page is still indexable, breadcrumbs and FAQ rich
-                // results (which actually matter for B2B SERP CTR) remain
-                // valid below. Entity context for Google's Knowledge Graph
-                // is carried by the Organization schema on the home/about
-                // pages, which already declares the same brand/manufacturer
-                // identity.
+                // Product + AggregateOffer using the SAME indicative export
+                // prices already published on the homepage/buy pages. review &
+                // aggregateRating are intentionally omitted (none exist yet), so
+                // the node validates without inventing ratings. Only products
+                // with a real published price get a node; quote-only PPE/clay
+                // are skipped so no invented price is ever emitted.
+                ...(offerPricing
+                  ? [
+                      {
+                        "@type": "Product",
+                        "@id": `${absoluteUrl(`/products/${product.slug}`)}#product`,
+                        name: product.name,
+                        description: product.summary,
+                        image: absoluteUrl(product.heroImage),
+                        category: "Industrial silica gel desiccant",
+                        material: "Amorphous silicon dioxide (silica gel)",
+                        brand: { "@type": "Brand", name: brandName },
+                        manufacturer: { "@id": `${absoluteUrl()}#organization` },
+                        offers: {
+                          "@type": "AggregateOffer",
+                          priceCurrency: "USD",
+                          lowPrice: offerPricing.lowPrice,
+                          highPrice: offerPricing.highPrice,
+                          offerCount: offerPricing.offerCount,
+                          availability: "https://schema.org/InStock",
+                          seller: { "@id": `${absoluteUrl()}#organization` },
+                        },
+                      },
+                    ]
+                  : []),
                 ...(faqs.length > 0
                   ? [
                       {

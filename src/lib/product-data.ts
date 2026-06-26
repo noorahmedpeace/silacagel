@@ -244,13 +244,13 @@ export const productCatalog: ProductItem[] = [
       "High-value export consignment stabilization",
     ],
     packingOptions: [
-      "Type: 1kg Multi-chamber Cargo Strips",
+      "Sizes: 1 kg, 2 kg, 3 kg & 5 kg multi-chamber cargo strips",
       "Seal: Double-welded high-integrity seams",
       "Transit: 60+ Day Adsorption Protection",
     ],
     leadTime: "Aligned with international shipping windows",
     priceBand: "Quoted by route, container volume, and dispatch schedule",
-    featuredSizes: ["1 kg maritime strip"],
+    featuredSizes: ["1 kg strip", "2 kg strip", "3 kg strip", "5 kg strip"],
   },
   {
     slug: "hair-nets",
@@ -381,6 +381,9 @@ export const priceGroups: PriceGroup[] = [
       { label: "250 grams", unitPrice: 250, exportUsd: 0.95, grams: 250 },
       { label: "500 grams", unitPrice: 500, exportUsd: 1.85, grams: 500 },
       { label: "1 kg strip", unitPrice: 950, exportUsd: 4.2, grams: 1000 },
+      { label: "2 kg strip", unitPrice: 1850, exportUsd: 8.1, grams: 2000 },
+      { label: "3 kg strip", unitPrice: 2700, exportUsd: 11.9, grams: 3000 },
+      { label: "5 kg strip", unitPrice: 4400, exportUsd: 19.4, grams: 5000 },
     ],
   },
 ];

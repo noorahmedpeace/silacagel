@@ -68,7 +68,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 - Material: amorphous silicon dioxide (SiO₂)
 - Adsorption capacity: up to 33% of own weight in water vapor (roughly 35% higher per gram than typical clay desiccants)
 - Regeneration: 150°C (max 250°C)
-- Available indicating colors (orange/blue): NOT YET in catalog; expansion roadmap
+- Indicating colors available: orange (cobalt-free, REACH-friendly indicator) and blue (cobalt-chloride type, for non-REACH markets) indicating silica gel, alongside standard white non-indicating gel
 - Format families: breathable paper sachets, woven bead bags, non-woven bead bags, custom
 
 ### Dry clay desiccant
@@ -104,6 +104,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 
 ## Core resources
 
+- Buy silica gel (bulk / wholesale, manufacturer-direct): ${absoluteUrl("/buy-silica-gel")}
 - Product catalog: ${absoluteUrl("/products")}
 - Export markets: ${absoluteUrl("/export")}
 - Industry use cases: ${absoluteUrl("/industries/electronics-packaging")}, ${absoluteUrl("/industries/pharma-packaging")}, ${absoluteUrl("/industries/leather-footwear-export")}, ${absoluteUrl("/industries/food-packaging")}
