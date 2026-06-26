@@ -715,13 +715,13 @@ const highIntentSeoLandingPages = {
   }),
   "container-desiccant-supplier": keywordClusterPage({
     slug: "container-desiccant-supplier",
-    title: "Container Desiccant Supplier | Cargo Moisture Control",
+    title: "Container Desiccant Suppliers | Cargo RFQ & Quote",
     metaDescription:
       "Container desiccant supplier for cargo desiccants, shipping container moisture control, container rain prevention, 20ft/40ft route planning, SDS, COA, and export RFQs.",
     kicker: "Container desiccant supplier",
-    h1: "Container desiccant supplier for cargo moisture control and container rain prevention.",
+    h1: "Container desiccant suppliers for export cargo: quote-ready strips, SDS, and COA.",
     lead:
-      "Plan container desiccant requirements by route, container size, transit days, cargo type, humidity exposure, pallet density, and shipment terms.",
+      "Compare container desiccant suppliers and send one RFQ covering route, container size, transit days, cargo type, strip count, and Incoterms. ISO 9001:2015 and DMF-free, with SDS and COA on request.",
     searchIntent: "Buyer keyword: container desiccant supplier, cargo desiccant, shipping container desiccant",
     primaryCta: "Plan Container Quote",
     secondaryCta: "Container Rain Guide",
@@ -1303,7 +1303,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Container size, route, transit days, cargo type, loading style, strip quantity",
     relatedLinks: [
       { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
-      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
     ],
     faqs: [
@@ -3857,11 +3857,11 @@ export const seoLandingPages = {
     slug: "shipping-container-desiccant-supplier",
     title: "Shipping Container Desiccant Supplier | Sea-Freight",
     metaDescription:
-      "Container desiccant supplier for sea-freight cargo. Prevent container rain on long-haul routes — strips, SDS/COA, MOQ, FOB/CIF. Request a quote in 24h.",
+      "Shipping container desiccant supplier for sea-freight cargo. Stop container rain on long-haul routes — strips, MOQ, ISO 9001:2015, FOB/CIF. RFQ in 24h.",
     kicker: "Shipping container desiccant",
     h1: "Shipping container desiccant supplier for sea freight and container rain prevention.",
     lead:
-      "Plan shipping container desiccants by container size, route humidity, transit time, commodity risk, pallet packing, and destination before final strip quantity or cargo desiccant pricing.",
+      "As a shipping container desiccant supplier, Dry Gel World plans container desiccants by container size, route humidity, transit time, commodity risk, and destination — then quotes strip count, MOQ, lead time, and Incoterms. ISO 9001:2015, DMF-free, factory-direct export.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers",
     primaryCta: "Plan Container Desiccants",
     secondaryCta: "Read Container Rain Guide",
@@ -3946,6 +3946,10 @@ export const seoLandingPages = {
       { label: "Export support", href: "/export" },
     ],
     faqs: [
+      {
+        question: "What makes a good shipping container desiccant supplier?",
+        answer: "A reliable shipping container desiccant supplier ships factory-direct, sizes strip quantity to your route and container, and supports export RFQs with MOQ, lead time, Incoterms (FOB/CIF), and SDS/COA paperwork. Dry Gel World is an ISO 9001:2015, DMF-free desiccant exporter quoting cargo strips for 20ft and 40ft sea-freight shipments.",
+      },
       {
         question: "What is a shipping container desiccant?",
         answer: "A shipping container desiccant is a moisture-control product used inside containers to reduce condensation, humidity damage, and container rain risk.",
