@@ -2055,14 +2055,14 @@ const highIntentSeoLandingPages = {
   }),
   "bentonite-clay": keywordClusterPage({
     slug: "bentonite-clay",
-    title: "Bentonite Clay Desiccant | Industrial Moisture Control Supplier",
+    title: "Activated Clay Desiccant Supplier | Industrial Clay Packs",
     metaDescription:
-      "Bentonite clay desiccant for industrial cargo packaging, durable goods storage, and cost-tier moisture control programs. Activated clay packs in industrial sachet and bag formats, B2B export supply.",
-    kicker: "Bentonite Clay Desiccant",
-    h1: "Bentonite clay desiccant supplier for industrial moisture control.",
+      "Activated clay desiccant supplier for industrial cargo and durable-goods storage. Clay desiccant packs in sachet and bag formats — B2B export supply.",
+    kicker: "Activated Clay Desiccant",
+    h1: "Activated clay desiccant supplier for industrial and cargo moisture control.",
     lead:
       "Activated bentonite clay desiccant for industrial cargo packaging, durable goods storage, and cost-tier moisture-control programs. Natural mineral-based desiccant in sachet and bag formats, supplied B2B for export and bulk industrial use.",
-    searchIntent: "B2B buyer keyword: bentonite clay desiccant, activated bentonite supplier, clay desiccant industrial",
+    searchIntent: "B2B buyer keyword: clay desiccant, activated clay desiccant, clay desiccant supplier, industrial clay desiccant, bentonite clay",
     primaryCta: "Request Bentonite Clay Quote",
     proofPoints: [
       "Activated natural bentonite clay",

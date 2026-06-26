@@ -35,10 +35,10 @@ type IndustryPage = {
 const industryPages: Record<string, IndustryPage> = {
   "electronics-packaging": {
     title: "Silica Gel for Electronics Packaging",
-    metaTitle: "Silica Gel Desiccant for Electronics & PCB Packaging",
+    metaTitle: "Silica Gel Desiccant for Electronics Shipping & Packaging",
     metaDescription:
       "Anti-static & standard silica gel desiccant packets for PCBs, batteries & electronics export cartons. Prevent corrosion in ocean freight. Get an RFQ.",
-    h1: "Moisture protection for electronics, PCBs, batteries, and precision assemblies.",
+    h1: "Silica gel desiccant for electronics shipping and packaging — protect boards, batteries, and assemblies.",
     description:
       "Silica gel desiccant packets for electronics packaging, circuit boards, batteries, precision assemblies, and export cartons.",
     points: [
