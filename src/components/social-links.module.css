@@ -1,0 +1,86 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.row {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: inherit;
+  border: 1px solid rgba(128, 128, 128, 0.32);
+  background: rgba(128, 128, 128, 0.1);
+  transition: transform 0.18s ease, background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.icon:hover,
+.icon:focus-visible {
+  transform: translateY(-2px);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  outline: none;
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.linkedin:hover,
+.linkedin:focus-visible {
+  background-color: #0a66c2;
+  border-color: #0a66c2;
+}
+
+.instagram:hover,
+.instagram:focus-visible {
+  background-color: #e1306c;
+  border-color: #e1306c;
+}
+
+.facebook:hover,
+.facebook:focus-visible {
+  background-color: #1877f2;
+  border-color: #1877f2;
+}
+
+.youtube:hover,
+.youtube:focus-visible {
+  background-color: #ff0000;
+  border-color: #ff0000;
+}
+
+@media (max-width: 600px) {
+  .row {
+    gap: 0.55rem;
+  }
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+}
