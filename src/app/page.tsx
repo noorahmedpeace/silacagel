@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
@@ -318,22 +318,32 @@ const caseStudies = [
   },
 ];
 
+const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
+const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", priority: true, quality: 72 } as const;
+const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
+const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
+
 export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.shell}>
         <main id="top" className={styles.main}>
           <section className={styles.hero} id="hero">
-            <Image
-              id="hero-product-image"
-              src="/hero-macro-kraft.webp"
-              alt="Silica gel beads spilling from a desiccant sachet"
-              fill
-              className={styles.heroBgImage}
-              sizes="100vw"
-              priority
-              fetchPriority="high"
-            />
+            {/* Art-directed hero: phones get the lighter portrait crop
+                (hero-macro-kraft-mobile.webp, ~34KB) via <picture>; only the
+                matching source downloads. priority + fetchPriority preserved. */}
+            <picture>
+              <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
+              <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                {...heroDesktopProps}
+                id="hero-product-image"
+                className={styles.heroBgImage}
+                fetchPriority="high"
+                alt={HERO_ALT}
+              />
+            </picture>
             <div className={styles.heroShade} />
 
             <div className={styles.heroCopy}>
