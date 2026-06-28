@@ -5799,3 +5799,22 @@
     width: 100%;
   }
 }
+
+/* === MOBILE LIGHTENING (<=760px): hide heavy decorative/redundant bands ===
+   PRESERVED (never hidden): #hero, TrustBand, #products / .productSection /
+   .industrialBentoGrid (desiccant-sizing card), #pricing / #purchase-calculator /
+   .calculatorAnchor / .calculatorPanel (price calculator), #moisture-calculator
+   (DeferredMoistureCalculator = the sizing/measurement tool), #industries slider,
+   #proof case-study grid, #contact RFQ, .ctaBanner, footer. */
+@media (max-width: 760px) {
+  .scienceSection { display: none; }
+  .globalPresencePanel { display: none; }
+  .shippingBanner { display: none; }
+  .skuSection { display: none; }
+  .buyerGuideSection { display: none; }
+  .proofSection .caseStudyAction,
+  .proofSection .logoStrip { display: none; }
+  .announcementTrack,
+  .globalFlagTrack,
+  .bubbleWord { animation: none !important; }
+}
