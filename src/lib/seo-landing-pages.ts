@@ -467,7 +467,7 @@ const highIntentSeoLandingPages = {
     buyerGuide: {
       title: "What serious buyers should verify in a silica gel manufacturer",
       intro:
-        "A manufacturer page should answer the questions procurement teams ask before they share quantity or target price. These checks make the page useful for searchers with real purchase intent.",
+        "Serious buyers vet a manufacturer before sharing quantity or target price. Here's what to confirm first — so your RFQ moves straight to pricing.",
       sections: [
         {
           label: "Capacity",
@@ -4111,9 +4111,9 @@ export const seoLandingPages = {
       { label: "Core products", value: "Silica gel packets, bulk silica gel, container desiccant strips, private-label desiccant packets" },
       { label: "Buyer path", value: "Product pages, technical guides, documents hub, quote form, WhatsApp RFQ" },
     ],
-    buyingTitle: "How buyers should use DryGelWorld.com",
+    buyingTitle: "How to use DryGelWorld.com",
     buyingIntro:
-      "The brand page should route buyers from a name search into the correct commercial path quickly.",
+      "Looking for DryGelWorld by name? Here's the fastest path from a quick look to the right product, documents, and a quote.",
     buyingSteps: [
       {
         title: "Start with product format",
@@ -4184,7 +4184,7 @@ export const seoLandingPages = {
     ],
     specsTitle: "Manufacturer-exporter capability signals",
     specsIntro:
-      "This page should help importers understand whether Dry Gel World can support their buying path before they contact sales.",
+      "Everything importers need to confirm Dry Gel World fits their buying path — products, documents, and export support at a glance.",
     specs: [
       { label: "Core products", value: "Silica gel packets, paper sachets, bulk packs, cargo strips" },
       { label: "Buyer types", value: "Importers, distributors, packagers, exporters, warehouses" },

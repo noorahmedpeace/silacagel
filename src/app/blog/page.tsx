@@ -34,18 +34,20 @@ export default function BlogPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <span className={styles.kicker}>Knowledge Center</span>
-        <h1>Technical content built for global desiccant buyers.</h1>
+        <h1>Practical silica gel & desiccant guides for global buyers.</h1>
         <p>
-          The blog should publish practical procurement guides, not generic articles.
-          Each post should answer a buyer question and route the reader into an RFQ.
+          Buyer-focused guides on sizing, sourcing, documentation, and moisture
+          protection — written by our export desk to answer the questions
+          procurement teams ask before they order.
         </p>
       </section>
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>Priority article queue for international SEO.</h2>
+          <h2>Latest guides &amp; how-tos.</h2>
           <p>
-            Build topical authority across product, export, compliance, and industry intent.
+            Practical reads across products, export, compliance, and industry
+            use cases — from packet sizing to container dosage and SDS/COA.
           </p>
         </div>
         <div className={styles.grid}>
