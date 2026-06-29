@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 96px;
+  scroll-padding-top: 64px;
 }
 
 html,
@@ -67,7 +67,7 @@ input[type="button"] {
 
 body {
   min-height: 100vh;
-  padding-top: 128px;
+  padding-top: 92px;
   color: var(--ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -262,11 +262,11 @@ input[type="button"] {
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 132px;
+    scroll-padding-top: 108px;
   }
 
   body {
-    padding-top: 168px;
+    padding-top: 144px;
   }
 
   body::before {

@@ -126,14 +126,6 @@ const navGroups: NavGroup[] = [
   },
 ];
 
-const announcementStats = [
-  { value: "Serving since 1983", label: "Industrial moisture control" },
-  { value: "10+ million", label: "Silica gel packets supplied" },
-  { value: "10,000+", label: "Happy customers supported" },
-  { value: "40+", label: "Custom categories" },
-  { value: "Worldwide", label: "Delivery support available" },
-];
-
 function tint(accent: string, amount: number) {
   return `color-mix(in srgb, ${accent} ${amount}%, white)`;
 }
@@ -182,17 +174,6 @@ export function SiteHeader() {
 
   return (
     <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
-      <section className={styles.announcementBar} aria-label="Dry Gel World supply highlights">
-        <div className={styles.announcementTrack}>
-          {[...announcementStats, ...announcementStats].map((item, index) => (
-            <div className={styles.announcementItem} key={`${item.value}-${index}`}>
-              <strong>{item.value}</strong>
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <div className={styles.navShell}>
         <div className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
