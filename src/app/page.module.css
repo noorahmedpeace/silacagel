@@ -1011,7 +1011,7 @@
   letter-spacing: var(--ds-ls-snug);
   margin: 18px 0 14px;
   color: var(--ink);
-  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
+  background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2903,7 +2903,8 @@
 }
 
 .sectionHead h2 {
-  background: linear-gradient(135deg, var(--ink) 0%, var(--industrial-blue) 54%, var(--accent) 100%);
+  /* Ink→cobalt only: blending toward coral passed through muddy violet. */
+  background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
 }

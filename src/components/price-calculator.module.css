@@ -304,12 +304,14 @@
 
 .submit {
   border-radius: 10px;
-  background: linear-gradient(135deg, #1e3fcc, #2d5bff);
+  /* Primary action — coral, matching every other CTA in the system. */
+  background: var(--ds-grad-cta);
+  box-shadow: var(--ds-shadow-cta);
 }
 
 .submit:hover {
-  background: linear-gradient(135deg, #063a72, #005aab);
-  box-shadow: 0 14px 28px -18px rgba(45, 91, 255, 0.55);
+  background: linear-gradient(135deg, #e5502a, #cc4520);
+  box-shadow: 0 14px 28px -14px rgba(255, 107, 61, 0.6);
 }
 
 /* compact desktop workbench layout */
