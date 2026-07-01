@@ -453,7 +453,7 @@ export default function Home() {
                     {splitTextToBubbleSpans("Clear beads. Controlled moisture protection.")}
                   </h2>
                   <p>
-                    A vertical 3D material view built around the real buying logic: how the bead captures vapor, how pack size is selected, and why clean desiccant protects export goods.
+                    A close-up look at what you&apos;re actually buying — how a single bead pulls water vapor out of the air, how pack size is matched to your cargo, and why clean, high-adsorption desiccant is what keeps export goods dry.
                   </p>
                 </div>
 
@@ -875,10 +875,11 @@ export default function Home() {
             <section className={styles.buyerGuideSection} aria-label="Technical buyer guides">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Technical Buyer Guides</p>
-                <AnimatedText text="Turn buyer questions into stronger search signals." mode="rise" />
+                <AnimatedText text="Everything your team needs to spec with confidence." mode="rise" />
                 <p>
-                  These guides support long-tail SEO and help procurement teams understand sizing,
-                  documents, carton moisture risk, private label work, and bulk supplier checks before RFQ.
+                  Practical, no-nonsense guides on sizing, documentation, carton moisture risk,
+                  private-label programs, and bulk supplier checks — so your team can shortlist and
+                  spec the right desiccant before the first RFQ.
                 </p>
               </div>
               <div className={styles.buyerGuideGrid}>
@@ -904,10 +905,11 @@ export default function Home() {
             <section id="contact" className={styles.homeRfqSection} aria-label="International RFQ form">
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Serious Buyer RFQ</p>
-                <AnimatedText text="Make the form the primary conversion path for bulk orders." mode="rise" />
+                <AnimatedText text="Start a bulk order the right way." mode="rise" />
                 <p>
-                  WhatsApp stays available for speed, but serious international procurement should
-                  start with product type, quantity, destination, Incoterms, and document requirements.
+                  WhatsApp stays open for quick questions — but serious international procurement moves
+                  faster when you lead with product type, quantity, destination, Incoterms, and the
+                  documents you need. Send it once, get a clean quote back.
                 </p>
               </div>
                 <DeferredQuoteForm title="Send MOQ Requirement" />

@@ -1,12 +1,23 @@
+/* ═══════════════════════════════════════════════════════════════════════
+ * CONTACT — Precision Dry design language.
+ * Glass bento on the cool --ds-bg canvas. Electric cobalt carries brand
+ * structure (borders, kickers, hover accents); warm coral is reserved for
+ * the single primary action. Crisp 14px card corners, layered two-light
+ * shadows, hover physics gated behind (hover:hover)+(pointer:fine) and
+ * fully disabled under prefers-reduced-motion.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
 .page {
   position: relative;
   width: 100%;
-  max-width: 1380px;
+  max-width: var(--ds-container-max);
   margin: 0 auto;
-  padding: 88px 32px 132px;
+  padding: var(--ds-section-py-tight) var(--ds-page-px) var(--ds-section-py-loose);
   isolation: isolate;
 }
 
+/* Ambient cobalt field behind the glass tiles. Static (no animation);
+ * removed entirely under prefers-reduced-motion further down. */
 .ambient {
   position: absolute;
   inset: -80px -40px 0;
@@ -28,8 +39,8 @@
   left: -160px;
   width: 720px;
   height: 720px;
-  background: radial-gradient(circle at 30% 30%, #7fb0ff 0%, transparent 75%);
-  opacity: 0.3;
+  background: radial-gradient(circle at 30% 30%, var(--ds-brand-bright) 0%, transparent 75%);
+  opacity: 0.26;
 }
 
 .blobTwo {
@@ -37,8 +48,8 @@
   right: -240px;
   width: 820px;
   height: 820px;
-  background: radial-gradient(circle at 70% 30%, #3b82f6 0%, transparent 75%);
-  opacity: 0.18;
+  background: radial-gradient(circle at 70% 30%, var(--ds-brand) 0%, transparent 75%);
+  opacity: 0.14;
 }
 
 .blobThree {
@@ -46,7 +57,7 @@
   left: 20%;
   width: 900px;
   height: 900px;
-  background: radial-gradient(circle at 50% 50%, #dbeafe 0%, transparent 75%);
+  background: radial-gradient(circle at 50% 50%, var(--ds-brand-soft) 0%, transparent 75%);
   opacity: 0.45;
 }
 
@@ -59,15 +70,15 @@
 
 .tile {
   position: relative;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  background: rgba(255, 255, 255, 0.58);
-  backdrop-filter: blur(22px) saturate(160%);
-  -webkit-backdrop-filter: blur(22px) saturate(160%);
+  border-radius: var(--ds-radius-card);
+  border: 1px solid var(--ds-glass-border);
+  background: var(--ds-glass-bg);
+  backdrop-filter: blur(var(--ds-glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(160%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    var(--ds-ring-top),
     inset 0 0 0 1px rgba(255, 255, 255, 0.25),
-    0 30px 60px -38px rgba(15, 23, 42, 0.22);
+    0 30px 60px -38px rgba(8, 30, 80, 0.22);
   overflow: hidden;
   isolation: isolate;
 }
@@ -83,11 +94,12 @@
 
 .tileHero {
   grid-column: span 8;
-  padding: 64px 56px;
+  padding: clamp(44px, 5vw, 64px) clamp(36px, 4.4vw, 56px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 380px;
+  border-radius: var(--ds-radius-hero);
 }
 
 .tileHero::after {
@@ -97,7 +109,14 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, transparent 0%, #2d5bff 30%, #1f5eff 50%, #2d5bff 70%, transparent 100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--ds-brand) 30%,
+    var(--ds-brand-bright) 50%,
+    var(--ds-brand) 70%,
+    transparent 100%
+  );
   opacity: 0.85;
   pointer-events: none;
   z-index: 1;
@@ -115,7 +134,12 @@
   width: 560px;
   height: 560px;
   border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, rgba(31, 94, 255, 0.22) 0%, rgba(45, 91, 255, 0.08) 45%, transparent 75%);
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(45, 91, 255, 0.22) 0%,
+    rgba(45, 91, 255, 0.08) 45%,
+    transparent 75%
+  );
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
@@ -128,16 +152,16 @@
   align-self: flex-start;
   padding: 8px 14px;
   margin-bottom: 28px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, rgba(45, 91, 255, 0.12) 0%, rgba(31, 94, 255, 0.08) 100%);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
   border: 1px solid rgba(45, 91, 255, 0.22);
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-size: var(--ds-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
   text-transform: uppercase;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  box-shadow: var(--ds-ring-top);
 }
 
 .kicker::before {
@@ -145,7 +169,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #2d5bff;
+  background: var(--ds-brand);
   box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.2);
   animation: pulse 2.4s ease-in-out infinite;
 }
@@ -156,53 +180,57 @@
 }
 
 .tileHero h1 {
-  max-width: 14ch;
+  max-width: 16ch;
   margin: 0 0 18px;
   font-family: var(--font-display);
-  font-size: clamp(2.6rem, 4.8vw, 4.2rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: #0a1f3d;
+  font-size: var(--ds-h1);
+  font-weight: 600;
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-tight);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .tileHero p {
   max-width: 520px;
-  margin: 0 0 28px;
-  color: #3b556f;
-  font-size: 1rem;
-  line-height: 1.65;
+  margin: 0 0 30px;
+  color: var(--ds-text-muted);
+  font-size: var(--ds-lead);
+  line-height: var(--ds-lh-base);
   font-weight: 500;
 }
 
 .heroActions {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .primaryAction,
 .ghostAction {
   display: inline-flex;
-  min-height: 46px;
+  min-height: 48px;
   align-items: center;
-  padding: 0 22px;
-  border-radius: 999px;
-  font-size: 0.92rem;
-  font-weight: 800;
+  padding: 0 24px;
+  border-radius: var(--ds-radius-pill);
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
   letter-spacing: -0.005em;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Primary action — the one coral element on the page. */
 .primaryAction {
   position: relative;
-  background: linear-gradient(135deg, #1976d2 0%, #2d5bff 100%);
+  background: var(--ds-grad-cta);
   color: #ffffff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.28),
-    0 14px 28px -14px rgba(45, 91, 255, 0.5);
+  box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);
   overflow: hidden;
-  transition: background 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .primaryAction::after {
@@ -213,25 +241,26 @@
   pointer-events: none;
 }
 
-.primaryAction:hover {
-  background: linear-gradient(135deg, #1f80e0 0%, #0573d4 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.32),
-    0 18px 34px -14px rgba(45, 91, 255, 0.65);
+.primaryAction:active {
+  transform: scale(0.98);
+  transition-duration: var(--ds-dur-quick);
 }
 
 .ghostAction {
-  background: rgba(255, 255, 255, 0.8);
-  color: #0a1f3d;
-  border: 1px solid rgba(45, 91, 255, 0.2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--ds-text);
+  border: 1px solid rgba(45, 91, 255, 0.34);
+  box-shadow: var(--ds-ring-top);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    color var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.ghostAction:hover {
-  background: #ffffff;
-  border-color: rgba(45, 91, 255, 0.45);
-  color: #1e3fcc;
+.ghostAction:active {
+  transform: scale(0.98);
+  transition-duration: var(--ds-dur-quick);
 }
 
 /* Trust tile — tall narrow column, large numerals stacked */
@@ -243,7 +272,7 @@
   justify-content: center;
   gap: 2px;
   min-height: 380px;
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.72) 0%, rgba(232, 241, 251, 0.45) 100%);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.72) 0%, var(--ds-surface-tint) 100%);
 }
 
 .tileTrust > * {
@@ -268,18 +297,18 @@
 .trustNumber {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 3vw, 2.8rem);
-  font-weight: 900;
+  font-weight: 600;
   line-height: 1.1;
-  letter-spacing: -0.035em;
-  color: #1e3fcc;
+  letter-spacing: var(--ds-ls-tight);
+  color: var(--ds-brand-deep);
   white-space: nowrap;
 }
 
 .trustLabel {
   margin-bottom: 4px;
-  color: #5b6d83;
+  color: var(--ds-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--ds-meta);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -314,7 +343,6 @@
   gap: 6px;
   padding: 28px 30px;
   min-height: 110px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   cursor: pointer;
 }
 
@@ -332,38 +360,29 @@ a.tileAction::after {
   height: 30px;
   border-radius: 50%;
   background-color: rgba(45, 91, 255, 0.12);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230067c5' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d5bff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 14px 14px;
-  transition: background-color 0.25s ease, background-image 0.25s ease;
   z-index: 1;
 }
 
-a.tileAction:hover {
-  border-color: rgba(45, 91, 255, 0.42);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 24px 48px -28px rgba(45, 91, 255, 0.3);
-}
-
-a.tileAction:hover::after {
-  background-color: #2d5bff;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+a.tileAction:active {
+  transform: translateY(-1px) scale(0.99);
 }
 
 .tileMuted {
   cursor: default;
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.5) 0%, rgba(232, 241, 251, 0.4) 100%);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.5) 0%, var(--ds-surface-tint) 100%);
 }
 
 .tilePrimaryEmail {
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.78) 0%, rgba(219, 234, 254, 0.58) 100%);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.78) 0%, var(--ds-brand-soft) 100%);
   border-color: rgba(45, 91, 255, 0.24);
 }
 
 .tilePrimaryEmail .actionValue {
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   font-size: clamp(1rem, 1.3vw, 1.18rem);
   word-break: break-word;
 }
@@ -383,74 +402,156 @@ a.tileAction:hover::after {
 
 .emailDirectory {
   display: grid;
-  gap: 9px;
+  gap: 10px;
 }
 
 .emailRoute {
   display: grid;
   gap: 4px;
-  padding: 11px 12px;
+  padding: 12px 14px;
   border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-tight);
   background: rgba(255, 255, 255, 0.72);
   text-decoration: none;
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.emailRoute:hover {
-  border-color: rgba(45, 91, 255, 0.34);
-  background: #ffffff;
-  transform: translateY(-1px);
 }
 
 .emailRoute span {
-  color: #5b6d83;
+  color: var(--ds-text-muted);
   font-family: var(--font-mono);
   font-size: 0.64rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .emailRoute strong {
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   font-family: var(--font-display);
   font-size: 1rem;
-  font-weight: 850;
+  font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.01em;
+  letter-spacing: var(--ds-ls-snug);
   word-break: break-word;
 }
 
 .emailRoute small {
-  color: #5b6d83;
+  color: var(--ds-text-muted);
   font-size: 0.78rem;
   line-height: 1.35;
 }
 
 .actionKicker {
-  color: #5b6d83;
+  color: var(--ds-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: var(--ds-eyebrow);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
 .actionValue {
-  color: #0a1f3d;
+  color: var(--ds-text);
   font-family: var(--font-display);
   font-size: 1.3rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: var(--ds-ls-snug);
 }
 
-a.tileAction:hover .actionValue {
-  color: #1e3fcc;
+/* ─────────────────────── HOVER PHYSICS (pointer devices only) ─────────────────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryAction:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 24px 50px -16px rgba(255, 107, 61, 0.7),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .ghostAction:hover {
+    transform: translateY(-2px);
+    background: var(--ds-surface);
+    border-color: rgba(45, 91, 255, 0.55);
+    color: var(--ds-brand-deep);
+  }
+
+  .tileAction {
+    transition:
+      transform var(--ds-dur-base) var(--ds-ease-out),
+      box-shadow var(--ds-dur-base) var(--ds-ease-out),
+      border-color var(--ds-dur-base) var(--ds-ease-out);
+  }
+
+  a.tileAction::after {
+    transition:
+      background-color var(--ds-dur-base) var(--ds-ease-out),
+      background-image var(--ds-dur-base) var(--ds-ease-out);
+  }
+
+  a.tileAction:hover {
+    transform: translateY(-4px);
+    border-color: rgba(45, 91, 255, 0.42);
+    box-shadow:
+      var(--ds-ring-top),
+      var(--ds-shadow-card),
+      0 24px 48px -28px rgba(45, 91, 255, 0.3);
+  }
+
+  a.tileAction:hover::after {
+    background-color: var(--ds-brand);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  }
+
+  a.tileAction:hover .actionValue {
+    color: var(--ds-brand-deep);
+  }
+
+  .emailRoute {
+    transition:
+      transform var(--ds-dur-quick) var(--ds-ease-out),
+      border-color var(--ds-dur-quick) var(--ds-ease-out),
+      background-color var(--ds-dur-quick) var(--ds-ease-out),
+      box-shadow var(--ds-dur-quick) var(--ds-ease-out);
+  }
+
+  .emailRoute:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 91, 255, 0.34);
+    background: var(--ds-surface);
+    box-shadow: var(--ds-shadow-soft);
+  }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  /* Kill the pulsing kicker dot and simplify the ambient field: the blur
+   * blobs read as slow movement while scrolling, so they go entirely. */
+  .kicker::before {
+    animation: none;
+  }
+
+  .ambient {
+    display: none;
+  }
+
+  .primaryAction,
+  .ghostAction,
+  .tileAction,
+  .emailRoute,
+  a.tileAction::after {
+    transition: none !important;
+  }
+
+  .primaryAction:hover,
+  .primaryAction:active,
+  .ghostAction:hover,
+  .ghostAction:active,
+  a.tileAction:hover,
+  a.tileAction:active,
+  .emailRoute:hover {
+    transform: none !important;
+  }
+}
+
+/* ─────────────────────────── RESPONSIVE ─────────────────────────── */
 
 @media (max-width: 1100px) {
   .tileHero {
@@ -472,7 +573,7 @@ a.tileAction:hover .actionValue {
     width: 1px;
     height: 38px;
     margin: 0 12px;
-    background: linear-gradient(180deg, transparent, rgba(15, 23, 42, 0.14), transparent);
+    background: linear-gradient(180deg, transparent, rgba(45, 91, 255, 0.2), transparent);
   }
 
   .tileTrust .trustLabel {
@@ -494,10 +595,6 @@ a.tileAction:hover .actionValue {
 }
 
 @media (max-width: 640px) {
-  .page {
-    padding: 42px 16px 80px;
-  }
-
   /* Reduce the cost of three large filter:blur layers on mobile GPUs.
    * The 160px blur radius extends so far past each blob's edge that
    * 100px gives a visually identical effect at roughly half the
@@ -534,13 +631,11 @@ a.tileAction:hover .actionValue {
   .tileHero {
     padding: 28px 20px;
     min-height: 0;
-    border-radius: 12px;
+    border-radius: var(--ds-radius-card);
   }
 
   .tileHero h1 {
-    font-size: var(--ds-h1);
     line-height: var(--ds-lh-tight);
-    letter-spacing: 0;
     max-width: 100%;
   }
 
@@ -554,32 +649,28 @@ a.tileAction:hover .actionValue {
     align-items: flex-start;
     gap: 2px;
     padding: 20px;
-    border-radius: 12px;
   }
 
   .tileTrust .trustDivider {
     width: 100%;
     height: 1px;
     margin: 12px 0;
-    background: linear-gradient(90deg, transparent, rgba(15, 23, 42, 0.12), transparent);
+    background: linear-gradient(90deg, transparent, rgba(45, 91, 255, 0.18), transparent);
   }
 
   .tileForm {
     padding: 16px;
-    border-radius: 12px;
   }
 
   .tileAction {
     grid-column: span 12;
     min-height: 88px;
     padding: 20px;
-    border-radius: 12px;
   }
 
   .emailDirectoryTile {
     grid-column: span 12;
     padding: 20px;
-    border-radius: 12px;
   }
 
   .emailRoute span {
@@ -609,7 +700,7 @@ a.tileAction:hover .actionValue {
   .ghostAction {
     flex: 1 1 100%;
     justify-content: center;
-    min-height: 46px;
+    min-height: 48px;
     text-align: center;
   }
 }
