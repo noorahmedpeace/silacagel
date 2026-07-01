@@ -1,33 +1,33 @@
+/*
+ * Products list page — "Precision Dry" visual layer.
+ * Class names match src/app/products/page.tsx exactly.
+ * Values use design tokens from design-tokens.css only.
+ */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px;
+  gap: clamp(24px, 3vw, 32px);
 }
 
 .card {
   position: relative;
   display: grid;
   grid-template-columns: minmax(220px, 0.9fr) minmax(0, 1.1fr);
-  gap: 26px;
+  gap: clamp(20px, 2.4vw, 28px);
   padding: 18px;
   align-items: start;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 0%, rgba(45, 91, 255, 0.1), transparent 34%),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(244, 248, 255, 0.72));
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  border-radius: 34px;
-  box-shadow: 0 28px 70px -46px rgba(15, 23, 42, 0.42);
+    radial-gradient(circle at 12% 0%, color-mix(in srgb, var(--ds-brand) 8%, transparent), transparent 34%),
+    linear-gradient(145deg, var(--ds-surface), var(--ds-surface-tint));
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-soft);
   transition:
-    transform 260ms ease,
-    border-color 260ms ease,
-    box-shadow 260ms ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(45, 91, 255, 0.32);
-  box-shadow: 0 34px 90px -48px rgba(45, 91, 255, 0.42);
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .card::after {
@@ -53,29 +53,25 @@
   position: relative;
   aspect-ratio: 4 / 5;
   width: 100%;
-  border-radius: 26px;
+  border-radius: var(--ds-radius-tight);
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(225, 237, 255, 0.34), rgba(255, 255, 255, 0.14)),
-    #eaf2ff;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+    linear-gradient(180deg, color-mix(in srgb, var(--ds-brand-soft) 55%, transparent), transparent),
+    var(--ds-surface-tint);
+  box-shadow: var(--ds-ring-top);
 }
 
 .image {
   object-fit: cover;
   object-position: center;
-  transition: transform 520ms ease;
-}
-
-.card:hover .image {
-  transform: scale(1.045);
+  transition: transform var(--ds-dur-slow) var(--ds-ease-out);
 }
 
 .imageScrim {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, transparent 45%, rgba(6, 18, 38, 0.32)),
+    linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--ds-bg-deep) 34%, transparent)),
     linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent 45%);
   pointer-events: none;
 }
@@ -86,32 +82,32 @@
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  background: rgba(255, 255, 255, 0.78);
-  color: #07172f;
-  box-shadow: 0 16px 36px -24px rgba(15, 23, 42, 0.42);
-  backdrop-filter: blur(14px);
+  border: 1px solid var(--ds-glass-border);
+  background: var(--ds-glass-bg);
+  color: var(--ds-text);
+  box-shadow: var(--ds-shadow-soft);
+  backdrop-filter: blur(var(--ds-glass-blur));
 }
 
 .formatBadge {
   left: 18px;
   bottom: 18px;
   padding: 10px 14px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-tight);
   font-size: 0.86rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .globalBadge {
   top: 18px;
   right: 18px;
   padding: 9px 12px;
-  border-radius: 999px;
-  color: var(--accent);
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-accent);
   font-size: 0.66rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
   text-transform: uppercase;
 }
 
@@ -124,27 +120,28 @@
 }
 
 .eyebrow {
-  font-size: 0.74rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  font-size: var(--ds-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--ds-accent);
 }
 
 .copy h2 {
   font-size: clamp(1.7rem, 2vw, 2.2rem);
-  line-height: 1.02;
-  color: var(--ink);
-  letter-spacing: -0.055em;
-  background: linear-gradient(135deg, var(--ink) 0%, #143b8f 54%, #1f5eff 100%);
+  line-height: var(--ds-lh-snug);
+  font-weight: 600;
+  color: var(--ds-text);
+  letter-spacing: var(--ds-ls-tight);
+  background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .copy p {
-  color: var(--muted);
-  line-height: 1.65;
+  color: var(--ds-text-muted);
+  line-height: var(--ds-lh-body);
 }
 
 .meta {
@@ -157,12 +154,27 @@
   display: inline-flex;
   align-items: center;
   padding: 9px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  color: #334155;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface);
+  border: 1px solid color-mix(in srgb, var(--ds-brand) 12%, transparent);
+  color: var(--ds-text-muted);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+/* Hover states — pointer devices only */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--ds-brand);
+    box-shadow:
+      var(--ds-shadow-card),
+      0 24px 56px -28px color-mix(in srgb, var(--ds-brand) 35%, transparent);
+  }
+
+  .card:hover .image {
+    transform: scale(1.06);
+  }
 }
 
 @media (max-width: 1100px) {
@@ -180,12 +192,12 @@
     grid-template-columns: 1fr;
     gap: 16px;
     padding: 14px;
-    border-radius: 12px;
+    border-radius: var(--ds-radius-card);
   }
 
   .imageWrap {
     aspect-ratio: 4 / 3;
-    border-radius: 10px;
+    border-radius: var(--ds-radius-tight);
   }
 
   .copy {
@@ -195,10 +207,11 @@
 
   .copy h2 {
     font-size: clamp(1.35rem, 6vw, 1.7rem);
-    line-height: 1.12;
-    letter-spacing: 0;
+    line-height: var(--ds-lh-snug);
+    letter-spacing: var(--ds-ls-snug);
     -webkit-text-fill-color: currentColor;
     background: none;
+    color: var(--ds-text);
   }
 
   .copy p {
@@ -215,5 +228,21 @@
   .meta span {
     font-size: 0.82rem;
     line-height: 1.2;
+  }
+}
+
+/* Motion off for users who ask for it */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .image {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+
+  .card:hover .image {
+    transform: none;
   }
 }

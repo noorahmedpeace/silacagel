@@ -56,14 +56,15 @@
   display: inline-flex;
   align-items: center;
   padding: 7px 14px;
-  background: var(--ds-accent);
-  color: #fff;
+  /* Label chip on the brand family — coral stays reserved for actions. */
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: var(--ds-radius-pill);
-  box-shadow: 0 6px 16px rgba(255, 107, 61, 0.24);
 }
 
 .hero h1,
@@ -198,7 +199,7 @@
 .visualScrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(10, 22, 40, 0.55) 100%);
+  background: linear-gradient(180deg, transparent 50%, rgba(8, 11, 24, 0.55) 100%);
   pointer-events: none;
 }
 
@@ -208,7 +209,7 @@
   left: 8px;
   right: 8px;
   padding: 8px 12px;
-  background: rgba(10, 22, 40, 0.72);
+  background: rgba(8, 11, 24, 0.72);
   color: #fff;
   font-size: 12px;
   font-weight: 600;
@@ -775,7 +776,7 @@
   .visualCaption {
     position: static;
     margin-top: 8px;
-    background: rgba(10, 22, 40, 0.9);
+    background: rgba(8, 11, 24, 0.9);
     font-size: 0.78rem;
     line-height: 1.35;
   }

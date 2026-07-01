@@ -14,9 +14,9 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 84% 12%, rgba(219, 234, 254, 0.7), transparent 30%),
+    radial-gradient(circle at 84% 12%, rgba(234, 240, 255, 0.7), transparent 30%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.88));
-  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
 }
 
 .hero {
@@ -29,7 +29,7 @@
   padding: 9px 13px;
   border: 1px solid rgba(45, 91, 255, 0.14);
   border-radius: 4px;
-  background: rgba(219, 234, 254, 0.7);
+  background: rgba(234, 240, 255, 0.7);
   color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -112,7 +112,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16, 24, 32, 0), rgba(16, 24, 32, 0.22));
+  background: linear-gradient(180deg, rgba(10, 14, 23, 0), rgba(10, 14, 23, 0.22));
 }
 
 .caseCopy {
@@ -148,7 +148,7 @@
 
 .caseDetails div {
   padding: 16px;
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
 }
@@ -249,7 +249,7 @@
 }
 
 .faqItem {
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.84);
 }
@@ -289,7 +289,7 @@
   gap: 14px;
   min-height: 74px;
   padding: 14px 16px;
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.84);
 }

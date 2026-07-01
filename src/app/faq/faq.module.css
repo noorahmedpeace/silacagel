@@ -1,34 +1,313 @@
-.page { width: 100%; max-width: 1400px; margin: 0 auto; padding: 48px 32px 120px; display: flex; flex-direction: column; gap: 80px; }
-.hero { display: flex; flex-direction: column; gap: 16px; max-width: 800px; padding-top: 40px; }
-.kicker { display: inline-flex; padding: 8px 16px; background: var(--accent-glow); color: var(--accent); border-radius: 999px; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; width: fit-content; }
-.hero h1 { font-size: 3.5rem; font-weight: 900; color: var(--ink); line-height: 1.1; }
-.hero p { font-size: 1.15rem; color: var(--muted); line-height: 1.7; max-width: 640px; }
-.accordion { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--glass-border); border-radius: 20px; overflow: hidden; }
-.item { border-bottom: 1px solid var(--glass-border); }
-.item:last-child { border-bottom: none; }
-.question { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 32px; background: var(--surface-elevated); text-align: left; cursor: pointer; transition: background 0.2s ease; }
-.question:hover { background: var(--accent-glow); }
-.question span:first-child { font-size: 1rem; font-weight: 700; color: var(--ink); }
-.chevron { font-size: 1.4rem; font-weight: 800; color: var(--accent); flex-shrink: 0; }
-.itemOpen .question { background: var(--accent-glow); }
-.answer { padding: 0 32px 28px; background: var(--surface-elevated); }
-.answer p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
-.ctaBanner { background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 100%); border-radius: 32px; padding: 80px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-.ctaBanner h2 { font-size: 2.4rem; font-weight: 900; color: white; }
-.ctaBanner p { color: rgba(255,255,255,0.75); font-size: 1.1rem; max-width: 500px; }
-.ctaBtn { display: inline-flex; background: white; color: var(--accent); font-size: 0.95rem; font-weight: 800; padding: 14px 28px; border-radius: 12px; transition: transform 0.2s ease; }
-.ctaBtn:hover { transform: translateY(-2px); opacity: 1; }
-@media (max-width: 768px) {
-  .page { padding: 32px 16px 80px; gap: 52px; }
-  .hero { padding-top: 24px; }
-  .hero h1 { font-size: var(--ds-h1); line-height: var(--ds-lh-tight); letter-spacing: 0; }
-  .hero p, .answer p, .ctaBanner p { font-size: var(--ds-body); line-height: var(--ds-lh-body); }
-  .kicker { letter-spacing: 0.08em; }
-  .accordion, .ctaBanner { border-radius: 12px; }
-  .question { padding: 18px 16px; gap: 14px; }
-  .question span:first-child { font-size: 0.96rem; line-height: 1.35; }
-  .answer { padding: 0 16px 18px; }
-  .ctaBanner { padding: 36px 20px; }
-  .ctaBanner h2 { font-size: var(--ds-h2); line-height: var(--ds-lh-tight); letter-spacing: 0; }
-  .ctaBtn { width: 100%; min-height: 46px; justify-content: center; text-align: center; }
+/* ═══════════════════════════════════════════════════════════════════════
+ * FAQ page — Precision Dry redesign.
+ * Bright Clean-SaaS core (card accordion, cobalt open-state accent) closed
+ * by a dark cinematic CTA bookend. All colour from --ds-* tokens.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+.page {
+  width: 100%;
+  max-width: var(--ds-container-narrow);
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) var(--ds-page-px) var(--ds-section-py);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(56px, 7vw, 88px);
+}
+
+/* ───────────────────────────── Hero ───────────────────────────── */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-stack-md);
+  max-width: 800px;
+  padding-top: 40px;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.16);
+  border-radius: var(--ds-radius-pill);
+  font-size: var(--ds-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.hero h1 {
+  font-size: var(--ds-h1);
+  font-weight: 600;
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-tight);
+  color: var(--ds-text);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: var(--ds-lead);
+  color: var(--ds-text-muted);
+  line-height: var(--ds-lh-body);
+  max-width: 640px;
+}
+
+/* ─────────────────────────── Accordion ───────────────────────────
+ * Each Q&A is its own elevated card; the open item lifts to
+ * --ds-shadow-card and gains a cobalt left rule. */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-stack-md);
+}
+
+.item {
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-hairline);
+  border-left: 3px solid transparent;
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-soft);
+  overflow: hidden;
+  transition:
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.itemOpen {
+  border-left-color: var(--ds-brand);
+  box-shadow: var(--ds-shadow-card);
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 28px;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.question span:first-child {
+  font-family: var(--font-display), var(--font-body);
+  font-size: var(--ds-h4);
+  font-weight: 600;
+  line-height: var(--ds-lh-snug);
+  letter-spacing: var(--ds-ls-snug);
+  color: var(--ds-text);
+}
+
+.itemOpen .question {
+  background: var(--ds-surface-tint);
+}
+
+/* The card's overflow: hidden would clip the global outer focus ring,
+ * so keyboard focus draws an inset ring instead. */
+.question:focus-visible {
+  outline: none;
+  box-shadow:
+    inset 0 0 0 2px var(--ds-surface),
+    inset 0 0 0 4px var(--ds-brand);
+}
+
+/* Indicator — the span's text ("+" / "-") is swapped by React, so we
+ * zero it out and draw a single "+" glyph that rotates 45° into a "×"
+ * on open, giving one continuous motion instead of a content swap. */
+.chevron {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand);
+  font-size: 0;
+  transition:
+    background var(--ds-dur-quick) var(--ds-ease-out),
+    color var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.chevron::before {
+  content: "+";
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.itemOpen .chevron {
+  background: var(--ds-brand);
+  color: var(--ds-surface);
+}
+
+.itemOpen .chevron::before {
+  transform: rotate(45deg);
+}
+
+/* Answer — mounts on open, so a keyframe gives the reveal motion. */
+.answer {
+  padding: 4px 28px 24px;
+  animation: answerIn var(--ds-dur-base) var(--ds-ease-out) both;
+}
+
+.answer p {
+  color: var(--ds-text-muted);
+  line-height: var(--ds-lh-body);
+  font-size: var(--ds-body);
+  max-width: 70ch;
+}
+
+@keyframes answerIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ──────────────────── CTA (dark cinematic bookend) ──────────────────── */
+
+.ctaBanner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--ds-stack-lg);
+  padding: var(--ds-section-py-tight) clamp(24px, 5vw, 72px);
+  border: 1px solid var(--ds-hairline-dark);
+  border-radius: var(--ds-radius-hero);
+  color: var(--ds-text-on-dark);
+  background:
+    radial-gradient(circle at 84% 10%, rgba(45, 91, 255, 0.3), transparent 40%),
+    radial-gradient(circle at 10% 92%, rgba(91, 134, 255, 0.14), transparent 32%),
+    linear-gradient(160deg, var(--ds-bg-deep-2), var(--ds-bg-deep));
+  box-shadow: var(--ds-shadow-hero);
+}
+
+.ctaBanner h2 {
+  max-width: 20ch;
+  font-size: var(--ds-h2);
+  font-weight: 600;
+  line-height: var(--ds-lh-snug);
+  letter-spacing: var(--ds-ls-snug);
+  background: var(--ds-grad-heading-dark);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ctaBanner p {
+  color: var(--ds-text-on-dark-muted);
+  font-size: var(--ds-lead);
+  line-height: var(--ds-lh-body);
+  max-width: 520px;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 30px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-grad-cta);
+  color: #ffffff;
+  font-family: var(--font-display), var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.ctaBtn:active {
+  transform: scale(0.985);
+  transition-duration: var(--ds-dur-quick);
+}
+
+/* ───────────────────────── Hover (fine pointers only) ───────────────────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  .item:hover {
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  .question:hover {
+    background: var(--ds-surface-tint);
+  }
+
+  .ctaBtn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 4px 10px rgba(255, 107, 61, 0.28),
+      0 20px 40px -8px rgba(255, 107, 61, 0.48),
+      inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  }
+}
+
+/* ───────────────────────── Reduced motion ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .question,
+  .chevron,
+  .chevron::before,
+  .ctaBtn {
+    transition: none;
+  }
+
+  .answer {
+    animation: none;
+  }
+}
+
+/* ───────────────────────── Mobile ───────────────────────── */
+
+@media (max-width: 640px) {
+  .page {
+    gap: 52px;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  .question {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .answer {
+    padding: 2px 16px 18px;
+  }
+
+  .ctaBanner {
+    border-radius: var(--ds-radius-card);
+    padding: 40px 20px;
+  }
+
+  .ctaBtn {
+    width: 100%;
+  }
 }

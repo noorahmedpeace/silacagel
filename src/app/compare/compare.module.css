@@ -78,7 +78,7 @@
   border: 1px solid rgba(45, 91, 255, 0.14);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.82);
-  color: #17365f;
+  color: #101b3f;
   font-size: 0.82rem;
   font-weight: 750;
   line-height: 1.45;
@@ -371,7 +371,7 @@
 
 .secondaryCta {
   background: rgba(255, 255, 255, 0.85);
-  color: #0a1f3d;
+  color: #101b3f;
   border: 1px solid rgba(45, 91, 255, 0.22);
 }
 

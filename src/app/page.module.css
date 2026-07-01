@@ -630,7 +630,7 @@
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(90deg, rgba(6, 74, 145, 0.8), transparent 15%, transparent 85%, rgba(6, 74, 145, 0.8));
+    linear-gradient(90deg, rgba(30, 63, 204, 0.8), transparent 15%, transparent 85%, rgba(30, 63, 204, 0.8));
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -708,7 +708,7 @@
     radial-gradient(circle at 18% 18%, rgba(45, 91, 255, 0.12), transparent 24%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.94));
   border: 1px solid rgba(45, 91, 255, 0.12);
-  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
 }
 
 .scienceSection,
@@ -818,10 +818,10 @@
   min-height: 430px;
   overflow: hidden;
   border-radius: 8px;
-  background: #101820;
-  border: 1px solid rgba(16, 24, 32, 0.12);
+  background: #0a0e17;
+  border: 1px solid rgba(10, 14, 23, 0.12);
   box-shadow:
-    0 28px 58px -42px rgba(16, 24, 32, 0.32),
+    0 28px 58px -42px rgba(10, 14, 23, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
@@ -831,7 +831,7 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.28)),
+    linear-gradient(180deg, rgba(10, 14, 23, 0.02), rgba(10, 14, 23, 0.28)),
     radial-gradient(circle at 82% 18%, rgba(45, 91, 255, 0.18), transparent 34%);
   pointer-events: none;
 }
@@ -912,7 +912,7 @@
   padding: 18px 18px 16px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   box-shadow: none;
 }
 
@@ -1434,7 +1434,7 @@
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.08em;
-  color: #0f172a;
+  color: #0b0e18;
 }
 
 .productCard:hover .image {
@@ -1493,7 +1493,7 @@
   font-weight: 700;
   font-size: 0.84rem;
   letter-spacing: 0.01em;
-  color: #0f172a;
+  color: #0b0e18;
   box-shadow: 0 14px 28px -24px rgba(15, 23, 42, 0.25);
   transition: all 0.22s ease;
   margin-top: auto;
@@ -1609,10 +1609,10 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 28px;
   background:
-    radial-gradient(circle at 10% 0%, rgba(191, 219, 254, 0.7), transparent 28%),
+    radial-gradient(circle at 10% 0%, rgba(219, 228, 255, 0.7), transparent 28%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 251, 255, 0.78));
   box-shadow:
-    0 26px 58px -42px rgba(16, 24, 32, 0.22),
+    0 26px 58px -42px rgba(10, 14, 23, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
@@ -1645,7 +1645,7 @@
   padding: 7px 10px;
   border: 1px solid rgba(45, 91, 255, 0.14);
   border-radius: 999px;
-  background: rgba(219, 234, 254, 0.84);
+  background: rgba(234, 240, 255, 0.84);
   color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.66rem;
@@ -1702,7 +1702,7 @@
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.78);
   box-shadow:
-    0 16px 34px -28px rgba(16, 24, 32, 0.28),
+    0 16px 34px -28px rgba(10, 14, 23, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
@@ -1711,7 +1711,7 @@
   height: 58px;
   margin-bottom: 7px;
   border-radius: 999px;
-  filter: drop-shadow(0 12px 14px rgba(16, 24, 32, 0.13));
+  filter: drop-shadow(0 12px 14px rgba(10, 14, 23, 0.13));
 }
 
 .globalFlagItem strong {
@@ -1980,7 +1980,7 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 24px 48px -38px rgba(16, 24, 32, 0.24);
+  box-shadow: 0 24px 48px -38px rgba(10, 14, 23, 0.24);
 }
 
 .caseStudyImage {
@@ -1994,7 +1994,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(16, 24, 32, 0.18));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(10, 14, 23, 0.18));
 }
 
 .caseStudyCopy {
@@ -2013,7 +2013,7 @@
 }
 
 .caseStudyCopy h3 {
-  color: #0b2447;
+  color: #101b3f;
   font-size: 1.2rem;
   line-height: 1.18;
   letter-spacing: -0.035em;
@@ -2810,8 +2810,8 @@
   min-height: 720px;
   border-radius: 6px;
   padding: 72px;
-  background: #101820;
-  box-shadow: 0 36px 72px -48px rgba(16, 24, 32, 0.5);
+  background: #0a0e17;
+  box-shadow: 0 36px 72px -48px rgba(10, 14, 23, 0.5);
 }
 
 .heroBgImage {
@@ -2821,9 +2821,9 @@
 
 .heroShade {
   background:
-    linear-gradient(90deg, rgba(16, 24, 32, 0.9) 0%, rgba(16, 24, 32, 0.72) 38%, rgba(16, 24, 32, 0.12) 76%),
+    linear-gradient(90deg, rgba(10, 14, 23, 0.9) 0%, rgba(10, 14, 23, 0.72) 38%, rgba(10, 14, 23, 0.12) 76%),
     radial-gradient(circle at 22% 18%, rgba(255, 107, 61, 0.28), transparent 22%),
-    linear-gradient(180deg, rgba(16, 24, 32, 0.08), rgba(16, 24, 32, 0.6));
+    linear-gradient(180deg, rgba(10, 14, 23, 0.08), rgba(10, 14, 23, 0.6));
 }
 
 .hero h1 {
@@ -2922,8 +2922,8 @@
   border-radius: 6px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.94));
-  border-color: rgba(16, 24, 32, 0.08);
-  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+  border-color: rgba(10, 14, 23, 0.08);
+  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
 }
 
 .scienceSection::after,
@@ -2978,7 +2978,7 @@
 .testimonialCard,
 .exportCard {
   background: #ffffff;
-  border-color: rgba(16, 24, 32, 0.08);
+  border-color: rgba(10, 14, 23, 0.08);
 }
 
 .signalIcon,
@@ -3024,7 +3024,7 @@
 }
 
 .industrialBentoImage::after {
-  background: linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.72));
+  background: linear-gradient(180deg, rgba(10, 14, 23, 0.02), rgba(10, 14, 23, 0.72));
 }
 
 .industrialBentoStat,
@@ -3064,11 +3064,14 @@
 
 .ctaBanner,
 .shippingBanner {
-  border-radius: 6px;
+  border-radius: 20px;
+  /* Dark cinematic bookend — matches the hero/footer field: near-black with a
+   * cobalt glow and a whisper of coral heat where the CTA lives. */
   background:
-    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.16), transparent 24%),
-    linear-gradient(135deg, #101820 0%, #e5502a 58%, #ff6b3d 100%);
-  box-shadow: 0 34px 70px -46px rgba(168, 8, 31, 0.48);
+    radial-gradient(80% 90% at 85% 0%, rgba(45, 91, 255, 0.32), transparent 58%),
+    radial-gradient(60% 80% at 8% 100%, rgba(255, 107, 61, 0.14), transparent 55%),
+    var(--ds-bg-deep);
+  box-shadow: 0 44px 100px -56px rgba(6, 10, 24, 0.9);
 }
 
 .shippingBanner {
@@ -3097,8 +3100,8 @@
   right: 22px;
   padding: 13px 20px;
   border-radius: 4px;
-  background: #101820;
-  box-shadow: 0 18px 38px -24px rgba(16, 24, 32, 0.52);
+  background: #0a0e17;
+  box-shadow: 0 18px 38px -24px rgba(10, 14, 23, 0.52);
 }
 
 .whatsAppFloat:hover {
@@ -3117,7 +3120,7 @@
   border-radius: 22px;
   border: 1px solid rgba(45, 91, 255, 0.1);
   box-shadow:
-    0 34px 78px -56px rgba(16, 24, 32, 0.34),
+    0 34px 78px -56px rgba(10, 14, 23, 0.34),
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
@@ -3125,9 +3128,9 @@
 .whySection,
 .applicationSection {
   background:
-    radial-gradient(circle at 16% 18%, rgba(191, 219, 254, 0.76), transparent 30%),
+    radial-gradient(circle at 16% 18%, rgba(219, 228, 255, 0.76), transparent 30%),
     radial-gradient(circle at 86% 18%, rgba(45, 91, 255, 0.12), transparent 26%),
-    linear-gradient(135deg, #e6f0ff 0%, #ffffff 56%, #f7fbff 100%);
+    linear-gradient(135deg, #eaf0ff 0%, #ffffff 56%, #f6f8ff 100%);
 }
 
 .productSection,
@@ -3135,9 +3138,9 @@
 .partnerSection {
   border-color: rgba(45, 91, 255, 0.12);
   background:
-    radial-gradient(circle at 82% 16%, rgba(219, 234, 254, 0.72), transparent 30%),
+    radial-gradient(circle at 82% 16%, rgba(234, 240, 255, 0.72), transparent 30%),
     radial-gradient(circle at 12% 84%, rgba(255, 107, 61, 0.055), transparent 24%),
-    linear-gradient(135deg, #edf5ff 0%, #ffffff 54%, #f8fbff 100%);
+    linear-gradient(135deg, #eef2ff 0%, #ffffff 54%, #f6f8ff 100%);
 }
 
 .scienceSection::after,
@@ -3147,7 +3150,7 @@
 .partnerSection::after,
 .applicationSection::after {
   background-image:
-    radial-gradient(circle, rgba(16, 24, 32, 0.08) 0 1px, transparent 1px),
+    radial-gradient(circle, rgba(10, 14, 23, 0.08) 0 1px, transparent 1px),
     radial-gradient(circle at 80% 20%, rgba(45, 91, 255, 0.08), transparent 32%);
   background-size: 18px 18px, 700px 440px;
   opacity: 0.045;
@@ -3158,15 +3161,15 @@
 .scienceSection .sectionHead .kicker,
 .whySection .sectionHead .kicker,
 .applicationSection .sectionHead .kicker {
-  background: #bfdbfe;
+  background: #dbe4ff;
   border-color: rgba(45, 91, 255, 0.16);
-  color: #004080;
+  color: #1e3fcc;
 }
 
 .productSection .sectionHead .kicker,
 .pricingSection .sectionHead .kicker,
 .partnerSection .sectionHead .kicker {
-  background: #dbeafe;
+  background: #eaf0ff;
   border-color: rgba(45, 91, 255, 0.16);
   color: #1e3fcc;
 }
@@ -3174,7 +3177,7 @@
 .scienceSection .sectionHead h2,
 .whySection .sectionHead h2,
 .applicationSection .sectionHead h2 {
-  background: linear-gradient(135deg, #003a73 0%, #2d5bff 62%, #4f46e5 100%);
+  background: linear-gradient(135deg, #1e3fcc 0%, #2d5bff 62%, #5b86ff 100%);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -3182,7 +3185,7 @@
 .productSection .sectionHead h2,
 .pricingSection .sectionHead h2,
 .partnerSection .sectionHead h2 {
-  background: linear-gradient(135deg, #0b2447 0%, #2d5bff 58%, #b5432a 100%);
+  background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
 }
@@ -3190,13 +3193,13 @@
 .scienceSection .sectionHead p,
 .whySection .sectionHead p,
 .applicationSection .sectionHead p {
-  color: #24507d;
+  color: #4d5b78;
 }
 
 .productSection .sectionHead p,
 .pricingSection .sectionHead p,
 .partnerSection .sectionHead p {
-  color: #3f5f7f;
+  color: #4d5b78;
 }
 
 /* calmer procurement quote area */
@@ -3204,9 +3207,9 @@
   padding-top: 32px;
   border-color: rgba(45, 91, 255, 0.14);
   background:
-    radial-gradient(circle at 78% 10%, rgba(191, 219, 254, 0.78), transparent 26%),
-    radial-gradient(circle at 10% 88%, rgba(16, 24, 32, 0.06), transparent 28%),
-    linear-gradient(135deg, #eef6ff 0%, #ffffff 48%, #f5f8fb 100%);
+    radial-gradient(circle at 78% 10%, rgba(219, 228, 255, 0.78), transparent 26%),
+    radial-gradient(circle at 10% 88%, rgba(10, 14, 23, 0.06), transparent 28%),
+    linear-gradient(135deg, #eef2ff 0%, #ffffff 48%, #f5f7fd 100%);
 }
 
 .pricingSection::before {
@@ -3234,13 +3237,13 @@
   max-width: 20ch;
   font-size: clamp(2.25rem, 3.45vw, 3.35rem);
   line-height: 1.02;
-  background: linear-gradient(135deg, #0b2447 0%, #005aab 70%, #b5432a 100%);
+  background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
 }
 
 .pricingSection .sectionHead .kicker {
-  background: rgba(219, 234, 254, 0.88);
+  background: rgba(234, 240, 255, 0.88);
   color: #1e3fcc;
 }
 
@@ -3344,7 +3347,7 @@
 .priceCard {
   background: rgba(255, 255, 255, 0.78);
   border-color: rgba(45, 91, 255, 0.1);
-  box-shadow: 0 18px 38px -34px rgba(16, 24, 32, 0.18);
+  box-shadow: 0 18px 38px -34px rgba(10, 14, 23, 0.18);
 }
 
 .priceCard::after {
@@ -3373,7 +3376,7 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 251, 255, 0.9));
   box-shadow:
-    0 28px 58px -42px rgba(16, 24, 32, 0.2),
+    0 28px 58px -42px rgba(10, 14, 23, 0.2),
     inset 0 1px 0 rgba(255, 255, 255, 0.76);
 }
 
@@ -3406,7 +3409,7 @@
 .scienceStage {
   border-radius: 20px;
   box-shadow:
-    0 28px 58px -42px rgba(16, 24, 32, 0.32),
+    0 28px 58px -42px rgba(10, 14, 23, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
@@ -3705,7 +3708,7 @@
 
   .heroShade {
     background:
-      linear-gradient(180deg, rgba(16, 24, 32, 0.72) 0%, rgba(16, 24, 32, 0.52) 48%, rgba(16, 24, 32, 0.9) 100%),
+      linear-gradient(180deg, rgba(10, 14, 23, 0.72) 0%, rgba(10, 14, 23, 0.52) 48%, rgba(10, 14, 23, 0.9) 100%),
       radial-gradient(circle at 20% 12%, rgba(255, 107, 61, 0.2), transparent 28%);
   }
 
@@ -3935,7 +3938,7 @@
   min-height: min(760px, calc(100vh - 132px));
   padding: clamp(36px, 5vw, 78px);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  background: #101820;
+  background: #0a0e17;
 }
 
 .heroCopy {
@@ -3949,10 +3952,10 @@
 
 .heroShade {
   background:
-    linear-gradient(90deg, rgba(16, 24, 32, 0.92) 0%, rgba(16, 24, 32, 0.72) 38%, rgba(16, 24, 32, 0.22) 70%, rgba(16, 24, 32, 0.06) 100%),
+    linear-gradient(90deg, rgba(10, 14, 23, 0.92) 0%, rgba(10, 14, 23, 0.72) 38%, rgba(10, 14, 23, 0.22) 70%, rgba(10, 14, 23, 0.06) 100%),
     radial-gradient(circle at 76% 38%, rgba(255, 255, 255, 0.26), transparent 21%),
     radial-gradient(circle at 22% 18%, rgba(255, 107, 61, 0.24), transparent 22%),
-    linear-gradient(180deg, rgba(16, 24, 32, 0.08), rgba(16, 24, 32, 0.52));
+    linear-gradient(180deg, rgba(10, 14, 23, 0.08), rgba(10, 14, 23, 0.52));
 }
 
 .hero h1 {
@@ -3978,7 +3981,7 @@
   padding: clamp(28px, 4vw, 46px);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, #101820 0%, #162535 48%, #0f172a 100%);
+    linear-gradient(135deg, #0a0e17 0%, #131a2e 48%, #0b0e18 100%);
   color: #ffffff;
   overflow: hidden;
   position: relative;
@@ -4049,7 +4052,7 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(16, 24, 32, 0.02), rgba(16, 24, 32, 0.2)),
+    linear-gradient(180deg, rgba(10, 14, 23, 0.02), rgba(10, 14, 23, 0.2)),
     radial-gradient(circle at top right, rgba(45, 91, 255, 0.14), transparent 58%);
   pointer-events: none;
 }
@@ -4134,16 +4137,16 @@
   gap: 44px;
   padding: 52px 44px;
   background:
-    radial-gradient(circle at 18% 18%, rgba(191, 219, 254, 0.46), transparent 28%),
-    linear-gradient(135deg, #f8fbff 0%, #ffffff 58%, #eef6ff 100%);
+    radial-gradient(circle at 18% 18%, rgba(219, 228, 255, 0.46), transparent 28%),
+    linear-gradient(135deg, #f6f8ff 0%, #ffffff 58%, #eef2ff 100%);
   border-color: rgba(45, 91, 255, 0.12);
 }
 
 .scienceStage {
   min-height: 430px;
   border-radius: 8px;
-  background: #101820;
-  border-color: rgba(16, 24, 32, 0.12);
+  background: #0a0e17;
+  border-color: rgba(10, 14, 23, 0.12);
 }
 
 .scienceSection .sectionHead {
@@ -4194,10 +4197,10 @@
   min-height: 0;
   aspect-ratio: 9 / 16;
   border-radius: 18px;
-  background: #f8fbff;
+  background: #f6f8ff;
   border: 1px solid rgba(45, 91, 255, 0.2);
   box-shadow:
-    0 30px 70px -40px rgba(6, 74, 145, 0.45),
+    0 30px 70px -40px rgba(30, 63, 204, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.74);
 }
 
@@ -4219,7 +4222,7 @@
   font-size: clamp(2.8rem, 5.4vw, 5.65rem);
   line-height: 0.98;
   letter-spacing: -0.06em;
-  color: #0b2447;
+  color: #101b3f;
 }
 
 .bubbleHeading {
@@ -4237,7 +4240,7 @@
 
 .scienceOverlay p {
   max-width: 62ch;
-  color: #24507d;
+  color: #4d5b78;
   font-size: clamp(1rem, 1.15vw, 1.12rem);
   line-height: 1.72;
 }
@@ -4324,7 +4327,7 @@
     width: 100%;
     overflow: hidden;
     background:
-      linear-gradient(180deg, rgba(16, 24, 32, 0.34) 0%, rgba(16, 24, 32, 0.66) 46%, rgba(16, 24, 32, 0.92) 100%),
+      linear-gradient(180deg, rgba(10, 14, 23, 0.34) 0%, rgba(10, 14, 23, 0.66) 46%, rgba(10, 14, 23, 0.92) 100%),
       url("/hero-macro-kraft-mobile.webp") center / cover no-repeat;
   }
 
@@ -4349,7 +4352,7 @@
 
   .heroShade {
     background:
-      linear-gradient(180deg, rgba(16, 24, 32, 0.18), rgba(16, 24, 32, 0.72)),
+      linear-gradient(180deg, rgba(10, 14, 23, 0.18), rgba(10, 14, 23, 0.72)),
       radial-gradient(circle at 26% 10%, rgba(255, 107, 61, 0.18), transparent 30%);
   }
 
@@ -4487,7 +4490,7 @@
   }
 
   .scienceSection {
-    background: linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
   }
 
   .procurementFlowCard {
@@ -4512,9 +4515,9 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background:
-    radial-gradient(circle at 84% 10%, rgba(219, 234, 254, 0.72), transparent 28%),
+    radial-gradient(circle at 84% 10%, rgba(234, 240, 255, 0.72), transparent 28%),
     linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
-  box-shadow: 0 24px 58px -44px rgba(16, 24, 32, 0.22);
+  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
   overflow: hidden;
 }
 
@@ -4556,7 +4559,7 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+  box-shadow: 0 18px 36px -32px rgba(10, 14, 23, 0.2);
 }
 
 .proofVaultCard strong {
@@ -4572,7 +4575,7 @@
 .proofVaultCard span {
   display: block;
   margin-bottom: 10px;
-  color: #0b2447;
+  color: #101b3f;
   font-size: 0.92rem;
   font-weight: 900;
 }
@@ -4593,13 +4596,13 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+  box-shadow: 0 18px 36px -32px rgba(10, 14, 23, 0.2);
 }
 
 .skuTableWrap h3 {
   padding: 18px 20px;
-  border-bottom: 1px solid rgba(16, 24, 32, 0.08);
-  color: #0b2447;
+  border-bottom: 1px solid rgba(10, 14, 23, 0.08);
+  color: #101b3f;
   font-size: 1rem;
   letter-spacing: -0.02em;
 }
@@ -4612,7 +4615,7 @@
 .skuTable th,
 .skuTable td {
   padding: 15px 18px;
-  border-bottom: 1px solid rgba(16, 24, 32, 0.07);
+  border-bottom: 1px solid rgba(10, 14, 23, 0.07);
   text-align: left;
   vertical-align: top;
 }
@@ -4624,7 +4627,7 @@
   font-weight: 900;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  background: rgba(219, 234, 254, 0.42);
+  background: rgba(234, 240, 255, 0.42);
 }
 
 .skuTable td {
@@ -4634,7 +4637,7 @@
 }
 
 .skuTable td:first-child {
-  color: #0b2447;
+  color: #101b3f;
   font-weight: 900;
 }
 
@@ -4648,10 +4651,10 @@
 
 .seoClusterCard,
 .capabilityCard {
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.84);
-  box-shadow: 0 18px 36px -32px rgba(16, 24, 32, 0.2);
+  box-shadow: 0 18px 36px -32px rgba(10, 14, 23, 0.2);
 }
 
 .seoClusterCard p,
@@ -4684,7 +4687,7 @@
   border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.72);
-  color: #0b2447;
+  color: #101b3f;
   font-size: 0.82rem;
   font-weight: 900;
   text-align: center;
@@ -4850,7 +4853,7 @@
   background:
     radial-gradient(circle at 90% 8%, rgba(45, 91, 255, 0.16), transparent 28%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(246, 250, 254, 0.9));
-  box-shadow: 0 30px 60px -46px rgba(16, 24, 32, 0.3);
+  box-shadow: 0 30px 60px -46px rgba(10, 14, 23, 0.3);
 }
 
 .buyerGuideSection .sectionHead {
@@ -4870,10 +4873,10 @@
   flex-direction: column;
   gap: 12px;
   padding: 24px;
-  border: 1px solid rgba(16, 24, 32, 0.08);
+  border: 1px solid rgba(10, 14, 23, 0.08);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 18px 38px -32px rgba(16, 24, 32, 0.22);
+  box-shadow: 0 18px 38px -32px rgba(10, 14, 23, 0.22);
   transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
 }
 
@@ -5337,7 +5340,7 @@
     radial-gradient(circle at 100% 0%, rgba(45, 91, 255, 0.1), transparent 28%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(247, 251, 255, 0.92));
   box-shadow:
-    0 34px 90px -62px rgba(16, 24, 32, 0.42),
+    0 34px 90px -62px rgba(10, 14, 23, 0.42),
     0 1px 0 rgba(255, 255, 255, 0.82) inset;
 }
 
@@ -5374,7 +5377,7 @@
 .exportCard,
 .resourceCard,
 .testimonialCard {
-  box-shadow: 0 22px 54px -38px rgba(16, 24, 32, 0.36);
+  box-shadow: 0 22px 54px -38px rgba(10, 14, 23, 0.36);
 }
 
 .scienceVideoColumn {
@@ -5513,7 +5516,7 @@
 .hero .secondaryCta {
   background: rgba(255, 255, 255, 0.94);
   border-color: rgba(255, 255, 255, 0.82);
-  color: #101820;
+  color: #0a0e17;
 }
 
 .heroProofLine {
@@ -5696,7 +5699,7 @@
   .hero .secondaryCta {
     background: rgba(255, 255, 255, 0.92);
     border: 1px solid rgba(255, 255, 255, 0.72);
-    color: #101820;
+    color: #0a0e17;
     box-shadow:
       0 16px 30px -22px rgba(0, 0, 0, 0.36),
       inset 0 1px 0 rgba(255, 255, 255, 0.86);
