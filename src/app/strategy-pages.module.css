@@ -288,6 +288,28 @@
   margin-bottom: 6px;
 }
 
+/* Cinematic push-in on blog-card thumbnails, scoped to the card hover so the
+ * full-width article hero image (also .articleVisualImage) is unaffected.
+ * Container clips overflow, so the scale reads as a slow zoom, not a crop jump. */
+.articleCard .articleVisualImage {
+  transition: transform var(--ds-dur-slow) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .articleCard:hover .articleVisualImage {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .articleCard .articleVisualImage {
+    transition: none !important;
+  }
+  .articleCard:hover .articleVisualImage {
+    transform: none !important;
+  }
+}
+
 .articleBody {
   max-width: 760px;
   margin: 0 auto;

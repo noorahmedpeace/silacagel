@@ -240,9 +240,14 @@
 .proofItem {
   position: relative;
   padding: 10px 14px 10px 28px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: var(--ds-radius-tight);
+  /* Frost the translucent chip so copy stays crisp over the hero photo,
+   * and add a whisper of elevation so the proof points read as real chips. */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px -6px rgba(8, 30, 80, 0.16), var(--ds-ring-top);
   font-size: 13px;
   font-weight: 600;
   color: var(--ds-text);
