@@ -5851,3 +5851,91 @@
   .globalFlagTrack,
   .bubbleWord { animation: none !important; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+ * PREMIUM INTERACTION LAYER (pass 2)
+ * Appended last so equal-specificity rules win by source order. Gives every
+ * card family one coherent, tasteful hover: a decisive lift on the "out"
+ * easing plus the layered two-light shadow, and a slow image push-in for
+ * media cards. Nothing here changes layout, content, or SEO — pointer polish
+ * only, fully disabled under prefers-reduced-motion.
+ * ═══════════════════════════════════════════════════════════════════════ */
+@media (hover: hover) and (pointer: fine) {
+  /* Case-study cards had no hover state — give them the signature lift. */
+  .caseStudyCard {
+    transition: transform var(--ds-dur-base) var(--ds-ease-out),
+      border-color var(--ds-dur-base) var(--ds-ease-out),
+      box-shadow var(--ds-dur-base) var(--ds-ease-out);
+  }
+  .caseStudyCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0, 103, 197, 0.24);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  /* Procurement glass cards (dark section) — brighten + lift on hover. */
+  .procurementFlowCard {
+    transition: transform var(--ds-dur-base) var(--ds-ease-out),
+      background var(--ds-dur-base) var(--ds-ease-out),
+      border-color var(--ds-dur-base) var(--ds-ease-out),
+      box-shadow var(--ds-dur-base) var(--ds-ease-out);
+  }
+  .procurementFlowCard:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 26px 56px -30px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Unify the remaining card families on the layered shadow + a slightly
+   * more confident lift, without disturbing their per-card borders/accents. */
+  .industrialBentoCard:hover,
+  .priceCard:hover,
+  .testimonialCard:hover,
+  .buyerGuideCard:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  /* Slow, cinematic push-in on card media. The parent hover drives a subtle
+   * scale on the fill-image so the photo feels alive without cropping content. */
+  .caseStudyImage .image,
+  .industrialBentoImage .image,
+  .procurementFlowImage {
+    transition: transform var(--ds-dur-slow) var(--ds-ease-out);
+  }
+  .caseStudyCard:hover .image,
+  .industrialBentoCard:hover .image,
+  .procurementFlowCard:hover .procurementFlowImage {
+    transform: scale(1.06);
+  }
+
+  /* Magnetic-feel press: CTAs settle down on click for tactile feedback. */
+  .primaryCta:active,
+  .secondaryCta:active,
+  .ctaBtn:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: var(--ds-dur-quick);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caseStudyCard,
+  .procurementFlowCard,
+  .caseStudyImage .image,
+  .industrialBentoImage .image,
+  .procurementFlowImage {
+    transition: none !important;
+  }
+  .caseStudyCard:hover,
+  .procurementFlowCard:hover,
+  .industrialBentoCard:hover,
+  .priceCard:hover,
+  .testimonialCard:hover,
+  .buyerGuideCard:hover,
+  .caseStudyCard:hover .image,
+  .industrialBentoCard:hover .image,
+  .procurementFlowCard:hover .procurementFlowImage {
+    transform: none !important;
+  }
+}

@@ -89,6 +89,37 @@
   border-radius: 6px;
   font-size: 0.84rem;
   font-weight: 900;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primary:hover {
+    transform: translateY(-2px);
+    background: var(--accent-deep);
+    box-shadow: var(--ds-shadow-cta);
+  }
+
+  .secondary:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 103, 197, 0.4);
+    box-shadow: 0 16px 32px -22px rgba(0, 103, 197, 0.4);
+  }
+
+  .whatsapp:hover {
+    transform: translateY(-2px);
+    background: rgba(31, 168, 85, 0.16);
+    border-color: rgba(31, 168, 85, 0.4);
+  }
+}
+
+.primary:active,
+.secondary:active,
+.whatsapp:active {
+  transform: translateY(0) scale(0.98);
+  transition-duration: var(--ds-dur-quick);
 }
 
 .primary {
@@ -267,6 +298,27 @@
   border: 1px solid rgba(0, 103, 197, 0.1);
   border-radius: 7px;
   background: linear-gradient(180deg, #ffffff 0%, rgba(244, 248, 252, 0.78) 100%);
+  transition: border-color var(--ds-dur-base) var(--ds-ease-out),
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .featuredLink:hover {
+    transform: translateY(-2px);
+    border-color: rgba(0, 103, 197, 0.28);
+    box-shadow: 0 14px 28px -22px rgba(0, 103, 197, 0.36);
+  }
+
+  .mainEmailRoute:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 40px -26px rgba(0, 103, 197, 0.48);
+  }
+}
+
+.mainEmailRoute {
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .supportLinks {
