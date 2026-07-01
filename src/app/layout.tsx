@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -45,13 +45,13 @@ const body = Inter({
   display: "swap",
 });
 
-// Display face for the redesign — a precise, technical grotesk that reads
-// "engineered" against Inter's neutral body. Drives every heading via
+// Display face for the redesign — a clean, geometric premium sans with none
+// of Space Grotesk's quirky letterforms. Drives every heading via
 // --font-display (see globals.css h1–h6).
-const display = Space_Grotesk({
+const display = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 

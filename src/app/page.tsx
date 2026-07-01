@@ -3,14 +3,11 @@ import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
-import { BentoGrid } from "@/components/bento-grid";
 import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
-import { LazyScienceVideo } from "@/components/lazy-science-video";
 import {
   DeferredEmblaCarousel,
   DeferredIndustrySlider,
-  DeferredMoistureCalculator,
   DeferredPriceCalculator,
   DeferredQuoteForm,
 } from "@/components/deferred-home-widgets";
@@ -24,18 +21,6 @@ const splitTextToSpans = (text: string) => {
     >
       {word}
       {"\u00A0"}
-    </span>
-  ));
-};
-
-const splitTextToBubbleSpans = (text: string) => {
-  return text.split(" ").map((word, wordIndex) => (
-    <span
-      key={`${word}-${wordIndex}`}
-      className={styles.bubbleWord}
-      style={{ animationDelay: `${wordIndex * 48}ms` }}
-    >
-      {word}
     </span>
   ));
 };
@@ -112,7 +97,7 @@ const procurementFlow = [
   {
     step: "01",
     title: "Define the pack",
-    text: "Choose sachets, strips, or bulk formats by carton size, humidity exposure, and product sensitivity.",
+    text: "Pick sachets, strips, or bulk — sized to your cartons and humidity risk.",
     icon: PackageCheck,
     image: "/workflow/define-pack.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
@@ -120,7 +105,7 @@ const procurementFlow = [
   {
     step: "02",
     title: "Confirm documents",
-    text: "Request SDS, COA, compliance notes, labeling details, and destination-specific paperwork early.",
+    text: "Get SDS, COA, and destination paperwork sorted upfront.",
     icon: FileCheck2,
     image: "/workflow/confirm-documents.webp",
     imageAlt: "Export documentation desk with silica gel sample and compliance papers",
@@ -128,7 +113,7 @@ const procurementFlow = [
   {
     step: "03",
     title: "Plan shipment",
-    text: "Align MOQ, lead time, Incoterms, packaging quantity, and dispatch route before final quotation.",
+    text: "Lock MOQ, Incoterms, and dispatch — then the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
@@ -142,39 +127,6 @@ const categoryLanes = [
   { label: "Container strips", href: "/container-desiccant-strips" },
   { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
   { label: "Dispensers", href: "/dispensers" },
-];
-
-const buyerGuideLinks = [
-  {
-    label: "Technical basics",
-    title: "What is silica gel and how does it work?",
-    text: "Explain adsorption, packet materials, and the difference between sachets, bulk gel, and cargo formats.",
-    href: "/blog/what-is-silica-gel-and-how-does-it-work",
-  },
-  {
-    label: "Export cartons",
-    title: "Prevent moisture in export cartons",
-    text: "Help buyers plan packet size, placement, carton handling, and container-level protection.",
-    href: "/blog/how-to-prevent-moisture-in-export-cartons",
-  },
-  {
-    label: "Documents",
-    title: "SDS and COA requirements",
-    text: "Clarify which documents serious buyers should request before samples, MOQ, or compliance claims.",
-    href: "/blog/silica-gel-sds-coa-requirements-for-buyers",
-  },
-  {
-    label: "Private label",
-    title: "OEM silica gel packet guide",
-    text: "Cover packet text, artwork, warning copy, carton labels, MOQ, and repeat buyer programs.",
-    href: "/blog/private-label-silica-gel-packets-guide",
-  },
-  {
-    label: "Bulk buying",
-    title: "Bulk silica gel supplier checklist",
-    text: "Compare loose bags, finished packs, pallet orders, documents, Incoterms, and repeat supply.",
-    href: "/blog/bulk-silica-gel-supplier-checklist",
-  },
 ];
 
 const industrialBentoCards = [
@@ -208,30 +160,6 @@ const pricingHighlights = [
   "MOQ and volume guidance",
   "FOB / CIF / EXW quote support",
   "Bulk contracts quoted by requirement",
-];
-
-const globalPresenceFlags = [
-  { country: "USA", currency: "USD", src: "/flags/usa.svg" },
-  { country: "European Union", currency: "EUR", src: "/flags/eu.svg" },
-  { country: "United Kingdom", currency: "GBP", src: "/flags/uk.svg" },
-  { country: "Pakistan", currency: "PKR", src: "/flags/pakistan.svg" },
-  { country: "India", currency: "INR", src: "/flags/india.svg" },
-  { country: "China", currency: "CNY", src: "/flags/china.svg" },
-];
-
-const skuRows = [
-  { family: "Paper sachets", sizes: "0.5g, 1g, 2g, 3g, 5g, 10g", material: "Breathable paper / technical fiber", buyer: "Pharma bottles, electronics, retail cartons" },
-  { family: "Large sachets", sizes: "25g, 50g, 100g, 250g, 500g", material: "Woven or non-woven bead bags", buyer: "Textile, leather, warehouse, export cartons" },
-  { family: "Container strips", sizes: "1kg, 2kg, 3kg, 5kg", material: "Multi-chamber cargo strip format", buyer: "Ocean freight, container rain prevention" },
-  { family: "Custom supply", sizes: "Made to requirement", material: "Private label / carton labeling", buyer: "Distributors, OEM packaging, repeat contracts" },
-];
-
-const documentationMatrix = [
-  { name: "ISO 9001:2015", status: "Held", use: "Quality management proof for B2B procurement review." },
-  { name: "SDS / MSDS", status: "Request", use: "Safety and handling document matched to product format." },
-  { name: "COA", status: "Request", use: "Batch or product-level quality reference for buyer files." },
-  { name: "DMF-free statement", status: "Supported", use: "Product-level claim for buyers avoiding DMF-risk materials." },
-  { name: "FDA / REACH / Halal / GMP", status: "Buyer-driven", use: "Discussed per destination market and confirmed against valid documents before commercial terms." },
 ];
 
 const trustedIndustries = [
@@ -289,36 +217,6 @@ const testimonials = [
   },
 ];
 
-const caseStudies = [
-  {
-    label: "Anonymous Case 01",
-    title: "Leather exporter reduced moisture-risk checks before dispatch.",
-    industry: "Leather / Footwear Export",
-    challenge: "Seasonal shipments needed repeatable sachet sizing for cartons moving through humid storage and sea freight.",
-    solution: "Mapped carton volume to 5g, 10g, and 50g sachet options with COA/SDS request path before recurring orders.",
-    result: "Cleaner RFQs, faster size selection, and better pre-shipment moisture-control planning.",
-    image: seoImages.moistureProtection.src,
-  },
-  {
-    label: "Anonymous Case 02",
-    title: "Electronics buyer moved from guessing to documented pack selection.",
-    industry: "Electronics Packaging",
-    challenge: "The buyer needed desiccant guidance for mixed PCB, accessories, and boxed components without over-ordering.",
-    solution: "Used unit-level sachet formats, application notes, and document checklist to prepare a clearer procurement request.",
-    result: "Fewer back-and-forth questions before quote, with product format and documents aligned earlier.",
-    image: seoImages.electronicsPackaging.src,
-  },
-  {
-    label: "Anonymous Case 03",
-    title: "Container shipment team planned strip requirements before pricing.",
-    industry: "Maritime Logistics",
-    challenge: "Long-haul cargo needed humidity protection guidance before selecting 1kg to 5kg container strips.",
-    solution: "Matched shipment route, container size, dispatch window, and Incoterms with cargo strip options.",
-    result: "More useful RFQ inputs for FOB/CIF discussion and better route-based desiccant planning.",
-    image: seoImages.exportLogistics.src,
-  },
-];
-
 const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
 const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", priority: true, quality: 72 } as const;
 const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
@@ -357,10 +255,10 @@ export default function Home() {
                 Manufacturer &amp; exporter · since 1983
               </span>
               <h1 className={styles.heroXTitle}>
-                {splitTextToSpans("Bulk silica gel, engineered to keep global cargo bone-dry.")}
+                {splitTextToSpans("Silica gel that keeps cargo bone-dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
-                Manufacturer-direct desiccants for teams that can&apos;t afford moisture damage — export-ready sachets, bulk beads, and container strips with low MOQ, full SDS/COA, and worldwide shipping.
+                Manufacturer-direct sachets, beads, and container strips — low MOQ, full documentation, shipped worldwide.
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
@@ -405,8 +303,8 @@ export default function Home() {
           <Reveal direction="up">
             <section className={styles.procurementFlowSection} aria-label="Buyer workflow">
               <div className={styles.procurementFlowIntro}>
-                <p className={styles.kicker}>Buyer Workflow</p>
-                <AnimatedText text="Move from product fit to quote without guesswork." mode="bubble" />
+                <p className={styles.kicker}>How it works</p>
+                <AnimatedText text="Three steps to a quote." mode="bubble" />
               </div>
               <div className={styles.procurementFlowGrid}>
                 {procurementFlow.map((item) => {
@@ -438,44 +336,13 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up">
-            <section id="science" className={styles.scienceSection}>
-              <div className={styles.scienceVideoColumn}>
-                <div className={styles.scienceStage}>
-                  <LazyScienceVideo className={styles.scienceVideo} />
-                  <div className={styles.scienceGlow} />
-                </div>
-              </div>
-
-              <div className={styles.scienceCopyPanel}>
-                <div className={styles.scienceOverlay}>
-                  <p className={styles.kicker}>The Science</p>
-                  <h2 className={styles.bubbleHeading}>
-                    {splitTextToBubbleSpans("Clear beads. Controlled moisture protection.")}
-                  </h2>
-                  <p>
-                    A close-up look at what you&apos;re actually buying — how a single bead pulls water vapor out of the air, how pack size is matched to your cargo, and why clean, high-adsorption desiccant is what keeps export goods dry.
-                  </p>
-                </div>
-
-                <div className={styles.scienceChips} aria-label="Silica gel science highlights">
-                  {["Porous bead structure", "Vapor adsorption", "Pack-size planning"].map((label, index) => (
-                    <span key={label} style={{ animationDelay: `${index * 80}ms` }}>
-                      {label}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
             <section id="products" className={styles.productSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Product Line</p>
-                  <AnimatedText text="Choose the format first. Build the quote around it." mode="bubble" />
+                  <p className={styles.kicker}>Products</p>
+                  <AnimatedText text="Three formats. Every use case." mode="bubble" />
                   <p>
-                    Each range is presented as a clear buying lane with size, use case, and supply context for faster export shortlisting.
+                    Sachets for cartons, bulk beads for volume, strips for containers.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
@@ -529,48 +396,13 @@ export default function Home() {
           </Reveal>
 
           <Reveal direction="up" delay={0.2}>
-            <section className={styles.globalPresencePanel} aria-label="Global shipping and presence">
-              <div className={styles.globalPresenceCopy}>
-                <span>Export Lanes</span>
-                <h3>Global Shipping &amp; Presence</h3>
-                <p>Quote planning can align currency, destination, documentation, and Incoterms before the final procurement request.</p>
-              </div>
-              <div className={styles.globalFlagViewport}>
-                <div className={styles.globalFlagTrack}>
-                  {[0, 1].map((copyIndex) =>
-                    globalPresenceFlags.map((flag) => (
-                      <div
-                        className={styles.globalFlagItem}
-                        key={`${flag.country}-${copyIndex}`}
-                        aria-hidden={copyIndex === 1}
-                      >
-                        <Image
-                          src={flag.src}
-                          alt={copyIndex === 0 ? `${flag.country} flag` : ""}
-                          width={64}
-                          height={64}
-                          unoptimized
-                          loading="lazy"
-                          className={styles.globalFlagImage}
-                        />
-                        <strong>{flag.country}</strong>
-                        <span>{flag.currency}</span>
-                      </div>
-                    )),
-                  )}
-                </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up" delay={0.4}>
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Export Quote Planning</p>
-                  <AnimatedText text="Plan volume first. Request the final quote with context." mode="bubble" />
+                  <p className={styles.kicker}>Pricing</p>
+                  <AnimatedText text="Size it, price it, send the RFQ." mode="bubble" />
                   <p>
-                    Global buyers need more than a price list: format, quantity, destination, lead time, documents, and shipping terms all shape the final quote.
+                    Pick a format, estimate volume, and get a quote built around your destination and terms.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.pricingVisual}`}>
@@ -647,10 +479,10 @@ export default function Home() {
             <section id="industries" className={styles.partnerSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Industry Compatibility</p>
-                  <AnimatedText text="Used where humidity turns into damage, claims, or wasted stock." mode="bubble" />
+                  <p className={styles.kicker}>Industries</p>
+                  <AnimatedText text="Trusted where humidity means damage." mode="bubble" />
                   <p>
-                    Industry use cases help overseas buyers match the right desiccant format to shipment risk, storage conditions, and packaging type.
+                    From pharma to ocean freight — matched to your shipment risk.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
@@ -673,51 +505,7 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <AnimatedText text="Real moisture-control scenarios, documented end to end." mode="rise" />
-                <p>
-                  Each scenario walks through the actual moisture problem, the product and documents
-                  involved, and the buying outcome — written to help you structure your own RFQ.
-                  Client names and commercial details are kept confidential.
-                </p>
-              </div>
-
-              <div className={styles.caseStudyGrid}>
-                {caseStudies.map((item) => (
-                  <article key={item.title} className={styles.caseStudyCard}>
-                    <div className={styles.caseStudyImage}>
-                      <Image
-                        src={item.image}
-                        alt={`${item.industry} moisture protection case study for silica gel buyers`}
-                        title={`${item.industry} moisture protection case study`}
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 33vw"
-                      />
-                    </div>
-                    <div className={styles.caseStudyCopy}>
-                      <span>{item.label}</span>
-                      <h3>{item.title}</h3>
-                      <dl>
-                        <div>
-                          <dt>Challenge</dt>
-                          <dd>{item.challenge}</dd>
-                        </div>
-                        <div>
-                          <dt>Solution</dt>
-                          <dd>{item.solution}</dd>
-                        </div>
-                        <div>
-                          <dt>Outcome</dt>
-                          <dd>{item.result}</dd>
-                        </div>
-                      </dl>
-                    </div>
-                  </article>
-                ))}
-              </div>
-
-              <div className={styles.caseStudyAction}>
-                <Link href="/case-studies" className={styles.secondaryCta}>View Case Studies</Link>
+                <AnimatedText text="What buyers say after switching." mode="rise" />
               </div>
 
               <DeferredEmblaCarousel options={{ align: "start", loop: true }}>
@@ -740,197 +528,22 @@ export default function Home() {
                 ))}
               </DeferredEmblaCarousel>
 
-              <div className={styles.logoStrip}>
-                {trustedIndustries.map((industry, index) => (
-                  <span
-                    key={industry.name}
-                    className={styles.badgeChip}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    {industry.name}
-                  </span>
-                ))}
+              <div className={styles.caseStudyAction}>
+                <Link href="/case-studies" className={styles.secondaryCta}>Read the case studies</Link>
               </div>
             </section>
           </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.shippingBanner}>
-              <div className={styles.shippingBannerInner}>
-                <div className={styles.shippingBannerLeft}>
-                  <span className={styles.shippingTag}>Worldwide Delivery Support</span>
-                  <AnimatedText text="Wherever your operation is, we can help arrange supply." mode="rise" />
-                  <p>
-                    From local dispatch to international freight coordination, Dry Gel World can support desiccant delivery to buyers across regions. As a{" "}
-                    <Link href="/shipping-container-desiccant-supplier">shipping container desiccant supplier</Link>, we help exporters with{" "}
-                    <Link href="/blog/container-rain-prevention">container rain prevention</Link> on long-haul sea routes. Share your destination and required format, and our team will guide the most practical supply route.
-                  </p>
-                  <div className={styles.shippingCtas}>
-                    <Link href="/contact" className={styles.primaryCta}>Request Delivery Quote</Link>
-                    <Link href="/bulk-sales" className={styles.secondaryCta}>Plan Bulk Supply</Link>
-                  </div>
-                </div>
-                <div className={styles.shippingBannerImage}>
-                  <Image
-                    src={seoImages.exportLogistics.src}
-                    alt={seoImages.exportLogistics.alt}
-                    title={seoImages.exportLogistics.title}
-                    fill
-                    className={styles.image}
-                    sizes="(max-width: 900px) 100vw, 48vw"
-                  />
-                </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.skuSection} aria-label="Silica gel SKU and documentation matrix">
-              <div className={styles.skuIntro}>
-                <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>SKU & Document Matrix</p>
-                  <AnimatedText text="Give procurement the table they came for." mode="rise" />
-                  <p>
-                    Serious buyers need size range, material, use case, and document status before they ask for price.
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.skuTables}>
-                <div className={styles.skuTableWrap}>
-                  <h3>Core Product Formats</h3>
-                  <table className={styles.skuTable}>
-                    <thead>
-                      <tr>
-                        <th>Family</th>
-                        <th>Sizes</th>
-                        <th>Material</th>
-                        <th>Buyer Fit</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {skuRows.map((row) => (
-                        <tr key={row.family}>
-                          <td>{row.family}</td>
-                          <td>{row.sizes}</td>
-                          <td>{row.material}</td>
-                          <td>{row.buyer}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-
-                <div className={styles.skuTableWrap}>
-                  <h3>Documentation Status</h3>
-                  <table className={styles.skuTable}>
-                    <thead>
-                      <tr>
-                        <th>Document</th>
-                        <th>Status</th>
-                        <th>Use</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {documentationMatrix.map((row) => (
-                        <tr key={row.name}>
-                          <td>{row.name}</td>
-                          <td>{row.status}</td>
-                          <td>{row.use}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="resources" className={styles.resourceSection}>
-              <div className={styles.sectionIntro}>
-                <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Resources</p>
-                  <AnimatedText text="Documents, demos, and tools for faster export decisions." mode="rise" />
-                  <p>
-                    Keep specs, calculators, videos, and compliance routes visible so overseas buyers know what to ask for before starting a quote conversation.
-                  </p>
-                </div>
-                <div className={styles.sectionVisual}>
-                  <Image
-                    src={seoImages.pharmaDesiccant.src}
-                    alt={seoImages.pharmaDesiccant.alt}
-                    title={seoImages.pharmaDesiccant.title}
-                    fill
-                    className={styles.sectionVisualImage}
-                    sizes="(max-width: 900px) 100vw, 42vw"
-                  />
-                </div>
-              </div>
-              <BentoGrid />
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.buyerGuideSection} aria-label="Technical buyer guides">
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Technical Buyer Guides</p>
-                <AnimatedText text="Everything your team needs to spec with confidence." mode="rise" />
-                <p>
-                  Practical, no-nonsense guides on sizing, documentation, carton moisture risk,
-                  private-label programs, and bulk supplier checks — so your team can shortlist and
-                  spec the right desiccant before the first RFQ.
-                </p>
-              </div>
-              <div className={styles.buyerGuideGrid}>
-                {buyerGuideLinks.map((guide) => (
-                  <Link href={guide.href} className={styles.buyerGuideCard} key={guide.href}>
-                    <span>{guide.label}</span>
-                    <h3>{guide.title}</h3>
-                    <p>{guide.text}</p>
-                    <strong>Read guide</strong>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          </Reveal>
-
-          <section id="moisture-calculator" aria-label="Moisture load calculator">
-            <Reveal direction="up">
-              <DeferredMoistureCalculator />
-            </Reveal>
-          </section>
 
           <Reveal direction="up">
             <section id="contact" className={styles.homeRfqSection} aria-label="International RFQ form">
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Serious Buyer RFQ</p>
-                <AnimatedText text="Start a bulk order the right way." mode="rise" />
+                <p className={styles.kicker}>Get a Quote</p>
+                <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
                 <p>
-                  WhatsApp stays open for quick questions — but serious international procurement moves
-                  faster when you lead with product type, quantity, destination, Incoterms, and the
-                  documents you need. Send it once, get a clean quote back.
+                  Four fields, one clean quote back — usually within 24 hours.
                 </p>
               </div>
                 <DeferredQuoteForm title="Send MOQ Requirement" />
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section className={styles.ctaBanner}>
-              <div className={styles.ctaBannerContent}>
-                <p className={styles.kicker}>Request Quote</p>
-                <AnimatedText text="Ready to discuss an export-ready desiccant requirement?" mode="bubble" />
-                <p>Share your product format, quantity, destination market, and documentation needs so the team can prepare a clearer procurement response.</p>
-                <div className={styles.ctaBannerActions}>
-                  <div>
-                    <Link href="/contact" className={styles.primaryCta}>Request Export Quote</Link>
-                  </div>
-                  <div>
-                    <Link href="/products" className={styles.secondaryCta}>Browse Products</Link>
-                  </div>
-                </div>
-              </div>
             </section>
           </Reveal>
         </main>

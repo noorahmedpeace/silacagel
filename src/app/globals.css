@@ -168,9 +168,9 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display), var(--font-body);
-  font-weight: 600;
+  font-weight: 700;
   line-height: var(--ds-lh-snug);
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   text-wrap: balance; /* progressive: avoids ragged / orphaned heading lines */
 }
 
