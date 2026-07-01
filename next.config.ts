@@ -32,6 +32,10 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // The art-directed hero requests quality 72; Next 16 only permits qualities
+    // explicitly listed here (default [75]), so declare both to silence the
+    // build warning without re-encoding the LCP image at a heavier setting.
+    qualities: [72, 75],
     minimumCacheTTL: 31536000,
     remotePatterns: [
       {
