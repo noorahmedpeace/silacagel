@@ -132,7 +132,7 @@
 @media (hover: hover) and (pointer: fine) {
   .primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 22px 46px -18px rgba(45, 91, 255, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    box-shadow: 0 22px 46px -18px rgba(255, 107, 61, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.28);
   }
   .secondary:hover {
     transform: translateY(-2px);

@@ -19,12 +19,12 @@
   padding: 12px 18px 12px 14px;
 
   background: rgba(255, 255, 255, 0.92);
-  color: var(--ds-brand-deep, #044d99);
+  color: var(--ds-brand-deep, #1e3fcc);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.01em;
 
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   border-radius: 999px;
   backdrop-filter: blur(12px) saturate(120%);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
@@ -41,16 +41,16 @@
 
 .float:hover,
 .float:focus-visible {
-  background: var(--ds-brand-deep, #044d99);
+  background: var(--ds-brand-deep, #1e3fcc);
   color: #ffffff;
-  border-color: var(--ds-brand-deep, #044d99);
+  border-color: var(--ds-brand-deep, #1e3fcc);
   transform: translateY(-2px);
-  box-shadow: 0 16px 36px rgba(0, 103, 197, 0.4);
+  box-shadow: 0 16px 36px rgba(45, 91, 255, 0.4);
   outline: none;
 }
 
 .float:focus-visible {
-  outline: 2px solid var(--ds-brand, #0067c5);
+  outline: 2px solid var(--ds-brand, #2d5bff);
   outline-offset: 2px;
 }
 
@@ -61,8 +61,8 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(0, 103, 197, 0.12);
-  color: var(--ds-brand, #0067c5);
+  background: rgba(45, 91, 255, 0.12);
+  color: var(--ds-brand, #2d5bff);
   flex-shrink: 0;
   transition: background-color 220ms ease, color 220ms ease;
 }

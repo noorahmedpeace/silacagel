@@ -3,7 +3,7 @@
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 247, 251, 0.78));
   border-radius: 18px;
   overflow: hidden;
-  border: 1px solid rgba(0, 103, 197, 0.12);
+  border: 1px solid rgba(45, 91, 255, 0.12);
   box-shadow: var(--ds-shadow-hero);
   min-height: 600px;
   position: relative;
@@ -91,8 +91,8 @@
 @media (hover: hover) and (pointer: fine) {
   .viewAllBtn:hover {
     transform: translateY(-2px);
-    background: linear-gradient(135deg, #a8081f, #7d0617);
-    box-shadow: 0 20px 40px -18px rgba(216, 13, 42, 0.6);
+    background: linear-gradient(135deg, #e5502a, #7d0617);
+    box-shadow: 0 20px 40px -18px rgba(255, 107, 61, 0.6);
   }
 }
 
@@ -129,7 +129,7 @@
 }
 
 .dot:hover {
-  border-color: rgba(216, 13, 42, 0.4);
+  border-color: rgba(255, 107, 61, 0.4);
   color: var(--ink);
   transform: translateY(-2px);
 }
@@ -139,7 +139,7 @@
   color: white;
   border-color: var(--accent);
   transform: scale(1.12);
-  box-shadow: 0 10px 22px -10px rgba(216, 13, 42, 0.55);
+  box-shadow: 0 10px 22px -10px rgba(255, 107, 61, 0.55);
 }
 
 .dotActive:hover {

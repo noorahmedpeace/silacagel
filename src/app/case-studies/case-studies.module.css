@@ -11,7 +11,7 @@
 .hero,
 .caseCard,
 .rulesSection {
-  border: 1px solid rgba(0, 103, 197, 0.12);
+  border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background:
     radial-gradient(circle at 84% 12%, rgba(219, 234, 254, 0.7), transparent 30%),
@@ -27,10 +27,10 @@
   display: inline-flex;
   width: fit-content;
   padding: 9px 13px;
-  border: 1px solid rgba(0, 103, 197, 0.14);
+  border: 1px solid rgba(45, 91, 255, 0.14);
   border-radius: 4px;
   background: rgba(219, 234, 254, 0.7);
-  color: #064a91;
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 900;
@@ -77,12 +77,12 @@
 }
 
 .primaryBtn {
-  background: #d80d2a;
+  background: #ff6b3d;
   color: #ffffff;
 }
 
 .secondaryBtn {
-  border: 1px solid rgba(0, 103, 197, 0.14);
+  border: 1px solid rgba(45, 91, 255, 0.14);
   background: rgba(255, 255, 255, 0.84);
   color: #0b2447;
 }
@@ -122,7 +122,7 @@
 .caseCopy > span {
   display: inline-flex;
   margin-bottom: 16px;
-  color: #064a91;
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 900;
@@ -156,7 +156,7 @@
 .caseDetails strong {
   display: block;
   margin-bottom: 8px;
-  color: #8a1430;
+  color: #b5432a;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 900;
@@ -177,10 +177,10 @@
   justify-content: center;
   margin-top: 22px;
   padding: 0 16px;
-  border: 1px solid rgba(0, 103, 197, 0.16);
+  border: 1px solid rgba(45, 91, 255, 0.16);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.9);
-  color: #064a91;
+  color: #1e3fcc;
   font-size: 0.84rem;
   font-weight: 900;
 }
@@ -230,7 +230,7 @@
   min-height: 72px;
   align-items: center;
   padding: 16px;
-  border: 1px solid rgba(0, 103, 197, 0.12);
+  border: 1px solid rgba(45, 91, 255, 0.12);
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.84);
   color: #0b2447;
@@ -295,7 +295,7 @@
 }
 
 .ruleCard span {
-  color: #d80d2a;
+  color: #ff6b3d;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 900;

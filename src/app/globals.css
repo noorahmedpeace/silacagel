@@ -18,8 +18,8 @@
   --industrial-blue: #2d5bff;
   --industrial-blue-deep: #1e3fcc;
   --industrial-blue-soft: rgba(45, 91, 255, 0.1);
-  --cta-gradient: linear-gradient(135deg, #3b6bff 0%, #1e3fcc 100%);
-  --cta-glow: rgba(45, 91, 255, 0.32);
+  --cta-gradient: linear-gradient(135deg, #ff8154 0%, #e5502a 100%);
+  --cta-glow: rgba(255, 107, 61, 0.34);
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }

@@ -23,8 +23,8 @@
   align-self: flex-start;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.1);
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -63,7 +63,7 @@
 }
 
 .section a {
-  color: #0067c5;
+  color: #2d5bff;
   font-weight: 700;
 }
 
@@ -86,11 +86,11 @@
   margin-top: 14px;
   padding: 14px 22px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #1976d2 0%, #0067c5 100%);
+  background: linear-gradient(135deg, #1976d2 0%, #2d5bff 100%);
   color: #ffffff;
   font-weight: 800;
   letter-spacing: -0.005em;
-  box-shadow: 0 14px 28px -14px rgba(0, 103, 197, 0.5);
+  box-shadow: 0 14px 28px -14px rgba(45, 91, 255, 0.5);
 }
 
 .cta:hover {

@@ -18,8 +18,8 @@
   align-self: flex-start;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.1);
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 800;
@@ -49,7 +49,7 @@
 }
 
 .byline a {
-  color: #0067c5;
+  color: #2d5bff;
   font-weight: 700;
 }
 
@@ -59,7 +59,7 @@
   aspect-ratio: 16 / 9;
   margin: 0 0 42px;
   overflow: hidden;
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   border-radius: 18px;
   background: #eef6ff;
   box-shadow: 0 24px 60px -42px rgba(15, 23, 42, 0.34);
@@ -75,7 +75,7 @@
   right: 14px;
   bottom: 14px;
   padding: 10px 14px;
-  border: 1px solid rgba(0, 103, 197, 0.14);
+  border: 1px solid rgba(45, 91, 255, 0.14);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.82);
   color: #17365f;
@@ -129,8 +129,8 @@
   padding: 4px 10px;
   margin-bottom: 12px;
   border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.1);
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
@@ -166,7 +166,7 @@
 }
 
 .table thead {
-  background: rgba(0, 103, 197, 0.06);
+  background: rgba(45, 91, 255, 0.06);
 }
 
 .table th,
@@ -183,7 +183,7 @@
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #044d99;
+  color: #1e3fcc;
 }
 
 .table tbody tr:last-child td {
@@ -237,8 +237,8 @@
 }
 
 .pick_a {
-  background: rgba(0, 103, 197, 0.12);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.12);
+  color: #1e3fcc;
 }
 
 .pick_b {
@@ -272,8 +272,8 @@
 }
 
 .faqItem[open] {
-  border-color: rgba(0, 103, 197, 0.32);
-  box-shadow: 0 8px 24px -16px rgba(0, 103, 197, 0.22);
+  border-color: rgba(45, 91, 255, 0.32);
+  box-shadow: 0 8px 24px -16px rgba(45, 91, 255, 0.22);
 }
 
 .faqItem summary {
@@ -321,8 +321,8 @@
   margin-top: 24px;
   padding: 28px 30px;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(0, 103, 197, 0.06) 0%, rgba(31, 94, 255, 0.04) 100%);
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  background: linear-gradient(135deg, rgba(45, 91, 255, 0.06) 0%, rgba(31, 94, 255, 0.04) 100%);
+  border: 1px solid rgba(45, 91, 255, 0.18);
 }
 
 .ctaSection h2 {
@@ -360,9 +360,9 @@
 }
 
 .primaryCta {
-  background: linear-gradient(135deg, #1976d2 0%, #0067c5 100%);
+  background: linear-gradient(135deg, #1976d2 0%, #2d5bff 100%);
   color: #ffffff;
-  box-shadow: 0 14px 28px -14px rgba(0, 103, 197, 0.5);
+  box-shadow: 0 14px 28px -14px rgba(45, 91, 255, 0.5);
 }
 
 .primaryCta:hover {
@@ -372,13 +372,13 @@
 .secondaryCta {
   background: rgba(255, 255, 255, 0.85);
   color: #0a1f3d;
-  border: 1px solid rgba(0, 103, 197, 0.22);
+  border: 1px solid rgba(45, 91, 255, 0.22);
 }
 
 .secondaryCta:hover {
   background: #ffffff;
-  border-color: rgba(0, 103, 197, 0.4);
-  color: #044d99;
+  border-color: rgba(45, 91, 255, 0.4);
+  color: #1e3fcc;
 }
 
 @media (max-width: 640px) {
@@ -472,16 +472,16 @@
 
 .hubCard:hover {
   transform: translateY(-2px);
-  border-color: rgba(0, 103, 197, 0.4);
-  box-shadow: 0 24px 48px -28px rgba(0, 103, 197, 0.3);
+  border-color: rgba(45, 91, 255, 0.4);
+  box-shadow: 0 24px 48px -28px rgba(45, 91, 255, 0.3);
 }
 
 .cardLabel {
   align-self: flex-start;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.1);
+  color: #1e3fcc;
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 800;
@@ -506,7 +506,7 @@
 
 .cardCta {
   margin-top: auto;
-  color: #0067c5;
+  color: #2d5bff;
   font-weight: 800;
   font-size: 0.9rem;
 }

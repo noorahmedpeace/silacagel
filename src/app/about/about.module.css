@@ -395,7 +395,7 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #044d99;
+  color: #1e3fcc;
 }
 
 .verifiableValue {
@@ -468,7 +468,7 @@
 }
 
 .editorial a {
-  color: #0067c5;
+  color: #2d5bff;
   font-weight: 800;
 }
 
@@ -486,7 +486,7 @@
   width: 46px;
   height: 46px;
   border-radius: 12px;
-  border: 1px solid rgba(0, 103, 197, 0.16);
+  border: 1px solid rgba(45, 91, 255, 0.16);
   background: #ffffff;
   color: #334155;
   transition:

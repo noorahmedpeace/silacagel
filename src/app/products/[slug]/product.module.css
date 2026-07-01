@@ -86,7 +86,7 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(60% 80% at 18% 12%, rgba(0, 103, 197, 0.08) 0%, rgba(0, 103, 197, 0) 60%),
+    radial-gradient(60% 80% at 18% 12%, rgba(45, 91, 255, 0.08) 0%, rgba(45, 91, 255, 0) 60%),
     linear-gradient(180deg, var(--ds-surface-tint) 0%, var(--ds-surface) 100%);
   border-radius: var(--ds-radius-hero);
 }
@@ -106,7 +106,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: var(--ds-radius-pill);
-  box-shadow: 0 6px 16px rgba(216, 13, 42, 0.24);
+  box-shadow: 0 6px 16px rgba(255, 107, 61, 0.24);
 }
 
 .copy h1,
@@ -182,7 +182,7 @@
 .primaryAction:hover {
   transform: translateY(-2px);
   background: var(--ds-accent-deep);
-  box-shadow: 0 14px 32px rgba(216, 13, 42, 0.32);
+  box-shadow: 0 14px 32px rgba(255, 107, 61, 0.32);
 }
 
 .primaryAction:active { transform: translateY(0) scale(0.98); }
@@ -530,8 +530,8 @@
 }
 
 .faqItem[open] {
-  border-color: rgba(0, 103, 197, 0.32);
-  box-shadow: 0 8px 24px -16px rgba(0, 103, 197, 0.25);
+  border-color: rgba(45, 91, 255, 0.32);
+  box-shadow: 0 8px 24px -16px rgba(45, 91, 255, 0.25);
 }
 
 .faqItem summary {
@@ -651,7 +651,7 @@
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #044d99;
+  color: #1e3fcc;
   margin-bottom: 14px;
 }
 
@@ -675,8 +675,8 @@
 }
 
 .clusterColumn li a:hover {
-  color: #0067c5;
-  border-color: rgba(0, 103, 197, 0.4);
+  color: #2d5bff;
+  border-color: rgba(45, 91, 255, 0.4);
 }
 
 @media (max-width: 760px) {

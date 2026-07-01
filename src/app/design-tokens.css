@@ -38,9 +38,11 @@
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
 
-  /* Signature gradients */
+  /* Signature gradients. Action = warm coral (single CTA colour everywhere,
+   * maximum contrast against the cobalt brand + dark fields); brand = cobalt
+   * for structure, links, and headings. */
   --ds-grad-brand: linear-gradient(135deg, #5b86ff 0%, #2d5bff 45%, #1e3fcc 100%);
-  --ds-grad-cta: linear-gradient(135deg, #3b6bff 0%, #1e3fcc 100%);
+  --ds-grad-cta: linear-gradient(135deg, #ff8154 0%, #ff6b3d 45%, #e5502a 100%);
   --ds-grad-heading: linear-gradient(120deg, #0a0e17 0%, #1e3fcc 60%, #2d5bff 100%);
   --ds-grad-heading-dark: linear-gradient(120deg, #ffffff 0%, #c8d6ff 55%, #5b86ff 100%);
 
@@ -72,8 +74,8 @@
     0 16px 40px -12px rgba(8, 30, 80, 0.12),
     0 40px 96px -32px rgba(8, 30, 80, 0.18);
   --ds-shadow-cta:
-    0 2px 6px rgba(45, 91, 255, 0.22),
-    0 14px 30px -8px rgba(45, 91, 255, 0.4);
+    0 2px 6px rgba(255, 107, 61, 0.24),
+    0 14px 30px -8px rgba(255, 107, 61, 0.42);
   /* Glow used on dark surfaces to lift cobalt elements off the near-black. */
   --ds-glow-brand: 0 0 0 1px rgba(91, 134, 255, 0.3), 0 20px 60px -18px rgba(45, 91, 255, 0.55);
   /* Ring highlight for the top edge of elevated glass — the subtle 1px inner

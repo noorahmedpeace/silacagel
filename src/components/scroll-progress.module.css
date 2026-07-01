@@ -18,7 +18,7 @@
     var(--ds-brand-deep) 40%,
     var(--ds-accent) 100%
   );
-  box-shadow: 0 1px 8px rgba(0, 103, 197, 0.4);
+  box-shadow: 0 1px 8px rgba(45, 91, 255, 0.4);
   pointer-events: none;
   will-change: transform;
 }
