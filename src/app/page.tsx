@@ -41,6 +41,7 @@ const splitTextToBubbleSpans = (text: string) => {
 };
 
 import {
+  ArrowRight,
   FileCheck2,
   Globe,
   ShieldCheck,
@@ -328,10 +329,11 @@ export default function Home() {
     <div className={styles.page}>
       <div className={styles.shell}>
         <main id="top" className={styles.main}>
-          <section className={styles.hero} id="hero">
-            {/* Art-directed hero: phones get the lighter portrait crop
-                (hero-macro-kraft-mobile.webp, ~34KB) via <picture>; only the
-                matching source downloads. priority + fetchPriority preserved. */}
+          <section className={styles.heroX} id="hero">
+            {/* Dark cinematic hero (2026 redesign). The art-directed product
+                macro (mobile/desktop <picture>, preloaded LCP) sits behind a
+                near-black cobalt field with a drifting aurora and a fine
+                perspective grid — moody, engineered, premium. */}
             <picture>
               <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
               <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
@@ -339,55 +341,61 @@ export default function Home() {
               <img
                 {...heroDesktopProps}
                 id="hero-product-image"
-                className={styles.heroBgImage}
+                className={styles.heroXImage}
                 fetchPriority="high"
                 alt={HERO_ALT}
               />
             </picture>
-            <div className={styles.heroShade} />
+            <div className={styles.heroXShade} aria-hidden="true" />
+            <div className={styles.heroXAurora} aria-hidden="true" />
+            <div className={styles.heroXGrid} aria-hidden="true" />
+            <div className={styles.heroXNoise} aria-hidden="true" />
 
-            <div className={styles.heroCopy}>
-              <span className={`${styles.kicker} gsap-hero-fade`}>
-                Global industrial desiccant supply
+            <div className={styles.heroXCopy}>
+              <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
+                <span className={styles.heroXEyebrowDot} aria-hidden="true" />
+                Manufacturer &amp; exporter · since 1983
               </span>
-              <h1>
-                {splitTextToSpans("Buy silica gel in bulk — manufacturer & exporter since 1983.")}
+              <h1 className={styles.heroXTitle}>
+                {splitTextToSpans("Bulk silica gel, engineered to keep global cargo bone-dry.")}
               </h1>
-              <p className={`${styles.lead} gsap-hero-fade`}>
-                Buy silica gel desiccant at manufacturer-direct, wholesale prices — export-ready sachets, bulk beads, and cargo strips with low MOQ, SDS/COA, and worldwide shipping for importers, pharma, electronics, logistics, and packaging teams in any country.
+              <p className={`${styles.heroXLead} gsap-hero-fade`}>
+                Manufacturer-direct desiccants for teams that can&apos;t afford moisture damage — export-ready sachets, bulk beads, and container strips with low MOQ, full SDS/COA, and worldwide shipping.
               </p>
 
-              <div className={`${styles.ctaRow} gsap-hero-fade`}>
-                <Link href="/buy-silica-gel" className={styles.primaryCta}>
-                  Buy Silica Gel
+              <div className={`${styles.heroXActions} gsap-hero-fade`}>
+                <Link href="/buy-silica-gel" className={styles.heroXPrimary}>
+                  Get bulk pricing
+                  <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
-                <Link href="/products" className={styles.secondaryCta}>
-                  View Product Range
+                <Link href="/products" className={styles.heroXGhost}>
+                  Explore the range
                 </Link>
               </div>
 
-              <div className={`${styles.heroProofLine} gsap-hero-fade`}>
+              <div className={`${styles.heroXProof} gsap-hero-fade`}>
                 {heroCerts.map((item) => (
                   <span key={item}>{item}</span>
                 ))}
               </div>
 
-              <div className={`${styles.trustSignals} gsap-hero-fade`}>
+              <div className={`${styles.heroXSignals} gsap-hero-fade`}>
                 {trustSignalsArray.map((signal) => {
                   const Icon = signal.icon;
                   return (
-                    <Link key={signal.href} href={signal.href} className={styles.signal}>
-                      <Icon className={styles.signalIcon} size={24} strokeWidth={1.5} />
-                      <div className={styles.signalText}>
+                    <Link key={signal.href} href={signal.href} className={styles.heroXSignal}>
+                      <span className={styles.heroXSignalIcon}>
+                        <Icon size={22} strokeWidth={1.6} />
+                      </span>
+                      <span className={styles.heroXSignalText}>
                         <span>{signal.label}</span>
                         <strong>{signal.title}</strong>
-                      </div>
+                      </span>
                     </Link>
                   );
                 })}
               </div>
             </div>
-
           </section>
 
           <Reveal direction="up">

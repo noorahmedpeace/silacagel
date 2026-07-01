@@ -1,21 +1,25 @@
 :root {
-  --bg: #f3f5f7;
-  --surface: rgba(255, 255, 255, 0.74);
+  /* ── Precision Dry palette (redesign) ──────────────────────────────────
+   * Cool-clean canvas, deep blue-black ink, electric cobalt as the brand
+   * anchor, and a warm coral used sparingly for energy (nods to indicating
+   * gel). The old flat red is retired; CTAs now run on cobalt. Variable
+   * NAMES are preserved so the whole site re-tints from these values. */
+  --bg: #f4f6fb;
+  --surface: rgba(255, 255, 255, 0.72);
   --surface-elevated: #ffffff;
-  --surface-strong: #f3f5f7;
-  --glass-border: rgba(15, 23, 42, 0.12);
-  --ink: #101820;
-  --muted: #667085;
-  --accent: #d80d2a;
-  --accent-glow: rgba(216, 13, 42, 0.2);
-  --accent-deep: #a8081f;
-  --accent-warm: #d80d2a;
-  --industrial-blue: #0067c5;
-  --industrial-blue-deep: #064a91;
-  --industrial-blue-soft: rgba(0, 103, 197, 0.1);
-  --cta-gradient: linear-gradient(135deg, #d80d2a 0%, #a8081f 100%);
-  --cta-glow: rgba(216, 13, 42, 0.28);
-  --font-display: var(--font-body);
+  --surface-strong: #eef2f9;
+  --glass-border: rgba(12, 18, 32, 0.1);
+  --ink: #0a0e17;
+  --muted: #5b6472;
+  --accent: #ff6b3d;
+  --accent-glow: rgba(255, 107, 61, 0.22);
+  --accent-deep: #e5502a;
+  --accent-warm: #ff6b3d;
+  --industrial-blue: #2d5bff;
+  --industrial-blue-deep: #1e3fcc;
+  --industrial-blue-soft: rgba(45, 91, 255, 0.1);
+  --cta-gradient: linear-gradient(135deg, #3b6bff 0%, #1e3fcc 100%);
+  --cta-glow: rgba(45, 91, 255, 0.32);
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
@@ -78,9 +82,9 @@ body {
   font-feature-settings: "cv11" 1, "ss01" 1, "calt" 1, "kern" 1;
   text-rendering: optimizeLegibility;
   background-image:
-    radial-gradient(circle at top left, rgba(0, 103, 197, 0.06), transparent 26%),
-    radial-gradient(circle at 86% 10%, rgba(216, 13, 42, 0.045), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #f3f5f7 100%);
+    radial-gradient(circle at top left, rgba(45, 91, 255, 0.06), transparent 26%),
+    radial-gradient(circle at 86% 10%, rgba(255, 107, 61, 0.045), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
   background-attachment: fixed;
 }
 
@@ -91,9 +95,9 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 12% 8%, rgba(0, 103, 197, 0.1) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 88% 22%, rgba(0, 103, 197, 0.07), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(243, 245, 247, 0.82));
+    radial-gradient(circle at 12% 8%, rgba(45, 91, 255, 0.1) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 88% 22%, rgba(45, 91, 255, 0.07), transparent 24%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(244, 246, 251, 0.82));
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: 26px 26px, 820px 520px, 100% 100%;
@@ -163,9 +167,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display);
-  font-weight: 700;
+  font-family: var(--font-display), var(--font-body);
+  font-weight: 600;
   line-height: var(--ds-lh-snug);
+  letter-spacing: -0.015em;
   text-wrap: balance; /* progressive: avoids ragged / orphaned heading lines */
 }
 

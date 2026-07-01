@@ -5939,3 +5939,353 @@
     transform: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * HERO — "PRECISION DRY" REDESIGN (2026)
+ * Self-contained (heroX* namespace) so it never collides with the legacy .hero
+ * cascade above. Dark cinematic field: preloaded product macro behind a
+ * near-black cobalt shade, a slow drifting aurora, a fine perspective grid,
+ * and a grain layer — Linear/Vercel energy, B2B-credible.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+.heroX {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: clamp(560px, 82vh, 820px);
+  overflow: hidden;
+  border-radius: 28px;
+  padding: clamp(28px, 5vw, 76px);
+  background: var(--ds-bg-deep);
+  box-shadow: 0 50px 120px -60px rgba(6, 10, 24, 0.9);
+}
+
+.heroXImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 68% center;
+  z-index: 0;
+  opacity: 0.5;
+  filter: saturate(0.85) contrast(1.05);
+  animation: heroXImageIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroXImageIn {
+  from { opacity: 0; transform: scale(1.08); }
+  to   { opacity: 0.5; transform: scale(1.04); }
+}
+
+/* Cinematic cobalt shade — darkens the photo into a moody field and biases
+ * light to the lower-left where the copy lives. */
+.heroXShade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(105deg, rgba(6, 9, 20, 0.96) 0%, rgba(7, 11, 26, 0.86) 42%, rgba(8, 12, 28, 0.5) 72%, rgba(9, 13, 30, 0.34) 100%),
+    linear-gradient(0deg, rgba(6, 9, 20, 0.9) 0%, rgba(6, 9, 20, 0.1) 60%),
+    radial-gradient(120% 90% at 10% 108%, rgba(45, 91, 255, 0.34), transparent 55%);
+}
+
+/* Drifting aurora — two soft cobalt/cyan blobs that slowly breathe. */
+.heroXAurora {
+  position: absolute;
+  inset: -20%;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 20% 30%, rgba(59, 107, 255, 0.5), transparent 60%),
+    radial-gradient(34% 40% at 78% 22%, rgba(34, 211, 238, 0.22), transparent 62%),
+    radial-gradient(46% 50% at 66% 82%, rgba(45, 91, 255, 0.28), transparent 60%);
+  filter: blur(30px);
+  opacity: 0.9;
+  animation: heroXAurora 18s ease-in-out infinite alternate;
+}
+
+@keyframes heroXAurora {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); }
+  to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
+}
+
+/* Fine perspective grid, fading upward — the "engineered" texture. */
+.heroXGrid {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(120, 150, 255, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120, 150, 255, 0.09) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: radial-gradient(120% 90% at 30% 100%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(120% 90% at 30% 100%, #000 20%, transparent 78%);
+  opacity: 0.7;
+}
+
+.heroXNoise {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: radial-gradient(circle at center, #fff 0 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
+}
+
+.heroXCopy {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroXEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 15px 8px 12px;
+  margin-bottom: 26px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(233, 238, 247, 0.9);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroXEyebrowDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--ds-brand-bright);
+  box-shadow: 0 0 0 4px rgba(91, 134, 255, 0.28), 0 0 12px rgba(91, 134, 255, 0.9);
+  animation: heroXPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes heroXPulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(91, 134, 255, 0.28), 0 0 10px rgba(91, 134, 255, 0.8); }
+  50%      { box-shadow: 0 0 0 6px rgba(91, 134, 255, 0.12), 0 0 18px rgba(91, 134, 255, 1); }
+}
+
+.heroXTitle {
+  margin: 0 0 22px;
+  max-width: 17ch;
+  color: #fff;
+  font-family: var(--font-display), var(--font-body);
+  font-weight: 600;
+  font-size: clamp(2.4rem, 1.2rem + 5.4vw, 5.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.heroXLead {
+  margin: 0 0 30px;
+  max-width: 54ch;
+  color: rgba(233, 238, 247, 0.74);
+  font-size: clamp(1.02rem, 0.96rem + 0.5vw, 1.28rem);
+  line-height: 1.6;
+}
+
+.heroXActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.heroXPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 26px;
+  border-radius: 12px;
+  background: var(--ds-grad-cta);
+  color: #fff;
+  font-family: var(--font-display), var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.heroXPrimary svg {
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.heroXGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: var(--font-display), var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .heroXPrimary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 24px 50px -16px rgba(45, 91, 255, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .heroXPrimary:hover svg { transform: translateX(4px); }
+  .heroXGhost:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.heroXPrimary:active,
+.heroXGhost:active { transform: translateY(0) scale(0.985); }
+
+.heroXProof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 30px;
+  color: rgba(233, 238, 247, 0.6);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.heroXProof span {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+}
+
+.heroXProof span::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: var(--ds-brand-bright);
+}
+
+.heroXSignals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  max-width: 720px;
+}
+
+.heroXSignal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 16px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.heroXSignalIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  background: rgba(45, 91, 255, 0.18);
+  border: 1px solid rgba(91, 134, 255, 0.34);
+  color: var(--ds-brand-bright);
+  transition: transform var(--ds-dur-base) var(--ds-ease-spring),
+    background var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.heroXSignalText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.heroXSignalText span {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(233, 238, 247, 0.6);
+}
+
+.heroXSignalText strong {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .heroXSignal:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(91, 134, 255, 0.4);
+    box-shadow: 0 20px 44px -22px rgba(45, 91, 255, 0.6);
+  }
+  .heroXSignal:hover .heroXSignalIcon {
+    transform: scale(1.08);
+    background: rgba(45, 91, 255, 0.28);
+  }
+}
+
+@media (max-width: 900px) {
+  .heroXSignals { grid-template-columns: 1fr; }
+  .heroXImage { object-position: 60% center; opacity: 0.42; }
+}
+
+@media (max-width: 600px) {
+  .heroX {
+    min-height: clamp(520px, 88vh, 680px);
+    border-radius: 20px;
+  }
+  .heroXActions { width: 100%; }
+  .heroXPrimary, .heroXGhost { flex: 1; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroXImage,
+  .heroXAurora,
+  .heroXEyebrowDot { animation: none !important; }
+  .heroXImage { opacity: 0.46; transform: none; }
+  .heroXPrimary:hover, .heroXGhost:hover, .heroXSignal:hover,
+  .heroXPrimary:hover svg, .heroXSignal:hover .heroXSignalIcon {
+    transform: none !important;
+  }
+}

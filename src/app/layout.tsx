@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -42,6 +42,16 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Display face for the redesign — a precise, technical grotesk that reads
+// "engineered" against Inter's neutral body. Drives every heading via
+// --font-display (see globals.css h1–h6).
+const display = Space_Grotesk({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
   display: "swap",
 });
 
@@ -156,7 +166,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" className={body.variable}>
+    <html lang="en" className={`${body.variable} ${display.variable}`}>
       <head>
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
