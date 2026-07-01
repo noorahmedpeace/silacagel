@@ -1,0 +1,54 @@
+/*
+ * Signature scroll-progress bar. Pure CSS, driven by the scroll-timeline API,
+ * so it runs on the compositor with zero JavaScript and stays at 60fps. The
+ * bar scales along X from 0 → 1 as the document scrolls from top to bottom.
+ */
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 300; /* above the fixed header (z-index 200) */
+  height: 3px;
+  width: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(
+    90deg,
+    var(--ds-brand) 0%,
+    var(--ds-brand-deep) 40%,
+    var(--ds-accent) 100%
+  );
+  box-shadow: 0 1px 8px rgba(0, 103, 197, 0.4);
+  pointer-events: none;
+  will-change: transform;
+}
+
+@supports (animation-timeline: scroll()) {
+  .bar {
+    animation: scrollGrow linear both;
+    animation-timeline: scroll(root block);
+  }
+}
+
+/* Where the scroll timeline is unsupported, hide the bar entirely rather than
+ * leaving a permanently-empty sliver at the top of the viewport. */
+@supports not (animation-timeline: scroll()) {
+  .bar {
+    display: none;
+  }
+}
+
+@keyframes scrollGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    display: none;
+  }
+}

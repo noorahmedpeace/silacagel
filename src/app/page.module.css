@@ -140,8 +140,20 @@
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(9, 16, 28, 0.84) 0%, rgba(9, 16, 28, 0.56) 38%, rgba(9, 16, 28, 0.1) 72%),
-    linear-gradient(180deg, rgba(9, 16, 28, 0.08) 0%, rgba(9, 16, 28, 0.62) 100%);
+    linear-gradient(90deg, rgba(9, 16, 28, 0.86) 0%, rgba(9, 16, 28, 0.58) 38%, rgba(9, 16, 28, 0.1) 74%),
+    linear-gradient(180deg, rgba(9, 16, 28, 0.1) 0%, rgba(9, 16, 28, 0.66) 100%),
+    /* subtle brand wash at the lower-left grounds the copy in DryGel blue */
+    radial-gradient(120% 90% at 8% 100%, rgba(0, 103, 197, 0.22), transparent 55%);
+}
+
+/* Cinematic edge vignette — darkens the four corners so the framed hero reads
+ * as a lit stage rather than a flat photo. Sits above the shade, below copy. */
+.heroShade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(130% 130% at 50% 40%, transparent 58%, rgba(6, 11, 20, 0.45) 100%);
+  pointer-events: none;
 }
 
 .kicker {
@@ -557,10 +569,28 @@
   background: rgba(10, 18, 30, 0.42);
   border-color: rgba(255, 255, 255, 0.16);
   box-shadow: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.hero .signal:hover {
+  transform: translateY(-3px);
+  background: rgba(14, 24, 40, 0.62);
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 18px 40px -22px rgba(0, 0, 0, 0.7);
+}
+
+.hero .signal:hover .signalIcon {
+  color: #ffd7dd;
 }
 
 .hero .signalIcon {
   color: white;
+  transition: color var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .hero .signalText span,
@@ -2814,8 +2844,11 @@
 
 .hero .kicker {
   color: #ffffff;
-  background: rgba(216, 13, 42, 0.88);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(216, 13, 42, 0.9);
+  border-color: rgba(255, 255, 255, 0.24);
+  box-shadow: 0 6px 18px -8px rgba(216, 13, 42, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .lead {

@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -176,6 +177,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ScrollProgress />
         <SiteHeader />
         <HashAnchorScroll />
         {children}
