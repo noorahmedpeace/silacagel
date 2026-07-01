@@ -255,7 +255,10 @@
 .emailRoute strong {
   min-width: 0;
   color: #eaf0ff;
-  font-size: 0.82rem;
+  /* Slightly smaller + tighter so full addresses fit their column instead of
+   * breaking mid-word ("…world.co m"). */
+  font-size: 0.76rem;
+  letter-spacing: -0.01em;
   font-weight: 600;
   line-height: 1.25;
   word-break: break-word;
