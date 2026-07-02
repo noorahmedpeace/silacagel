@@ -5831,3 +5831,18 @@
     margin-top: 10px;
   }
 }
+
+/* Kicker discipline: every non-action label chip sits on the brand family —
+ * coral is reserved for actions. Overrides the legacy coral kicker rules. */
+.hero .kicker,
+.sectionHead .kicker,
+.certStripLabel,
+.shippingTag,
+.proofSection .sectionHead .kicker,
+.homeRfqSection .sectionHead .kicker {
+  color: var(--ds-brand-deep);
+  background: var(--ds-brand-soft);
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: 999px;
+  box-shadow: none;
+}
