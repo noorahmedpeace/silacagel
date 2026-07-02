@@ -45,7 +45,7 @@ export default function CaseStudiesPage() {
                 alt={`${item.industry} packaging protected with silica gel desiccant`}
                 fill
                 className={styles.image}
-                sizes="(max-width: 1000px) 100vw, 38vw"
+                sizes="(max-width: 1000px) 100vw, 900px"
               />
             </div>
             <div className={styles.caseCopy}>

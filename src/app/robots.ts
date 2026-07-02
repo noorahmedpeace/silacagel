@@ -3,7 +3,7 @@ import { absoluteUrl } from "@/lib/seo";
 
 // SINGLE SOURCE OF TRUTH for robots policy.
 //
-// IMPORTANT — edge override: if a CDN/Vercel "managed AI bots" feature is
+// IMPORTANT - edge override: if a CDN/Vercel "managed AI bots" feature is
 // enabled, it injects a richer robots.txt at the edge that OVERRIDES this file
 // and Disallows GPTBot/ClaudeBot/Google-Extended/CCBot etc. That defeats the
 // site's own /llms.txt (which exists to feed those very agents) and makes this
@@ -13,7 +13,7 @@ import { absoluteUrl } from "@/lib/seo";
 // Verify with:  curl -A Googlebot https://www.drygelworld.com/robots.txt
 //
 // If AI *training* must instead be blocked while still allowing grounding,
-// keep /llms.txt and uncomment the explicit trainer block below — so the policy
+// keep /llms.txt and uncomment the explicit trainer block below - so the policy
 // lives in version control rather than an unversioned edge toggle.
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -36,7 +36,9 @@ export default function robots(): MetadataRoute.Robots {
           "Claude-Web",
           "anthropic-ai",
           "PerplexityBot",
+          "Perplexity-User",
           "Google-Extended",
+          "Bingbot",
           "CCBot",
         ],
         allow: "/",

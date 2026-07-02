@@ -45,9 +45,9 @@ const body = Inter({
   display: "swap",
 });
 
-// Display face for the redesign — a clean, geometric premium sans with none
+// Display face for the redesign - a clean, geometric premium sans with none
 // of Space Grotesk's quirky letterforms. Drives every heading via
-// --font-display (see globals.css h1–h6).
+// --font-display (see globals.css h1-h6).
 const display = Plus_Jakarta_Sans({
   variable: "--font-display",
   subsets: ["latin"],
@@ -345,7 +345,7 @@ export default function RootLayout({
                   isicV4: "8292",
                   hasCredential: {
                     "@type": "EducationalOccupationalCredential",
-                    name: "ISO 9001:2015 — Packaging and Supply of Silica Desiccant",
+                    name: "ISO 9001:2015 - Packaging and Supply of Silica Desiccant",
                     credentialCategory: "Quality Management System Certification",
                     identifier: "9101225",
                     recognizedBy: {

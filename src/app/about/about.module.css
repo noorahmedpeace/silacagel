@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
- * ABOUT — Precision Dry design language.
+ * ABOUT - Precision Dry design language.
  * Bright Clean-SaaS content core on the cool --ds-bg canvas, electric
  * cobalt for structure/borders/links, warm coral reserved for the single
  * CTA. Crisp 14px card corners, layered two-light shadows, hover physics
@@ -395,7 +395,7 @@
   line-height: 1.6;
 }
 
-/* Honest-scope caution block — coral accent family (the one warm surface
+/* Honest-scope caution block - coral accent family (the one warm surface
  * in the system) so the disclosure reads deliberate, not alarming. */
 .honestScope {
   margin-top: 8px;
@@ -534,7 +534,7 @@
     box-shadow: var(--ds-shadow-card);
   }
 
-  /* Platform brand colours are intentionally literal — they identify the
+  /* Platform brand colours are intentionally literal - they identify the
    * networks, not the DryGelWorld palette. */
   .socialFacebook:hover {
     background: #1877f2;

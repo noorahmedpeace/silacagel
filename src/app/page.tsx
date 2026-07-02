@@ -45,12 +45,12 @@ import styles from "./page.module.css";
 // commercial metadata rather than inheriting the layout default. Title/H1 carry
 // transactional "buy silica gel" intent; canonical is the slash-consistent root.
 export const metadata: Metadata = {
-  title: "Buy Silica Gel in Bulk | Manufacturer & Exporter — DryGelWorld",
+  title: "Buy Silica Gel in Bulk | Manufacturer & Exporter - DryGelWorld",
   description:
-    "Buy silica gel desiccant in bulk direct from the manufacturer since 1983 — wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
+    "Buy silica gel desiccant in bulk direct from the manufacturer since 1983 - wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Buy Silica Gel in Bulk — Manufacturer & Exporter | DryGelWorld",
+    title: "Buy Silica Gel in Bulk - Manufacturer & Exporter | DryGelWorld",
     description:
       "Manufacturer-direct silica gel: wholesale packets, bulk beads, and container desiccant strips with SDS/COA and worldwide export shipping.",
     url: "/",
@@ -97,7 +97,7 @@ const procurementFlow = [
   {
     step: "01",
     title: "Define the pack",
-    text: "Pick sachets, strips, or bulk — sized to your cartons and humidity risk.",
+    text: "Pick sachets, strips, or bulk - sized to your cartons and humidity risk.",
     icon: PackageCheck,
     image: "/workflow/define-pack.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
@@ -113,7 +113,7 @@ const procurementFlow = [
   {
     step: "03",
     title: "Plan shipment",
-    text: "Lock MOQ, Incoterms, and dispatch — then the final quote.",
+    text: "Lock MOQ, Incoterms, and dispatch - then the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
@@ -173,12 +173,12 @@ const scrollyIndustries = [
     name: "Electronics & Semiconductors",
     overline: "Circuit Protection",
     image: seoImages.electronicsPackaging.src,
-    description: "Zero-fail moisture elimination around microchips, PCBs, and sensitive components — preventing corrosion and short circuits in transit.",
+    description: "Zero-fail moisture elimination around microchips, PCBs, and sensitive components - preventing corrosion and short circuits in transit.",
   },
   {
     name: "Leather, Textiles & Garments",
     overline: "Mold & Mildew Control",
-    image: "/silicagel_paper_technical_1775981630266.webp",
+    image: "/applications/leather-footwear.webp",
     description: "Protecting leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
   },
   {
@@ -191,7 +191,7 @@ const scrollyIndustries = [
     name: "Ocean Freight & Container Cargo",
     overline: "Container Rain Defense",
     image: seoImages.containerDesiccant.src,
-    description: "Container-scale absorption for export shipments — preventing container rain, condensation, and inventory losses at sea.",
+    description: "Container-scale absorption for export shipments - preventing container rain, condensation, and inventory losses at sea.",
   },
 ];
 
@@ -236,7 +236,7 @@ export default function Home() {
             {/* Dark cinematic hero (2026 redesign). The art-directed product
                 macro (mobile/desktop <picture>, preloaded LCP) sits behind a
                 near-black cobalt field with a drifting aurora and a fine
-                perspective grid — moody, engineered, premium. */}
+                perspective grid - moody, engineered, premium. */}
             <picture>
               <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
               <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
@@ -264,7 +264,7 @@ export default function Home() {
                 Manufacturer &amp; exporter · since 1983
               </span>
               <h1 className={styles.heroXTitle}>
-                {splitTextToSpans("Silica gel that keeps cargo bone-dry.")}
+                {splitTextToSpans("Silica gel that keeps cargo bone dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
                 Sachets, beads, and container strips straight from our factory. Low MOQs, full documentation, and delivery to 190+ countries.
@@ -332,7 +332,7 @@ export default function Home() {
                           alt={item.imageAlt}
                           fill
                           className={styles.procurementFlowImage}
-                          sizes="(max-width: 1100px) 100vw, 18vw"
+                          sizes="(max-width: 900px) 100vw, 34vw"
                         />
                         <div className={styles.procurementFlowIcon}>
                           <Icon size={18} strokeWidth={1.8} />
@@ -471,6 +471,17 @@ export default function Home() {
                       Estimate total weight and share a cleaner procurement request with the export team.
                     </p>
                     <DeferredPriceCalculator />
+                    <p className={styles.calculatorSubHint}>
+                      Need grams per carton instead? Enter length, width, and height in the{" "}
+                      <a
+                        href="/tools/moisture-load-calculator"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        moisture load calculator
+                      </a>
+                      .
+                    </p>
                   </div>
                 </div>
               </div>
@@ -484,7 +495,7 @@ export default function Home() {
                   <p className={styles.kicker}>Industries</p>
                   <AnimatedText text="Trusted where humidity means damage." mode="bubble" />
                   <p>
-                    From pharma to ocean freight — matched to your shipment risk.
+                    From pharma to ocean freight - matched to your shipment risk.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
@@ -542,7 +553,7 @@ export default function Home() {
                 <p className={styles.kicker}>Get a Quote</p>
                 <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
                 <p>
-                  Four fields, one clean quote back — usually within 24 hours.
+                  Four fields, one clean quote back - usually within 24 hours.
                 </p>
               </div>
                 <DeferredQuoteForm title="Send MOQ Requirement" />

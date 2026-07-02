@@ -37,7 +37,7 @@ export default function BlogPage() {
         <h1>Practical silica gel & desiccant guides for global buyers.</h1>
         <p>
           Buyer-focused guides on sizing, sourcing, documentation, and moisture
-          protection — written by our export desk to answer the questions
+          protection - written by our export desk to answer the questions
           procurement teams ask before they order.
         </p>
       </section>
@@ -47,7 +47,7 @@ export default function BlogPage() {
           <h2>Latest guides &amp; how-tos.</h2>
           <p>
             Practical reads across products, export, compliance, and industry
-            use cases — from packet sizing to container dosage and SDS/COA.
+            use cases - from packet sizing to container dosage and SDS/COA.
           </p>
         </div>
         <div className={styles.grid}>

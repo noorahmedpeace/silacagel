@@ -1,4 +1,4 @@
-/* Design tokens scoped to /preview/* routes only — do not affect production styles. */
+/* Design tokens scoped to /preview/* routes only - do not affect production styles. */
 
 .preview-root {
   --p-bg: #f4f6f8;

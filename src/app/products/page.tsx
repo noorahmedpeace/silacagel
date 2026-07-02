@@ -10,7 +10,7 @@ const productsFaqs = [
   {
     question: "What's the difference between silica gel sachets, beads, and cargo strips?",
     answer:
-      "Sachets (0.5g–500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg–5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
+      "Sachets (0.5g-500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg-5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
   },
   {
     question: "Should I choose silica gel or clay desiccant?",
@@ -20,7 +20,7 @@ const productsFaqs = [
   {
     question: "Do you offer private-label or custom-printed sachets?",
     answer:
-      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling — confirm packet text, material, MOQ, and document needs at the RFQ stage.",
+      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling - confirm packet text, material, MOQ, and document needs at the RFQ stage.",
   },
 ];
 
@@ -39,8 +39,8 @@ const catalogImages: Record<string, string> = {
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
   "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
-  "hair-nets": "/products/hair-nets.jpg",
-  "beard-covers": "/products/beard-covers.jpg",
+  "hair-nets": "/products/bouffant-hair-nets-studio-product.webp",
+  "beard-covers": "/products/disposable-beard-covers-studio-product.webp",
 };
 
 export default function ProductsPage() {
@@ -50,7 +50,7 @@ export default function ProductsPage() {
         <span className={shared.kicker}>Product Catalog</span>
         <h1>Choose the right moisture-control format for your workflow.</h1>
         <p>
-          Every format in one place — from{" "}
+          Every format in one place - from{" "}
           <Link href="/silica-gel-packets">sachets</Link> to{" "}
           <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
           <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.

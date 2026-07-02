@@ -10,7 +10,7 @@ const GUIDE_PATH = "/guides/silica-gel-buyer-guide";
 const GUIDE_TITLE =
   "The Industrial Silica Gel Buyer Guide: Selection, Sizing, Container Desiccants, and Export Packaging Protection";
 const GUIDE_DESCRIPTION =
-  "The definitive long-form buyer guide for industrial silica gel and desiccant procurement — selection criteria, sizing math, container desiccant deployment, route-humidity adjustments, regulatory documentation, and export packaging discipline. Written by the DryGelWorld Export Desk for B2B procurement teams.";
+  "The definitive long-form buyer guide for industrial silica gel and desiccant procurement - selection criteria, sizing math, container desiccant deployment, route-humidity adjustments, regulatory documentation, and export packaging discipline. Written by the DryGelWorld Export Desk for B2B procurement teams.";
 const GUIDE_META_TITLE = "Industrial Silica Gel Buyer Guide";
 const GUIDE_META_DESCRIPTION =
   "Industrial silica gel buyer guide covering selection, sizing, container desiccants, route humidity, export packaging, and document checks.";
@@ -64,7 +64,7 @@ export default function SilicaGelBuyerGuide() {
           <h1>The Industrial Silica Gel Buyer Guide</h1>
           <p className={styles.subtitle}>
             Selection, sizing, container desiccants, route adjustments, regulatory
-            documentation, and export packaging discipline — written for B2B procurement
+            documentation, and export packaging discipline - written for B2B procurement
             teams importing from Karachi, India, China, and adjacent origin markets.
           </p>
           <div className={styles.meta}>
@@ -108,10 +108,10 @@ export default function SilicaGelBuyerGuide() {
         </figure>
 
         <aside className={styles.execSummary} aria-label="Executive summary">
-          <h2>Executive summary — 60 second read</h2>
+          <h2>Executive summary - 60 second read</h2>
           <ul>
             <li>
-              Industrial silica gel procurement is <strong>five connected decisions</strong> —
+              Industrial silica gel procurement is <strong>five connected decisions</strong> -
               format, sizing math, container deployment, packaging discipline, and
               documentation scope. Get them right at shortlist stage; retrofitting
               mid-program is materially more expensive.
@@ -153,7 +153,7 @@ export default function SilicaGelBuyerGuide() {
         <section id="selection" className={styles.section}>
           <h2>1. Silica gel selection criteria</h2>
           <p>
-            The first procurement decision is not how much silica gel you need — it&apos;s
+            The first procurement decision is not how much silica gel you need - it&apos;s
             which silica gel. For industrial moisture control there are five practical
             decision axes that determine product fit: <strong>bead format</strong>{" "}
             (sachet, strip, bulk), <strong>format material</strong> (paper, non-woven,
@@ -170,7 +170,7 @@ export default function SilicaGelBuyerGuide() {
             Sachets are the right format for per-carton placement inside packaging. They
             ship clean, store well, and adapt to almost any product packaging context.
             Container desiccant strips are the right format for container-ceiling
-            deployment on long-haul ocean freight — they handle large air volumes that
+            deployment on long-haul ocean freight - they handle large air volumes that
             per-carton sachets can&apos;t reach. Bulk silica gel beads are the right
             format for buyers who package their own desiccant in-house, run reusable
             closed-loop industrial systems, or supply downstream sachet makers.
@@ -226,7 +226,7 @@ export default function SilicaGelBuyerGuide() {
             material. Worth the premium when warehouse QC verification is required, the
             program is reusable / closed-loop, or the buyer&apos;s end customer requires
             visible saturation verification. Not worth it for single-use export
-            shipments sized correctly upfront — non-indicating gel does identical work
+            shipments sized correctly upfront - non-indicating gel does identical work
             at lower cost. <strong>Orange indicating gel is the modern standard</strong>{" "}
             because it uses non-cobalt-chloride dye and is REACH-compliant. Blue
             indicating gel uses cobalt chloride which is restricted in EU/UK/AU/CA and
@@ -242,7 +242,7 @@ export default function SilicaGelBuyerGuide() {
             approximately one-third of its weight in water vapor. A sealed carton of
             internal volume V (cubic meters) at average export humidity holds
             approximately V × 20 grams of water vapor. To control that, allocate
-            silica gel weighing at least 3× the vapor mass — V × 60 grams. Adjust upward
+            silica gel weighing at least 3× the vapor mass - V × 60 grams. Adjust upward
             for long voyages, high-humidity routes, and weak packaging barriers; adjust
             downward for short routes and tight packaging. Once you have the
             calculation, sizing becomes mechanical.
@@ -354,7 +354,7 @@ export default function SilicaGelBuyerGuide() {
 
           <p>
             <strong>Distribution matters as much as quantity.</strong> Spread strips
-            evenly through the container — across the ceiling, along both side walls,
+            evenly through the container - across the ceiling, along both side walls,
             and ideally inside the cargo block itself if the cargo configuration allows.
             Concentrated placement in one corner doesn&apos;t protect cargo at the
             opposite end of a 40ft container during a 25-day voyage, because moisture
@@ -437,7 +437,7 @@ export default function SilicaGelBuyerGuide() {
               textile fabrics, and stabilize electronics in low-humidity staging for
               24-48 hours before final packaging. Cargo that enters the carton with
               elevated moisture content forces the desiccant to fight the cargo first
-              before it can protect against voyage humidity — typically 2-3× the
+              before it can protect against voyage humidity - typically 2-3× the
               desiccant is needed to compensate.
             </li>
             <li>
@@ -452,15 +452,15 @@ export default function SilicaGelBuyerGuide() {
               <strong>Loading-area climate control.</strong> If the cargo passes
               through a tropical loading bay before container doors close, the
               container starts the voyage with elevated humidity baked in.
-              Climate-controlled staging — even temporary tented dehumidified loading
-              — reduces baseline container humidity by 20-40% on tropical-origin
+              Climate-controlled staging - even temporary tented dehumidified loading
+              - reduces baseline container humidity by 20-40% on tropical-origin
               routes.
             </li>
             <li>
               <strong>Packaging discipline.</strong> Cardboard absorbs moisture and
               releases it slowly inside the container. Cartons stored 48+ hours in dry
               warehouse conditions before pack reduce baseline moisture load. Don&apos;t
-              pack moisture-sensitive cargo inside sealed plastic bags — desiccant
+              pack moisture-sensitive cargo inside sealed plastic bags - desiccant
               needs vapor access to the cargo space.
             </li>
           </ol>
@@ -518,7 +518,7 @@ export default function SilicaGelBuyerGuide() {
           <p>
             Not every cargo program needs all five layers. Short-haul intra-region
             cargo typically uses layers 2 and 3 only. Long-haul tropical-to-temperate
-            cargo uses all five. Match the program to the cargo&apos;s damage cost — a
+            cargo uses all five. Match the program to the cargo&apos;s damage cost - a
             container of high-value electronics deserves over-sizing; a container of
             low-value durable goods doesn&apos;t.
           </p>
@@ -536,23 +536,23 @@ export default function SilicaGelBuyerGuide() {
 
           <ul className={styles.list}>
             <li>
-              <strong>ISO 9001:2015 manufacturer certificate</strong> — proves
+              <strong>ISO 9001:2015 manufacturer certificate</strong> - proves
               documented process control at the manufacturer. Standard baseline for B2B
               procurement.
             </li>
             <li>
-              <strong>Safety Data Sheet (SDS)</strong> per shipment — material
+              <strong>Safety Data Sheet (SDS)</strong> per shipment - material
               identification, hazard classification, handling, storage, and disposal.
               Required by most customs authorities and by destination buyer EHS audits.
             </li>
             <li>
-              <strong>Certificate of Analysis (COA)</strong> per shipment — moisture
+              <strong>Certificate of Analysis (COA)</strong> per shipment - moisture
               content, adsorption capacity, particle size distribution (for bead
               format), and batch identifier. Required for pharma and electronics
               applications.
             </li>
             <li>
-              <strong>DMF-free statement</strong> — manufacturer letterhead statement
+              <strong>DMF-free statement</strong> - manufacturer letterhead statement
               that the silica gel is not produced under or referenced to a regulatory
               Drug Master File. Required by pharma buyers in some markets when sourcing
               for non-direct-contact secondary packaging.
@@ -624,7 +624,7 @@ export default function SilicaGelBuyerGuide() {
             </li>
             <li>
               <strong>Target price or current supplier benchmark.</strong> Optional
-              but useful — clarifies the buyer&apos;s expected price band and lets the
+              but useful - clarifies the buyer&apos;s expected price band and lets the
               desk confirm or clarify the gap.
             </li>
           </ol>
@@ -646,7 +646,7 @@ export default function SilicaGelBuyerGuide() {
             packaging discipline; and verify documentation scope matches the
             destination market&apos;s regulatory requirement. Honest disclosure of
             which certifications a supplier holds versus doesn&apos;t hold matters
-            more than aggressive marketing claims — quarterly audit results favor
+            more than aggressive marketing claims - quarterly audit results favor
             transparent suppliers.
           </p>
         </section>
@@ -654,7 +654,7 @@ export default function SilicaGelBuyerGuide() {
         <aside className={styles.citeBlock} aria-label="Cite this guide">
           <h2>Cite this guide</h2>
           <p>
-            Editorial and academic references — please use the citation format below
+            Editorial and academic references - please use the citation format below
             so corrections or updates can be tracked properly.
           </p>
           <div className={styles.citationVariants}>

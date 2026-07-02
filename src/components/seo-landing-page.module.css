@@ -1,5 +1,5 @@
 /*
- * SEO landing page styles — used by all 39 SEO landing routes
+ * SEO landing page styles - used by all 39 SEO landing routes
  * (12 dedicated folder routes + 27 catch-all [seoSlug] pages).
  * Class names match the JSX in seo-landing-page.tsx exactly.
  * Values use design tokens from design-tokens.css.
@@ -56,7 +56,7 @@
   display: inline-flex;
   align-items: center;
   padding: 7px 14px;
-  /* Label chip on the brand family — coral stays reserved for actions. */
+  /* Label chip on the brand family - coral stays reserved for actions. */
   background: var(--ds-brand-soft);
   color: var(--ds-brand-deep);
   border: 1px solid rgba(45, 91, 255, 0.18);
@@ -163,8 +163,6 @@
   background: var(--ds-glass-bg);
   border: 1px solid var(--ds-glass-border);
   border-radius: var(--ds-radius-card);
-  backdrop-filter: blur(var(--ds-glass-blur)) saturate(120%);
-  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(120%);
   box-shadow: var(--ds-shadow-card);
   display: flex;
   flex-direction: column;
@@ -214,7 +212,6 @@
   font-size: 12px;
   font-weight: 600;
   border-radius: var(--ds-radius-tight);
-  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -246,8 +243,6 @@
   border-radius: var(--ds-radius-tight);
   /* Frost the translucent chip so copy stays crisp over the hero photo,
    * and add a whisper of elevation so the proof points read as real chips. */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px -6px rgba(8, 30, 80, 0.16), var(--ds-ring-top);
   font-size: 13px;
   font-weight: 600;

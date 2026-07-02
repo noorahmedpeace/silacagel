@@ -7,7 +7,7 @@
 
 :root {
   /* ═══════════════════════════════════════════════════════════════════════
-   * PRECISION DRY — redesign palette (2026). Dark cinematic bookends, a
+   * PRECISION DRY - redesign palette (2026). Dark cinematic bookends, a
    * bright Clean-SaaS content core, electric cobalt brand, warm coral accent.
    * Semantic token names are unchanged so every consuming module re-skins
    * from these values.
@@ -27,13 +27,13 @@
   --ds-text-on-dark: #f4f6fb;
   --ds-text-on-dark-muted: rgba(233, 238, 247, 0.68);
 
-  /* Brand — electric cobalt */
+  /* Brand - electric cobalt */
   --ds-brand: #2d5bff;
   --ds-brand-bright: #5b86ff;   /* lighter stop for gradients / glow */
   --ds-brand-deep: #1e3fcc;
   --ds-brand-soft: #eaf0ff;
 
-  /* Accent — warm coral, used sparingly */
+  /* Accent - warm coral, used sparingly */
   --ds-accent: #ff6b3d;
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
@@ -58,7 +58,7 @@
   --ds-glass-border-dark: rgba(255, 255, 255, 0.12);
   --ds-glass-blur: 18px;
 
-  /* Shadows — layered, tinted with the brand ink so elevation reads as
+  /* Shadows - layered, tinted with the brand ink so elevation reads as
    * depth rather than a flat grey drop. Each token stacks a tight contact
    * shadow with a wide ambient one (the physically-correct two-light model
    * every premium UI uses). */
@@ -78,7 +78,7 @@
     0 14px 30px -8px rgba(255, 107, 61, 0.42);
   /* Glow used on dark surfaces to lift cobalt elements off the near-black. */
   --ds-glow-brand: 0 0 0 1px rgba(91, 134, 255, 0.3), 0 20px 60px -18px rgba(45, 91, 255, 0.55);
-  /* Ring highlight for the top edge of elevated glass — the subtle 1px inner
+  /* Ring highlight for the top edge of elevated glass - the subtle 1px inner
    * light line that makes surfaces feel like real, lit material. */
   --ds-ring-top: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 
@@ -88,7 +88,7 @@
   --ds-radius-hero: 22px;
   --ds-radius-pill: 999px;
 
-  /* Container widths — single source of truth for horizontal alignment */
+  /* Container widths - single source of truth for horizontal alignment */
   --ds-container-max: 1320px;
   --ds-container-narrow: 1100px;
   --ds-container-prose: 760px;
@@ -105,7 +105,7 @@
   --ds-stack-xl: 32px;
 
   /* ─────────────────────────────────────────────────────────────────
-   * UNIFIED FLUID TYPE SCALE — single source of truth for ALL text.
+   * UNIFIED FLUID TYPE SCALE - single source of truth for ALL text.
    * Each step is clamp(min, preferred(rem+vw), max): the rem floor keeps
    * phones readable (tuned for ~360px), the rem+vw preferred term scales
    * smoothly through tablet, the max caps desktop. Prefer these tokens
@@ -118,22 +118,22 @@
   --ds-lead: clamp(1.05rem, 1rem + 0.45vw, 1.25rem);  /* 17 → 20px */
   --ds-body: clamp(0.95rem, 0.92rem + 0.18vw, 1.0625rem); /* 15.2 → 17px */
   --ds-small: 0.9rem;                                 /* 14.4px (≥ readable floor) */
-  --ds-meta: 0.8rem;                                  /* 12.8px — captions/labels */
-  --ds-eyebrow: 0.6875rem;                            /* 11px — kicker pills */
+  --ds-meta: 0.8rem;                                  /* 12.8px - captions/labels */
+  --ds-eyebrow: 0.6875rem;                            /* 11px - kicker pills */
 
-  /* Line-heights — pair with the sizes above for a clean vertical rhythm. */
+  /* Line-heights - pair with the sizes above for a clean vertical rhythm. */
   --ds-lh-tight: 1.12;  /* hero / h1 */
   --ds-lh-snug: 1.22;   /* h2 / h3 / h4 */
   --ds-lh-base: 1.5;    /* leads, UI text */
-  --ds-lh-body: 1.65;   /* paragraphs — readability */
+  --ds-lh-body: 1.65;   /* paragraphs - readability */
 
-  /* Letter-spacing — headings tighten, eyebrows/labels open up. */
+  /* Letter-spacing - headings tighten, eyebrows/labels open up. */
   --ds-ls-tight: -0.02em;  /* large display headings */
   --ds-ls-snug: -0.01em;   /* h2 / h3 */
   --ds-ls-wide: 0.02em;
   --ds-ls-eyebrow: 0.12em; /* uppercase kickers */
 
-  /* Canonical responsive breakpoints — standardize on THREE. CSS @media
+  /* Canonical responsive breakpoints - standardize on THREE. CSS @media
    * cannot read custom properties, so treat these as the documented values
    * to use (mobile ≤640, tablet ≤900, desktop >900) instead of inventing
    * new ones per file. */
@@ -141,7 +141,7 @@
   --bp-tablet: 900px;
   --bp-desktop: 1200px;
 
-  /* Motion — a small, deliberate easing vocabulary. `ease` is the general
+  /* Motion - a small, deliberate easing vocabulary. `ease` is the general
    * standard; `out` is the decisive deceleration used for reveals and
    * hovers (feels like something settling into place); `spring` overshoots
    * slightly for playful micro-interactions (chips, magnetic buttons). */
@@ -152,7 +152,7 @@
   --ds-dur-base: 300ms;
   --ds-dur-slow: 600ms;
 
-  /* Focus — one accessible, on-brand focus ring reused everywhere so keyboard
+  /* Focus - one accessible, on-brand focus ring reused everywhere so keyboard
    * navigation looks intentional instead of the default browser outline. */
   --ds-focus-ring: 0 0 0 2px var(--ds-surface), 0 0 0 4px var(--ds-brand);
 }

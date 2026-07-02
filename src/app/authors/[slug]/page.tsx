@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
           url: seoImages.defaultOg.src,
           width: seoImages.defaultOg.width,
           height: seoImages.defaultOg.height,
-          alt: `${author.name} — ${author.role}`,
+          alt: `${author.name} - ${author.role}`,
         },
       ],
     },

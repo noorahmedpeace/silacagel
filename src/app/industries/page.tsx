@@ -6,7 +6,7 @@ import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../strategy-pages.module.css";
 
 // Hub index for the /industries/[industry] cluster. Mirrors the slugs in
-// industries/[industry]/page.tsx — keep both in sync if industries are added.
+// industries/[industry]/page.tsx - keep both in sync if industries are added.
 const industries = [
   {
     slug: "container-shipping",
@@ -54,11 +54,11 @@ const industries = [
     slug: "defense-and-ammunition-packaging",
     title: "Defense & Ammunition Packaging",
     blurb:
-      "Corrosion and condensation control for defense components, ammunition, and military spare parts — MIL/DIN unit counts quoted to buyer spec.",
+      "Corrosion and condensation control for defense components, ammunition, and military spare parts - MIL/DIN unit counts quoted to buyer spec.",
   },
 ] as const;
 
-const pageTitle = "Industries We Serve — Silica Gel & Desiccant Applications";
+const pageTitle = "Industries We Serve - Silica Gel & Desiccant Applications";
 const pageDescription =
   "Industry-specific silica gel and desiccant moisture protection for container shipping, electronics, pharma, leather and footwear, textiles, and food packaging exporters worldwide.";
 

@@ -1,5 +1,5 @@
 /*
- * Industries scrollytelling — sticky image stage + scrolling text blocks.
+ * Industries scrollytelling - sticky image stage + scrolling text blocks.
  * Desktop >=1000px only; below that the effect is fully disabled and the
  * industries render as plain stacked cards. No animation libraries.
  */
@@ -142,10 +142,10 @@
     box-shadow: var(--ds-shadow-hero);
   }
 
-  /* Stacked slides — all mounted, crossfading. The active one settles to
+  /* Stacked slides - all mounted, crossfading. The active one settles to
    * rest; inactive ones sit faded with a slight directional drift + zoom so
    * every change reads as a smooth cinematic dissolve, not a hard slide.
-   * Opacity + transform only — fully compositor-driven, no jank. */
+   * Opacity + transform only - fully compositor-driven, no jank. */
   .slide {
     position: absolute;
     inset: 0;

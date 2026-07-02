@@ -5,7 +5,7 @@ import type { IndustryData } from "@/components/industry-slider";
 
 // Base fallback styling for deferred-widget placeholders. The min-height
 // is set per-widget by the caller so the placeholder matches the loaded
-// widget's expected height — preventing Cumulative Layout Shift when
+// widget's expected height - preventing Cumulative Layout Shift when
 // the real component swaps in. This is the largest CLS source on the
 // home page (Vercel Speed Insights showed CLS 0.13 on mobile before).
 const baseFallbackStyle = {
@@ -91,7 +91,7 @@ function LoadWhenVisible<P extends object>({
 }
 
 // Per-widget min-heights match the approximate rendered height of the
-// real component on mobile widths. Conservative estimates — if the real
+// real component on mobile widths. Conservative estimates - if the real
 // component renders taller, the browser handles the extra naturally; if
 // shorter, the small extra whitespace is preferable to a CLS spike.
 const WIDGET_MIN_HEIGHTS = {

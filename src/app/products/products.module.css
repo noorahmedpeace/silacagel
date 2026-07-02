@@ -1,5 +1,5 @@
 /*
- * Products list page — "Precision Dry" visual layer.
+ * Products list page - "Precision Dry" visual layer.
  * Class names match src/app/products/page.tsx exactly.
  * Values use design tokens from design-tokens.css only.
  */
@@ -86,7 +86,6 @@
   background: var(--ds-glass-bg);
   color: var(--ds-text);
   box-shadow: var(--ds-shadow-soft);
-  backdrop-filter: blur(var(--ds-glass-blur));
 }
 
 .formatBadge {
@@ -162,7 +161,7 @@
   font-weight: 600;
 }
 
-/* Hover states — pointer devices only */
+/* Hover states - pointer devices only */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     transform: translateY(-6px);

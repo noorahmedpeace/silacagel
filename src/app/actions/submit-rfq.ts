@@ -1,6 +1,6 @@
 "use server";
 
-// Server-side RFQ delivery. Sends via the Resend REST API (no SDK dependency —
+// Server-side RFQ delivery. Sends via the Resend REST API (no SDK dependency -
 // just fetch). Designed to degrade gracefully:
 //   - returns { ok: true }            -> delivered, show real success
 //   - returns { ok: false, fallback } -> not delivered (no key / send failed),
@@ -8,9 +8,9 @@
 //   - returns { ok: false, error }    -> validation failed, do NOT mark sent
 //
 // Required env (set in Vercel project settings):
-//   RESEND_API_KEY  – Resend API key
-//   RFQ_FROM        – verified sender, e.g. "DryGelWorld RFQ <rfq@drygelworld.com>"
-//   RFQ_BCC         – optional internal archive inbox (BCC on every RFQ)
+//   RESEND_API_KEY  - Resend API key
+//   RFQ_FROM        - verified sender, e.g. "DryGelWorld RFQ <rfq@drygelworld.com>"
+//   RFQ_BCC         - optional internal archive inbox (BCC on every RFQ)
 
 export type RfqResult = { ok: true } | { ok: false; error?: string; fallback?: boolean };
 
@@ -59,7 +59,7 @@ export async function submitRfq(data: RfqPayload): Promise<RfqResult> {
     });
 
     if (!res.ok) {
-      // Delivery failed at the provider — fall back to mailto rather than lie.
+      // Delivery failed at the provider - fall back to mailto rather than lie.
       return { ok: false, fallback: true, error: "Delivery service is temporarily unavailable." };
     }
     return { ok: true };

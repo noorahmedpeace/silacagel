@@ -19,7 +19,7 @@ const documentsFaqs = [
   {
     question: "Are your desiccants compliant for food or pharma packaging?",
     answer:
-      "Silica gel is supplied DMF-free with SDS and COA. Formal food-grade (FSSC 22000) and pharmaceutical (FDA, USP) certifications are not held as blanket credentials — they are confirmed buyer-by-buyer against your market's requirement before commercial terms.",
+      "Silica gel is supplied DMF-free with SDS and COA. Formal food-grade (FSSC 22000) and pharmaceutical (FDA, USP) certifications are not held as blanket credentials - they are confirmed buyer-by-buyer against your market's requirement before commercial terms.",
   },
   {
     question: "Can you provide documentation before I place an order?",

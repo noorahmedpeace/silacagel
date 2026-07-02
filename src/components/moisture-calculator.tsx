@@ -78,7 +78,7 @@ export const MoistureCalculator = () => {
               Based on a standard moisture threshold of 56g/ft^3. For high-humidity
               maritime environments, increase weight by 20%.
             </p>
-            <a href="#contact" className={styles.procureLink}>
+            <a href="/contact" className={styles.procureLink}>
               Request Technical Audit -&gt;
             </a>
           </div>

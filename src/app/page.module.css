@@ -25,8 +25,6 @@
   margin: 18px 0 28px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.68);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
   border: 1px solid rgba(191, 193, 194, 0.5);
   box-shadow: 0 22px 44px -34px rgba(13, 27, 42, 0.28);
   color: var(--ink);
@@ -146,7 +144,7 @@
     radial-gradient(120% 90% at 8% 100%, rgba(45, 91, 255, 0.22), transparent 55%);
 }
 
-/* Cinematic edge vignette — darkens the four corners so the framed hero reads
+/* Cinematic edge vignette - darkens the four corners so the framed hero reads
  * as a lit stage rather than a flat photo. Sits above the shade, below copy. */
 .heroShade::after {
   content: "";
@@ -173,7 +171,7 @@
 
 .hero h1 {
   font-family: var(--font-display);
-  /* Was clamp(4.25rem, 7vw, 5.7rem) — a 68px floor that was enormous on
+  /* Was clamp(4.25rem, 7vw, 5.7rem) - a 68px floor that was enormous on
      phones. Fluid hero display with a phone-safe 40px floor up to 91px. */
   font-size: clamp(2.5rem, 1.6rem + 4.5vw, 5.7rem);
   line-height: var(--ds-lh-tight);
@@ -321,8 +319,6 @@
   gap: 6px;
   border: 1px solid rgba(255, 255, 255, 0.36);
   background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   color: var(--ink);
   box-shadow: 0 22px 42px -30px rgba(0, 0, 0, 0.45);
 }
@@ -378,8 +374,6 @@
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(191, 193, 194, 0.2);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
 }
 
 .heroTrustBar span {
@@ -502,8 +496,6 @@
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.86);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   box-shadow: 0 20px 32px -28px rgba(15, 23, 42, 0.35);
 }
 
@@ -569,8 +561,6 @@
   background: rgba(10, 18, 30, 0.42);
   border-color: rgba(255, 255, 255, 0.16);
   box-shadow: none;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   transition: transform var(--ds-dur-base) var(--ds-ease-out),
     background var(--ds-dur-base) var(--ds-ease-out),
     border-color var(--ds-dur-base) var(--ds-ease-out),
@@ -781,8 +771,6 @@
   gap: 10px;
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(37, 52, 77, 0.08);
   border-radius: 22px;
   transition: all 0.2s ease;
@@ -833,7 +821,7 @@
 
 .sectionHead h2 {
   font-family: var(--font-display);
-  /* Was a fixed 3.2rem (51px) — oversized on phones. Unified fluid h2. */
+  /* Was a fixed 3.2rem (51px) - oversized on phones. Unified fluid h2. */
   font-size: var(--ds-h2);
   line-height: var(--ds-lh-tight);
   letter-spacing: var(--ds-ls-snug);
@@ -943,8 +931,6 @@
   gap: 16px;
   padding: 32px 24px;
   background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   text-align: center;
@@ -1118,8 +1104,6 @@
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: -0.02em;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .productCard {
@@ -1242,8 +1226,6 @@
   padding: 12px 14px;
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.76);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.78);
   box-shadow: 0 18px 28px -24px rgba(15, 23, 42, 0.35);
   z-index: 2;
@@ -1536,8 +1518,6 @@
 .calculatorPanel {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.9));
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   padding: 42px 38px;
   border-radius: 32px;
   box-shadow: 0 28px 56px -30px rgba(13, 27, 42, 0.16);
@@ -2334,8 +2314,6 @@
   background: rgba(255, 107, 61, 0.9);
   border-color: rgba(255, 255, 255, 0.24);
   box-shadow: 0 6px 18px -8px rgba(255, 107, 61, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.28);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .lead {
@@ -2874,8 +2852,6 @@
 .reasonCard,
 .priceCard {
   background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 
 .priceQuoteLink,
@@ -3360,7 +3336,7 @@
 .hero h1 {
   max-width: 16ch;
   /* Effective hero rule (this "redesign pass" overrides the earlier ones).
-     Was clamp(3.15rem, 6.2vw, 6.2rem) — a 50px floor that was oversized on
+     Was clamp(3.15rem, 6.2vw, 6.2rem) - a 50px floor that was oversized on
      phones. Phone-safe fluid display: 40px floor → 99px ceiling. */
   font-size: clamp(2.5rem, 1.5rem + 5vw, 6.2rem);
   line-height: var(--ds-lh-tight);
@@ -3379,7 +3355,7 @@
   align-items: stretch;
   padding: clamp(28px, 4vw, 46px);
   border-radius: 18px;
-  /* Light Clean-SaaS panel — the page keeps its dark bookends (hero/footer)
+  /* Light Clean-SaaS panel - the page keeps its dark bookends (hero/footer)
    * but the content core stays bright and airy. */
   border: 1px solid var(--ds-hairline);
   background:
@@ -3985,8 +3961,8 @@
  * This file accumulated several stacked "redesign passes" that re-declare
  * the same heading selectors with large, fixed/clamp mobile floors, so
  * headings rendered oversized and inconsistently on phones. Rather than
- * untangle every duplicate inline (regression-prone), this block — last in
- * source order and specificity-matched to those selectors — caps every
+ * untangle every duplicate inline (regression-prone), this block - last in
+ * source order and specificity-matched to those selectors - caps every
  * heading variant to the unified fluid scale on tablet/mobile. Desktop
  * design above is untouched (rules only apply ≤900px).
  * ────────────────────────────────────────────────────────────────────── */
@@ -4474,8 +4450,6 @@
   color: rgba(255, 255, 255, 0.84);
   font-size: 0.78rem;
   line-height: 1.35;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
 }
 
 .heroProofLine span::before {
@@ -4651,8 +4625,6 @@
     font-size: 0.78rem;
     font-weight: 850;
     line-height: 1.25;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
@@ -4686,8 +4658,6 @@
     box-shadow:
       0 18px 42px -28px rgba(0, 0, 0, 0.55),
       inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
   }
 
   .hero .signal::after {
@@ -4775,11 +4745,11 @@
  * Appended last so equal-specificity rules win by source order. Gives every
  * card family one coherent, tasteful hover: a decisive lift on the "out"
  * easing plus the layered two-light shadow, and a slow image push-in for
- * media cards. Nothing here changes layout, content, or SEO — pointer polish
+ * media cards. Nothing here changes layout, content, or SEO - pointer polish
  * only, fully disabled under prefers-reduced-motion.
  * ═══════════════════════════════════════════════════════════════════════ */
 @media (hover: hover) and (pointer: fine) {
-  /* Workflow cards (light section) — lift + cobalt border on hover. */
+  /* Workflow cards (light section) - lift + cobalt border on hover. */
   .procurementFlowCard {
     transition: transform var(--ds-dur-base) var(--ds-ease-out),
       background var(--ds-dur-base) var(--ds-ease-out),
@@ -4838,18 +4808,18 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * HERO — "PRECISION DRY" REDESIGN (2026)
+ * HERO - "PRECISION DRY" REDESIGN (2026)
  * Self-contained (heroX* namespace) so it never collides with the legacy .hero
  * cascade above. Dark cinematic field: preloaded product macro behind a
  * near-black cobalt shade, a slow drifting aurora, a fine perspective grid,
- * and a grain layer — Linear/Vercel energy, B2B-credible.
+ * and a grain layer - Linear/Vercel energy, B2B-credible.
  * ═══════════════════════════════════════════════════════════════════════════ */
 .heroX {
   position: relative;
   isolation: isolate;
   display: flex;
   align-items: center;
-  /* Tighter stage — the old 82vh hero read as a wall. */
+  /* Tighter stage - the old 82vh hero read as a wall. */
   min-height: clamp(480px, 64vh, 640px);
   overflow: hidden;
   border-radius: 28px;
@@ -4876,7 +4846,7 @@
   to   { opacity: 0.68; transform: scale(1.04); }
 }
 
-/* Cobalt shade — lighter than the first cut: the photo stays visible and the
+/* Cobalt shade - lighter than the first cut: the photo stays visible and the
  * field reads deep-blue, not black. Copy contrast held by the left gradient. */
 .heroXShade {
   position: absolute;
@@ -4888,7 +4858,7 @@
     radial-gradient(120% 90% at 10% 108%, rgba(45, 91, 255, 0.38), transparent 55%);
 }
 
-/* Drifting aurora — soft cobalt/cyan blobs. No filter: blur — a 30px blur on
+/* Drifting aurora - soft cobalt/cyan blobs. No filter: blur - a 30px blur on
  * a viewport-scale animated layer is brutal on integrated GPUs; the radial
  * gradients are already soft, so the look is identical at ~zero cost. */
 .heroXAurora {
@@ -4902,6 +4872,7 @@
     radial-gradient(52% 56% at 66% 82%, rgba(45, 91, 255, 0.24), transparent 68%);
   opacity: 0.9;
   will-change: transform;
+  /* Scroll-driven where supported (zero cost offscreen); time-based fallback. */
   animation: heroXAurora 18s ease-in-out infinite alternate;
 }
 
@@ -4910,7 +4881,7 @@
   to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
 }
 
-/* Fine perspective grid, fading upward — the "engineered" texture. */
+/* Fine perspective grid, fading upward - the "engineered" texture. */
 .heroXGrid {
   position: absolute;
   inset: 0;
@@ -4930,7 +4901,7 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  /* No blend mode — overlay forces an extra compositing pass over the whole
+  /* No blend mode - overlay forces an extra compositing pass over the whole
    * hero; plain low-opacity dots read the same. */
   opacity: 0.035;
   background-image: radial-gradient(circle at center, #fff 0 0.6px, transparent 0.6px);
@@ -4970,7 +4941,6 @@
   border-radius: 999px;
   background: var(--ds-brand-bright);
   box-shadow: 0 0 0 4px rgba(91, 134, 255, 0.28), 0 0 12px rgba(91, 134, 255, 0.9);
-  animation: heroXPulse 2.4s ease-in-out infinite;
 }
 
 @keyframes heroXPulse {
@@ -5186,10 +5156,10 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * WORKFLOW — STACKING CARD DECK (appended last so it wins source order).
+ * WORKFLOW - STACKING CARD DECK (appended last so it wins source order).
  * "How it works" cards become a scroll-driven deck: the intro pins on the
  * left while each full-width step card sticks below the header and the next
- * one slides up over it — pure position:sticky, zero JS, always 60fps.
+ * one slides up over it - pure position:sticky, zero JS, always 60fps.
  * Each card pins 22px lower than the previous so the covered card's top edge
  * peeks out like a real deck. Falls back to a plain column on touch/mobile.
  * ═══════════════════════════════════════════════════════════════════════════ */
@@ -5229,7 +5199,7 @@
       var(--ds-shadow-card);
   }
 
-  /* Deck offsets — each card pins slightly lower so the pile reads as depth. */
+  /* Deck offsets - each card pins slightly lower so the pile reads as depth. */
   .procurementFlowCard:nth-child(1) { top: 108px; }
   .procurementFlowCard:nth-child(2) { top: 130px; }
   .procurementFlowCard:nth-child(3) { top: 152px; }
@@ -5250,7 +5220,7 @@
     padding: clamp(24px, 3vw, 40px);
   }
 
-  /* Giant watermark step number — the deck's signature. */
+  /* Giant watermark step number - the deck's signature. */
   .procurementFlowContent span {
     position: absolute;
     top: 10px;
@@ -5274,7 +5244,7 @@
     font-size: 0.98rem;
   }
 
-  /* The lift-hover from the interaction layer fights position:sticky pinning —
+  /* The lift-hover from the interaction layer fights position:sticky pinning -
    * swap it for a border/shadow emphasis that doesn't move the card. */
   .procurementFlowCard:hover {
     transform: none;
@@ -5305,7 +5275,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * PREMIUM POLISH v2 — deck + bento + rail (appended last, wins source order).
+ * PREMIUM POLISH v2 - deck + bento + rail (appended last, wins source order).
  * ═══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Workflow deck v2: richer cards, seamless photo blend, gradient number ── */
@@ -5367,7 +5337,7 @@
   .procurementFlowCard:nth-child(2) { top: 132px; }
   .procurementFlowCard:nth-child(3) { top: 160px; }
 
-  /* Photo blends seamlessly into the card body — no hard seam. */
+  /* Photo blends seamlessly into the card body - no hard seam. */
   .procurementFlowMedia::after {
     background:
       linear-gradient(90deg, transparent 55%, rgba(251, 252, 255, 0.35) 86%, rgba(251, 252, 255, 0.95) 100%),
@@ -5501,7 +5471,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * PREMIUM POLISH v3 — pricing + testimonials
+ * PREMIUM POLISH v3 - pricing + testimonials
  * Appended last so equal-specificity rules win by source order. Tokens only;
  * coral stays strictly on actions (Quote links / row CTAs), cobalt carries
  * structure. All hover styling lives in (hover:hover)+(pointer:fine), all
@@ -5518,14 +5488,14 @@
     box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
-/* Left accent bar was coral in an earlier pass — coral is actions-only, so
+/* Left accent bar was coral in an earlier pass - coral is actions-only, so
  * the structural accent goes back to brand cobalt. */
 .priceCard::before {
   background: linear-gradient(180deg, var(--ds-brand), rgba(45, 91, 255, 0));
 }
 
 /* Neutralize the stale coral hover border/shadow from the mid passes
- * (unconditional there, so neutralized unconditionally here — colour only,
+ * (unconditional there, so neutralized unconditionally here - colour only,
  * no motion). The lift itself stays in the interaction layer. */
 .priceCard:hover,
 .testimonialCard:hover {
@@ -5595,7 +5565,7 @@
     box-shadow var(--ds-dur-quick) var(--ds-ease-out);
 }
 
-/* Sticky-tap fallback: earlier passes paint this hover solid cobalt — an
+/* Sticky-tap fallback: earlier passes paint this hover solid cobalt - an
  * action must resolve coral on every input type (colour only, no motion). */
 .priceQuoteLink:hover {
   transform: none;
@@ -5650,8 +5620,6 @@
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 250, 255, 0.97)) padding-box,
     linear-gradient(165deg, rgba(45, 91, 255, 0.5) 0%, rgba(45, 91, 255, 0.16) 34%, rgba(45, 91, 255, 0.05) 62%, rgba(45, 91, 255, 0) 100%) border-box;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
   box-shadow:
     var(--ds-shadow-card),
     0 30px 70px -42px rgba(45, 91, 255, 0.3);
@@ -5710,7 +5678,7 @@
 }
 
 /* Repurpose the old coral accent bar as a large faded display quotation
- * mark — cobalt at ~9%, sitting behind the content. */
+ * mark - cobalt at ~9%, sitting behind the content. */
 .testimonialCard::before {
   content: "\201C";
   inset: auto;
@@ -5814,7 +5782,7 @@
   }
 }
 
-/* Mobile fix: an old compact-band rule hid the workflow heading on phones —
+/* Mobile fix: an old compact-band rule hid the workflow heading on phones -
  * the redesigned light section needs its "Three steps to a quote." back. */
 @media (max-width: 760px) {
   .procurementFlowIntro h2 {
@@ -5829,7 +5797,7 @@
   }
 }
 
-/* Kicker discipline: every non-action label chip sits on the brand family —
+/* Kicker discipline: every non-action label chip sits on the brand family -
  * coral is reserved for actions. Overrides the legacy coral kicker rules. */
 .hero .kicker,
 .sectionHead .kicker,
@@ -5845,7 +5813,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * STAGGERED SCROLL REVEAL — products section (user request).
+ * STAGGERED SCROLL REVEAL - products section (user request).
  * Scroll-driven (animation-timeline: view()) so it runs on the compositor at
  * 60fps with zero JS. Each bento card enters later in its own view timeline
  * (staggered ranges), the intro rises first, and the category-rail chips pop
@@ -5911,9 +5879,9 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
- * PRODUCTS — FORMAT TILES (rebuild, user request).
+ * PRODUCTS - FORMAT TILES (rebuild, user request).
  * The old bento put copy ON dark photo overlays and duplicated the intro
- * image. New pattern: centered header, three equal product tiles — contained
+ * image. New pattern: centered header, three equal product tiles - contained
  * photo on top (zooms on hover), clean white body below with label chip,
  * title, one line, and an arrow link. Bright, readable, Stripe-grade.
  * ═══════════════════════════════════════════════════════════════════════════ */
@@ -6123,7 +6091,7 @@
 }
 
 /* Scrollytelling fix: position:sticky dies inside an overflow:hidden
- * ancestor — the Industries section must not clip. Its ::after texture is
+ * ancestor - the Industries section must not clip. Its ::after texture is
  * inset:0, so nothing can spill; give it the section's radius so corners
  * still read rounded without the clip. */
 .partnerSection {
@@ -6148,7 +6116,7 @@
   padding-right: 0;
 }
 
-/* Full-bleed breakout from the padded .shell — dvw ignores the scrollbar so
+/* Full-bleed breakout from the padded .shell - dvw ignores the scrollbar so
  * it can't cause horizontal overflow (same technique as the announcement bar). */
 @supports (width: 100dvw) {
   .heroX {
@@ -6168,7 +6136,7 @@
   padding: 0 clamp(20px, 4vw, 36px);
 }
 
-/* Silica-bead dot grid — pure CSS. Masked to the navy copy zone on the left
+/* Silica-bead dot grid - pure CSS. Masked to the navy copy zone on the left
  * and faded out before the product photo, so it reads as texture BEHIND the
  * imagery instead of a pattern stamped over it. */
 .heroXDots {
@@ -6195,4 +6163,27 @@
   .heroX {
     border-radius: 0;
   }
+}
+
+/* ═══ PERF PASS ═══════════════════════════════════════════════════════════ */
+
+/* Aurora: where scroll timelines exist, drive the drift from the hero's own
+ * visibility — it costs literally nothing once the hero scrolls away. Older
+ * browsers keep the time-based loop. */
+@supports (animation-timeline: view()) {
+  .heroXAurora {
+    animation: heroXAurora linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+}
+
+/* Skip rendering below-the-fold sections until they approach the viewport.
+ * Sticky sections (workflow deck, industries scrollytelling) are excluded —
+ * containment breaks position:sticky. */
+.pricingSection,
+.proofSection,
+.homeRfqSection {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }

@@ -6,7 +6,7 @@ type Metric = {
   value: string;
   label: string;
   sub: string;
-  /** Supporting page this proof point links to — makes every stat actionable
+  /** Supporting page this proof point links to - makes every stat actionable
    *  and feeds internal-linking signal to the relevant landing page. */
   href: string;
   /** When false the value renders static (non-numeric proof like ISO / DMF). */
@@ -38,7 +38,7 @@ export function TrustBand() {
             key={metric.label}
             href={metric.href}
             className={`${styles.metric} ${metric.accent ? styles.metricAccent : ""}`}
-            aria-label={`${metric.value} — ${metric.label}`}
+            aria-label={`${metric.value} - ${metric.label}`}
           >
             <span className={styles.value}>
               {metric.count ? (

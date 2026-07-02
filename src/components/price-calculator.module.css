@@ -100,7 +100,6 @@
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(4px);
   color: var(--ink);
   font-size: 1rem;
   font-weight: 750;
@@ -304,7 +303,7 @@
 
 .submit {
   border-radius: 10px;
-  /* Primary action — coral, matching every other CTA in the system. */
+  /* Primary action - coral, matching every other CTA in the system. */
   background: var(--ds-grad-cta);
   box-shadow: var(--ds-shadow-cta);
 }
@@ -366,8 +365,8 @@
  * The "compact desktop workbench" rules above are declared AFTER the
  * @media (max-width: 620px) block and, carrying equal specificity,
  * win on phones too (media queries add no specificity). That silently
- * drops the calculator inputs to ~15px — which triggers iOS zoom-on-
- * focus — and shrinks the tap targets. Re-assert the mobile-critical
+ * drops the calculator inputs to ~15px - which triggers iOS zoom-on-
+ * focus - and shrinks the tap targets. Re-assert the mobile-critical
  * control sizing here as the last matching rule, scoped to ≤620px so
  * desktop (the intended target of the workbench block) is untouched. */
 @media (max-width: 620px) {
@@ -383,7 +382,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
- * PREMIUM POLISH v3 — panel chrome only (heading, cards, hairlines).
+ * PREMIUM POLISH v3 - panel chrome only (heading, cards, hairlines).
  * The panel frame itself lives in page.module.css (.calculatorPanel);
  * here the inner chrome is aligned to the --ds-* token system. The coral
  * .submit action is untouched.

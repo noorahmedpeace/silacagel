@@ -32,21 +32,21 @@ const heroProof = [
 
 const productCards = [
   {
-    label: "0.5g – 20g",
+    label: "0.5g - 20g",
     title: "Precision sachets",
     text: "Unit-level moisture control for electronics, pharma bottles, and retail packaging.",
     image: "/products/white-nonindicating-clean-sachets.webp",
     href: "/products/retail-sachets",
   },
   {
-    label: "25g – 500g",
+    label: "25g - 500g",
     title: "Industrial bulk packs",
     text: "Carton and warehouse-scale protection for textiles, leather, and industrial export cargo.",
     image: "/silicagel_bulk_enterprise.webp",
     href: "/products/bulk-industrial",
   },
   {
-    label: "1kg – 5kg",
+    label: "1kg - 5kg",
     title: "Container cargo strips",
     text: "Multi-chamber cargo strips engineered for container rain and long-haul ocean freight.",
     image: "/silicagel_cargo_strips.webp",
@@ -119,7 +119,7 @@ const comparison = {
   columns: ["Sachet packets", "Bulk industrial", "Cargo strips"],
   rows: [
     { label: "Best for", values: ["Unit-level retail / electronics", "Carton / warehouse stock", "Container ocean freight"] },
-    { label: "Size range", values: ["0.5 g – 10 g", "25 g – 500 g", "1 kg – 5 kg"] },
+    { label: "Size range", values: ["0.5 g - 10 g", "25 g - 500 g", "1 kg - 5 kg"] },
     { label: "Typical buyer", values: ["Pharma, electronics, retail", "Importers, packagers", "Shippers, logistics"] },
     { label: "MOQ", values: ["Smaller carton-pack runs", "Pallet-scale planning", "Per-container supply"] },
     { label: "Lead time", values: ["Stock-friendly", "Plan by volume", "Aligned with shipping"] },
@@ -341,7 +341,7 @@ export default function PreviewHome() {
           <span className={styles.eyebrow}>Compliance & Trust</span>
           <h2 className={styles.sectionH2}>Documented claims only.</h2>
           <p className={styles.sectionLead}>
-            Verifiable proof signals — no hand-waving. Additional certifications added when valid
+            Verifiable proof signals - no hand-waving. Additional certifications added when valid
             documentation is held for the order.
           </p>
         </header>

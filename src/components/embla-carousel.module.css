@@ -22,11 +22,11 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
- * PREMIUM POLISH v3 — viewport breathing room + evened slide heights.
+ * PREMIUM POLISH v3 - viewport breathing room + evened slide heights.
  * The viewport clips overflow, so give the cards room for their hover lift
  * and layered shadows (padding inside, negative margin outside keeps the
  * surrounding rhythm identical). Slides become flex columns so every
- * testimonial card stretches to the tallest sibling — no ragged bottoms.
+ * testimonial card stretches to the tallest sibling - no ragged bottoms.
  * ═══════════════════════════════════════════════════════════════════════ */
 .embla {
   padding: 12px 0 36px;

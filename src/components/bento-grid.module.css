@@ -14,8 +14,6 @@
     url("/backgrounds/bento-silica-panel.webp");
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(45, 91, 255, 0.16);
   border-radius: 18px;
   padding: 28px;

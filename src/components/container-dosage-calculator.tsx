@@ -6,7 +6,7 @@ import styles from "./container-dosage-calculator.module.css";
 
 // Dosage heuristic aligned with DryGelWorld's own loading guidance
 // (~6-10 strips per 20ft, 10-16 per 40ft, upper end for long/tropical routes).
-// Strips assumed at 1.25 kg each. This is an ESTIMATE for planning — the export
+// Strips assumed at 1.25 kg each. This is an ESTIMATE for planning - the export
 // desk confirms the exact allocation per cargo and route.
 const CONTAINERS = [
   { id: "20ft", label: "20ft standard", base: 6 },
@@ -16,7 +16,7 @@ const CONTAINERS = [
 
 const DURATIONS = [
   { id: "short", label: "Under 15 days", factor: 0.8 },
-  { id: "mid", label: "15–30 days", factor: 1.0 },
+  { id: "mid", label: "15-30 days", factor: 1.0 },
   { id: "long", label: "Over 30 days", factor: 1.3 },
 ] as const;
 
@@ -88,7 +88,7 @@ export function ContainerDosageCalculator() {
           </p>
           <p className={styles.disclaimer}>
             Estimate for planning only. Final allocation depends on exact cargo, packaging, and
-            seasonal route conditions — the DryGelWorld export desk confirms your dosage with the quote.
+            seasonal route conditions - the DryGelWorld export desk confirms your dosage with the quote.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/contact">

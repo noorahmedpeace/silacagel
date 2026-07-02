@@ -15,7 +15,7 @@ import { blogArticles, getArticlePublication } from "./blog/articles";
 import { comparePages } from "@/lib/compare-data";
 import { caseStudies } from "@/lib/case-study-data";
 
-// Industry slugs are mirrored from src/app/industries/[industry]/page.tsx — keep both in sync.
+// Industry slugs are mirrored from src/app/industries/[industry]/page.tsx - keep both in sync.
 const INDUSTRY_SLUGS = [
   "electronics-packaging",
   "pharma-packaging",
@@ -32,6 +32,7 @@ const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
 const STATIC_ROUTES = [
   "",
   "/about",
+  "/pricing",
   "/products",
   "/contact",
   "/faq",
@@ -51,6 +52,7 @@ const STATIC_ROUTES = [
   "/media-kit",
   "/industries",
   "/tools/container-desiccant-calculator",
+  "/tools/moisture-load-calculator",
 ] as const;
 
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {

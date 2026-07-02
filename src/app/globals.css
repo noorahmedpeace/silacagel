@@ -38,7 +38,7 @@ body {
   text-size-adjust: 100%;
 }
 
-/* Mobile ergonomics — removes the 300ms tap delay, kills the dark
+/* Mobile ergonomics - removes the 300ms tap delay, kills the dark
  * tap-highlight flash on iOS, and clamps every interactive element
  * to a 44px minimum hit target per WCAG / Apple HIG. */
 a,
@@ -52,7 +52,7 @@ input[type="button"] {
 
 /* Prevent iOS Safari from auto-zooming when an input is focused.
  * Anything below 16px triggers the zoom, which feels broken. We
- * raise inputs/textareas/selects to 16px just on small screens —
+ * raise inputs/textareas/selects to 16px just on small screens -
  * desktop styling stays untouched. */
 @media (max-width: 760px) {
   input,
@@ -81,7 +81,7 @@ body {
    * the type a crafted, single-A feel instead of the default. */
   font-feature-settings: "cv11" 1, "ss01" 1, "calt" 1, "kern" 1;
   text-rendering: optimizeLegibility;
-  /* NOTE: no background-attachment: fixed — it forces a full-viewport repaint
+  /* NOTE: no background-attachment: fixed - it forces a full-viewport repaint
    * on every scroll frame (major jank on integrated GPUs). */
   background-image:
     radial-gradient(circle at top left, rgba(45, 91, 255, 0.06), transparent 26%),
@@ -104,7 +104,7 @@ body::before {
   background-size: 26px 26px, 820px 520px, 100% 100%;
   opacity: 0.5;
   /* Static on purpose: animating background-position repaints the whole
-   * viewport every frame — the texture reads identically without it. */
+   * viewport every frame - the texture reads identically without it. */
 }
 
 * {
@@ -139,7 +139,7 @@ button {
 }
 
 /* ----------------------------------------------------------------------
- * ACCESSIBLE FOCUS — one on-brand ring for every interactive element.
+ * ACCESSIBLE FOCUS - one on-brand ring for every interactive element.
  * :focus-visible only shows it for keyboard/AT users, never on mouse
  * click, so pointer users see a clean UI while keyboard nav looks
  * intentional and premium. Radius inherits so it hugs pills and cards.
@@ -156,7 +156,7 @@ button {
 }
 
 /* ----------------------------------------------------------------------
- * BASE TYPOGRAPHY — unified fluid scale (tokens in design-tokens.css).
+ * BASE TYPOGRAPHY - unified fluid scale (tokens in design-tokens.css).
  * Every page inherits these defaults so headings and body text stay
  * consistent across sections without each CSS module re-declaring sizes.
  * Module classes can still override intentionally (class beats element),
@@ -222,8 +222,6 @@ input[type="button"] {
 
 .glass-panel {
   background: var(--surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
 }
@@ -381,5 +379,21 @@ input[type="button"] {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+/* ----------------------------------------------------------------------
+ * GLOBAL REDUCED-MOTION KILL SWITCH — belt-and-braces on top of the
+ * per-component guards: collapses every animation/transition to a single
+ * imperceptible frame and disables smooth scrolling.
+ * -------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

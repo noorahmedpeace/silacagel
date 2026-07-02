@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
- * FAQ page — Precision Dry redesign.
+ * FAQ page - Precision Dry redesign.
  * Bright Clean-SaaS core (card accordion, cobalt open-state accent) closed
  * by a dark cinematic CTA bookend. All colour from --ds-* tokens.
  * ═══════════════════════════════════════════════════════════════════════ */
@@ -122,7 +122,7 @@
     inset 0 0 0 4px var(--ds-brand);
 }
 
-/* Indicator — the span's text ("+" / "-") is swapped by React, so we
+/* Indicator - the span's text ("+" / "-") is swapped by React, so we
  * zero it out and draw a single "+" glyph that rotates 45° into a "×"
  * on open, giving one continuous motion instead of a content swap. */
 .chevron {
@@ -158,7 +158,7 @@
   transform: rotate(45deg);
 }
 
-/* Answer — mounts on open, so a keyframe gives the reveal motion. */
+/* Answer - mounts on open, so a keyframe gives the reveal motion. */
 .answer {
   padding: 4px 28px 24px;
   animation: answerIn var(--ds-dur-base) var(--ds-ease-out) both;

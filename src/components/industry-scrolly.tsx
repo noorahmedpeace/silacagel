@@ -21,9 +21,9 @@ export type ScrollyIndustry = {
  * its image slides in from the bottom when scrolling down and from the top
  * when scrolling up (transform 0.6s cubic-bezier(0.65,0,0.35,1)), layered by
  * z-index with the previous image removed after ~600ms. Plain React +
- * IntersectionObserver + CSS — no animation libraries.
+ * IntersectionObserver + CSS - no animation libraries.
  *
- * Mobile (<1000px): the effect is disabled entirely — the industries render
+ * Mobile (<1000px): the effect is disabled entirely - the industries render
  * as normal stacked cards (image on top, text below) and the observer is
  * never attached. prefers-reduced-motion swaps the slide for a cross-fade.
  */
@@ -35,7 +35,7 @@ export function IndustryScrolly({ industries }: { industries: ScrollyIndustry[] 
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    // <1000px: no sticky stage, no observer — plain stacked cards.
+    // <1000px: no sticky stage, no observer - plain stacked cards.
     if (!window.matchMedia("(min-width: 1000px)").matches) return;
 
     const observer = new IntersectionObserver(

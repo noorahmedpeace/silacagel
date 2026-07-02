@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════════════
- * CONTACT — Precision Dry design language.
+ * CONTACT - Precision Dry design language.
  * Glass bento on the cool --ds-bg canvas. Electric cobalt carries brand
  * structure (borders, kickers, hover accents); warm coral is reserved for
  * the single primary action. Crisp 14px card corners, layered two-light
@@ -30,8 +30,9 @@
   position: absolute;
   display: block;
   border-radius: 50%;
-  filter: blur(160px);
-  opacity: 0.35;
+  /* No filter: blur — the blobs are already radial-gradients fading to
+   * transparent; a 160px blur on 700-900px layers was pure GPU cost. */
+  opacity: 0.3;
 }
 
 .blobOne {
@@ -73,8 +74,6 @@
   border-radius: var(--ds-radius-card);
   border: 1px solid var(--ds-glass-border);
   background: var(--ds-glass-bg);
-  backdrop-filter: blur(var(--ds-glass-blur)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(160%);
   box-shadow:
     var(--ds-ring-top),
     inset 0 0 0 1px rgba(255, 255, 255, 0.25),
@@ -140,7 +139,6 @@
     rgba(45, 91, 255, 0.08) 45%,
     transparent 75%
   );
-  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
 }
@@ -171,7 +169,6 @@
   border-radius: 50%;
   background: var(--ds-brand);
   box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.2);
-  animation: pulse 2.4s ease-in-out infinite;
 }
 
 @keyframes pulse {
@@ -221,7 +218,7 @@
   letter-spacing: -0.005em;
 }
 
-/* Primary action — the one coral element on the page. */
+/* Primary action - the one coral element on the page. */
 .primaryAction {
   position: relative;
   background: var(--ds-grad-cta);
@@ -263,7 +260,7 @@
   transition-duration: var(--ds-dur-quick);
 }
 
-/* Trust tile — tall narrow column, large numerals stacked */
+/* Trust tile - tall narrow column, large numerals stacked */
 .tileTrust {
   grid-column: span 4;
   padding: 44px 40px;
@@ -289,7 +286,6 @@
   height: 320px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(45, 91, 255, 0.12) 0%, transparent 70%);
-  filter: blur(20px);
   pointer-events: none;
   z-index: 0;
 }
@@ -595,13 +591,7 @@ a.tileAction:active {
 }
 
 @media (max-width: 640px) {
-  /* Reduce the cost of three large filter:blur layers on mobile GPUs.
-   * The 160px blur radius extends so far past each blob's edge that
-   * 100px gives a visually identical effect at roughly half the
-   * paint cost. Sizes also shrunk so they cover less area to paint. */
-  .ambient span {
-    filter: blur(100px);
-  }
+  /* Blobs are gradient-only now (no filter); just shrink their paint area. */
 
   .blobOne {
     width: 460px;

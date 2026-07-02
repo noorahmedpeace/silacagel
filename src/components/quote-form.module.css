@@ -6,7 +6,7 @@
  *     on the right at >=1280px. Below that, stacks vertically.
  *   - compact: form fills its parent column. Internal sidebar is hidden
  *     because the parent (e.g. seo-landing-page.module.css .quoteSection)
- *     already renders its own .quoteChecklist panel — showing both
+ *     already renders its own .quoteChecklist panel - showing both
  *     duplicates the same content and squishes the layout on wide screens.
  *
  * All visual values use design tokens from design-tokens.css for

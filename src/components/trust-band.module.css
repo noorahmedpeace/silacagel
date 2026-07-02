@@ -1,7 +1,7 @@
 /*
- * Trust band — open metrics row (2026 redesign).
+ * Trust band - open metrics row (2026 redesign).
  * The old version was a hairline-divided grid that read like a spreadsheet.
- * This is the premium pattern: no boxes, no table — just huge gradient
+ * This is the premium pattern: no boxes, no table - just huge gradient
  * numerals, strong labels, and air. Intro sits left, metrics flow right,
  * separated only by soft fading accent rules.
  */
@@ -76,7 +76,7 @@
   transition: transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
-/* Fading vertical accent rule — the only "line" in the design. */
+/* Fading vertical accent rule - the only "line" in the design. */
 .metric::before {
   content: "";
   position: absolute;

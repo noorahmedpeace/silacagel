@@ -32,6 +32,13 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
+    // Cap the largest generated width at 1920: the default ladder goes to
+    // 3840 (4K), so any sizes="100vw" image (the hero) was offered a 3840px
+    // candidate that retina desktops dutifully downloaded. The hero sits
+    // under a 0.68-opacity wash + dark shade, so 1920 is visually identical
+    // at half the bytes.
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // The art-directed hero requests quality 72; Next 16 only permits qualities
     // explicitly listed here (default [75]), so declare both to silence the
     // build warning without re-encoding the LCP image at a heavier setting.

@@ -129,9 +129,9 @@ export function ContactContent() {
 
       <section style={{ width: "100%", maxWidth: 1100, margin: "32px auto 0", padding: "0 16px", display: "grid", gap: 16 }}>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Head Office — Gulshan-e-Iqbal</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Head Office - Gulshan-e-Iqbal</p>
           <iframe
-            title="DryGelWorld head office — Gulshan-e-Iqbal, Karachi"
+            title="DryGelWorld head office - Gulshan-e-Iqbal, Karachi"
             src={mapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -140,9 +140,9 @@ export function ContactContent() {
           />
         </div>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Factory — North Karachi Industrial Area</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Factory - North Karachi Industrial Area</p>
           <iframe
-            title="DryGelWorld manufacturing factory — North Karachi Industrial Area, Karachi"
+            title="DryGelWorld manufacturing factory - North Karachi Industrial Area, Karachi"
             src={factoryMapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
