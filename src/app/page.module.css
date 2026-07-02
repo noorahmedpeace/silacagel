@@ -5187,3 +5187,122 @@
     transform: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * WORKFLOW — STACKING CARD DECK (appended last so it wins source order).
+ * "How it works" cards become a scroll-driven deck: the intro pins on the
+ * left while each full-width step card sticks below the header and the next
+ * one slides up over it — pure position:sticky, zero JS, always 60fps.
+ * Each card pins 22px lower than the previous so the covered card's top edge
+ * peeks out like a real deck. Falls back to a plain column on touch/mobile.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+@media (min-width: 901px) {
+  .procurementFlowSection {
+    grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+    align-items: start;
+    overflow: visible; /* sticky children must not be clipped */
+  }
+
+  .procurementFlowIntro {
+    position: sticky;
+    top: clamp(140px, 26vh, 240px);
+    align-self: start;
+  }
+
+  .procurementFlowGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .procurementFlowCard {
+    position: sticky;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    align-items: stretch;
+    gap: 0;
+    min-height: clamp(280px, 36vh, 340px);
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--ds-hairline);
+    background: var(--ds-surface);
+    box-shadow:
+      0 -12px 32px -24px rgba(8, 30, 80, 0.18),
+      var(--ds-shadow-card);
+  }
+
+  /* Deck offsets — each card pins slightly lower so the pile reads as depth. */
+  .procurementFlowCard:nth-child(1) { top: 108px; }
+  .procurementFlowCard:nth-child(2) { top: 130px; }
+  .procurementFlowCard:nth-child(3) { top: 152px; }
+
+  .procurementFlowMedia {
+    min-height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+  }
+
+  .procurementFlowImage {
+    transform: scale(1.04);
+  }
+
+  .procurementFlowContent {
+    position: relative;
+    justify-content: center;
+    padding: clamp(24px, 3vw, 40px);
+  }
+
+  /* Giant watermark step number — the deck's signature. */
+  .procurementFlowContent span {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    color: rgba(45, 91, 255, 0.1);
+    font-family: var(--font-display), var(--font-body);
+    font-size: clamp(4rem, 6vw, 6.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .procurementFlowCard h3 {
+    font-size: clamp(1.35rem, 1.7vw, 1.7rem);
+    letter-spacing: -0.02em;
+  }
+
+  .procurementFlowCard p {
+    max-width: 42ch;
+    font-size: 0.98rem;
+  }
+
+  /* The lift-hover from the interaction layer fights position:sticky pinning —
+   * swap it for a border/shadow emphasis that doesn't move the card. */
+  .procurementFlowCard:hover {
+    transform: none;
+    border-color: rgba(45, 91, 255, 0.35);
+  }
+}
+
+/* Scroll-driven entrance for each card where supported (progressive). */
+@supports (animation-timeline: view()) {
+  @media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+    .procurementFlowCard {
+      animation: workflowDeckIn linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes workflowDeckIn {
+  from {
+    opacity: 0.4;
+    transform: translateY(36px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
