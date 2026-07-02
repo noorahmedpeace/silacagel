@@ -697,21 +697,6 @@
 }
 
 
-.scienceSection {
-  display: grid;
-  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
-  gap: 46px;
-  align-items: center;
-  padding: 54px 44px;
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(45, 91, 255, 0.12), transparent 24%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 249, 250, 0.94));
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
-}
-
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -719,15 +704,12 @@
 .proofSection,
 .exportSection,
 .partnerSection,
-.resourceSection,
-.shippingBanner,
 .footer {
   position: relative;
   overflow: hidden;
   isolation: isolate;
 }
 
-.scienceSection > *,
 .productSection > *,
 .pricingSection > *,
 .whySection > *,
@@ -735,17 +717,13 @@
 .proofSection > *,
 .exportSection > *,
 .partnerSection > *,
-.resourceSection > *,
-.shippingBanner > *,
 .footer > * {
   position: relative;
   z-index: 1;
 }
 
-.scienceSection::after,
 .pricingSection::after,
-.applicationSection::after,
-.resourceSection::after {
+.applicationSection::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -762,8 +740,7 @@
 }
 
 .productSection::after,
-.proofSection::after,
-.shippingBanner::after {
+.proofSection::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -796,155 +773,6 @@
   background-size: 22px 22px, 720px 420px;
   opacity: 0.07;
   mix-blend-mode: multiply;
-}
-
-.scienceSection .sectionHead h2,
-.scienceSection .scienceCard h3 {
-  color: var(--ink);
-}
-
-.scienceSection .sectionHead p,
-.scienceSection .scienceCard p,
-.scienceStep {
-  color: var(--muted);
-}
-
-.scienceVisual {
-  position: relative;
-}
-
-.scienceStage {
-  position: relative;
-  min-height: 430px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #0a0e17;
-  border: 1px solid rgba(10, 14, 23, 0.12);
-  box-shadow:
-    0 28px 58px -42px rgba(10, 14, 23, 0.32),
-    inset 0 1px 0 rgba(255, 255, 255, 0.12);
-}
-
-.scienceStage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(10, 14, 23, 0.02), rgba(10, 14, 23, 0.28)),
-    radial-gradient(circle at 82% 18%, rgba(45, 91, 255, 0.18), transparent 34%);
-  pointer-events: none;
-}
-
-.scienceVideo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.01);
-}
-
-.scienceGlow {
-  position: absolute;
-  z-index: 1;
-  inset: auto 12% 8% 12%;
-  height: 18%;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(45, 91, 255, 0.18), transparent 72%);
-  filter: blur(30px);
-}
-
-.scienceBadge,
-.scienceCallout {
-  position: absolute;
-  z-index: 2;
-  max-width: 210px;
-  padding: 12px 14px;
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.52);
-  box-shadow: 0 20px 40px -28px rgba(0, 21, 45, 0.48);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-}
-
-.scienceBadge {
-  top: 16px;
-  left: 16px;
-}
-
-.scienceCallout {
-  right: 16px;
-  bottom: 16px;
-}
-
-.scienceBadge span,
-.scienceCallout span {
-  display: block;
-  margin-bottom: 6px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-
-.scienceBadge strong,
-.scienceCallout strong {
-  color: var(--ink);
-  line-height: 1.45;
-  font-size: 0.82rem;
-}
-
-.scienceCopy {
-  display: flex;
-  flex-direction: column;
-}
-
-.scienceGrid {
-  display: grid;
-  gap: 12px;
-}
-
-.scienceCard {
-  padding: 18px 18px 16px;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.84);
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  box-shadow: none;
-}
-
-.scienceStep {
-  display: inline-flex;
-  margin-bottom: 12px;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-.scienceCard h3 {
-  font-size: 1.05rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 6px;
-}
-
-.scienceCard p {
-  font-size: 0.88rem;
-  line-height: 1.55;
-}
-
-.resourceSection {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  padding: 72px 48px;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(244, 247, 251, 0.72));
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  border-radius: 40px;
-  box-shadow: 0 30px 60px -44px rgba(13, 27, 42, 0.18);
 }
 
 .signal {
@@ -1598,138 +1426,6 @@
   align-items: stretch;
 }
 
-.globalPresencePanel {
-  position: relative;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: minmax(250px, 0.45fr) minmax(0, 1fr);
-  gap: clamp(18px, 3vw, 34px);
-  align-items: center;
-  padding: clamp(22px, 3vw, 34px);
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 28px;
-  background:
-    radial-gradient(circle at 10% 0%, rgba(219, 228, 255, 0.7), transparent 28%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(247, 251, 255, 0.78));
-  box-shadow:
-    0 26px 58px -42px rgba(10, 14, 23, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
-}
-
-.globalPresencePanel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(circle at 16% 24%, rgba(45, 91, 255, 0.12) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 88% 50%, rgba(45, 91, 255, 0.08), transparent 32%);
-  background-size: 22px 22px, 620px 360px;
-  opacity: 0.42;
-}
-
-.globalPresenceCopy,
-.globalFlagViewport {
-  position: relative;
-  z-index: 1;
-}
-
-.globalPresenceCopy {
-  min-width: 0;
-}
-
-.globalPresenceCopy span {
-  display: inline-flex;
-  width: fit-content;
-  margin-bottom: 10px;
-  padding: 7px 10px;
-  border: 1px solid rgba(45, 91, 255, 0.14);
-  border-radius: 999px;
-  background: rgba(234, 240, 255, 0.84);
-  color: #1e3fcc;
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  font-weight: 850;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.globalPresenceCopy h3 {
-  max-width: 12ch;
-  margin-bottom: 10px;
-  color: #102a43;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3.2vw, 3rem);
-  letter-spacing: -0.055em;
-  line-height: 0.98;
-}
-
-.globalPresenceCopy p {
-  max-width: 46ch;
-  color: #4d657c;
-  font-size: 0.94rem;
-  line-height: 1.65;
-}
-
-.globalFlagViewport {
-  min-width: 0;
-  overflow: hidden;
-  padding: 8px 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-}
-
-.globalFlagTrack {
-  display: flex;
-  width: max-content;
-  gap: 14px;
-  animation: globalFlagMarquee 26s linear infinite;
-  will-change: transform;
-}
-
-.globalFlagViewport:hover .globalFlagTrack {
-  animation-play-state: paused;
-}
-
-.globalFlagItem {
-  display: grid;
-  min-width: 126px;
-  flex: 0 0 auto;
-  justify-items: center;
-  gap: 3px;
-  padding: 14px 16px 13px;
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.78);
-  box-shadow:
-    0 16px 34px -28px rgba(10, 14, 23, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.82);
-}
-
-.globalFlagImage {
-  width: 58px;
-  height: 58px;
-  margin-bottom: 7px;
-  border-radius: 999px;
-  filter: drop-shadow(0 12px 14px rgba(10, 14, 23, 0.13));
-}
-
-.globalFlagItem strong {
-  color: #102a43;
-  font-size: 0.8rem;
-  font-weight: 850;
-  line-height: 1.1;
-  text-align: center;
-}
-
-.globalFlagItem span {
-  color: #2d5bff;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 850;
-  letter-spacing: 0.08em;
-}
-
 .priceGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1968,79 +1664,6 @@
   color: var(--ink);
 }
 
-.caseStudyGrid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-bottom: 34px;
-}
-
-.caseStudyCard {
-  overflow: hidden;
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 24px 48px -38px rgba(10, 14, 23, 0.24);
-}
-
-.caseStudyImage {
-  position: relative;
-  min-height: 190px;
-  overflow: hidden;
-  background: #eaf2fb;
-}
-
-.caseStudyImage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(10, 14, 23, 0.18));
-}
-
-.caseStudyCopy {
-  padding: 22px;
-}
-
-.caseStudyCopy > span {
-  display: inline-flex;
-  margin-bottom: 14px;
-  color: #1e3fcc;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.caseStudyCopy h3 {
-  color: #101b3f;
-  font-size: 1.2rem;
-  line-height: 1.18;
-  letter-spacing: -0.035em;
-}
-
-.caseStudyCopy dl {
-  display: grid;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.caseStudyCopy dt {
-  margin-bottom: 4px;
-  color: #b5432a;
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.caseStudyCopy dd {
-  color: #475569;
-  font-size: 0.86rem;
-  line-height: 1.56;
-}
-
 .caseStudyAction {
   display: flex;
   justify-content: center;
@@ -2119,25 +1742,6 @@
   line-height: 1.6;
   color: #334155;
   margin-top: 8px;
-}
-
-.logoStrip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 34px;
-  justify-content: center;
-}
-
-.badgeChip {
-  padding: 13px 22px;
-  background: var(--surface-elevated);
-  border: 1px solid rgba(37, 52, 77, 0.08);
-  border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #41526a;
-  box-shadow: 0 14px 30px -24px rgba(13, 27, 42, 0.14);
 }
 
 /* EXPORT READINESS */
@@ -2304,122 +1908,6 @@
   font-weight: 800;
   color: var(--accent);
   margin-top: auto;
-}
-
-/* ── CTA BANNER ── */
-.ctaBanner {
-  background:
-    radial-gradient(circle at top right, rgba(201, 168, 106, 0.18), transparent 24%),
-    linear-gradient(135deg, #102347 0%, #163fcd 52%, #245bff 100%);
-  border-radius: 40px;
-  padding: 88px 64px;
-  display: flex;
-  justify-content: center;
-  box-shadow: 0 44px 90px -48px rgba(16, 35, 71, 0.52);
-}
-
-.ctaBannerContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 20px;
-  max-width: 640px;
-}
-
-.ctaBannerContent h2 {
-  font-size: clamp(3rem, 4.2vw, 4.3rem);
-  font-weight: 900;
-  color: white;
-  line-height: 1.15;
-}
-
-.ctaBannerContent p {
-  color: rgba(255,255,255,0.8);
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-.ctaBannerActions {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-
-.shippingBanner {
-  background:
-    radial-gradient(circle at 15% 18%, rgba(255, 255, 255, 0.16), transparent 24%),
-    linear-gradient(135deg, #102A63 0%, #1F5EFF 100%);
-  border-radius: 32px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 34px 72px -44px rgba(13, 27, 42, 0.32);
-}
-
-.shippingBannerInner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 400px;
-}
-
-.shippingBannerLeft {
-  padding: 72px 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-}
-
-.shippingTag {
-  display: inline-block;
-  background: rgba(255,255,255,0.15);
-  color: #ffffff;
-  font-size: 0.75rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: 999px;
-  width: fit-content;
-}
-
-.shippingBannerLeft h2 {
-  font-size: 2.8rem;
-  font-weight: 900;
-  color: #ffffff;
-  line-height: 1.15;
-}
-
-.shippingBannerLeft p {
-  color: rgba(255,255,255,0.75);
-  font-size: 1.05rem;
-  max-width: 440px;
-}
-
-.shippingCtas {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.shippingBannerImage {
-  position: relative;
-  min-height: 400px;
-  overflow: hidden;
-}
-
-.shippingBannerImage::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg, rgba(16, 42, 99, 0.2), transparent 40%),
-    radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.16), transparent 24%);
-  pointer-events: none;
 }
 
 /* ── DISPENSERS SECTION ── */
@@ -2834,8 +2322,7 @@
 
 .hero .kicker,
 .sectionHead .kicker,
-.certStripLabel,
-.shippingTag {
+.certStripLabel {
   border-radius: 4px;
   color: var(--accent);
   background: rgba(255, 107, 61, 0.08);
@@ -2909,7 +2396,6 @@
   background-clip: text;
 }
 
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -2917,7 +2403,6 @@
 .proofSection,
 .exportSection,
 .partnerSection,
-.resourceSection,
 .footer {
   padding: 58px 44px;
   border-radius: 6px;
@@ -2927,7 +2412,6 @@
   box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
 }
 
-.scienceSection::after,
 .productSection::after,
 .pricingSection::after,
 .whySection::after,
@@ -2935,7 +2419,6 @@
 .proofSection::after,
 .exportSection::after,
 .partnerSection::after,
-.resourceSection::after,
 .footer::after {
   filter: grayscale(1);
   opacity: 0.035;
@@ -2947,7 +2430,6 @@
 }
 
 .sectionVisual,
-.scienceStage,
 .industrialBentoCard,
 .priceCard,
 .calculatorPanel,
@@ -2970,7 +2452,6 @@
     linear-gradient(135deg, rgba(255, 107, 61, 0.05), transparent 42%);
 }
 
-.scienceStage,
 .industrialBentoCard,
 .priceCard,
 .calculatorPanel,
@@ -2983,8 +2464,6 @@
 }
 
 .signalIcon,
-.scienceBadge span,
-.scienceCallout span,
 .priceQuoteLink,
 .exportCard span,
 .contactCard a {
@@ -3031,7 +2510,6 @@
 .industrialBentoStat,
 .priceQuoteLink,
 .pricingHighlightChip,
-.badgeChip,
 .certPill,
 .contactMeta span {
   border-radius: 4px;
@@ -3063,27 +2541,6 @@
   gap: 16px;
 }
 
-.ctaBanner,
-.shippingBanner {
-  border-radius: 20px;
-  /* Dark cinematic bookend — matches the hero/footer field: near-black with a
-   * cobalt glow and a whisper of coral heat where the CTA lives. */
-  background:
-    radial-gradient(80% 90% at 85% 0%, rgba(45, 91, 255, 0.32), transparent 58%),
-    radial-gradient(60% 80% at 8% 100%, rgba(255, 107, 61, 0.14), transparent 55%),
-    var(--ds-bg-deep);
-  box-shadow: 0 44px 100px -56px rgba(6, 10, 24, 0.9);
-}
-
-.shippingBanner {
-  border-color: rgba(255, 255, 255, 0.18);
-}
-
-.shippingBannerLeft p,
-.ctaBannerContent p {
-  color: rgba(255, 255, 255, 0.84);
-}
-
 .contactCard {
   background:
     radial-gradient(circle at top right, rgba(255, 107, 61, 0.1), transparent 24%),
@@ -3111,7 +2568,6 @@
 }
 
 /* stacked feature blocks inspired by alternating SaaS/product section cards */
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -3125,7 +2581,6 @@
     inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
-.scienceSection,
 .whySection,
 .applicationSection {
   background:
@@ -3144,7 +2599,6 @@
     linear-gradient(135deg, #eef2ff 0%, #ffffff 54%, #f6f8ff 100%);
 }
 
-.scienceSection::after,
 .productSection::after,
 .pricingSection::after,
 .whySection::after,
@@ -3159,7 +2613,6 @@
   mix-blend-mode: multiply;
 }
 
-.scienceSection .sectionHead .kicker,
 .whySection .sectionHead .kicker,
 .applicationSection .sectionHead .kicker {
   background: #dbe4ff;
@@ -3175,7 +2628,6 @@
   color: #1e3fcc;
 }
 
-.scienceSection .sectionHead h2,
 .whySection .sectionHead h2,
 .applicationSection .sectionHead h2 {
   background: linear-gradient(135deg, #1e3fcc 0%, #2d5bff 62%, #5b86ff 100%);
@@ -3191,7 +2643,6 @@
   background-clip: text;
 }
 
-.scienceSection .sectionHead p,
 .whySection .sectionHead p,
 .applicationSection .sectionHead p {
   color: #4d5b78;
@@ -3406,15 +2857,13 @@
   order: 2;
 }
 
-.sectionVisual,
-.scienceStage {
+.sectionVisual {
   border-radius: 20px;
   box-shadow:
     0 28px 58px -42px rgba(10, 14, 23, 0.32),
     inset 0 1px 0 rgba(255, 255, 255, 0.58);
 }
 
-.scienceCard,
 .reasonCard,
 .priceCard,
 .applicationCard,
@@ -3422,7 +2871,6 @@
   border-radius: 14px;
 }
 
-.scienceCard,
 .reasonCard,
 .priceCard {
   background: rgba(255, 255, 255, 0.78);
@@ -3463,16 +2911,6 @@
   }
 }
 
-@keyframes globalFlagMarquee {
-  from {
-    transform: translate3d(-50%, 0, 0);
-  }
-
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 @keyframes heroWordIn {
   from {
     opacity: 0.72;
@@ -3509,20 +2947,6 @@
   }
 }
 
-@keyframes bubbleWordIn {
-  from {
-    opacity: 0.64;
-    transform: translateY(18px) scale(0.92);
-    filter: blur(2px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
-  }
-}
-
 :global(.gsap-hero-word) {
   animation: heroWordIn 0.58s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -3532,7 +2956,7 @@
 }
 
 @media (max-width: 1100px) {
-  .hero, .quoteStage, .footer, .scienceSection {
+  .hero, .quoteStage, .footer {
     grid-template-columns: 1fr;
     gap: 60px;
   }
@@ -3561,13 +2985,11 @@
 
   .productSection,
   .pricingSection,
-  .scienceSection,
   .whySection,
   .applicationSection,
   .proofSection,
   .exportSection,
   .partnerSection,
-  .resourceSection,
   .footer {
     padding: 56px 28px;
   }
@@ -3643,10 +3065,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .scienceStage {
-    min-height: 480px;
-  }
-
   .reasonGrid,
   .priceGrid {
     grid-template-columns: 1fr;
@@ -3656,10 +3074,6 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .caseStudyGrid {
-    grid-template-columns: 1fr;
-  }
-  
   .testimonialGrid {
     grid-template-columns: 1fr;
   }
@@ -3790,13 +3204,11 @@
 
   .quoteStage,
   .pricingSection,
-  .scienceSection,
   .whySection,
   .applicationSection,
   .proofSection,
   .exportSection,
   .partnerSection,
-  .resourceSection,
   .footer {
     padding: 40px 24px;
     border-radius: 8px;
@@ -3850,17 +3262,6 @@
     border-radius: 8px;
   }
 
-  .scienceStage {
-    min-height: 380px;
-    border-radius: 8px;
-  }
-
-  .scienceBadge,
-  .scienceCallout {
-    max-width: 200px;
-    padding: 12px 14px;
-  }
-
   .reasonGrid {
     grid-template-columns: 1fr;
   }
@@ -3905,8 +3306,6 @@
   .primaryCta,
   .calculatorPanel,
   .whatsAppFloat,
-  .globalFlagTrack,
-  .bubbleWord,
   :global(.gsap-hero-word),
   :global(.gsap-hero-fade) {
     animation: none;
@@ -3917,8 +3316,7 @@
   }
 
   .heroBgImage,
-  .sectionVisualImage,
-  .scienceVideo {
+  .sectionVisualImage {
     transform: none !important;
   }
 }
@@ -4127,7 +3525,6 @@
   max-width: 62ch;
 }
 
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -4135,43 +3532,8 @@
 .applicationSection,
 .proofSection,
 .exportSection,
-.resourceSection,
-.shippingBanner,
-.ctaBanner,
 .footer {
   border-radius: 8px;
-}
-
-.scienceSection {
-  grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-  gap: 44px;
-  padding: 52px 44px;
-  background:
-    radial-gradient(circle at 18% 18%, rgba(219, 228, 255, 0.46), transparent 28%),
-    linear-gradient(135deg, #f6f8ff 0%, #ffffff 58%, #eef2ff 100%);
-  border-color: rgba(45, 91, 255, 0.12);
-}
-
-.scienceStage {
-  min-height: 430px;
-  border-radius: 8px;
-  background: #0a0e17;
-  border-color: rgba(10, 14, 23, 0.12);
-}
-
-.scienceSection .sectionHead {
-  margin-bottom: 24px;
-}
-
-.scienceSection .sectionHead h2 {
-  max-width: 12ch;
-  font-size: clamp(2.45rem, 3.2vw, 3.55rem);
-  line-height: 0.98;
-}
-
-.scienceCard {
-  border-radius: 8px;
-  padding: 18px;
 }
 
 .procurementFlowMedia {
@@ -4181,102 +3543,6 @@
 
 .procurementFlowImage {
   object-position: center;
-}
-
-.scienceSection {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
-  gap: clamp(26px, 4vw, 58px);
-  align-items: center;
-  padding: clamp(28px, 4.6vw, 58px);
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.84) 46%, rgba(239, 246, 255, 0.72) 100%),
-    url("/backgrounds/bento-silica-panel.webp");
-  background-size: cover;
-  background-position: center;
-  border-color: rgba(45, 91, 255, 0.14);
-}
-
-.scienceVideoColumn {
-  display: flex;
-  justify-content: center;
-}
-
-.scienceStage {
-  width: min(100%, 360px);
-  min-height: 0;
-  aspect-ratio: 9 / 16;
-  border-radius: 18px;
-  background: #f6f8ff;
-  border: 1px solid rgba(45, 91, 255, 0.2);
-  box-shadow:
-    0 30px 70px -40px rgba(30, 63, 204, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.74);
-}
-
-.scienceOverlay {
-  max-width: 700px;
-}
-
-.scienceOverlay .kicker {
-  margin-bottom: 12px;
-  background: rgba(45, 91, 255, 0.12);
-  color: #1e3fcc;
-  border-color: rgba(45, 91, 255, 0.18);
-}
-
-.scienceOverlay h2 {
-  max-width: 13ch;
-  margin-bottom: 16px;
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5.4vw, 5.65rem);
-  line-height: 0.98;
-  letter-spacing: -0.06em;
-  color: #101b3f;
-}
-
-.bubbleHeading {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.12em 0.18em;
-}
-
-.bubbleWord {
-  display: inline-flex;
-  animation: bubbleWordIn 0.64s cubic-bezier(0.16, 1, 0.3, 1) both;
-  transform-origin: center;
-  will-change: transform, opacity, filter;
-}
-
-.scienceOverlay p {
-  max-width: 62ch;
-  color: #4d5b78;
-  font-size: clamp(1rem, 1.15vw, 1.12rem);
-  line-height: 1.72;
-}
-
-.scienceChips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.scienceChips span {
-  display: inline-flex;
-  min-height: 42px;
-  align-items: center;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  border: 1px solid rgba(45, 91, 255, 0.16);
-  color: #1e3fcc;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  box-shadow: 0 18px 34px -26px rgba(45, 91, 255, 0.45);
 }
 
 @media (max-width: 1100px) {
@@ -4404,46 +3670,6 @@
     line-height: 1.35;
   }
 
-  .globalPresencePanel {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    padding: 18px;
-    border-radius: 18px;
-  }
-
-  .globalPresenceCopy h3 {
-    max-width: 100%;
-    font-size: clamp(1.72rem, 8vw, 2.2rem);
-  }
-
-  .globalPresenceCopy p {
-    font-size: 0.86rem;
-    line-height: 1.55;
-  }
-
-  .globalFlagViewport {
-    margin-inline: -18px;
-    padding-block: 6px;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 13%, #000 87%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 13%, #000 87%, transparent);
-  }
-
-  .globalFlagTrack {
-    gap: 10px;
-    animation-duration: 20s;
-  }
-
-  .globalFlagItem {
-    min-width: 106px;
-    padding: 12px 12px 11px;
-    border-radius: 18px;
-  }
-
-  .globalFlagImage {
-    width: 50px;
-    height: 50px;
-  }
-
   .procurementFlowSection {
     padding: 28px 18px;
     content-visibility: auto;
@@ -4455,8 +3681,7 @@
   }
 
   .procurementFlowIntro h2,
-  .sectionHead h2,
-  .scienceOverlay h2 {
+  .sectionHead h2 {
     width: 100%;
     max-width: 100%;
     overflow-wrap: break-word;
@@ -4470,7 +3695,6 @@
     letter-spacing: 0;
   }
 
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -4478,29 +3702,19 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .shippingBanner,
   .certStrip,
   .proofVaultSection,
-  .skuSection,
-  .resourceSection,
-  .buyerGuideSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner {
+  .homeRfqSection {
     content-visibility: auto;
     contain-intrinsic-size: 820px;
   }
 
   .procurementFlowSection::before,
   .proofVaultSection::after,
-  .skuSection::after,
   .seoRoadmapSection::after,
   .homeRfqSection::after {
     background-image: none;
-  }
-
-  .scienceSection {
-    background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%);
   }
 
   .procurementFlowCard {
@@ -4514,7 +3728,6 @@
 
 /* global dominance implementation */
 .proofVaultSection,
-.skuSection,
 .seoRoadmapSection,
 .homeRfqSection {
   position: relative;
@@ -4532,7 +3745,6 @@
 }
 
 .proofVaultSection::after,
-.skuSection::after,
 .seoRoadmapSection::after,
 .homeRfqSection::after {
   content: "";
@@ -4550,7 +3762,6 @@
 }
 
 .proofVaultSection > *,
-.skuSection > *,
 .seoRoadmapSection > *,
 .homeRfqSection > * {
   position: relative;
@@ -4594,61 +3805,6 @@
   color: #475569;
   font-size: 0.9rem;
   line-height: 1.6;
-}
-
-.skuTables {
-  display: grid;
-  gap: 18px;
-}
-
-.skuTableWrap {
-  overflow: hidden;
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 18px 36px -32px rgba(10, 14, 23, 0.2);
-}
-
-.skuTableWrap h3 {
-  padding: 18px 20px;
-  border-bottom: 1px solid rgba(10, 14, 23, 0.08);
-  color: #101b3f;
-  font-size: 1rem;
-  letter-spacing: -0.02em;
-}
-
-.skuTable {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.skuTable th,
-.skuTable td {
-  padding: 15px 18px;
-  border-bottom: 1px solid rgba(10, 14, 23, 0.07);
-  text-align: left;
-  vertical-align: top;
-}
-
-.skuTable th {
-  color: #1e3fcc;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  background: rgba(234, 240, 255, 0.42);
-}
-
-.skuTable td {
-  color: #334155;
-  font-size: 0.9rem;
-  line-height: 1.5;
-}
-
-.skuTable td:first-child {
-  color: #101b3f;
-  font-weight: 900;
 }
 
 .seoClusterCard h3 {
@@ -4786,7 +3942,6 @@
 @media (max-width: 760px) {
   .seoRoadmapSection,
   .proofVaultSection,
-  .skuSection,
   .homeRfqSection {
     padding: 36px 18px;
   }
@@ -4798,165 +3953,17 @@
     grid-template-columns: 1fr;
   }
 
-  .skuTableWrap {
-    overflow-x: auto;
-  }
-
-  .skuTable {
-    min-width: 720px;
-  }
-
-}
-
-@media (max-width: 760px) {
-  .scienceSection {
-    grid-template-columns: 1fr;
-    padding: 18px;
-  }
-
-  .scienceStage {
-    width: min(100%, 310px);
-    aspect-ratio: 9 / 16;
-    min-height: 0;
-    justify-self: center;
-  }
-
-  .scienceVideoColumn {
-    order: 1;
-  }
-
-  .scienceCopyPanel {
-    order: 2;
-  }
-
-  .scienceVideo {
-    object-position: center;
-  }
-
-  .scienceOverlay {
-    max-width: none;
-  }
-
-  .scienceOverlay h2 {
-    max-width: 12ch;
-    font-size: 2.45rem;
-  }
-
-  .scienceOverlay p {
-    font-size: 0.86rem;
-  }
-
-  .scienceChips {
-    gap: 6px;
-  }
-
-  .scienceChips span {
-    font-size: 0.62rem;
-    padding: 7px 8px;
-  }
-}
-
-.buyerGuideSection {
-  padding: 72px 48px;
-  border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 10px;
-  background:
-    radial-gradient(circle at 90% 8%, rgba(45, 91, 255, 0.16), transparent 28%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(246, 250, 254, 0.9));
-  box-shadow: 0 30px 60px -46px rgba(10, 14, 23, 0.3);
-}
-
-.buyerGuideSection .sectionHead {
-  max-width: 850px;
-  margin-bottom: 28px;
-}
-
-.buyerGuideGrid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.buyerGuideCard {
-  display: flex;
-  min-height: 255px;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.86);
-  box-shadow: 0 18px 38px -32px rgba(10, 14, 23, 0.22);
-  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
-}
-
-.buyerGuideCard:hover {
-  transform: translateY(-3px);
-  border-color: rgba(45, 91, 255, 0.22);
-  box-shadow: 0 24px 44px -30px rgba(45, 91, 255, 0.24);
-}
-
-.buyerGuideCard span {
-  color: var(--industrial-blue-deep);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.buyerGuideCard h3 {
-  color: var(--ink);
-  font-size: 1.08rem;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
-}
-
-.buyerGuideCard p {
-  flex: 1;
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 650;
-  line-height: 1.55;
-}
-
-.buyerGuideCard strong {
-  color: var(--accent);
-  font-size: 0.82rem;
-  font-weight: 900;
-}
-
-@media (max-width: 1180px) {
-  .buyerGuideGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 760px) {
-  .buyerGuideSection {
-    padding: 36px 18px;
-  }
-
-  .buyerGuideGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .buyerGuideCard {
-    min-height: 0;
-  }
 }
 
 @media (max-width: 760px) {
   .procurementFlowSection::before,
   .proofVaultSection::after,
-  .skuSection::after,
   .seoRoadmapSection::after,
   .homeRfqSection::after {
     background: none !important;
   }
 
   .procurementFlowSection,
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -4964,15 +3971,10 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .shippingBanner,
   .certStrip,
   .proofVaultSection,
-  .skuSection,
-  .resourceSection,
-  .buyerGuideSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner {
+  .homeRfqSection {
     content-visibility: auto;
     contain-intrinsic-size: 820px;
   }
@@ -4997,7 +3999,6 @@
   }
 
   .sectionHead h2,
-  .scienceSection .sectionHead h2,
   .whySection .sectionHead h2,
   .applicationSection .sectionHead h2,
   .productSection .sectionHead h2,
@@ -5019,7 +4020,6 @@
 
   /* Keep every eyebrow/kicker on one consistent small size on phones. */
   .kicker,
-  .scienceSection .sectionHead .kicker,
   .whySection .sectionHead .kicker,
   .applicationSection .sectionHead .kicker,
   .productSection .sectionHead .kicker,
@@ -5031,7 +4031,6 @@
 }
 
 @media (max-width: 760px) {
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -5039,31 +4038,23 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .resourceSection,
-  .shippingBanner,
-  .ctaBanner,
   .proofVaultSection,
-  .skuSection,
   .seoRoadmapSection,
   .homeRfqSection,
-  .buyerGuideSection,
   .certStrip,
   .proofVaultCard,
   .capabilityCard,
   .seoClusterCard,
-  .buyerGuideCard,
   .procurementFlowCard {
     border-radius: 10px;
   }
 
   .sectionHead,
-  .procurementFlowIntro,
-  .scienceOverlay {
+  .procurementFlowIntro {
     gap: 10px;
   }
 
   .sectionHead h2,
-  .scienceSection .sectionHead h2,
   .whySection .sectionHead h2,
   .applicationSection .sectionHead h2,
   .productSection .sectionHead h2,
@@ -5072,9 +4063,7 @@
   .proofSection .sectionHead h2,
   .exportSection .sectionHead h2,
   .quoteStage h2,
-  .procurementFlowIntro h2,
-  .scienceOverlay h2,
-  .globalPresenceCopy h3 {
+  .procurementFlowIntro h2 {
     max-width: 100%;
     font-size: var(--ds-h2);
     line-height: 1.12;
@@ -5088,7 +4077,6 @@
   }
 
   .sectionHead p,
-  .scienceSection .sectionHead p,
   .whySection .sectionHead p,
   .applicationSection .sectionHead p,
   .productSection .sectionHead p,
@@ -5097,7 +4085,6 @@
   .proofSection .sectionHead p,
   .exportSection .sectionHead p,
   .procurementFlowCard p,
-  .buyerGuideCard p,
   .proofVaultCard p,
   .seoClusterCard p,
   .capabilityCard p {
@@ -5109,7 +4096,6 @@
   .proofVaultCard,
   .capabilityCard,
   .seoClusterCard,
-  .buyerGuideCard,
   .procurementFlowCard {
     min-height: 0;
     padding: 18px 16px;
@@ -5129,19 +4115,10 @@
     line-height: 1.25;
   }
 
-  .skuTable th,
-  .skuTable td {
-    padding: 12px 14px;
-    font-size: 0.86rem;
-    line-height: 1.45;
-  }
-
-  .ctaBannerActions,
   .heroActions {
     width: 100%;
   }
 
-  .ctaBannerActions a,
   .heroActions a {
     width: 100%;
     display: inline-flex;
@@ -5175,18 +4152,12 @@
     gap: 28px;
   }
 
-  .scienceSection,
-  .globalPresencePanel,
   .whySection,
   .partnerSection,
   .applicationSection,
   .proofSection,
-  .shippingBanner,
   .certStrip,
   .proofVaultSection,
-  .skuSection,
-  .resourceSection,
-  .buyerGuideSection,
   .seoRoadmapSection {
     display: none !important;
   }
@@ -5252,7 +4223,6 @@
   .pricingSection,
   .exportSection,
   .homeRfqSection,
-  .ctaBanner,
   :global(#moisture-calculator) {
     padding-block: 30px;
   }
@@ -5316,7 +4286,6 @@
   max-width: 1400px;
 }
 
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -5324,27 +4293,19 @@
 .applicationSection,
 .proofSection,
 .exportSection,
-.resourceSection,
-.buyerGuideSection,
 .proofVaultSection,
-.skuSection,
 .seoRoadmapSection,
-.homeRfqSection,
-.ctaBanner,
-.globalPresencePanel {
+.homeRfqSection {
   width: min(1400px, calc(100vw - 4rem));
   margin-left: auto;
   margin-right: auto;
 }
 
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
 .partnerSection,
-.applicationSection,
-.resourceSection,
-.buyerGuideSection {
+.applicationSection {
   border: 1px solid rgba(45, 91, 255, 0.12);
   background:
     radial-gradient(circle at 100% 0%, rgba(45, 91, 255, 0.1), transparent 28%),
@@ -5354,13 +4315,11 @@
     0 1px 0 rgba(255, 255, 255, 0.82) inset;
 }
 
-.scienceSection,
 .productSection {
   position: relative;
   overflow: hidden;
 }
 
-.scienceSection::before,
 .productSection::before {
   content: "";
   position: absolute;
@@ -5371,14 +4330,12 @@
     radial-gradient(circle at 14% 92%, rgba(255, 107, 61, 0.08), transparent 24%);
 }
 
-.scienceSection > *,
 .productSection > * {
   position: relative;
   z-index: 1;
 }
 
 .sectionVisual,
-.scienceStage,
 .calculatorPanel,
 .industrialBentoCard,
 .priceCard,
@@ -5388,14 +4345,6 @@
 .resourceCard,
 .testimonialCard {
   box-shadow: 0 22px 54px -38px rgba(10, 14, 23, 0.36);
-}
-
-.scienceVideoColumn {
-  transform: translateX(-10px);
-}
-
-.scienceCopyPanel {
-  transform: translateX(8px);
 }
 
 .productSection .sectionIntro,
@@ -5414,7 +4363,6 @@
     padding-inline: max(1.25rem, calc((100vw - 1400px) / 2 + 1.25rem));
   }
 
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -5422,19 +4370,12 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .resourceSection,
-  .buyerGuideSection,
   .proofVaultSection,
-  .skuSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner,
-  .globalPresencePanel {
+  .homeRfqSection {
     width: min(1400px, calc(100vw - 2.5rem));
   }
 
-  .scienceVideoColumn,
-  .scienceCopyPanel,
   .productLineVisual,
   .pricingVisual {
     transform: none;
@@ -5447,7 +4388,6 @@
     padding-inline: 1rem;
   }
 
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -5455,14 +4395,9 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .resourceSection,
-  .buyerGuideSection,
   .proofVaultSection,
-  .skuSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner,
-  .globalPresencePanel {
+  .homeRfqSection {
     width: calc(100vw - 1.5rem);
   }
 
@@ -5470,7 +4405,6 @@
   .pricingSection,
   .exportSection,
   .homeRfqSection,
-  .ctaBanner,
   :global(#moisture-calculator) {
     padding-inline: 1rem;
   }
@@ -5581,7 +4515,6 @@
 /* Alignment correction: boxed sections live inside the centered shell, so their
    width should be shell-relative. Using 100vw here made cards look shifted on
    desktop because the viewport includes the browser scrollbar. */
-.scienceSection,
 .productSection,
 .pricingSection,
 .whySection,
@@ -5589,14 +4522,9 @@
 .applicationSection,
 .proofSection,
 .exportSection,
-.resourceSection,
-.buyerGuideSection,
 .proofVaultSection,
-.skuSection,
 .seoRoadmapSection,
-.homeRfqSection,
-.ctaBanner,
-.globalPresencePanel {
+.homeRfqSection {
   width: 100%;
   max-width: 1400px;
   box-sizing: border-box;
@@ -5620,7 +4548,6 @@
 }
 
 @media (max-width: 1100px) {
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -5628,14 +4555,9 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .resourceSection,
-  .buyerGuideSection,
   .proofVaultSection,
-  .skuSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner,
-  .globalPresencePanel {
+  .homeRfqSection {
     width: 100%;
   }
 }
@@ -5826,7 +4748,6 @@
 }
 
 @media (max-width: 760px) {
-  .scienceSection,
   .productSection,
   .pricingSection,
   .whySection,
@@ -5834,14 +4755,9 @@
   .applicationSection,
   .proofSection,
   .exportSection,
-  .resourceSection,
-  .buyerGuideSection,
   .proofVaultSection,
-  .skuSection,
   .seoRoadmapSection,
-  .homeRfqSection,
-  .ctaBanner,
-  .globalPresencePanel {
+  .homeRfqSection {
     width: 100%;
   }
 }
@@ -5851,8 +4767,7 @@
    (science, flags, shipping, SKU, buyer guides) from the markup itself, so
    only the animation kill-switch remains. */
 @media (max-width: 760px) {
-  .announcementTrack,
-  .bubbleWord { animation: none !important; }
+  .announcementTrack { animation: none !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════
@@ -5864,18 +4779,6 @@
  * only, fully disabled under prefers-reduced-motion.
  * ═══════════════════════════════════════════════════════════════════════ */
 @media (hover: hover) and (pointer: fine) {
-  /* Case-study cards had no hover state — give them the signature lift. */
-  .caseStudyCard {
-    transition: transform var(--ds-dur-base) var(--ds-ease-out),
-      border-color var(--ds-dur-base) var(--ds-ease-out),
-      box-shadow var(--ds-dur-base) var(--ds-ease-out);
-  }
-  .caseStudyCard:hover {
-    transform: translateY(-6px);
-    border-color: rgba(45, 91, 255, 0.24);
-    box-shadow: var(--ds-shadow-card);
-  }
-
   /* Workflow cards (light section) — lift + cobalt border on hover. */
   .procurementFlowCard {
     transition: transform var(--ds-dur-base) var(--ds-ease-out),
@@ -5893,20 +4796,17 @@
    * more confident lift, without disturbing their per-card borders/accents. */
   .industrialBentoCard:hover,
   .priceCard:hover,
-  .testimonialCard:hover,
-  .buyerGuideCard:hover {
+  .testimonialCard:hover {
     transform: translateY(-6px);
     box-shadow: var(--ds-shadow-card);
   }
 
   /* Slow, cinematic push-in on card media. The parent hover drives a subtle
    * scale on the fill-image so the photo feels alive without cropping content. */
-  .caseStudyImage .image,
   .industrialBentoImage .image,
   .procurementFlowImage {
     transition: transform var(--ds-dur-slow) var(--ds-ease-out);
   }
-  .caseStudyCard:hover .image,
   .industrialBentoCard:hover .image,
   .procurementFlowCard:hover .procurementFlowImage {
     transform: scale(1.06);
@@ -5922,20 +4822,15 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .caseStudyCard,
   .procurementFlowCard,
-  .caseStudyImage .image,
   .industrialBentoImage .image,
   .procurementFlowImage {
     transition: none !important;
   }
-  .caseStudyCard:hover,
   .procurementFlowCard:hover,
   .industrialBentoCard:hover,
   .priceCard:hover,
   .testimonialCard:hover,
-  .buyerGuideCard:hover,
-  .caseStudyCard:hover .image,
   .industrialBentoCard:hover .image,
   .procurementFlowCard:hover .procurementFlowImage {
     transform: none !important;

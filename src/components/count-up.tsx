@@ -56,7 +56,10 @@ export function CountUp({ value, durationMs = 1600, className }: CountUpProps) {
         const startTime = performance.now();
         const tick = (now: number) => {
           if (cancelled) return;
-          const t = Math.min(1, (now - startTime) / durationMs);
+          // Clamp at 0 too: the first rAF timestamp can precede the
+          // performance.now() captured above, and a negative t drives the
+          // ease past zero — users saw "-1+" flash before the count started.
+          const t = Math.min(1, Math.max(0, (now - startTime) / durationMs));
           setDisplay(Math.round(parsed.target * easeOutCubic(t)));
           if (t < 1) raf = requestAnimationFrame(tick);
         };
