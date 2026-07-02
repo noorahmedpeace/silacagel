@@ -5,9 +5,9 @@ import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
+import { IndustryScrolly } from "@/components/industry-scrolly";
 import {
   DeferredEmblaCarousel,
-  DeferredIndustrySlider,
   DeferredPriceCalculator,
   DeferredQuoteForm,
 } from "@/components/deferred-home-widgets";
@@ -162,31 +162,36 @@ const pricingHighlights = [
   "Bulk contracts quoted by requirement",
 ];
 
-const trustedIndustries = [
+const scrollyIndustries = [
   {
     name: "International Pharmaceuticals",
+    overline: "Preservation Systems",
     image: seoImages.pharmaDesiccant.src,
     description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
   },
   {
-    name: "Global Textiles & Apparel",
-    image: "/silicagel_paper_technical_1775981630266.webp",
-    description: "Protecting high-quality leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
-  },
-  {
-    name: "Precision Tech Assembly",
+    name: "Electronics & Semiconductors",
+    overline: "Circuit Protection",
     image: seoImages.electronicsPackaging.src,
-    description: "Ensuring zero-fail moisture elimination around microchips, PCBs, and sensitive aerospace computer components to prevent short circuits.",
+    description: "Zero-fail moisture elimination around microchips, PCBs, and sensitive components — preventing corrosion and short circuits in transit.",
   },
   {
-    name: "Export Food Packaging",
+    name: "Leather, Textiles & Garments",
+    overline: "Mold & Mildew Control",
+    image: "/silicagel_paper_technical_1775981630266.webp",
+    description: "Protecting leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
+  },
+  {
+    name: "Food & Nutraceutical Packaging",
+    overline: "Food-Grade Programs",
     image: seoImages.foodPackaging.src,
-    description: "Food-grade desiccant solutions engineered to keep crispy snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
+    description: "Food-grade desiccant programs that keep snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
   },
   {
-    name: "Maritime Logistics & Cargo",
+    name: "Ocean Freight & Container Cargo",
+    overline: "Container Rain Defense",
     image: seoImages.containerDesiccant.src,
-    description: "Container-scale absorption for massive export shipments, preventing container rain, condensation, and catastrophic inventory losses at sea.",
+    description: "Container-scale absorption for export shipments — preventing container rain, condensation, and inventory losses at sea.",
   },
 ];
 
@@ -489,7 +494,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <DeferredIndustrySlider industries={trustedIndustries} />
+              <IndustryScrolly industries={scrollyIndustries} />
             </section>
           </Reveal>
 
