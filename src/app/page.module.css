@@ -6133,3 +6133,62 @@
 .partnerSection::after {
   border-radius: 22px;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * HERO FULL-BLEED (user request). The navy field now touches both screen
+ * edges: no radius, no side margins, no card shadow. Content stays in the
+ * same centered max-width container as the rest of the site via
+ * .heroXContainer. Appended last so it wins the earlier card-style rules.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+.heroX {
+  width: 100%;
+  border-radius: 0;
+  box-shadow: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Full-bleed breakout from the padded .shell — dvw ignores the scrollbar so
+ * it can't cause horizontal overflow (same technique as the announcement bar). */
+@supports (width: 100dvw) {
+  .heroX {
+    width: 100dvw;
+    max-width: 100dvw;
+    margin-left: calc(50% - 50dvw);
+  }
+}
+
+/* Centered content container matching the site shell (max 1440 + gutters). */
+.heroXContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 36px);
+}
+
+/* Silica-bead dot grid — pure CSS, sits above the photo/shade, below copy. */
+.heroXDots {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+/* Soft lighter-navy glow behind the headline area for depth (~8% opacity). */
+.heroXGlow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: radial-gradient(46% 54% at 26% 44%, rgba(122, 150, 255, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .heroX {
+    border-radius: 0;
+  }
+}

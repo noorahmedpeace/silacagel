@@ -253,7 +253,11 @@ export default function Home() {
             <div className={styles.heroXAurora} aria-hidden="true" />
             <div className={styles.heroXGrid} aria-hidden="true" />
             <div className={styles.heroXNoise} aria-hidden="true" />
+            {/* Silica-bead dot grid + soft headline glow (pure CSS layers). */}
+            <div className={styles.heroXDots} aria-hidden="true" />
+            <div className={styles.heroXGlow} aria-hidden="true" />
 
+            <div className={styles.heroXContainer}>
             <div className={styles.heroXCopy}>
               <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
                 <span className={styles.heroXEyebrowDot} aria-hidden="true" />
@@ -298,6 +302,7 @@ export default function Home() {
                   );
                 })}
               </div>
+            </div>
             </div>
           </section>
 
