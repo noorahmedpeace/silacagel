@@ -6168,13 +6168,17 @@
   padding: 0 clamp(20px, 4vw, 36px);
 }
 
-/* Silica-bead dot grid — pure CSS, sits above the photo/shade, below copy. */
+/* Silica-bead dot grid — pure CSS. Masked to the navy copy zone on the left
+ * and faded out before the product photo, so it reads as texture BEHIND the
+ * imagery instead of a pattern stamped over it. */
 .heroXDots {
   position: absolute;
   inset: 0;
   z-index: 1;
   background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
   background-size: 16px 16px;
+  mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
+  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
   pointer-events: none;
 }
 

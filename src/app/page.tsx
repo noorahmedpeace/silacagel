@@ -267,7 +267,7 @@ export default function Home() {
                 {splitTextToSpans("Silica gel that keeps cargo bone-dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
-                Manufacturer-direct sachets, beads, and container strips — low MOQ, full documentation, shipped worldwide.
+                Sachets, beads, and container strips straight from our factory. Low MOQs, full documentation, and delivery to 190+ countries.
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
