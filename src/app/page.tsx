@@ -342,51 +342,38 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="products" className={styles.productSection}>
-              <div className={styles.sectionIntro}>
-                <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Products</p>
-                  <AnimatedText text="Three formats. Every use case." mode="bubble" />
-                  <p>
-                    Sachets for cartons, bulk beads for volume, strips for containers.
-                  </p>
-                </div>
-                <div className={`${styles.sectionVisual} ${styles.productLineVisual}`}>
-                  <Image
-                    src={seoImages.silicaGelSachets.src}
-                    alt={seoImages.silicaGelSachets.alt}
-                    title={seoImages.silicaGelSachets.title}
-                    fill
-                    className={styles.sectionVisualImage}
-                    sizes="(max-width: 900px) 100vw, 42vw"
-                  />
-                </div>
+              <div className={styles.productHead}>
+                <p className={styles.kicker}>Products</p>
+                <AnimatedText text="Three formats. Every use case." mode="bubble" />
+                <p>
+                  Sachets for cartons, bulk beads for volume, strips for containers.
+                </p>
               </div>
 
-              <div className={styles.industrialBentoGrid}>
-                {industrialBentoCards.map((card, index) => (
-                  <article
-                    key={card.title}
-                    className={`${styles.industrialBentoCard} ${index === 0 ? styles.industrialBentoLarge : ""}`}
-                  >
-                    <Link href={card.href} className={styles.industrialBentoLink}>
-                      <div className={styles.industrialBentoImage}>
+              <div className={styles.formatGrid}>
+                {industrialBentoCards.map((card) => (
+                  <Link href={card.href} className={styles.formatCard} key={card.title}>
+                    <span className={styles.formatMedia}>
                       <Image
                         src={card.image}
                         alt={`${card.title} silica gel desiccant product format for export buyers`}
                         title={`${card.title} visual`}
                         fill
-                        className={styles.image}
-                        sizes="(max-width: 1100px) 100vw, 38vw"
+                        className={styles.formatImage}
+                        sizes="(max-width: 900px) 100vw, 30vw"
                       />
-                      </div>
-                      <div className={styles.industrialBentoCopy}>
-                        <span>{card.label}</span>
-                        <h3>{card.title}</h3>
-                        <p>{card.text}</p>
-                      </div>
-                      <strong className={styles.industrialBentoStat}>{card.stat}</strong>
-                    </Link>
-                  </article>
+                      <span className={styles.formatStat}>{card.stat}</span>
+                    </span>
+                    <span className={styles.formatBody}>
+                      <span className={styles.formatLabel}>{card.label}</span>
+                      <h3>{card.title}</h3>
+                      <p>{card.text}</p>
+                      <span className={styles.formatLink}>
+                        Explore
+                        <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+                      </span>
+                    </span>
+                  </Link>
                 ))}
               </div>
 

@@ -5909,3 +5909,215 @@
   from { opacity: 0; transform: translateY(14px) scale(0.94); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PRODUCTS — FORMAT TILES (rebuild, user request).
+ * The old bento put copy ON dark photo overlays and duplicated the intro
+ * image. New pattern: centered header, three equal product tiles — contained
+ * photo on top (zooms on hover), clean white body below with label chip,
+ * title, one line, and an arrow link. Bright, readable, Stripe-grade.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+.productHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  max-width: 640px;
+  margin: 0 auto clamp(30px, 4vw, 46px);
+}
+
+.productHead h2 {
+  font-size: var(--ds-h2);
+  line-height: var(--ds-lh-tight);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.productHead p {
+  color: var(--ds-text-muted);
+  margin: 0;
+}
+
+.formatGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 24px);
+}
+
+.formatCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ds-hairline);
+  border-radius: 16px;
+  background: var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.formatMedia {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--ds-surface-tint);
+}
+
+.formatImage {
+  object-fit: cover;
+  transition: transform var(--ds-dur-slow) var(--ds-ease-out);
+}
+
+/* Soft foot scrim keeps the stat chip legible on bright photos. */
+.formatMedia::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8, 12, 24, 0.06), transparent 30%);
+  pointer-events: none;
+}
+
+.formatStat {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(10, 14, 26, 0.62);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+
+.formatBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 8px;
+  padding: 22px 22px 20px;
+}
+
+.formatLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ds-brand-deep);
+}
+
+.formatLabel::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ds-brand);
+  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.14);
+}
+
+.formatCard h3 {
+  margin: 0;
+  font-size: clamp(1.2rem, 1.5vw, 1.42rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ds-text);
+}
+
+.formatCard p {
+  margin: 0;
+  flex: 1;
+  color: var(--ds-text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.formatLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--ds-brand);
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: color var(--ds-dur-quick) var(--ds-ease),
+    gap var(--ds-dur-quick) var(--ds-ease);
+}
+
+.formatLink svg {
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .formatCard:hover {
+    transform: translateY(-6px);
+    border-color: rgba(45, 91, 255, 0.4);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  .formatCard:hover .formatImage {
+    transform: scale(1.06);
+  }
+
+  .formatCard:hover .formatLink {
+    color: var(--ds-brand-deep);
+  }
+
+  .formatCard:hover .formatLink svg {
+    transform: translateX(4px);
+  }
+}
+
+/* Staggered scroll reveal for the new tiles (same pattern as elsewhere). */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .formatCard {
+      animation: stgCard linear both;
+      animation-timeline: view();
+    }
+    .formatCard:nth-child(1) { animation-range: entry 0% entry 52%; }
+    .formatCard:nth-child(2) { animation-range: entry 14% entry 66%; }
+    .formatCard:nth-child(3) { animation-range: entry 28% entry 80%; }
+  }
+}
+
+@media (max-width: 900px) {
+  .formatGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formatMedia {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formatCard,
+  .formatImage,
+  .formatLink,
+  .formatLink svg {
+    transition: none !important;
+    animation: none !important;
+  }
+  .formatCard:hover,
+  .formatCard:hover .formatImage,
+  .formatCard:hover .formatLink svg {
+    transform: none !important;
+  }
+}
