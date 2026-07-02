@@ -50,19 +50,10 @@ export default function ProductsPage() {
         <span className={shared.kicker}>Product Catalog</span>
         <h1>Choose the right moisture-control format for your workflow.</h1>
         <p>
-          Browse all primary Dry Gel World formats in one place. Open any category for
-          full detail, specifications, and direct purchase support.
-        </p>
-        <p>
-          Shipping cargo by sea? Compare{" "}
-          <Link href="/shipping-container-desiccant-supplier">container desiccant strips for shipping</Link>, or plan{" "}
-          <Link href="/bulk-sales">wholesale &amp; bulk desiccant supply</Link> for distributor and exporter volumes.
-        </p>
-        <p>
-          New to desiccant formats? Start with{" "}
-          <Link href="/silica-gel-packets">silica gel packets &amp; sachets</Link> or{" "}
-          <Link href="/products/dry-clay-desiccant">activated clay desiccant</Link>, or see how they stack up in{" "}
-          <Link href="/compare/silica-gel-vs-oxygen-absorber">silica gel vs oxygen absorber</Link>.
+          Every format in one place — from{" "}
+          <Link href="/silica-gel-packets">sachets</Link> to{" "}
+          <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
+          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
         </p>
       </section>
 
