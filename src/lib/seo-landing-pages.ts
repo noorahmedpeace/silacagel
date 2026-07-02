@@ -335,7 +335,7 @@ const highIntentSeoLandingPages = {
       { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic - it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
       { question: "What are the types of silica gel?", answer: "The main types are white/clear non-indicating silica gel (standard packaging use), orange indicating silica gel (cobalt-free, changes colour when saturated), and blue indicating silica gel (older cobalt-chloride type). Formats include small sachets, larger desiccant bags, loose beads, and container strips." },
       { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable - heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
-      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer-exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 60+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
+      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer-exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 190+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
     ],
   }),
   "buy-silica-gel": keywordClusterPage({
@@ -346,7 +346,7 @@ const highIntentSeoLandingPages = {
     kicker: "Buy silica gel",
     h1: "Buy silica gel in bulk - direct from the manufacturer, shipped worldwide.",
     lead:
-      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. Low MOQ, fast quotes, SDS and COA on request, and export shipping to 60+ countries. Tell us the format and quantity and get an indicative price the same day.",
+      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. Low MOQ, fast quotes, SDS and COA on request, and export shipping to 190+ countries. Tell us the format and quantity and get an indicative price the same day.",
     searchIntent: "Transactional / commercial: buy silica gel, buy silica gel bulk, silica gel for sale, silica gel wholesale price",
     primaryCta: "Get Silica Gel Price",
     secondaryCta: "View Product Range",
@@ -428,7 +428,7 @@ const highIntentSeoLandingPages = {
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
-      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer-exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 60+ countries. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for a same-day indicative price." },
+      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer-exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 190+ countries. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for a same-day indicative price." },
       { question: "How much does silica gel cost?", answer: "Silica gel price depends on order volume, packet size and material, type (white vs indicating), packing/labeling, destination, and Incoterms. Bulk and repeat orders earn lower per-kg pricing than small retail packs. Share your quantity and format for an exact quote." },
       { question: "What is the minimum order quantity (MOQ) to buy silica gel?", answer: "MOQ depends on the format - sachets, bulk beads, or container strips. DryGelWorld supports low MOQs for trial orders and scaled pricing for monthly or container-volume supply. Tell us your target quantity and we confirm MOQ and lead time." },
       { question: "Can I buy wholesale silica gel for resale or private label?", answer: "Yes. DryGelWorld supplies wholesale silica gel and private-label/OEM desiccant packets with custom packet text, artwork, and carton labels for distributors and brands. Confirm packet size, material, labeling, and MOQ in your RFQ." },

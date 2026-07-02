@@ -39,8 +39,8 @@ const catalogImages: Record<string, string> = {
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
   "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
-  "hair-nets": "/products/bouffant-hair-nets-studio-product.webp",
-  "beard-covers": "/products/disposable-beard-covers-studio-product.webp",
+  "hair-nets": "/products/simple-bouffant-hair-nets.webp",
+  "beard-covers": "/products/simple-disposable-beard-covers.webp",
 };
 
 export default function ProductsPage() {

@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "1983", label: "Manufacturing since" },
-  { value: "60+", label: "Export markets" },
+  { value: "190+", label: "Export markets" },
   { value: "ISO 9001:2015", label: "Manufacturer certified" },
   { value: "24h", label: "Quote response target" },
 ];
@@ -91,7 +91,7 @@ const verifiableClaims = [
   },
   {
     label: "Export markets",
-    value: "60+ countries",
+    value: "190+ countries",
     note: "Active export to Middle East, EU, USA, Africa, Asia-Pacific. Country-specific landing pages at /export.",
   },
 ];

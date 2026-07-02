@@ -23,7 +23,7 @@ export async function GET() {
 
   const body = `# DryGelWorld
 
-> DryGelWorld is an industrial silica gel desiccant manufacturer-exporter and B2B PPE supplier in Karachi, Pakistan, producing silica gel sachets since 1983. DryGelWorld supplies silica gel packets, bulk silica gel, container desiccants, dry clay desiccant, and industrial PPE (hair nets, beard covers) to international export buyers across 60+ countries.
+> DryGelWorld is an industrial silica gel desiccant manufacturer-exporter and B2B PPE supplier in Karachi, Pakistan, producing silica gel sachets since 1983. DryGelWorld supplies silica gel packets, bulk silica gel, container desiccants, dry clay desiccant, and industrial PPE (hair nets, beard covers) to international export buyers across 190+ countries.
 
 ## What ${brandName} actually is
 
@@ -187,7 +187,7 @@ These are buyer-driven discussions, not held credentials. When a buyer asks abou
 | Manufacturing since | 1983 | ${absoluteUrl("/about")} |
 | Manufacturer certification | ISO 9001:2015 | ${absoluteUrl("/certifications")} |
 | Documentation per shipment | SDS, COA, DMF-free statement | ${absoluteUrl("/documents")} |
-| Export markets | 60+ countries | ${absoluteUrl("/export")} |
+| Export markets | 190+ countries | ${absoluteUrl("/export")} |
 | Silica gel adsorption capacity | ~33% of own weight in water vapor | ${absoluteUrl("/guides/silica-gel-buyer-guide")} |
 | Dry clay desiccant capacity | Up to 25% of own weight | ${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")} |
 | Silica gel regeneration temp | 120-150°C, 2-4 hours | ${absoluteUrl("/blog/can-you-reuse-silica-gel")} |
@@ -321,7 +321,7 @@ A: FOB Karachi, CIF, DAP, EXW available. FOB is the cleanest for first-time impo
 Source: ${absoluteUrl("/export")}
 
 **Q: Which countries does DryGelWorld export to?**
-A: 60+ countries with dedicated buyer landing pages for USA, UAE, Saudi Arabia, Qatar, UK, Germany, India, Pakistan, Canada, Australia, Bangladesh, Indonesia, Malaysia, Turkey, Mexico, Brazil, Vietnam, Russia, and EU-wide.
+A: 190+ countries with dedicated buyer landing pages for USA, UAE, Saudi Arabia, Qatar, UK, Germany, India, Pakistan, Canada, Australia, Bangladesh, Indonesia, Malaysia, Turkey, Mexico, Brazil, Vietnam, Russia, and EU-wide.
 Source: ${absoluteUrl("/export")}
 
 **Q: How long is the lead time for silica gel orders from Karachi?**

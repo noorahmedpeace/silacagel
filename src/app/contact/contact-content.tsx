@@ -35,7 +35,7 @@ export function ContactContent() {
           <span className={styles.heroOrb} aria-hidden="true" />
           <span className={styles.kicker}>Export Desk</span>
           <h1>Quote requests, answered in 24 hours.</h1>
-          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 60+ countries.</p>
+          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 190+ countries.</p>
           <div className={styles.heroActions}>
             <a href="#rfq-form" className={styles.primaryAction}>
               Start RFQ
@@ -55,7 +55,7 @@ export function ContactContent() {
           <span className={styles.trustNumber}>1983</span>
           <span className={styles.trustLabel}>Manufacturing</span>
           <div className={styles.trustDivider} />
-          <span className={styles.trustNumber}>60+</span>
+          <span className={styles.trustNumber}>190+</span>
           <span className={styles.trustLabel}>Export markets</span>
           <div className={styles.trustDivider} />
           <span className={styles.trustNumber}>ISO</span>
