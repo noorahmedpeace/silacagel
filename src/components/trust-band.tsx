@@ -28,8 +28,8 @@ export function TrustBand() {
   return (
     <section className={styles.band} aria-label="Manufacturer trust signals">
       <div className={styles.intro}>
-        <p className={styles.eyebrow}>Proof at a glance</p>
-        <h2 className={styles.heading}>The scale of a real manufacturer, not a reseller.</h2>
+        <p className={styles.eyebrow}>Proof</p>
+        <h2 className={styles.heading}>Real manufacturer. Real scale.</h2>
       </div>
 
       <div className={styles.grid}>

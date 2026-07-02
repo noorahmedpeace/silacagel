@@ -1,66 +1,60 @@
 /*
- * Trust band — animated proof metrics.
- * Designed against the --ds-* token system (see src/app/design-tokens.css)
- * so type, spacing, colour, and radius match the production rollout.
+ * Trust band — open metrics row (2026 redesign).
+ * The old version was a hairline-divided grid that read like a spreadsheet.
+ * This is the premium pattern: no boxes, no table — just huge gradient
+ * numerals, strong labels, and air. Intro sits left, metrics flow right,
+ * separated only by soft fading accent rules.
  */
 
 .band {
   position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-stack-xl);
-  padding: var(--ds-section-py-tight) clamp(24px, 4vw, 48px);
-  border: 1px solid var(--ds-hairline);
-  border-radius: var(--ds-radius-tight);
-  background:
-    radial-gradient(circle at 84% 12%, var(--ds-brand-soft), transparent 30%),
-    linear-gradient(135deg, var(--ds-surface) 0%, var(--ds-surface-tint) 100%);
-  box-shadow: var(--ds-shadow-card);
+  display: grid;
+  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 2fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  padding: clamp(36px, 5vw, 64px) clamp(20px, 3vw, 44px);
 }
 
-/* Subtle dotted grid texture — echoes the proof-vault section pattern. */
+/* Soft top/bottom edge rules ground the band without boxing it in. */
+.band::before,
 .band::after {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background-image: radial-gradient(circle at center, var(--ds-brand) 0 1px, transparent 1.5px);
-  background-size: 22px 22px;
-  opacity: 0.04;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ds-hairline-strong), transparent);
 }
 
-.band > * {
-  position: relative;
-  z-index: 1;
-}
+.band::before { top: 0; }
+.band::after { bottom: 0; }
 
 .intro {
   display: flex;
   flex-direction: column;
-  gap: var(--ds-stack-sm);
-  max-width: var(--ds-container-prose);
+  gap: 12px;
 }
 
 .eyebrow {
+  align-self: flex-start;
   font-size: var(--ds-eyebrow);
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: var(--ds-ls-eyebrow);
-  color: var(--ds-accent);
-  background: var(--ds-accent-soft);
-  border: 1px solid rgba(255, 107, 61, 0.14);
-  border-radius: 4px;
-  padding: 5px 10px;
-  align-self: flex-start;
+  color: var(--ds-brand-deep);
+  background: var(--ds-brand-soft);
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  padding: 6px 12px;
+  margin: 0;
 }
 
 .heading {
   margin: 0;
-  font-size: var(--ds-h2);
-  line-height: var(--ds-lh-snug);
-  letter-spacing: var(--ds-ls-snug);
+  max-width: 12ch;
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--ds-text);
 }
 
@@ -68,40 +62,35 @@
   margin: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--ds-hairline);
-  border: 1px solid var(--ds-hairline);
-  border-radius: var(--ds-radius-tight);
-  overflow: hidden;
+  gap: clamp(24px, 3vw, 40px) clamp(20px, 2.6vw, 44px);
 }
 
-/* The 1px gap + hairline background renders crisp dividers between cells
- * without per-cell borders fighting each other. */
 .metric {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--ds-stack-sm);
-  padding: clamp(20px, 3vw, 30px);
-  background: var(--ds-surface);
+  gap: 6px;
+  padding-left: clamp(14px, 1.6vw, 22px);
   text-decoration: none;
   color: inherit;
-  transition: background var(--ds-dur-base) var(--ds-ease), box-shadow var(--ds-dur-base) var(--ds-ease);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.metric:hover {
-  background: var(--ds-surface-tint);
+/* Fading vertical accent rule — the only "line" in the design. */
+.metric::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, rgba(45, 91, 255, 0.55), rgba(45, 91, 255, 0.06));
+  transition: background var(--ds-dur-base) var(--ds-ease-out);
 }
 
-/* Subtle actionable affordance: the label nudges toward brand on hover/focus
- * so it's clear each metric is a link, without adding visual noise at rest. */
-.metric:hover .label,
-.metric:focus-visible .label {
-  color: var(--ds-brand);
-}
-
-.metric:focus-visible {
-  outline: 2px solid var(--ds-brand);
-  outline-offset: -2px;
+.metricAccent::before {
+  background: linear-gradient(180deg, rgba(255, 107, 61, 0.7), rgba(255, 107, 61, 0.08));
 }
 
 .value {
@@ -110,16 +99,22 @@
 
 .valueNum {
   display: block;
-  font-size: clamp(2rem, 1.4rem + 2.6vw, 3rem);
+  font-family: var(--font-display), var(--font-body);
+  font-size: clamp(1.9rem, 1.3rem + 2.2vw, 2.9rem);
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: var(--ds-ls-tight);
-  color: var(--ds-brand);
+  line-height: 1;
+  letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--ds-brand-deep) 0%, var(--ds-brand) 70%, var(--ds-brand-bright) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .metricAccent .valueNum {
-  color: var(--ds-accent);
+  background: linear-gradient(120deg, #e5502a 0%, #ff6b3d 75%, #ff8f68 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .meta {
@@ -130,16 +125,56 @@
 }
 
 .label {
-  font-size: var(--ds-h4);
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ds-text);
   transition: color var(--ds-dur-quick) var(--ds-ease);
 }
 
 .sub {
-  font-size: var(--ds-small);
-  color: var(--ds-text-muted);
-  line-height: var(--ds-lh-base);
+  font-size: 0.8rem;
+  color: var(--ds-text-faint);
+  line-height: 1.4;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .metric:hover {
+    transform: translateY(-3px);
+  }
+
+  .metric:hover .label {
+    color: var(--ds-brand);
+  }
+
+  .metric:hover::before {
+    background: linear-gradient(180deg, var(--ds-brand), rgba(45, 91, 255, 0.2));
+  }
+
+  .metricAccent:hover::before {
+    background: linear-gradient(180deg, var(--ds-accent), rgba(255, 107, 61, 0.22));
+  }
+
+  .metricAccent:hover .label {
+    color: var(--ds-accent-deep);
+  }
+}
+
+.metric:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+  border-radius: 8px;
+}
+
+@media (max-width: 1080px) {
+  .band {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .heading {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 900px) {
@@ -149,7 +184,27 @@
 }
 
 @media (max-width: 480px) {
+  .band {
+    padding: 36px 4px;
+  }
+
   .grid {
-    grid-template-columns: 1fr;
+    gap: 22px 16px;
+  }
+
+  .valueNum {
+    font-size: clamp(1.7rem, 8vw, 2.1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metric,
+  .metric::before,
+  .label {
+    transition: none !important;
+  }
+
+  .metric:hover {
+    transform: none !important;
   }
 }
