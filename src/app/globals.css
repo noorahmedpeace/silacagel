@@ -81,11 +81,12 @@ body {
    * the type a crafted, single-A feel instead of the default. */
   font-feature-settings: "cv11" 1, "ss01" 1, "calt" 1, "kern" 1;
   text-rendering: optimizeLegibility;
+  /* NOTE: no background-attachment: fixed — it forces a full-viewport repaint
+   * on every scroll frame (major jank on integrated GPUs). */
   background-image:
     radial-gradient(circle at top left, rgba(45, 91, 255, 0.06), transparent 26%),
     radial-gradient(circle at 86% 10%, rgba(255, 107, 61, 0.045), transparent 22%),
     linear-gradient(180deg, #ffffff 0%, #f4f6fb 100%);
-  background-attachment: fixed;
 }
 
 body::before {
@@ -102,8 +103,8 @@ body::before {
   background-position: 50% 0;
   background-size: 26px 26px, 820px 520px, 100% 100%;
   opacity: 0.5;
-  transform: translate3d(0, 0, 0);
-  animation: particleDrift 22s ease-in-out infinite alternate;
+  /* Static on purpose: animating background-position repaints the whole
+   * viewport every frame — the texture reads identically without it. */
 }
 
 * {
@@ -373,16 +374,6 @@ input[type="button"] {
     animation-delay: 0s !important;
     animation-timeline: view();
     animation-range: entry 6% cover 24%;
-  }
-}
-
-@keyframes particleDrift {
-  from {
-    background-position: 48% -10px;
-  }
-
-  to {
-    background-position: 52% 18px;
   }
 }
 
