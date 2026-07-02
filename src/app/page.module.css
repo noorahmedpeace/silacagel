@@ -5306,3 +5306,199 @@
     transform: translateY(0) scale(1);
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PREMIUM POLISH v2 — deck + bento + rail (appended last, wins source order).
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Workflow deck v2: richer cards, seamless photo blend, gradient number ── */
+.flowIntroSub {
+  margin: 14px 0 0;
+  max-width: 24ch;
+  color: var(--ds-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.flowCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 18px;
+  padding: 13px 22px;
+  border-radius: 11px;
+  background: var(--ds-grad-cta);
+  color: #fff;
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.flowCta svg {
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flowCta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 42px -14px rgba(255, 107, 61, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .flowCta:hover svg { transform: translateX(4px); }
+}
+
+.flowCta:active { transform: translateY(0) scale(0.985); }
+
+@media (min-width: 901px) {
+  /* Card: soft cobalt wash + inner light ring instead of flat white. */
+  .procurementFlowCard {
+    background:
+      radial-gradient(90% 120% at 100% 0%, rgba(45, 91, 255, 0.06), transparent 55%),
+      linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 -14px 34px -26px rgba(8, 30, 80, 0.22),
+      0 24px 56px -28px rgba(8, 30, 80, 0.18);
+  }
+
+  /* Deeper deck offsets so the pile reads clearly while stacking. */
+  .procurementFlowCard:nth-child(1) { top: 104px; }
+  .procurementFlowCard:nth-child(2) { top: 132px; }
+  .procurementFlowCard:nth-child(3) { top: 160px; }
+
+  /* Photo blends seamlessly into the card body — no hard seam. */
+  .procurementFlowMedia::after {
+    background:
+      linear-gradient(90deg, transparent 55%, rgba(251, 252, 255, 0.35) 86%, rgba(251, 252, 255, 0.95) 100%),
+      linear-gradient(180deg, rgba(10, 14, 23, 0), rgba(10, 14, 23, 0.14));
+  }
+
+  /* Watermark number: cobalt gradient, more presence. */
+  .procurementFlowContent span {
+    background: linear-gradient(180deg, rgba(45, 91, 255, 0.22) 0%, rgba(45, 91, 255, 0.04) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .procurementFlowCard h3 {
+    font-size: clamp(1.5rem, 1.9vw, 1.9rem);
+  }
+
+  .procurementFlowCard p {
+    font-size: 1.02rem;
+    line-height: 1.66;
+  }
+
+  /* Icon chip: gradient + ring, slightly larger. */
+  .procurementFlowIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--ds-grad-brand);
+    box-shadow: 0 10px 22px -8px rgba(45, 91, 255, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* ── Product bento v2: crisper type, cleaner scrim, glass chips ── */
+.industrialBentoImage::after {
+  background:
+    linear-gradient(180deg, rgba(8, 12, 24, 0.0) 30%, rgba(8, 12, 24, 0.82) 100%),
+    radial-gradient(80% 60% at 85% 0%, rgba(45, 91, 255, 0.18), transparent 60%);
+}
+
+.industrialBentoCopy h3 {
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  font-size: clamp(1.7rem, 2.4vw, 2.6rem);
+  text-shadow: 0 2px 18px rgba(6, 10, 24, 0.5);
+}
+
+.industrialBentoCopy span {
+  align-items: center;
+  gap: 7px;
+  color: #9db8ff;
+}
+
+.industrialBentoCopy span::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--ds-brand-bright);
+  box-shadow: 0 0 8px rgba(91, 134, 255, 0.9);
+}
+
+.industrialBentoCopy p {
+  color: rgba(233, 238, 247, 0.82);
+  text-shadow: 0 1px 10px rgba(6, 10, 24, 0.45);
+}
+
+/* Stat chip: dark glass, matches the hero's chips. */
+.industrialBentoStat {
+  background: rgba(10, 14, 26, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+/* ── Category rail v2: pill buttons with slide-in arrow ── */
+.categoryRail a {
+  position: relative;
+  gap: 4px;
+  border-radius: 10px;
+  border-color: var(--ds-hairline);
+  background: #ffffff;
+  font-weight: 700;
+  box-shadow: var(--ds-shadow-soft);
+  transition: border-color var(--ds-dur-base) var(--ds-ease-out),
+    color var(--ds-dur-base) var(--ds-ease-out),
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.categoryRail a::after {
+  content: "→";
+  display: inline-block;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  color: var(--ds-brand);
+  transform: translateX(-4px);
+  transition: max-width var(--ds-dur-base) var(--ds-ease-out),
+    opacity var(--ds-dur-base) var(--ds-ease-out),
+    transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .categoryRail a:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.4);
+    color: var(--ds-brand-deep);
+    box-shadow: var(--ds-shadow-card);
+  }
+  .categoryRail a:hover::after {
+    max-width: 18px;
+    opacity: 1;
+    transform: translateX(2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flowCta,
+  .flowCta svg,
+  .categoryRail a,
+  .categoryRail a::after {
+    transition: none !important;
+  }
+  .flowCta:hover,
+  .categoryRail a:hover {
+    transform: none !important;
+  }
+}

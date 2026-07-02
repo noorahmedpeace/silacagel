@@ -305,6 +305,11 @@ export default function Home() {
               <div className={styles.procurementFlowIntro}>
                 <p className={styles.kicker}>How it works</p>
                 <AnimatedText text="Three steps to a quote." mode="bubble" />
+                <p className={styles.flowIntroSub}>No catalogs to dig through. No guesswork.</p>
+                <Link href="/contact" className={styles.flowCta}>
+                  Start your quote
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
               </div>
               <div className={styles.procurementFlowGrid}>
                 {procurementFlow.map((item) => {
