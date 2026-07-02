@@ -29,10 +29,8 @@ export type ScrollyIndustry = {
  */
 export function IndustryScrolly({ industries }: { industries: ScrollyIndustry[] }) {
   const [active, setActive] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
   const [dir, setDir] = useState<"down" | "up">("down");
   const lastRef = useRef(0);
-  const prevTimer = useRef(0);
   const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -47,47 +45,39 @@ export function IndustryScrolly({ industries }: { industries: ScrollyIndustry[] 
           const index = Number((entry.target as HTMLElement).dataset.index);
           if (Number.isNaN(index) || index === lastRef.current) continue;
           setDir(index > lastRef.current ? "down" : "up");
-          setPrev(lastRef.current);
           lastRef.current = index;
           setActive(index);
-          // The covered image leaves the stack once the slide completes.
-          window.clearTimeout(prevTimer.current);
-          prevTimer.current = window.setTimeout(() => setPrev(null), 650);
         }
       },
       { threshold: 0.6, rootMargin: "0px 0px -30% 0px" },
     );
 
     blockRefs.current.forEach((el) => el && observer.observe(el));
-    return () => {
-      observer.disconnect();
-      window.clearTimeout(prevTimer.current);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div className={`${styles.scrolly} ${styles[`tint${active}`] ?? ""}`}>
+    <div
+      className={`${styles.scrolly} ${styles[`tint${active}`] ?? ""} ${
+        dir === "down" ? styles.dirDown : styles.dirUp
+      }`}
+    >
       <div className={styles.stage} aria-hidden="true">
         <div className={styles.stageInner}>
-          {industries.map((industry, i) => {
-            const classNames = [styles.slide];
-            if (i === active) {
-              classNames.push(styles.slideActive, dir === "down" ? styles.enterDown : styles.enterUp);
-            } else if (i === prev) {
-              classNames.push(styles.slidePrev);
-            }
-            return (
-              <div key={industry.name} className={classNames.join(" ")}>
-                <Image
-                  src={industry.image}
-                  alt=""
-                  fill
-                  className={styles.slideImage}
-                  sizes="(max-width: 999px) 100vw, 44vw"
-                />
-              </div>
-            );
-          })}
+          {industries.map((industry, i) => (
+            <div
+              key={industry.name}
+              className={`${styles.slide} ${i === active ? styles.slideActive : ""}`}
+            >
+              <Image
+                src={industry.image}
+                alt=""
+                fill
+                className={styles.slideImage}
+                sizes="(max-width: 999px) 100vw, 44vw"
+              />
+            </div>
+          ))}
         </div>
       </div>
 

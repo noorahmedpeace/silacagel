@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Factory, Globe2, ShieldCheck } from "lucide-react";
 import {
   companyAddressFull,
   contactEmailChannels,
@@ -11,45 +12,42 @@ import {
 import styles from "./site-footer.module.css";
 import { SocialLinks } from "./social-links";
 
-const footerGroups = [
+const footerColumns = [
   {
     title: "Products",
     links: [
       { label: "Silica gel (overview)", href: "/silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Packets manufacturer", href: "/silica-gel-packets-manufacturer" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
       { label: "White silica gel", href: "/white-silica-gel" },
-      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
+      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
       { label: "Silica gel beads", href: "/silica-gel-beads" },
-      { label: "Bentonite clay desiccant", href: "/bentonite-clay" },
     ],
+    viewAll: { label: "View all products", href: "/products" },
   },
   {
-    title: "Export / OEM",
+    title: "Desiccant Range",
     links: [
-      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
-      { label: "Silica gel manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
-      { label: "China alternative supplier", href: "/silica-gel-manufacturer-china-alternative" },
-      { label: "Silica gel manufacturer Pakistan", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
-      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
-      { label: "Private label desiccant packets", href: "/private-label-desiccant-packets" },
+      { label: "Bentonite clay desiccant", href: "/bentonite-clay" },
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
+      { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
+      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
+      { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
     ],
+    viewAll: { label: "View all formats", href: "/products" },
   },
   {
-    // NEW — export-country pages had NO footer link before; this surfaces the
-    // export hub + priority market pages site-wide and de-orphans the
-    // per-country exporter landing pages.
     title: "Export Markets",
     links: [
-      { label: "Export support hub", href: "/export" },
       { label: "UAE silica gel supplier", href: "/export/uae" },
       { label: "Saudi Arabia supplier", href: "/export/saudi-arabia" },
       { label: "Qatar supplier", href: "/export/qatar" },
@@ -59,9 +57,9 @@ const footerGroups = [
       { label: "India supplier", href: "/export/india" },
       { label: "Silica gel exporter USA", href: "/silica-gel-exporter-usa" },
       { label: "Silica gel exporter Germany", href: "/silica-gel-exporter-germany" },
-      { label: "Silica gel exporter Canada", href: "/silica-gel-exporter-canada" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
     ],
+    viewAll: { label: "All export markets", href: "/export" },
   },
   {
     title: "Industries",
@@ -72,54 +70,48 @@ const footerGroups = [
       { label: "Pharma packaging", href: "/industries/pharma-packaging" },
       { label: "Leather and footwear export", href: "/industries/leather-footwear-export" },
       { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "All industries", href: "/industries" },
       { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
       { label: "Case studies", href: "/case-studies" },
     ],
+    viewAll: { label: "All industries", href: "/industries" },
   },
   {
-    title: "Desiccant Range",
-    links: [
-      { label: "DryGelWorld official site", href: "/drygelworld" },
-      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
-      { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
-      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
-      { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
-      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
-      { label: "Container moisture control", href: "/shipping-container-moisture-control" },
-      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
-      { label: "Dry clay supplier UAE", href: "/dry-clay-desiccant-supplier-uae" },
-      { label: "Dry clay supplier Saudi Arabia", href: "/dry-clay-desiccant-supplier-saudi-arabia" },
-    ],
-  },
-  {
-    // NEW — knowledge/trust hub: guides, comparisons, documents, certifications.
     title: "Resources",
     links: [
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant comparisons", href: "/compare" },
       { label: "Documents (SDS, COA)", href: "/documents" },
-      { label: "Certifications", href: "/certifications" },
       { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
       { label: "Export carton moisture guide", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
       { label: "SDS and COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
-      { label: "Buyer blog", href: "/blog" },
-      { label: "Media kit", href: "/media-kit" },
       { label: "Technical FAQ", href: "/faq" },
+      { label: "Media kit", href: "/media-kit" },
+    ],
+    viewAll: { label: "Visit the buyer blog", href: "/blog" },
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Certifications", href: "/certifications" },
+      { label: "DryGelWorld official site", href: "/drygelworld" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
+      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
+      { label: "Private label packets", href: "/private-label-desiccant-packets" },
     ],
   },
 ];
 
-const featuredLinkCounts: Record<string, number> = {
-  Products: 5,
-  "Export / OEM": 5,
-  "Export Markets": 5,
-  Industries: 5,
-  "Desiccant Range": 5,
-  Resources: 6,
-};
+const trustBadges = [
+  { icon: ShieldCheck, label: "ISO 9001:2015 certified" },
+  { icon: Factory, label: "Manufacturing since 1983" },
+  { icon: Globe2, label: "Exporting to 190+ countries" },
+];
 
 export function SiteFooter() {
   const whatsappMessage = encodeURIComponent(
@@ -144,59 +136,74 @@ export function SiteFooter() {
             </a>
           </div>
           <SocialLinks label="Follow DryGelWorld" />
-          <div className={styles.emailDesk}>
-            <span className={styles.emailDeskLabel}>Official email desk</span>
-            <a
-              className={styles.mainEmailRoute}
-              href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
-              rel="nofollow"
-            >
-              <span>Main email</span>
-              <strong>{mainEmail}</strong>
-              <small>Primary owner inbox for important business, partnerships, and direct follow-up.</small>
-            </a>
-            <div className={styles.emailDirectory} aria-label="Department email directory">
-              {contactEmailChannels.map((channel) => (
-                <a
-                  className={styles.emailRoute}
-                  href={createMailtoHref(channel.email, channel.defaultSubject)}
-                  key={channel.id}
-                  rel="nofollow"
-                >
-                  <span>{channel.shortLabel}</span>
-                  <strong>{channel.email}</strong>
-                  <small>{channel.purpose}</small>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
 
-        <div className={styles.linkGrid}>
-          {footerGroups.map((group) => (
-            <section className={styles.column} key={group.title}>
-              <h3>{group.title}</h3>
-              <nav aria-label={`${group.title} footer links`}>
-                {group.links.slice(0, featuredLinkCounts[group.title]).map((link) => (
-                  <Link className={styles.featuredLink} href={link.href} key={link.href}>{link.label}</Link>
-                ))}
-              </nav>
-              {group.links.length > featuredLinkCounts[group.title] ? (
-                <div className={styles.supportLinks} aria-label={`${group.title} supporting links`}>
-                  {group.links.slice(featuredLinkCounts[group.title]).map((link) => (
-                    <Link href={link.href} key={link.href}>{link.label}</Link>
-                  ))}
-                </div>
-              ) : null}
-            </section>
-          ))}
+        <div className={styles.emailDesk}>
+          <span className={styles.emailDeskLabel}>Official email desk</span>
+          <a
+            className={styles.mainEmailRoute}
+            href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
+            rel="nofollow"
+          >
+            <span>Main email</span>
+            <strong>{mainEmail}</strong>
+            <small>Primary owner inbox for important business, partnerships, and direct follow-up.</small>
+          </a>
+          <div className={styles.emailDirectory} aria-label="Department email directory">
+            {contactEmailChannels.map((channel) => (
+              <a
+                className={styles.emailRoute}
+                href={createMailtoHref(channel.email, channel.defaultSubject)}
+                key={channel.id}
+                rel="nofollow"
+              >
+                <span>{channel.shortLabel}</span>
+                <strong>{channel.email}</strong>
+                <small>{channel.purpose}</small>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className={styles.bottom}>
-        <span><strong>DryGelWorld.com</strong> official Dry Gel World website for industrial silica gel and desiccant export supply.</span>
-        <address style={{ fontStyle: "normal" }}>{companyAddressFull}</address>
-        <a href={`tel:${phoneHref}`}>{displayPhone}</a>
+      <div className={styles.linkGrid}>
+        {footerColumns.map((column) => (
+          <nav aria-label={`${column.title} footer links`} className={styles.column} key={column.title}>
+            <h3>{column.title}</h3>
+            <ul className={styles.linkList}>
+              {column.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+              {column.viewAll ? (
+                <li>
+                  <Link className={styles.viewAll} href={column.viewAll.href}>
+                    {column.viewAll.label} <span aria-hidden="true">→</span>
+                  </Link>
+                </li>
+              ) : null}
+            </ul>
+          </nav>
+        ))}
+      </div>
+
+      <div className={styles.trustRow}>
+        {trustBadges.map((badge) => (
+          <span className={styles.trustBadge} key={badge.label}>
+            <badge.icon aria-hidden="true" size={15} strokeWidth={1.8} />
+            {badge.label}
+          </span>
+        ))}
+      </div>
+
+      <div className={styles.bottomBar}>
+        <span className={styles.copyright}>© 2026 DryGelWorld. All rights reserved.</span>
+        <div className={styles.bottomMeta}>
+          <a href="/sitemap.xml">Sitemap</a>
+          <address>{companyAddressFull}</address>
+          <a href={`tel:${phoneHref}`}>{displayPhone}</a>
+        </div>
       </div>
     </footer>
   );

@@ -142,36 +142,39 @@
     box-shadow: var(--ds-shadow-hero);
   }
 
-  /* Stacked slides — only active (and briefly previous) are visible. */
+  /* Stacked slides — all mounted, crossfading. The active one settles to
+   * rest; inactive ones sit faded with a slight directional drift + zoom so
+   * every change reads as a smooth cinematic dissolve, not a hard slide.
+   * Opacity + transform only — fully compositor-driven, no jank. */
   .slide {
     position: absolute;
     inset: 0;
-    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+    transform: translateY(26px) scale(1.05);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
   }
 
-  .slidePrev {
-    visibility: visible;
-    z-index: 1;
-    transform: translateY(0);
+  /* Scrolling up, the incoming image drifts down into place instead. */
+  .dirUp .slide {
+    transform: translateY(-26px) scale(1.05);
   }
 
   .slideActive {
-    visibility: visible;
+    opacity: 1;
     z-index: 2;
+    transform: translateY(0) scale(1);
+  }
+
+  .dirUp .slideActive {
+    transform: translateY(0) scale(1);
   }
 
   .slideImage {
     object-fit: cover;
-  }
-
-  /* Direction-aware entry. Animation (not transition) so the from-state
-   * needs no double-frame juggling — the class application triggers it. */
-  .enterDown {
-    animation: slideFromBottom 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
-  }
-
-  .enterUp {
-    animation: slideFromTop 0.6s cubic-bezier(0.65, 0, 0.35, 1) both;
   }
 
   .blocks {
@@ -193,38 +196,11 @@
   }
 }
 
-@keyframes slideFromBottom {
-  from {
-    transform: translateY(100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideFromTop {
-  from {
-    transform: translateY(-100%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
-@keyframes scrollyFade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Reduced motion: no slide — a simple cross-fade carries the change. */
+/* Reduced motion: plain cross-fade, no drift/zoom. */
 @media (prefers-reduced-motion: reduce) {
-  .enterDown,
-  .enterUp {
-    animation: scrollyFade 0.4s ease both;
+  .slide {
+    transform: none !important;
+    transition: opacity 0.3s ease;
   }
 
   .block {
