@@ -381,3 +381,58 @@
     min-height: 52px;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+ * PREMIUM POLISH v3 — panel chrome only (heading, cards, hairlines).
+ * The panel frame itself lives in page.module.css (.calculatorPanel);
+ * here the inner chrome is aligned to the --ds-* token system. The coral
+ * .submit action is untouched.
+ * ═══════════════════════════════════════════════════════════════════════ */
+.head p {
+  color: var(--ds-brand-deep);
+  letter-spacing: var(--ds-ls-eyebrow);
+}
+
+.head h3 {
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.field {
+  border-color: rgba(45, 91, 255, 0.12);
+  border-left-color: rgba(45, 91, 255, 0.65);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.field:focus-within {
+  border-color: rgba(45, 91, 255, 0.3);
+  border-left-color: var(--ds-brand);
+  box-shadow:
+    0 0 0 3px rgba(45, 91, 255, 0.1),
+    var(--ds-shadow-soft);
+}
+
+.summaryCard {
+  background: #ffffff;
+  border-color: var(--ds-hairline);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+}
+
+.highlightCard {
+  background: linear-gradient(180deg, var(--ds-brand-soft), var(--ds-surface-tint));
+  border-color: rgba(45, 91, 255, 0.24);
+}
+
+.highlightCard strong {
+  color: var(--ds-brand);
+}
+
+.bulkHint {
+  color: var(--ds-brand-deep);
+  background: rgba(45, 91, 255, 0.08);
+  border: 1px solid rgba(45, 91, 255, 0.14);
+}

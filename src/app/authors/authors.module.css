@@ -22,12 +22,13 @@
 .kicker {
   align-self: flex-start;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(45, 91, 255, 0.1);
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -35,10 +36,14 @@
 .header h1 {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.4rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   color: var(--ink);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .role {
@@ -50,7 +55,7 @@
 .section h2 {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2.2vw, 1.75rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 14px;
   color: var(--ink);
   letter-spacing: -0.02em;
@@ -63,7 +68,7 @@
 }
 
 .section a {
-  color: #2d5bff;
+  color: var(--ds-brand);
   font-weight: 700;
 }
 
@@ -85,16 +90,36 @@
   display: inline-flex;
   margin-top: 14px;
   padding: 14px 22px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #1976d2 0%, #2d5bff 100%);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-grad-cta);
   color: #ffffff;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.005em;
-  box-shadow: 0 14px 28px -14px rgba(45, 91, 255, 0.5);
+  box-shadow: var(--ds-shadow-cta);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.cta:hover {
-  filter: brightness(1.05);
+.cta:active {
+  transform: scale(0.985);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+
+  .cta:hover,
+  .cta:active {
+    transform: none;
+  }
 }
 
 @media (max-width: 640px) {

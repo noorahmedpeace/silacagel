@@ -5502,3 +5502,332 @@
     transform: none !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * PREMIUM POLISH v3 — pricing + testimonials
+ * Appended last so equal-specificity rules win by source order. Tokens only;
+ * coral stays strictly on actions (Quote links / row CTAs), cobalt carries
+ * structure. All hover styling lives in (hover:hover)+(pointer:fine), all
+ * motion is killed under prefers-reduced-motion.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Price cards: cobalt-tinted top wash, hairline + lit top ring ── */
+.priceCard {
+  background: linear-gradient(180deg, var(--ds-surface-tint) 0%, #ffffff 44%);
+  border: 1px solid var(--ds-hairline);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+/* Left accent bar was coral in an earlier pass — coral is actions-only, so
+ * the structural accent goes back to brand cobalt. */
+.priceCard::before {
+  background: linear-gradient(180deg, var(--ds-brand), rgba(45, 91, 255, 0));
+}
+
+/* Neutralize the stale coral hover border/shadow from the mid passes
+ * (unconditional there, so neutralized unconditionally here — colour only,
+ * no motion). The lift itself stays in the interaction layer. */
+.priceCard:hover,
+.testimonialCard:hover {
+  border-color: rgba(45, 91, 255, 0.42);
+  box-shadow: var(--ds-shadow-card);
+}
+
+.pricingSection .priceCard h3 {
+  font-family: var(--font-display);
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ds-text);
+}
+
+/* Category note → small brand-soft chip instead of plain uppercase text. */
+.pricingSection .priceNote {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid rgba(45, 91, 255, 0.16);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+
+/* Rows: full-bleed hover zone (tint bleeds past the text column), bolder
+ * size labels with tabular figures. */
+.priceRow {
+  padding: 6px 10px 7px;
+  margin: 0 -10px;
+  border-radius: 8px;
+  border-bottom: 1px solid var(--ds-hairline);
+  font-size: var(--ds-small);
+  transition: background var(--ds-dur-quick) var(--ds-ease-out),
+    border-color var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.pricingSection .priceRow strong {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ds-text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Quote = action → coral family (resting: soft coral chip; hover: solid). */
+.priceQuoteLink {
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-accent-soft);
+  border: 1px solid rgba(255, 107, 61, 0.26);
+  color: var(--ds-accent-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  transition: transform var(--ds-dur-quick) var(--ds-ease-out),
+    background var(--ds-dur-quick) var(--ds-ease-out),
+    color var(--ds-dur-quick) var(--ds-ease-out),
+    border-color var(--ds-dur-quick) var(--ds-ease-out),
+    box-shadow var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+/* Sticky-tap fallback: earlier passes paint this hover solid cobalt — an
+ * action must resolve coral on every input type (colour only, no motion). */
+.priceQuoteLink:hover {
+  transform: none;
+  background: var(--ds-grad-cta);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: var(--ds-shadow-cta);
+}
+
+.priceQuoteLink:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.pricingSection .priceCardFoot {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--ds-hairline);
+  color: var(--ds-text-faint);
+  font-size: 0.74rem;
+}
+
+/* ── Highlight chips: clean white pills with a cobalt status dot ── */
+.pricingHighlightChip {
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid var(--ds-hairline);
+  color: var(--ds-text-muted);
+  box-shadow: var(--ds-shadow-soft);
+  border-radius: var(--ds-radius-pill);
+  transition: transform var(--ds-dur-quick) var(--ds-ease-spring),
+    border-color var(--ds-dur-quick) var(--ds-ease-out),
+    box-shadow var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.pricingHighlightChip::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-grad-brand);
+  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.14);
+}
+
+/* ── Calculator panel: the conversion core gets a gradient hairline frame
+ *    (cobalt fading to nothing), soft elevated surface, cobalt ambient. ── */
+.calculatorPanel {
+  position: relative;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid transparent;
+  border-radius: var(--ds-radius-card);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.99), rgba(247, 250, 255, 0.97)) padding-box,
+    linear-gradient(165deg, rgba(45, 91, 255, 0.5) 0%, rgba(45, 91, 255, 0.16) 34%, rgba(45, 91, 255, 0.05) 62%, rgba(45, 91, 255, 0) 100%) border-box;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow:
+    var(--ds-shadow-card),
+    0 30px 70px -42px rgba(45, 91, 255, 0.3);
+}
+
+/* "Volume & Export Quote Estimator" → eyebrow chip above the calculator's
+ * own display heading. */
+.pricingSection .calculatorHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: var(--ds-radius-pill);
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-family: var(--font-display);
+  font-size: var(--ds-eyebrow);
+  font-weight: 800;
+  letter-spacing: var(--ds-ls-eyebrow);
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.pricingSection .calculatorHint::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-grad-brand);
+  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.14);
+}
+
+.pricingSection .calculatorSubHint {
+  margin-bottom: 20px;
+  font-size: var(--ds-small);
+  line-height: 1.6;
+  color: var(--ds-text-muted);
+  max-width: 56ch;
+}
+
+/* ── Testimonials: editorial quote cards ── */
+.testimonialCard {
+  position: relative;
+  padding: 30px 28px;
+  gap: 18px;
+  min-height: 100%;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  border: 1px solid var(--ds-hairline);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+/* Repurpose the old coral accent bar as a large faded display quotation
+ * mark — cobalt at ~9%, sitting behind the content. */
+.testimonialCard::before {
+  content: "\201C";
+  inset: auto;
+  top: -8px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  background: none;
+  font-family: var(--font-display);
+  font-size: 6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(45, 91, 255, 0.09);
+  opacity: 1;
+  transition: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Lift real content above the ornament. */
+.testimonialHeader,
+.testimonialQuote {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonialAvatar {
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px #ffffff, var(--ds-shadow-soft);
+}
+
+.testimonialInfo {
+  gap: 2px;
+}
+
+.testimonialInfo strong {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  color: var(--ds-text);
+}
+
+.testimonialInfo span {
+  font-size: 0.85rem;
+  color: var(--ds-text-faint);
+}
+
+.testimonialQuote {
+  margin-top: 4px;
+  font-size: 1.08rem;
+  line-height: 1.6;
+  color: var(--ds-text-muted);
+}
+
+/* ── Hover choreography (pointer devices only) ── */
+@media (hover: hover) and (pointer: fine) {
+  .priceCard:hover,
+  .testimonialCard:hover {
+    border-color: rgba(45, 91, 255, 0.42);
+  }
+
+  .priceRow:hover {
+    background: rgba(45, 91, 255, 0.05);
+    border-bottom-color: rgba(45, 91, 255, 0.18);
+  }
+
+  /* Row hover promotes its Quote link to the solid coral pill. */
+  .priceRow:hover .priceQuoteLink,
+  .priceQuoteLink:hover {
+    background: var(--ds-grad-cta);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: var(--ds-shadow-cta);
+  }
+
+  .priceQuoteLink:hover {
+    transform: translateY(-1px);
+  }
+
+  .pricingHighlightChip:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.35);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .priceCard,
+  .testimonialCard,
+  .priceRow,
+  .priceQuoteLink,
+  .pricingHighlightChip {
+    transition: none !important;
+  }
+
+  .priceCard:hover,
+  .testimonialCard:hover,
+  .priceQuoteLink:hover,
+  .pricingHighlightChip:hover {
+    transform: none !important;
+  }
+}
+
+/* Mobile fix: an old compact-band rule hid the workflow heading on phones —
+ * the redesigned light section needs its "Three steps to a quote." back. */
+@media (max-width: 760px) {
+  .procurementFlowIntro h2 {
+    display: block;
+    margin-top: 4px;
+    font-size: clamp(1.7rem, 7.4vw, 2.1rem);
+    line-height: 1.1;
+  }
+
+  .flowIntroSub {
+    margin-top: 10px;
+  }
+}

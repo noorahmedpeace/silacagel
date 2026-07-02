@@ -22,12 +22,13 @@
 .kicker {
   align-self: flex-start;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(45, 91, 255, 0.1);
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -35,10 +36,14 @@
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4.4vw, 3.4rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   color: var(--ink);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
@@ -58,7 +63,7 @@
 }
 
 .meta a {
-  color: #2d5bff;
+  color: var(--ds-brand);
   font-weight: 700;
 }
 
@@ -77,48 +82,46 @@
   align-items: center;
   min-height: 44px;
   padding: 0 22px;
-  border-radius: 999px;
-  font-weight: 800;
+  border-radius: var(--ds-radius-pill);
+  font-weight: 700;
   letter-spacing: -0.005em;
   font-size: 0.92rem;
   cursor: pointer;
   text-decoration: none;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .printAction {
-  background: rgba(255, 255, 255, 0.9);
-  color: #1e3fcc;
-  border: 1px solid rgba(45, 91, 255, 0.28);
-}
-
-.printAction:hover {
   background: #ffffff;
-  border-color: rgba(45, 91, 255, 0.5);
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.28);
 }
 
 .ctaAction,
 .primaryCta {
-  background: linear-gradient(135deg, #1976d2 0%, #2d5bff 100%);
+  background: var(--ds-grad-cta);
   color: #ffffff;
-  box-shadow: 0 14px 28px -14px rgba(45, 91, 255, 0.5);
+  box-shadow: var(--ds-shadow-cta);
   border: none;
 }
 
-.ctaAction:hover,
-.primaryCta:hover {
-  filter: brightness(1.05);
+.ctaAction:active,
+.primaryCta:active {
+  transform: scale(0.985);
 }
 
 .secondaryCta {
-  background: rgba(255, 255, 255, 0.85);
-  color: #0a1f3d;
-  border: 1px solid rgba(45, 91, 255, 0.22);
+  background: #ffffff;
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.28);
 }
 
-.secondaryCta:hover {
-  background: #ffffff;
-  border-color: rgba(45, 91, 255, 0.45);
-  color: #1e3fcc;
+.secondaryCta:active {
+  transform: scale(0.985);
 }
 
 .guideVisual {
@@ -127,9 +130,9 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(45, 91, 255, 0.18);
-  border-radius: 18px;
-  background: #eef6ff;
-  box-shadow: 0 24px 60px -44px rgba(15, 23, 42, 0.32);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface-tint);
+  box-shadow: var(--ds-shadow-soft);
   break-inside: avoid;
 }
 
@@ -144,9 +147,9 @@
   bottom: 14px;
   padding: 10px 14px;
   border: 1px solid rgba(45, 91, 255, 0.14);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.84);
-  color: #17365f;
+  color: #101b3f;
   font-size: 0.82rem;
   font-weight: 750;
   line-height: 1.45;
@@ -156,17 +159,18 @@
 .toc {
   padding: 24px 28px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.85);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .toc h2 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   margin-bottom: 14px;
 }
 
@@ -183,12 +187,9 @@
   color: var(--ink);
   font-weight: 600;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
-}
-
-.toc a:hover {
-  color: #2d5bff;
-  border-color: rgba(45, 91, 255, 0.4);
+  transition:
+    color var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .section {
@@ -201,16 +202,16 @@
 .section h2 {
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   color: var(--ink);
 }
 
 .section h3 {
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.45rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.015em;
   color: var(--ink);
   margin-top: 8px;
@@ -223,14 +224,14 @@
 }
 
 .section strong {
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ink);
 }
 
 .tableWrap {
   overflow-x: auto;
   border: 1px solid var(--ds-hairline);
-  border-radius: 12px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.92);
 }
 
@@ -255,10 +256,10 @@
 .table th {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
 }
 
 .table tbody tr:last-child td {
@@ -282,15 +283,15 @@
 
 .summarySection {
   padding: 28px 32px;
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: rgba(45, 91, 255, 0.05);
-  border-left: 4px solid #2d5bff;
+  border-left: 4px solid var(--ds-brand);
 }
 
 .summarySection h2 {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 12px;
   color: var(--ink);
 }
@@ -303,15 +304,15 @@
 .ctaSection {
   margin-top: 8px;
   padding: 30px 32px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(45, 91, 255, 0.06) 0%, rgba(31, 94, 255, 0.04) 100%);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(135deg, rgba(45, 91, 255, 0.06) 0%, rgba(45, 91, 255, 0.04) 100%);
   border: 1px solid rgba(45, 91, 255, 0.18);
 }
 
 .ctaSection h2 {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 8px;
   color: var(--ink);
 }
@@ -330,6 +331,46 @@
   gap: 10px;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .printAction:hover {
+    background: #ffffff;
+    border-color: var(--ds-brand);
+  }
+
+  .ctaAction:hover,
+  .primaryCta:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondaryCta:hover {
+    border-color: var(--ds-brand);
+    color: var(--ds-brand-deep);
+  }
+
+  .toc a:hover {
+    color: var(--ds-brand);
+    border-color: rgba(45, 91, 255, 0.4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .printAction,
+  .ctaAction,
+  .primaryCta,
+  .secondaryCta,
+  .toc a {
+    transition: none;
+  }
+
+  .ctaAction:hover,
+  .primaryCta:hover,
+  .ctaAction:active,
+  .primaryCta:active,
+  .secondaryCta:active {
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   .page {
     padding: 40px 18px 80px;
@@ -338,7 +379,7 @@
     font-size: 1.9rem;
   }
   .guideVisual {
-    border-radius: 14px;
+    border-radius: var(--ds-radius-card);
   }
   .guideVisual figcaption {
     left: 10px;
@@ -374,6 +415,9 @@
   }
   .hero h1 {
     font-size: 24pt;
+    background: none;
+    -webkit-text-fill-color: initial;
+    color: #000;
   }
   .section h2 {
     font-size: 16pt;
@@ -399,17 +443,17 @@
 .execSummary {
   padding: 26px 30px;
   border: 1px solid rgba(45, 91, 255, 0.22);
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(45, 91, 255, 0.05) 0%, rgba(31, 94, 255, 0.03) 100%);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(135deg, rgba(45, 91, 255, 0.05) 0%, rgba(45, 91, 255, 0.03) 100%);
 }
 
 .execSummary h2 {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   margin-bottom: 14px;
 }
 
@@ -425,7 +469,7 @@
 }
 
 .execSummary strong {
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ink);
 }
 
@@ -434,14 +478,15 @@
 .citeBlock {
   padding: 28px 32px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .citeBlock h2 {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--ink);
   margin-bottom: 8px;
 }
@@ -470,7 +515,7 @@
 .citationCard {
   padding: 16px 18px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 12px;
+  border-radius: var(--ds-radius-card);
   background: rgba(248, 251, 255, 0.7);
   display: flex;
   flex-direction: column;
@@ -480,10 +525,10 @@
 .citationCard h3 {
   font-family: var(--font-mono);
   font-size: 0.7rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
 }
 
 .citationBody {
@@ -495,7 +540,7 @@
 }
 
 .citationBody a {
-  color: #2d5bff;
+  color: var(--ds-brand);
   word-break: break-all;
 }
 
@@ -506,6 +551,6 @@
 }
 
 .citationFooter a {
-  color: #2d5bff;
+  color: var(--ds-brand);
   font-weight: 700;
 }

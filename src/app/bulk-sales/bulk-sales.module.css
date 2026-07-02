@@ -13,23 +13,35 @@
 .card {
   padding: 26px 22px;
   background: rgba(255, 255, 255, 0.8);
-  border: 1px solid var(--glass-border);
-  border-radius: 28px;
-  box-shadow: 0 24px 48px -34px rgba(15, 23, 42, 0.18);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-soft);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .note {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 800;
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
 .card h2 {
+  font-family: var(--font-display);
   font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   color: var(--ink);
   margin-bottom: 16px;
 }
@@ -46,7 +58,7 @@
   justify-content: space-between;
   gap: 12px;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--ds-hairline);
   color: var(--muted);
 }
 
@@ -57,9 +69,9 @@
 .calculatorPanel {
   padding: 32px;
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--glass-border);
-  border-radius: 32px;
-  box-shadow: 0 24px 48px -34px rgba(15, 23, 42, 0.18);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-hero);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .calculatorHead {
@@ -70,15 +82,35 @@
 }
 
 .calculatorHead h2 {
+  font-family: var(--font-display);
   font-size: 2rem;
+  font-weight: 700;
   color: var(--ink);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .calculatorHead p {
   color: var(--muted);
   line-height: 1.65;
   max-width: 56ch;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1100px) {

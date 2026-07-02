@@ -12,11 +12,11 @@
 .caseCard,
 .rulesSection {
   border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
+  border-radius: var(--ds-radius-card);
   background:
     radial-gradient(circle at 84% 12%, rgba(234, 240, 255, 0.7), transparent 30%),
     linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.88));
-  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .hero {
@@ -27,13 +27,13 @@
   display: inline-flex;
   width: fit-content;
   padding: 9px 13px;
-  border: 1px solid rgba(45, 91, 255, 0.14);
-  border-radius: 4px;
-  background: rgba(234, 240, 255, 0.7);
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -42,17 +42,22 @@
 .rulesSection h2 {
   max-width: 13ch;
   margin: 20px 0 16px;
-  color: #0b2447;
+  color: var(--ds-text);
   font-family: var(--font-display);
   font-size: clamp(3rem, 6vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p,
 .rulesSection p {
   max-width: 66ch;
-  color: #475569;
+  color: var(--ds-text-muted);
   font-size: 1.04rem;
   line-height: 1.72;
 }
@@ -71,20 +76,34 @@
   align-items: center;
   justify-content: center;
   padding: 0 18px;
-  border-radius: 6px;
+  border-radius: 10px;
   font-size: 0.86rem;
-  font-weight: 900;
+  font-weight: 700;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .primaryBtn {
-  background: #ff6b3d;
+  background: var(--ds-grad-cta);
   color: #ffffff;
+  box-shadow: var(--ds-shadow-cta);
+}
+
+.primaryBtn:active {
+  transform: scale(0.985);
 }
 
 .secondaryBtn {
-  border: 1px solid rgba(45, 91, 255, 0.14);
-  background: rgba(255, 255, 255, 0.84);
-  color: #0b2447;
+  border: 1px solid rgba(45, 91, 255, 0.28);
+  background: #ffffff;
+  color: var(--ds-brand-deep);
+}
+
+.secondaryBtn:active {
+  transform: scale(0.985);
 }
 
 .caseStack {
@@ -96,6 +115,10 @@
   display: grid;
   grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1.26fr);
   overflow: hidden;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .caseImage {
@@ -122,10 +145,14 @@
 .caseCopy > span {
   display: inline-flex;
   margin-bottom: 16px;
-  color: #1e3fcc;
+  padding: 5px 11px;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -133,11 +160,12 @@
 .caseCopy h2 {
   max-width: 15ch;
   margin-bottom: 26px;
-  color: #0b2447;
+  color: var(--ds-text);
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.2vw, 3.4rem);
-  line-height: 0.98;
-  letter-spacing: -0.055em;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .caseDetails {
@@ -148,24 +176,24 @@
 
 .caseDetails div {
   padding: 16px;
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  border-radius: 8px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight);
   background: rgba(255, 255, 255, 0.78);
 }
 
 .caseDetails strong {
   display: block;
   margin-bottom: 8px;
-  color: #b5432a;
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.66rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .caseDetails p {
-  color: #475569;
+  color: var(--ds-text-muted);
   font-size: 0.88rem;
   line-height: 1.58;
 }
@@ -177,12 +205,15 @@
   justify-content: center;
   margin-top: 22px;
   padding: 0 16px;
-  border: 1px solid rgba(45, 91, 255, 0.16);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.28);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--ds-brand-deep);
   font-size: 0.84rem;
-  font-weight: 900;
+  font-weight: 700;
+  transition:
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .detailHero {
@@ -196,16 +227,21 @@
 .detailHero h1 {
   max-width: 15ch;
   margin: 20px 0 16px;
-  color: #0b2447;
+  color: var(--ds-text);
   font-family: var(--font-display);
   font-size: clamp(2.8rem, 5.8vw, 5.6rem);
-  line-height: 0.96;
-  letter-spacing: -0.055em;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .detailHero p {
   max-width: 68ch;
-  color: #475569;
+  color: var(--ds-text-muted);
   font-size: 1.02rem;
   line-height: 1.72;
 }
@@ -214,7 +250,7 @@
   position: relative;
   min-height: 360px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-card);
   background: #dbeafe;
 }
 
@@ -231,11 +267,16 @@
   align-items: center;
   padding: 16px;
   border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
+  border-radius: var(--ds-radius-tight);
   background: rgba(255, 255, 255, 0.84);
-  color: #0b2447;
-  font-weight: 900;
+  color: var(--ds-text);
+  font-weight: 700;
   line-height: 1.35;
+  box-shadow: var(--ds-shadow-soft);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .faqSection {
@@ -249,21 +290,22 @@
 }
 
 .faqItem {
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  border-radius: 8px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight);
   background: rgba(255, 255, 255, 0.84);
+  transition: border-color var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .faqItem summary {
   cursor: pointer;
   padding: 18px;
-  color: #0b2447;
-  font-weight: 900;
+  color: var(--ds-text);
+  font-weight: 700;
 }
 
 .faqItem p {
   padding: 0 18px 18px;
-  color: #475569;
+  color: var(--ds-text-muted);
   line-height: 1.62;
 }
 
@@ -289,22 +331,71 @@
   gap: 14px;
   min-height: 74px;
   padding: 14px 16px;
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  border-radius: 8px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight);
   background: rgba(255, 255, 255, 0.84);
 }
 
 .ruleCard span {
-  color: #ff6b3d;
+  color: var(--ds-brand);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .ruleCard strong {
-  color: #0b2447;
+  color: var(--ds-text);
   font-size: 0.92rem;
   line-height: 1.42;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryBtn:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondaryBtn:hover {
+    border-color: var(--ds-brand);
+  }
+
+  .caseCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  .caseLink:hover {
+    border-color: var(--ds-brand);
+  }
+
+  .linkGrid a:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  .faqItem:hover {
+    border-color: var(--ds-brand);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn,
+  .secondaryBtn,
+  .caseCard,
+  .caseLink,
+  .linkGrid a,
+  .faqItem {
+    transition: none;
+  }
+
+  .primaryBtn:hover,
+  .primaryBtn:active,
+  .secondaryBtn:active,
+  .caseCard:hover,
+  .linkGrid a:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1000px) {

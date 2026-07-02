@@ -13,11 +13,11 @@
 .proofSection,
 .faqSection {
   border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
+  border-radius: var(--ds-radius-card);
   background:
     radial-gradient(circle at 86% 12%, rgba(234, 240, 255, 0.68), transparent 28%),
     linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
-  box-shadow: 0 24px 58px -44px rgba(10, 14, 23, 0.22);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .hero {
@@ -37,13 +37,13 @@
   width: fit-content;
   margin-bottom: 18px;
   padding: 9px 14px;
-  border: 1px solid rgba(45, 91, 255, 0.16);
-  border-radius: 6px;
-  background: rgba(234, 240, 255, 0.9);
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
 }
@@ -53,15 +53,16 @@
 .ctaBanner h2 {
   color: var(--ink);
   font-family: var(--font-display);
-  letter-spacing: -0.065em;
-  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .hero h1 {
   max-width: 12ch;
   margin-bottom: 18px;
   font-size: clamp(3.1rem, 5.5vw, 5.35rem);
-  background: linear-gradient(135deg, #101820 0%, #2d5bff 62%, #b5432a 100%);
+  background: var(--ds-grad-heading);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -96,33 +97,48 @@
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  border-radius: 6px;
-  font-weight: 900;
+  border-radius: 10px;
+  font-weight: 700;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .primaryBtn,
 .ctaBtn {
-  background: var(--accent);
+  background: var(--ds-grad-cta);
   color: #ffffff;
+  box-shadow: var(--ds-shadow-cta);
+}
+
+.primaryBtn:active,
+.ctaBtn:active {
+  transform: scale(0.985);
 }
 
 .secondaryBtn {
-  border: 1px solid rgba(45, 91, 255, 0.16);
+  border: 1px solid rgba(45, 91, 255, 0.28);
   background: #ffffff;
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
+}
+
+.secondaryBtn:active {
+  transform: scale(0.985);
 }
 
 .heroVisual,
 .proofImage {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--ds-radius-card);
   background: #dbe7f4;
 }
 
 .heroVisual {
   min-height: 360px;
-  box-shadow: 0 26px 54px -38px rgba(10, 14, 23, 0.32);
+  box-shadow: var(--ds-shadow-hero);
 }
 
 .image {
@@ -140,10 +156,14 @@
 .faqCard,
 .workflowCard,
 .proofCard {
-  border: 1px solid rgba(10, 14, 23, 0.08);
-  border-radius: 8px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.88);
-  box-shadow: 0 18px 36px -32px rgba(10, 14, 23, 0.2);
+  box-shadow: var(--ds-shadow-soft);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .documentCard {
@@ -164,23 +184,25 @@
   min-height: 30px;
   align-items: center;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-style: normal;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .cardTopline span {
-  background: #eef2ff;
-  color: #1e3fcc;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
 }
 
 .cardTopline em {
-  background: #fff1f2;
-  color: #ff6b3d;
+  border: 1px solid var(--ds-hairline);
+  background: var(--ds-bg);
+  color: var(--ds-text-muted);
 }
 
 .documentCard h2,
@@ -189,15 +211,15 @@
   margin-bottom: 10px;
   color: var(--ink);
   font-size: 1.22rem;
-  letter-spacing: -0.035em;
-  line-height: 1.12;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .documentCard a {
   display: inline-flex;
   margin-top: 22px;
-  color: #ff6b3d;
-  font-weight: 900;
+  color: var(--ds-brand);
+  font-weight: 700;
 }
 
 .claimSection,
@@ -223,7 +245,7 @@
 .claimTableWrap {
   overflow-x: auto;
   border: 1px solid rgba(45, 91, 255, 0.12);
-  border-radius: 8px;
+  border-radius: var(--ds-radius-card);
   background: #ffffff;
 }
 
@@ -236,30 +258,30 @@
 .claimTable th,
 .claimTable td {
   padding: 16px 18px;
-  border-bottom: 1px solid rgba(10, 14, 23, 0.07);
+  border-bottom: 1px solid var(--ds-hairline);
   text-align: left;
   vertical-align: top;
 }
 
 .claimTable th {
-  color: #1e3fcc;
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  background: #eef2ff;
+  background: var(--ds-brand-soft);
 }
 
 .claimTable td {
-  color: #475569;
+  color: var(--ds-text-muted);
   line-height: 1.5;
 }
 
 .claimTable td:first-child,
 .claimTable td:nth-child(2) {
-  color: #0b2447;
-  font-weight: 900;
+  color: var(--ds-text);
+  font-weight: 700;
 }
 
 .workflowGrid {
@@ -276,14 +298,14 @@
 .workflowCard span {
   display: block;
   margin-bottom: 26px;
-  color: #ff6b3d;
+  color: var(--ds-brand);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .workflowCard strong {
-  color: #0b2447;
+  color: var(--ds-text);
   font-size: 1rem;
   line-height: 1.25;
 }
@@ -317,8 +339,8 @@
   align-items: center;
   gap: 16px;
   padding: clamp(38px, 5vw, 68px);
-  border-radius: 8px;
-  background: linear-gradient(135deg, #101820 0%, #2d5bff 100%);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(135deg, #101b3f 0%, var(--ds-brand) 100%);
   text-align: center;
 }
 
@@ -335,8 +357,50 @@
 
 .ctaBtn {
   margin-top: 8px;
-  background: #ffffff;
-  color: #1e3fcc;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryBtn:hover,
+  .ctaBtn:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondaryBtn:hover {
+    border-color: var(--ds-brand);
+  }
+
+  .documentCard:hover,
+  .faqCard:hover,
+  .workflowCard:hover,
+  .proofCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryBtn,
+  .secondaryBtn,
+  .ctaBtn,
+  .documentCard,
+  .faqCard,
+  .workflowCard,
+  .proofCard {
+    transition: none;
+  }
+
+  .primaryBtn:hover,
+  .ctaBtn:hover,
+  .primaryBtn:active,
+  .ctaBtn:active,
+  .secondaryBtn:active,
+  .documentCard:hover,
+  .faqCard:hover,
+  .workflowCard:hover,
+  .proofCard:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1050px) {
@@ -411,7 +475,7 @@
 
   .claimTable tr {
     padding: 16px;
-    border-bottom: 1px solid rgba(10, 14, 23, 0.08);
+    border-bottom: 1px solid var(--ds-hairline);
   }
 
   .claimTable td {
@@ -423,10 +487,10 @@
   }
 
   .claimTable td::before {
-    color: #1e3fcc;
+    color: var(--ds-brand-deep);
     font-family: var(--font-mono);
     font-size: 0.64rem;
-    font-weight: 900;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
@@ -455,12 +519,5 @@
     justify-content: center;
     border-radius: 12px;
     text-align: center;
-  }
-
-  .documentsGrid,
-  .workflowGrid,
-  .faqGrid,
-  .proofGrid {
-    grid-template-columns: 1fr;
   }
 }
