@@ -6121,3 +6121,15 @@
     transform: none !important;
   }
 }
+
+/* Scrollytelling fix: position:sticky dies inside an overflow:hidden
+ * ancestor — the Industries section must not clip. Its ::after texture is
+ * inset:0, so nothing can spill; give it the section's radius so corners
+ * still read rounded without the clip. */
+.partnerSection {
+  overflow: visible;
+}
+
+.partnerSection::after {
+  border-radius: 22px;
+}
