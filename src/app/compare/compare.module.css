@@ -17,12 +17,13 @@
 .kicker {
   align-self: flex-start;
   padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -30,10 +31,14 @@
 .hero h1 {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1.05;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.02em;
   color: var(--ink);
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
@@ -49,7 +54,7 @@
 }
 
 .byline a {
-  color: #0067c5;
+  color: var(--ds-brand);
   font-weight: 700;
 }
 
@@ -59,10 +64,10 @@
   aspect-ratio: 16 / 9;
   margin: 0 0 42px;
   overflow: hidden;
-  border: 1px solid rgba(0, 103, 197, 0.18);
-  border-radius: 18px;
-  background: #eef6ff;
-  box-shadow: 0 24px 60px -42px rgba(15, 23, 42, 0.34);
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface-tint);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .heroImage {
@@ -75,14 +80,13 @@
   right: 14px;
   bottom: 14px;
   padding: 10px 14px;
-  border: 1px solid rgba(0, 103, 197, 0.14);
-  border-radius: 14px;
+  border: 1px solid rgba(45, 91, 255, 0.14);
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.82);
-  color: #17365f;
+  color: #101b3f;
   font-size: 0.82rem;
   font-weight: 750;
   line-height: 1.45;
-  backdrop-filter: blur(12px);
 }
 
 .section {
@@ -92,7 +96,7 @@
 .sectionHeading {
   font-family: var(--font-display);
   font-size: clamp(1.5rem, 2.4vw, 1.9rem);
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 18px;
   color: var(--ink);
   letter-spacing: -0.02em;
@@ -119,21 +123,26 @@
 .introCard {
   padding: 24px 26px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 14px 32px -24px rgba(15, 23, 42, 0.16);
+  box-shadow: var(--ds-shadow-soft);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .label {
   display: inline-block;
   padding: 4px 10px;
   margin-bottom: 12px;
-  border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -141,7 +150,7 @@
 .introCard h2 {
   font-family: var(--font-display);
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 8px;
   color: var(--ink);
 }
@@ -155,7 +164,7 @@
 .tableWrap {
   overflow-x: auto;
   border: 1px solid var(--ds-hairline);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.9);
 }
 
@@ -166,7 +175,7 @@
 }
 
 .table thead {
-  background: rgba(0, 103, 197, 0.06);
+  background: rgba(45, 91, 255, 0.06);
 }
 
 .table th,
@@ -180,10 +189,10 @@
 .table th {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #044d99;
+  color: var(--ds-brand-deep);
 }
 
 .table tbody tr:last-child td {
@@ -207,7 +216,7 @@
   gap: 8px;
   padding: 16px 18px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 12px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.85);
 }
 
@@ -228,17 +237,17 @@
   align-self: start;
   display: inline-flex;
   padding: 6px 12px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
 .pick_a {
-  background: rgba(0, 103, 197, 0.12);
-  color: #044d99;
+  background: rgba(45, 91, 255, 0.12);
+  color: var(--ds-brand-deep);
 }
 
 .pick_b {
@@ -265,15 +274,17 @@
 
 .faqItem {
   border: 1px solid var(--ds-hairline);
-  border-radius: 12px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .faqItem[open] {
-  border-color: rgba(0, 103, 197, 0.32);
-  box-shadow: 0 8px 24px -16px rgba(0, 103, 197, 0.22);
+  border-color: rgba(45, 91, 255, 0.32);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .faqItem summary {
@@ -301,7 +312,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: transform 0.2s ease;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
   flex-shrink: 0;
 }
 
@@ -320,15 +331,15 @@
 .ctaSection {
   margin-top: 24px;
   padding: 28px 30px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(0, 103, 197, 0.06) 0%, rgba(31, 94, 255, 0.04) 100%);
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(135deg, rgba(45, 91, 255, 0.06) 0%, rgba(45, 91, 255, 0.04) 100%);
+  border: 1px solid rgba(45, 91, 255, 0.18);
 }
 
 .ctaSection h2 {
   font-family: var(--font-display);
   font-size: 1.5rem;
-  font-weight: 800;
+  font-weight: 700;
   margin-bottom: 8px;
   color: var(--ink);
 }
@@ -353,32 +364,35 @@
   align-items: center;
   min-height: 44px;
   padding: 0 20px;
-  border-radius: 999px;
-  font-weight: 800;
+  border-radius: var(--ds-radius-pill);
+  font-weight: 700;
   letter-spacing: -0.005em;
   font-size: 0.92rem;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .primaryCta {
-  background: linear-gradient(135deg, #1976d2 0%, #0067c5 100%);
+  background: var(--ds-grad-cta);
   color: #ffffff;
-  box-shadow: 0 14px 28px -14px rgba(0, 103, 197, 0.5);
+  box-shadow: var(--ds-shadow-cta);
 }
 
-.primaryCta:hover {
-  filter: brightness(1.05);
+.primaryCta:active {
+  transform: scale(0.985);
 }
 
 .secondaryCta {
-  background: rgba(255, 255, 255, 0.85);
-  color: #0a1f3d;
-  border: 1px solid rgba(0, 103, 197, 0.22);
+  background: #ffffff;
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.28);
 }
 
-.secondaryCta:hover {
-  background: #ffffff;
-  border-color: rgba(0, 103, 197, 0.4);
-  color: #044d99;
+.secondaryCta:active {
+  transform: scale(0.985);
 }
 
 @media (max-width: 640px) {
@@ -403,7 +417,7 @@
   }
   .heroVisual {
     margin-bottom: 30px;
-    border-radius: 14px;
+    border-radius: var(--ds-radius-card);
   }
   .heroVisual figcaption {
     left: 10px;
@@ -463,28 +477,26 @@
   gap: 12px;
   padding: 26px 28px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 16px;
+  border-radius: var(--ds-radius-card);
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 16px 32px -28px rgba(15, 23, 42, 0.18);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: var(--ds-shadow-soft);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
   color: inherit;
-}
-
-.hubCard:hover {
-  transform: translateY(-2px);
-  border-color: rgba(0, 103, 197, 0.4);
-  box-shadow: 0 24px 48px -28px rgba(0, 103, 197, 0.3);
 }
 
 .cardLabel {
   align-self: flex-start;
   padding: 4px 10px;
-  border-radius: 999px;
-  background: rgba(0, 103, 197, 0.1);
-  color: #044d99;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -492,7 +504,7 @@
 .hubCard h3 {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.25;
   color: var(--ink);
   letter-spacing: -0.015em;
@@ -506,8 +518,8 @@
 
 .cardCta {
   margin-top: auto;
-  color: #0067c5;
-  font-weight: 800;
+  color: var(--ds-brand);
+  font-weight: 700;
   font-size: 0.9rem;
 }
 
@@ -523,5 +535,47 @@
 
 .howList strong {
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .primaryCta:hover {
+    transform: translateY(-2px);
+  }
+
+  .secondaryCta:hover {
+    border-color: var(--ds-brand);
+    color: var(--ds-brand-deep);
+  }
+
+  .hubCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+
+  .introCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryCta,
+  .secondaryCta,
+  .hubCard,
+  .introCard,
+  .faqItem,
+  .faqItem summary::after {
+    transition: none;
+  }
+
+  .primaryCta:hover,
+  .primaryCta:active,
+  .secondaryCta:active,
+  .hubCard:hover,
+  .introCard:hover {
+    transform: none;
+  }
 }

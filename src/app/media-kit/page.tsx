@@ -35,7 +35,7 @@ export const metadata: Metadata = {
         url: seoImages.defaultOg.src,
         width: seoImages.defaultOg.width,
         height: seoImages.defaultOg.height,
-        alt: `${siteName} press kit — silica gel manufacturer-exporter since 1983, fact sheet and brand assets for editorial coverage`,
+        alt: `${siteName} press kit - silica gel manufacturer-exporter since 1983, fact sheet and brand assets for editorial coverage`,
       },
     ],
   },
@@ -56,7 +56,7 @@ const factSheet = [
     label: "Documentation per shipment",
     value: "Safety Data Sheet (SDS) · Certificate of Analysis (COA) · DMF-free statement",
   },
-  { label: "Export markets", value: "60+ countries across Middle East, EU, USA, Africa, and Asia-Pacific" },
+  { label: "Export markets", value: "190+ countries across Middle East, EU, USA, Africa, and Asia-Pacific" },
   {
     label: "Product lines",
     value: "Silica gel sachets · container desiccants · dry clay desiccant · industrial PPE (hair nets, beard covers)",
@@ -67,18 +67,18 @@ const factSheet = [
 ];
 
 const boilerplate100 =
-  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983. ISO 9001:2015 certified. Supplies industrial silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE to importers in 60+ countries.";
+  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983. ISO 9001:2015 certified. Supplies industrial silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE to importers in 190+ countries.";
 
 const boilerplate250 =
   "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating continuously since 1983. The company manufactures industrial silica gel sachets (0.5g to 100g), container desiccant strips for ocean freight, bulk silica gel beads, dry clay desiccant, and disposable industrial PPE including bouffant hair nets and beard covers. DryGelWorld is ISO 9001:2015 certified at the manufacturer level, and ships every export consignment with a Safety Data Sheet (SDS), Certificate of Analysis (COA), and DMF-free statement. The company serves industrial procurement teams in over 60 countries across the Middle East, European Union, North America, and Asia-Pacific. Press inquiries are handled by the DryGelWorld Export Desk at press@drygelworld.com.";
 
 const honestScope = [
-  "FDA Drug Master File (DMF) — required for direct-contact pharmaceutical silica gel.",
-  "FDA food-contact certification (FCN or GRAS) — required for direct food-contact silica gel.",
-  "EU Regulation 1935/2004 Declaration of Compliance — required for direct food-contact in EU markets.",
+  "FDA Drug Master File (DMF) - required for direct-contact pharmaceutical silica gel.",
+  "FDA food-contact certification (FCN or GRAS) - required for direct food-contact silica gel.",
+  "EU Regulation 1935/2004 Declaration of Compliance - required for direct food-contact in EU markets.",
   "REACH-specific food-contact registration.",
-  "JEDEC moisture-sensitivity classification — required for certain semiconductor packaging.",
-  "MIL-spec, Halal, and FSSC food-grade — required by specific buyer audit programs.",
+  "JEDEC moisture-sensitivity classification - required for certain semiconductor packaging.",
+  "MIL-spec, Halal, and FSSC food-grade - required by specific buyer audit programs.",
 ];
 
 const brandAssets = [
@@ -105,7 +105,7 @@ const brandAssets = [
   {
     title: "Manufacturing facility photo",
     file: "/dry-gel-world-factory.jpg",
-    note: "Karachi manufacturing facility — silica gel production line context.",
+    note: "Karachi manufacturing facility - silica gel production line context.",
   },
   {
     title: "Fulfillment / export operation photo",
@@ -115,7 +115,7 @@ const brandAssets = [
   {
     title: "Product display photo",
     file: "/dry-gel-world-product-display.jpg",
-    note: "Catalog product display — sachets, container strips, bulk format options.",
+    note: "Catalog product display - sachets, container strips, bulk format options.",
   },
 ];
 
@@ -153,7 +153,7 @@ export default function MediaKitPage() {
       <section className={styles.section}>
         <h2>Fact sheet</h2>
         <p className={styles.lead}>
-          The documented record — every claim below is verifiable directly with the
+          The documented record - every claim below is verifiable directly with the
           company. Use these facts as the source layer for editorial coverage.
         </p>
         <div className={styles.factGrid}>
@@ -250,7 +250,7 @@ export default function MediaKitPage() {
       <section className={styles.ctaSection}>
         <h2>Press inquiries</h2>
         <p>
-          Trade press, packaging publications, and supply-chain editorial — the {siteName}{" "}
+          Trade press, packaging publications, and supply-chain editorial - the {siteName}{" "}
           Export Desk responds to verified press inquiries within 24 hours. For
           interviews, source verification, or expert quotes on industrial silica gel,
           container desiccant, or Pakistani export manufacturing, please use the

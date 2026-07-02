@@ -17,11 +17,16 @@
 }
 
 .hero h1 {
+  font-family: var(--font-display);
   font-size: 4.5rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--ink);
-  line-height: 1;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero p {
@@ -41,17 +46,14 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background: var(--surface-elevated);
-  border: 1px solid var(--glass-border);
-  border-radius: 40px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
   overflow: hidden;
-  transition: all 0.4s ease;
-  box-shadow: 0 40px 100px -30px rgba(0,0,0,0.08);
-}
-
-.machineCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 50px 120px -20px rgba(0,0,0,0.12);
-  border-color: var(--accent);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .machineCard:nth-child(even) .machineImage { order: 1; }
@@ -67,16 +69,17 @@
   position: absolute;
   top: 24px;
   left: 24px;
-  background: var(--cta-gradient);
-  color: white;
+  background: var(--ds-brand-soft);
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  color: var(--ds-brand-deep);
   font-size: 0.8rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 8px 18px;
-  border-radius: 999px;
+  border-radius: var(--ds-radius-pill);
   z-index: 2;
-  box-shadow: 0 10px 20px -5px var(--cta-glow);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .machineCopy {
@@ -88,8 +91,9 @@
 }
 
 .machineCopy h2 {
+  font-family: var(--font-display);
   font-size: 2.2rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
@@ -104,8 +108,8 @@
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
   padding: 12px;
 }
 
@@ -114,31 +118,32 @@
   justify-content: space-between;
   align-items: center;
   padding: 14px 20px;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--ds-hairline);
   font-size: 0.95rem;
 }
 
 .specRow:last-child { border-bottom: none; }
 .specRow span { color: var(--muted); font-weight: 500; }
-.specRow strong { color: var(--ink); font-weight: 800; }
+.specRow strong { color: var(--ink); font-weight: 700; }
 
 .ctaBtn {
   display: inline-flex;
-  background: var(--ink);
+  background: var(--ds-grad-cta);
   color: white;
   font-size: 1rem;
-  font-weight: 800;
+  font-weight: 700;
   padding: 18px 36px;
-  border-radius: 16px;
-  transition: all 0.3s ease;
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-cta);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
   width: fit-content;
   margin-top: 12px;
 }
 
-.ctaBtn:hover {
-  background: var(--accent);
-  transform: scale(1.02);
-  opacity: 1;
+.ctaBtn:active {
+  transform: scale(0.985);
 }
 
 .whyAutomate {
@@ -155,11 +160,12 @@
 }
 
 .sectionHead h2 {
+  font-family: var(--font-display);
   font-size: 3.2rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--ink);
   line-height: 1.1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 .reasonsGrid {
@@ -170,21 +176,18 @@
 
 .reasonCard {
   background: var(--surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-  border-radius: 32px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-soft);
   padding: 48px 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: all 0.3s ease;
-}
-
-.reasonCard:hover {
-  background: var(--surface-elevated);
-  transform: translateY(-8px);
-  border-color: var(--accent);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .reasonIcon {
@@ -192,8 +195,9 @@
 }
 
 .reasonCard h3 {
+  font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 900;
+  font-weight: 700;
   color: var(--ink);
   letter-spacing: -0.01em;
 }
@@ -202,6 +206,40 @@
   font-size: 1rem;
   color: var(--muted);
   line-height: 1.5;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .machineCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ds-shadow-card);
+    border-color: var(--ds-brand);
+  }
+
+  .ctaBtn:hover {
+    transform: translateY(-2px);
+  }
+
+  .reasonCard:hover {
+    background: var(--surface-elevated);
+    transform: translateY(-4px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .machineCard,
+  .ctaBtn,
+  .reasonCard {
+    transition: none;
+  }
+
+  .machineCard:hover,
+  .ctaBtn:hover,
+  .ctaBtn:active,
+  .reasonCard:hover {
+    transform: none;
+  }
 }
 
 @media (max-width: 1100px) {

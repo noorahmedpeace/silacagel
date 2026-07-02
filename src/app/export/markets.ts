@@ -9,7 +9,7 @@ export type ExportMarket = {
   documents: string[];
   routeNote: string;
   rfqTip: string;
-  // Optional commercial terms — populated for priority (GCC) markets so buyers
+  // Optional commercial terms - populated for priority (GCC) markets so buyers
   // see MOQ, lead time, currency, and Incoterms before sending an RFQ.
   moq?: string;
   leadTime?: string;
@@ -33,14 +33,14 @@ export const exportMarkets: ExportMarket[] = [
       "Karachi-to-UAE routing is one of the clearest export stories for Pakistan-based desiccant supply because buyers can compare FOB Karachi, CIF UAE, and DAP UAE options early.",
     rfqTip: "Send destination emirate, required format, quantity, and whether you need Arabic/English carton labeling.",
     moq: "Typically from 100 kg or 100,000 sachets per format; trial/sample quantities available before bulk.",
-    leadTime: "Production 7–15 days after artwork/spec sign-off; sea transit Karachi → Jebel Ali ~3–5 days.",
+    leadTime: "Production 7-15 days after artwork/spec sign-off; sea transit Karachi → Jebel Ali ~3-5 days.",
     currency: "Quoted in USD (AED on request)",
     incoterms: ["FOB Karachi", "CIF Jebel Ali", "DAP UAE"],
     faqs: [
       { question: "What is the MOQ for silica gel to the UAE?", answer: "Orders typically start from around 100 kg or 100,000 sachets per format, with smaller trial and sample quantities available before a bulk commitment. Exact MOQ depends on packet size and private-label requirements." },
       { question: "Which Incoterms do you offer for UAE shipments?", answer: "FOB Karachi, CIF Jebel Ali, and DAP UAE are all available, so buyers can choose factory handover, freight-included delivery to port, or delivered terms based on their logistics setup." },
-      { question: "How long is the lead time to the UAE?", answer: "Production usually takes 7–15 days after artwork and specification sign-off, and Karachi to Jebel Ali sea transit is roughly 3–5 days. Recurring programs can be scheduled in advance." },
-      { question: "Do you supply Arabic/English carton labeling for the UAE?", answer: "Yes — private-label and bilingual carton labeling can be arranged. Share your label artwork and destination emirate with the RFQ." },
+      { question: "How long is the lead time to the UAE?", answer: "Production usually takes 7-15 days after artwork and specification sign-off, and Karachi to Jebel Ali sea transit is roughly 3-5 days. Recurring programs can be scheduled in advance." },
+      { question: "Do you supply Arabic/English carton labeling for the UAE?", answer: "Yes - private-label and bilingual carton labeling can be arranged. Share your label artwork and destination emirate with the RFQ." },
     ],
   },
   {
@@ -57,14 +57,14 @@ export const exportMarkets: ExportMarket[] = [
       "Saudi buyers usually need the product format, quantity, destination city or port, labeling requirements, and document set aligned before pricing is useful.",
     rfqTip: "Share target port, destination city, application, and whether the order is one-time or recurring monthly supply.",
     moq: "From 100 kg or 100,000 sachets per format; bulk beads from 500 kg; samples available pre-order.",
-    leadTime: "Production 7–15 days after sign-off; sea transit Karachi → Jeddah/Dammam ~6–9 days.",
+    leadTime: "Production 7-15 days after sign-off; sea transit Karachi → Jeddah/Dammam ~6-9 days.",
     currency: "Quoted in USD (SAR on request)",
     incoterms: ["FOB Karachi", "CIF Jeddah", "CIF Dammam", "DAP Saudi Arabia"],
     faqs: [
       { question: "What is the MOQ for silica gel to Saudi Arabia?", answer: "Sachet formats typically start from around 100 kg or 100,000 pieces, and bulk silica gel beads from about 500 kg. Trial and sample quantities are available before a bulk order." },
       { question: "Which ports do you ship to in Saudi Arabia?", answer: "Common destinations are Jeddah Islamic Port and King Abdulaziz Port in Dammam, with onward routing to Riyadh and other cities via dry-port and forwarding partners." },
       { question: "What Incoterms are available for Saudi orders?", answer: "FOB Karachi, CIF Jeddah, CIF Dammam, and DAP Saudi Arabia, so buyers can match terms to their freight and customs arrangements." },
-      { question: "Do you support recurring monthly supply to Saudi Arabia?", answer: "Yes — recurring distributor and industrial supply programs can be scheduled with a fixed spec, MOQ, and lead-time baseline so repeat orders only need volume and destination updates." },
+      { question: "Do you support recurring monthly supply to Saudi Arabia?", answer: "Yes - recurring distributor and industrial supply programs can be scheduled with a fixed spec, MOQ, and lead-time baseline so repeat orders only need volume and destination updates." },
     ],
   },
   {
@@ -81,13 +81,13 @@ export const exportMarkets: ExportMarket[] = [
       "For Qatar inquiries, sample shipment, carton labeling, and import-document expectations should be confirmed before bulk order planning.",
     rfqTip: "Send the project/application, target quantity, destination in Qatar, and sample requirement before asking for final price.",
     moq: "From 100 kg or 100,000 sachets per format; sample packs available before bulk commitment.",
-    leadTime: "Production 7–15 days after sign-off; sea transit Karachi → Hamad Port ~5–8 days.",
+    leadTime: "Production 7-15 days after sign-off; sea transit Karachi → Hamad Port ~5-8 days.",
     currency: "Quoted in USD (QAR on request)",
     incoterms: ["FOB Karachi", "CIF Hamad Port", "DAP Qatar"],
     faqs: [
-      { question: "What is the MOQ for silica gel to Qatar?", answer: "Orders generally start from around 100 kg or 100,000 sachets per format, with sample packs available before a bulk commitment — useful for project-supply buyers validating fit." },
+      { question: "What is the MOQ for silica gel to Qatar?", answer: "Orders generally start from around 100 kg or 100,000 sachets per format, with sample packs available before a bulk commitment - useful for project-supply buyers validating fit." },
       { question: "Which port serves Qatar shipments?", answer: "Hamad Port is the main sea-freight destination, with air-cargo available for samples and urgent project requirements." },
-      { question: "Can I get samples before ordering for a Qatar project?", answer: "Yes — sample packs can ship ahead of a bulk order so project and packaging teams can validate format and quality before committing." },
+      { question: "Can I get samples before ordering for a Qatar project?", answer: "Yes - sample packs can ship ahead of a bulk order so project and packaging teams can validate format and quality before committing." },
       { question: "What Incoterms do you offer for Qatar?", answer: "FOB Karachi, CIF Hamad Port, and DAP Qatar, depending on whether you want factory handover, freight to port, or delivered terms." },
     ],
   },
@@ -270,7 +270,7 @@ export const exportMarkets: ExportMarket[] = [
     products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg container strips", "Dry clay desiccant packs"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms — REACH registration is a buyer-driven discussion, not a held certification, so the conversation should start early.",
+      "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms - REACH registration is a buyer-driven discussion, not a held certification, so the conversation should start early.",
     rfqTip: "Send target port, monthly volume, Incoterms, REACH expectations, and whether you need silica gel, dry clay, or both formats in one program.",
   },
   {
@@ -284,7 +284,7 @@ export const exportMarkets: ExportMarket[] = [
     products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg cargo strips", "Dry clay desiccant for industrial parts"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "German procurement teams typically require SDS in German and align EU import documentation before pricing. REACH support is a buyer-led discussion — DryGelWorld supplies SDS, COA, and ISO 9001:2015, while REACH registration must be confirmed against the buyer's compliance program.",
+      "German procurement teams typically require SDS in German and align EU import documentation before pricing. REACH support is a buyer-led discussion - DryGelWorld supplies SDS, COA, and ISO 9001:2015, while REACH registration must be confirmed against the buyer's compliance program.",
     rfqTip: "Send REACH expectations, target port, language requirements (DE/EN), monthly volume, and whether silica gel or dry clay better fits the use case.",
   },
   {
@@ -312,7 +312,7 @@ export const exportMarkets: ExportMarket[] = [
     products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "Australian customs and biosecurity expectations should be aligned before dispatch — clean SDS, COA, and pallet/packaging documentation reduce hold risk at port. East Coast (Sydney, Melbourne, Brisbane) and West Coast (Fremantle) routing are both supported.",
+      "Australian customs and biosecurity expectations should be aligned before dispatch - clean SDS, COA, and pallet/packaging documentation reduce hold risk at port. East Coast (Sydney, Melbourne, Brisbane) and West Coast (Fremantle) routing are both supported.",
     rfqTip: "Send destination port, monthly volume, biosecurity-document expectations, and whether you need silica gel, dry clay, or a combined supply program.",
   },
   {
@@ -320,13 +320,13 @@ export const exportMarkets: ExportMarket[] = [
     country: "Europe (EU-wide)",
     title: "Silica gel and desiccant export supply for European buyers.",
     description:
-      "Multi-port European supply for distributors, importers, OEM packagers, and regional networks across the EU and adjacent markets — silica gel, dry clay, container strips, and private-label programs.",
+      "Multi-port European supply for distributors, importers, OEM packagers, and regional networks across the EU and adjacent markets - silica gel, dry clay, container strips, and private-label programs.",
     buyerTypes: ["European distributors and importers", "OEM packagers and brand owners", "Regional supply network operators", "Logistics and freight consolidators"],
     ports: ["Hamburg", "Rotterdam", "Antwerp", "Le Havre", "Felixstowe"],
     products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "EU-wide buyers should align REACH expectations early — REACH registration is buyer-driven and discussed before commercial terms. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) keeps options open for distributor programs and language/labeling requirements vary by country.",
+      "EU-wide buyers should align REACH expectations early - REACH registration is buyer-driven and discussed before commercial terms. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) keeps options open for distributor programs and language/labeling requirements vary by country.",
     rfqTip: "Send target country, REACH expectations, language and labeling requirements, monthly volume, and product preference (silica gel, dry clay, or both).",
   },
 ];

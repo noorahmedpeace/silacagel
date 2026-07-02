@@ -150,7 +150,7 @@ export function QuoteForm({
       });
 
       if (result.ok) {
-        // Confirmed delivered by the server — show an honest success state.
+        // Confirmed delivered by the server - show an honest success state.
         setStatus("sent");
         dispatch({ type: "submit" });
       } else if (result.fallback) {
@@ -160,7 +160,7 @@ export function QuoteForm({
         dispatch({ type: "submit" });
         window.location.href = url;
       } else {
-        // Validation error from the server — surface it, do NOT mark as sent.
+        // Validation error from the server - surface it, do NOT mark as sent.
         setError(result.error || "Please review the form and try again.");
       }
     } catch {
@@ -179,10 +179,10 @@ export function QuoteForm({
         <div className={styles.formHead}>
           <p>Export RFQ Engine</p>
           <h3>{title}</h3>
-          <span>Start with four core details — add shipment specifics only if you have them.</span>
+          <span>Start with four core details - add shipment specifics only if you have them.</span>
         </div>
 
-        {/* Core fields — the four that let the export desk respond fast. */}
+        {/* Core fields - the four that let the export desk respond fast. */}
         <label className={styles.field}>
           <span>
             Company Name <em className={styles.req}>*</em>
@@ -431,7 +431,7 @@ export function QuoteForm({
           <div className={styles.successNote} role="status">
             <strong>RFQ received.</strong>
             <span>
-              Your inquiry was sent to our {routedChannel.label} export desk — expect a reply to{" "}
+              Your inquiry was sent to our {routedChannel.label} export desk - expect a reply to{" "}
               {state.email}. WhatsApp remains available for urgent follow-up.
             </span>
           </div>
@@ -439,7 +439,7 @@ export function QuoteForm({
 
         {state.submitted && status === "fallback" ? (
           <div className={styles.successNote} role="status">
-            <strong>Almost there — please hit send.</strong>
+            <strong>Almost there - please hit send.</strong>
             <span>
               We opened your email client with the full RFQ pre-filled to {routedChannel.email}. If
               nothing opened, email us directly at{" "}

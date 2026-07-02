@@ -210,7 +210,7 @@ const productFaqs = {
   "retail-sachets": [
     {
       q: "What is the minimum order quantity for retail silica gel sachets?",
-      a: "Retail silica gel sachets are quoted in carton quantities — typical recurring buyers start at 50,000 to 100,000 sachets per month across 0.5g, 1g, 2g, and 3g sizes. Smaller pilot orders are reviewed case-by-case for export buyers with a clear ramp plan.",
+      a: "Retail silica gel sachets are quoted in carton quantities - typical recurring buyers start at 50,000 to 100,000 sachets per month across 0.5g, 1g, 2g, and 3g sizes. Smaller pilot orders are reviewed case-by-case for export buyers with a clear ramp plan.",
     },
     {
       q: "Which compliance documents are provided with retail sachets?",
@@ -218,7 +218,7 @@ const productFaqs = {
     },
     {
       q: "Can sachets be printed with our private label?",
-      a: "Yes — non-woven and Tyvek-style sachets accept private-label print for distributor branding, multilingual warning text, and SKU codes. Minimum print runs are agreed with the export desk to fit the buyer's monthly volume.",
+      a: "Yes - non-woven and Tyvek-style sachets accept private-label print for distributor branding, multilingual warning text, and SKU codes. Minimum print runs are agreed with the export desk to fit the buyer's monthly volume.",
     },
     {
       q: "How long is the lead time for retail silica gel sachet orders?",
@@ -254,7 +254,7 @@ const productFaqs = {
     },
     {
       q: "Can bulk silica gel be regenerated after use?",
-      a: "Yes — industrial silica gel beads are fully regenerable by heating at 120-150 degrees Celsius for 2-4 hours, depending on bead size. Reactivation restores most adsorption capacity, making bulk silica gel suitable for closed-system industrial applications that reuse the desiccant.",
+      a: "Yes - industrial silica gel beads are fully regenerable by heating at 120-150 degrees Celsius for 2-4 hours, depending on bead size. Reactivation restores most adsorption capacity, making bulk silica gel suitable for closed-system industrial applications that reuse the desiccant.",
     },
     {
       q: "What pore sizes and bead grades are available in bulk?",
@@ -272,7 +272,7 @@ const productFaqs = {
     },
     {
       q: "What is the active absorption capacity of one container strip?",
-      a: "A standard 1kg container desiccant strip absorbs up to 200% of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake — performance data sheets are available at quote stage.",
+      a: "A standard 1kg container desiccant strip absorbs up to 200% of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake - performance data sheets are available at quote stage.",
     },
     {
       q: "Are container strips reusable after a single voyage?",
@@ -308,7 +308,7 @@ const productFaqs = {
     },
     {
       q: "Are color-coded hair nets available for zone-based hygiene compliance?",
-      a: "Yes — white, blue, green, and red hair nets are supplied for zone-based production hygiene (food, pharma, electronics). Custom colors and private-label printing are supported above a minimum run agreed with the export desk.",
+      a: "Yes - white, blue, green, and red hair nets are supplied for zone-based production hygiene (food, pharma, electronics). Custom colors and private-label printing are supported above a minimum run agreed with the export desk.",
     },
     {
       q: "Which industries use bouffant hair nets from DryGelWorld?",
@@ -330,7 +330,7 @@ const productFaqs = {
     },
     {
       q: "Can beard covers be supplied in matching colors with hair nets?",
-      a: "Yes — beard covers can be supplied in white, blue, green, and red to match hair net zone-coding systems for food, pharma, electronics, and general industrial production. Color matching is agreed at quote stage and shipped together to simplify zone enforcement.",
+      a: "Yes - beard covers can be supplied in white, blue, green, and red to match hair net zone-coding systems for food, pharma, electronics, and general industrial production. Color matching is agreed at quote stage and shipped together to simplify zone enforcement.",
     },
   ],
 } as const;
@@ -393,7 +393,7 @@ export async function generateMetadata({
           url: product.heroImage,
           width: 1600,
           height: 900,
-          alt: `${product.name} — ${product.summary}`,
+          alt: `${product.name} - ${product.summary}`,
         },
       ],
       type: "website",
@@ -480,11 +480,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className={styles.imageWrap}>
                   <Image
                     src={product.heroImage}
-                    alt={`${product.name} — ${product.summary}`}
+                    alt={`${product.name} - ${product.summary}`}
                     title={`${product.name} | ${siteName} silica gel desiccant supply`}
                     fill
                     className={styles.image}
-                    sizes="(max-width: 960px) 100vw, 42vw"
+                    sizes="(max-width: 960px) 100vw, 70vw"
                     priority
                   />
                 </div>

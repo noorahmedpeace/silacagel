@@ -35,7 +35,7 @@ export function ContactContent() {
           <span className={styles.heroOrb} aria-hidden="true" />
           <span className={styles.kicker}>Export Desk</span>
           <h1>Quote requests, answered in 24 hours.</h1>
-          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 60+ countries.</p>
+          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 190+ countries.</p>
           <div className={styles.heroActions}>
             <a href="#rfq-form" className={styles.primaryAction}>
               Start RFQ
@@ -55,7 +55,7 @@ export function ContactContent() {
           <span className={styles.trustNumber}>1983</span>
           <span className={styles.trustLabel}>Manufacturing</span>
           <div className={styles.trustDivider} />
-          <span className={styles.trustNumber}>60+</span>
+          <span className={styles.trustNumber}>190+</span>
           <span className={styles.trustLabel}>Export markets</span>
           <div className={styles.trustDivider} />
           <span className={styles.trustNumber}>ISO</span>
@@ -129,9 +129,9 @@ export function ContactContent() {
 
       <section style={{ width: "100%", maxWidth: 1100, margin: "32px auto 0", padding: "0 16px", display: "grid", gap: 16 }}>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Head Office — Gulshan-e-Iqbal</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Head Office - Gulshan-e-Iqbal</p>
           <iframe
-            title="DryGelWorld head office — Gulshan-e-Iqbal, Karachi"
+            title="DryGelWorld head office - Gulshan-e-Iqbal, Karachi"
             src={mapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
@@ -140,9 +140,9 @@ export function ContactContent() {
           />
         </div>
         <div>
-          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Factory — North Karachi Industrial Area</p>
+          <p style={{ fontWeight: 700, marginBottom: 8 }}>Manufacturing Factory - North Karachi Industrial Area</p>
           <iframe
-            title="DryGelWorld manufacturing factory — North Karachi Industrial Area, Karachi"
+            title="DryGelWorld manufacturing factory - North Karachi Industrial Area, Karachi"
             src={factoryMapEmbedUrl}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

@@ -89,7 +89,7 @@
   margin-top: 24px;
   padding: 24px;
   border-radius: var(--ds-radius-card);
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   border-left: 4px solid var(--ds-brand);
   background: var(--ds-brand-soft);
   text-align: center;

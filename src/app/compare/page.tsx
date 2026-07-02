@@ -37,7 +37,7 @@ export default function CompareHub() {
     <main className={styles.page}>
       <header className={styles.hero}>
         <span className={styles.kicker}>Comparison Hub</span>
-        <h1>Desiccant buyer comparisons — pick the right product per cargo type.</h1>
+        <h1>Desiccant buyer comparisons - pick the right product per cargo type.</h1>
         <p className={styles.description}>
           Industrial moisture control is a decision problem before it&apos;s a purchase. These
           side-by-side guides cover the comparisons procurement teams ask about most:
@@ -59,7 +59,7 @@ export default function CompareHub() {
         <h2 className={styles.sectionHeading}>Active comparisons</h2>
         <p className={styles.sectionLead}>
           Each comparison includes a side-by-side specification table, a decision matrix by
-          buyer scenario, and a buyer FAQ. Pages are written for commercial-decision intent —
+          buyer scenario, and a buyer FAQ. Pages are written for commercial-decision intent -
           not the long-form educational angle the blog covers.
         </p>
         <div className={styles.hubGrid}>
@@ -98,8 +98,8 @@ export default function CompareHub() {
           </li>
           <li>
             <strong>Request a quote with the right context.</strong> The comparison
-            answers narrow the conversation to specifics — format, MOQ, lead time,
-            destination — instead of starting from a generic enquiry.
+            answers narrow the conversation to specifics - format, MOQ, lead time,
+            destination - instead of starting from a generic enquiry.
           </li>
         </ol>
       </section>

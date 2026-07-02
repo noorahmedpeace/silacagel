@@ -37,7 +37,10 @@ function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value
     let frame = 0;
 
     const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
+      // Clamp at 0 too: the first rAF timestamp can precede performance.now()
+      // captured above; a negative progress drove the ease below zero and
+      // flashed negative prices ("$-0.37") before the count started.
+      const progress = Math.min(Math.max((now - start) / duration, 0), 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       node.textContent = `${prefix}${formatter.format(value * eased)}${suffix}`;
 

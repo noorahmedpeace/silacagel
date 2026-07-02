@@ -114,12 +114,12 @@
 .resultDisplay::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 150px;
-  height: 150px;
-  background: var(--cta-glow);
-  filter: blur(80px);
+  top: -60px;
+  right: -60px;
+  width: 280px;
+  height: 280px;
+  /* Gradient glow instead of an 80px filter blur — same soft halo, no GPU tax. */
+  background: radial-gradient(circle, var(--cta-glow), transparent 70%);
   pointer-events: none;
 }
 
@@ -196,7 +196,7 @@
     border-radius: 14px;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 255, 0.9));
-    border-color: rgba(0, 103, 197, 0.14);
+    border-color: rgba(45, 91, 255, 0.14);
     box-shadow: 0 18px 40px -30px rgba(8, 30, 80, 0.32);
   }
 
@@ -224,8 +224,8 @@
     width: fit-content;
     padding: 6px 10px;
     border-radius: 999px;
-    background: rgba(0, 103, 197, 0.1);
-    color: #064a91;
+    background: rgba(45, 91, 255, 0.1);
+    color: #1e3fcc;
     font-size: 0.68rem;
     font-weight: 850;
     letter-spacing: 0.08em;

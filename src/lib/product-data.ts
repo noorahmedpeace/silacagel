@@ -49,11 +49,11 @@ export const companyCity = process.env.NEXT_PUBLIC_COMPANY_CITY?.trim() || "Kara
 export const companyCountry = process.env.NEXT_PUBLIC_COMPANY_COUNTRY?.trim() || "Pakistan";
 export const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA?.trim() || "Worldwide";
 
-// ── Physical location / NAP — single source of truth ────────────────────────
+// ── Physical location / NAP - single source of truth ────────────────────────
 // PRIMARY NAP = the public HEAD OFFICE in Gulshan-e-Iqbal. This is the address
 // VERIFIED on the Google Business Profile (with reviews + interactions), so
 // schema, contact, footer, about, media-kit, every directory citation AND the
-// GBP must all show THIS, identically. Do not let it drift — NAP consistency is
+// GBP must all show THIS, identically. Do not let it drift - NAP consistency is
 // the local-ranking signal. The manufacturing factory in North Karachi is a
 // separate, clearly-labeled secondary location (factoryAddressFull below);
 // never substitute it for the primary NAP in citations.
@@ -72,7 +72,7 @@ export const googleMapsUrl =
   `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(companyAddressFull)}`;
 export const mapEmbedUrl =
   `https://www.google.com/maps?q=${encodeURIComponent(companyAddressFull)}&output=embed`;
-export const openingHoursDisplay = "Mon–Sat, 8:00 AM – 5:00 PM (PKT)";
+export const openingHoursDisplay = "Mon-Sat, 8:00 AM - 5:00 PM (PKT)";
 export const openingHoursDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 export const openingHoursOpen = "08:00";
 export const openingHoursClose = "17:00";
@@ -229,7 +229,7 @@ export const productCatalog: ProductItem[] = [
     slug: "container-strips",
     name: "Maritime Export Cargo Protection",
     shortName: "Cargo Strips",
-    metaTitle: "Container Cargo Strips | 1–5 kg Hanging Desiccant",
+    metaTitle: "Container Cargo Strips | 1-5 kg Hanging Desiccant",
     eyebrow: "Global Logistics",
     summary:
       "High-adsorption maritime strips for international container loads, long-haul shipping, and extreme humidity transit.",
@@ -254,7 +254,7 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "hair-nets",
-    name: "Bouffant Hair Nets — Safety & PPE",
+    name: "Bouffant Hair Nets - Safety & PPE",
     shortName: "Hair Nets",
     metaTitle: "Bouffant Hair Nets | Food & Factory PPE Supplier",
     eyebrow: "Industrial Safety PPE",
@@ -262,8 +262,8 @@ export const productCatalog: ProductItem[] = [
       "Disposable bouffant hair nets in green and white for food processing, manufacturing, healthcare, and industrial PPE programs.",
     useCaseLine: "Standard hair-containment PPE for safety-critical workspaces.",
     description:
-      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white — green is commonly used to mark designated zones and white is the general-use default.",
-    heroImage: "/products/hair-nets.jpg",
+      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white - green is commonly used to mark designated zones and white is the general-use default.",
+    heroImage: "/products/simple-bouffant-hair-nets.webp",
     useCases: [
       "Food processing and packaging line PPE",
       "Manufacturing and assembly hairshed prevention",
@@ -285,7 +285,7 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "beard-covers",
-    name: "Disposable Beard Covers — Safety & PPE",
+    name: "Disposable Beard Covers - Safety & PPE",
     shortName: "Beard Covers",
     metaTitle: "Disposable Beard Covers | Food-Industry PPE",
     eyebrow: "Industrial Safety PPE",
@@ -293,8 +293,8 @@ export const productCatalog: ProductItem[] = [
       "Disposable beard covers (beard nets) for food handling, manufacturing, healthcare, and other safety-critical workspaces where facial-hair containment is required.",
     useCaseLine: "PPE compliance for facial-hair containment in safety-critical operations.",
     description:
-      "Beard covers — also called beard nets or beard guards — contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
-    heroImage: "/products/beard-covers.jpg",
+      "Beard covers - also called beard nets or beard guards - contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
+    heroImage: "/products/simple-disposable-beard-covers.webp",
     useCases: [
       "Food processing and bakery handling",
       "Manufacturing and assembly safety programs",
@@ -304,7 +304,7 @@ export const productCatalog: ProductItem[] = [
     packingOptions: [
       "Material: non-woven polypropylene with elasticated edge",
       "Carton packs: typical 100 or 1000 pieces per carton",
-      // TODO: confirm real certifications. Same caveat as hair nets — do not
+      // TODO: confirm real certifications. Same caveat as hair nets - do not
       // advertise certs not formally held.
       "Document support: discuss compliance per buyer market",
     ],
@@ -322,7 +322,7 @@ export const productCatalog: ProductItem[] = [
       "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture-control programs.",
     useCaseLine: "Cost-effective humidity control for less precision-critical industrial cargo.",
     description:
-      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons — clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
+      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons - clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
     heroImage: "/products/dry-clay-desiccant.jpg",
     useCases: [
       "Durable industrial goods packaging",

@@ -5,14 +5,14 @@ import styles from "./videos.module.css";
 export const metadata: Metadata = {
   title: "Silica Gel Videos | DryGelWorld Desiccant Manufacturer",
   description:
-    "Watch DryGelWorld silica gel desiccant videos — manufacturer and product footage covering silica gel packets, container desiccants, and industrial moisture-control supply from Karachi, Pakistan.",
+    "Watch DryGelWorld silica gel desiccant videos - manufacturer and product footage covering silica gel packets, container desiccants, and industrial moisture-control supply from Karachi, Pakistan.",
   alternates: {
     canonical: "/videos",
   },
   openGraph: {
     title: "Silica Gel Videos | DryGelWorld Desiccant Manufacturer",
     description:
-      "DryGelWorld silica gel desiccant videos — manufacturer and product footage for export buyers.",
+      "DryGelWorld silica gel desiccant videos - manufacturer and product footage for export buyers.",
     url: "/videos",
     type: "website",
   },
@@ -33,7 +33,7 @@ type SiteVideo = {
 
 const videos: SiteVideo[] = [
   {
-    title: "DryGelWorld — Silica Gel Desiccant Manufacturer & Exporter (Karachi, Pakistan)",
+    title: "DryGelWorld - Silica Gel Desiccant Manufacturer & Exporter (Karachi, Pakistan)",
     description:
       "DryGelWorld is a silica gel desiccant manufacturer-exporter in Karachi, Pakistan, supplying silica gel packets, bulk beads, and container desiccants to international B2B buyers since 1983.",
     file: "/videos/drygelworld-silica-gel-manufacturer-karachi.mp4",
@@ -47,7 +47,7 @@ const videos: SiteVideo[] = [
     tag: "Products",
   },
   {
-    title: "DryGelWorld Silica Gel Desiccant — Product Showcase",
+    title: "DryGelWorld Silica Gel Desiccant - Product Showcase",
     description:
       "A look at DryGelWorld industrial silica gel desiccant products used for packaging, container, and warehouse moisture control.",
     file: "/videos/drygelworld-desiccant-production-packaging.mp4",
@@ -56,12 +56,12 @@ const videos: SiteVideo[] = [
   {
     title: "DryGelWorld Industrial Silica Gel Desiccant Supply",
     description:
-      "DryGelWorld industrial silica gel desiccant supply for exporters and packaging buyers — sachets, bulk beads, and cargo strips with SDS and COA support.",
+      "DryGelWorld industrial silica gel desiccant supply for exporters and packaging buyers - sachets, bulk beads, and cargo strips with SDS and COA support.",
     file: "/videos/drygelworld-industrial-desiccant-export-supply.mp4",
     tag: "B2B Supply",
   },
   {
-    title: "Silica Gel Beads — Close-Up Visualization",
+    title: "Silica Gel Beads - Close-Up Visualization",
     description:
       "Close-up visualization of silica gel desiccant beads, the amorphous silicon dioxide material DryGelWorld supplies for industrial moisture control.",
     file: "/videos/silica-beads-glass-container-3d.mp4",
@@ -78,7 +78,7 @@ export default function VideosPage() {
         <span className={styles.kicker}>Product Education</span>
         <h1>See DryGelWorld in action.</h1>
         <p>
-          DryGelWorld silica gel desiccant videos — manufacturer and product footage for buyers
+          DryGelWorld silica gel desiccant videos - manufacturer and product footage for buyers
           evaluating silica gel packets, container desiccants, and industrial moisture-control
           supply. For more, follow{" "}
           <a href="https://www.youtube.com/@DryGelWorld" rel="me noopener noreferrer" target="_blank">

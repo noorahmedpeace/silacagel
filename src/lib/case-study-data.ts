@@ -20,18 +20,18 @@ export const caseStudies: CaseStudy[] = [
     slug: "uae-container-rain-electronics",
     label: "GCC Case",
     industry: "UAE Container Export",
-    title: "Sizing container desiccant for a Karachi–Jebel Ali electronics shipment.",
+    title: "Sizing container desiccant for a Karachi-Jebel Ali electronics shipment.",
     metaDescription:
       "Anonymous UAE container export case study: sizing cargo desiccant strips for electronics moving Karachi to Jebel Ali, with route humidity, MOQ, Incoterms, SDS, and COA planning.",
     image: "/applications/export-logistics.webp",
     context:
-      "A UAE importer moving boxed electronics on the Karachi–Jebel Ali route needed a defensible container desiccant plan before confirming CIF terms.",
+      "A UAE importer moving boxed electronics on the Karachi-Jebel Ali route needed a defensible container desiccant plan before confirming CIF terms.",
     challenge:
-      "The buyer asked only for a strip price, but container size, ~3–5 day transit plus warehouse dwell, Gulf humidity, and electronics sensitivity all changed the real requirement.",
+      "The buyer asked only for a strip price, but container size, ~3-5 day transit plus warehouse dwell, Gulf humidity, and electronics sensitivity all changed the real requirement.",
     approach:
-      "The RFQ was reframed around 40ft container size, voyage and dwell time, subtropical route humidity, and sensitive-cargo loading — the same inputs as the container desiccant dosage calculator — then matched to MOQ, Incoterms (FOB Karachi / CIF Jebel Ali / DAP UAE), SDS, and COA.",
+      "The RFQ was reframed around 40ft container size, voyage and dwell time, subtropical route humidity, and sensitive-cargo loading - the same inputs as the container desiccant dosage calculator - then matched to MOQ, Incoterms (FOB Karachi / CIF Jebel Ali / DAP UAE), SDS, and COA.",
     proof:
-      "The buyer received a documented strip allocation, ceiling-placement guidance, and a clear UAE supply-terms summary (MOQ, lead time, currency) before pricing — the supporting metrics and dated loading photos are added from the buyer's own shipment records.",
+      "The buyer received a documented strip allocation, ceiling-placement guidance, and a clear UAE supply-terms summary (MOQ, lead time, currency) before pricing - the supporting metrics and dated loading photos are added from the buyer's own shipment records.",
     outcome:
       "The conversation moved from a bare strip price to a documented, repeatable UAE container program the importer could reorder against.",
     products: [
@@ -45,7 +45,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Request UAE container quote", href: "/contact" },
     ],
     faqs: [
-      { q: "How was the UAE container dosage estimated?", a: "From container size, voyage and dwell time, Gulf route humidity, and electronics sensitivity — the same factors in the container desiccant dosage calculator — then confirmed by the export desk." },
+      { q: "How was the UAE container dosage estimated?", a: "From container size, voyage and dwell time, Gulf route humidity, and electronics sensitivity - the same factors in the container desiccant dosage calculator - then confirmed by the export desk." },
       { q: "What UAE commercial terms were confirmed before pricing?", a: "MOQ, lead time, currency, and Incoterms (FOB Karachi, CIF Jebel Ali, DAP UAE), plus SDS and COA document support." },
       { q: "Does this case claim specific damage-reduction figures?", a: "No. It describes the planning and RFQ workflow. Quantified results, client names, and loading photos are supplied from the buyer's own shipment records." },
     ],
@@ -63,7 +63,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Volume, destination city, packing format, and document needs shifted between orders, so the distributor needed a fixed MOQ, lead-time, and Incoterm baseline to plan against.",
     approach:
-      "DryGelWorld set a recurring template: bulk-bead MOQ, production and Karachi → Jeddah/Dammam transit windows, Incoterms (FOB Karachi / CIF Jeddah / CIF Dammam / DAP Saudi Arabia), SDS, COA, and DMF-free support — so repeat orders only update volume and destination.",
+      "DryGelWorld set a recurring template: bulk-bead MOQ, production and Karachi → Jeddah/Dammam transit windows, Incoterms (FOB Karachi / CIF Jeddah / CIF Dammam / DAP Saudi Arabia), SDS, COA, and DMF-free support - so repeat orders only update volume and destination.",
     proof:
       "The distributor compared each new order against one consistent commercial and documentation baseline; pricing and quantity histories come from the buyer's own purchase records.",
     outcome:
@@ -227,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Keeping food-packaging claims tied to documents.",
     metaDescription:
       "Anonymous food packaging desiccant case study covering white silica gel, food-grade claim review, SDS, COA, warning text, and export RFQs.",
-    image: "/applications/food-packaging.webp",
+    image: "/seo-images/food-packaging-silica-gel-desiccant.webp",
     context:
       "A dry-goods packaging buyer needed a clean desiccant discussion without unsupported food-contact claims.",
     challenge:

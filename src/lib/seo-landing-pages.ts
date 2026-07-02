@@ -282,7 +282,7 @@ const highIntentSeoLandingPages = {
     formats: "Silica gel packets (0.5g-100g), loose beads, 25kg bulk bags, container strips, private-label sachets",
     buyerTypes: "Importers, distributors, packagers, exporters, warehouses, OEM and private-label buyers",
     documents: "SDS, COA, ISO 9001:2015 support, DMF-free statement, labeling where valid",
-    buyerRisk: "Wrong type or dosage — using non-indicating gel where colour indication is needed, or under-dosing a humid export route",
+    buyerRisk: "Wrong type or dosage - using non-indicating gel where colour indication is needed, or under-dosing a humid export route",
     quoteBasis: "Type (white/indicating), format, gram or kg quantity, application, destination, and documents",
     buyerGuide: {
       title: "Silica gel explained for buyers",
@@ -302,7 +302,7 @@ const highIntentSeoLandingPages = {
         {
           label: "Reuse",
           title: "Can silica gel be recharged?",
-          text: "Yes — silica gel is regenerable. Heating it (typically 110-130°C) drives off the adsorbed moisture so the beads can be reused. Single-voyage packaging sachets are usually treated as consumables, while bulk beads in closed-loop industrial use are often regenerated.",
+          text: "Yes - silica gel is regenerable. Heating it (typically 110-130°C) drives off the adsorbed moisture so the beads can be reused. Single-voyage packaging sachets are usually treated as consumables, while bulk beads in closed-loop industrial use are often regenerated.",
         },
       ],
     },
@@ -332,10 +332,10 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "What is silica gel?", answer: "Silica gel is a porous, granular form of silicon dioxide (SiO₂) used as a desiccant. Its microscopic pores give it a very large internal surface area that adsorbs and holds water vapour, keeping packaged or stored goods dry. Despite the name it is a solid bead, not a liquid gel." },
       { question: "How does silica gel work?", answer: "Silica gel works by adsorption: water molecules from the surrounding air bond to the walls of its internal pores and are held inside the beads. This lowers the humidity inside a sealed pack, carton, or container and prevents moisture damage, mold, and corrosion." },
-      { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic — it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
+      { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic - it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
       { question: "What are the types of silica gel?", answer: "The main types are white/clear non-indicating silica gel (standard packaging use), orange indicating silica gel (cobalt-free, changes colour when saturated), and blue indicating silica gel (older cobalt-chloride type). Formats include small sachets, larger desiccant bags, loose beads, and container strips." },
-      { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable — heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
-      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer-exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 60+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
+      { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable - heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
+      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer-exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 190+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
     ],
   }),
   "buy-silica-gel": keywordClusterPage({
@@ -344,22 +344,22 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Buy silica gel in bulk direct from the manufacturer. Wholesale desiccant packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
     kicker: "Buy silica gel",
-    h1: "Buy silica gel in bulk — direct from the manufacturer, shipped worldwide.",
+    h1: "Buy silica gel in bulk - direct from the manufacturer, shipped worldwide.",
     lead:
-      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. Low MOQ, fast quotes, SDS and COA on request, and export shipping to 60+ countries. Tell us the format and quantity and get an indicative price the same day.",
+      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. Low MOQ, fast quotes, SDS and COA on request, and export shipping to 190+ countries. Tell us the format and quantity and get an indicative price the same day.",
     searchIntent: "Transactional / commercial: buy silica gel, buy silica gel bulk, silica gel for sale, silica gel wholesale price",
     primaryCta: "Get Silica Gel Price",
     secondaryCta: "View Product Range",
     secondaryHref: "/products",
     proofPoints: ["Manufacturer-direct since 1983", "Low MOQ & bulk pricing", "SDS / COA per shipment", "Worldwide export shipping"],
     image: "/products/product-range-export-showcase.webp",
-    imageAlt: "Buy silica gel in bulk — desiccant sachets, beads, and container strips from DryGelWorld",
-    imageCaption: "Buy silica gel by the format you need — packets, loose beads, bulk bags, or container strips — at manufacturer-direct prices.",
+    imageAlt: "Buy silica gel in bulk - desiccant sachets, beads, and container strips from DryGelWorld",
+    imageCaption: "Buy silica gel by the format you need - packets, loose beads, bulk bags, or container strips - at manufacturer-direct prices.",
     chips: ["Buy bulk", "Wholesale price", "Low MOQ", "Worldwide shipping"],
     fitTitle: "Ways to buy silica gel from DryGelWorld",
     useCases: [
-      { label: "Packets", title: "Buy desiccant sachets by the carton", text: "Order silica gel packets (0.5g-100g) for product boxes, electronics, pharma, leather, and food packaging — priced by size and quantity." },
-      { label: "Bulk", title: "Buy bulk beads & 25kg bags", text: "Buy loose silica gel beads and 25kg bulk bags for repackers, warehouses, and distributors — quoted by kg, pallet, or monthly volume." },
+      { label: "Packets", title: "Buy desiccant sachets by the carton", text: "Order silica gel packets (0.5g-100g) for product boxes, electronics, pharma, leather, and food packaging - priced by size and quantity." },
+      { label: "Bulk", title: "Buy bulk beads & 25kg bags", text: "Buy loose silica gel beads and 25kg bulk bags for repackers, warehouses, and distributors - quoted by kg, pallet, or monthly volume." },
       { label: "Cargo", title: "Buy container desiccant strips", text: "Buy container desiccant strips for 20ft and 40ft ocean freight to stop container rain on long-haul export routes." },
     ],
     targetKeywords: "Buy silica gel, buy silica gel bulk, silica gel for sale, silica gel wholesale, buy desiccant, silica gel price",
@@ -428,9 +428,9 @@ const highIntentSeoLandingPages = {
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
-      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer-exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 60+ countries. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for a same-day indicative price." },
+      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer-exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 190+ countries. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for a same-day indicative price." },
       { question: "How much does silica gel cost?", answer: "Silica gel price depends on order volume, packet size and material, type (white vs indicating), packing/labeling, destination, and Incoterms. Bulk and repeat orders earn lower per-kg pricing than small retail packs. Share your quantity and format for an exact quote." },
-      { question: "What is the minimum order quantity (MOQ) to buy silica gel?", answer: "MOQ depends on the format — sachets, bulk beads, or container strips. DryGelWorld supports low MOQs for trial orders and scaled pricing for monthly or container-volume supply. Tell us your target quantity and we confirm MOQ and lead time." },
+      { question: "What is the minimum order quantity (MOQ) to buy silica gel?", answer: "MOQ depends on the format - sachets, bulk beads, or container strips. DryGelWorld supports low MOQs for trial orders and scaled pricing for monthly or container-volume supply. Tell us your target quantity and we confirm MOQ and lead time." },
       { question: "Can I buy wholesale silica gel for resale or private label?", answer: "Yes. DryGelWorld supplies wholesale silica gel and private-label/OEM desiccant packets with custom packet text, artwork, and carton labels for distributors and brands. Confirm packet size, material, labeling, and MOQ in your RFQ." },
       { question: "Do you ship silica gel worldwide?", answer: "Yes. DryGelWorld exports silica gel worldwide (USA, UK, Germany, Canada, GCC, and more) on FOB, CIF, EXW, and DAP terms, with SDS and COA provided per shipment. Share your destination port or city for a landed quote." },
       { question: "How do I buy the right silica gel for my product?", answer: "Match the format to the job: packets for product/carton protection, bulk beads for repacking and warehouses, and container strips for ocean freight. Send the product you're protecting, carton or container size, route, and quantity, and we recommend the type and dosage before you buy." },
@@ -467,7 +467,7 @@ const highIntentSeoLandingPages = {
     buyerGuide: {
       title: "What serious buyers should verify in a silica gel manufacturer",
       intro:
-        "Serious buyers vet a manufacturer before sharing quantity or target price. Here's what to confirm first — so your RFQ moves straight to pricing.",
+        "Serious buyers vet a manufacturer before sharing quantity or target price. Here's what to confirm first - so your RFQ moves straight to pricing.",
       sections: [
         {
           label: "Capacity",
@@ -505,7 +505,7 @@ const highIntentSeoLandingPages = {
     kicker: "Silica gel supplier",
     h1: "Silica gel supplier with packet, bulk, and cargo formats in reliable B2B supply.",
     lead:
-      "One supplier for every silica gel format — packets, bulk beads, cargo strips, and private label — with flexible MOQ, dependable repeat supply, and fast quote turnaround.",
+      "One supplier for every silica gel format - packets, bulk beads, cargo strips, and private label - with flexible MOQ, dependable repeat supply, and fast quote turnaround.",
     searchIntent: "High-intent buyer keyword: silica gel supplier",
     primaryCta: "Request Supplier Quote",
     proofPoints: ["Reliable repeat supply", "Flexible MOQ", "All formats, one supplier", "Fast RFQ turnaround"],
@@ -977,7 +977,7 @@ const highIntentSeoLandingPages = {
     slug: "desiccant-bags",
     title: "Desiccant Bags | Silica Gel Moisture Absorber Bags",
     metaDescription:
-      "Industrial desiccant bags for cartons, warehouses & export cargo. Silica gel and clay options, bulk MOQ, SDS/COA. B2B supplier since 1983 — get a quote.",
+      "Industrial desiccant bags for cartons, warehouses & export cargo. Silica gel and clay options, bulk MOQ, SDS/COA. B2B supplier since 1983 - get a quote.",
     kicker: "Desiccant bags",
     h1: "Desiccant bags for packaging, storage, and industrial moisture control.",
     lead:
@@ -1107,11 +1107,11 @@ const highIntentSeoLandingPages = {
     slug: "white-silica-gel",
     title: "White Silica Gel | Clean Desiccant Packets & Bulk",
     metaDescription:
-      "White silica gel packets and bulk beads — clean, odorless, non-toxic moisture control for packaging, storage, and product cartons. SDS, COA, B2B RFQ.",
+      "White silica gel packets and bulk beads - clean, odorless, non-toxic moisture control for packaging, storage, and product cartons. SDS, COA, B2B RFQ.",
     kicker: "White silica gel",
     h1: "White silica gel packets and bulk beads for clean, odorless moisture control.",
     lead:
-      "Choose white silica gel for clean, odorless, non-toxic moisture protection in packets and bulk beads — ideal for product packaging, cartons, and storage where appearance and safety matter.",
+      "Choose white silica gel for clean, odorless, non-toxic moisture protection in packets and bulk beads - ideal for product packaging, cartons, and storage where appearance and safety matter.",
     searchIntent: "Product keyword: white silica gel, white desiccant, white silica gel packets",
     primaryCta: "Request White Silica Gel Quote",
     proofPoints: ["Clean & odorless", "Packets & bulk beads", "Product-safe & non-toxic", "SDS / COA support"],
@@ -1543,7 +1543,7 @@ const highIntentSeoLandingPages = {
     kicker: "Beard Cover Supplier",
     h1: "Beard cover supplier for food handling, manufacturing, and healthcare PPE.",
     lead:
-      "Disposable beard covers — also called beard nets or beard guards — for facial-hair containment in food, manufacturing, and healthcare environments. Non-woven polypropylene with elasticated edge, supplied by the carton for production-line distribution.",
+      "Disposable beard covers - also called beard nets or beard guards - for facial-hair containment in food, manufacturing, and healthcare environments. Non-woven polypropylene with elasticated edge, supplied by the carton for production-line distribution.",
     searchIntent: "B2B buyer keyword: beard cover supplier, beard net, disposable beard guard",
     primaryCta: "Request Beard Cover Quote",
     proofPoints: [
@@ -1618,8 +1618,8 @@ const highIntentSeoLandingPages = {
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
-      { question: "Are these hair nets formally food-grade certified?", answer: "Hair nets are supplied as industrial-safety PPE. Formal food-grade certifications such as FDA, FSSC 22000, or EU 1935/2004 should be confirmed per buyer market before commercial terms — do not assume coverage." },
-      { question: "What is color zoning in food production?", answer: "Color zoning uses different PPE colors (commonly green and white) to visually separate production areas — for example, raw meat zones from packaging zones — and prevent worker movement-driven cross-contamination." },
+      { question: "Are these hair nets formally food-grade certified?", answer: "Hair nets are supplied as industrial-safety PPE. Formal food-grade certifications such as FDA, FSSC 22000, or EU 1935/2004 should be confirmed per buyer market before commercial terms - do not assume coverage." },
+      { question: "What is color zoning in food production?", answer: "Color zoning uses different PPE colors (commonly green and white) to visually separate production areas - for example, raw meat zones from packaging zones - and prevent worker movement-driven cross-contamination." },
       { question: "What sizes work for food production lines?", answer: "20 and 22 inch diameters are the most common production-line sizes. 18 inch is used for smaller heads and snug fit; 21 inch is a mid-range option." },
     ],
   }),
@@ -1662,7 +1662,7 @@ const highIntentSeoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship silica gel directly to Hamburg?", answer: "Yes — Karachi-to-Hamburg is a standard ocean-freight lane for Pakistan-origin silica gel. Bremerhaven and JadeWeserPort are also supported. Buyers should confirm Incoterms and document language before commercial terms." },
+      { question: "Do you ship silica gel directly to Hamburg?", answer: "Yes - Karachi-to-Hamburg is a standard ocean-freight lane for Pakistan-origin silica gel. Bremerhaven and JadeWeserPort are also supported. Buyers should confirm Incoterms and document language before commercial terms." },
       { question: "Is the silica gel REACH-registered?", answer: "REACH registration is a buyer-driven discussion territory. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement; formal REACH registration must be confirmed against the buyer's compliance program before dispatch." },
       { question: "Can you supply SDS in German?", answer: "SDS is available in English by default; German-language SDS can be discussed for buyers requiring local-language documentation." },
     ],
@@ -1706,7 +1706,7 @@ const highIntentSeoLandingPages = {
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
-      { question: "Do you ship hair nets directly to UAE?", answer: "Yes — Karachi-to-Jebel Ali is the standard route for UAE-bound PPE supply. Port Khalid and Khalifa Port are also supported. Buyers should confirm Incoterms and Arabic/English labeling expectations." },
+      { question: "Do you ship hair nets directly to UAE?", answer: "Yes - Karachi-to-Jebel Ali is the standard route for UAE-bound PPE supply. Port Khalid and Khalifa Port are also supported. Buyers should confirm Incoterms and Arabic/English labeling expectations." },
       { question: "What hair net colors are stocked for UAE buyers?", answer: "Green and white are the standard stocked colors. Both are widely used in UAE food and manufacturing PPE programs; color zoning is buyer-specific." },
       { question: "Can you supply Arabic-language carton labeling?", answer: "Arabic / English carton labeling can be discussed alongside the order; confirm the labeling requirement at RFQ stage so the artwork is prepared before dispatch." },
     ],
@@ -1719,7 +1719,7 @@ const highIntentSeoLandingPages = {
     kicker: "Dry Clay Supplier Saudi Arabia",
     h1: "Dry clay desiccant supplier for Saudi industrial and packaging buyers.",
     lead:
-      "Activated clay desiccant packs supplied to Saudi importers and packaging buyers — Karachi-to-Jeddah and Karachi-to-Dammam routing for industrial cargo, durable goods packaging, and warehouse moisture control programs.",
+      "Activated clay desiccant packs supplied to Saudi importers and packaging buyers - Karachi-to-Jeddah and Karachi-to-Dammam routing for industrial cargo, durable goods packaging, and warehouse moisture control programs.",
     searchIntent: "Saudi buyer keyword: dry clay desiccant supplier saudi arabia, bentonite clay desiccant jeddah, industrial clay packs ksa",
     primaryCta: "Request Saudi Clay Desiccant Quote",
     proofPoints: [
@@ -1750,9 +1750,9 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship dry clay desiccant directly to Saudi Arabia?", answer: "Yes — Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes for Pakistani-origin desiccant supply to Saudi industrial buyers." },
+      { question: "Do you ship dry clay desiccant directly to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes for Pakistani-origin desiccant supply to Saudi industrial buyers." },
       { question: "Bentonite or montmorillonite clay?", answer: "Both bentonite and montmorillonite formats can be discussed depending on buyer requirement, packaging compatibility, and document set. Confirm the preferred material at RFQ stage." },
-      { question: "Is the dry clay SASO or Halal certified?", answer: "SASO and Halal certifications are buyer-driven discussions; DryGelWorld supplies ISO 9001:2015, SDS, COA, and DMF-free statement on request — formal SASO or Halal registration must be confirmed against the buyer's compliance program before dispatch." },
+      { question: "Is the dry clay SASO or Halal certified?", answer: "SASO and Halal certifications are buyer-driven discussions; DryGelWorld supplies ISO 9001:2015, SDS, COA, and DMF-free statement on request - formal SASO or Halal registration must be confirmed against the buyer's compliance program before dispatch." },
     ],
   }),
   "beard-cover-supplier-usa": keywordClusterPage({
@@ -1774,7 +1774,7 @@ const highIntentSeoLandingPages = {
     ],
     image: "/products/real-bulk-supply.webp",
     imageAlt: "Beard covers supplied to US food and manufacturing buyers",
-    imageCaption: "US buyers should align FDA / FSSC documentation expectations early — these are buyer-driven discussions, not held credentials.",
+    imageCaption: "US buyers should align FDA / FSSC documentation expectations early - these are buyer-driven discussions, not held credentials.",
     chips: ["USA", "Karachi-US", "PPE", "Disposable"],
     fitTitle: "US beard cover buying paths",
     useCases: [
@@ -1794,7 +1794,7 @@ const highIntentSeoLandingPages = {
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
     faqs: [
-      { question: "Do you ship beard covers to the US?", answer: "Yes — Karachi-to-US-Coast routing is supported (East Coast via Atlantic, West Coast via Pacific). Buyers should specify the destination port and Incoterms at RFQ stage." },
+      { question: "Do you ship beard covers to the US?", answer: "Yes - Karachi-to-US-Coast routing is supported (East Coast via Atlantic, West Coast via Pacific). Buyers should specify the destination port and Incoterms at RFQ stage." },
       { question: "Are these beard covers FDA-approved?", answer: "FDA approval is a buyer-driven discussion territory. Beard covers are supplied as industrial-safety PPE; formal FDA compliance must be confirmed against the buyer's destination requirement before commercial terms." },
       { question: "Can you do private-label beard covers?", answer: "Private-label carton printing and supplier label discussions can be handled at RFQ stage. Confirm artwork requirements, language, and brand expectations early." },
     ],
@@ -1838,7 +1838,7 @@ const highIntentSeoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship silica gel directly to the UK?", answer: "Yes — Karachi-to-UK is a standard ocean freight lane. Felixstowe, Southampton, London Gateway, and Liverpool are all supported. Buyers should confirm Incoterms and post-Brexit customs documentation before commercial terms." },
+      { question: "Do you ship silica gel directly to the UK?", answer: "Yes - Karachi-to-UK is a standard ocean freight lane. Felixstowe, Southampton, London Gateway, and Liverpool are all supported. Buyers should confirm Incoterms and post-Brexit customs documentation before commercial terms." },
       { question: "Is the silica gel REACH-compliant for the UK market?", answer: "REACH compliance is a buyer-driven discussion. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal UK REACH registration must be confirmed against the buyer's compliance program before dispatch." },
       { question: "Can you handle post-Brexit customs documentation?", answer: "Standard export documents (commercial invoice, packing list, certificate of origin, SDS, COA) are supplied. UK-specific customs forms after Brexit should be aligned with the buyer's import broker before dispatch." },
     ],
@@ -1882,7 +1882,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship dry clay desiccant directly to UAE?", answer: "Yes — Karachi-to-Jebel Ali is the standard route, with Khalifa Port and Port Khalid also supported. Sample packs and cargo-volume orders both viable through this lane." },
+      { question: "Do you ship dry clay desiccant directly to UAE?", answer: "Yes - Karachi-to-Jebel Ali is the standard route, with Khalifa Port and Port Khalid also supported. Sample packs and cargo-volume orders both viable through this lane." },
       { question: "Bentonite or montmorillonite clay?", answer: "Both formats can be discussed depending on buyer requirement, packaging compatibility, and document set. Confirm the preferred material at RFQ stage." },
       { question: "Is the dry clay ESMA or GSO certified?", answer: "ESMA and GSO certifications are buyer-driven discussions. DryGelWorld supplies ISO 9001:2015, SDS, COA, and DMF-free statement on request; formal UAE compliance must be confirmed against the buyer's program before dispatch." },
     ],
@@ -1926,7 +1926,7 @@ const highIntentSeoLandingPages = {
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
-      { question: "Do you ship hair nets directly to Saudi Arabia?", answer: "Yes — Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms and Arabic / English labeling expectations before commercial terms." },
+      { question: "Do you ship hair nets directly to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms and Arabic / English labeling expectations before commercial terms." },
       { question: "Is SASO certification required?", answer: "SASO certification is a buyer-driven discussion. DryGelWorld supplies ISO 9001:2015 reference and standard export documentation; formal SASO compliance must be confirmed against the buyer's import program before dispatch." },
       { question: "Can you supply Arabic-language carton labeling?", answer: "Arabic / English carton labeling can be discussed alongside the order; confirm at RFQ stage so the artwork is prepared before dispatch." },
     ],
@@ -1950,7 +1950,7 @@ const highIntentSeoLandingPages = {
     ],
     image: "/silicagel_paper_technical.webp",
     imageAlt: "Silica gel desiccant for Canadian distributors and packagers",
-    imageCaption: "Canadian buyers can route via West Coast (Vancouver, Prince Rupert) or East Coast (Montreal, Halifax) — Karachi-to-Vancouver is the most common Pakistani-origin lane.",
+    imageCaption: "Canadian buyers can route via West Coast (Vancouver, Prince Rupert) or East Coast (Montreal, Halifax) - Karachi-to-Vancouver is the most common Pakistani-origin lane.",
     chips: ["Canada", "Karachi-CA", "Electronics", "Distribution"],
     fitTitle: "Canadian buyer paths for Karachi-origin silica gel",
     useCases: [
@@ -1970,8 +1970,8 @@ const highIntentSeoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship silica gel directly to Canada?", answer: "Yes — Karachi-to-Vancouver is the most common lane for Pakistani-origin desiccant supply to Canada. Prince Rupert (West Coast) and Montreal / Halifax (East Coast) are also supported. Buyers should confirm port preference and Incoterms at RFQ stage." },
-      { question: "Can you supply French-language carton labeling?", answer: "Bilingual EN / FR carton labeling can be discussed alongside the order — common requirement for Canadian retail and consumer-facing distribution. Confirm artwork at RFQ stage before dispatch." },
+      { question: "Do you ship silica gel directly to Canada?", answer: "Yes - Karachi-to-Vancouver is the most common lane for Pakistani-origin desiccant supply to Canada. Prince Rupert (West Coast) and Montreal / Halifax (East Coast) are also supported. Buyers should confirm port preference and Incoterms at RFQ stage." },
+      { question: "Can you supply French-language carton labeling?", answer: "Bilingual EN / FR carton labeling can be discussed alongside the order - common requirement for Canadian retail and consumer-facing distribution. Confirm artwork at RFQ stage before dispatch." },
       { question: "Is the silica gel approved by Health Canada?", answer: "Health Canada compliance is a buyer-driven discussion. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal Health Canada or CFIA approval must be confirmed against the buyer's compliance program before dispatch." },
     ],
   }),
@@ -1983,11 +1983,11 @@ const highIntentSeoLandingPages = {
     kicker: "18 Inch Hair Nets",
     h1: "18 inch bouffant hair nets for snug-fit PPE coverage.",
     lead:
-      "18 inch diameter is the snug-fit size in the bouffant hair net range — used by food processing, manufacturing, and healthcare programs that need a closer fit for smaller heads or longer shift wear. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000.",
+      "18 inch diameter is the snug-fit size in the bouffant hair net range - used by food processing, manufacturing, and healthcare programs that need a closer fit for smaller heads or longer shift wear. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000.",
     searchIntent: "B2B buyer keyword: 18 inch hair nets, bouffant hair net 18 inch, snug-fit hair net supplier",
     primaryCta: "Request 18 Inch Hair Net Quote",
     proofPoints: [
-      "18 inch diameter — snug-fit for smaller heads",
+      "18 inch diameter - snug-fit for smaller heads",
       "Non-woven polypropylene with elastic edge",
       "Green and white stock colors",
       "Carton-packed 100 or 1000 ct",
@@ -2000,13 +2000,13 @@ const highIntentSeoLandingPages = {
     useCases: [
       { label: "Food", title: "Food processing snug fit", text: "Snug-fit hair nets for food processing lines where loose hair containment is critical and workers have smaller head sizes." },
       { label: "Healthcare", title: "Cleanroom and pharma", text: "Snug-fit nets for healthcare and cleanroom environments requiring close-fitting PPE." },
-      { label: "Mixed PPE", title: "Multi-size programs", text: "Order alongside 20\"-22\" diameters for workforce diversity — most production lines benefit from stocking at least two sizes." },
+      { label: "Mixed PPE", title: "Multi-size programs", text: "Order alongside 20\"-22\" diameters for workforce diversity - most production lines benefit from stocking at least two sizes." },
     ],
     targetKeywords: "18 inch hair nets, 18\" bouffant hair net, snug-fit hair net supplier, small hair net food industry",
     formats: "18\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
     documents: "ISO 9001:2015 quality reference",
-    buyerRisk: "Ordering only one size for a multi-head-size workforce — typical production lines benefit from 18\" + 20\" + 22\" stock",
+    buyerRisk: "Ordering only one size for a multi-head-size workforce - typical production lines benefit from 18\" + 20\" + 22\" stock",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
       { label: "20 inch hair nets", href: "/20-inch-hair-nets" },
@@ -2027,18 +2027,18 @@ const highIntentSeoLandingPages = {
     kicker: "22 Inch Hair Nets",
     h1: "22 inch bouffant hair nets for full-coverage PPE.",
     lead:
-      "22 inch diameter is the largest standard size in the bouffant hair net range — the default for production-line coverage on most adult workforces. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000 in green and white.",
+      "22 inch diameter is the largest standard size in the bouffant hair net range - the default for production-line coverage on most adult workforces. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000 in green and white.",
     searchIntent: "B2B buyer keyword: 22 inch hair nets, large bouffant hair net, full-coverage PPE supplier",
     primaryCta: "Request 22 Inch Hair Net Quote",
     proofPoints: [
-      "22 inch diameter — full-coverage standard size",
+      "22 inch diameter - full-coverage standard size",
       "Non-woven polypropylene with elastic edge",
       "Green and white stock colors",
       "Carton-packed 100 or 1000 ct",
     ],
     image: "/products/hair-nets.jpg",
     imageAlt: "22 inch bouffant hair nets supplied for industrial PPE programs",
-    imageCaption: "22 inch is the workhorse production-line diameter — full coverage for most adult head sizes.",
+    imageCaption: "22 inch is the workhorse production-line diameter - full coverage for most adult head sizes.",
     chips: ["22\"", "Bouffant", "PPE", "Full coverage"],
     fitTitle: "22 inch hair net buying paths",
     useCases: [
@@ -2050,7 +2050,7 @@ const highIntentSeoLandingPages = {
     formats: "22\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
     documents: "ISO 9001:2015 quality reference",
-    buyerRisk: "Skipping 22\" stock for a long-haired or full-coverage workforce — under-coverage drives PPE non-compliance",
+    buyerRisk: "Skipping 22\" stock for a long-haired or full-coverage workforce - under-coverage drives PPE non-compliance",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
       { label: "18 inch hair nets", href: "/18-inch-hair-nets" },
@@ -2059,7 +2059,7 @@ const highIntentSeoLandingPages = {
     ],
     faqs: [
       { question: "Why pick 22 inch over 20 inch?", answer: "22 inch is the workhorse size for most adult workforces and accommodates tied-back long hair. 20 inch is a mid-range option; 22\" gives more coverage margin." },
-      { question: "Is 22 inch available in both green and white?", answer: "Yes — both stock colors are available at the 22 inch diameter. Used for color-zoned production lines (e.g. green for raw zones, white for packaging)." },
+      { question: "Is 22 inch available in both green and white?", answer: "Yes - both stock colors are available at the 22 inch diameter. Used for color-zoned production lines (e.g. green for raw zones, white for packaging)." },
       { question: "What's the MOQ for 22 inch hair nets?", answer: "Standard MOQ is discussed by monthly carton volume; high-volume programs benefit from quoted recurring supply. Sample packs can be discussed before bulk commitment." },
     ],
   }),
@@ -2069,20 +2069,20 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "20 inch bouffant hair nets for food, manufacturing, and healthcare PPE. Mid-range diameter that covers most production-line use cases. Non-woven polypropylene, green and white, carton-packed.",
     kicker: "20 Inch Hair Nets",
-    h1: "20 inch bouffant hair nets — the most common production size.",
+    h1: "20 inch bouffant hair nets - the most common production size.",
     lead:
-      "20 inch diameter is the most-stocked size in B2B bouffant hair net programs — fits most adult head sizes and is the default for food, manufacturing, and healthcare production lines. Non-woven polypropylene, elasticated, supplied in cartons of 100 or 1000.",
+      "20 inch diameter is the most-stocked size in B2B bouffant hair net programs - fits most adult head sizes and is the default for food, manufacturing, and healthcare production lines. Non-woven polypropylene, elasticated, supplied in cartons of 100 or 1000.",
     searchIntent: "B2B buyer keyword: 20 inch hair nets, standard bouffant hair net, food industry hair net 20 inch",
     primaryCta: "Request 20 Inch Hair Net Quote",
     proofPoints: [
-      "20 inch diameter — most common production size",
+      "20 inch diameter - most common production size",
       "Non-woven polypropylene with elastic edge",
       "Green and white stock colors",
       "Carton-packed 100 or 1000 ct",
     ],
     image: "/products/hair-nets.jpg",
     imageAlt: "20 inch bouffant hair nets supplied for industrial PPE programs",
-    imageCaption: "20 inch covers most adult head sizes — the default starting stock for a new PPE program.",
+    imageCaption: "20 inch covers most adult head sizes - the default starting stock for a new PPE program.",
     chips: ["20\"", "Bouffant", "PPE", "Default size"],
     fitTitle: "20 inch hair net buying paths",
     useCases: [
@@ -2094,7 +2094,7 @@ const highIntentSeoLandingPages = {
     formats: "20\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
     documents: "ISO 9001:2015 quality reference",
-    buyerRisk: "Ordering only 20\" for a varied workforce — pair with 18\" and 22\" for full coverage",
+    buyerRisk: "Ordering only 20\" for a varied workforce - pair with 18\" and 22\" for full coverage",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
       { label: "18 inch hair nets", href: "/18-inch-hair-nets" },
@@ -2102,9 +2102,9 @@ const highIntentSeoLandingPages = {
       { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
     ],
     faqs: [
-      { question: "Is 20 inch the most common hair net size?", answer: "Yes — 20 inch covers the majority of adult head sizes and is the default starting stock for most B2B PPE programs." },
+      { question: "Is 20 inch the most common hair net size?", answer: "Yes - 20 inch covers the majority of adult head sizes and is the default starting stock for most B2B PPE programs." },
       { question: "Should I stock only 20 inch?", answer: "Most production lines benefit from at least two sizes (e.g. 20\" + 22\") to fit different head sizes comfortably. Improperly-fitting PPE drives non-compliance." },
-      { question: "What materials are 20 inch hair nets made from?", answer: "Standard supply is non-woven polypropylene (PP) with an elasticated edge — the industry-standard material for disposable PPE." },
+      { question: "What materials are 20 inch hair nets made from?", answer: "Standard supply is non-woven polypropylene (PP) with an elasticated edge - the industry-standard material for disposable PPE." },
     ],
   }),
   "disposable-hair-nets": keywordClusterPage({
@@ -2113,13 +2113,13 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Disposable hair nets for food processing, manufacturing, healthcare, and cleanroom PPE programs. Single-use non-woven polypropylene bouffant nets, 18-22 inch diameters, green and white, carton-packed.",
     kicker: "Disposable Hair Nets",
-    h1: "Disposable hair nets — single-use PPE for production lines.",
+    h1: "Disposable hair nets - single-use PPE for production lines.",
     lead:
-      "Single-use disposable bouffant hair nets for food, manufacturing, healthcare, and cleanroom PPE programs. Non-woven polypropylene with elasticated edge — the industry-standard format for production-line PPE where laundering reusable nets is not economic.",
+      "Single-use disposable bouffant hair nets for food, manufacturing, healthcare, and cleanroom PPE programs. Non-woven polypropylene with elasticated edge - the industry-standard format for production-line PPE where laundering reusable nets is not economic.",
     searchIntent: "B2B buyer keyword: disposable hair nets, single-use bouffant cap, disposable PPE hair net supplier",
     primaryCta: "Request Disposable Hair Net Quote",
     proofPoints: [
-      "Single-use — no laundering required",
+      "Single-use - no laundering required",
       "Non-woven polypropylene with elastic edge",
       "18\", 20\", 21\", 22\" diameter range",
       "Carton-packed for production-line distribution",
@@ -2130,7 +2130,7 @@ const highIntentSeoLandingPages = {
     chips: ["Disposable", "Single-use", "Bouffant", "PPE"],
     fitTitle: "Disposable hair net buying paths",
     useCases: [
-      { label: "Food", title: "Food processing single-use PPE", text: "Single-use nets for food processing, bakery, dairy, and packaging operations — disposed at shift end to maintain hygiene." },
+      { label: "Food", title: "Food processing single-use PPE", text: "Single-use nets for food processing, bakery, dairy, and packaging operations - disposed at shift end to maintain hygiene." },
       { label: "Healthcare", title: "Healthcare and cleanroom", text: "Disposable hair containment for healthcare procedures and cleanroom workflows requiring contamination-free PPE turnover." },
       { label: "Manufacturing", title: "Production line and assembly", text: "Single-use PPE for manufacturing floors, electronics assembly, and short-shift contractor work." },
     ],
@@ -2146,7 +2146,7 @@ const highIntentSeoLandingPages = {
       { label: "PPE for factories blog", href: "/blog/ppe-products-for-factories" },
     ],
     faqs: [
-      { question: "Are these single-use only?", answer: "Yes — DryGelWorld supplies disposable single-use bouffant nets. Reusable PPE programs with industrial laundering are a separate category not currently in the catalog." },
+      { question: "Are these single-use only?", answer: "Yes - DryGelWorld supplies disposable single-use bouffant nets. Reusable PPE programs with industrial laundering are a separate category not currently in the catalog." },
       { question: "When does disposable PPE make economic sense?", answer: "For most facilities under 50-100 employees per shift, disposable wins on total cost vs reusable PPE programs with industrial laundering. Above that threshold, reusable becomes cost-competitive." },
       { question: "How many disposable hair nets per worker per shift?", answer: "Working starting point: 1-2 hair nets per worker per shift, depending on shift length and contamination risk profile." },
     ],
@@ -2155,7 +2155,7 @@ const highIntentSeoLandingPages = {
     slug: "bentonite-clay",
     title: "Activated Clay Desiccant Supplier | Industrial Clay Packs",
     metaDescription:
-      "Activated clay desiccant supplier for industrial cargo and durable-goods storage. Clay desiccant packs in sachet and bag formats — B2B export supply.",
+      "Activated clay desiccant supplier for industrial cargo and durable-goods storage. Clay desiccant packs in sachet and bag formats - B2B export supply.",
     kicker: "Activated Clay Desiccant",
     h1: "Activated clay desiccant supplier for industrial and cargo moisture control.",
     lead:
@@ -2190,9 +2190,9 @@ const highIntentSeoLandingPages = {
       { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
     ],
     faqs: [
-      { question: "What's the difference between bentonite and montmorillonite clay?", answer: "Bentonite is a rock composed predominantly of montmorillonite clay — the terms are often used interchangeably in industrial desiccant supply. Both are activated by heat treatment to expose the layered structure that adsorbs moisture." },
-      { question: "Is bentonite clay desiccant safe?", answer: "Yes — bentonite is non-toxic and non-flammable. Like all desiccants, packets should carry DO NOT EAT warnings and be kept away from children and food contact." },
-      { question: "Bentonite or silica gel for shipping containers?", answer: "Silica gel is the better choice for moisture-sensitive cargo on long routes — ~33% adsorption vs bentonite's ~24-28%. Bentonite is the cost-tier choice for industrial durable goods on shorter routes where moisture risk is mild oxidation." },
+      { question: "What's the difference between bentonite and montmorillonite clay?", answer: "Bentonite is a rock composed predominantly of montmorillonite clay - the terms are often used interchangeably in industrial desiccant supply. Both are activated by heat treatment to expose the layered structure that adsorbs moisture." },
+      { question: "Is bentonite clay desiccant safe?", answer: "Yes - bentonite is non-toxic and non-flammable. Like all desiccants, packets should carry DO NOT EAT warnings and be kept away from children and food contact." },
+      { question: "Bentonite or silica gel for shipping containers?", answer: "Silica gel is the better choice for moisture-sensitive cargo on long routes - ~33% adsorption vs bentonite's ~24-28%. Bentonite is the cost-tier choice for industrial durable goods on shorter routes where moisture risk is mild oxidation." },
     ],
   }),
   "disposable-beard-covers": keywordClusterPage({
@@ -2201,20 +2201,20 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Disposable beard covers for food handling, manufacturing, healthcare, and cleanroom PPE programs. Single-use non-woven polypropylene with elasticated edge, carton-packed for production-line distribution.",
     kicker: "Disposable Beard Covers",
-    h1: "Disposable beard covers — single-use facial-hair containment.",
+    h1: "Disposable beard covers - single-use facial-hair containment.",
     lead:
-      "Single-use disposable beard covers (beard nets) for food, manufacturing, healthcare, and cleanroom PPE. Non-woven polypropylene with elasticated edge — the standard format for production-line facial-hair containment.",
+      "Single-use disposable beard covers (beard nets) for food, manufacturing, healthcare, and cleanroom PPE. Non-woven polypropylene with elasticated edge - the standard format for production-line facial-hair containment.",
     searchIntent: "B2B buyer keyword: disposable beard covers, single-use beard net, disposable beard guard supplier",
     primaryCta: "Request Disposable Beard Cover Quote",
     proofPoints: [
-      "Single-use — no laundering required",
+      "Single-use - no laundering required",
       "Non-woven polypropylene with elastic edge",
       "Carton-packed 100 or 1000 ct",
       "Pairs with hair net PPE programs",
     ],
     image: "/products/beard-covers.jpg",
     imageAlt: "Disposable beard covers for industrial PPE programs",
-    imageCaption: "Disposable beard covers are the standard for B2B facial-hair containment — order alongside matching hair nets for full PPE coverage.",
+    imageCaption: "Disposable beard covers are the standard for B2B facial-hair containment - order alongside matching hair nets for full PPE coverage.",
     chips: ["Disposable", "Single-use", "PPE", "Facial hair"],
     fitTitle: "Disposable beard cover buying paths",
     useCases: [
@@ -2226,7 +2226,7 @@ const highIntentSeoLandingPages = {
     formats: "Non-woven PP with elastic edge, carton 100 or 1000 ct",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
     documents: "ISO 9001:2015 quality reference",
-    buyerRisk: "Under-ordering beard covers relative to male workforce headcount — plan ~30-50% of male shift coverage",
+    buyerRisk: "Under-ordering beard covers relative to male workforce headcount - plan ~30-50% of male shift coverage",
     quoteBasis: "Carton count, monthly volume, destination, labeling, private-label requirement",
     relatedLinks: [
       { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
@@ -2236,7 +2236,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "Are disposable beard covers food-safe?", answer: "Beard covers are supplied as industrial-safety PPE. Formal food-grade certifications (FDA, FSSC 22000, EU 1935/2004) are buyer-driven discussions and must be confirmed against the destination market's requirement before commercial terms." },
       { question: "How many beard covers do I need per shift?", answer: "Working starting point: ~30-50% of male workforce headcount per shift, depending on facial-hair demographic. Under-ordering beard covers is one of the most common B2B PPE procurement mistakes." },
-      { question: "Order beard covers and hair nets together?", answer: "Yes — most B2B PPE programs order both together because they serve complementary functions (hair containment + facial-hair containment). DryGelWorld supplies both and can quote a combined program." },
+      { question: "Order beard covers and hair nets together?", answer: "Yes - most B2B PPE programs order both together because they serve complementary functions (hair containment + facial-hair containment). DryGelWorld supplies both and can quote a combined program." },
     ],
   }),
   "beard-cover-supplier-uk": keywordClusterPage({
@@ -2278,7 +2278,7 @@ const highIntentSeoLandingPages = {
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
     faqs: [
-      { question: "Do you ship beard covers to the UK?", answer: "Yes — Karachi-to-Felixstowe is the standard ocean lane, with Southampton, London Gateway, and Liverpool also supported. Post-Brexit customs documentation aligned with the buyer's import broker before dispatch." },
+      { question: "Do you ship beard covers to the UK?", answer: "Yes - Karachi-to-Felixstowe is the standard ocean lane, with Southampton, London Gateway, and Liverpool also supported. Post-Brexit customs documentation aligned with the buyer's import broker before dispatch." },
       { question: "Are these beard covers EN 14126 certified?", answer: "EN 14126 is a buyer-driven compliance framework, not a held credential. DryGelWorld supplies beard covers as industrial-safety PPE; formal EN 14126 certification must be confirmed against the buyer's compliance program before commercial terms." },
       { question: "Can you supply UK-language carton labeling?", answer: "English-language carton labeling is the default. UK-specific brand or compliance markings can be discussed at RFQ stage; private label is viable above a few thousand cartons per design." },
     ],
@@ -2302,7 +2302,7 @@ const highIntentSeoLandingPages = {
     ],
     image: "/silicagel_paper_technical.webp",
     imageAlt: "Silica gel desiccant for US distributors, electronics packers, and pharma buyers",
-    imageCaption: "US importers should align FDA documentation expectations early — FDA approval is a buyer-driven discussion, not a held credential.",
+    imageCaption: "US importers should align FDA documentation expectations early - FDA approval is a buyer-driven discussion, not a held credential.",
     chips: ["USA", "Karachi-US", "Electronics", "Distribution"],
     fitTitle: "US buyer paths for Karachi-origin silica gel",
     useCases: [
@@ -2322,9 +2322,9 @@ const highIntentSeoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship silica gel directly to the US?", answer: "Yes — Karachi-to-US is a standard ocean freight lane. East Coast (NYC, Savannah) and West Coast (LA, Long Beach, Oakland, Seattle) are all supported. Buyers should confirm Incoterms and FDA documentation expectations at RFQ stage." },
+      { question: "Do you ship silica gel directly to the US?", answer: "Yes - Karachi-to-US is a standard ocean freight lane. East Coast (NYC, Savannah) and West Coast (LA, Long Beach, Oakland, Seattle) are all supported. Buyers should confirm Incoterms and FDA documentation expectations at RFQ stage." },
       { question: "Is the silica gel FDA-registered?", answer: "FDA registration is a buyer-driven discussion. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal FDA registration must be confirmed against the buyer's compliance program before dispatch." },
-      { question: "What's typical Karachi-to-US transit time?", answer: "East Coast (NYC, Savannah): ~30 days. West Coast (LA, Long Beach): ~28-32 days trans-Pacific. Add buffer for storm cycles and port congestion. Plan moisture protection accordingly — both routes are tropical-to-temperate long-haul." },
+      { question: "What's typical Karachi-to-US transit time?", answer: "East Coast (NYC, Savannah): ~30 days. West Coast (LA, Long Beach): ~28-32 days trans-Pacific. Add buffer for storm cycles and port congestion. Plan moisture protection accordingly - both routes are tropical-to-temperate long-haul." },
     ],
   }),
   "21-inch-hair-nets": keywordClusterPage({
@@ -2333,24 +2333,24 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "21 inch bouffant hair nets for food processing, manufacturing, and healthcare PPE. Mid-range diameter between snug 18\" and full-coverage 22\" sizes. Non-woven polypropylene, green and white, carton-packed.",
     kicker: "21 Inch Hair Nets",
-    h1: "21 inch bouffant hair nets — mid-range size between 20\" and 22\".",
+    h1: "21 inch bouffant hair nets - mid-range size between 20\" and 22\".",
     lead:
-      "21 inch diameter sits between the standard 20\" and the full-coverage 22\" sizes — used by production lines that want a middle-ground fit or workers who find 20\" slightly snug and 22\" slightly loose. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000.",
+      "21 inch diameter sits between the standard 20\" and the full-coverage 22\" sizes - used by production lines that want a middle-ground fit or workers who find 20\" slightly snug and 22\" slightly loose. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000.",
     searchIntent: "B2B buyer keyword: 21 inch hair nets, mid-size bouffant hair net, food industry hair net 21 inch",
     primaryCta: "Request 21 Inch Hair Net Quote",
     proofPoints: [
-      "21 inch diameter — mid-range size",
+      "21 inch diameter - mid-range size",
       "Non-woven polypropylene with elastic edge",
       "Green and white stock colors",
       "Carton-packed 100 or 1000 ct",
     ],
     image: "/products/hair-nets.jpg",
     imageAlt: "21 inch bouffant hair nets supplied for industrial PPE programs",
-    imageCaption: "21 inch is the middle option in the bouffant range — fits workers who find standard 20\" snug or 22\" loose.",
+    imageCaption: "21 inch is the middle option in the bouffant range - fits workers who find standard 20\" snug or 22\" loose.",
     chips: ["21\"", "Bouffant", "PPE", "Mid-range"],
     fitTitle: "21 inch hair net buying paths",
     useCases: [
-      { label: "Production line", title: "Mid-range workforce fit", text: "21\" covers the gap between snug 18\" and full-coverage 22\" — useful for workforces with a wider head-size distribution." },
+      { label: "Production line", title: "Mid-range workforce fit", text: "21\" covers the gap between snug 18\" and full-coverage 22\" - useful for workforces with a wider head-size distribution." },
       { label: "Mixed inventory", title: "Multi-size programs", text: "Stock 21\" alongside 20\" and 22\" for full workforce coverage; some programs prefer 18\"+21\" instead of 18\"+20\"+22\" for simpler inventory." },
       { label: "Color zoning", title: "Zone-coded production", text: "21\" available in both stock colors (green and white) for production lines using PPE color zones." },
     ],
@@ -2368,7 +2368,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "When does 21 inch make sense over 20 inch or 22 inch?", answer: "21\" is the right choice when workers find 20\" slightly tight and 22\" slightly loose. Programs ordering only one mid-range size often prefer 21\" over 20\" for the extra fit margin." },
       { question: "Are 21 inch hair nets common?", answer: "Less stocked than 20\" or 22\" but still in standard production. Carton MOQ is similar; lead time may be slightly longer for the smaller-volume size." },
-      { question: "Can I order 21\" in both green and white?", answer: "Yes — 21\" is available in both standard stock colors for production lines using PPE color zoning." },
+      { question: "Can I order 21\" in both green and white?", answer: "Yes - 21\" is available in both standard stock colors for production lines using PPE color zoning." },
     ],
   }),
   "non-woven-hair-nets": keywordClusterPage({
@@ -2377,24 +2377,24 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Non-woven polypropylene hair nets for food processing, manufacturing, healthcare, and cleanroom PPE. Industry-standard material with elasticated edge, 18-22 inch diameters, green and white, carton-packed.",
     kicker: "Non-Woven Hair Nets",
-    h1: "Non-woven polypropylene hair nets — the industry-standard material.",
+    h1: "Non-woven polypropylene hair nets - the industry-standard material.",
     lead:
-      "Non-woven polypropylene (PP) is the industry-standard material for disposable bouffant hair nets — lightweight, breathable, single-use, and competitively priced. DryGelWorld supplies non-woven PP nets in 18, 20, 21, and 22 inch diameters across green and white stock colors.",
+      "Non-woven polypropylene (PP) is the industry-standard material for disposable bouffant hair nets - lightweight, breathable, single-use, and competitively priced. DryGelWorld supplies non-woven PP nets in 18, 20, 21, and 22 inch diameters across green and white stock colors.",
     searchIntent: "B2B buyer keyword: non-woven hair nets, polypropylene hair net, PP bouffant cap supplier",
     primaryCta: "Request Non-Woven Hair Net Quote",
     proofPoints: [
-      "Non-woven polypropylene — industry-standard material",
+      "Non-woven polypropylene - industry-standard material",
       "Elasticated edge for comfortable fit",
       "18\"-22\" diameter range",
       "Green and white stock colors",
     ],
     image: "/products/hair-nets.jpg",
     imageAlt: "Non-woven polypropylene hair nets for industrial PPE",
-    imageCaption: "Non-woven polypropylene is the workhorse material for B2B disposable PPE — lightweight, breathable, and cost-effective.",
+    imageCaption: "Non-woven polypropylene is the workhorse material for B2B disposable PPE - lightweight, breathable, and cost-effective.",
     chips: ["Non-woven", "Polypropylene", "PPE", "Disposable"],
     fitTitle: "Non-woven hair net buying paths",
     useCases: [
-      { label: "Standard", title: "Default B2B PPE material", text: "Non-woven polypropylene is the default material for B2B disposable hair nets — covers food processing, manufacturing, healthcare, and cleanroom programs." },
+      { label: "Standard", title: "Default B2B PPE material", text: "Non-woven polypropylene is the default material for B2B disposable hair nets - covers food processing, manufacturing, healthcare, and cleanroom programs." },
       { label: "Cost", title: "Cost-effective vs alternatives", text: "Significantly cheaper than Tyvek or other premium materials; appropriate for most non-cleanroom-grade applications." },
       { label: "Comfort", title: "Breathable for long shifts", text: "Lightweight and breathable for workers wearing PPE through long production shifts without ventilation discomfort." },
     ],
@@ -2411,7 +2411,7 @@ const highIntentSeoLandingPages = {
     ],
     faqs: [
       { question: "Non-woven polypropylene vs Tyvek for hair nets?", answer: "Non-woven PP is the cost-effective B2B default. Tyvek is preferred for cleanroom-grade pharma and electronics programs because of its low-shed profile. DryGelWorld currently supplies non-woven PP; Tyvek format is on the expansion roadmap." },
-      { question: "Are non-woven hair nets disposable?", answer: "Yes — non-woven PP hair nets are designed for single-use disposal. Industrial laundering is not practical for non-woven materials; reusable PPE programs typically use different fabric types." },
+      { question: "Are non-woven hair nets disposable?", answer: "Yes - non-woven PP hair nets are designed for single-use disposal. Industrial laundering is not practical for non-woven materials; reusable PPE programs typically use different fabric types." },
       { question: "What's the typical carton count?", answer: "Standard cartons hold 100 or 1000 pieces. Custom carton sizes can be discussed for high-volume programs. Private-label carton printing viable above a few thousand cartons per design." },
     ],
   }),
@@ -2454,9 +2454,9 @@ const highIntentSeoLandingPages = {
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
-      { question: "Do you ship hair nets to the US?", answer: "Yes — Karachi-to-US-Coast is a documented lane. East Coast (NYC, Savannah) and West Coast (LA, Long Beach, Seattle) are all supported. Buyers should confirm Incoterms and any FDA / FSSC documentation expectations at RFQ stage." },
+      { question: "Do you ship hair nets to the US?", answer: "Yes - Karachi-to-US-Coast is a documented lane. East Coast (NYC, Savannah) and West Coast (LA, Long Beach, Seattle) are all supported. Buyers should confirm Incoterms and any FDA / FSSC documentation expectations at RFQ stage." },
       { question: "Are these US food-grade certified?", answer: "FDA / FSSC 22000 are buyer-driven discussions, not held credentials. Hair nets are supplied as industrial-safety PPE; formal US food-grade compliance must be confirmed against the buyer's destination requirement before commercial terms." },
-      { question: "Can you do private-label for US distributors?", answer: "Yes — private-label carton printing and supplier labeling can be discussed at RFQ stage. Typical viability above a few thousand cartons per design." },
+      { question: "Can you do private-label for US distributors?", answer: "Yes - private-label carton printing and supplier labeling can be discussed at RFQ stage. Typical viability above a few thousand cartons per design." },
     ],
   }),
   "beard-cover-supplier-saudi-arabia": keywordClusterPage({
@@ -2498,7 +2498,7 @@ const highIntentSeoLandingPages = {
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
     faqs: [
-      { question: "Do you ship beard covers to Saudi Arabia?", answer: "Yes — Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms, Arabic / English carton labeling, and any SASO documentation expectations at RFQ stage." },
+      { question: "Do you ship beard covers to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms, Arabic / English carton labeling, and any SASO documentation expectations at RFQ stage." },
       { question: "Are beard covers SASO certified?", answer: "SASO compliance is a buyer-driven discussion, not a held credential. DryGelWorld supplies beard covers as industrial-safety PPE; formal SASO must be confirmed against the buyer's import program before dispatch." },
       { question: "Can you supply Arabic carton labeling?", answer: "Arabic / English carton labeling can be discussed alongside the order. Confirm artwork requirements at RFQ stage so labeling is prepared before dispatch." },
     ],
@@ -2528,7 +2528,7 @@ const highIntentSeoLandingPages = {
     useCases: [
       { label: "Industrial", title: "European industrial cargo", text: "Clay desiccant for industrial cargo, machinery parts, automotive packaging, and durable goods where cost-tier moisture protection is the priority." },
       { label: "Distribution", title: "EU distributor networks", text: "Bulk clay packs for European distributors and industrial resellers serving regional industrial customers." },
-      { label: "Multi-port", title: "Multi-region EU supply", text: "Coordinated supply across Hamburg / Rotterdam / Antwerp / Le Havre / Felixstowe — same product, simplified commercial terms." },
+      { label: "Multi-port", title: "Multi-region EU supply", text: "Coordinated supply across Hamburg / Rotterdam / Antwerp / Le Havre / Felixstowe - same product, simplified commercial terms." },
     ],
     targetKeywords: "dry clay desiccant exporter europe, bentonite clay supplier eu, montmorillonite desiccant europe, clay desiccant industrial europe",
     formats: "Activated bentonite / montmorillonite; sachets, bags, custom industrial packaging",
@@ -2542,9 +2542,9 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
     ],
     faqs: [
-      { question: "Do you ship dry clay desiccant across Europe?", answer: "Yes — Karachi-to-Europe is a documented lane with multi-port options (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe). Buyers can pick the destination port that fits their distribution network." },
+      { question: "Do you ship dry clay desiccant across Europe?", answer: "Yes - Karachi-to-Europe is a documented lane with multi-port options (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe). Buyers can pick the destination port that fits their distribution network." },
       { question: "Is the clay REACH-registered for EU sale?", answer: "REACH registration is a buyer-driven discussion, not a held credential. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal REACH compliance must be confirmed against the buyer's compliance program before dispatch." },
-      { question: "Bentonite or montmorillonite — what do you supply?", answer: "Both formats can be discussed depending on buyer requirement and packaging compatibility. The terms are often used interchangeably — bentonite is a rock predominantly composed of montmorillonite clay. Confirm preferred specification at RFQ stage." },
+      { question: "Bentonite or montmorillonite - what do you supply?", answer: "Both formats can be discussed depending on buyer requirement and packaging compatibility. The terms are often used interchangeably - bentonite is a rock predominantly composed of montmorillonite clay. Confirm preferred specification at RFQ stage." },
     ],
   }),
   "non-woven-beard-covers": keywordClusterPage({
@@ -2553,13 +2553,13 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Non-woven polypropylene beard covers for food, manufacturing, healthcare, and cleanroom PPE programs. Industry-standard material with elasticated edge, disposable single-use, carton-packed 100 or 1000.",
     kicker: "Non-Woven Beard Covers",
-    h1: "Non-woven polypropylene beard covers — industry-standard PPE.",
+    h1: "Non-woven polypropylene beard covers - industry-standard PPE.",
     lead:
-      "Non-woven polypropylene is the industry-standard material for disposable beard covers — lightweight, breathable, single-use, cost-effective. DryGelWorld supplies non-woven PP beard covers with elasticated edges, carton-packed for production-line distribution.",
+      "Non-woven polypropylene is the industry-standard material for disposable beard covers - lightweight, breathable, single-use, cost-effective. DryGelWorld supplies non-woven PP beard covers with elasticated edges, carton-packed for production-line distribution.",
     searchIntent: "B2B buyer keyword: non-woven beard covers, polypropylene beard net, PP beard guard supplier",
     primaryCta: "Request Non-Woven Beard Cover Quote",
     proofPoints: [
-      "Non-woven polypropylene — industry-standard material",
+      "Non-woven polypropylene - industry-standard material",
       "Elasticated edge for fit",
       "Single-use disposable",
       "Carton 100 or 1000 ct",
@@ -2570,7 +2570,7 @@ const highIntentSeoLandingPages = {
     chips: ["Non-woven", "Polypropylene", "PPE", "Disposable"],
     fitTitle: "Non-woven beard cover buying paths",
     useCases: [
-      { label: "Standard", title: "Default B2B material", text: "Non-woven polypropylene is the default for B2B disposable beard covers — covers food, manufacturing, healthcare PPE programs." },
+      { label: "Standard", title: "Default B2B material", text: "Non-woven polypropylene is the default for B2B disposable beard covers - covers food, manufacturing, healthcare PPE programs." },
       { label: "Cost", title: "Cost-effective vs Tyvek", text: "Significantly cheaper than Tyvek-format alternatives; right choice for non-cleanroom-grade applications." },
       { label: "Pair with hair nets", title: "Matching PPE program", text: "Order alongside non-woven hair nets for a consistent material and supplier across the PPE program." },
     ],
@@ -2588,14 +2588,14 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "Non-woven PP vs Tyvek for beard covers?", answer: "Non-woven PP is the cost-effective B2B default. Tyvek is preferred for cleanroom-grade pharmaceutical environments because of its low-shed profile. DryGelWorld currently supplies non-woven PP; Tyvek format is on the expansion roadmap." },
       { question: "Are non-woven beard covers food-safe?", answer: "Industrial safety PPE positioning. Formal food-grade certifications (FDA, FSSC 22000, EU 1935/2004) are buyer-driven discussions, not held credentials. Confirm market-specific compliance at RFQ stage." },
-      { question: "Disposable or reusable?", answer: "DryGelWorld supplies disposable non-woven PP beard covers. Reusable beard covers are typically microfiber and require industrial laundering — different supplier category. For most B2B operations under 50-100 employees per shift, disposable wins on total cost." },
+      { question: "Disposable or reusable?", answer: "DryGelWorld supplies disposable non-woven PP beard covers. Reusable beard covers are typically microfiber and require industrial laundering - different supplier category. For most B2B operations under 50-100 employees per shift, disposable wins on total cost." },
     ],
   }),
   "desiccants-for-pharma-industry": keywordClusterPage({
     slug: "desiccants-for-pharma-industry",
     title: "Desiccants for Pharma Industry | Pharmaceutical Packaging Silica Gel Supplier",
     metaDescription:
-      "Desiccants for pharmaceutical packaging — silica gel sachets for pill bottles, blister packs, diagnostic kits, healthcare cartons, and regulated pharma export. Document support: ISO 9001:2015, SDS, COA, DMF-free statement.",
+      "Desiccants for pharmaceutical packaging - silica gel sachets for pill bottles, blister packs, diagnostic kits, healthcare cartons, and regulated pharma export. Document support: ISO 9001:2015, SDS, COA, DMF-free statement.",
     kicker: "Pharma Industry Desiccants",
     h1: "Desiccants for pharma industry packaging and export programs.",
     lead:
@@ -2610,19 +2610,19 @@ const highIntentSeoLandingPages = {
     ],
     image: "/silicagel_paper_technical.webp",
     imageAlt: "Silica gel desiccants for pharmaceutical packaging programs",
-    imageCaption: "Pharma packagers should confirm USP / GMP / FDA compliance requirements at RFQ stage — these are buyer-driven discussions, not held credentials.",
+    imageCaption: "Pharma packagers should confirm USP / GMP / FDA compliance requirements at RFQ stage - these are buyer-driven discussions, not held credentials.",
     chips: ["Pharma", "Healthcare", "Packaging", "Regulated"],
     fitTitle: "Pharma industry desiccant buying paths",
     useCases: [
       { label: "Bottles", title: "Pill bottle desiccant inserts", text: "Small 0.5g-1g sachets sized for pharmaceutical pill bottle inserts. Confirm bottle volume, sachet count per bottle, and packet material at RFQ." },
-      { label: "Blister", title: "Blister and unit-pack moisture control", text: "Sachets at the secondary packaging level — between blister cards and the outer carton. Pharma packaging often uses 2g-5g format for unit-level control." },
+      { label: "Blister", title: "Blister and unit-pack moisture control", text: "Sachets at the secondary packaging level - between blister cards and the outer carton. Pharma packaging often uses 2g-5g format for unit-level control." },
       { label: "Cartons", title: "Healthcare carton and pallet protection", text: "10g-50g sachets at master carton level for pharmaceutical export programs. Pair with container strips for long-haul tropical-to-temperate routes." },
     ],
     targetKeywords: "desiccant pharma industry, silica gel pharmaceutical packaging, pharma desiccant supplier, healthcare moisture control",
     formats: "0.5g-10g sachets, 25g-500g carton packs, 1kg-5kg container strips",
     buyerTypes: "Pharmaceutical packagers, healthcare procurement, contract packaging organizations, regulated export programs",
     documents: "ISO 9001:2015, SDS, COA, DMF-free statement; USP / GMP / FDA DMF Type III buyer-driven, not held",
-    buyerRisk: "Assuming USP or GMP coverage from generic industrial silica gel — these are credentials that require formal documentation",
+    buyerRisk: "Assuming USP or GMP coverage from generic industrial silica gel - these are credentials that require formal documentation",
     quoteBasis: "Sachet size, bottle/carton volume, monthly quantity, destination, compliance requirements",
     relatedLinks: [
       { label: "Pharma packaging industry page", href: "/industries/pharma-packaging" },
@@ -2639,11 +2639,11 @@ const highIntentSeoLandingPages = {
     slug: "hair-nets-for-food-industry",
     title: "Hair Nets for Food Industry | Bouffant PPE for Food Processing",
     metaDescription:
-      "Hair nets for food industry — bouffant PPE for food processing, packaging, bakery, dairy, and meat operations. Non-woven polypropylene in 18-22 inch diameters, green and white color zoning, B2B export supply.",
+      "Hair nets for food industry - bouffant PPE for food processing, packaging, bakery, dairy, and meat operations. Non-woven polypropylene in 18-22 inch diameters, green and white color zoning, B2B export supply.",
     kicker: "Food Industry Hair Nets",
     h1: "Hair nets for food industry processing, packaging, and export programs.",
     lead:
-      "Bouffant hair nets sized and color-coded for food industry PPE programs — food processing lines, packaging halls, bakery operations, dairy plants, meat processing, and hospitality kitchens. Non-woven polypropylene with elasticated edge in 18, 20, 21, and 22 inch diameters, supplied in green (raw zones) and white (packaging/finished zones).",
+      "Bouffant hair nets sized and color-coded for food industry PPE programs - food processing lines, packaging halls, bakery operations, dairy plants, meat processing, and hospitality kitchens. Non-woven polypropylene with elasticated edge in 18, 20, 21, and 22 inch diameters, supplied in green (raw zones) and white (packaging/finished zones).",
     searchIntent: "Food industry buyer keyword: hair nets for food industry, food processing hair nets, bouffant cap food",
     primaryCta: "Request Food Industry Quote",
     proofPoints: [
@@ -2654,7 +2654,7 @@ const highIntentSeoLandingPages = {
     ],
     image: "/products/hair-nets.jpg",
     imageAlt: "Hair nets for food industry processing and packaging PPE",
-    imageCaption: "Food processors typically stock both green and white hair nets to enable zone separation — green for raw-product zones, white for packaging and finished zones.",
+    imageCaption: "Food processors typically stock both green and white hair nets to enable zone separation - green for raw-product zones, white for packaging and finished zones.",
     chips: ["Food", "Industry", "Bouffant", "PPE"],
     fitTitle: "Food industry hair net buying paths",
     useCases: [
@@ -2666,7 +2666,7 @@ const highIntentSeoLandingPages = {
     formats: "Bouffant non-woven PP, 18\"-22\" diameter, green or white",
     buyerTypes: "Food processors, bakeries, dairy plants, meat processors, packaging halls, hospitality operations, food service distributors",
     documents: "ISO 9001:2015 quality reference; food-grade certifications discussed per buyer market",
-    buyerRisk: "Skipping color zoning — single-color PPE programs lose the visual cross-contamination prevention that color zoning provides",
+    buyerRisk: "Skipping color zoning - single-color PPE programs lose the visual cross-contamination prevention that color zoning provides",
     quoteBasis: "Diameter mix, color split (green/white), carton count, monthly volume, destination, labeling",
     relatedLinks: [
       { label: "Food-grade hair nets", href: "/food-grade-hair-nets" },
@@ -2683,11 +2683,11 @@ const highIntentSeoLandingPages = {
     slug: "moisture-absorber-for-shipping",
     title: "Moisture Absorber for Shipping | B2B Container & Cargo Supply",
     metaDescription:
-      "Moisture absorbers designed for B2B shipping — silica gel and dry clay desiccants for cartons, containers, and pallet-level cargo protection. Karachi-origin export supply across UAE, Saudi, USA, UK, EU markets.",
+      "Moisture absorbers designed for B2B shipping - silica gel and dry clay desiccants for cartons, containers, and pallet-level cargo protection. Karachi-origin export supply across UAE, Saudi, USA, UK, EU markets.",
     kicker: "Moisture Absorber for Shipping",
     h1: "Moisture absorbers for B2B shipping and container freight programs.",
     lead:
-      "B2B moisture absorbers for international shipping — silica gel sachets and bags, dry clay desiccants, and 1kg-5kg container strips. Designed for cargo protection on long-haul ocean voyages, intra-region freight, and multi-region distribution programs.",
+      "B2B moisture absorbers for international shipping - silica gel sachets and bags, dry clay desiccants, and 1kg-5kg container strips. Designed for cargo protection on long-haul ocean voyages, intra-region freight, and multi-region distribution programs.",
     searchIntent: "B2B buyer keyword: moisture absorber for shipping, container moisture absorber, shipping cargo moisture control",
     primaryCta: "Request Moisture Absorber Quote",
     proofPoints: [
@@ -2702,7 +2702,7 @@ const highIntentSeoLandingPages = {
     chips: ["Shipping", "Container", "B2B", "Cargo"],
     fitTitle: "Shipping moisture absorber buying paths",
     useCases: [
-      { label: "Product pack", title: "Unit-level moisture absorption", text: "0.5g-5g silica gel sachets inside product packs — electronics, leather goods, pharma bottles, retail packaging." },
+      { label: "Product pack", title: "Unit-level moisture absorption", text: "0.5g-5g silica gel sachets inside product packs - electronics, leather goods, pharma bottles, retail packaging." },
       { label: "Carton", title: "Master carton moisture control", text: "10g-50g sachets at master carton level managing carton-air humidity through transit." },
       { label: "Container", title: "Container-air moisture absorption", text: "1kg-5kg cargo strips hung at container ceiling, absorbing condensation as it cycles across the voyage." },
     ],
@@ -2710,7 +2710,7 @@ const highIntentSeoLandingPages = {
     formats: "Silica gel sachets 0.5g-500g; dry clay packs; 1kg-5kg cargo strips",
     buyerTypes: "Exporters, packaging companies, freight forwarders, distributor networks, industrial shipping programs",
     documents: "ISO 9001:2015, SDS, COA, DMF-free statement on request",
-    buyerRisk: "Conflating 'moisture absorber' (generic term) with specific product format — different applications need different formats",
+    buyerRisk: "Conflating 'moisture absorber' (generic term) with specific product format - different applications need different formats",
     quoteBasis: "Format mix, volume, route, destination, documentation",
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
@@ -2731,7 +2731,7 @@ const highIntentSeoLandingPages = {
     kicker: "Silica Gel for Leather Export",
     h1: "Silica gel for leather, footwear, and leather goods export programs.",
     lead:
-      "Silica gel desiccants sized for leather export programs — protecting footwear, leather garments, leather accessories, and finished leather goods from mold, finish damage, and odor during long-haul ocean freight. DMF-free statement is essential for EU-bound leather cargo following the 2009 DMF ban.",
+      "Silica gel desiccants sized for leather export programs - protecting footwear, leather garments, leather accessories, and finished leather goods from mold, finish damage, and odor during long-haul ocean freight. DMF-free statement is essential for EU-bound leather cargo following the 2009 DMF ban.",
     searchIntent: "Leather exporter buyer keyword: silica gel leather export, footwear moisture control, leather goods desiccant",
     primaryCta: "Request Leather Export Quote",
     proofPoints: [
@@ -2742,7 +2742,7 @@ const highIntentSeoLandingPages = {
     ],
     image: "/silicagel_paper_technical.webp",
     imageAlt: "Silica gel for leather export and footwear shipping",
-    imageCaption: "Leather exporters bound for EU markets must request DMF-free statements — non-DMF-free silica gel triggered the 2009 EU ban on certain leather imports.",
+    imageCaption: "Leather exporters bound for EU markets must request DMF-free statements - non-DMF-free silica gel triggered the 2009 EU ban on certain leather imports.",
     chips: ["Leather", "Footwear", "Export", "EU"],
     fitTitle: "Leather export moisture control buying paths",
     useCases: [
@@ -2753,8 +2753,8 @@ const highIntentSeoLandingPages = {
     targetKeywords: "silica gel leather export, footwear moisture control, leather goods desiccant, leather export packaging",
     formats: "0.5g-10g unit-pack sachets, 25g-50g carton sachets, 1kg-5kg container strips",
     buyerTypes: "Footwear exporters, leather goods brands, leather garment producers, leather accessory manufacturers",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement — DMF-free is non-negotiable for EU markets",
-    buyerRisk: "Buying non-DMF-free silica gel for EU-bound leather — guarantees shipment rejection under the 2009 EU DMF ban",
+    documents: "ISO 9001:2015, SDS, COA, DMF-free statement - DMF-free is non-negotiable for EU markets",
+    buyerRisk: "Buying non-DMF-free silica gel for EU-bound leather - guarantees shipment rejection under the 2009 EU DMF ban",
     quoteBasis: "Sachet sizing per product, master carton dosage, container strip count, destination market, DMF-free confirmation",
     relatedLinks: [
       { label: "Leather and footwear export industry", href: "/industries/leather-footwear-export" },
@@ -2775,7 +2775,7 @@ const highIntentSeoLandingPages = {
     kicker: "Silica Gel Beads",
     h1: "Silica gel beads for industrial re-packers and bulk wholesale supply.",
     lead:
-      "Loose silica gel beads in 25kg bulk bags — amorphous silicon dioxide with uniform 1-3mm bead size, designed for industrial re-packers, distributors, and high-volume packaging operations that fill their own sachets and sell to downstream customers.",
+      "Loose silica gel beads in 25kg bulk bags - amorphous silicon dioxide with uniform 1-3mm bead size, designed for industrial re-packers, distributors, and high-volume packaging operations that fill their own sachets and sell to downstream customers.",
     searchIntent: "B2B buyer keyword: silica gel beads, bulk silica gel beads, silica gel bead supplier, loose silica beads",
     primaryCta: "Request Bead Quote",
     proofPoints: [
@@ -2798,7 +2798,7 @@ const highIntentSeoLandingPages = {
     formats: "Loose beads in 25kg bulk bags; uniform 1-3mm size; white non-indicating standard",
     buyerTypes: "Industrial re-packers, distributors, large-scale industrial users, custom packaging lines",
     documents: "ISO 9001:2015, SDS, COA, DMF-free statement on request",
-    buyerRisk: "Buying non-uniform bead size — irregular bead size causes inconsistent adsorption performance and sachet-filling complications",
+    buyerRisk: "Buying non-uniform bead size - irregular bead size causes inconsistent adsorption performance and sachet-filling complications",
     quoteBasis: "Bead quantity (25kg bag count), monthly tonnage, destination, Incoterms, document expectations",
     relatedLinks: [
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
@@ -2806,7 +2806,7 @@ const highIntentSeoLandingPages = {
       { label: "What is silica gel (blog)", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
     ],
     faqs: [
-      { question: "What are silica gel beads?", answer: "Silica gel beads are loose pellets of amorphous silicon dioxide — the raw material that goes inside sachets and packets. Sold in 25kg bulk bags for industrial re-packers who fill their own sachets. DryGelWorld supplies uniform 1-3mm bead size for consistent adsorption performance." },
+      { question: "What are silica gel beads?", answer: "Silica gel beads are loose pellets of amorphous silicon dioxide - the raw material that goes inside sachets and packets. Sold in 25kg bulk bags for industrial re-packers who fill their own sachets. DryGelWorld supplies uniform 1-3mm bead size for consistent adsorption performance." },
       { question: "What's the typical bead size?", answer: "Industrial-grade silica gel beads are typically 1-3mm uniform. Irregular bead size causes inconsistent adsorption performance and complicates sachet-filling lines. Always specify uniform bead size in the RFQ." },
       { question: "Are these beads indicating or non-indicating?", answer: "Standard supply is white non-indicating silica gel. Orange and blue indicating beads (color change when saturated) are on the DryGelWorld expansion roadmap. Confirm at RFQ stage if indicating is required." },
     ],
@@ -3955,11 +3955,11 @@ export const seoLandingPages = {
     slug: "shipping-container-desiccant-supplier",
     title: "Shipping Container Desiccant Supplier | Sea-Freight",
     metaDescription:
-      "Shipping container desiccant supplier for sea-freight cargo. Stop container rain on long-haul routes — strips, MOQ, ISO 9001:2015, FOB/CIF. RFQ in 24h.",
+      "Shipping container desiccant supplier for sea-freight cargo. Stop container rain on long-haul routes - strips, MOQ, ISO 9001:2015, FOB/CIF. RFQ in 24h.",
     kicker: "Shipping container desiccant",
     h1: "Shipping container desiccant supplier for sea freight and container rain prevention.",
     lead:
-      "As a shipping container desiccant supplier, Dry Gel World plans container desiccants by container size, route humidity, transit time, commodity risk, and destination — then quotes strip count, MOQ, lead time, and Incoterms. ISO 9001:2015, DMF-free, factory-direct export.",
+      "As a shipping container desiccant supplier, Dry Gel World plans container desiccants by container size, route humidity, transit time, commodity risk, and destination - then quotes strip count, MOQ, lead time, and Incoterms. ISO 9001:2015, DMF-free, factory-direct export.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers",
     primaryCta: "Plan Container Desiccants",
     secondaryCta: "Read Container Rain Guide",
@@ -4154,11 +4154,11 @@ export const seoLandingPages = {
     slug: "silica-gel-manufacturer-exporter",
     title: "Silica Gel Manufacturer & Exporter | Factory-Direct Supply",
     metaDescription:
-      "Factory-direct silica gel manufacturer and exporter — buy desiccants from the producer with no middleman. Manufacturing, supply, and export in one RFQ.",
+      "Factory-direct silica gel manufacturer and exporter - buy desiccants from the producer with no middleman. Manufacturing, supply, and export in one RFQ.",
     kicker: "Manufacturer exporter",
-    h1: "Silica gel manufacturer and exporter — factory-direct desiccant supply, no middleman.",
+    h1: "Silica gel manufacturer and exporter - factory-direct desiccant supply, no middleman.",
     lead:
-      "Buy desiccants straight from the producer. As a combined manufacturer and exporter, Dry Gel World handles production, supply, and worldwide shipping through a single RFQ — pick a specialized path below or send one combined inquiry.",
+      "Buy desiccants straight from the producer. As a combined manufacturer and exporter, Dry Gel World handles production, supply, and worldwide shipping through a single RFQ - pick a specialized path below or send one combined inquiry.",
     searchIntent: "Long-tail combined intent: silica gel manufacturer exporter, factory-direct silica gel, manufacturer-direct desiccant export",
     primaryCta: "Request Export Quote",
     secondaryCta: "Explore Export Support",
@@ -4184,7 +4184,7 @@ export const seoLandingPages = {
     ],
     specsTitle: "Manufacturer-exporter capability signals",
     specsIntro:
-      "Everything importers need to confirm Dry Gel World fits their buying path — products, documents, and export support at a glance.",
+      "Everything importers need to confirm Dry Gel World fits their buying path - products, documents, and export support at a glance.",
     specs: [
       { label: "Core products", value: "Silica gel packets, paper sachets, bulk packs, cargo strips" },
       { label: "Buyer types", value: "Importers, distributors, packagers, exporters, warehouses" },

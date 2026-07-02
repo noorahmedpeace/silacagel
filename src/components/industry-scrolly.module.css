@@ -1,0 +1,217 @@
+/*
+ * Industries scrollytelling - sticky image stage + scrolling text blocks.
+ * Desktop >=1000px only; below that the effect is fully disabled and the
+ * industries render as plain stacked cards. No animation libraries.
+ */
+
+.scrolly {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  border-radius: 20px;
+  transition: background 0.6s ease;
+  background: linear-gradient(180deg, #f4f7ff 0%, #eef3fe 100%);
+}
+
+/* Subtle per-industry background tints. */
+.tint0 { background: linear-gradient(180deg, #f4f7ff 0%, #eef3fe 100%); }
+.tint1 { background: linear-gradient(180deg, #f2f8fc 0%, #e9f4fb 100%); }
+.tint2 { background: linear-gradient(180deg, #faf7f2 0%, #f5efe6 100%); }
+.tint3 { background: linear-gradient(180deg, #f3faf4 0%, #ebf6ee 100%); }
+.tint4 { background: linear-gradient(180deg, #f2f6fb 0%, #e9f0f9 100%); }
+
+/* ─────────────── LEFT: sticky image stage (desktop only) ─────────────── */
+
+.stage {
+  display: none;
+}
+
+/* ─────────────── RIGHT: text blocks ─────────────── */
+
+.blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 22px;
+}
+
+.block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.mobileMedia {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 6px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ds-surface-tint);
+}
+
+.mobileImage {
+  object-fit: cover;
+}
+
+.overline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ds-brand-deep);
+}
+
+.block h3 {
+  margin: 0;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  color: var(--ds-text);
+}
+
+.block p {
+  margin: 0;
+  max-width: 46ch;
+  color: var(--ds-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.quoteBtn {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 8px;
+  padding: 13px 24px;
+  border-radius: 11px;
+  background: var(--ds-grad-cta);
+  color: #ffffff;
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  transition: transform 0.3s var(--ds-ease-out), box-shadow 0.3s var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .quoteBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 42px -14px rgba(255, 107, 61, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+}
+
+.quoteBtn:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* ═══════════════ DESKTOP: the scrollytelling effect ═══════════════ */
+
+@media (min-width: 1000px) {
+  .scrolly {
+    grid-template-columns: minmax(0, 0.94fr) minmax(0, 1.06fr);
+    align-items: start;
+    gap: clamp(32px, 4vw, 64px);
+    padding: 0 clamp(24px, 3vw, 48px);
+  }
+
+  .stage {
+    display: block;
+    position: sticky;
+    top: 15%;
+    height: min(64vh, 560px);
+    margin: 40px 0;
+  }
+
+  .stageInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--ds-bg-deep-2);
+    box-shadow: var(--ds-shadow-hero);
+  }
+
+  /* Stacked slides - all mounted, crossfading. The active one settles to
+   * rest; inactive ones sit faded with a slight directional drift + zoom so
+   * every change reads as a smooth cinematic dissolve, not a hard slide.
+   * Opacity + transform only - fully compositor-driven, no jank. */
+  .slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    z-index: 0;
+    transform: translateY(26px) scale(1.05);
+    transition:
+      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+
+  /* Scrolling up, the incoming image drifts down into place instead. */
+  .dirUp .slide {
+    transform: translateY(-26px) scale(1.05);
+  }
+
+  .slideActive {
+    opacity: 1;
+    z-index: 2;
+    transform: translateY(0) scale(1);
+  }
+
+  .dirUp .slideActive {
+    transform: translateY(0) scale(1);
+  }
+
+  .slideImage {
+    object-fit: cover;
+  }
+
+  .blocks {
+    row-gap: 200px;
+    padding: 200px 0;
+  }
+
+  .block {
+    opacity: 0.25;
+  }
+
+  .blockActive {
+    opacity: 1;
+  }
+
+  /* The sticky stage carries the imagery on desktop. */
+  .mobileMedia {
+    display: none;
+  }
+}
+
+/* Reduced motion: plain cross-fade, no drift/zoom. */
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transform: none !important;
+    transition: opacity 0.3s ease;
+  }
+
+  .block {
+    transition: none;
+  }
+
+  .quoteBtn {
+    transition: none;
+  }
+
+  .quoteBtn:hover {
+    transform: none;
+  }
+}

@@ -14,7 +14,7 @@ import {
 } from "@/lib/product-data";
 import styles from "./about.module.css";
 
-// Brand glyphs (simple-icons paths) — lucide-react no longer ships brand logos.
+// Brand glyphs (simple-icons paths) - lucide-react no longer ships brand logos.
 const brandPaths = {
   facebook:
     "M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "1983", label: "Manufacturing since" },
-  { value: "60+", label: "Export markets" },
+  { value: "190+", label: "Export markets" },
   { value: "ISO 9001:2015", label: "Manufacturer certified" },
   { value: "24h", label: "Quote response target" },
 ];
@@ -67,17 +67,17 @@ const verifiableClaims = [
   {
     label: "Brand structure",
     value: "Two brands, one manufacturer",
-    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is our global export brand — one manufacturer, operating since 1983.",
+    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is our global export brand - one manufacturer, operating since 1983.",
   },
   {
     label: "Head office",
     value: companyAddressFull,
-    note: "Public head office and sales desk (Gulshan-e-Iqbal, Karachi) — primary point of contact for quotes, documentation, and buyer coordination.",
+    note: "Public head office and sales desk (Gulshan-e-Iqbal, Karachi) - primary point of contact for quotes, documentation, and buyer coordination.",
   },
   {
     label: "Manufacturing site",
     value: factoryAddressFull,
-    note: "Production factory in North Karachi Industrial Area — silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
+    note: "Production factory in North Karachi Industrial Area - silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
   },
   {
     label: "Manufacturer certification",
@@ -91,21 +91,21 @@ const verifiableClaims = [
   },
   {
     label: "Export markets",
-    value: "60+ countries",
+    value: "190+ countries",
     note: "Active export to Middle East, EU, USA, Africa, Asia-Pacific. Country-specific landing pages at /export.",
   },
 ];
 
-// Honest scope statement — what we DO NOT currently hold. This is the
+// Honest scope statement - what we DO NOT currently hold. This is the
 // E-E-A-T differentiator: B2B buyers trust suppliers who clearly state
 // their regulatory scope rather than vague universal compliance claims.
 const honestScope = [
-  "FDA Drug Master File (DMF) — required for direct-contact pharma silica gel",
-  "FDA food-contact certification (FCN or GRAS) — required for direct food-contact silica gel",
-  "EU Regulation 1935/2004 Declaration of Compliance — required for direct food-contact in EU markets",
-  "REACH-specific food-contact registration — required for some EU food-contact applications",
-  "JEDEC moisture sensitivity classification — required for certain semiconductor packaging",
-  "MIL-spec, Halal, or FSSC food-grade — required by specific buyer audit programs",
+  "FDA Drug Master File (DMF) - required for direct-contact pharma silica gel",
+  "FDA food-contact certification (FCN or GRAS) - required for direct food-contact silica gel",
+  "EU Regulation 1935/2004 Declaration of Compliance - required for direct food-contact in EU markets",
+  "REACH-specific food-contact registration - required for some EU food-contact applications",
+  "JEDEC moisture sensitivity classification - required for certain semiconductor packaging",
+  "MIL-spec, Halal, or FSSC food-grade - required by specific buyer audit programs",
 ];
 
 const values = [
@@ -142,9 +142,8 @@ export default function AboutPage() {
             <span className={styles.kicker}>Industrial Profile</span>
             <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              Dry Gel World supports manufacturers, exporters, warehouse teams, and packaging
-              buyers with silica gel formats that protect stock, cartons, and container
-              shipments across demanding supply chains.
+              Manufacturing silica gel in Karachi since 1983 - protecting stock, cartons,
+              and container shipments for buyers worldwide.
             </p>
           </div>
         </Reveal>
@@ -204,7 +203,7 @@ export default function AboutPage() {
             <h2>The factual record buyers can audit before quote stage.</h2>
             <p>
               International procurement teams need to verify supplier claims. Below is the
-              documented record — founded, certified, address, documentation scope. The
+              documented record - founded, certified, address, documentation scope. The
               second list below is the honest scope of what {siteName} does NOT currently
               hold, so buyers in those categories source from specialized suppliers in
               parallel rather than discover a gap mid-program.
@@ -231,7 +230,7 @@ export default function AboutPage() {
             <p className={styles.honestScopeFooter}>
               These are real procurement categories that need specifically-certified
               suppliers. Buyers in those categories should not delay procurement waiting
-              for {siteName} to expand certification scope — source from currently-
+              for {siteName} to expand certification scope - source from currently-
               certified manufacturers and treat {siteName} as a parallel option for
               non-regulated lines.
             </p>
@@ -243,7 +242,7 @@ export default function AboutPage() {
               <p>
                 Buyer guides, comparison content, and procurement documentation on this
                 site are edited by the{" "}
-                <Link href={`/authors/${author.slug}`}>{author.name}</Link> — the
+                <Link href={`/authors/${author.slug}`}>{author.name}</Link> - the
                 buyer-facing team at DryGelWorld. Editorial scope is limited
                 to product, packaging, and export logistics that the desk handles directly.
                 Regulatory claims are limited to certifications actually held.

@@ -54,7 +54,7 @@ export default function PreviewExport() {
           <span className={styles.eyebrow}>Procurement Context</span>
           <h2 className={styles.h2}>Quote-ready inputs before pricing.</h2>
           <p className={styles.sectionLead}>
-            Use these as a checklist when preparing your {market.country} RFQ — buyer fit, ports,
+            Use these as a checklist when preparing your {market.country} RFQ - buyer fit, ports,
             formats, and documents.
           </p>
         </header>

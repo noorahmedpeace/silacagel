@@ -1,5 +1,5 @@
 /*
- * SEO landing page styles — used by all 39 SEO landing routes
+ * SEO landing page styles - used by all 39 SEO landing routes
  * (12 dedicated folder routes + 27 catch-all [seoSlug] pages).
  * Class names match the JSX in seo-landing-page.tsx exactly.
  * Values use design tokens from design-tokens.css.
@@ -33,8 +33,8 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(60% 80% at 18% 12%, rgba(0, 103, 197, 0.12) 0%, rgba(0, 103, 197, 0) 60%),
-    radial-gradient(50% 70% at 95% 90%, rgba(216, 13, 42, 0.08) 0%, rgba(216, 13, 42, 0) 60%),
+    radial-gradient(60% 80% at 18% 12%, rgba(45, 91, 255, 0.12) 0%, rgba(45, 91, 255, 0) 60%),
+    radial-gradient(50% 70% at 95% 90%, rgba(255, 107, 61, 0.08) 0%, rgba(255, 107, 61, 0) 60%),
     linear-gradient(180deg, var(--ds-surface-tint) 0%, var(--ds-bg) 100%);
 }
 
@@ -56,14 +56,15 @@
   display: inline-flex;
   align-items: center;
   padding: 7px 14px;
-  background: var(--ds-accent);
-  color: #fff;
+  /* Label chip on the brand family - coral stays reserved for actions. */
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: var(--ds-radius-pill);
-  box-shadow: 0 6px 16px rgba(216, 13, 42, 0.24);
 }
 
 .hero h1,
@@ -136,7 +137,7 @@
 .primaryCta:hover {
   transform: translateY(-2px);
   background: var(--ds-accent-deep);
-  box-shadow: 0 14px 32px rgba(216, 13, 42, 0.32);
+  box-shadow: 0 14px 32px rgba(255, 107, 61, 0.32);
 }
 
 .primaryCta:active { transform: translateY(0) scale(0.98); }
@@ -162,8 +163,6 @@
   background: var(--ds-glass-bg);
   border: 1px solid var(--ds-glass-border);
   border-radius: var(--ds-radius-card);
-  backdrop-filter: blur(var(--ds-glass-blur)) saturate(120%);
-  -webkit-backdrop-filter: blur(var(--ds-glass-blur)) saturate(120%);
   box-shadow: var(--ds-shadow-card);
   display: flex;
   flex-direction: column;
@@ -198,7 +197,7 @@
 .visualScrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 50%, rgba(10, 22, 40, 0.55) 100%);
+  background: linear-gradient(180deg, transparent 50%, rgba(8, 11, 24, 0.55) 100%);
   pointer-events: none;
 }
 
@@ -208,12 +207,11 @@
   left: 8px;
   right: 8px;
   padding: 8px 12px;
-  background: rgba(10, 22, 40, 0.72);
+  background: rgba(8, 11, 24, 0.72);
   color: #fff;
   font-size: 12px;
   font-weight: 600;
   border-radius: var(--ds-radius-tight);
-  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -240,9 +238,12 @@
 .proofItem {
   position: relative;
   padding: 10px 14px 10px 28px;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.7);
   border-radius: var(--ds-radius-tight);
+  /* Frost the translucent chip so copy stays crisp over the hero photo,
+   * and add a whisper of elevation so the proof points read as real chips. */
+  box-shadow: 0 4px 12px -6px rgba(8, 30, 80, 0.16), var(--ds-ring-top);
   font-size: 13px;
   font-weight: 600;
   color: var(--ds-text);
@@ -259,7 +260,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--ds-brand);
-  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.18);
+  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.18);
 }
 
 /* ─────────────────────── SHARED SECTION ─────────────────────── */
@@ -665,8 +666,8 @@
   overflow: hidden;
   padding: clamp(56px, 7vw, 88px) var(--ds-page-px);
   background:
-    radial-gradient(80% 120% at 100% 0%, rgba(0, 103, 197, 0.42) 0%, rgba(0, 103, 197, 0) 60%),
-    radial-gradient(60% 90% at 0% 100%, rgba(216, 13, 42, 0.32) 0%, rgba(216, 13, 42, 0) 60%),
+    radial-gradient(80% 120% at 100% 0%, rgba(45, 91, 255, 0.42) 0%, rgba(45, 91, 255, 0) 60%),
+    radial-gradient(60% 90% at 0% 100%, rgba(255, 107, 61, 0.32) 0%, rgba(255, 107, 61, 0) 60%),
     var(--ds-bg-deep);
   color: #fff;
   display: grid;
@@ -770,7 +771,7 @@
   .visualCaption {
     position: static;
     margin-top: 8px;
-    background: rgba(10, 22, 40, 0.9);
+    background: rgba(8, 11, 24, 0.9);
     font-size: 0.78rem;
     line-height: 1.35;
   }

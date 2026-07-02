@@ -10,7 +10,7 @@ const productsFaqs = [
   {
     question: "What's the difference between silica gel sachets, beads, and cargo strips?",
     answer:
-      "Sachets (0.5g–500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg–5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
+      "Sachets (0.5g-500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg-5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
   },
   {
     question: "Should I choose silica gel or clay desiccant?",
@@ -20,7 +20,7 @@ const productsFaqs = [
   {
     question: "Do you offer private-label or custom-printed sachets?",
     answer:
-      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling — confirm packet text, material, MOQ, and document needs at the RFQ stage.",
+      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling - confirm packet text, material, MOQ, and document needs at the RFQ stage.",
   },
 ];
 
@@ -39,8 +39,8 @@ const catalogImages: Record<string, string> = {
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
   "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
-  "hair-nets": "/products/hair-nets.jpg",
-  "beard-covers": "/products/beard-covers.jpg",
+  "hair-nets": "/products/simple-bouffant-hair-nets.webp",
+  "beard-covers": "/products/simple-disposable-beard-covers.webp",
 };
 
 export default function ProductsPage() {
@@ -50,19 +50,10 @@ export default function ProductsPage() {
         <span className={shared.kicker}>Product Catalog</span>
         <h1>Choose the right moisture-control format for your workflow.</h1>
         <p>
-          Browse all primary Dry Gel World formats in one place. Open any category for
-          full detail, specifications, and direct purchase support.
-        </p>
-        <p>
-          Shipping cargo by sea? Compare{" "}
-          <Link href="/shipping-container-desiccant-supplier">container desiccant strips for shipping</Link>, or plan{" "}
-          <Link href="/bulk-sales">wholesale &amp; bulk desiccant supply</Link> for distributor and exporter volumes.
-        </p>
-        <p>
-          New to desiccant formats? Start with{" "}
-          <Link href="/silica-gel-packets">silica gel packets &amp; sachets</Link> or{" "}
-          <Link href="/products/dry-clay-desiccant">activated clay desiccant</Link>, or see how they stack up in{" "}
-          <Link href="/compare/silica-gel-vs-oxygen-absorber">silica gel vs oxygen absorber</Link>.
+          Every format in one place - from{" "}
+          <Link href="/silica-gel-packets">sachets</Link> to{" "}
+          <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
+          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
         </p>
       </section>
 

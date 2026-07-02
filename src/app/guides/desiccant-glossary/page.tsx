@@ -6,7 +6,7 @@ import styles from "../../strategy-pages.module.css";
 const GLOSSARY_PATH = "/guides/desiccant-glossary";
 const GLOSSARY_TITLE = "Desiccant & Silica Gel Glossary";
 const GLOSSARY_DESCRIPTION =
-  "A buyer's glossary of silica gel and desiccant terms — adsorption, relative humidity, isotherms, DIN 55473 units, COA, SDS, MVTR, dew point, container rain, and more, defined for procurement teams.";
+  "A buyer's glossary of silica gel and desiccant terms - adsorption, relative humidity, isotherms, DIN 55473 units, COA, SDS, MVTR, dew point, container rain, and more, defined for procurement teams.";
 
 export const metadata: Metadata = {
   title: GLOSSARY_TITLE,
@@ -50,7 +50,7 @@ const terms: GlossaryTerm[] = [
   {
     term: "Adsorption isotherm",
     definition:
-      "A curve showing how much water a desiccant holds (as a percentage of its own weight) at each equilibrium relative humidity, at a fixed temperature. It reveals that capacity is not a single number — silica gel approaches its ~33% figure only near high humidity.",
+      "A curve showing how much water a desiccant holds (as a percentage of its own weight) at each equilibrium relative humidity, at a fixed temperature. It reveals that capacity is not a single number - silica gel approaches its ~33% figure only near high humidity.",
     related: { label: "Relative humidity and adsorption isotherms explained", href: "/blog/relative-humidity-and-adsorption-isotherms-explained" },
   },
   {
@@ -61,7 +61,7 @@ const terms: GlossaryTerm[] = [
   {
     term: "Certificate of Analysis (COA)",
     definition:
-      "A document reporting the tested properties of a supplied lot — typically purity, moisture content, bead size, and adsorption capacity — so a buyer's QC team can verify the material meets specification. DryGelWorld provides a COA on request.",
+      "A document reporting the tested properties of a supplied lot - typically purity, moisture content, bead size, and adsorption capacity - so a buyer's QC team can verify the material meets specification. DryGelWorld provides a COA on request.",
     related: { label: "SDS and COA requirements for buyers", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
   },
   {
@@ -85,18 +85,18 @@ const terms: GlossaryTerm[] = [
   {
     term: "Deliquescent desiccant",
     definition:
-      "A desiccant (such as calcium chloride) that adsorbs so much water it dissolves into a liquid or gel, contained within a pouch. Offers very high capacity (150–300% of its weight) but introduces a contained-liquid rather than a solid.",
+      "A desiccant (such as calcium chloride) that adsorbs so much water it dissolves into a liquid or gel, contained within a pouch. Offers very high capacity (150-300% of its weight) but introduces a contained-liquid rather than a solid.",
     related: { label: "Silica gel vs calcium chloride container desiccant", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
   },
   {
     term: "Dew point",
     definition:
-      "The temperature at which air becomes saturated (100% RH) and water begins to condense. Keeping package air below its dew point — by lowering humidity with desiccant — prevents condensation on cargo and container surfaces.",
+      "The temperature at which air becomes saturated (100% RH) and water begins to condense. Keeping package air below its dew point - by lowering humidity with desiccant - prevents condensation on cargo and container surfaces.",
   },
   {
     term: "DIN 55473 unit",
     definition:
-      "A standardized 'desiccant unit' defined by the German standard DIN 55473 (echoed in MIL-D-3464): the quantity adsorbing a defined amount of water vapor under test conditions. For silica gel, one unit ≈ 33–34 grams. Used so specs are material-independent.",
+      "A standardized 'desiccant unit' defined by the German standard DIN 55473 (echoed in MIL-D-3464): the quantity adsorbing a defined amount of water vapor under test conditions. For silica gel, one unit ≈ 33-34 grams. Used so specs are material-independent.",
     related: { label: "Desiccant units explained (DIN 55473)", href: "/blog/desiccant-units-explained-din-55473-and-unit-sizing" },
   },
   {
@@ -126,7 +126,7 @@ const terms: GlossaryTerm[] = [
   {
     term: "ISO 9001:2015",
     definition:
-      "The international quality-management-system standard. DryGelWorld manufactures under ISO 9001:2015 certification — its core held credential alongside the DMF-free statement.",
+      "The international quality-management-system standard. DryGelWorld manufactures under ISO 9001:2015 certification - its core held credential alongside the DMF-free statement.",
     related: { label: "Certifications", href: "/certifications" },
   },
   {
@@ -138,7 +138,7 @@ const terms: GlossaryTerm[] = [
   {
     term: "Molecular sieve",
     definition:
-      "A synthetic zeolite with precisely calibrated pore size that selectively adsorbs water to very low humidity (<1% RH). Costs 2–4× silica gel and regenerates at higher temperatures; used for insulated glass, refrigerant drying, and deep-drying. Not in the DryGelWorld catalog.",
+      "A synthetic zeolite with precisely calibrated pore size that selectively adsorbs water to very low humidity (<1% RH). Costs 2-4× silica gel and regenerates at higher temperatures; used for insulated glass, refrigerant drying, and deep-drying. Not in the DryGelWorld catalog.",
     related: { label: "Silica gel vs molecular sieve", href: "/compare/silica-gel-vs-molecular-sieve" },
   },
   {
@@ -150,13 +150,13 @@ const terms: GlossaryTerm[] = [
   {
     term: "Regeneration (reactivation)",
     definition:
-      "Driving adsorbed moisture back out of silica gel by heating (120–150°C for 2–4 hours), restoring most of its capacity. Practical for bulk beads in reusable systems; finished sachets are generally treated as single-use.",
+      "Driving adsorbed moisture back out of silica gel by heating (120-150°C for 2-4 hours), restoring most of its capacity. Practical for bulk beads in reusable systems; finished sachets are generally treated as single-use.",
     related: { label: "How to regenerate silica gel (oven guide)", href: "/blog/how-to-regenerate-silica-gel-oven-temperature-guide" },
   },
   {
     term: "Relative humidity (RH)",
     definition:
-      "The amount of water vapor in the air as a percentage of the maximum the air can hold at that temperature. Cargo damage tracks RH inside the package rather than absolute water mass, and RH rises as temperature falls — which is what causes container rain.",
+      "The amount of water vapor in the air as a percentage of the maximum the air can hold at that temperature. Cargo damage tracks RH inside the package rather than absolute water mass, and RH rises as temperature falls - which is what causes container rain.",
     related: { label: "Relative humidity and adsorption isotherms explained", href: "/blog/relative-humidity-and-adsorption-isotherms-explained" },
   },
   {
@@ -188,14 +188,14 @@ export default function DesiccantGlossaryPage() {
           <h1>Desiccant &amp; Silica Gel Glossary</h1>
           <p>
             Plain-language definitions of the silica gel and desiccant terms procurement teams
-            meet in specs, quotes, and compliance documents — from adsorption and relative humidity
+            meet in specs, quotes, and compliance documents - from adsorption and relative humidity
             to DIN 55473 units, COA, SDS, and MVTR. Each term links to the guide that covers it in depth.
           </p>
         </section>
 
         <section className={styles.section}>
           <div className={styles.sectionHead}>
-            <h2>Terms A–Z</h2>
+            <h2>Terms A-Z</h2>
             <p>Defined for buyers and export procurement teams comparing desiccant suppliers.</p>
           </div>
           <div className={styles.grid}>

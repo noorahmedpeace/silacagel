@@ -7,7 +7,7 @@ import styles from "../../strategy-pages.module.css";
 const pageTitle = "Container Desiccant Dosage Calculator | How Much Desiccant Per Container";
 const metaTitle = "Container Desiccant Dosage Calculator | DryGelWorld";
 const pageDescription =
-  "Free container desiccant calculator. Estimate how many cargo desiccant strips a 20ft or 40ft container needs by voyage length, route humidity, and cargo type — then request an export quote.";
+  "Free container desiccant calculator. Estimate how many cargo desiccant strips a 20ft or 40ft container needs by voyage length, route humidity, and cargo type - then request an export quote.";
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -36,11 +36,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How much desiccant do I need for a 20ft container?",
-    a: "As a planning baseline, a 20ft container typically uses 6–10 cargo desiccant strips (about 7.5–12.5 kg), with the upper end for long-haul, tropical, or moisture-sensitive cargo. Confirm the exact figure against your route and cargo with the export desk.",
+    a: "As a planning baseline, a 20ft container typically uses 6-10 cargo desiccant strips (about 7.5-12.5 kg), with the upper end for long-haul, tropical, or moisture-sensitive cargo. Confirm the exact figure against your route and cargo with the export desk.",
   },
   {
     q: "How much desiccant for a 40ft container?",
-    a: "A 40ft container generally uses 10–16 strips (about 12.5–20 kg). A 40ft high-cube and long tropical voyages sit at the higher end. The calculator adjusts for voyage length, route humidity, and cargo sensitivity.",
+    a: "A 40ft container generally uses 10-16 strips (about 12.5-20 kg). A 40ft high-cube and long tropical voyages sit at the higher end. The calculator adjusts for voyage length, route humidity, and cargo sensitivity.",
   },
   {
     q: "Where should container desiccant strips be placed?",
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "Is this calculator a guaranteed dosage?",
-    a: "No — it is an estimate for planning. Final allocation depends on exact cargo, packaging barrier, loading density, and seasonal conditions. DryGelWorld confirms your dosage when preparing the quote.",
+    a: "No - it is an estimate for planning. Final allocation depends on exact cargo, packaging barrier, loading density, and seasonal conditions. DryGelWorld confirms your dosage when preparing the quote.",
   },
 ];
 
@@ -117,7 +117,7 @@ export default function ContainerDosageCalculatorPage() {
           <h2>How the dosage is estimated.</h2>
           <p>
             The calculator starts from a base strip count per container size, then adjusts for
-            voyage length, route humidity, and cargo sensitivity — the same factors our export desk
+            voyage length, route humidity, and cargo sensitivity - the same factors our export desk
             uses to right-size a container desiccant program.
           </p>
         </div>

@@ -39,8 +39,8 @@
   flex-direction: column;
   gap: 10px;
   padding: 13px;
-  border: 1px solid rgba(0, 103, 197, 0.12);
-  border-left: 4px solid rgba(0, 103, 197, 0.7);
+  border: 1px solid rgba(45, 91, 255, 0.12);
+  border-left: 4px solid rgba(45, 91, 255, 0.7);
   border-radius: 12px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 251, 255, 0.92));
@@ -49,13 +49,13 @@
 }
 
 .field:focus-within {
-  border-color: rgba(0, 103, 197, 0.28);
+  border-color: rgba(45, 91, 255, 0.28);
   border-left-color: var(--industrial-blue);
   background:
     linear-gradient(180deg, rgba(244, 249, 255, 0.98), rgba(255, 255, 255, 0.96));
   box-shadow:
-    0 0 0 3px rgba(0, 103, 197, 0.08),
-    0 18px 32px -28px rgba(0, 103, 197, 0.46);
+    0 0 0 3px rgba(45, 91, 255, 0.08),
+    0 18px 32px -28px rgba(45, 91, 255, 0.46);
 }
 
 .fieldLabel {
@@ -66,9 +66,9 @@
 .fieldStep {
   width: fit-content;
   padding: 3px 7px;
-  border: 1px solid rgba(0, 103, 197, 0.18);
+  border: 1px solid rgba(45, 91, 255, 0.18);
   border-radius: 999px;
-  background: rgba(0, 103, 197, 0.08);
+  background: rgba(45, 91, 255, 0.08);
   color: var(--industrial-blue);
   font-family: var(--font-mono);
   font-size: 0.58rem;
@@ -100,7 +100,6 @@
   border: 1px solid var(--glass-border);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(4px);
   color: var(--ink);
   font-size: 1rem;
   font-weight: 750;
@@ -145,7 +144,7 @@
 }
 
 .highlightCard {
-  background: linear-gradient(180deg, rgba(219, 234, 254, 0.92), rgba(239, 246, 255, 0.86));
+  background: linear-gradient(180deg, rgba(234, 240, 255, 0.92), rgba(239, 246, 255, 0.86));
   border-color: rgba(59, 130, 246, 0.22);
 }
 
@@ -275,7 +274,7 @@
 
 .field input,
 .field select {
-  border-color: rgba(0, 103, 197, 0.14);
+  border-color: rgba(45, 91, 255, 0.14);
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.98);
 }
@@ -283,33 +282,35 @@
 .field input:focus,
 .field select:focus {
   border-color: var(--industrial-blue);
-  box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.12);
+  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.12);
 }
 
 .summaryCard {
-  border-color: rgba(0, 103, 197, 0.1);
+  border-color: rgba(45, 91, 255, 0.1);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.86);
   box-shadow: 0 14px 26px -24px rgba(15, 23, 42, 0.14);
 }
 
 .highlightCard {
-  background: linear-gradient(180deg, rgba(219, 234, 254, 0.96), rgba(239, 246, 255, 0.9));
-  border-color: rgba(0, 103, 197, 0.22);
+  background: linear-gradient(180deg, rgba(234, 240, 255, 0.96), rgba(239, 246, 255, 0.9));
+  border-color: rgba(45, 91, 255, 0.22);
 }
 
 .bulkHint {
-  background: rgba(0, 103, 197, 0.08);
+  background: rgba(45, 91, 255, 0.08);
 }
 
 .submit {
   border-radius: 10px;
-  background: linear-gradient(135deg, #064a91, #0067c5);
+  /* Primary action - coral, matching every other CTA in the system. */
+  background: var(--ds-grad-cta);
+  box-shadow: var(--ds-shadow-cta);
 }
 
 .submit:hover {
-  background: linear-gradient(135deg, #063a72, #005aab);
-  box-shadow: 0 14px 28px -18px rgba(0, 103, 197, 0.55);
+  background: linear-gradient(135deg, #e5502a, #cc4520);
+  box-shadow: 0 14px 28px -14px rgba(255, 107, 61, 0.6);
 }
 
 /* compact desktop workbench layout */
@@ -364,8 +365,8 @@
  * The "compact desktop workbench" rules above are declared AFTER the
  * @media (max-width: 620px) block and, carrying equal specificity,
  * win on phones too (media queries add no specificity). That silently
- * drops the calculator inputs to ~15px — which triggers iOS zoom-on-
- * focus — and shrinks the tap targets. Re-assert the mobile-critical
+ * drops the calculator inputs to ~15px - which triggers iOS zoom-on-
+ * focus - and shrinks the tap targets. Re-assert the mobile-critical
  * control sizing here as the last matching rule, scoped to ≤620px so
  * desktop (the intended target of the workbench block) is untouched. */
 @media (max-width: 620px) {
@@ -378,4 +379,59 @@
   .submit {
     min-height: 52px;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+ * PREMIUM POLISH v3 - panel chrome only (heading, cards, hairlines).
+ * The panel frame itself lives in page.module.css (.calculatorPanel);
+ * here the inner chrome is aligned to the --ds-* token system. The coral
+ * .submit action is untouched.
+ * ═══════════════════════════════════════════════════════════════════════ */
+.head p {
+  color: var(--ds-brand-deep);
+  letter-spacing: var(--ds-ls-eyebrow);
+}
+
+.head h3 {
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.field {
+  border-color: rgba(45, 91, 255, 0.12);
+  border-left-color: rgba(45, 91, 255, 0.65);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.field:focus-within {
+  border-color: rgba(45, 91, 255, 0.3);
+  border-left-color: var(--ds-brand);
+  box-shadow:
+    0 0 0 3px rgba(45, 91, 255, 0.1),
+    var(--ds-shadow-soft);
+}
+
+.summaryCard {
+  background: #ffffff;
+  border-color: var(--ds-hairline);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+}
+
+.highlightCard {
+  background: linear-gradient(180deg, var(--ds-brand-soft), var(--ds-surface-tint));
+  border-color: rgba(45, 91, 255, 0.24);
+}
+
+.highlightCard strong {
+  color: var(--ds-brand);
+}
+
+.bulkHint {
+  color: var(--ds-brand-deep);
+  background: rgba(45, 91, 255, 0.08);
+  border: 1px solid rgba(45, 91, 255, 0.14);
 }

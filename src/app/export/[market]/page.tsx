@@ -35,7 +35,7 @@ const MARKET_HREFLANG: Record<string, string> = {
   germany: "en-DE",
   canada: "en-CA",
   australia: "en-AU",
-  europe: "en-150", // Europe (UN M49 region code) — distinct & valid, avoids colliding on bare "en"
+  europe: "en-150", // Europe (UN M49 region code) - distinct & valid, avoids colliding on bare "en"
   "fob-karachi": "en", // the single bare-"en" default for the whole cluster
 };
 
@@ -200,7 +200,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
             "@type": "Offer",
             // Modeled as a Service (not a bare Product): a Product node with no
             // offers/price/availability triggers a persistent GSC "invalid item"
-            // warning — the exact issue the product pages were fixed to avoid.
+            // warning - the exact issue the product pages were fixed to avoid.
             itemOffered: {
               "@type": "Service",
               name: product,
@@ -364,7 +364,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <div className={styles.sectionHead}>
           <h2>Request a {market.country} export quote.</h2>
           <p>
-            Send your format, quantity, destination port or city, and Incoterms — and the export
+            Send your format, quantity, destination port or city, and Incoterms - and the export
             desk returns a documented quote with MOQ, lead time, and shipping options.
           </p>
         </div>

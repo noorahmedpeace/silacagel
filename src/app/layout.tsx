@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { WhatsAppFloat } from "@/components/whatsapp-float";
@@ -41,6 +42,16 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Display face for the redesign - a clean, geometric premium sans with none
+// of Space Grotesk's quirky letterforms. Drives every heading via
+// --font-display (see globals.css h1-h6).
+const display = Plus_Jakarta_Sans({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
   display: "swap",
 });
 
@@ -155,7 +166,7 @@ export default function RootLayout({
   ];
 
   return (
-    <html lang="en" className={body.variable}>
+    <html lang="en" className={`${body.variable} ${display.variable}`}>
       <head>
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
@@ -176,6 +187,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <ScrollProgress />
         <SiteHeader />
         <HashAnchorScroll />
         {children}
@@ -333,7 +345,7 @@ export default function RootLayout({
                   isicV4: "8292",
                   hasCredential: {
                     "@type": "EducationalOccupationalCredential",
-                    name: "ISO 9001:2015 — Packaging and Supply of Silica Desiccant",
+                    name: "ISO 9001:2015 - Packaging and Supply of Silica Desiccant",
                     credentialCategory: "Quality Management System Certification",
                     identifier: "9101225",
                     recognizedBy: {

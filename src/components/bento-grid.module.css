@@ -14,9 +14,7 @@
     url("/backgrounds/bento-silica-panel.webp");
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 103, 197, 0.16);
+  border: 1px solid rgba(45, 91, 255, 0.16);
   border-radius: 18px;
   padding: 28px;
   display: flex;
@@ -32,7 +30,7 @@
 
 .bentoCard:hover {
   transform: translateY(-5px);
-  border-color: rgba(0, 103, 197, 0.28);
+  border-color: rgba(45, 91, 255, 0.28);
   box-shadow: 0 32px 64px -24px rgba(13, 27, 42, 0.22);
 }
 
@@ -41,8 +39,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(219, 234, 254, 0.14)),
-    radial-gradient(circle at top right, rgba(0, 103, 197, 0.12), transparent 56%);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(234, 240, 255, 0.14)),
+    radial-gradient(circle at top right, rgba(45, 91, 255, 0.12), transparent 56%);
   opacity: 1;
   transition: opacity 0.4s ease;
 }
@@ -82,10 +80,42 @@
   justify-content: center;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(0, 103, 197, 0.12);
-  color: #064a91;
+  border: 1px solid rgba(45, 91, 255, 0.12);
+  color: #1e3fcc;
   font-size: 3rem;
   z-index: 1;
+  transition: transform var(--ds-dur-base) var(--ds-ease-spring),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bentoCard:hover .bentoIcon {
+    transform: translateY(-2px) scale(1.06);
+    border-color: rgba(45, 91, 255, 0.28);
+    box-shadow: 0 12px 24px -14px rgba(45, 91, 255, 0.4);
+  }
+
+  .bentoLink {
+    transition: color var(--ds-dur-base) var(--ds-ease-out),
+      transform var(--ds-dur-base) var(--ds-ease-out);
+  }
+
+  .bentoCard:hover .bentoLink {
+    color: var(--ds-accent);
+    transform: translateX(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bentoIcon,
+  .bentoLink {
+    transition: none !important;
+  }
+  .bentoCard:hover .bentoIcon,
+  .bentoCard:hover .bentoLink {
+    transform: none !important;
+  }
 }
 
 .wide .bentoIcon {
@@ -122,7 +152,7 @@
   margin-top: 16px;
   font-size: 0.76rem;
   font-weight: 800;
-  color: #064a91;
+  color: #1e3fcc;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }

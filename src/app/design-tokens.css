@@ -6,41 +6,81 @@
  */
 
 :root {
+  /* ═══════════════════════════════════════════════════════════════════════
+   * PRECISION DRY - redesign palette (2026). Dark cinematic bookends, a
+   * bright Clean-SaaS content core, electric cobalt brand, warm coral accent.
+   * Semantic token names are unchanged so every consuming module re-skins
+   * from these values.
+   * ═══════════════════════════════════════════════════════════════════════ */
+
   /* Surface */
-  --ds-bg: #f4f6f8;
-  --ds-bg-deep: #0a1628;
+  --ds-bg: #f4f6fb;             /* cool clean canvas */
+  --ds-bg-deep: #06070d;        /* near-black hero/footer field */
+  --ds-bg-deep-2: #0b0e18;      /* raised dark panels */
   --ds-surface: #ffffff;
-  --ds-surface-tint: #f8fbff;
+  --ds-surface-tint: #f3f7ff;
 
   /* Text */
-  --ds-text: #0e1620;
-  --ds-text-muted: #475569;
-  --ds-text-faint: #6b7785;
+  --ds-text: #0a0e17;
+  --ds-text-muted: #545c6b;
+  --ds-text-faint: #838b9a;
+  --ds-text-on-dark: #f4f6fb;
+  --ds-text-on-dark-muted: rgba(233, 238, 247, 0.68);
 
-  /* Brand */
-  --ds-brand: #0067c5;
-  --ds-brand-deep: #044d99;
-  --ds-brand-soft: #e8f1fb;
+  /* Brand - electric cobalt */
+  --ds-brand: #2d5bff;
+  --ds-brand-bright: #5b86ff;   /* lighter stop for gradients / glow */
+  --ds-brand-deep: #1e3fcc;
+  --ds-brand-soft: #eaf0ff;
 
-  /* Accent (CTAs, kicker pills) — used sparingly */
-  --ds-accent: #d80d2a;
-  --ds-accent-deep: #a90b21;
-  --ds-accent-soft: rgba(216, 13, 42, 0.1);
+  /* Accent - warm coral, used sparingly */
+  --ds-accent: #ff6b3d;
+  --ds-accent-deep: #e5502a;
+  --ds-accent-soft: rgba(255, 107, 61, 0.1);
+
+  /* Signature gradients. Action = warm coral (single CTA colour everywhere,
+   * maximum contrast against the cobalt brand + dark fields); brand = cobalt
+   * for structure, links, and headings. */
+  --ds-grad-brand: linear-gradient(135deg, #5b86ff 0%, #2d5bff 45%, #1e3fcc 100%);
+  --ds-grad-cta: linear-gradient(135deg, #ff8154 0%, #ff6b3d 45%, #e5502a 100%);
+  --ds-grad-heading: linear-gradient(120deg, #0a0e17 0%, #1e3fcc 60%, #2d5bff 100%);
+  --ds-grad-heading-dark: linear-gradient(120deg, #ffffff 0%, #c8d6ff 55%, #5b86ff 100%);
 
   /* Hairlines */
-  --ds-hairline: #e5e9ef;
-  --ds-hairline-strong: #cfd6e0;
+  --ds-hairline: #e6e9f2;
+  --ds-hairline-strong: #ccd3e2;
+  --ds-hairline-dark: rgba(255, 255, 255, 0.1);
 
-  /* Glass — applied only to hero proof surfaces */
-  --ds-glass-bg: rgba(255, 255, 255, 0.66);
-  --ds-glass-border: rgba(255, 255, 255, 0.55);
-  --ds-glass-blur: 16px;
+  /* Glass */
+  --ds-glass-bg: rgba(255, 255, 255, 0.64);
+  --ds-glass-border: rgba(255, 255, 255, 0.5);
+  --ds-glass-bg-dark: rgba(18, 22, 34, 0.5);
+  --ds-glass-border-dark: rgba(255, 255, 255, 0.12);
+  --ds-glass-blur: 18px;
 
-  /* Shadows */
-  --ds-shadow-soft: 0 4px 18px rgba(8, 30, 80, 0.06);
-  --ds-shadow-card: 0 10px 32px rgba(8, 30, 80, 0.08);
-  --ds-shadow-hero: 0 24px 72px rgba(8, 30, 80, 0.14);
-  --ds-shadow-cta: 0 10px 24px rgba(216, 13, 42, 0.28);
+  /* Shadows - layered, tinted with the brand ink so elevation reads as
+   * depth rather than a flat grey drop. Each token stacks a tight contact
+   * shadow with a wide ambient one (the physically-correct two-light model
+   * every premium UI uses). */
+  --ds-shadow-soft:
+    0 1px 2px rgba(8, 30, 80, 0.04),
+    0 4px 16px rgba(8, 30, 80, 0.06);
+  --ds-shadow-card:
+    0 1px 2px rgba(8, 30, 80, 0.05),
+    0 8px 24px -6px rgba(8, 30, 80, 0.09),
+    0 18px 48px -12px rgba(8, 30, 80, 0.08);
+  --ds-shadow-hero:
+    0 2px 6px rgba(8, 30, 80, 0.06),
+    0 16px 40px -12px rgba(8, 30, 80, 0.12),
+    0 40px 96px -32px rgba(8, 30, 80, 0.18);
+  --ds-shadow-cta:
+    0 2px 6px rgba(255, 107, 61, 0.24),
+    0 14px 30px -8px rgba(255, 107, 61, 0.42);
+  /* Glow used on dark surfaces to lift cobalt elements off the near-black. */
+  --ds-glow-brand: 0 0 0 1px rgba(91, 134, 255, 0.3), 0 20px 60px -18px rgba(45, 91, 255, 0.55);
+  /* Ring highlight for the top edge of elevated glass - the subtle 1px inner
+   * light line that makes surfaces feel like real, lit material. */
+  --ds-ring-top: inset 0 1px 0 rgba(255, 255, 255, 0.7);
 
   /* Radii */
   --ds-radius-tight: 8px;
@@ -48,7 +88,7 @@
   --ds-radius-hero: 22px;
   --ds-radius-pill: 999px;
 
-  /* Container widths — single source of truth for horizontal alignment */
+  /* Container widths - single source of truth for horizontal alignment */
   --ds-container-max: 1320px;
   --ds-container-narrow: 1100px;
   --ds-container-prose: 760px;
@@ -65,7 +105,7 @@
   --ds-stack-xl: 32px;
 
   /* ─────────────────────────────────────────────────────────────────
-   * UNIFIED FLUID TYPE SCALE — single source of truth for ALL text.
+   * UNIFIED FLUID TYPE SCALE - single source of truth for ALL text.
    * Each step is clamp(min, preferred(rem+vw), max): the rem floor keeps
    * phones readable (tuned for ~360px), the rem+vw preferred term scales
    * smoothly through tablet, the max caps desktop. Prefer these tokens
@@ -78,22 +118,22 @@
   --ds-lead: clamp(1.05rem, 1rem + 0.45vw, 1.25rem);  /* 17 → 20px */
   --ds-body: clamp(0.95rem, 0.92rem + 0.18vw, 1.0625rem); /* 15.2 → 17px */
   --ds-small: 0.9rem;                                 /* 14.4px (≥ readable floor) */
-  --ds-meta: 0.8rem;                                  /* 12.8px — captions/labels */
-  --ds-eyebrow: 0.6875rem;                            /* 11px — kicker pills */
+  --ds-meta: 0.8rem;                                  /* 12.8px - captions/labels */
+  --ds-eyebrow: 0.6875rem;                            /* 11px - kicker pills */
 
-  /* Line-heights — pair with the sizes above for a clean vertical rhythm. */
+  /* Line-heights - pair with the sizes above for a clean vertical rhythm. */
   --ds-lh-tight: 1.12;  /* hero / h1 */
   --ds-lh-snug: 1.22;   /* h2 / h3 / h4 */
   --ds-lh-base: 1.5;    /* leads, UI text */
-  --ds-lh-body: 1.65;   /* paragraphs — readability */
+  --ds-lh-body: 1.65;   /* paragraphs - readability */
 
-  /* Letter-spacing — headings tighten, eyebrows/labels open up. */
+  /* Letter-spacing - headings tighten, eyebrows/labels open up. */
   --ds-ls-tight: -0.02em;  /* large display headings */
   --ds-ls-snug: -0.01em;   /* h2 / h3 */
   --ds-ls-wide: 0.02em;
   --ds-ls-eyebrow: 0.12em; /* uppercase kickers */
 
-  /* Canonical responsive breakpoints — standardize on THREE. CSS @media
+  /* Canonical responsive breakpoints - standardize on THREE. CSS @media
    * cannot read custom properties, so treat these as the documented values
    * to use (mobile ≤640, tablet ≤900, desktop >900) instead of inventing
    * new ones per file. */
@@ -101,10 +141,20 @@
   --bp-tablet: 900px;
   --bp-desktop: 1200px;
 
-  /* Motion */
+  /* Motion - a small, deliberate easing vocabulary. `ease` is the general
+   * standard; `out` is the decisive deceleration used for reveals and
+   * hovers (feels like something settling into place); `spring` overshoots
+   * slightly for playful micro-interactions (chips, magnetic buttons). */
   --ds-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ds-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ds-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ds-dur-quick: 200ms;
   --ds-dur-base: 300ms;
+  --ds-dur-slow: 600ms;
+
+  /* Focus - one accessible, on-brand focus ring reused everywhere so keyboard
+   * navigation looks intentional instead of the default browser outline. */
+  --ds-focus-ring: 0 0 0 2px var(--ds-surface), 0 0 0 4px var(--ds-brand);
 }
 
 @media (max-width: 760px) {

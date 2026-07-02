@@ -62,8 +62,7 @@ export default function FAQPage() {
         <span className={styles.kicker}>Technical FAQ</span>
         <h1>Answers to every procurement question.</h1>
         <p>
-          From adsorption chemistry to container strip deployment, these answers help industrial
-          buyers prepare a cleaner silica gel desiccant RFQ.
+          Straight answers on chemistry, sizing, documents, and ordering.
         </p>
       </section>
 

@@ -1,5 +1,5 @@
 /*
- * Product detail page — used by /products/[slug] (4 routes).
+ * Product detail page - used by /products/[slug] (4 routes).
  * Class names match the JSX in src/app/products/[slug]/page.tsx exactly.
  * Values use design tokens from design-tokens.css.
  */
@@ -54,14 +54,16 @@
   border: 1px solid var(--ds-hairline);
 }
 
-.backLink:hover { background: var(--ds-brand-soft); }
-
 .phoneLink {
   background: var(--ds-brand-soft);
   color: var(--ds-brand-deep);
 }
 
-.phoneLink:hover { background: var(--ds-brand); color: #fff; }
+@media (hover: hover) and (pointer: fine) {
+  .backLink:hover { background: var(--ds-brand-soft); border-color: var(--ds-brand); }
+
+  .phoneLink:hover { background: var(--ds-brand); color: #fff; }
+}
 
 /* ─────────────────────── HERO ─────────────────────── */
 
@@ -86,7 +88,7 @@
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(60% 80% at 18% 12%, rgba(0, 103, 197, 0.08) 0%, rgba(0, 103, 197, 0) 60%),
+    radial-gradient(60% 80% at 18% 12%, color-mix(in srgb, var(--ds-brand) 8%, transparent) 0%, transparent 60%),
     linear-gradient(180deg, var(--ds-surface-tint) 0%, var(--ds-surface) 100%);
   border-radius: var(--ds-radius-hero);
 }
@@ -106,7 +108,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: var(--ds-radius-pill);
-  box-shadow: 0 6px 16px rgba(216, 13, 42, 0.24);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--ds-accent) 24%, transparent);
 }
 
 .copy h1,
@@ -122,9 +124,9 @@
 
 .copy h1 {
   font-size: var(--ds-h1);
-  font-weight: 800;
-  line-height: 1.07;
-  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-tight);
   margin: 16px 0 0;
 }
 
@@ -174,18 +176,12 @@
 }
 
 .primaryAction {
-  background: var(--ds-accent);
+  background: var(--ds-grad-cta);
   color: #fff;
   box-shadow: var(--ds-shadow-cta);
 }
 
-.primaryAction:hover {
-  transform: translateY(-2px);
-  background: var(--ds-accent-deep);
-  box-shadow: 0 14px 32px rgba(216, 13, 42, 0.32);
-}
-
-.primaryAction:active { transform: translateY(0) scale(0.98); }
+.primaryAction:active { transform: translateY(0) scale(0.985); }
 
 .secondaryAction {
   background: transparent;
@@ -193,7 +189,17 @@
   border: 1.5px solid var(--ds-brand);
 }
 
-.secondaryAction:hover { background: var(--ds-brand-soft); }
+@media (hover: hover) and (pointer: fine) {
+  .primaryAction:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      var(--ds-shadow-cta),
+      0 18px 40px -10px color-mix(in srgb, var(--ds-accent) 40%, transparent);
+    filter: saturate(1.06);
+  }
+
+  .secondaryAction:hover { background: var(--ds-brand-soft); }
+}
 
 /* ─────────────────────── STAT ROW ─────────────────────── */
 
@@ -274,15 +280,17 @@
     border-color var(--ds-dur-base) var(--ds-ease);
 }
 
-.panel:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ds-shadow-card);
-  border-color: var(--ds-brand);
+@media (hover: hover) and (pointer: fine) {
+  .panel:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ds-shadow-card);
+    border-color: var(--ds-brand);
+  }
 }
 
 .panel h2 {
   font-size: var(--ds-h3);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .list {
@@ -329,7 +337,7 @@
   align-items: center;
 }
 
-.sectionHead h2 { font-size: var(--ds-h2); font-weight: 700; }
+.sectionHead h2 { font-size: var(--ds-h2); font-weight: 600; }
 
 .sectionHead p {
   font-size: var(--ds-body);
@@ -371,8 +379,8 @@
 }
 
 .skuTable th {
-  background: var(--ds-brand-deep);
-  color: #fff;
+  background: var(--ds-bg-deep);
+  color: var(--ds-text-on-dark);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -445,15 +453,17 @@
     border-color var(--ds-dur-base) var(--ds-ease);
 }
 
-.supportCard:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--ds-shadow-card);
-  border-color: var(--ds-brand);
+@media (hover: hover) and (pointer: fine) {
+  .supportCard:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--ds-shadow-card);
+    border-color: var(--ds-brand);
+  }
 }
 
 .supportCard h2 {
   font-size: var(--ds-h3);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .badgeList,
@@ -498,10 +508,12 @@
 
 .textAction { margin-top: 4px; }
 
-.linkList a:hover,
-.textAction:hover {
-  color: var(--ds-brand-deep);
-  gap: 10px;
+@media (hover: hover) and (pointer: fine) {
+  .linkList a:hover,
+  .textAction:hover {
+    color: var(--ds-brand-deep);
+    gap: 10px;
+  }
 }
 
 /* ─────────────────────── FAQ SECTION ─────────────────────── */
@@ -523,15 +535,16 @@
 
 .faqItem {
   border: 1px solid var(--ds-hairline);
-  border-radius: 14px;
+  border-radius: var(--ds-radius-card);
   background: var(--ds-surface);
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color var(--ds-dur-quick) var(--ds-ease),
+    box-shadow var(--ds-dur-quick) var(--ds-ease);
 }
 
 .faqItem[open] {
-  border-color: rgba(0, 103, 197, 0.32);
-  box-shadow: 0 8px 24px -16px rgba(0, 103, 197, 0.25);
+  border-color: color-mix(in srgb, var(--ds-brand) 32%, transparent);
+  box-shadow: 0 8px 24px -16px color-mix(in srgb, var(--ds-brand) 25%, transparent);
 }
 
 .faqItem summary {
@@ -542,10 +555,17 @@
   padding: 18px 22px;
   list-style: none;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ds-text);
   font-size: 1rem;
   line-height: 1.45;
+  transition: background-color var(--ds-dur-quick) var(--ds-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .faqItem summary:hover {
+    background: var(--ds-surface-tint);
+  }
 }
 
 .faqItem summary::-webkit-details-marker {
@@ -561,7 +581,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: transform 0.25s ease;
+  transition: transform var(--ds-dur-quick) var(--ds-ease);
 }
 
 .faqItem[open] summary::after {
@@ -641,17 +661,18 @@
 .clusterColumn {
   padding: 22px 24px;
   border: 1px solid var(--ds-hairline);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.86);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .clusterColumn h3 {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #044d99;
+  color: var(--ds-brand-deep);
   margin-bottom: 14px;
 }
 
@@ -666,17 +687,20 @@
 
 .clusterColumn li a {
   display: inline-flex;
-  color: #0a1f3d;
+  color: var(--ds-text);
   font-weight: 600;
   line-height: 1.4;
   font-size: 0.95rem;
   border-bottom: 1px solid transparent;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color var(--ds-dur-quick) var(--ds-ease),
+    border-color var(--ds-dur-quick) var(--ds-ease);
 }
 
-.clusterColumn li a:hover {
-  color: #0067c5;
-  border-color: rgba(0, 103, 197, 0.4);
+@media (hover: hover) and (pointer: fine) {
+  .clusterColumn li a:hover {
+    color: var(--ds-brand);
+    border-color: color-mix(in srgb, var(--ds-brand) 40%, transparent);
+  }
 }
 
 @media (max-width: 760px) {
@@ -697,7 +721,7 @@
     margin-inline: var(--ds-page-px);
     padding: 28px 18px 32px;
     gap: 24px;
-    border-radius: 12px;
+    border-radius: var(--ds-radius-card);
   }
 
   .copy h1 {
@@ -735,7 +759,7 @@
     min-height: 46px;
     justify-content: center;
     padding: 0 18px;
-    border-radius: 12px;
+    border-radius: var(--ds-radius-card);
     text-align: center;
   }
 
@@ -745,7 +769,7 @@
   .supportCard,
   .faqItem,
   .clusterColumn {
-    border-radius: 10px;
+    border-radius: var(--ds-radius-card);
   }
 
   .gridSection,
@@ -784,5 +808,35 @@
 
   .statRow article {
     min-width: min(100%, 150px);
+  }
+}
+
+/* ─────────────────────── REDUCED MOTION ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .backLink,
+  .phoneLink,
+  .primaryAction,
+  .secondaryAction,
+  .panel,
+  .supportCard,
+  .linkList a,
+  .textAction,
+  .faqItem,
+  .faqItem summary,
+  .faqItem summary::after,
+  .clusterColumn li a {
+    transition: none;
+  }
+
+  .primaryAction:hover,
+  .primaryAction:active,
+  .panel:hover,
+  .supportCard:hover {
+    transform: none;
+  }
+
+  .faqItem[open] summary::after {
+    transform: rotate(180deg);
   }
 }
