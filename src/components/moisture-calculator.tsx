@@ -14,6 +14,23 @@ export const MoistureCalculator = () => {
       : (dimensions.l * dimensions.w * dimensions.h) / 1728;
   const result = Math.max(cubicFeet * 56, 0);
 
+  // Large cartons can push the gram total sky-high. Keep the readout short so
+  // it always fits the circle: grouped for small values, compact ("3.9B") into
+  // the trillions, and scientific ("1.14e16") beyond that instead of an
+  // unreadable 20-digit string. The length-based class then shrinks the font.
+  const displayValue =
+    result >= 1e15
+      ? result.toExponential(2).replace("e+", "e")
+      : result >= 100000
+        ? new Intl.NumberFormat("en-US", { notation: "compact", maximumFractionDigits: 1 }).format(result)
+        : new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 }).format(result);
+  const valueSizeClass =
+    displayValue.length >= 7
+      ? styles.valueLong
+      : displayValue.length >= 5
+        ? styles.valueMedium
+        : "";
+
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setDimensions((prev) => ({ ...prev, [name]: Number.parseFloat(value) || 0 }));
@@ -69,7 +86,7 @@ export const MoistureCalculator = () => {
               url="https://lottie.host/8c067643-d08c-4a3e-862d-0b7074e5781a/3QUpfUo7jY.json"
               className={styles.resultLottie}
             />
-            <span className={styles.resultValue}>{result.toFixed(1)}</span>
+            <span className={`${styles.resultValue} ${valueSizeClass}`}>{displayValue}</span>
             <span className={styles.resultUnit}>Grams</span>
           </div>
           <div className={styles.resultInfo}>
