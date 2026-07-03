@@ -287,11 +287,14 @@ input[type="button"] {
 
 @media (max-width: 760px) {
   html {
-    scroll-padding-top: 108px;
+    scroll-padding-top: 76px;
   }
 
   body {
-    padding-top: 144px;
+    /* Fixed header on phones is ~68px (compact nav shell + pill; the
+     * announcement bar no longer renders). 74px keeps a slim breathing
+     * line under it instead of the old 144px band. */
+    padding-top: 74px;
   }
 
   body::before {
