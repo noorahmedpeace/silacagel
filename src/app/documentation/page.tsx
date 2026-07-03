@@ -93,7 +93,7 @@ export default function DocumentationPage() {
               </div>
               <div>
                 <dt>Registrar</dt>
-                <dd className={styles.placeholder}>{isoCertificate.registrar}</dd>
+                <dd>{isoCertificate.registrar}</dd>
               </div>
               <div>
                 <dt>Verification account</dt>
