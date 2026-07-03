@@ -5035,21 +5035,24 @@
 .heroXProof {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 20px;
+  align-items: center;
+  gap: 10px 18px;
   margin-bottom: 30px;
   color: rgba(233, 238, 247, 0.6);
   font-size: 0.82rem;
   font-weight: 600;
 }
 
-.heroXProof span {
+/* Direct children only — otherwise the dot ::before also lands on the spans
+ * inside the ISO badge (.seal/.text/.dot), scattering stray dots on it. */
+.heroXProof > span {
   display: inline-flex;
   align-items: center;
   gap: 9px;
   white-space: nowrap;
 }
 
-.heroXProof span::before {
+.heroXProof > span::before {
   content: "";
   width: 5px;
   height: 5px;
