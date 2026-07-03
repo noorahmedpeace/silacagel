@@ -208,3 +208,20 @@
     transform: none !important;
   }
 }
+
+/* Unconfirmed placeholder tiles: muted + dashed rule so they clearly read as
+ * "value to be filled in", never as an invented figure. */
+.metricPlaceholder .valueNum {
+  -webkit-text-fill-color: var(--ds-text-faint);
+  background: none;
+  color: var(--ds-text-faint);
+  font-weight: 600;
+}
+
+.metricPlaceholder::before {
+  background: repeating-linear-gradient(
+    180deg,
+    var(--ds-hairline-strong) 0 4px,
+    transparent 4px 8px
+  );
+}
