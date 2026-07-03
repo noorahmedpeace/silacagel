@@ -170,14 +170,14 @@ export default function DocumentationPage() {
             <strong>YouTube</strong>
             <em>Facility & product footage</em>
           </a>
-          <span className={`${styles.verifyLink} ${styles.verifyPlaceholder}`}>
-            <strong>Trade directory</strong>
-            <em>[PLACEHOLDER: Alibaba / verified-supplier URL]</em>
-          </span>
-          <span className={`${styles.verifyLink} ${styles.verifyPlaceholder}`}>
-            <strong>Industry membership</strong>
-            <em>[PLACEHOLDER: chamber / association URL]</em>
-          </span>
+          <a href="https://www.facebook.com/drygelworld" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+            <strong>Facebook</strong>
+            <em>Business page</em>
+          </a>
+          <a href="https://www.instagram.com/drygelworld" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+            <strong>Instagram</strong>
+            <em>Product updates</em>
+          </a>
         </div>
       </section>
 
