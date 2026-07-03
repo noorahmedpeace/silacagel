@@ -4128,8 +4128,10 @@
     gap: 28px;
   }
 
+  /* Mobile-lite: heavy secondary sections stay hidden on phones.
+   * .partnerSection (Industries scrollytelling) was removed from this list -
+   * it now runs the sticky-stage effect on mobile (user request). */
   .whySection,
-  .partnerSection,
   .applicationSection,
   .proofSection,
   .certStrip,
@@ -6195,10 +6197,12 @@
  * a little lower than the previous so the covered card's top edge peeks out.
  * ═══════════════════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .procurementFlowSection {
+  .procurementFlowSection,
+  .partnerSection {
     overflow: visible;
-    /* content-visibility:auto skips offscreen rendering, which can glitch
-     * sticky descendants mid-scroll - keep this section always rendered. */
+    /* content-visibility:auto skips offscreen rendering, which zeroes the
+     * geometry of sticky descendants (the Industries scrolly stage measured
+     * rect 0 and never pinned) - keep both sticky sections always rendered. */
     content-visibility: visible;
   }
 
@@ -6210,11 +6214,19 @@
 
   .procurementFlowCard {
     position: sticky;
+    /* Tall cards give each pin real scroll distance, so the deck overlap
+     * reads clearly on a phone instead of flashing past. */
+    min-height: 60vh;
     /* Solid fill so the pinned card fully covers the one beneath it. */
     background: #ffffff;
     box-shadow:
       0 -14px 34px -24px rgba(8, 30, 80, 0.28),
       var(--ds-shadow-card);
+  }
+
+  /* Let the image absorb the extra height. */
+  .procurementFlowMedia {
+    flex: 1 1 auto;
   }
 
   /* Tablet header (two rows) is ~150px tall. */
@@ -6228,4 +6240,18 @@
   .procurementFlowCard:nth-child(1) { top: 84px; }
   .procurementFlowCard:nth-child(2) { top: 100px; }
   .procurementFlowCard:nth-child(3) { top: 116px; }
+
+  /* Industries scrollytelling on phones: tighter shell, and the intro's
+   * side image goes - the sticky stage carries all imagery. */
+  .partnerSection {
+    padding: 26px 12px;
+  }
+
+  .partnerSection .sectionIntro {
+    grid-template-columns: 1fr;
+  }
+
+  .partnerSection .sectionVisual {
+    display: none;
+  }
 }
