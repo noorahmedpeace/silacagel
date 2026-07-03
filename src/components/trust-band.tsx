@@ -18,16 +18,17 @@ type Metric = {
   placeholder?: boolean;
 };
 
-// Track record — VERIFIABLE facts only. The two unconfirmed production numbers
-// (facility size, monthly capacity) are explicit placeholders, not invented
-// figures. Fill the real values in and remove `placeholder: true`.
+// Track record — owner-verifiable facts only. The two production figures
+// (10M+ packets, 10,000+ customers) are the owner's own published claims on
+// the sister brand site silicagelpk.com; 190+ markets is owner-confirmed;
+// 1983, ISO 9001:2015 and DMF-free are documented. No invented numbers.
 const metrics: Metric[] = [
   { value: "Since 1983", label: "Manufacturing", sub: "Family-run silica gel maker, Karachi", href: "/about" },
+  { value: "10M+", label: "Packets produced", sub: "Silica gel sachets to date", href: "/products", count: true },
   { value: "190+", label: "Export markets", sub: "FOB / CIF / EXW lanes worldwide", href: "/export", count: false, accent: true },
+  { value: "10,000+", label: "Customers served", sub: "Domestic and export buyers", href: "/case-studies", count: true },
   { value: "ISO 9001:2015", label: "Certified QMS", sub: "View certificate & validity", href: "/documentation" },
   { value: "DMF-free", label: "Verified product", sub: "SDS & COA on request", href: "/documentation" },
-  { value: "— sq ft", label: "Production facility", sub: "Add: facility size (to confirm)", href: "/about", placeholder: true },
-  { value: "— / month", label: "Production capacity", sub: "Add: monthly output (to confirm)", href: "/about", placeholder: true },
 ];
 
 export function TrustBand() {
