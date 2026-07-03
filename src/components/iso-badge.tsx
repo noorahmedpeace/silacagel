@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { BadgeCheck, ArrowUpRight } from "lucide-react";
 import styles from "./iso-badge.module.css";
 
 /**
@@ -21,11 +21,18 @@ export function IsoBadge({
       className={`${styles.badge} ${tone === "dark" ? styles.dark : ""} ${className}`}
       aria-label="ISO 9001:2015 certified — view certificate details"
     >
-      <ShieldCheck size={16} strokeWidth={2.2} aria-hidden="true" className={styles.icon} />
+      <span className={styles.seal} aria-hidden="true">
+        <BadgeCheck size={18} strokeWidth={2.1} />
+      </span>
       <span className={styles.text}>
         <strong>ISO 9001:2015</strong>
-        <em>Certified · verify</em>
+        <em>
+          Certified
+          <span className={styles.dot} aria-hidden="true" />
+          Verify
+        </em>
       </span>
+      <ArrowUpRight size={15} strokeWidth={2.4} aria-hidden="true" className={styles.arrow} />
     </Link>
   );
 }
