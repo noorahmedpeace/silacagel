@@ -48,28 +48,26 @@ export const documentGroups: DocGroup[] = [
 
 /*
  * ── ISO 9001:2015 registration certificate ──────────────────────────────
- * Values transcribed from the certificate you supplied. Two items are flagged
- * because they must be reconciled before publishing:
- *   1. REGISTRAR/ISSUING BODY — the certificate artwork is self-branded and
- *      does not clearly name an accredited third-party registrar. The site's
- *      existing JSON-LD names "QMEC Group Intl". Confirm the real issuing body.
- *   2. CERTIFICATE NUMBER / VALIDITY mismatch — this certificate shows
- *      "DGW-9101225" valid to 02-07-2029, while existing site data used
- *      "9101225" valid to 2028. Confirm which is current.
+ * Values transcribed EXACTLY from the owner's certificate. Dates confirmed by
+ * the owner: approved 10-12-2025, valid to 09-12-2028 (03-year validity).
+ * REGISTRAR: shown as "QMEC Group Intl" to stay consistent with the site's
+ * existing JSON-LD; the certificate artwork itself does not print a registrar
+ * name, so this should be re-confirmed against the physical certificate.
  */
 export const isoCertificate = {
   standard: "BS EN ISO 9001:2015",
   scope: "Production, Packaging and Supply of Silica Desiccant",
   naceCode: "8292",
   certificateNumber: "DGW-9101225",
-  registrar: "[PLACEHOLDER: confirm accredited registrar / issuing body]",
+  registrar: "QMEC Group Intl",
   verificationAccountNo: "17240831",
-  approvalDate: "2026-07-03",
-  expiryDate: "2029-07-02",
+  approvalDate: "2025-12-10",
+  expiryDate: "2028-12-09",
   validityYears: 3,
   awardedTo: "DryGelWorld",
   registeredAddress: "A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000, Pakistan",
-  /** Drop the real certificate PDF here to make Download go live. */
+  /** Real certificate PDF. Set fileAvailable:true once the file is committed
+   *  to /public/documents/ at this path. */
   fileHref: "/documents/iso-9001-2015-drygelworld.pdf",
   fileAvailable: false,
 };
@@ -91,7 +89,7 @@ export const documents: DocEntry[] = [
     meta: [
       { label: "Standard", value: isoCertificate.standard },
       { label: "Certificate no.", value: isoCertificate.certificateNumber },
-      { label: "Valid to", value: "02 Jul 2029" },
+      { label: "Valid to", value: "09 Dec 2028" },
     ],
   },
   {
