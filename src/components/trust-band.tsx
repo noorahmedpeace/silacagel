@@ -13,15 +13,21 @@ type Metric = {
   count?: boolean;
   /** Highlight one stat with the brand accent for a single point of emphasis. */
   accent?: boolean;
+  /** Number not yet confirmed by the owner. Renders a clearly-labeled
+   *  placeholder instead of an invented figure (see P2 discipline). */
+  placeholder?: boolean;
 };
 
+// Track record — VERIFIABLE facts only. The two unconfirmed production numbers
+// (facility size, monthly capacity) are explicit placeholders, not invented
+// figures. Fill the real values in and remove `placeholder: true`.
 const metrics: Metric[] = [
-  { value: "40+", label: "Years manufacturing", sub: "Karachi heritage since 1983", href: "/about", count: true },
-  { value: "10M+", label: "Packets distributed", sub: "Real production-scale volume", href: "/products", count: true },
-  { value: "190+", label: "Countries served", sub: "FOB / CIF / EXW export lanes", href: "/export", count: true, accent: true },
-  { value: "10,000+", label: "Customers supported", sub: "Domestic and export buyers", href: "/case-studies", count: true },
-  { value: "ISO 9001:2015", label: "Certified QMS", sub: "Cert #9101225, valid to 2028", href: "/certifications" },
-  { value: "DMF-free", label: "Verified product", sub: "SDS & COA on request", href: "/documents" },
+  { value: "Since 1983", label: "Manufacturing", sub: "Family-run silica gel maker, Karachi", href: "/about" },
+  { value: "190+", label: "Export markets", sub: "FOB / CIF / EXW lanes worldwide", href: "/export", count: false, accent: true },
+  { value: "ISO 9001:2015", label: "Certified QMS", sub: "View certificate & validity", href: "/documentation" },
+  { value: "DMF-free", label: "Verified product", sub: "SDS & COA on request", href: "/documentation" },
+  { value: "— sq ft", label: "Production facility", sub: "Add: facility size (to confirm)", href: "/about", placeholder: true },
+  { value: "— / month", label: "Production capacity", sub: "Add: monthly output (to confirm)", href: "/about", placeholder: true },
 ];
 
 export function TrustBand() {
@@ -37,7 +43,7 @@ export function TrustBand() {
           <Link
             key={metric.label}
             href={metric.href}
-            className={`${styles.metric} ${metric.accent ? styles.metricAccent : ""}`}
+            className={`${styles.metric} ${metric.accent ? styles.metricAccent : ""} ${metric.placeholder ? styles.metricPlaceholder : ""}`}
             aria-label={`${metric.value} - ${metric.label}`}
           >
             <span className={styles.value}>

@@ -6,6 +6,7 @@ import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
+import { IsoBadge } from "@/components/iso-badge";
 import {
   DeferredEmblaCarousel,
   DeferredPriceCalculator,
@@ -281,6 +282,7 @@ export default function Home() {
               </div>
 
               <div className={`${styles.heroXProof} gsap-hero-fade`}>
+                <IsoBadge tone="dark" />
                 {heroCerts.map((item) => (
                   <span key={item}>{item}</span>
                 ))}

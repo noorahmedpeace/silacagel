@@ -1,0 +1,69 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 13px 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(45, 91, 255, 0.22);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  text-decoration: none;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    background var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.text strong {
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+
+/* Dark tone for hero / footer fields. */
+.dark {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .badge:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.4);
+    background: rgba(45, 91, 255, 0.14);
+  }
+  .dark:hover {
+    border-color: rgba(255, 255, 255, 0.36);
+    background: rgba(255, 255, 255, 0.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    transition: none !important;
+  }
+  .badge:hover {
+    transform: none !important;
+  }
+}
