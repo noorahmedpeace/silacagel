@@ -1,48 +1,50 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 11px;
-  padding: 8px 14px 8px 9px;
+  gap: 12px;
+  padding: 9px 16px 9px 10px;
   border-radius: 999px;
   border: 1px solid rgba(45, 91, 255, 0.2);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(234, 240, 255, 0.72));
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(234, 240, 255, 0.72));
   color: var(--ds-brand-deep);
   text-decoration: none;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 12px 28px -18px rgba(45, 91, 255, 0.5);
+    0 14px 30px -18px rgba(45, 91, 255, 0.5);
   transition: transform var(--ds-dur-base) var(--ds-ease-out),
     border-color var(--ds-dur-base) var(--ds-ease-out),
     box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
-/* Emblem: a small seal tile that carries the shield check. */
+/* ── Gold medallion carrying the certification mark ── */
 .seal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   flex-shrink: 0;
   border-radius: 50%;
-  color: #ffffff;
-  background: linear-gradient(145deg, var(--ds-brand-bright) 0%, var(--ds-brand-deep) 100%);
+  color: #4a3808;
+  border: 1px solid rgba(140, 102, 34, 0.7);
+  background: radial-gradient(circle at 34% 28%, #fbeeb8 0%, #e8c976 42%, #c99a3f 78%, #a97f2e 100%);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    0 6px 14px -6px rgba(45, 91, 255, 0.7);
+    inset 0 1px 1px rgba(255, 255, 255, 0.85),
+    inset 0 -2px 3px rgba(120, 86, 22, 0.5),
+    0 6px 14px -6px rgba(120, 86, 22, 0.7);
 }
 
 .text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   line-height: 1;
 }
 
 .text strong {
   font-family: var(--font-display), var(--font-body);
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -55,7 +57,7 @@
   font-style: normal;
   font-size: 0.6rem;
   font-weight: 600;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ds-brand);
 }
@@ -64,63 +66,53 @@
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: var(--ds-accent);
+  background: #c99a3f;
 }
 
 .arrow {
   flex-shrink: 0;
   margin-left: 2px;
-  opacity: 0.55;
+  opacity: 0.5;
   transition: transform var(--ds-dur-base) var(--ds-ease-out),
     opacity var(--ds-dur-base) var(--ds-ease-out);
 }
 
 /* ── Dark tone for hero / footer fields ── */
 .dark {
-  border-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(214, 180, 90, 0.3);
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
   color: #ffffff;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.18),
-    0 16px 34px -20px rgba(6, 10, 24, 0.9);
+    0 18px 38px -20px rgba(6, 10, 24, 0.9),
+    0 0 0 1px rgba(214, 180, 90, 0.06);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-.dark .seal {
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.22) 0%, rgba(91, 134, 255, 0.28) 100%);
-  color: #eaf0ff;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 6px 16px -8px rgba(0, 0, 0, 0.6);
 }
 
 .dark .text em {
   color: rgba(233, 238, 247, 0.72);
 }
 
-.dark .dot {
-  background: var(--ds-accent);
-}
-
 @media (hover: hover) and (pointer: fine) {
   .badge:hover {
     transform: translateY(-2px);
-    border-color: rgba(45, 91, 255, 0.45);
+    border-color: rgba(214, 180, 90, 0.55);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      0 18px 36px -18px rgba(45, 91, 255, 0.6);
+      0 18px 36px -18px rgba(45, 91, 255, 0.55);
   }
   .badge:hover .arrow {
     opacity: 1;
     transform: translate(2px, -2px);
   }
   .dark:hover {
-    border-color: rgba(255, 255, 255, 0.32);
+    border-color: rgba(214, 180, 90, 0.55);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.24),
-      0 20px 40px -18px rgba(6, 10, 24, 0.95);
+      0 22px 42px -18px rgba(6, 10, 24, 0.95),
+      0 0 22px -6px rgba(214, 180, 90, 0.28);
   }
 }
 
