@@ -6187,3 +6187,45 @@
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * MOBILE DECK - the "How it works" cards keep the sticky pile on phones and
+ * tablets too (was desktop-only). Pure position:sticky, no JS. Each card pins
+ * a little lower than the previous so the covered card's top edge peeks out.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .procurementFlowSection {
+    overflow: visible;
+    /* content-visibility:auto skips offscreen rendering, which can glitch
+     * sticky descendants mid-scroll - keep this section always rendered. */
+    content-visibility: visible;
+  }
+
+  .procurementFlowGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .procurementFlowCard {
+    position: sticky;
+    /* Solid fill so the pinned card fully covers the one beneath it. */
+    background: #ffffff;
+    box-shadow:
+      0 -14px 34px -24px rgba(8, 30, 80, 0.28),
+      var(--ds-shadow-card);
+  }
+
+  /* Tablet header (two rows) is ~150px tall. */
+  .procurementFlowCard:nth-child(1) { top: 158px; }
+  .procurementFlowCard:nth-child(2) { top: 174px; }
+  .procurementFlowCard:nth-child(3) { top: 190px; }
+}
+
+@media (max-width: 760px) {
+  /* Compact single-row phone header (~68px). */
+  .procurementFlowCard:nth-child(1) { top: 84px; }
+  .procurementFlowCard:nth-child(2) { top: 100px; }
+  .procurementFlowCard:nth-child(3) { top: 116px; }
+}

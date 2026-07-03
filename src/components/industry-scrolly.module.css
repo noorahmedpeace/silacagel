@@ -21,10 +21,55 @@
 .tint3 { background: linear-gradient(180deg, #f3faf4 0%, #ebf6ee 100%); }
 .tint4 { background: linear-gradient(180deg, #f2f6fb 0%, #e9f0f9 100%); }
 
-/* ─────────────── LEFT: sticky image stage (desktop only) ─────────────── */
+/* ─────────────── Sticky image stage (all widths) ─────────────── */
 
 .stage {
-  display: none;
+  display: block;
+}
+
+.stageInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--ds-bg-deep-2);
+  box-shadow: var(--ds-shadow-hero);
+}
+
+/* Stacked slides - all mounted, crossfading. The active one settles to
+ * rest; inactive ones sit faded with a slight directional drift + zoom so
+ * every change reads as a smooth cinematic dissolve, not a hard slide.
+ * Opacity + transform only - fully compositor-driven, no jank. */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  z-index: 0;
+  transform: translateY(26px) scale(1.05);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Scrolling up, the incoming image drifts down into place instead. */
+.dirUp .slide {
+  transform: translateY(-26px) scale(1.05);
+}
+
+.slideActive {
+  opacity: 1;
+  z-index: 2;
+  transform: translateY(0) scale(1);
+}
+
+.dirUp .slideActive {
+  transform: translateY(0) scale(1);
+}
+
+.slideImage {
+  object-fit: cover;
 }
 
 /* ─────────────── RIGHT: text blocks ─────────────── */
@@ -125,56 +170,10 @@
   }
 
   .stage {
-    display: block;
     position: sticky;
     top: 15%;
     height: min(64vh, 560px);
     margin: 40px 0;
-  }
-
-  .stageInner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-    background: var(--ds-bg-deep-2);
-    box-shadow: var(--ds-shadow-hero);
-  }
-
-  /* Stacked slides - all mounted, crossfading. The active one settles to
-   * rest; inactive ones sit faded with a slight directional drift + zoom so
-   * every change reads as a smooth cinematic dissolve, not a hard slide.
-   * Opacity + transform only - fully compositor-driven, no jank. */
-  .slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    z-index: 0;
-    transform: translateY(26px) scale(1.05);
-    transition:
-      opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
-  }
-
-  /* Scrolling up, the incoming image drifts down into place instead. */
-  .dirUp .slide {
-    transform: translateY(-26px) scale(1.05);
-  }
-
-  .slideActive {
-    opacity: 1;
-    z-index: 2;
-    transform: translateY(0) scale(1);
-  }
-
-  .dirUp .slideActive {
-    transform: translateY(0) scale(1);
-  }
-
-  .slideImage {
-    object-fit: cover;
   }
 
   .blocks {
@@ -193,6 +192,58 @@
   /* The sticky stage carries the imagery on desktop. */
   .mobileMedia {
     display: none;
+  }
+}
+
+/* ═══════════════ MOBILE / TABLET: vertical scrollytelling ═══════════════
+ * Same mechanic as desktop, stacked: the image stage sticks just under the
+ * fixed header while the text blocks scroll past beneath it. Pure sticky +
+ * the same IntersectionObserver - no libraries. */
+@media (max-width: 999px) {
+  .scrolly {
+    overflow: visible;
+    padding: 0 14px 8px;
+  }
+
+  .stage {
+    position: sticky;
+    /* Clears the taller two-row tablet header. */
+    top: 150px;
+    z-index: 2;
+    height: min(34vh, 300px);
+    margin: 14px 0 0;
+  }
+
+  .stageInner {
+    border-radius: 16px;
+  }
+
+  .blocks {
+    row-gap: 40px;
+    padding: 26px 4px 44px;
+  }
+
+  .block {
+    justify-content: center;
+    min-height: 34vh;
+    opacity: 0.3;
+  }
+
+  .blockActive {
+    opacity: 1;
+  }
+
+  /* The sticky stage carries the imagery - hide the per-card copies. */
+  .mobileMedia {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .stage {
+    /* Compact single-row phone header (~68px). */
+    top: 82px;
+    height: min(36vh, 280px);
   }
 }
 
