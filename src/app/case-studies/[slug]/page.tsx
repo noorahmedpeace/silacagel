@@ -77,6 +77,15 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
         </div>
       </section>
 
+      {study.metric ? (
+        <div className={styles.metricStrip}>
+          <strong className={study.metric.value.includes("PLACEHOLDER") ? styles.metricPlaceholder : ""}>
+            {study.metric.value}
+          </strong>
+          <span>{study.metric.label}</span>
+        </div>
+      ) : null}
+
       <article className={styles.caseCard}>
         <div className={styles.caseCopy}>
           <span>Challenge</span>
@@ -106,6 +115,22 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           </div>
         </div>
       </article>
+
+      {study.attribution ? (
+        <figure className={styles.attribution}>
+          {study.attribution.quote ? (
+            <blockquote>&ldquo;{study.attribution.quote}&rdquo;</blockquote>
+          ) : null}
+          <figcaption>
+            <span className={study.attribution.name.includes("PLACEHOLDER") ? styles.metricPlaceholder : styles.attrName}>
+              {study.attribution.name}
+            </span>
+            <span className={styles.attrMeta}>
+              {study.attribution.title} · {study.attribution.company}
+            </span>
+          </figcaption>
+        </figure>
+      ) : null}
 
       <section className={styles.rulesSection}>
         <div>

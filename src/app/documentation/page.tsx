@@ -150,6 +150,32 @@ export default function DocumentationPage() {
         );
       })}
 
+      {/* P2.3 — connection to the rest of the web: verifiable external presence. */}
+      <section className={styles.verifySection} aria-label="Verify us elsewhere">
+        <div className={styles.docHead}>
+          <h2>Verify us elsewhere</h2>
+          <p>Independent profiles a buyer can cross-check. Real links only.</p>
+        </div>
+        <div className={styles.verifyRow}>
+          <a href="https://www.linkedin.com/in/drygelworld/" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+            <strong>LinkedIn</strong>
+            <em>Company profile</em>
+          </a>
+          <a href="https://www.youtube.com/@DryGelWorld" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+            <strong>YouTube</strong>
+            <em>Facility & product footage</em>
+          </a>
+          <span className={`${styles.verifyLink} ${styles.verifyPlaceholder}`}>
+            <strong>Trade directory</strong>
+            <em>[PLACEHOLDER: Alibaba / verified-supplier URL]</em>
+          </span>
+          <span className={`${styles.verifyLink} ${styles.verifyPlaceholder}`}>
+            <strong>Industry membership</strong>
+            <em>[PLACEHOLDER: chamber / association URL]</em>
+          </span>
+        </div>
+      </section>
+
       <section className={styles.ctaBanner}>
         <div>
           <h2>Need a document that isn&apos;t listed?</h2>

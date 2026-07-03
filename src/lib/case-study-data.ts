@@ -10,6 +10,12 @@ export type CaseStudy = {
   approach: string;
   proof: string;
   outcome: string;
+  /** One measurable, quantified result — the headline number a buyer trusts.
+   *  Optional so anonymous cases still render; fill with a real figure. */
+  metric?: { value: string; label: string };
+  /** Named attribution (no anonymous "Great supplier!" quotes). Only render
+   *  when you have a real, permission-cleared reference. */
+  attribution?: { name: string; title: string; company: string; quote?: string };
   products: Array<{ label: string; href: string }>;
   nextLinks: Array<{ label: string; href: string }>;
   faqs: Array<{ q: string; a: string }>;
@@ -34,6 +40,14 @@ export const caseStudies: CaseStudy[] = [
       "The buyer received a documented strip allocation, ceiling-placement guidance, and a clear UAE supply-terms summary (MOQ, lead time, currency) before pricing - the supporting metrics and dated loading photos are added from the buyer's own shipment records.",
     outcome:
       "The conversation moved from a bare strip price to a documented, repeatable UAE container program the importer could reorder against.",
+    // Fill with a real figure + a named, permission-cleared reference. Until
+    // then these render as clearly-labeled placeholders (no invented data).
+    metric: { value: "[PLACEHOLDER: e.g. 0]", label: "moisture-damage claims across [N] container shipments" },
+    attribution: {
+      name: "[PLACEHOLDER: contact name]",
+      title: "[PLACEHOLDER: job title]",
+      company: "[PLACEHOLDER: company — with written permission]",
+    },
     products: [
       { label: "UAE silica gel supplier", href: "/export/uae" },
       { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },

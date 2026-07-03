@@ -442,3 +442,72 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── Quantified outcome + named attribution (P3) ── */
+.metricStrip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  margin: clamp(20px, 3vw, 32px) 0;
+  padding: clamp(20px, 3vw, 30px) clamp(22px, 3vw, 34px);
+  border: 1px solid var(--ds-hairline);
+  border-left: 4px solid var(--ds-brand);
+  border-radius: var(--ds-radius-card);
+  background:
+    radial-gradient(70% 120% at 0% 0%, rgba(45, 91, 255, 0.06), transparent 60%),
+    var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.metricStrip strong {
+  font-family: var(--font-display), var(--font-body);
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ds-brand-deep);
+}
+
+.metricStrip span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ds-text-muted);
+}
+
+.metricPlaceholder {
+  color: var(--ds-accent-deep) !important;
+  font-style: italic;
+  font-weight: 600;
+}
+
+.attribution {
+  margin: clamp(20px, 3vw, 32px) 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface-tint);
+}
+
+.attribution blockquote {
+  margin: 0 0 14px;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  line-height: 1.5;
+  color: var(--ds-text);
+}
+
+.attribution figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.attrName {
+  font-weight: 700;
+  color: var(--ds-text);
+}
+
+.attrMeta {
+  font-size: 0.88rem;
+  color: var(--ds-text-muted);
+}
