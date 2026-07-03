@@ -359,14 +359,14 @@ export default function RootLayout({
                     "@type": "EducationalOccupationalCredential",
                     name: "ISO 9001:2015 - Packaging and Supply of Silica Desiccant",
                     credentialCategory: "Quality Management System Certification",
-                    identifier: "DGW-9101225",
+                    identifier: "9101225",
                     recognizedBy: {
                       "@type": "Organization",
-                      name: "QMEC Group Intl",
+                      name: "QMEC Group Intl (Essex, UK)",
                       url: "https://www.qmecgroup.org",
                     },
                   },
-                  award: "ISO 9001:2015 certified (cert #DGW-9101225, valid to 09 Dec 2028)",
+                  award: "ISO 9001:2015 certified (cert #9101225, valid to 09 Dec 2028)",
                   slogan: "Industrial silica gel desiccants for global moisture protection",
                   sameAs: [
                     "https://www.facebook.com/drygelworld",

@@ -66,6 +66,7 @@ export default function DocumentationPage() {
             <span className={styles.certEyebrow}>Quality Management Certification</span>
             <h2>{isoCertificate.standard}</h2>
             <p className={styles.certScope}>{isoCertificate.scope}</p>
+            <p className={styles.certBrandNote}>{isoCertificate.tradingBrandNote}</p>
             <dl className={styles.certGrid}>
               <div>
                 <dt>Awarded to</dt>
@@ -96,8 +97,12 @@ export default function DocumentationPage() {
                 <dd>{isoCertificate.registrar}</dd>
               </div>
               <div>
-                <dt>Verification account</dt>
-                <dd>{isoCertificate.verificationAccountNo}</dd>
+                <dt>Accreditation</dt>
+                <dd>{isoCertificate.accreditationBody} — Acc. no. {isoCertificate.verificationAccountNo}</dd>
+              </div>
+              <div>
+                <dt>Verify at</dt>
+                <dd>{isoCertificate.verificationUrl}</dd>
               </div>
             </dl>
             <div className={styles.certActions}>

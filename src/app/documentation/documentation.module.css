@@ -105,6 +105,13 @@
   font-size: 0.98rem;
 }
 
+.certBrandNote {
+  margin-top: 6px;
+  color: var(--ds-text-muted);
+  font-size: 0.88rem;
+  font-style: italic;
+}
+
 .certGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
