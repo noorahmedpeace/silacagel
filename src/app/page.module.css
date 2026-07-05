@@ -4854,6 +4854,10 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  /* Decorative gradient only — must never intercept clicks. Without this it
+   * covered ~17% of the hero (the image side) and swallowed taps there as
+   * dead clicks (Clarity flagged them, labelled with the page title). */
+  pointer-events: none;
   background:
     linear-gradient(105deg, rgba(7, 11, 26, 0.88) 0%, rgba(8, 13, 30, 0.7) 42%, rgba(9, 14, 32, 0.32) 72%, rgba(10, 15, 34, 0.16) 100%),
     linear-gradient(0deg, rgba(7, 11, 26, 0.66) 0%, rgba(7, 11, 26, 0.06) 60%),
