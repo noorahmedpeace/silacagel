@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
+import { ProductSpecTable } from "@/components/product-spec-table";
+import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
 import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import {
@@ -419,6 +421,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const faqs = productFaqs[product.slug as keyof typeof productFaqs] ?? [];
   const cluster = productClusters[product.slug];
   const offerPricing = productOfferPricing[product.slug];
+  const productSpec = getProductSpec(product.slug);
 
   const purchaseMessage = [
     "Hello, I want to purchase Dry Gel World.",
@@ -529,6 +532,16 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </article>
             </Reveal>
           </section>
+
+          {productSpec ? (
+            <Reveal>
+              <ProductSpecTable
+                productName={product.name}
+                spec={productSpec}
+                productUrl={absoluteUrl(`/products/${product.slug}`)}
+              />
+            </Reveal>
+          ) : null}
 
           <Reveal>
             <section className={styles.procurementSection}>

@@ -1,0 +1,107 @@
+.specSection {
+  width: 100%;
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px);
+  border: 1px solid rgba(45, 91, 255, 0.12);
+  border-radius: var(--ds-radius-card, 18px);
+  background:
+    radial-gradient(circle at 88% 10%, rgba(234, 240, 255, 0.6), transparent 26%),
+    linear-gradient(135deg, #ffffff 0%, #f6f9fc 100%);
+  box-shadow: var(--ds-shadow-soft, 0 24px 58px -44px rgba(10, 14, 23, 0.22));
+}
+
+.head {
+  margin-bottom: 22px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border: 1px solid rgba(45, 91, 255, 0.18);
+  border-radius: 999px;
+  background: var(--ds-brand-soft, #eaf0ff);
+  color: var(--ds-brand-deep, #1e3fcc);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.head h2 {
+  color: var(--ink, #0a0e17);
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+.intro {
+  margin-top: 8px;
+  max-width: 74ch;
+  color: var(--muted, #5b6472);
+  font-size: 0.94rem;
+  line-height: 1.65;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--ds-hairline, #e6e9f2);
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.specTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.specTable th,
+.specTable td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--ds-hairline, #e6e9f2);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.specTable tr:last-child th,
+.specTable tr:last-child td {
+  border-bottom: none;
+}
+
+.specTable th {
+  width: 34%;
+  min-width: 160px;
+  color: var(--ink, #0a0e17);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  background: #f4f7fc;
+}
+
+.specTable td {
+  color: var(--muted, #5b6472);
+}
+
+.specTable tr:nth-child(odd) td {
+  background: rgba(244, 247, 252, 0.4);
+}
+
+@media (max-width: 560px) {
+  .specTable th {
+    width: 42%;
+    min-width: 128px;
+    font-size: 0.66rem;
+  }
+  .specTable th,
+  .specTable td {
+    padding: 10px 12px;
+  }
+}
