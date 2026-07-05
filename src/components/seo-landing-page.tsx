@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { ProductSpecTable } from "@/components/product-spec-table";
+import { getLandingSpec } from "@/lib/product-spec";
+import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
@@ -12,6 +14,7 @@ type SeoLandingPageProps = {
 
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
+  const landingSpec = getLandingSpec(page.slug);
 
   return (
     <main className={styles.page}>
@@ -221,6 +224,14 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             />
           </div>
         </section>
+      ) : null}
+
+      {landingSpec ? (
+        <ProductSpecTable
+          productName={landingSpec.name}
+          spec={landingSpec.spec}
+          productUrl={absoluteUrl(`/${page.slug}`)}
+        />
       ) : null}
 
       <section className={styles.ctaBand}>

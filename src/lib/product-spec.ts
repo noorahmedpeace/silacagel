@@ -184,3 +184,143 @@ export function getProductSpec(slug: string): ProductSpec | null {
 export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
   return { ...SILICA_BASE, ...override };
 }
+
+// ── Category landing-page specs (keyed by SEO landing slug) ──────────────────
+const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }> = {
+  "white-silica-gel": {
+    name: "White (non-indicating) silica gel",
+    spec: {
+      productType: "White silica gel (non-indicating)",
+      color: "Translucent white / clear",
+      sizes: "Beads 1–3 mm & 2–5 mm; sachets 0.5 g–500 g; bulk bags",
+      packaging: "Sachets, 25 kg bags, drums, jumbo bags",
+      application: "General-purpose moisture control in packaging and containers",
+    },
+  },
+  "non-indicating-silica-gel": {
+    name: "Non-indicating silica gel",
+    spec: {
+      productType: "Non-indicating white silica gel",
+      color: "Translucent white",
+      application: "General moisture control where a colour indicator is not required",
+    },
+  },
+  "indicating-silica-gel": {
+    name: "Indicating silica gel",
+    spec: {
+      productType: "Indicating silica gel (orange or blue)",
+      color: "Orange (cobalt-free) or blue (cobalt-chloride)",
+      indicating: "Indicating — colour changes on saturation",
+      application: "Visual moisture-saturation monitoring inside sealed packs",
+    },
+  },
+  "orange-silica-gel-supplier": {
+    name: "Orange indicating silica gel",
+    spec: {
+      productType: "Orange indicating silica gel (cobalt-free)",
+      color: "Orange (dry) → colourless / pale green (saturated)",
+      indicating: "Indicating — cobalt-free, REACH-friendly (modern default)",
+      application: "REACH-compliant visual moisture monitoring",
+    },
+  },
+  "blue-silica-gel-manufacturer": {
+    name: "Blue indicating silica gel",
+    spec: {
+      productType: "Blue indicating silica gel (cobalt-chloride type)",
+      color: "Blue (dry) → pink (saturated)",
+      indicating: "Indicating — cobalt-chloride; restricted in EU/UK/AU/CA under REACH",
+      application: "Visual moisture monitoring for non-REACH markets only",
+    },
+  },
+  "silica-gel-beads": {
+    name: "Silica gel beads",
+    spec: {
+      productType: "Silica gel beads (loose)",
+      sizes: "1–3 mm, 2–5 mm, 3–5 mm beads",
+      packaging: "25 kg bags, drums, jumbo bags; sachets on request",
+      application: "Loose-fill, repackaging, and industrial / lab moisture control",
+    },
+  },
+  "silica-gel-packets": {
+    name: "Silica gel packets",
+    spec: {
+      productType: "Silica gel packets / sachets",
+      sizes: "0.5 g, 1 g, 2 g, 3 g, 5 g, 10 g, 20 g, 50 g, 100 g",
+      weight: "0.5 g – 100 g per packet",
+      packaging: "Paper / non-woven sachets; bulk cartons",
+      application: "In-box moisture control across industries",
+    },
+  },
+  "bulk-silica-gel-desiccant": {
+    name: "Bulk silica gel",
+    spec: {
+      productType: "Bulk silica gel (beads / crystals)",
+      sizes: "1 / 5 / 10 / 25 kg bags; jumbo bags",
+      weight: "1 kg – 25 kg; jumbo bags on request",
+      packaging: "25 kg bags, drums, jumbo bags",
+      application: "Warehouse- and facility-scale moisture programmes; repackers",
+      industries: "Warehousing, distribution, repackers, industrial lines",
+    },
+  },
+  "container-desiccant-strips": {
+    name: "Container desiccant strips",
+    spec: {
+      productType: "Container cargo desiccant strips (hanging)",
+      sizes: "500 g & 1 kg container packs; 1 / 2 / 3 / 5 kg strips",
+      weight: "500 g – 5 kg per unit",
+      packaging: "Multi-chamber hanging strips with hooks",
+      application: "Ocean-freight container rain and condensation control",
+      industries: "Export logistics, ocean freight, project cargo",
+      adsorptionCapacity: "Up to ~33% (silica gel strips); clay variants up to ~25%",
+    },
+  },
+  "food-grade-silica-gel-supplier": {
+    name: "Silica gel for food packaging",
+    spec: {
+      productType: "Silica gel for food packaging (industrial grade)",
+      application: "Moisture control for dried-food and nutraceutical packaging (non-direct-contact)",
+      industries: "Food packaging, dried goods, nutraceuticals",
+      certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB). Industrial grade — FDA / FSSC 22000 / EU 1935 food-contact certification NOT held; buyer-driven compliance discussion. Suited to incidental-contact packaging where the desiccant does not touch food directly.",
+    },
+  },
+  "pharmaceutical-desiccant": {
+    name: "Pharmaceutical packaging desiccant",
+    spec: {
+      productType: "Silica gel desiccant for pharma packaging (industrial grade)",
+      application: "Moisture control for bottles, canisters, blisters, and secondary packaging",
+      industries: "Pharmaceutical packaging (secondary), nutraceuticals",
+      certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB) + DMF-free statement. FDA DMF / USP / pharma-GMP NOT held; appropriate for non-DMF secondary packaging — buyer-driven compliance discussion.",
+    },
+  },
+  "electronic-packaging-desiccant": {
+    name: "Electronics packaging desiccant",
+    spec: {
+      productType: "Silica gel desiccant for electronics packaging",
+      application: "Moisture protection for MSD components, PCBs, and ICs in sealed packs",
+      industries: "Electronics, semiconductors, PCB assembly",
+      certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB) + SDS/COA/DMF-free on request. JEDEC J-STD-033 / MSL classification NOT held — buyer-driven discussion.",
+    },
+  },
+  "bentonite-clay": {
+    name: "Bentonite clay desiccant",
+    spec: {
+      productType: "Activated bentonite clay desiccant",
+      material: "Activated bentonite / montmorillonite clay",
+      color: "Grey / brown granules",
+      adsorptionCapacity: "Up to ~25% of own weight in water vapour",
+      application: "Cost-tier industrial and container moisture control",
+      industries: "Durable goods, machinery, bulk export cargo",
+      hsCode: "2508.10 / 3802.90 — activated clay (confirm with your customs broker)",
+    },
+  },
+};
+
+/** Resolve a full landing-page spec by slug (base + overrides), or null. */
+export function getLandingSpec(slug: string): { name: string; spec: ProductSpec } | null {
+  const entry = LANDING_SPECS[slug];
+  if (!entry) return null;
+  return { name: entry.name, spec: buildSpec(entry.spec) };
+}
