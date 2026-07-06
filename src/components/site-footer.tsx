@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Factory, Globe2, ShieldCheck } from "lucide-react";
 import {
   companyAddressFull,
@@ -56,8 +56,6 @@ const footerColumns = [
       { label: "UK supplier", href: "/export/uk" },
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
-      { label: "Silica gel exporter USA", href: "/silica-gel-exporter-usa" },
-      { label: "Silica gel exporter Germany", href: "/silica-gel-exporter-germany" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
     ],
     viewAll: { label: "All export markets", href: "/export" },
@@ -102,7 +100,7 @@ const footerColumns = [
       { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
       { label: "Manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },

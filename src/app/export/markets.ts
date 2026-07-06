@@ -16,6 +16,17 @@ export type ExportMarket = {
   currency?: string;
   incoterms?: string[];
   faqs?: Array<{ question: string; answer: string }>;
+  // Customs and import essentials. Only verifiable facts belong here: the HS
+  // classification, the destination's OFFICIAL tariff lookup (so buyers and AI
+  // engines can verify duty themselves), standard shipping documents, and
+  // regulatory notes. Never state a duty percentage we cannot source.
+  customs?: {
+    hsCode: string;
+    dutyNote: string;
+    tariffLookup: { label: string; href: string };
+    requiredDocs: string[];
+    regulatoryNotes: string[];
+  };
 };
 
 export const exportMarkets: ExportMarket[] = [
@@ -36,6 +47,23 @@ export const exportMarkets: ExportMarket[] = [
     leadTime: "Production 7-15 days after artwork/spec sign-off; sea transit Karachi → Jebel Ali ~3-5 days.",
     currency: "Quoted in USD (AED on request)",
     incoterms: ["FOB Karachi", "CIF Jebel Ali", "DAP UAE"],
+    customs: {
+      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      dutyNote:
+        "The UAE applies the GCC common external tariff; most industrial goods enter at the 5% standard rate. Confirm the live 2811.22 rate before costing:",
+      tariffLookup: { label: "Dubai Customs", href: "https://www.dubaicustoms.gov.ae/" },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (COO)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "Food-contact applications should request the DMF-free statement with the order; food-grade certifications (FDA, FSSC 22000) are not currently held.",
+        "Bilingual Arabic/English carton labeling can be arranged for retail-facing packs.",
+      ],
+    },
     faqs: [
       { question: "What is the MOQ for silica gel to the UAE?", answer: "Orders typically start from around 100 kg or 100,000 sachets per format, with smaller trial and sample quantities available before a bulk commitment. Exact MOQ depends on packet size and private-label requirements." },
       { question: "Which Incoterms do you offer for UAE shipments?", answer: "FOB Karachi, CIF Jebel Ali, and DAP UAE are all available, so buyers can choose factory handover, freight-included delivery to port, or delivered terms based on their logistics setup." },
@@ -60,6 +88,23 @@ export const exportMarkets: ExportMarket[] = [
     leadTime: "Production 7-15 days after sign-off; sea transit Karachi → Jeddah/Dammam ~6-9 days.",
     currency: "Quoted in USD (SAR on request)",
     incoterms: ["FOB Karachi", "CIF Jeddah", "CIF Dammam", "DAP Saudi Arabia"],
+    customs: {
+      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      dutyNote:
+        "The GCC common tariff baseline is 5%, but Saudi Arabia has raised rates on several categories since 2020 — verify the live 2811.22 rate with ZATCA before costing:",
+      tariffLookup: { label: "ZATCA (Saudi customs authority)", href: "https://zatca.gov.sa/" },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (COO)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "Some import routes require SABER platform conformity registration — confirm with your importer of record whether it applies to your desiccant shipment.",
+        "Saudi clearing agents commonly request attested commercial documents; align the document set before dispatch.",
+      ],
+    },
     faqs: [
       { question: "What is the MOQ for silica gel to Saudi Arabia?", answer: "Sachet formats typically start from around 100 kg or 100,000 pieces, and bulk silica gel beads from about 500 kg. Trial and sample quantities are available before a bulk order." },
       { question: "Which ports do you ship to in Saudi Arabia?", answer: "Common destinations are Jeddah Islamic Port and King Abdulaziz Port in Dammam, with onward routing to Riyadh and other cities via dry-port and forwarding partners." },
@@ -104,6 +149,34 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "US buyers should confirm product material, warning text, carton labeling, and required compliance documents before sample or bulk production.",
     rfqTip: "Share state, destination port or forwarder, pack count, warning-text requirement, and whether you need private label.",
+    moq: "From 100 kg or 100,000 sachets per format; 25kg loose bulk from 500 kg; samples ship by air before bulk commitment.",
+    leadTime:
+      "Production 7-15 days after sign-off; typical sea transit Karachi → US East Coast ~30-40 days and West Coast ~28-38 days depending on carrier routing and transshipment.",
+    currency: "Quoted in USD",
+    incoterms: ["FOB Karachi", "CIF US port", "DAP with buyer's forwarder"],
+    customs: {
+      hsCode:
+        "HTS 2811.22 (silicon dioxide); silica gel is commonly entered under 2811.22.10 — confirm the statistical suffix with your customs broker",
+      dutyNote:
+        "Confirm the live general rate and any active trade measures for 2811.22 in the official Harmonized Tariff Schedule:",
+      tariffLookup: { label: "USITC HTS search", href: "https://hts.usitc.gov/" },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (COO)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "ISF (10+2) filing is required before vessel loading for US-bound ocean freight — coordinate with your forwarder.",
+        "For direct food-contact use, note that FDA food-contact certification (FCN/GRAS) is not currently held — confirm the requirement with the export desk before commercial terms.",
+      ],
+    },
+    faqs: [
+      { question: "What is the import duty on silica gel into the USA?", answer: "Silica gel is classified under HTS 2811.22 (commonly 2811.22.10). Duty rates and trade measures change, so confirm the live rate in the official USITC Harmonized Tariff Schedule or with your customs broker before costing a shipment." },
+      { question: "How long does shipping from Pakistan to the USA take?", answer: "Typical sea transit from Karachi is roughly 30-40 days to East Coast ports and 28-38 days to the West Coast, depending on carrier routing and transshipment. Production adds 7-15 days after specification sign-off. Air freight is available for samples." },
+      { question: "What documents come with a US-bound silica gel shipment?", answer: "Commercial invoice, packing list, bill of lading, and Certificate of Origin as standard, with SDS and COA available on request. FDA food-contact certification is not currently held. ISF (10+2) data is coordinated with your forwarder before vessel loading." },
+    ],
   },
   {
     slug: "vietnam",
@@ -202,6 +275,22 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "Indian buyers usually compare local supply with import alternatives. Clear price discussion needs format, monthly volume, destination, documents, and whether private label is required.",
     rfqTip: "Send city or port, use case, volume, compliance expectations, and whether the inquiry is for resale, factory use, or export packaging.",
+    customs: {
+      hsCode: "HS 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      dutyNote:
+        "India applies basic customs duty plus IGST on this line; rates change with budget cycles — confirm the live rate on the official customs portal before costing:",
+      tariffLookup: { label: "ICEGATE (Indian Customs)", href: "https://www.icegate.gov.in/" },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (COO)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "Pakistan-India trade routing may require third-country transshipment — confirm the practical route and documentation with your forwarder before committing to a schedule.",
+      ],
+    },
   },
   {
     slug: "brazil",
@@ -272,6 +361,22 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms. REACH registration is not a certification currently held by DryGelWorld, so the conversation should start early.",
     rfqTip: "Send target port, monthly volume, Incoterms, REACH expectations, and whether you need silica gel, dry clay, or both formats in one program.",
+    customs: {
+      hsCode: "UK commodity code 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      dutyNote:
+        "Check the live UK Global Tariff rate and any preferential scheme for imports from Pakistan (the UK Developing Countries Trading Scheme may reduce the rate) in the official tariff:",
+      tariffLookup: { label: "UK Integrated Online Tariff", href: "https://www.trade-tariff.service.gov.uk/" },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (COO)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "UK REACH applies post-Brexit: cobalt-chloride blue indicating gel is restricted — specify cobalt-free orange indicating gel for UK-bound orders.",
+      ],
+    },
   },
   {
     slug: "germany",
@@ -286,6 +391,26 @@ export const exportMarkets: ExportMarket[] = [
     routeNote:
       "German procurement teams typically require SDS in German and align EU import documentation before pricing. REACH support is a buyer-led discussion - DryGelWorld supplies SDS, COA, and ISO 9001:2015, while REACH registration must be confirmed against the buyer's compliance program.",
     rfqTip: "Send REACH expectations, target port, language requirements (DE/EN), monthly volume, and whether silica gel or dry clay better fits the use case.",
+    customs: {
+      hsCode: "CN 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      dutyNote:
+        "Check the live EU conventional rate and any GSP preference for imports from Pakistan (Pakistan holds EU GSP+ status, which zero-rates many chemical lines) in TARIC:",
+      tariffLookup: {
+        label: "EU TARIC consultation",
+        href: "https://ec.europa.eu/taxation_customs/dds2/taric/taric_consultation.jsp",
+      },
+      requiredDocs: [
+        "Commercial invoice",
+        "Packing list",
+        "Bill of lading",
+        "Certificate of Origin (Form A / REX statement for GSP+ preference)",
+        "SDS on request",
+      ],
+      regulatoryNotes: [
+        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel — specify cobalt-free orange indicating gel for EU-bound orders.",
+        "German buyers often specify DIN 55473 desiccant units for packaging programs — state DIN unit requirements in the RFQ.",
+      ],
+    },
   },
   {
     slug: "canada",

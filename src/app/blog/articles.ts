@@ -2,6 +2,17 @@ export type BlogArticle = {
   slug: string;
   label: string;
   title: string;
+  /**
+   * Hand-written SERP title (<= 60 chars, query phrase first). When absent the
+   * page falls back to compacting `title`. Never prefix with `label` — internal
+   * taxonomy words ("Storage Guide:", "Compliance:") are not search language.
+   */
+  metaTitle?: string;
+  /**
+   * Hand-written meta description (140-158 chars, ends on a complete sentence,
+   * front-loads the query the page ranks for).
+   */
+  metaDescription?: string;
   description: string;
   readTime: string;
   sections: {
@@ -13,6 +24,16 @@ export type BlogArticle = {
     question: string;
     answer: string;
   }[];
+  /**
+   * Primary sources backing the article's regulatory/technical claims.
+   * Rendered as a visible References section and emitted as `citation` in the
+   * Article JSON-LD — AI search engines preferentially cite pages that cite.
+   */
+  sources?: {
+    label: string;
+    href: string;
+    publisher: string;
+  }[];
 };
 
 export const blogArticles: BlogArticle[] = [
@@ -20,6 +41,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "top-10-silica-gel-suppliers-world-pakistan",
     label: "Supplier Ranking",
     title: "Top 10 silica gel suppliers in the world and Pakistan: DryGelWorld recommended list",
+    metaTitle: "Top 10 Silica Gel Suppliers in the World & Pakistan (2026)",
+    metaDescription:
+      "A buyer-fit ranking of the top silica gel suppliers worldwide and in Pakistan — product range, export documents, MOQs, and which supplier fits which buyer.",
     description:
       "DryGelWorld's recommended ranking of silica gel suppliers for global B2B buyers and Pakistan procurement teams, covering sachets, bulk beads, container desiccants, export documents, and buyer-fit criteria.",
     readTime: "8 min read",
@@ -120,6 +144,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-to-choose-silica-gel-packet-size",
     label: "Sizing Guide",
     title: "How to choose silica gel packet size: a complete sizing guide for B2B buyers",
+    metaTitle: "How to Choose Silica Gel Packet Size: A Sizing Guide",
+    metaDescription:
+      "Match silica gel packet size to package volume, product sensitivity, and transit time. Sizing rules of thumb plus a calculation path for B2B buyers.",
     description:
       "A complete buyer guide for selecting the right silica gel packet size - by carton volume, product sensitivity, route humidity, and storage time. Real math, real working numbers, and the sizing patterns that work for export programs from Karachi to global destinations.",
     readTime: "11 min read",
@@ -240,6 +267,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-vs-clay-desiccant",
     label: "Comparison",
     title: "How silica gel and clay desiccant differ: chemistry, capacity & format",
+    metaTitle: "Silica Gel vs Clay Desiccant: Capacity, Cost and Format",
+    metaDescription:
+      "Silica gel and clay desiccant differ in chemistry, adsorption across humidity ranges, and regeneration. Which one fits your packaging, route, and budget.",
     description:
       "A deep-dive explainer on how silica gel and clay desiccants differ - chemistry, adsorption behaviour across humidity, sachet format sizing, regeneration temperatures, and the documentation buyers should check before choosing.",
     readTime: "13 min read",
@@ -370,6 +400,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "container-rain-prevention",
     label: "Logistics",
     title: "Container rain prevention: a long-haul export shipping guide",
+    metaTitle: "Container Rain: Why It Happens and How to Prevent It",
+    metaDescription:
+      "Container rain is condensation from trapped humid air hitting cold steel. Sizing math by container and route, placement, and a claim-proof moisture plan.",
     description:
       "A logistics-grade guide to stopping container condensation: the physics behind container rain, sizing math by container type and route, format-by-format protection plans, claim-defensible documentation, and the gap between desiccant alone and a complete moisture program.",
     readTime: "14 min read",
@@ -490,6 +523,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "desiccant-for-electronics-packaging",
     label: "Electronics",
     title: "Desiccant for electronics packaging: a procurement guide",
+    metaTitle: "Desiccant for Electronics Packaging and Shipping",
+    metaDescription:
+      "Electronics need dry packaging: which desiccant and sachet size protects PCBs, components, and devices in storage and shipping, plus spec guidance.",
     description:
       "A technical buyer guide to desiccants for electronics packaging - what moisture does to PCBs and components, MSL handling, sachet sizing per pack volume, ESD-bag integration, long-haul shipping, documentation buyers actually need, and the difference between cost-tier and precision-tier programs.",
     readTime: "12 min read",
@@ -608,6 +644,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "can-you-reuse-silica-gel",
     label: "Buyer FAQ",
     title: "Can you reuse silica gel packets? A complete reuse and regeneration guide",
+    metaTitle: "Can You Reuse Silica Gel? Regeneration and Reuse Limits",
+    metaDescription:
+      "Silica gel can be regenerated by heat and reused — but not always economically. When reuse makes sense, when fresh sachets win, and how QC decides it.",
     description:
       "Silica gel can be regenerated by heat - but whether you should reuse it depends on the use case, the packet material, your QC infrastructure, and the economic reality of B2B procurement. This guide breaks down when reuse makes sense and when fresh sachets win.",
     readTime: "10 min read",
@@ -722,6 +761,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "what-is-silica-gel-and-how-does-it-work",
     label: "Technical Basics",
     title: "What is silica gel and how does it actually work?",
+    metaTitle: "What Is Silica Gel and How Does It Work?",
+    metaDescription:
+      "Silica gel is porous, non-toxic silicon dioxide that adsorbs moisture into millions of internal pores. How adsorption works and why packets protect cargo.",
     description:
       "A foundational technical guide to silica gel - what it is, how adsorption works at the bead level, why it controls moisture better than most alternatives, and how procurement teams should think about it for packaging, export shipping, and industrial moisture control programs.",
     readTime: "12 min read",
@@ -805,6 +847,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-vs-molecular-sieve-vs-activated-alumina",
     label: "Comparison",
     title: "Silica gel vs molecular sieve vs activated alumina: a buyer's guide",
+    metaTitle: "Silica Gel vs Molecular Sieve vs Activated Alumina",
+    metaDescription:
+      "The three main industrial desiccants compared: adsorption capacity, pore size, cost tiers, regeneration, and which fits which packaging use case.",
     description:
       "A buyer-grade comparison of the three main industrial desiccants - silica gel, molecular sieve, and activated alumina. Adsorption capacity, pore-size differences, cost tiers, regeneration, and which one fits which export-packaging use case.",
     readTime: "11 min read",
@@ -934,6 +979,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-to-prevent-moisture-in-export-cartons",
     label: "Export Cartons",
     title: "How to prevent moisture damage in export cartons: a logistics-grade buyer guide",
+    metaTitle: "How to Prevent Moisture Damage in Export Cartons",
+    metaDescription:
+      "Moisture ruins export cartons through condensation and humidity swings. Sachet sizing, placement, and carton materials that keep contents dry.",
     description:
       "A working playbook for export buyers protecting cartons from humidity damage during long-haul shipping - pre-packing controls, sachet sizing math, placement by cargo type, claim-defensible documentation, and where most moisture-damage claims actually originate.",
     readTime: "13 min read",
@@ -1067,6 +1115,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-sds-coa-requirements-for-buyers",
     label: "Documents",
     title: "Silica gel SDS and COA requirements: a procurement document guide",
+    metaTitle: "Silica Gel SDS and COA: What Buyers Should Request",
+    metaDescription:
+      "SDS and COA are the two documents every silica gel buyer should request first. What each covers, how to read them, and when extra docs matter.",
     description:
       "What B2B silica gel buyers need to request, when, and why - Safety Data Sheets, Certificates of Analysis, ISO 9001:2015 references, DMF-free statements, market-specific compliance documents, and the procurement workflow that prevents shipment delays and audit findings.",
     readTime: "12 min read",
@@ -1184,6 +1235,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "private-label-silica-gel-packets-guide",
     label: "Private Label",
     title: "Private label silica gel packets: a complete OEM buyer guide",
+    metaTitle: "Private Label Silica Gel Packets: OEM Buyer Guide",
+    metaDescription:
+      "How private-label silica gel programs work: sachet printing, MOQs, artwork approval, compliance text, and the OEM supply terms to agree up front.",
     description:
       "How brands, distributors, and packaging companies should plan private-label silica gel programs - sachet selection, artwork and warning text rules, MOQ economics, carton labeling, document workflow, and the procurement patterns that scale across repeat orders.",
     readTime: "12 min read",
@@ -1299,6 +1353,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "bulk-silica-gel-supplier-checklist",
     label: "Bulk Buying",
     title: "Bulk silica gel supplier checklist: a complete wholesale procurement guide",
+    metaTitle: "Bulk Silica Gel Supplier Checklist for Wholesale Buyers",
+    metaDescription:
+      "How to vet a bulk silica gel supplier: adsorption specs, SDS and COA workflow, 25kg vs finished packs, MOQ economics, Incoterms, and repeat-supply terms.",
     description:
       "A wholesale procurement guide for B2B silica gel buyers - supplier evaluation criteria, format selection (25kg loose vs finished packs vs cargo strips), MOQ economics, document workflow, Incoterms, and the recurring-supply patterns that separate reliable wholesale programs from amateur ones.",
     readTime: "12 min read",
@@ -1526,6 +1583,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "best-desiccant-for-shipping-containers",
     label: "Container Shipping",
     title: "Best desiccant for shipping containers: a buyer's selection guide",
+    metaTitle: "Best Desiccant for Shipping Containers: How to Choose",
+    metaDescription:
+      "Which desiccant protects a shipping container best — silica gel, clay, or calcium chloride? Selection criteria by route, cargo, and transit time.",
     description:
       "How export buyers pick the right desiccant program for 20-foot and 40-foot container shipments. Container-level strips vs carton-level sachets, silica gel vs clay, route-by-route sizing math, and the procurement checklist that prevents moisture-damage claims.",
     readTime: "11 min read",
@@ -1870,6 +1930,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "moisture-protection-for-international-shipping",
     label: "International Shipping",
     title: "Moisture protection for international shipping: a complete export buyer guide",
+    metaTitle: "Moisture Protection for International Shipping: A Guide",
+    metaDescription:
+      "How exporters protect cargo from humidity across shipping lanes — route risk, layered carton, pallet, and container desiccants, and per-shipment cost.",
     description:
       "How exporters protect cargo from humidity damage across international shipping lanes - route risk profiles, layered desiccant programs (carton + pallet + container), pre-load workflow, claim-defensible documentation, and the per-shipment cost reality.",
     readTime: "12 min read",
@@ -2114,6 +2177,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "container-desiccant-vs-silica-gel",
     label: "Comparison",
     title: "Container desiccant vs silica gel: what's the actual difference?",
+    metaTitle: "Container Desiccant vs Silica Gel: What's the Difference",
+    metaDescription:
+      "Container desiccants protect the container; silica gel packets protect the product inside. How the layers differ and when an export load needs both.",
     description:
       "Container desiccant and silica gel are not opposites - they're different layers of the same protection system. This guide clarifies the terminology, explains where each fits in a B2B export program, and helps buyers stop conflating product format with material chemistry.",
     readTime: "8 min read",
@@ -2202,6 +2268,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "reusable-vs-disposable-desiccants",
     label: "Comparison",
     title: "Reusable vs disposable desiccants: when each makes economic sense",
+    metaTitle: "Reusable vs Disposable Desiccants: The Economics",
+    metaDescription:
+      "When regenerating desiccant pays off and when disposable sachets win: labor, QC risk, and per-cycle capacity loss in the real cost equation.",
     description:
       "B2B desiccant buyers face a recurring choice: pay more per unit for regenerable desiccant or accept disposable single-use units. This guide breaks down the economics, the operational requirements, and the use cases where each model wins.",
     readTime: "9 min read",
@@ -2289,6 +2358,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-long-does-silica-gel-last",
     label: "Buyer FAQ",
     title: "How long does silica gel last? Shelf life, working capacity, and replacement timing",
+    metaTitle: "How Long Does Silica Gel Last? Lifespan and Replacement",
+    metaDescription:
+      "Silica gel's lifespan depends on the scenario: unopened storage, in-package working life, and regeneration cycles. Practical numbers for each case.",
     description:
       "Silica gel has different lifespans depending on use case - unopened storage, in-package working capacity, and post-saturation regeneration timing. This guide breaks down each scenario with practical numbers for B2B procurement teams.",
     readTime: "7 min read",
@@ -2304,10 +2376,10 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
-        heading: "Unopened storage - typically 1-2 years if properly sealed",
-        body: "Sealed and properly stored silica gel has a long shelf life because the material is chemically stable - it doesn't degrade like organic chemicals. Typical guidance: 1-2 years when stored in moisture-proof outer packaging at room temperature. Beyond that, the silica gel itself doesn't 'expire' chemically, but the outer packaging may degrade and let ambient moisture in. For B2B procurement, the practical rule is: rotate stock first-in-first-out, and don't stockpile more than 12-18 months of forecast volume.",
+        heading: "Unopened storage - typically 24-36 months if properly sealed",
+        body: "Sealed and properly stored silica gel has a long shelf life because the material is chemically stable - it doesn't degrade like organic chemicals. Typical guidance: 24-36 months when stored in the sealed factory pouch at room temperature. Beyond that, the silica gel itself doesn't 'expire' chemically, but the outer packaging may degrade and let ambient moisture in. For B2B procurement, the practical rule is: rotate stock first-in-first-out, and don't stockpile more than 12-18 months of forecast volume.",
         bullets: [
-          "Sealed silica gel: 1-2 years shelf life at room temperature.",
+          "Sealed silica gel: 24-36 months shelf life in the factory pouch at room temperature.",
           "Beyond that: material is stable; outer packaging is the limiting factor.",
           "FIFO stock rotation is the right discipline.",
           "Don't stockpile more than 12-18 months of forecast volume.",
@@ -2348,7 +2420,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "What's the shelf life of unopened silica gel?",
         answer:
-          "Typically 1-2 years at room temperature in sealed outer packaging. The silica gel material itself is chemically stable indefinitely - the limiting factor is outer packaging integrity. For B2B procurement, rotate stock first-in-first-out and avoid stockpiling beyond 12-18 months of forecast volume.",
+          "Typically 24-36 months at room temperature in sealed outer packaging. The silica gel material itself is chemically stable indefinitely - the limiting factor is outer packaging integrity. For B2B procurement, rotate stock first-in-first-out and avoid stockpiling beyond 12-18 months of forecast volume.",
       },
       {
         question: "How long does silica gel work inside a shipping carton?",
@@ -2363,7 +2435,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Does silica gel expire?",
         answer:
-          "Not chemically - silica gel is stable indefinitely. The outer packaging may degrade after 1-2 years, allowing ambient moisture to reach the material. Practical shelf life is determined by packaging integrity, not material degradation.",
+          "Not chemically - silica gel is stable indefinitely. The outer packaging may degrade after roughly 24-36 months, allowing ambient moisture to reach the material. Practical shelf life is determined by packaging integrity, not material degradation.",
       },
       {
         question: "How many times can silica gel be regenerated?",
@@ -2376,6 +2448,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-exporters-protect-cargo-from-humidity",
     label: "Export Operations",
     title: "How exporters protect cargo from humidity: an operational playbook",
+    metaTitle: "How Exporters Protect Cargo From Humidity: A Playbook",
+    metaDescription:
+      "The operational playbook exporters use against humidity: route risk checks, layered desiccants, pre-load inspection, and claim-ready documentation.",
     description:
       "How experienced B2B exporters build cargo-humidity protection into their operations - Incoterms framing, supplier coordination, pre-load humidity checks, layered desiccant programs, documentation discipline, and the operational patterns that prevent moisture-damage claims.",
     readTime: "10 min read",
@@ -2477,6 +2552,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-for-pharma-packaging-buyer-guide",
     label: "Pharma",
     title: "Silica gel for pharma packaging: an industrial buyer's compliance guide",
+    metaTitle: "Silica Gel for Pharma Packaging: Compliance Buyer Guide",
+    metaDescription:
+      "Pharma desiccants are a regulated buy: sachet compliance, contamination control, DMF and pharmacopoeia expectations, and how to qualify a supplier.",
     description:
       "Pharma packaging silica gel is a regulated procurement category, not a generic desiccant purchase. This guide covers what pharma buyers actually need to verify: sachet format compliance, regional documentation expectations, contamination control, and how to evaluate a supplier when FDA Drug Master File or specific pharmacopoeia compliance is required.",
     readTime: "9 min read",
@@ -2581,6 +2659,16 @@ export const blogArticles: BlogArticle[] = [
     slug: "indicating-silica-gel-orange-blue-color-change-guide",
     label: "Technical Guide",
     title: "Indicating silica gel: orange, blue, and how the color change actually works",
+    metaTitle: "Indicating Silica Gel: How the Color Change Works",
+    metaDescription:
+      "Indicating silica gel changes color as it saturates, giving visual QC on stock and packaging. Orange vs blue, regulations, and reading the change right.",
+    sources: [
+      {
+        label: "Candidate List of substances of very high concern (cobalt dichloride entry)",
+        href: "https://echa.europa.eu/candidate-list-table",
+        publisher: "European Chemicals Agency (ECHA)",
+      },
+    ],
     description:
       "Indicating silica gel changes color when it's saturated with moisture - useful for visual quality control on packaging and warehouse stock. This guide explains how orange and blue indicating silica gel work, when to use which, regulatory considerations, and how to read the color change properly to avoid replacing desiccant too early or too late.",
     readTime: "8 min read",
@@ -2680,6 +2768,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "oxygen-absorber-vs-silica-gel-when-to-use-each",
     label: "Comparison",
     title: "Oxygen absorber vs silica gel: when to use which (and when to use both)",
+    metaTitle: "Oxygen Absorber vs Silica Gel: When to Use Each",
+    metaDescription:
+      "Oxygen absorbers stop oxidation; silica gel stops humidity. Which cargo needs which, when you need both, and the substitution mistake buyers make.",
     description:
       "Oxygen absorbers and silica gel solve different problems. This buyer guide explains the difference, the cargo types where each works, the cases where you need both, and the mistake B2B buyers make when they substitute one for the other in packaging programs.",
     readTime: "8 min read",
@@ -2783,6 +2874,21 @@ export const blogArticles: BlogArticle[] = [
     slug: "food-grade-silica-gel-procurement-guide",
     label: "Food Industry",
     title: "Food-grade silica gel procurement guide for industrial buyers",
+    metaTitle: "Food-Grade Silica Gel: What It Means and How to Buy It",
+    metaDescription:
+      "What food-grade actually means for silica gel in each market, when it's mandatory, and the certifications to demand before a food-contact order.",
+    sources: [
+      {
+        label: "21 CFR Part 176 — indirect food additives: paper and paperboard components",
+        href: "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-176",
+        publisher: "eCFR, U.S. Food and Drug Administration",
+      },
+      {
+        label: "21 CFR 172.480 — silicon dioxide (direct food additive)",
+        href: "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-172",
+        publisher: "eCFR, U.S. Food and Drug Administration",
+      },
+    ],
     description:
       "Food-grade silica gel is a regulated procurement category requiring specific certifications. This guide covers what 'food-grade' actually means in different markets, when it's required versus optional, and how to evaluate a supplier when food-contact compliance is part of the buying decision.",
     readTime: "8 min read",
@@ -2888,6 +2994,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-bulk-pricing-factors-for-exporters",
     label: "Pricing Guide",
     title: "What actually drives silica gel bulk pricing for export buyers",
+    metaTitle: "Silica Gel Bulk Pricing: What Drives the Export Price",
+    metaDescription:
+      "Bulk silica gel pricing moves with format, gram size, packaging, order volume, and Incoterms. What actually drives quotes and how buyers compare them.",
     description:
       "Bulk silica gel pricing is shaped by raw material cost, packaging format, certification scope, MOQ, shipment route, and Incoterm. This guide breaks down what each factor adds to the price and helps B2B buyers benchmark quotes intelligently across suppliers.",
     readTime: "8 min read",
@@ -2993,6 +3102,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-for-leather-and-footwear-export",
     label: "Industry",
     title: "Silica gel for leather and footwear export: a moisture protection guide",
+    metaTitle: "Silica Gel for Leather and Footwear Export: Stop Mold",
+    metaDescription:
+      "Mold claims ruin leather and footwear shipments. The sizing math per shoebox and carton, placement discipline, and specs leather exporters rely on.",
     description:
       "Leather and footwear are among the most moisture-sensitive cargo categories in international export. This guide covers why mold and mildew damage happens, the silica gel sizing math for leather export programs, and the packaging discipline that protects high-value leather and footwear shipments through long-haul humid routes.",
     readTime: "8 min read",
@@ -3097,6 +3209,21 @@ export const blogArticles: BlogArticle[] = [
     slug: "is-silica-gel-toxic-safety-guide",
     label: "Safety Guide",
     title: "Is silica gel toxic? A safety guide for buyers, workers, and packers",
+    metaTitle: "Is Silica Gel Toxic? What DO NOT EAT Actually Means",
+    metaDescription:
+      "Plain silica gel is non-toxic amorphous silica — the real concerns are choking, cobalt-blue dye, and dust. Safety facts for buyers and packing teams.",
+    sources: [
+      {
+        label: "Silica gel: is it dangerous to eat?",
+        href: "https://www.poison.org/articles/silica-gel",
+        publisher: "National Capital Poison Center (Poison Control)",
+      },
+      {
+        label: "Silicon dioxide — compound summary",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Silicon-dioxide",
+        publisher: "PubChem, U.S. National Library of Medicine",
+      },
+    ],
     description:
       "A clear, practical safety guide to silica gel for B2B buyers and packing teams - what the 'DO NOT EAT' label really means, the difference between non-toxic amorphous desiccant gel and hazardous crystalline silica, the cobalt-chloride question on indicating gel, worker handling, food contact, and disposal.",
     readTime: "9 min read",
@@ -3123,7 +3250,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Indicating gel: the cobalt-chloride question",
-        body: "The one place a genuine toxicity question arises is indicating (colour-changing) silica gel. Traditional blue indicating gel uses cobalt(II) chloride, which is classed as a suspected carcinogen and is restricted in several markets. Modern orange indicating gel typically uses safer cobalt-free indicators. If your destination market or end-use is regulated, specify cobalt-free orange indicating gel, or use plain non-indicating gel and verify desiccant performance by sizing math and sample testing instead. State the requirement at quote stage so the right grade is supplied from the start.",
+        body: "The one place a genuine toxicity question arises is indicating (colour-changing) silica gel. Traditional blue indicating gel uses cobalt(II) chloride, classified in the EU as a Category 1B carcinogen and restricted in several markets. Modern orange indicating gel typically uses safer cobalt-free indicators. If your destination market or end-use is regulated, specify cobalt-free orange indicating gel, or use plain non-indicating gel and verify desiccant performance by sizing math and sample testing instead. State the requirement at quote stage so the right grade is supplied from the start.",
         bullets: [
           "Blue indicating gel often uses cobalt chloride (restricted in some markets).",
           "Orange indicating gel is commonly cobalt-free and safer.",
@@ -3202,6 +3329,16 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-colors-white-blue-orange-explained",
     label: "Product Guide",
     title: "Silica gel colours explained: white vs blue vs orange",
+    metaTitle: "Silica Gel Colors Explained: White vs Blue vs Orange",
+    metaDescription:
+      "White silica gel is non-indicating; blue and orange change color as they saturate. What each color means and why blue cobalt gel is being replaced.",
+    sources: [
+      {
+        label: "Candidate List of substances of very high concern (cobalt dichloride entry)",
+        href: "https://echa.europa.eu/candidate-list-table",
+        publisher: "European Chemicals Agency (ECHA)",
+      },
+    ],
     description:
       "What the white, blue, and orange variants of silica gel actually mean for B2B buyers - which is indicating and which is not, how the colour change signals saturation, why blue cobalt-chloride gel is being replaced by orange, and how to choose the right colour for your shipment.",
     readTime: "8 min read",
@@ -3228,10 +3365,10 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Blue indicating silica gel - and why it is being phased out",
-        body: "Blue indicating gel is treated with cobalt(II) chloride: it is deep blue when dry and turns pink as it saturates. The visual signal is useful, but cobalt chloride is classified as a suspected carcinogen and is restricted under regulations such as EU REACH. For that reason many buyers and markets are moving away from blue gel, especially for food-adjacent, pharma, or consumer-facing packaging. If you still see blue indicating gel specified, check whether the destination market permits it before committing to bulk.",
+        body: "Blue indicating gel is treated with cobalt(II) chloride: it is deep blue when dry and turns pink as it saturates. The visual signal is useful, but cobalt chloride is classified under EU CLP as a Category 1B carcinogen and is restricted under EU REACH. For that reason many buyers and markets are moving away from blue gel, especially for food-adjacent, pharma, or consumer-facing packaging. If you still see blue indicating gel specified, check whether the destination market permits it before committing to bulk.",
         bullets: [
           "Cobalt chloride indicator: blue when dry, pink when saturated.",
-          "Cobalt chloride is a suspected carcinogen, restricted (e.g. EU REACH).",
+          "Cobalt chloride is an EU Category 1B carcinogen, restricted under REACH.",
           "Being phased out for food, pharma, and consumer-facing use.",
           "Confirm destination-market acceptance before ordering blue gel.",
         ],
@@ -3283,7 +3420,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is blue silica gel dangerous?",
         answer:
-          "Blue indicating gel contains cobalt(II) chloride, a suspected carcinogen restricted under regulations such as EU REACH. The base silica is inert, but the cobalt-chloride indicator is why many markets restrict blue gel for food, pharma, and consumer-facing packaging. Cobalt-free orange indicating gel provides the same visual signal without that concern.",
+          "Blue indicating gel contains cobalt(II) chloride, an EU Category 1B carcinogen restricted under REACH. The base silica is inert, but the cobalt-chloride indicator is why many markets restrict blue gel for food, pharma, and consumer-facing packaging. Cobalt-free orange indicating gel provides the same visual signal without that concern.",
       },
       {
         question: "Does the colour of silica gel affect how well it absorbs moisture?",
@@ -3306,6 +3443,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-shelf-life-and-storage-guide",
     label: "Storage Guide",
     title: "Silica gel shelf life: how long unused stock lasts and how to store it",
+    metaTitle: "Does Silica Gel Expire? Shelf Life and Storage of Stock",
+    metaDescription:
+      "Unused silica gel doesn't expire like food — sealed stock holds capacity for years. Sealed vs opened life, warehouse storage, rotation, reactivation.",
     description:
       "How long does unused silica gel actually last, and how should buyers store bulk desiccant stock? A practical guide to shelf life, sealed vs opened packaging, warehouse storage, stock rotation, and reactivating stock that has picked up moisture before use.",
     readTime: "8 min read",
@@ -3412,6 +3552,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-for-rice-grain-spice-export",
     label: "Industry Guide",
     title: "Silica gel for rice, grain, and spice export: moisture and mould control",
+    metaTitle: "Silica Gel for Rice, Grain, and Spice Export",
+    metaDescription:
+      "Moisture and mould control for rice, grain, and spice shipments: food-safe desiccant options, dosage by bag and container, and export packing rules.",
     description:
       "How food-commodity exporters use silica gel and container desiccants to protect rice, grains, pulses, and spices from container condensation, mould, and aflatoxin during ocean freight - placement, sizing per container, food-contact rules, and rejection-risk reduction.",
     readTime: "9 min read",
@@ -3520,6 +3663,21 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-import-customs-hs-code-guide",
     label: "Export Operations",
     title: "Silica gel HS code and import customs guide for buyers and exporters",
+    metaTitle: "Silica Gel HS Code 2811.22: Import and Customs Guide",
+    metaDescription:
+      "Silica gel is classified under HS 2811.22 (silicon dioxide). Country variants, the documents customs expect, and how to avoid clearance delays.",
+    sources: [
+      {
+        label: "Harmonized Tariff Schedule search (heading 2811)",
+        href: "https://hts.usitc.gov/",
+        publisher: "United States International Trade Commission",
+      },
+      {
+        label: "UK Integrated Online Tariff",
+        href: "https://www.trade-tariff.service.gov.uk/",
+        publisher: "HM Revenue & Customs",
+      },
+    ],
     description:
       "The HS code for silica gel desiccant, how it is classified for import customs, the documents customs and buyers expect, and how to avoid clearance delays when importing silica gel sachets, beads, and container desiccants internationally.",
     readTime: "10 min read",
@@ -3625,6 +3783,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-silica-gel-is-made-manufacturing-process",
     label: "Technical Basics",
     title: "How silica gel is made: the manufacturing process explained",
+    metaTitle: "How Silica Gel Is Made: Manufacturing Process Explained",
+    metaDescription:
+      "Silica gel is made from sodium silicate and acid, then washed, graded, and activated into porous beads. The full process and the QC questions to ask.",
     description:
       "How silica gel desiccant is manufactured - from sodium silicate and acid to washed, graded, and activated beads - why pore structure controls adsorption capacity, and what buyers should ask a manufacturer about quality control.",
     readTime: "11 min read",
@@ -3724,6 +3885,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "relative-humidity-and-adsorption-isotherms-explained",
     label: "Technical Basics",
     title: "Relative humidity and adsorption isotherms explained for desiccant buyers",
+    metaTitle: "Relative Humidity and Adsorption Isotherms, Explained",
+    metaDescription:
+      "Why silica gel adsorbs more at higher humidity: relative humidity, adsorption isotherms, and what the curves mean when sizing desiccant for packaging.",
     description:
       "What relative humidity (RH) and the silica gel adsorption isotherm actually mean for packaging - why a desiccant's capacity changes with humidity, how to read an isotherm curve, and how to use it to size silica gel correctly for your route.",
     readTime: "10 min read",
@@ -3813,6 +3977,21 @@ export const blogArticles: BlogArticle[] = [
     slug: "desiccant-units-explained-din-55473-and-unit-sizing",
     label: "Sizing Guide",
     title: "Desiccant units explained: DIN 55473 and how unit sizing works",
+    metaTitle: "Desiccant Units Explained: DIN 55473 Unit Sizing",
+    metaDescription:
+      "A desiccant unit is a standard adsorption measure under DIN 55473. How units are defined, how many you need, and how unit counts convert to grams.",
+    sources: [
+      {
+        label: "DIN 55473 — Packaging aids: desiccants in bags",
+        href: "https://www.dinmedia.de/en/standard/din-55473/153593544",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "MIL-D-3464 desiccant specification (ASSIST Quick Search)",
+        href: "https://quicksearch.dla.mil/",
+        publisher: "U.S. Defense Logistics Agency",
+      },
+    ],
     description:
       "What a 'desiccant unit' means under DIN 55473, how it relates to grams of silica gel, how to convert between units and sachet sizes, and how to use unit-based sizing to specify desiccant for packaging and containers.",
     readTime: "9 min read",
@@ -3902,6 +4081,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-many-desiccant-packets-per-box-calculation-guide",
     label: "Sizing Guide",
     title: "How many desiccant packets per box? A calculation guide for packers",
+    metaTitle: "How Many Desiccant Packets per Box? Calculation Guide",
+    metaDescription:
+      "A practical calculation for desiccant packets per box: package volume, product type, and climate — with worked examples packers can copy.",
     description:
       "A step-by-step method to calculate how many silica gel packets a box needs - by box volume, packaging barrier, route humidity, and storage time - with worked examples and the common over- and under-packing mistakes to avoid.",
     readTime: "9 min read",
@@ -3990,6 +4172,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "desiccant-placement-best-practices-in-packaging",
     label: "Sizing Guide",
     title: "Desiccant placement best practices in packaging and containers",
+    metaTitle: "Desiccant Placement: Best Practices in Packaging",
+    metaDescription:
+      "Where you place desiccant changes how well it works. Placement rules for boxes, cartons, pallets, and containers — and the mistakes that waste packets.",
     description:
       "Where to put silica gel for it to actually work - packet placement inside cartons, master cartons and pallets, container strip hanging patterns, what to avoid, and how placement affects moisture protection as much as quantity.",
     readTime: "9 min read",
@@ -4082,6 +4267,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "how-to-regenerate-silica-gel-oven-temperature-guide",
     label: "Reuse & Lifespan",
     title: "How to regenerate silica gel: oven temperature and time guide",
+    metaTitle: "How to Regenerate Silica Gel: Oven Temperature and Time",
+    metaDescription:
+      "The oven temperatures and times that safely reactivate silica gel beads and packets, the mistakes that ruin them, and when regeneration pays off.",
     description:
       "How to regenerate (reactivate) silica gel by driving off adsorbed moisture - the correct oven temperatures and times for bead and packet forms, what not to do, and when regeneration makes sense for industrial buyers versus single-use.",
     readTime: "9 min read",
@@ -4172,6 +4360,26 @@ export const blogArticles: BlogArticle[] = [
     slug: "cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
     label: "Compliance",
     title: "Cobalt-free orange vs blue indicating silica gel: the safety and REACH question",
+    metaTitle: "Is Blue Silica Gel Banned? Cobalt-Free Orange vs Blue",
+    metaDescription:
+      "Blue indicating silica gel relies on cobalt chloride, restricted under EU REACH. Why buyers now specify cobalt-free orange, and how to choose by market.",
+    sources: [
+      {
+        label: "Candidate List of substances of very high concern (SVHC)",
+        href: "https://echa.europa.eu/candidate-list-table",
+        publisher: "European Chemicals Agency (ECHA)",
+      },
+      {
+        label: "Regulation (EC) No 1907/2006 (REACH)",
+        href: "https://eur-lex.europa.eu/eli/reg/2006/1907/oj",
+        publisher: "EUR-Lex, Official Journal of the European Union",
+      },
+      {
+        label: "Cobalt(II) chloride — compound summary",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
+        publisher: "PubChem, U.S. National Library of Medicine",
+      },
+    ],
     description:
       "Why orange (cobalt-free) indicating silica gel has replaced blue (cobalt chloride) gel in regulated markets - the REACH classification, where blue is restricted, color-change behavior, and how buyers should specify indicating gel by destination.",
     readTime: "9 min read",
@@ -4263,6 +4471,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "paper-vs-tyvek-vs-film-desiccant-sachet-materials",
     label: "Technical Basics",
     title: "Paper vs Tyvek vs film desiccant sachet materials: a buyer's guide",
+    metaTitle: "Paper vs Tyvek vs Film Desiccant Sachets: Which to Buy",
+    metaDescription:
+      "Desiccant sachet materials compared: paper for cost, Tyvek for strength and cleanliness, film for special cases. Which fits your packaging line.",
     description:
       "How desiccant sachet materials differ - breathable paper, Tyvek, and laminated film - in dust, strength, print, cleanroom suitability, and cost, so buyers can match the sachet outer to their packaging and end-market.",
     readTime: "9 min read",
@@ -4352,6 +4563,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-export-documentation-coo-coa-packing-list",
     label: "Export Operations",
     title: "Silica gel export documentation: COO, COA, packing list, and SDS explained",
+    metaTitle: "Silica Gel Export Documents: COO, COA, Packing List, SDS",
+    metaDescription:
+      "The four documents that move silica gel shipments through customs: COO, COA, packing list, and SDS — what each proves and who asks for it.",
     description:
       "The export document set for silica gel shipments explained - commercial invoice, packing list, certificate of origin (COO), certificate of analysis (COA), SDS, and DMF-free statement - what each is for, who needs it, and how to avoid documentation-related clearance delays.",
     readTime: "10 min read",

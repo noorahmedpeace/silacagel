@@ -6,7 +6,13 @@ import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
-import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import {
+  absoluteUrl,
+  brandName,
+  breadcrumbJsonLd,
+  compactMetaDescription,
+  siteName,
+} from "@/lib/seo";
 import {
   displayPhone,
   getProductBySlug,
@@ -322,7 +328,7 @@ const productFaqs = {
     },
     {
       q: "What is the active absorption capacity of one container strip?",
-      a: "A standard 1kg container desiccant strip absorbs up to 200% of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake - performance data sheets are available at quote stage.",
+      a: "A standard 1kg silica gel container strip adsorbs up to roughly one-third of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake - performance data sheets are available at quote stage.",
     },
     {
       q: "Are container strips reusable after a single voyage?",
@@ -446,7 +452,7 @@ function compactProductDescription(product: { summary: string; priceBand: string
   if (base.length <= 155) return base;
   if (product.summary.length <= 155) return product.summary;
 
-  return `${product.summary.slice(0, 152).replace(/\s+\S*$/, "")}.`;
+  return compactMetaDescription(product.summary, 155);
 }
 
 export async function generateMetadata({

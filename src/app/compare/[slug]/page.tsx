@@ -3,7 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { comparePages, getComparePage } from "@/lib/compare-data";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  compactMetaDescription,
+  compactMetaTitle,
+  siteName,
+} from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getCompareSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../compare.module.css";
@@ -18,24 +24,19 @@ export function generateStaticParams() {
   return comparePages.map((page) => ({ slug: page.slug }));
 }
 
-function compactCompareDescription(description: string) {
-  if (description.length <= 158) return description;
-
-  const firstSentence = description.split(". ")[0];
-  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
-    return `${firstSentence}.`;
-  }
-
-  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
-}
-
 export async function generateMetadata({ params }: ComparePageProps): Promise<Metadata> {
   const { slug } = await params;
   const page = getComparePage(slug);
   if (!page) return {};
   const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
-  const metaTitle = `${page.productA} vs ${page.productB} | Buyer Comparison`;
-  const metaDescription = compactCompareDescription(page.description);
+  // Long product-pair names previously produced titles up to ~96 chars that
+  // truncated in the SERP; only append the suffix when the whole title fits.
+  const baseTitle = `${page.productA} vs ${page.productB}`;
+  const metaTitle =
+    `${baseTitle} | Buyer Comparison`.length <= 60
+      ? `${baseTitle} | Buyer Comparison`
+      : compactMetaTitle(baseTitle);
+  const metaDescription = compactMetaDescription(page.description);
 
   return {
     title: metaTitle,

@@ -198,21 +198,21 @@ const industryPages: Record<string, IndustryPage> = {
     h1: "Moisture-control support for food packaging and dry-goods exporters.",
     description:
       "Food packaging desiccant guidance for dry goods, snacks, spices, cartons, compliance support, and export moisture control.",
-    metaTitle: "Food-Grade Silica Gel Desiccant for Food Packaging Export",
+    metaTitle: "Silica Gel Desiccant for Food Packaging Export",
     metaDescription:
-      "Food-safe silica gel desiccant for dry goods, snacks, spices & export cartons. Protect shelf life and prevent clumping & mold. SDS/COA and compliance docs. RFQ.",
+      "Industrial-grade silica gel desiccant for dry goods, snacks, spices & export cartons. Protect shelf life, prevent clumping and mold. SDS/COA support. RFQ.",
     points: [
       "Focus on dry goods, carton protection, shelf stability, and buyer documentation.",
       "Match desiccant format to pack type - sachets in unit packs, larger bags for cartons.",
-      "Provide SDS, COA, and food-contact compliance support per destination market.",
+      "Provide SDS, COA, and a DMF-free statement; food-contact certifications are not currently held and are never claimed.",
     ],
     body: {
       heading: "Moisture control for food packaging and dry-goods export",
       intro:
-        "Dry foods, snacks, spices, and nutraceuticals lose crispness, clump, cake, and grow mold when humidity gets into the pack. DryGelWorld supplies silica gel desiccants for food-packaging and dry-goods exporters - with SDS, COA, and food-contact compliance documentation matched to the destination market.",
+        "Dry foods, snacks, spices, and nutraceuticals lose crispness, clump, cake, and grow mold when humidity gets into the pack. DryGelWorld supplies industrial-grade silica gel desiccants for food-packaging and dry-goods exporters - with SDS, COA, and a DMF-free statement; food-contact certifications (FDA, FSSC 22000, EU 1935/2004) are not currently held.",
       formatsHeading: "Product formats for food-packaging buyers",
       formats: [
-        { label: "Small food-safe sachets", text: "Inside snack, spice, and dry-mix unit packs (used outside direct ingestion)." },
+        { label: "Small unit-pack sachets", text: "Inside snack, spice, and dry-mix unit packs (placed in the pack, not in direct food contact)." },
         { label: "Master-carton desiccants", text: "Larger bags for export cartons of packaged food goods." },
         { label: "Container desiccants", text: "Strips for sealed sea-freight loads of dry foodstuffs." },
       ],
@@ -235,7 +235,7 @@ const industryPages: Record<string, IndustryPage> = {
       {
         question: "Do you provide food-grade and compliance documentation?",
         answer:
-          "Yes. We provide SDS, COA, and a DMF-free statement with orders, and discuss FDA, REACH, and Halal documentation per destination market, confirmed against valid documents before commercial terms.",
+          "We provide SDS, COA, and a DMF-free statement with orders. FDA food-contact, FSSC 22000, Halal, and equivalent food-grade certifications are not currently held — buyers whose application requires them should confirm requirements with the export desk before commercial terms.",
       },
       {
         question: "How does silica gel extend the shelf life of dry foods?",
