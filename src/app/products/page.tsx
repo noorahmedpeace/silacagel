@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { productCatalog } from "@/lib/product-data";
+import { productCatalog, whatsappNumber } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
@@ -38,7 +38,9 @@ const catalogImages: Record<string, string> = {
   "paper-sachets": "/products/catalog-kraft-indicating.webp",
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
-  "dry-clay-desiccant": "/products/dry-clay-desiccant.jpg",
+  "dry-clay-desiccant": "/products/industrial-dry-clay-desiccant-packs.webp",
+  "powder-free-blue-nitrile-gloves": "/products/powder-free-nitrile-examination-gloves.webp",
+  "powdered-nitrile-examination-gloves": "/products/powdered-nitrile-examination-gloves.webp",
   "hair-nets": "/products/simple-bouffant-hair-nets.webp",
   "beard-covers": "/products/simple-disposable-beard-covers.webp",
 };
@@ -58,34 +60,63 @@ export default function ProductsPage() {
       </section>
 
       <section className={styles.grid}>
-        {productCatalog.map((product) => (
-          <article key={product.slug} className={styles.card}>
-            <div className={styles.imageWrap}>
-              <Image
-                src={catalogImages[product.slug] ?? product.heroImage}
-                alt={`${product.name} - ${product.summary}`}
-                fill
-                className={styles.image}
-                sizes="(max-width: 900px) 100vw, 45vw"
-              />
-              <div className={styles.imageScrim} />
-              <span className={styles.formatBadge}>{product.featuredSizes[0]}</span>
-              <span className={styles.globalBadge}>Worldwide dispatch</span>
-            </div>
-            <div className={styles.copy}>
-              <span className={styles.eyebrow}>{product.eyebrow}</span>
-              <h2>{product.name}</h2>
-              <p>{product.summary}</p>
-              <div className={styles.meta}>
-                <span>{product.featuredSizes[0]}</span>
-                <span>{product.leadTime}</span>
+        {productCatalog.map((product) => {
+          const categoryLabel = product.categoryPath?.join(" > ");
+          const colorLabel = product.colorOptions?.join(" / ");
+          const sizeLabel = product.sizeOptions?.join(", ");
+          const powderType = product.attributes?.["Powder Type"];
+          const quoteMessage = [
+            "Hello, I want a quote from DryGelWorld.",
+            `Product: ${product.name}`,
+            categoryLabel ? `Category: ${categoryLabel}` : null,
+            colorLabel ? `Colors: ${colorLabel}` : null,
+            sizeLabel ? `Sizes: ${sizeLabel}` : `Sizes: ${product.featuredSizes.join(", ")}`,
+          ]
+            .filter(Boolean)
+            .join("\n");
+
+          return (
+            <article key={product.slug} className={styles.card}>
+              <div className={styles.imageWrap}>
+                <Image
+                  src={catalogImages[product.slug] ?? product.heroImage}
+                  alt={`${product.name} - ${product.summary}`}
+                  fill
+                  className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
+                  sizes="(max-width: 900px) 100vw, 45vw"
+                />
+                <div className={styles.imageScrim} />
+                <span className={styles.formatBadge}>{product.featuredSizes[0]}</span>
+                <span className={styles.globalBadge}>Worldwide dispatch</span>
               </div>
-              <Link href={`/products/${product.slug}`} className={shared.ctaBtn}>
-                View Product Page
-              </Link>
-            </div>
-          </article>
-        ))}
+              <div className={styles.copy}>
+                <span className={styles.eyebrow}>{product.eyebrow}</span>
+                {categoryLabel ? <span className={styles.categoryTrail}>{categoryLabel}</span> : null}
+                <h2>{product.name}</h2>
+                <p>{product.summary}</p>
+                <div className={styles.meta}>
+                  {powderType ? <span>{powderType}</span> : null}
+                  {colorLabel ? <span>Colors: {colorLabel}</span> : null}
+                  {sizeLabel ? <span>Sizes: {sizeLabel}</span> : <span>{product.featuredSizes[0]}</span>}
+                  <span>{product.leadTime}</span>
+                </div>
+                <div className={styles.actions}>
+                  <Link href={`/products/${product.slug}`} className={shared.ctaBtn}>
+                    View Product Page
+                  </Link>
+                  <a
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(quoteMessage)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.quoteBtn}
+                  >
+                    Request Quote
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
       </section>
 
       <FaqBlock title="Silica gel & desiccant product FAQs" faqs={productsFaqs} />

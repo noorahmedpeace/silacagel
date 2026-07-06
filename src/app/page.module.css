@@ -5942,13 +5942,17 @@
 .formatMedia {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background: var(--ds-surface-tint);
+  background:
+    radial-gradient(circle at 24% 18%, rgba(45, 91, 255, 0.1), transparent 44%),
+    linear-gradient(180deg, #ffffff 0%, var(--ds-surface-tint) 100%);
 }
 
 .formatImage {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(16px, 2vw, 24px);
   transition: transform var(--ds-dur-slow) var(--ds-ease-out);
 }
 
@@ -5957,7 +5961,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(8, 12, 24, 0.06), transparent 30%);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
   pointer-events: none;
 }
 
@@ -6048,9 +6052,7 @@
     box-shadow: var(--ds-shadow-card);
   }
 
-  .formatCard:hover .formatImage {
-    transform: scale(1.06);
-  }
+  .formatCard:hover .formatImage { transform: none; }
 
   .formatCard:hover .formatLink {
     color: var(--ds-brand-deep);
@@ -6080,7 +6082,7 @@
   }
 
   .formatMedia {
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1 / 1;
   }
 }
 

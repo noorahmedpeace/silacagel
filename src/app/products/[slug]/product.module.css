@@ -146,6 +146,15 @@
   margin: 16px 0 0;
 }
 
+.categoryTrail {
+  margin: 14px 0 0;
+  color: var(--ds-brand-deep);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 .description {
   font-size: var(--ds-small);
   line-height: 1.65;
@@ -203,6 +212,103 @@
 
 /* ─────────────────────── STAT ROW ─────────────────────── */
 
+.optionGroups {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: color-mix(in srgb, var(--ds-surface) 86%, var(--ds-brand-soft));
+}
+
+@media (min-width: 680px) {
+  .optionGroups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.optionGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.optionLabel {
+  font-size: var(--ds-eyebrow);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ds-text-faint);
+}
+
+.optionChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.optionChip {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.optionInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.optionChipText {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 8px 13px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  box-shadow: 0 8px 18px -16px color-mix(in srgb, var(--ds-brand-deep) 28%, transparent);
+  transition: border-color var(--ds-dur-quick) var(--ds-ease),
+    background-color var(--ds-dur-quick) var(--ds-ease),
+    color var(--ds-dur-quick) var(--ds-ease),
+    box-shadow var(--ds-dur-quick) var(--ds-ease);
+}
+
+.optionInput:checked + .optionChipText {
+  border-color: var(--ds-brand);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  box-shadow: 0 10px 24px -16px color-mix(in srgb, var(--ds-brand) 55%, transparent);
+}
+
+.optionInput:focus-visible + .optionChipText {
+  outline: 3px solid color-mix(in srgb, var(--ds-brand) 30%, transparent);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .optionChip:hover .optionChipText {
+    border-color: color-mix(in srgb, var(--ds-brand) 55%, var(--ds-hairline));
+  }
+}
+
+.colorDot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ds-brand);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+}
+
+.colorDot[data-color="blue"] { background: #1976d2; }
+.colorDot[data-color="black"] { background: #111827; }
+
 .statRow {
   display: flex;
   flex-wrap: wrap;
@@ -242,15 +348,70 @@
 
 .imageWrap {
   position: relative;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
   max-height: 600px;
   border-radius: var(--ds-radius-hero);
   overflow: hidden;
-  background: var(--ds-bg);
+  background:
+    radial-gradient(circle at 24% 18%, color-mix(in srgb, var(--ds-brand-soft) 40%, transparent), transparent 46%),
+    linear-gradient(180deg, #ffffff 0%, var(--ds-surface-tint) 100%);
   box-shadow: var(--ds-shadow-hero);
 }
 
-.image { object-fit: cover; }
+.image {
+  object-fit: contain;
+  object-position: center;
+  padding: clamp(16px, 2.6vw, 34px);
+}
+
+.imageContain {
+  object-fit: contain;
+  background: #fff;
+}
+
+.gallerySection {
+  padding: var(--ds-section-py-tight) var(--ds-page-px);
+  background: var(--ds-bg);
+}
+
+.galleryGrid {
+  max-width: var(--ds-container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+}
+
+.galleryCard {
+  margin: 0;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  overflow: hidden;
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.galleryImageWrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--ds-surface-tint);
+}
+
+.galleryCard figcaption {
+  padding: 12px 14px 14px;
+  color: var(--ds-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .galleryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px) {
+  .galleryGrid { grid-template-columns: 1fr; }
+}
 
 /* ─────────────────────── 3-PANEL GRID (sizes / use cases / packing) ─────────────────────── */
 
@@ -773,6 +934,7 @@
   }
 
   .gridSection,
+  .gallerySection,
   .supportSection,
   .procurementSection,
   .quoteSection,
