@@ -49,16 +49,16 @@ const SILICA_BASE: ProductSpec = {
   industries: "Electronics, pharma packaging, leather & footwear, food packaging, logistics",
   adsorptionCapacity: "Up to ~33% of own weight in water vapour (25 °C, 90% RH)",
   shelfLife: "24–36 months in the sealed factory pouch",
-  moq: "Negotiable — trial orders supported, scaled pricing at volume (on request)",
+  moq: "Negotiable, with trial orders supported and scaled pricing at volume on request",
   certifications:
     "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, COA, and DMF-free statement on request. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
   sds: "Available on request",
   coa: "Batch-level, on request",
   countryOfOrigin: "Pakistan (Karachi)",
-  hsCode: "2811.22.10 — silicon dioxide (confirm suffix with your customs broker)",
+  hsCode: "2811.22.10, silicon dioxide (confirm the suffix with your customs broker)",
   leadTime: "~3–7 days from stock; +5–10 days for printed private label (confirmed at quote)",
   incoterms: "EXW, FOB Karachi, CIF, DAP",
-  privateLabel: "Yes — custom-printed sachets and buyer branding",
+  privateLabel: "Yes, custom-printed sachets and buyer branding",
   exportMarkets: "Worldwide B2B export (see the Export hub)",
 };
 
@@ -106,7 +106,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     application: "Cost-tier industrial and container moisture control",
     industries: "Durable goods, machinery, bulk export cargo",
     adsorptionCapacity: "Up to ~25% of own weight in water vapour",
-    hsCode: "2508.10 / 3802.90 — activated clay (confirm with your customs broker)",
+    hsCode: "2508.10 / 3802.90, activated clay (confirm with your customs broker)",
   },
   "powder-free-blue-nitrile-gloves": {
     productType: "Powder-free nitrile examination / industrial glove",
@@ -172,8 +172,8 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
       "Industrial-grade PPE. Food-grade certifications such as FDA, FSSC 22000, and EU 1935 are not currently held. Confirm requirements before commercial terms.",
     sds: "N/A",
     coa: "N/A",
-    hsCode: "6505.00 — hair nets (confirm with your customs broker)",
-    privateLabel: "Yes — carton and print branding",
+    hsCode: "6505.00, hair nets (confirm with your customs broker)",
+    privateLabel: "Yes, carton and print branding",
   },
   "beard-covers": {
     productType: "Disposable beard cover / beard net (PPE)",
@@ -191,8 +191,8 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
       "Industrial-grade PPE. Food-grade certifications such as FDA, FSSC 22000, and EU 1935 are not currently held. Confirm requirements before commercial terms.",
     sds: "N/A",
     coa: "N/A",
-    hsCode: "6307.90 — non-woven articles (confirm with your customs broker)",
-    privateLabel: "Yes — carton and print branding",
+    hsCode: "6307.90, non-woven articles (confirm with your customs broker)",
+    privateLabel: "Yes, carton and print branding",
   },
 };
 
@@ -258,7 +258,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Indicating silica gel (orange or blue)",
       color: "Orange (cobalt-free) or blue (cobalt-chloride)",
-      indicating: "Indicating — colour changes on saturation",
+      indicating: "Indicating, colour changes on saturation",
       application: "Visual moisture-saturation monitoring inside sealed packs",
     },
   },
@@ -267,7 +267,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Orange indicating silica gel (cobalt-free)",
       color: "Orange (dry) → colourless / pale green (saturated)",
-      indicating: "Indicating — cobalt-free, REACH-friendly (modern default)",
+      indicating: "Indicating, cobalt-free and REACH-friendly (the modern default)",
       application: "REACH-compliant visual moisture monitoring",
     },
   },
@@ -276,7 +276,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Blue indicating silica gel (cobalt-chloride type)",
       color: "Blue (dry) → pink (saturated)",
-      indicating: "Indicating — cobalt-chloride; restricted in EU/UK/AU/CA under REACH",
+      indicating: "Indicating, cobalt-chloride (restricted in EU/UK/AU/CA under REACH)",
       application: "Visual moisture monitoring for non-REACH markets only",
     },
   },
@@ -361,7 +361,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
       adsorptionCapacity: "Up to ~25% of own weight in water vapour",
       application: "Cost-tier industrial and container moisture control",
       industries: "Durable goods, machinery, bulk export cargo",
-      hsCode: "2508.10 / 3802.90 — activated clay (confirm with your customs broker)",
+      hsCode: "2508.10 / 3802.90, activated clay (confirm with your customs broker)",
     },
   },
 };

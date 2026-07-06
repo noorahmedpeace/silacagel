@@ -40,7 +40,7 @@ export function ProductSpecTable({
     <section className={styles.specSection} aria-labelledby="product-spec-heading">
       <div className={styles.head}>
         <p className={styles.eyebrow}>Technical &amp; Trade Specifications</p>
-        <h2 id="product-spec-heading">{productName} — full spec sheet</h2>
+        <h2 id="product-spec-heading">{productName}: full spec sheet</h2>
         <p className={styles.intro}>
           {intro ??
             "Standard B2B attributes for importers and distributors. Commercial terms (MOQ, exact price, lead time) are confirmed on the quote; documents are issued on request."}
