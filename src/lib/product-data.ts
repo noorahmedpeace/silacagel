@@ -17,6 +17,19 @@ export type ProductItem = {
   leadTime: string;
   priceBand: string;
   featuredSizes: string[];
+  colorOptions?: string[];
+  sizeOptions?: string[];
+  categoryPath?: string[];
+  attributes?: Record<string, string>;
+  galleryImages?: {
+    src: string;
+    alt: string;
+    label: string;
+  }[];
+  imageConceptPrompts?: {
+    label: string;
+    prompt: string;
+  }[];
 };
 
 export type PriceItem = {
@@ -253,8 +266,98 @@ export const productCatalog: ProductItem[] = [
     featuredSizes: ["1 kg strip", "2 kg strip", "3 kg strip", "5 kg strip"],
   },
   {
+    slug: "powder-free-blue-nitrile-gloves",
+    name: "Powder-Free Nitrile Examination Gloves",
+    shortName: "Powder-Free Nitrile Gloves",
+    metaTitle: "Powder-Free Blue & Black Nitrile Examination Gloves | DryGelWorld",
+    eyebrow: "Nitrile Gloves",
+    summary:
+      "Powder-free nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",
+    useCaseLine: "Medical and industrial grade hand protection for hygiene-critical workflows.",
+    description:
+      "Powder-free nitrile examination gloves provide latex-free hand protection for buyers who need a clean, durable glove for medical examination, laboratory handling, food processing, cleaning, and factory use. The nitrile material supports better puncture resistance than vinyl, textured fingertips improve grip, and the beaded cuff supports fast donning on high-volume lines.",
+    heroImage: "/products/powder-free-nitrile-examination-gloves.webp",
+    useCases: [
+      "Medical examination and clinic use",
+      "Laboratory sampling and inspection work",
+      "Food processing and hygiene-control zones",
+      "Industrial assembly, cleaning, and maintenance",
+    ],
+    packingOptions: [
+      "Material: nitrile synthetic rubber, latex-free, powder-free",
+      "Available colors: blue and black",
+      "Surface: textured fingertips for improved wet/dry grip",
+      "Cuff: beaded cuff, standard examination length",
+      "Packaging: 100 gloves per box; export cartons quoted by volume",
+      "Compliance: ISO support; CE/FDA or EN 455 documentation only if confirmed for the selected lot",
+    ],
+    leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
+    priceBand: "Quote-only B2B PPE item. Pricing depends on grade, certifications, size mix, and carton volume.",
+    featuredSizes: ["XS", "Small", "Medium", "Large", "X-Large"],
+    colorOptions: ["Blue", "Black"],
+    sizeOptions: ["XS", "Small", "Medium", "Large", "X-Large"],
+    categoryPath: ["Disposable Gloves", "Nitrile Gloves", "Powder-Free"],
+    attributes: {
+      "Product Type": "Examination / Industrial Gloves",
+      Material: "Nitrile",
+      "Powder Type": "Powder-Free",
+      Color: "Blue, Black",
+      Sterility: "Non-Sterile",
+      Grade: "Medical & Industrial Grade",
+      Surface: "Textured Fingertips",
+      Cuff: "Beaded Cuff, Standard Length",
+      "Sizes Available": "XS, Small, Medium, Large, X-Large",
+      Packaging: "100 gloves per box",
+    },
+  },
+  {
+    slug: "powdered-nitrile-examination-gloves",
+    name: "Powdered Nitrile Examination Gloves",
+    shortName: "Powdered Nitrile Gloves",
+    metaTitle: "Powdered Blue & Black Nitrile Examination Gloves | DryGelWorld",
+    eyebrow: "Nitrile Gloves",
+    summary:
+      "Powdered nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",
+    useCaseLine: "Medical and industrial grade hand protection for fast donning workflows.",
+    description:
+      "Powdered nitrile examination gloves are designed for buyers who need latex-free disposable hand protection with easier donning in busy medical, laboratory, food handling, cleaning, and light industrial environments. Textured fingertips improve grip, the beaded cuff supports secure wear, and carton-based supply keeps recurring PPE programs easy to quote.",
+    heroImage: "/products/powdered-nitrile-examination-gloves.webp",
+    useCases: [
+      "Medical examination and clinic use where powdered gloves are accepted",
+      "Laboratory sampling and inspection work",
+      "Food handling, cleaning, and hygiene-controlled workflows",
+      "Industrial assembly, maintenance, and general PPE programs",
+    ],
+    packingOptions: [
+      "Material: nitrile synthetic rubber, latex-free, powdered",
+      "Available colors: blue and black",
+      "Surface: textured fingertips for improved wet/dry grip",
+      "Cuff: beaded cuff, standard examination length",
+      "Packaging: 100 gloves per box; export cartons quoted by volume",
+      "Compliance: ISO support; CE/FDA or EN 455 documentation only if confirmed for the selected lot",
+    ],
+    leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
+    priceBand: "Quote-only B2B PPE item. Pricing depends on grade, certifications, size mix, and carton volume.",
+    featuredSizes: ["XS", "Small", "Medium", "Large", "X-Large"],
+    colorOptions: ["Blue", "Black"],
+    sizeOptions: ["XS", "Small", "Medium", "Large", "X-Large"],
+    categoryPath: ["Disposable Gloves", "Nitrile Gloves", "Powdered"],
+    attributes: {
+      "Product Type": "Examination / Industrial Gloves",
+      Material: "Nitrile",
+      "Powder Type": "Powdered",
+      Color: "Blue, Black",
+      Sterility: "Non-Sterile",
+      Grade: "Medical & Industrial Grade",
+      Surface: "Textured Fingertips",
+      Cuff: "Beaded Cuff, Standard Length",
+      "Sizes Available": "XS, Small, Medium, Large, X-Large",
+      Packaging: "100 gloves per box",
+    },
+  },
+  {
     slug: "hair-nets",
-    name: "Bouffant Hair Nets - Safety & PPE",
+    name: "Bouffant Hair Nets for Safety and PPE",
     shortName: "Hair Nets",
     metaTitle: "Bouffant Hair Nets | Food & Factory PPE Supplier",
     eyebrow: "Industrial Safety PPE",
@@ -262,7 +365,7 @@ export const productCatalog: ProductItem[] = [
       "Disposable bouffant hair nets in green and white for food processing, manufacturing, healthcare, and industrial PPE programs.",
     useCaseLine: "Standard hair-containment PPE for safety-critical workspaces.",
     description:
-      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white - green is commonly used to mark designated zones and white is the general-use default.",
+      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters, with green for designated zones and white for general use.",
     heroImage: "/products/simple-bouffant-hair-nets.webp",
     useCases: [
       "Food processing and packaging line PPE",
@@ -285,7 +388,7 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "beard-covers",
-    name: "Disposable Beard Covers - Safety & PPE",
+    name: "Disposable Beard Covers for Safety and PPE",
     shortName: "Beard Covers",
     metaTitle: "Disposable Beard Covers | Food-Industry PPE",
     eyebrow: "Industrial Safety PPE",
@@ -293,7 +396,7 @@ export const productCatalog: ProductItem[] = [
       "Disposable beard covers (beard nets) for food handling, manufacturing, healthcare, and other safety-critical workspaces where facial-hair containment is required.",
     useCaseLine: "PPE compliance for facial-hair containment in safety-critical operations.",
     description:
-      "Beard covers - also called beard nets or beard guards - contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
+      "Beard covers, also called beard nets or beard guards, contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
     heroImage: "/products/simple-disposable-beard-covers.webp",
     useCases: [
       "Food processing and bakery handling",
@@ -319,11 +422,11 @@ export const productCatalog: ProductItem[] = [
     metaTitle: "Dry Clay Desiccant | Industrial Clay Moisture Absorber",
     eyebrow: "Industrial Clay",
     summary:
-      "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture-control programs.",
+      "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture control programs.",
     useCaseLine: "Cost-effective humidity control for less precision-critical industrial cargo.",
     description:
-      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons - clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
-    heroImage: "/products/dry-clay-desiccant.jpg",
+      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. It is often supplied alongside silica gel for buyers who need a tiered moisture-protection portfolio across export cartons: clay for cost-sensitive bulk packaging and silica gel for precision or pharma-style packs.",
+    heroImage: "/products/industrial-dry-clay-desiccant-packs.webp",
     useCases: [
       "Durable industrial goods packaging",
       "Heavy-machinery and parts storage",

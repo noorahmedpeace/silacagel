@@ -46,9 +46,9 @@ import styles from "./page.module.css";
 // commercial metadata rather than inheriting the layout default. Title/H1 carry
 // transactional "buy silica gel" intent; canonical is the slash-consistent root.
 export const metadata: Metadata = {
-  title: "Buy Silica Gel in Bulk | Manufacturer & Exporter - DryGelWorld",
+  title: "Buy Silica Gel in Bulk | Manufacturer and Exporter | DryGelWorld",
   description:
-    "Buy silica gel desiccant in bulk direct from the manufacturer since 1983 - wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
+    "Buy silica gel desiccant in bulk direct from the manufacturer. Since 1983, DryGelWorld has supplied wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "DryGelWorld | Global Industrial Desiccant Exporter",
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       "Factory-direct silica gel: bulk packets, cargo strips, and private label support. Premium moisture protection for global shipping.",
     url: "/",
     type: "website",
-    images: [{ url: defaultSeoImage, width: 1200, height: 630, alt: "DryGelWorld premium desiccants — silica gel packets, bulk beads, and cargo strips" }],
+    images: [{ url: defaultSeoImage, width: 1200, height: 630, alt: "DryGelWorld silica gel packets, bulk beads, and cargo desiccant strips" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -98,7 +98,7 @@ const procurementFlow = [
   {
     step: "01",
     title: "Define the pack",
-    text: "Pick sachets, strips, or bulk - sized to your cartons and humidity risk.",
+    text: "Pick sachets, strips, or bulk formats sized to your cartons and humidity risk.",
     icon: PackageCheck,
     image: "/workflow/define-pack.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
@@ -114,7 +114,7 @@ const procurementFlow = [
   {
     step: "03",
     title: "Plan shipment",
-    text: "Lock MOQ, Incoterms, and dispatch - then the final quote.",
+    text: "Lock MOQ, Incoterms, and dispatch details, then confirm the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
@@ -174,7 +174,7 @@ const scrollyIndustries = [
     name: "Electronics & Semiconductors",
     overline: "Circuit Protection",
     image: seoImages.electronicsPackaging.src,
-    description: "Zero-fail moisture elimination around microchips, PCBs, and sensitive components - preventing corrosion and short circuits in transit.",
+    description: "Moisture control for microchips, PCBs, and sensitive components that need corrosion and short-circuit protection in transit.",
   },
   {
     name: "Leather, Textiles & Garments",
@@ -186,13 +186,13 @@ const scrollyIndustries = [
     name: "Food & Nutraceutical Packaging",
     overline: "Food-Grade Programs",
     image: seoImages.foodPackaging.src,
-    description: "Food-grade desiccant programs that keep snacks, spices, and dried export goods perfectly dry and safe for global consumption.",
+    description: "Desiccant programs for snacks, spices, and dried export goods where cartons need controlled humidity and clear documentation.",
   },
   {
     name: "Ocean Freight & Container Cargo",
-    overline: "Container Rain Defense",
+    overline: "Container Moisture Control",
     image: seoImages.containerDesiccant.src,
-    description: "Container-scale absorption for export shipments - preventing container rain, condensation, and inventory losses at sea.",
+    description: "Container-scale desiccant support for export shipments exposed to condensation, humid routes, and long ocean transit.",
   },
 ];
 
@@ -262,10 +262,10 @@ export default function Home() {
             <div className={styles.heroXCopy}>
               <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
                 <span className={styles.heroXEyebrowDot} aria-hidden="true" />
-                Manufacturer &amp; exporter · since 1983
+                Manufacturer and exporter since 1983
               </span>
               <h1 className={styles.heroXTitle}>
-                {splitTextToSpans("Silica gel that keeps cargo bone dry.")}
+                {splitTextToSpans("Industrial silica gel for cargo that has to arrive dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
                 Sachets, beads, and container strips straight from our factory. Low MOQs, full documentation, and delivery to 190+ countries.
@@ -317,7 +317,7 @@ export default function Home() {
               <div className={styles.procurementFlowIntro}>
                 <p className={styles.kicker}>How it works</p>
                 <AnimatedText text="Three steps to a quote." mode="bubble" />
-                <p className={styles.flowIntroSub}>No catalogs to dig through. No guesswork.</p>
+                <p className={styles.flowIntroSub}>Send the right details once and get a clearer quote path.</p>
                 <Link href="/contact" className={styles.flowCta}>
                   Start your quote
                   <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
@@ -356,7 +356,7 @@ export default function Home() {
             <section id="products" className={styles.productSection}>
               <div className={styles.productHead}>
                 <p className={styles.kicker}>Products</p>
-                <AnimatedText text="Three formats. Every use case." mode="bubble" />
+                <AnimatedText text="Choose the right format for the job." mode="bubble" />
                 <p>
                   Sachets for cartons, bulk beads for volume, strips for containers.
                 </p>
@@ -497,7 +497,7 @@ export default function Home() {
                   <p className={styles.kicker}>Industries</p>
                   <AnimatedText text="Trusted where humidity means damage." mode="bubble" />
                   <p>
-                    From pharma to ocean freight - matched to your shipment risk.
+                    From pharma to ocean freight, matched to your shipment risk.
                   </p>
                 </div>
                 <div className={`${styles.sectionVisual} ${styles.industryVisual}`}>
@@ -555,7 +555,7 @@ export default function Home() {
                 <p className={styles.kicker}>Get a Quote</p>
                 <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
                 <p>
-                  Four fields, one clean quote back - usually within 24 hours.
+                  Four fields, one clean quote back, usually within 24 hours.
                 </p>
               </div>
                 <DeferredQuoteForm title="Send MOQ Requirement" />

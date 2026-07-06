@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   applicationName: brandName,
   title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
   description:
-    "Silica gel desiccant manufacturer-exporter since 1983. Industrial sachets, bulk beads, container desiccants, and private-label packets with SDS and COA support.",
+    "Silica gel desiccant manufacturer and exporter since 1983. Industrial sachets, bulk beads, container desiccants, and private-label packets with SDS and COA support.",
   keywords: [
     "DryGelWorld",
     "silica gel manufacturer",
@@ -314,7 +314,7 @@ export default function RootLayout({
                   },
                   image: absoluteUrl("/dry-gel-world-banner.jpg"),
                   description:
-                    "DryGelWorld is a silica gel desiccant manufacturer-exporter based in Karachi, Pakistan, manufacturing silica gel sachets since 1983. DryGelWorld supplies industrial moisture-control products including silica gel packets, bulk silica gel, container desiccants, dry clay desiccants, and private-label desiccant sachets for international B2B buyers.",
+                    "DryGelWorld is a silica gel desiccant manufacturer and exporter based in Karachi, Pakistan, manufacturing silica gel sachets since 1983. DryGelWorld supplies industrial moisture control products including silica gel packets, bulk silica gel, container desiccants, dry clay desiccants, and private-label desiccant sachets for international B2B buyers.",
                   foundingDate: "1983",
                   founder: {
                     "@type": "Person",
@@ -396,7 +396,7 @@ export default function RootLayout({
                         itemOffered: {
                           "@type": "Service",
                           name: "Shipping container desiccant supply",
-                          serviceType: "Export moisture-control procurement",
+                          serviceType: "Export moisture control procurement",
                           category: "Container and cargo desiccants",
                           material: "Silicon dioxide",
                           areaServed: "Worldwide",

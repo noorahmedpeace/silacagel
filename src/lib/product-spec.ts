@@ -51,7 +51,7 @@ const SILICA_BASE: ProductSpec = {
   shelfLife: "24–36 months in the sealed factory pouch",
   moq: "Negotiable — trial orders supported, scaled pricing at volume (on request)",
   certifications:
-    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, COA & DMF-free statement on request. Food-grade / pharma certification not held — buyer-driven compliance discussion.",
+    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, COA, and DMF-free statement on request. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
   sds: "Available on request",
   coa: "Batch-level, on request",
   countryOfOrigin: "Pakistan (Karachi)",
@@ -84,7 +84,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     sizes: "25 g – 500 g units; 1 / 5 / 10 / 25 kg bags; jumbo bags",
     weight: "25 g – 25 kg; jumbo bags on request",
     packaging: "Drums, 25 kg sacks, and jumbo bags",
-    application: "Facility- and warehouse-scale moisture-control programmes",
+    application: "Facility and warehouse-scale moisture control programmes",
     industries: "Warehousing, industrial lines, regional distribution hubs",
   },
   "container-strips": {
@@ -108,6 +108,54 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     adsorptionCapacity: "Up to ~25% of own weight in water vapour",
     hsCode: "2508.10 / 3802.90 — activated clay (confirm with your customs broker)",
   },
+  "powder-free-blue-nitrile-gloves": {
+    productType: "Powder-free nitrile examination / industrial glove",
+    material: "Nitrile synthetic rubber (latex-free)",
+    color: "Blue, black",
+    indicating: "N/A (PPE glove)",
+    sizes: "XS, Small, Medium, Large, X-Large",
+    weight: "By glove / box; confirmed per lot",
+    packaging: "100 gloves per box; export carton quantity quoted by order",
+    application: "Hand protection for medical, laboratory, food, cleaning, and industrial workflows",
+    industries: "Medical, laboratory, food handling, industrial assembly, cleaning, inspection",
+    adsorptionCapacity: "N/A (not a desiccant)",
+    shelfLife: "Typically 3-5 years when stored cool and dry; confirm on the selected lot",
+    moq: "Quoted by carton volume, size mix, and recurring supply program",
+    certifications:
+      "ISO support available. CE, FDA, EN 455, ASTM D6319, or other medical glove documents must be confirmed against the selected lot before advertising as held.",
+    sds: "N/A for finished glove in normal use; material/spec sheet on request",
+    coa: "Lot-level COA / inspection certificate on request where available",
+    countryOfOrigin: "Confirmed per supplied lot",
+    hsCode: "4015.19 - rubber/nitrile gloves (confirm suffix with your customs broker)",
+    leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
+    incoterms: "EXW, FOB Karachi, CIF, DAP",
+    privateLabel: "Yes - box/carton branding discussion for volume buyers",
+    exportMarkets: "Worldwide B2B export, subject to destination medical/PPE documentation requirements",
+  },
+  "powdered-nitrile-examination-gloves": {
+    productType: "Powdered nitrile examination / industrial glove",
+    material: "Nitrile synthetic rubber (latex-free)",
+    color: "Blue, black",
+    indicating: "N/A (PPE glove)",
+    sizes: "XS, Small, Medium, Large, X-Large",
+    weight: "By glove / box; confirmed per lot",
+    packaging: "100 gloves per box; export carton quantity quoted by order",
+    application: "Hand protection for medical, laboratory, food, cleaning, and industrial workflows",
+    industries: "Medical, laboratory, food handling, industrial assembly, cleaning, inspection",
+    adsorptionCapacity: "N/A (not a desiccant)",
+    shelfLife: "Typically 3-5 years when stored cool and dry; confirm on the selected lot",
+    moq: "Quoted by carton volume, size mix, and recurring supply program",
+    certifications:
+      "ISO support available. CE, FDA, EN 455, ASTM D6319, or other medical glove documents must be confirmed against the selected lot before advertising as held.",
+    sds: "N/A for finished glove in normal use; material/spec sheet on request",
+    coa: "Lot-level COA / inspection certificate on request where available",
+    countryOfOrigin: "Confirmed per supplied lot",
+    hsCode: "4015.19 - rubber/nitrile gloves (confirm suffix with your customs broker)",
+    leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
+    incoterms: "EXW, FOB Karachi, CIF, DAP",
+    privateLabel: "Yes - box/carton branding discussion for volume buyers",
+    exportMarkets: "Worldwide B2B export, subject to destination medical/PPE documentation requirements",
+  },
   "hair-nets": {
     productType: "Bouffant hair net (disposable PPE)",
     material: "Non-woven polypropylene (PP) with elasticated edge",
@@ -121,7 +169,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     adsorptionCapacity: "N/A (not a desiccant)",
     shelfLife: "N/A (non-perishable PPE)",
     certifications:
-      "Industrial-grade PPE. Food-grade certification (FDA / FSSC 22000 / EU 1935) NOT held — buyer-driven compliance discussion.",
+      "Industrial-grade PPE. Food-grade certifications such as FDA, FSSC 22000, and EU 1935 are not currently held. Confirm requirements before commercial terms.",
     sds: "N/A",
     coa: "N/A",
     hsCode: "6505.00 — hair nets (confirm with your customs broker)",
@@ -140,7 +188,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     adsorptionCapacity: "N/A (not a desiccant)",
     shelfLife: "N/A (non-perishable PPE)",
     certifications:
-      "Industrial-grade PPE. Food-grade certification (FDA / FSSC 22000 / EU 1935) NOT held — buyer-driven compliance discussion.",
+      "Industrial-grade PPE. Food-grade certifications such as FDA, FSSC 22000, and EU 1935 are not currently held. Confirm requirements before commercial terms.",
     sds: "N/A",
     coa: "N/A",
     hsCode: "6307.90 — non-woven articles (confirm with your customs broker)",
@@ -280,8 +328,8 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
       productType: "Silica gel for food packaging (industrial grade)",
       application: "Moisture control for dried-food and nutraceutical packaging (non-direct-contact)",
       industries: "Food packaging, dried goods, nutraceuticals",
-      certifications:
-        "ISO 9001:2015 (QMEC/IAS-CB). Industrial grade — FDA / FSSC 22000 / EU 1935 food-contact certification NOT held; buyer-driven compliance discussion. Suited to incidental-contact packaging where the desiccant does not touch food directly.",
+    certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB). Industrial grade. FDA, FSSC 22000, and EU 1935 food-contact certifications are not currently held. Suited to incidental-contact packaging where the desiccant does not touch food directly.",
     },
   },
   "pharmaceutical-desiccant": {
@@ -290,8 +338,8 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
       productType: "Silica gel desiccant for pharma packaging (industrial grade)",
       application: "Moisture control for bottles, canisters, blisters, and secondary packaging",
       industries: "Pharmaceutical packaging (secondary), nutraceuticals",
-      certifications:
-        "ISO 9001:2015 (QMEC/IAS-CB) + DMF-free statement. FDA DMF / USP / pharma-GMP NOT held; appropriate for non-DMF secondary packaging — buyer-driven compliance discussion.",
+    certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB) + DMF-free statement. FDA DMF, USP, and pharma-GMP are not currently held. Appropriate for non-DMF secondary packaging.",
     },
   },
   "electronic-packaging-desiccant": {
@@ -300,8 +348,8 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
       productType: "Silica gel desiccant for electronics packaging",
       application: "Moisture protection for MSD components, PCBs, and ICs in sealed packs",
       industries: "Electronics, semiconductors, PCB assembly",
-      certifications:
-        "ISO 9001:2015 (QMEC/IAS-CB) + SDS/COA/DMF-free on request. JEDEC J-STD-033 / MSL classification NOT held — buyer-driven discussion.",
+    certifications:
+        "ISO 9001:2015 (QMEC/IAS-CB) + SDS/COA/DMF-free on request. JEDEC J-STD-033 and MSL classification are not currently held.",
     },
   },
   "bentonite-clay": {

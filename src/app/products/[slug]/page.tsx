@@ -119,6 +119,38 @@ const procurementDetails = {
       { label: "Document hub", href: "/documents" },
     ],
   },
+  "powder-free-blue-nitrile-gloves": {
+    moq: "Quoted by size mix, carton volume, certification requirement, and recurring supply plan",
+    sample: "Sample box available on request; confirm size, grade, and document requirement first",
+    documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
+    skuRows: [
+      { size: "XS / Small", material: "Blue or black powder-free nitrile", fit: "Clinics, labs, food handling, and small-hand users", pack: "100 gloves per box; export cartons by order" },
+      { size: "Medium / Large", material: "Powder-free nitrile with textured fingertips", fit: "General medical, lab, factory, cleaning, and inspection workflows", pack: "100 gloves per box; carton volume quoted" },
+      { size: "X-Large", material: "Blue or black powder-free nitrile, beaded cuff", fit: "Industrial users and larger-hand PPE programs", pack: "100 gloves per box; bulk cartons on request" },
+    ],
+    packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
+    related: [
+      { label: "Powdered nitrile gloves", href: "/products/powdered-nitrile-examination-gloves" },
+      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
+      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+    ],
+  },
+  "powdered-nitrile-examination-gloves": {
+    moq: "Quoted by size mix, carton volume, certification requirement, and recurring supply plan",
+    sample: "Sample box available on request; confirm size, grade, powder preference, and document requirement first",
+    documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
+    skuRows: [
+      { size: "XS / Small", material: "Blue or black powdered nitrile", fit: "Clinics, labs, cleaning, and small-hand users where powdered gloves are accepted", pack: "100 gloves per box; export cartons by order" },
+      { size: "Medium / Large", material: "Powdered nitrile with textured fingertips", fit: "General medical, lab, factory, cleaning, and inspection workflows", pack: "100 gloves per box; carton volume quoted" },
+      { size: "X-Large", material: "Blue or black powdered nitrile, beaded cuff", fit: "Industrial users and larger-hand PPE programs", pack: "100 gloves per box; bulk cartons on request" },
+    ],
+    packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
+    related: [
+      { label: "Powder-free nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves" },
+      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
+      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+    ],
+  },
   "beard-covers": {
     moq: "Discuss MOQ by carton size and monthly volume",
     sample: "Sample packs available on request",
@@ -188,6 +220,22 @@ const productClusters: Record<string, ProductCluster> = {
       { label: "Industrial packaging protection solutions", href: "/blog/industrial-packaging-protection-solutions" },
     ],
     compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
+  },
+  "powder-free-blue-nitrile-gloves": {
+    guides: [
+      { label: "PPE products for factories", href: "/blog/ppe-products-for-factories" },
+      { label: "Why hair nets matter in food export", href: "/blog/why-hair-nets-matter-in-food-export" },
+      { label: "Importance of beard covers in manufacturing", href: "/blog/importance-of-beard-covers-in-manufacturing" },
+    ],
+    industry: { label: "Food packaging hygiene", href: "/industries/food-packaging" },
+  },
+  "powdered-nitrile-examination-gloves": {
+    guides: [
+      { label: "PPE products for factories", href: "/blog/ppe-products-for-factories" },
+      { label: "Why hair nets matter in food export", href: "/blog/why-hair-nets-matter-in-food-export" },
+      { label: "Importance of beard covers in manufacturing", href: "/blog/importance-of-beard-covers-in-manufacturing" },
+    ],
+    industry: { label: "Food packaging hygiene", href: "/industries/food-packaging" },
   },
   "hair-nets": {
     guides: [
@@ -297,6 +345,42 @@ const productFaqs = {
     {
       q: "What packaging is available for dry clay desiccant?",
       a: "Clay desiccant is supplied in Tyvek and non-woven sachets from 1g to 500g, plus container strips. Bulk paper-bag and jumbo-bag formats are available for high-volume buyers. Private-label and multi-language printing are supported on the same minimum-run basis as silica gel sachets.",
+    },
+  ],
+  "powder-free-blue-nitrile-gloves": [
+    {
+      q: "Are these nitrile gloves powder-free and latex-free?",
+      a: "Yes. The product is specified as powder-free nitrile and latex-free, with blue and black color options. Buyers should confirm the final material declaration and test documents for the selected lot before regulated use.",
+    },
+    {
+      q: "Are the gloves medical grade?",
+      a: "The product is positioned for medical examination and industrial use, but formal CE, FDA, EN 455, ASTM D6319, or AQL documentation must be confirmed against the exact supplied lot before advertising a medical certification claim.",
+    },
+    {
+      q: "What sizes and packaging are available?",
+      a: "Standard sizes are XS, Small, Medium, Large, and X-Large. Packaging is typically 100 gloves per box, with export cartons quoted by size mix, destination, and recurring volume.",
+    },
+    {
+      q: "Can DryGelWorld supply related gloves?",
+      a: "Powdered nitrile gloves, latex gloves, and vinyl gloves can be discussed as related PPE sourcing requests. Availability, documents, packaging, and MOQ are confirmed at quote stage.",
+    },
+  ],
+  "powdered-nitrile-examination-gloves": [
+    {
+      q: "Are these nitrile gloves powdered and latex-free?",
+      a: "Yes. The product is specified as powdered nitrile and latex-free, with blue and black color options. Buyers should confirm whether powdered gloves are accepted in their target market and workflow before ordering.",
+    },
+    {
+      q: "Are the gloves medical grade?",
+      a: "The product is positioned for medical examination and industrial use, but formal CE, FDA, EN 455, ASTM D6319, or AQL documentation must be confirmed against the exact supplied lot before advertising a medical certification claim.",
+    },
+    {
+      q: "What sizes and packaging are available?",
+      a: "Standard sizes are XS, Small, Medium, Large, and X-Large. Packaging is typically 100 gloves per box, with export cartons quoted by size mix, destination, and recurring volume.",
+    },
+    {
+      q: "Can DryGelWorld supply powder-free gloves too?",
+      a: "Yes. Powder-free nitrile examination gloves are listed separately and can be quoted alongside latex gloves, vinyl gloves, and other PPE sourcing requests.",
     },
   ],
   "hair-nets": [
@@ -449,6 +533,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <section className={styles.hero}>
               <div className={styles.copy}>
                 <p className={styles.eyebrow}>{product.eyebrow}</p>
+                {product.categoryPath?.length ? (
+                  <p className={styles.categoryTrail}>{product.categoryPath.join(" > ")}</p>
+                ) : null}
                 <h1>{product.name}</h1>
                 <p className={styles.summary}>{product.summary}</p>
                 <p className={styles.description}>{product.description}</p>
@@ -467,6 +554,51 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </a>
                 </div>
 
+                {(product.colorOptions?.length || product.sizeOptions?.length) ? (
+                  <div className={styles.optionGroups} aria-label="Available product options">
+                    {product.colorOptions?.length ? (
+                      <div className={styles.optionGroup}>
+                        <span className={styles.optionLabel}>Available colors</span>
+                        <div className={styles.optionChips}>
+                          {product.colorOptions.map((color, index) => (
+                            <label className={styles.optionChip} key={color}>
+                              <input
+                                className={styles.optionInput}
+                                type="radio"
+                                name={`${product.slug}-color`}
+                                defaultChecked={index === 0}
+                              />
+                              <span className={styles.optionChipText}>
+                                <span className={styles.colorDot} data-color={color.toLowerCase()} />
+                                {color}
+                              </span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+
+                    {product.sizeOptions?.length ? (
+                      <div className={styles.optionGroup}>
+                        <span className={styles.optionLabel}>Available sizes</span>
+                        <div className={styles.optionChips}>
+                          {product.sizeOptions.map((size, index) => (
+                            <label className={styles.optionChip} key={size}>
+                              <input
+                                className={styles.optionInput}
+                                type="radio"
+                                name={`${product.slug}-size`}
+                                defaultChecked={index === 0}
+                              />
+                              <span className={styles.optionChipText}>{size}</span>
+                            </label>
+                          ))}
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+                ) : null}
+
                 <div className={styles.statRow}>
                   <article>
                     <span>Quote basis</span>
@@ -484,9 +616,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <Image
                     src={product.heroImage}
                     alt={`${product.name} - ${product.summary}`}
-                    title={`${product.name} | ${siteName} silica gel desiccant supply`}
+                    title={`${product.name} | ${siteName} product supply`}
                     fill
-                    className={styles.image}
+                    className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
                     sizes="(max-width: 960px) 100vw, 70vw"
                     priority
                   />
@@ -494,6 +626,37 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </section>
           </Reveal>
+
+          {product.galleryImages?.length ? (
+            <Reveal>
+              <section className={styles.gallerySection} aria-labelledby="product-gallery-heading">
+                <div className={styles.sectionHead}>
+                  <p className={styles.eyebrow}>Product Image Concept</p>
+                  <h2 id="product-gallery-heading">Image gallery direction for this product.</h2>
+                  <p>
+                    Concept visuals for the product page. Replace with real product photography
+                    when final box artwork and supplier images are approved.
+                  </p>
+                </div>
+                <div className={styles.galleryGrid}>
+                  {product.galleryImages.map((image) => (
+                    <figure className={styles.galleryCard} key={image.src}>
+                      <div className={styles.galleryImageWrap}>
+                        <Image
+                          src={image.src}
+                          alt={image.alt}
+                          fill
+                          className={styles.image}
+                          sizes="(max-width: 760px) 100vw, 20vw"
+                        />
+                      </div>
+                      <figcaption>{image.label}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+          ) : null}
 
           <section className={styles.gridSection}>
             <Reveal>

@@ -93,7 +93,7 @@ export default function CompareHub() {
             <strong>Verify the regulatory match.</strong> Pharma and food applications
             have separate documentation requirements regardless of which desiccant fits.
             DryGelWorld currently holds ISO 9001:2015 + DMF-free statement; FDA, EU
-            1935/2004 food-contact, and pharma DMF are NOT held and are honestly disclosed
+            1935/2004 food-contact, and pharma DMF are not currently held and are honestly disclosed
             on each comparison page.
           </li>
           <li>

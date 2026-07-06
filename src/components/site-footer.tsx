@@ -126,10 +126,10 @@ export function SiteFooter() {
       <div className={styles.top}>
         <div className={styles.brandBlock}>
           <span className={styles.kicker}>Global buyer navigation</span>
-          <h2>Find the right silica gel supply path faster.</h2>
+          <h2>Find the right silica gel supply path.</h2>
           <p>
-            Use these buyer-focused pages to compare product formats, export support,
-            private-label options, documents, industries, and technical guides before sending an RFQ.
+            Compare product formats, export support, private-label options, and technical
+            documentation, or go straight to the industry guide that matches your business.
           </p>
           <div className={styles.actions}>
             <Link className={styles.primary} href="/contact">Request Export Quote</Link>
@@ -142,7 +142,7 @@ export function SiteFooter() {
         </div>
 
         <div className={styles.emailDesk}>
-          <span className={styles.emailDeskLabel}>Official email desk</span>
+          <span className={styles.emailDeskLabel}>Email us directly</span>
           <a
             className={styles.mainEmailRoute}
             href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}

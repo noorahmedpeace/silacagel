@@ -44,7 +44,7 @@ export default function ExportPage() {
         <p>
           A dedicated global buying path for importers, packagers, distributors, and
           manufacturers sourcing bulk desiccant packets, cargo strips, and documentation-backed
-          moisture-control products.
+          moisture control products.
         </p>
         <Link className={styles.cta} href="/contact">Request Export Quote</Link>
       </section>

@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
     products: [
       { label: "Saudi Arabia silica gel supplier", href: "/export/saudi-arabia" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
-      { label: "Silica gel manufacturer exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
     ],
     nextLinks: [
       { label: "Documents hub", href: "/documents" },
@@ -175,7 +175,7 @@ export const caseStudies: CaseStudy[] = [
       "Anonymous leather and footwear export case study covering silica gel sachets, container desiccants, route humidity, SDS, COA, and carton moisture planning.",
     image: "/applications/leather-footwear.webp",
     context:
-      "A seasonal exporter needed a repeatable moisture-control path for cartons moving through humid storage and sea freight.",
+      "A seasonal exporter needed a repeatable moisture control path for cartons moving through humid storage and sea freight.",
     challenge:
       "The team was choosing sachet sizes order by order, which made RFQs slower and created uncertainty around carton-level and container-level protection.",
     approach:
@@ -211,7 +211,7 @@ export const caseStudies: CaseStudy[] = [
     context:
       "An electronics packaging buyer needed desiccant guidance for boxed components, accessories, and PCB-adjacent shipments.",
     challenge:
-      "The purchasing team wanted moisture-control guidance without over-ordering or mixing unrelated product formats.",
+      "The purchasing team wanted moisture control guidance without over-ordering or mixing unrelated product formats.",
     approach:
       "DryGelWorld separated unit-level sachets from carton-level protection and routed the buyer toward size, quantity, storage time, destination, and documentation fields.",
     proof:

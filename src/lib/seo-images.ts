@@ -179,6 +179,12 @@ function blogImage(slug: string, title: string, caption: string): SeoImage {
 }
 
 const blogSeoImages: Record<string, SeoImage> = {
+  "top-10-silica-gel-suppliers-world-pakistan": {
+    ...seoImages.exportLogistics,
+    title: "Top silica gel suppliers global and Pakistan ranking visual",
+    caption:
+      "Supplier-ranking visual for global and Pakistan silica gel buyers comparing DryGelWorld with benchmark suppliers.",
+  },
   "how-to-choose-silica-gel-packet-size": blogImage(
     "how-to-choose-silica-gel-packet-size",
     "Silica gel packet sizing guide visual",
@@ -297,7 +303,7 @@ const blogSeoImages: Record<string, SeoImage> = {
   "oxygen-absorber-vs-silica-gel-when-to-use-each": blogImage(
     "oxygen-absorber-vs-silica-gel-when-to-use-each",
     "Oxygen absorber versus silica gel visual",
-    "Comparison thumbnail separating oxygen-control packets from moisture-control desiccants.",
+    "Comparison thumbnail separating oxygen control packets from moisture control desiccants.",
   ),
   "food-grade-silica-gel-procurement-guide": blogImage(
     "food-grade-silica-gel-procurement-guide",

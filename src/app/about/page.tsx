@@ -62,22 +62,22 @@ const verifiableClaims = [
   {
     label: "Ownership",
     value: "Family-led, second generation",
-    note: "Family-led manufacturer-exporter; the second-generation team currently leads the DryGelWorld export desk.",
+    note: "A family-led manufacturer and exporter, with the second-generation team currently leading the DryGelWorld export desk.",
   },
   {
     label: "Brand structure",
     value: "Two brands, one manufacturer",
-    note: "SilicaGelPK is our Pakistan-facing brand; DryGelWorld is our global export brand - one manufacturer, operating since 1983.",
+    note: "SilicaGelPK is our Pakistan-facing brand. DryGelWorld is our global export brand, backed by the same manufacturer operating since 1983.",
   },
   {
     label: "Head office",
     value: companyAddressFull,
-    note: "Public head office and sales desk (Gulshan-e-Iqbal, Karachi) - primary point of contact for quotes, documentation, and buyer coordination.",
+    note: "Public head office and sales desk in Gulshan-e-Iqbal, Karachi, used for quotes, documentation, and buyer coordination.",
   },
   {
     label: "Manufacturing site",
     value: factoryAddressFull,
-    note: "Production factory in North Karachi Industrial Area - silica gel desiccant sachets, strips, and industrial PPE lines converted and packed on-site.",
+    note: "Production factory in North Karachi Industrial Area, where silica gel desiccant sachets, strips, and industrial PPE lines are converted and packed on-site.",
   },
   {
     label: "Manufacturer certification",
@@ -100,12 +100,12 @@ const verifiableClaims = [
 // E-E-A-T differentiator: B2B buyers trust suppliers who clearly state
 // their regulatory scope rather than vague universal compliance claims.
 const honestScope = [
-  "FDA Drug Master File (DMF) - required for direct-contact pharma silica gel",
-  "FDA food-contact certification (FCN or GRAS) - required for direct food-contact silica gel",
-  "EU Regulation 1935/2004 Declaration of Compliance - required for direct food-contact in EU markets",
-  "REACH-specific food-contact registration - required for some EU food-contact applications",
-  "JEDEC moisture sensitivity classification - required for certain semiconductor packaging",
-  "MIL-spec, Halal, or FSSC food-grade - required by specific buyer audit programs",
+  "FDA Drug Master File (DMF), required for direct-contact pharma silica gel",
+  "FDA food-contact certification (FCN or GRAS), required for direct food-contact silica gel",
+  "EU Regulation 1935/2004 Declaration of Compliance, required for direct food-contact in EU markets",
+  "REACH-specific food-contact registration, required for some EU food-contact applications",
+  "JEDEC moisture sensitivity classification, required for certain semiconductor packaging",
+  "MIL-spec, Halal, or FSSC food-grade certification, required by specific buyer audit programs",
 ];
 
 const values = [
@@ -142,8 +142,8 @@ export default function AboutPage() {
             <span className={styles.kicker}>Industrial Profile</span>
             <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              Manufacturing silica gel in Karachi since 1983 - protecting stock, cartons,
-              and container shipments for buyers worldwide.
+              DryGelWorld has manufactured silica gel in Karachi since 1983, helping buyers
+              protect stock, cartons, and container shipments worldwide.
             </p>
           </div>
         </Reveal>
@@ -221,17 +221,16 @@ export default function AboutPage() {
           </div>
 
           <div className={styles.honestScope}>
-            <h3>Certifications NOT currently held</h3>
+            <h3>Certifications not currently held</h3>
             <ul>
               {honestScope.map((item) => (
                 <li key={item}>{item}</li>
               ))}
             </ul>
             <p className={styles.honestScopeFooter}>
-              These are real procurement categories that need specifically-certified
-              suppliers. Buyers in those categories should not delay procurement waiting
-              for {siteName} to expand certification scope - source from currently-
-              certified manufacturers and treat {siteName} as a parallel option for
+              These are real procurement categories that require specifically certified
+              suppliers. Buyers in those categories should source from manufacturers that
+              already hold the required certificates and treat {siteName} as a parallel option for
               non-regulated lines.
             </p>
           </div>
@@ -242,7 +241,7 @@ export default function AboutPage() {
               <p>
                 Buyer guides, comparison content, and procurement documentation on this
                 site are edited by the{" "}
-                <Link href={`/authors/${author.slug}`}>{author.name}</Link> - the
+                <Link href={`/authors/${author.slug}`}>{author.name}</Link>, the
                 buyer-facing team at DryGelWorld. Editorial scope is limited
                 to product, packaging, and export logistics that the desk handles directly.
                 Regulatory claims are limited to certifications actually held.
@@ -318,7 +317,7 @@ export default function AboutPage() {
                 "@id": `${absoluteUrl("/about")}#aboutpage`,
                 name: `About ${siteName}`,
                 description:
-                  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer-exporter operating since 1983.",
+                  "DryGelWorld is a Karachi-based silica gel desiccant manufacturer and exporter operating since 1983.",
                 url: absoluteUrl("/about"),
                 inLanguage: "en",
                 mainEntity: {

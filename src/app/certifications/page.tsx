@@ -12,12 +12,12 @@ const certFaqs = [
   {
     question: "What certifications does DryGelWorld hold?",
     answer:
-      "DryGelWorld holds an ISO 9001:2015 certified quality management system and supplies silica gel with a DMF-free product statement; SDS and batch COA accompany orders. Other certifications (FDA, REACH, Halal, FSSC 22000) are not held as blanket credentials and are confirmed buyer-by-buyer.",
+      "DryGelWorld holds an ISO 9001:2015 certified quality management system and supplies silica gel with a DMF-free product statement. SDS and batch COA can accompany orders. Other certifications, including FDA, REACH, Halal, and FSSC 22000, are not blanket credentials and must be confirmed against the buyer's requirement.",
   },
   {
     question: "Are your products REACH and DMF-free compliant?",
     answer:
-      "Silica gel is supplied DMF-free with a statement on request - important for EU-bound leather and consumer goods. A formal REACH registration is not currently held; for EU/UK shipments, SDS, COA, and the ISO 9001:2015 reference are supplied as standard and REACH requirements are discussed buyer-by-buyer.",
+      "Silica gel is supplied DMF-free with a statement on request, which is important for EU-bound leather and consumer goods. A formal REACH registration is not currently held. For EU/UK shipments, SDS, COA, and the ISO 9001:2015 reference are supplied as standard while REACH expectations are confirmed before commercial terms.",
   },
   {
     question: "Can you provide certificates for export shipments?",
@@ -29,7 +29,7 @@ const certFaqs = [
 export const metadata: Metadata = {
   title: "Certifications & Compliance | DryGelWorld",
   description:
-    "DryGelWorld certification and document scope: ISO 9001:2015, DMF-free product statement, SDS, COA, and buyer-led compliance discussion.",
+    "DryGelWorld certification and document scope: ISO 9001:2015, DMF-free product statement, SDS, COA, and compliance items confirmed before ordering.",
   alternates: {
     canonical: "/certifications",
   },
@@ -62,56 +62,56 @@ const credentials: CredentialRow[] = [
     status: "discussed",
     category: "Pharmaceutical compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for pharma export programs - confirm against your compliance team before commercial terms.",
+      "Not currently held. Pharma export programs should confirm this requirement with their compliance team before commercial terms.",
   },
   {
     name: "REACH Registration",
     status: "discussed",
     category: "EU chemical compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for EU and UK-bound shipments. SDS, COA, and ISO 9001:2015 reference supplied as standard.",
+      "Not currently held. EU and UK-bound shipments should confirm the requirement before ordering. SDS, COA, and ISO 9001:2015 reference are supplied as standard.",
   },
   {
     name: "Halal Certification (PNAC / PHA)",
     status: "discussed",
     category: "GCC market compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for Saudi Arabia / UAE / Qatar Halal-aware procurement programs.",
+      "Not currently held. Saudi Arabia, UAE, and Qatar procurement programs should confirm whether Halal documentation is required before commercial terms.",
   },
   {
     name: "FSSC 22000",
     status: "discussed",
     category: "Food packaging compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for food-grade applications. Confirm formal coverage requirement at RFQ stage.",
+      "Not currently held. Food-grade applications should confirm the required formal coverage at RFQ stage.",
   },
   {
     name: "USP / Pharma GMP",
     status: "discussed",
     category: "Pharmaceutical manufacturing",
     detail:
-      "Not currently held. Buyer-driven discussion for regulated pharmaceutical packaging programs.",
+      "Not currently held. Regulated pharmaceutical packaging programs should confirm this requirement before commercial terms.",
   },
   {
     name: "MIL-D-3464",
     status: "discussed",
     category: "Military / defense desiccant",
     detail:
-      "Not currently held. Buyer-driven discussion for defense or government export programs.",
+      "Not currently held. Defense or government export programs should confirm the required specification before ordering.",
   },
   {
     name: "JEDEC J-STD-033",
     status: "discussed",
     category: "Electronics MSL compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for moisture-sensitive electronics packaging programs.",
+      "Not currently held. Moisture-sensitive electronics packaging programs should confirm the required standard at RFQ stage.",
   },
   {
     name: "EN 14126 / EN ISO 13688",
     status: "discussed",
     category: "EU PPE compliance",
     detail:
-      "Not currently held. Buyer-driven discussion for EU-bound hair net and beard cover programs.",
+      "Not currently held. EU-bound hair net and beard cover programs should confirm their PPE documentation requirements before commercial terms.",
   },
 ];
 
@@ -141,7 +141,7 @@ const documentTypes = [
   {
     name: "COA",
     fullName: "Certificate of Analysis",
-    purpose: "Batch-level confirmation of spec compliance - adsorption capacity, moisture content, bead size.",
+    purpose: "Batch-level confirmation of spec compliance, including adsorption capacity, moisture content, and bead size.",
     when: "Required for audited packaging programs, regulated customers, and high-value export contracts.",
   },
   {
@@ -176,7 +176,7 @@ export default function CertificationsPage() {
       >
         <Image
           src="/dry-gel-world-banner.jpg"
-          alt="DryGelWorld branded silica gel sachet, indicating gel, and industrial bulk packs - ultimate moisture protection"
+          alt="DryGelWorld branded silica gel sachets, indicating gel, and industrial bulk packs"
           fill
           priority
           sizes="100vw"
@@ -187,12 +187,12 @@ export default function CertificationsPage() {
       <section className={shared.hero}>
         <Reveal direction="up">
           <span className={shared.kicker}>Certifications & Compliance</span>
-          <h1>What DryGelWorld actually holds - and what we discuss buyer-by-buyer.</h1>
+          <h1>What DryGelWorld holds and what needs buyer confirmation.</h1>
           <p>
             Honest framing matters in regulated B2B export. This page lists exactly what
             certifications are formally held for the silica gel manufacturing line, the product-level
             safety claims supported, and the market-specific compliance frameworks that are
-            buyer-driven discussions rather than held credentials. Send your destination market and
+            confirmed with each buyer rather than claimed as blanket credentials. Send your destination market and
             we&apos;ll confirm what document set fits your program.
           </p>
         </Reveal>
@@ -231,7 +231,7 @@ export default function CertificationsPage() {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>Product-level technical specifications</h2>
-          <p>Real numbers for the silica gel material - the basis for sizing math and compliance discussion.</p>
+          <p>Material data used for sizing, documentation, and compliance review.</p>
         </div>
         <ul className={styles.bulletList}>
           {productSpecs.map((spec) => (
@@ -244,12 +244,12 @@ export default function CertificationsPage() {
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>Buyer-driven discussions (not held credentials)</h2>
+          <h2>Compliance items to confirm before ordering</h2>
           <p>
             These compliance frameworks are routinely raised by destination-market buyers. DryGelWorld
             does <strong>not</strong> currently hold formal stamps for any of them. The honest framing
             is: confirm your specific compliance program at RFQ stage so the supplier and your
-            compliance team can align <em>before</em> commercial terms - that avoids shipment-rejection
+            compliance team can align <em>before</em> commercial terms. That avoids shipment-rejection
             surprises at customs.
           </p>
         </div>
@@ -333,7 +333,7 @@ export default function CertificationsPage() {
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
                 src="/dry-gel-world-factory.jpg"
-                alt="DryGelWorld production line - workers in hair nets, packaging machines, robotic arms, finished-goods staging"
+                alt="DryGelWorld production line with workers in hair nets, packaging machines, robotic arms, and finished-goods staging"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -350,7 +350,7 @@ export default function CertificationsPage() {
               <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
                 Production line
               </strong>
-              Karachi manufacturing floor - packaging lines, finished inventory, and shipment staging.
+              Karachi manufacturing floor with packaging lines, finished inventory, and shipment staging.
             </figcaption>
           </figure>
           <figure
@@ -366,7 +366,7 @@ export default function CertificationsPage() {
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
                 src="/dry-gel-world-fulfillment.jpg"
-                alt="DryGelWorld fulfillment - branded industrial bulk packs on pallets, forklift loading, global logistics dispatch"
+                alt="DryGelWorld fulfillment with branded industrial bulk packs on pallets, forklift loading, and global logistics dispatch"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -399,7 +399,7 @@ export default function CertificationsPage() {
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
                 src="/dry-gel-world-product-display.jpg"
-                alt="DryGelWorld branded product range - silica gel sachets, indicating bead variants (white, blue, orange), industrial bulk pouches"
+                alt="DryGelWorld branded product range with silica gel sachets, indicating bead variants, and industrial bulk pouches"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -465,7 +465,7 @@ export default function CertificationsPage() {
                 name: "Certifications & Compliance | DryGelWorld",
                 url: absoluteUrl("/certifications"),
                 description:
-                  "Certifications and compliance documentation for DryGelWorld silica gel desiccants - ISO 9001:2015, DMF-free statement, SDS, COA, and the buyer-driven compliance discussion framework.",
+                  "Certifications and compliance documentation for DryGelWorld silica gel desiccants, including ISO 9001:2015, DMF-free statement, SDS, COA, and buyer-specific compliance review.",
                 publisher: {
                   "@type": "Organization",
                   name: siteName,

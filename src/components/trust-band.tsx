@@ -36,7 +36,7 @@ export function TrustBand() {
     <section className={styles.band} aria-label="Manufacturer trust signals">
       <div className={styles.intro}>
         <p className={styles.eyebrow}>Proof</p>
-        <h2 className={styles.heading}>Real manufacturer. Real scale.</h2>
+        <h2 className={styles.heading}>Manufacturing scale buyers can verify.</h2>
       </div>
 
       <div className={styles.grid}>
