@@ -20,7 +20,7 @@ const productsFaqs = [
   {
     question: "Do you offer private-label or custom-printed sachets?",
     answer:
-      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling - confirm packet text, material, MOQ, and document needs at the RFQ stage.",
+      "Yes. Printed, private-label silica gel sachets are available with your branding and carton labeling. Confirm packet text, material, MOQ, and document needs at the RFQ stage.",
   },
 ];
 
@@ -50,9 +50,9 @@ export default function ProductsPage() {
     <main className={shared.page}>
       <section className={shared.hero}>
         <span className={shared.kicker}>Product Catalog</span>
-        <h1>Choose the right moisture-control format for your workflow.</h1>
+        <h1>Choose the right moisture control format for your workflow.</h1>
         <p>
-          Every format in one place - from{" "}
+          Every format in one place, from{" "}
           <Link href="/silica-gel-packets">sachets</Link> to{" "}
           <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
           <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
@@ -80,7 +80,7 @@ export default function ProductsPage() {
               <div className={styles.imageWrap}>
                 <Image
                   src={catalogImages[product.slug] ?? product.heroImage}
-                  alt={`${product.name} - ${product.summary}`}
+                  alt={`${product.name}: ${product.summary}`}
                   fill
                   className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
                   sizes="(max-width: 900px) 100vw, 45vw"

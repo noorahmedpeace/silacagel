@@ -307,7 +307,7 @@ export const comparePages: ComparePage[] = [
     description:
       "Buyer comparison of bulk silica gel and silica gel packets for repacking, warehouse use, product packaging, private label, MOQ, documents, and export supply.",
     introA:
-      "Bulk silica gel is purchased by kg, pallet, or tonnage for repackers, distributors, warehouses, and industrial moisture-control systems.",
+      "Bulk silica gel is purchased by kg, pallet, or tonnage for repackers, distributors, warehouses, and industrial moisture control systems.",
     introB:
       "Silica gel packets are finished sachets inserted into product packs, cartons, bottles, boxes, and private-label packaging programs.",
     criteria: [
@@ -452,7 +452,7 @@ export const comparePages: ComparePage[] = [
     description:
       "Comparison of silica gel and activated carbon - silica gel removes water vapor (humidity), activated carbon removes odors and volatile organic compounds. What each protects against, and why they are complements, not substitutes.",
     introA:
-      "Silica gel adsorbs water vapor. It is the moisture-control tool: it protects against corrosion, mold, mildew, condensation, and humidity damage in packaging, containers, electronics, leather, and warehouse stock. It does little for smells or gases.",
+      "Silica gel adsorbs water vapor. It is the moisture control tool: it protects against corrosion, mold, mildew, condensation, and humidity damage in packaging, containers, electronics, leather, and warehouse stock. It does little for smells or gases.",
     introB:
       "Activated carbon (activated charcoal) adsorbs odors, volatile organic compounds (VOCs), and many gases via its enormous microporous surface area. It is the odor/gas-control tool, used in air and water filtration, odor management, and off-gassing control. It does relatively little to lower humidity. Activated carbon is NOT in the DryGelWorld catalog.",
     criteria: [

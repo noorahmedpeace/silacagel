@@ -97,7 +97,7 @@ export default function IndustriesHubPage() {
       },
       {
         "@type": "ItemList",
-        name: "Desiccant moisture-control applications by industry",
+        name: "Desiccant moisture control applications by industry",
         itemListElement: industries.map((industry, index) => ({
           "@type": "ListItem",
           position: index + 1,

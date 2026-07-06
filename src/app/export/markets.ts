@@ -48,7 +48,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Saudi Arabia",
     title: "Silica gel desiccant supply for Saudi importers.",
     description:
-      "Bulk silica gel packets and cargo moisture-control formats for Saudi packaging, warehousing, distribution, industrial, and export buyers.",
+      "Bulk silica gel packets and cargo moisture control formats for Saudi packaging, warehousing, distribution, industrial, and export buyers.",
     buyerTypes: ["Dammam and Jeddah importers", "Industrial packaging buyers", "Pharma and consumer-goods packagers", "Logistics and warehouse operators"],
     ports: ["Jeddah Islamic Port", "King Abdulaziz Port Dammam", "Riyadh dry-port routing", "GCC forwarding partners"],
     products: ["1g-10g sachets", "50g-500g export carton packs", "1kg-5kg cargo strips", "Recurring distributor supply"],
@@ -72,7 +72,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Qatar",
     title: "Silica gel supplier for Qatar packaging and logistics buyers.",
     description:
-      "Desiccant sachets, bulk packs, and shipment moisture-control options for Qatar importers, distributors, storage teams, and project supply buyers.",
+      "Desiccant sachets, bulk packs, and shipment moisture control options for Qatar importers, distributors, storage teams, and project supply buyers.",
     buyerTypes: ["Doha importers", "Project supply buyers", "Warehouse teams", "Packaging distributors"],
     ports: ["Hamad Port", "Doha logistics hubs", "GCC consolidation routes", "Air-cargo sample shipments"],
     products: ["0.5g-10g sachets", "25g-500g bags", "Container strips", "Sample packs before bulk orders"],
@@ -110,7 +110,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Vietnam",
     title: "Silica gel desiccant supply for Vietnam packaging and export buyers.",
     description:
-      "Factory-direct silica gel sachets, bulk beads, and container moisture-control formats for Vietnam garment, footwear, electronics, seafood, and logistics buyers.",
+      "Factory-direct silica gel sachets, bulk beads, and container moisture control formats for Vietnam garment, footwear, electronics, seafood, and logistics buyers.",
     buyerTypes: ["Garment and footwear exporters", "Electronics packaging teams", "Seafood and dry-goods packers", "Ho Chi Minh and Hanoi importers"],
     ports: ["Cat Lai", "Cai Mep-Thi Vai", "Hai Phong", "Da Nang logistics routing"],
     products: ["0.5g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "1kg-5kg cargo strips"],
@@ -152,7 +152,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Indonesia",
     title: "Silica gel desiccant supplier for Indonesia importers and exporters.",
     description:
-      "Desiccant sachets, bulk silica gel, and container moisture-control support for Indonesian packaging, footwear, electronics, food, and logistics buyers.",
+      "Desiccant sachets, bulk silica gel, and container moisture control support for Indonesian packaging, footwear, electronics, food, and logistics buyers.",
     buyerTypes: ["Jakarta and Surabaya importers", "Footwear and garment packers", "Electronics packaging teams", "Food and dry-goods exporters"],
     ports: ["Tanjung Priok", "Tanjung Perak", "Belawan", "Makassar logistics routing"],
     products: ["0.5g-10g sachets", "25g-500g packs", "25kg loose bulk", "Container desiccant strips"],
@@ -208,7 +208,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Brazil",
     title: "Silica gel export supply for Brazil importers and industrial packaging buyers.",
     description:
-      "Industrial silica gel sachets, bulk desiccants, and cargo moisture-control formats for Brazil distributors, packaging buyers, warehouses, and import teams.",
+      "Industrial silica gel sachets, bulk desiccants, and cargo moisture control formats for Brazil distributors, packaging buyers, warehouses, and import teams.",
     buyerTypes: ["Brazilian distributors", "Industrial packaging buyers", "Warehouse and logistics teams", "Private-label importers"],
     ports: ["Santos", "Paranagua", "Rio de Janeiro", "Itajai"],
     products: ["1g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "1kg-5kg cargo strips"],
@@ -270,7 +270,7 @@ export const exportMarkets: ExportMarket[] = [
     products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg container strips", "Dry clay desiccant packs"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms - REACH registration is a buyer-driven discussion, not a held certification, so the conversation should start early.",
+      "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms. REACH registration is not a certification currently held by DryGelWorld, so the conversation should start early.",
     rfqTip: "Send target port, monthly volume, Incoterms, REACH expectations, and whether you need silica gel, dry clay, or both formats in one program.",
   },
   {
@@ -278,7 +278,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Germany",
     title: "Silica gel and dry clay desiccant supply for German importers.",
     description:
-      "Industrial moisture-control supply for German automotive OEM packaging, electronics distribution, pharma procurement, and warehouse logistics buyers.",
+      "Industrial moisture control supply for German automotive OEM packaging, electronics distribution, pharma procurement, and warehouse logistics buyers.",
     buyerTypes: ["Industrial packagers and OEM buyers", "Automotive supplier networks", "Electronics distributors", "Logistics and warehouse procurement"],
     ports: ["Hamburg", "Bremerhaven", "Wilhelmshaven (JadeWeserPort)", "Munich rail-port routing"],
     products: ["0.5g-10g sachets", "25g-500g carton packs", "1kg-5kg cargo strips", "Dry clay desiccant for industrial parts"],
@@ -306,7 +306,7 @@ export const exportMarkets: ExportMarket[] = [
     country: "Australia",
     title: "Silica gel and dry clay desiccant supplier for Australian importers.",
     description:
-      "Moisture-control supply for Australian distributors, packaging companies, OEM packagers, and import buyers across electronics, food packaging context, and industrial cargo.",
+      "Moisture control supply for Australian distributors, packaging companies, OEM packagers, and import buyers across electronics, food packaging context, and industrial cargo.",
     buyerTypes: ["Australian distributors and importers", "Packaging companies and re-packers", "OEM packagers and electronics brands", "Logistics and freight teams"],
     ports: ["Sydney (Port Botany)", "Melbourne", "Brisbane", "Fremantle"],
     products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
@@ -326,7 +326,7 @@ export const exportMarkets: ExportMarket[] = [
     products: ["0.5g-10g sachets", "25g-500g packs", "1kg-5kg cargo strips", "Dry clay desiccant packs"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "EU-wide buyers should align REACH expectations early - REACH registration is buyer-driven and discussed before commercial terms. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) keeps options open for distributor programs and language/labeling requirements vary by country.",
+      "EU-wide buyers should align REACH expectations early. REACH registration must be confirmed before commercial terms. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) keeps options open for distributor programs, and language or labeling requirements vary by country.",
     rfqTip: "Send target country, REACH expectations, language and labeling requirements, monthly volume, and product preference (silica gel, dry clay, or both).",
   },
 ];

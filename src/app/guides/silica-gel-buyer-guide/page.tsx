@@ -560,7 +560,7 @@ export default function SilicaGelBuyerGuide() {
           </ul>
 
           <p>
-            <strong>Regulatory documentation NOT held by DryGelWorld currently:</strong>{" "}
+            <strong>Regulatory documentation not currently held by DryGelWorld:</strong>{" "}
             FDA Drug Master File (DMF), FDA food-contact certification, EU 1935/2004
             Declaration of Compliance, REACH-specific food-contact registration, JEDEC
             moisture sensitivity, MIL-spec, Halal, and FSSC food-grade. Buyers

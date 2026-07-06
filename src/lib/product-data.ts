@@ -292,7 +292,7 @@ export const productCatalog: ProductItem[] = [
       "Compliance: ISO support; CE/FDA or EN 455 documentation only if confirmed for the selected lot",
     ],
     leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
-    priceBand: "Quote-only B2B PPE item - pricing depends on grade, certifications, size mix, and carton volume",
+    priceBand: "Quote-only B2B PPE item. Pricing depends on grade, certifications, size mix, and carton volume.",
     featuredSizes: ["XS", "Small", "Medium", "Large", "X-Large"],
     colorOptions: ["Blue", "Black"],
     sizeOptions: ["XS", "Small", "Medium", "Large", "X-Large"],
@@ -337,7 +337,7 @@ export const productCatalog: ProductItem[] = [
       "Compliance: ISO support; CE/FDA or EN 455 documentation only if confirmed for the selected lot",
     ],
     leadTime: "Quoted by size mix, carton volume, and dispatch schedule",
-    priceBand: "Quote-only B2B PPE item - pricing depends on grade, certifications, size mix, and carton volume",
+    priceBand: "Quote-only B2B PPE item. Pricing depends on grade, certifications, size mix, and carton volume.",
     featuredSizes: ["XS", "Small", "Medium", "Large", "X-Large"],
     colorOptions: ["Blue", "Black"],
     sizeOptions: ["XS", "Small", "Medium", "Large", "X-Large"],
@@ -357,7 +357,7 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "hair-nets",
-    name: "Bouffant Hair Nets - Safety & PPE",
+    name: "Bouffant Hair Nets for Safety and PPE",
     shortName: "Hair Nets",
     metaTitle: "Bouffant Hair Nets | Food & Factory PPE Supplier",
     eyebrow: "Industrial Safety PPE",
@@ -365,7 +365,7 @@ export const productCatalog: ProductItem[] = [
       "Disposable bouffant hair nets in green and white for food processing, manufacturing, healthcare, and industrial PPE programs.",
     useCaseLine: "Standard hair-containment PPE for safety-critical workspaces.",
     description:
-      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters and in both green and white - green is commonly used to mark designated zones and white is the general-use default.",
+      "Bouffant hair nets keep loose hair contained during food handling, manufacturing, healthcare, and cleanroom operations. DryGelWorld supplies non-woven polypropylene bouffant nets in 18, 20, 21, and 22 inch diameters, with green for designated zones and white for general use.",
     heroImage: "/products/simple-bouffant-hair-nets.webp",
     useCases: [
       "Food processing and packaging line PPE",
@@ -388,7 +388,7 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "beard-covers",
-    name: "Disposable Beard Covers - Safety & PPE",
+    name: "Disposable Beard Covers for Safety and PPE",
     shortName: "Beard Covers",
     metaTitle: "Disposable Beard Covers | Food-Industry PPE",
     eyebrow: "Industrial Safety PPE",
@@ -396,7 +396,7 @@ export const productCatalog: ProductItem[] = [
       "Disposable beard covers (beard nets) for food handling, manufacturing, healthcare, and other safety-critical workspaces where facial-hair containment is required.",
     useCaseLine: "PPE compliance for facial-hair containment in safety-critical operations.",
     description:
-      "Beard covers - also called beard nets or beard guards - contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
+      "Beard covers, also called beard nets or beard guards, contain facial hair during food preparation, manufacturing operations, and healthcare procedures where contamination control matters. DryGelWorld supplies non-woven polypropylene beard covers in standard production sizes, packed by the carton.",
     heroImage: "/products/simple-disposable-beard-covers.webp",
     useCases: [
       "Food processing and bakery handling",
@@ -422,10 +422,10 @@ export const productCatalog: ProductItem[] = [
     metaTitle: "Dry Clay Desiccant | Industrial Clay Moisture Absorber",
     eyebrow: "Industrial Clay",
     summary:
-      "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture-control programs.",
+      "Activated clay desiccant packs for industrial packaging, durable-goods storage, and cost-sensitive moisture control programs.",
     useCaseLine: "Cost-effective humidity control for less precision-critical industrial cargo.",
     description:
-      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. Often supplied alongside silica gel programs for buyers who want a tiered moisture-protection portfolio across their export cartons - clay for cost-sensitive bulk packaging, silica gel for precision and pharma-style packs.",
+      "Dry clay desiccant uses activated bentonite or montmorillonite to adsorb humidity in industrial packaging, durable goods, and storage applications. It is often supplied alongside silica gel for buyers who need a tiered moisture-protection portfolio across export cartons: clay for cost-sensitive bulk packaging and silica gel for precision or pharma-style packs.",
     heroImage: "/products/industrial-dry-clay-desiccant-packs.webp",
     useCases: [
       "Durable industrial goods packaging",

@@ -303,7 +303,7 @@ const blogSeoImages: Record<string, SeoImage> = {
   "oxygen-absorber-vs-silica-gel-when-to-use-each": blogImage(
     "oxygen-absorber-vs-silica-gel-when-to-use-each",
     "Oxygen absorber versus silica gel visual",
-    "Comparison thumbnail separating oxygen-control packets from moisture-control desiccants.",
+    "Comparison thumbnail separating oxygen control packets from moisture control desiccants.",
   ),
   "food-grade-silica-gel-procurement-guide": blogImage(
     "food-grade-silica-gel-procurement-guide",
