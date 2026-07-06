@@ -204,6 +204,54 @@
   font-weight: 700;
 }
 
+/* ─────────────────────── DATA TABLE ─────────────────────── */
+
+.tableWrap {
+  margin-top: 18px;
+  overflow-x: auto;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--ds-small);
+  line-height: 1.55;
+}
+
+.dataTable th,
+.dataTable td {
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.dataTable thead th {
+  color: var(--ds-text);
+  font-weight: 800;
+  background: var(--ds-surface-tint);
+  white-space: nowrap;
+}
+
+.dataTable tbody th {
+  color: var(--ds-text);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.dataTable td {
+  color: var(--ds-text-muted);
+}
+
+.dataTable tbody tr:last-child th,
+.dataTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
 /* ─────────────────────── TEXT LINK ─────────────────────── */
 
 .textLink {
@@ -520,3 +568,4 @@
     text-align: center;
   }
 }
+

@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import { Factory, Globe2, ShieldCheck } from "lucide-react";
 import {
   companyAddressFull,
@@ -100,7 +100,7 @@ const footerColumns = [
       { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
       { label: "Manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
@@ -180,7 +180,7 @@ export function SiteFooter() {
               {column.viewAll ? (
                 <li>
                   <Link className={styles.viewAll} href={column.viewAll.href}>
-                    {column.viewAll.label} <span aria-hidden="true">→</span>
+                    {column.viewAll.label} <span aria-hidden="true">â†’</span>
                   </Link>
                 </li>
               ) : null}
@@ -200,7 +200,7 @@ export function SiteFooter() {
       </div>
 
       <div className={styles.bottomBar}>
-        <span className={styles.copyright}>© 2026 DryGelWorld. All rights reserved.</span>
+        <span className={styles.copyright}>Â© 2026 DryGelWorld. All rights reserved.</span>
         <div className={styles.bottomMeta}>
           <a href="/sitemap.xml">Sitemap</a>
           <address>{companyAddressFull}</address>

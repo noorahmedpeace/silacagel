@@ -101,6 +101,21 @@ const nextConfig: NextConfig = {
         destination: "/electronic-packaging-desiccant",
         permanent: true,
       },
+      // C8: manufacturer/exporter intent consolidation. GSC (90d) showed all
+      // three pages competing for the same queries ("silica gel manufacturer",
+      // "silica gel desiccant factory", "plant cost") at positions 50-85 —
+      // classic three-way cannibalization. /silica-gel-manufacturer wins as
+      // the clean head-term slug; its content now carries the exporter angle.
+      {
+        source: "/silica-gel-exporter",
+        destination: "/silica-gel-manufacturer",
+        permanent: true,
+      },
+      {
+        source: "/silica-gel-manufacturer-exporter",
+        destination: "/silica-gel-manufacturer",
+        permanent: true,
+      },
       // C7: country-exporter permutations -> the canonical /export/* market pages.
       // GSC (90d): /silica-gel-exporter-usa pos 64.5 vs /export/usa pos 42.6;
       // one country page per market ends the impression split.

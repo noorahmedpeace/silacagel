@@ -333,6 +333,51 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         </section>
       ) : null}
 
+      {market.customs ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{market.country} customs &amp; import essentials.</h2>
+            <p>
+              The classification and document set customs brokers ask about first. Duty rates
+              change — always confirm the live rate in the official tariff database linked below.
+            </p>
+          </div>
+          <div className={styles.tableWrap}>
+            <table className={styles.dataTable}>
+              <tbody>
+                <tr>
+                  <th scope="row">HS classification</th>
+                  <td>{market.customs.hsCode}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Import duty</th>
+                  <td>
+                    {market.customs.dutyNote}{" "}
+                    <a
+                      href={market.customs.tariffLookup.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {market.customs.tariffLookup.label}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Shipping documents</th>
+                  <td>{market.customs.requiredDocs.join(" · ")}</td>
+                </tr>
+                {market.customs.regulatoryNotes.map((note, index) => (
+                  <tr key={note}>
+                    <th scope="row">{index === 0 ? "Regulatory notes" : ""}</th>
+                    <td>{note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      ) : null}
+
       {market.faqs && market.faqs.length ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>

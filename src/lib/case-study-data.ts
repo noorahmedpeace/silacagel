@@ -1,4 +1,4 @@
-export type CaseStudy = {
+﻿export type CaseStudy = {
   slug: string;
   label: string;
   industry: string;
@@ -10,7 +10,7 @@ export type CaseStudy = {
   approach: string;
   proof: string;
   outcome: string;
-  /** One measurable, quantified result — the headline number a buyer trusts.
+  /** One measurable, quantified result â€” the headline number a buyer trusts.
    *  Optional so anonymous cases still render; fill with a real figure. */
   metric?: { value: string; label: string };
   /** Named attribution (no anonymous "Great supplier!" quotes). Only render
@@ -46,7 +46,7 @@ export const caseStudies: CaseStudy[] = [
     attribution: {
       name: "[PLACEHOLDER: contact name]",
       title: "[PLACEHOLDER: job title]",
-      company: "[PLACEHOLDER: company — with written permission]",
+      company: "[PLACEHOLDER: company â€” with written permission]",
     },
     products: [
       { label: "UAE silica gel supplier", href: "/export/uae" },
@@ -77,7 +77,7 @@ export const caseStudies: CaseStudy[] = [
     challenge:
       "Volume, destination city, packing format, and document needs shifted between orders, so the distributor needed a fixed MOQ, lead-time, and Incoterm baseline to plan against.",
     approach:
-      "DryGelWorld set a recurring template: bulk-bead MOQ, production and Karachi → Jeddah/Dammam transit windows, Incoterms (FOB Karachi / CIF Jeddah / CIF Dammam / DAP Saudi Arabia), SDS, COA, and DMF-free support - so repeat orders only update volume and destination.",
+      "DryGelWorld set a recurring template: bulk-bead MOQ, production and Karachi â†’ Jeddah/Dammam transit windows, Incoterms (FOB Karachi / CIF Jeddah / CIF Dammam / DAP Saudi Arabia), SDS, COA, and DMF-free support - so repeat orders only update volume and destination.",
     proof:
       "The distributor compared each new order against one consistent commercial and documentation baseline; pricing and quantity histories come from the buyer's own purchase records.",
     outcome:
@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
     products: [
       { label: "Saudi Arabia silica gel supplier", href: "/export/saudi-arabia" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
     ],
     nextLinks: [
       { label: "Documents hub", href: "/documents" },
