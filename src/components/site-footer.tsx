@@ -56,8 +56,6 @@ const footerColumns = [
       { label: "UK supplier", href: "/export/uk" },
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
-      { label: "Silica gel exporter USA", href: "/silica-gel-exporter-usa" },
-      { label: "Silica gel exporter Germany", href: "/silica-gel-exporter-germany" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
     ],
     viewAll: { label: "All export markets", href: "/export" },

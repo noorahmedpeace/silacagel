@@ -2,7 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  compactMetaDescription,
+  compactMetaTitle,
+  siteName,
+} from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getBlogCluster } from "@/lib/blog-clusters";
 import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
@@ -21,27 +27,6 @@ export function generateStaticParams() {
   }));
 }
 
-function compactMetaDescription(description: string) {
-  if (description.length <= 158) return description;
-
-  const firstSentence = description.split(". ")[0];
-  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
-    return `${firstSentence}.`;
-  }
-
-  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
-}
-
-function compactArticleTitle(article: { label: string; title: string }) {
-  const primaryTitle = article.title.split(":")[0];
-  const withLabel = `${article.label}: ${primaryTitle}`;
-
-  if (withLabel.length <= 60) return withLabel;
-  if (primaryTitle.length <= 60) return primaryTitle;
-
-  return `${primaryTitle.slice(0, 57).replace(/\s+\S*$/, "")}...`;
-}
-
 export async function generateMetadata({
   params,
 }: BlogArticlePageProps): Promise<Metadata> {
@@ -53,8 +38,11 @@ export async function generateMetadata({
   }
 
   const heroImage = withPageImageContext(getBlogSeoImage(article.slug), article.title);
-  const metaTitle = compactArticleTitle(article);
-  const metaDescription = compactMetaDescription(article.description);
+  // Prefer hand-written SERP metadata; fall back to a query-first compaction
+  // of the article title (never the internal taxonomy label, which produced
+  // titles like "Storage Guide: Silica gel shelf life").
+  const metaTitle = article.metaTitle ?? compactMetaTitle(article.title);
+  const metaDescription = article.metaDescription ?? compactMetaDescription(article.description);
 
   return {
     title: metaTitle,
@@ -144,6 +132,21 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               </ul>
             </div>
           ))}
+          {article.sources?.length ? (
+            <div className={styles.articleBlock}>
+              <h2>References</h2>
+              <ul className={styles.bulletList}>
+                {article.sources.map((source) => (
+                  <li key={source.href}>
+                    <a href={source.href} target="_blank" rel="noopener noreferrer">
+                      {source.label}
+                    </a>{" "}
+                    — {source.publisher}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
         </section>
 
         <section className={styles.section}>
@@ -256,6 +259,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 },
                 mainEntityOfPage: absoluteUrl(`/blog/${article.slug}`),
                 url: absoluteUrl(`/blog/${article.slug}`),
+                ...(article.sources?.length
+                  ? { citation: article.sources.map((source) => source.href) }
+                  : {}),
               },
               ...(article.faqs.length > 0
                 ? [

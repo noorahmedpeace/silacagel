@@ -63,6 +63,16 @@ const nextConfig: NextConfig = {
         destination: "https://www.drygelworld.com/:path*",
         permanent: true,
       },
+      // The stable project alias serves an indexable duplicate of the whole
+      // site (cross-domain canonicals mitigate, but one stray backlink could
+      // still get it indexed). Preview deployments use hashed hostnames and
+      // are unaffected by this rule.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "silacagel.vercel.app" }],
+        destination: "https://www.drygelworld.com/:path*",
+        permanent: true,
+      },
       // --- SEO cannibalization consolidation (Phase 1) ---
       // Each pair below targeted the same primary keyword/intent as its destination.
       // Sources removed from seoLandingPages (so they leave the sitemap) and 301'd here.
@@ -89,6 +99,24 @@ const nextConfig: NextConfig = {
       {
         source: "/electronics-packaging",
         destination: "/electronic-packaging-desiccant",
+        permanent: true,
+      },
+      // C7: country-exporter permutations -> the canonical /export/* market pages.
+      // GSC (90d): /silica-gel-exporter-usa pos 64.5 vs /export/usa pos 42.6;
+      // one country page per market ends the impression split.
+      {
+        source: "/silica-gel-exporter-usa",
+        destination: "/export/usa",
+        permanent: true,
+      },
+      {
+        source: "/silica-gel-exporter-canada",
+        destination: "/export/canada",
+        permanent: true,
+      },
+      {
+        source: "/silica-gel-exporter-germany",
+        destination: "/export/germany",
         permanent: true,
       },
       // C6: container/cargo desiccant supplier duplicates -> shipping-container authority.

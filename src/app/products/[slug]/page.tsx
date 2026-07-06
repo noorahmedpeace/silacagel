@@ -6,7 +6,13 @@ import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
-import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import {
+  absoluteUrl,
+  brandName,
+  breadcrumbJsonLd,
+  compactMetaDescription,
+  siteName,
+} from "@/lib/seo";
 import {
   displayPhone,
   getProductBySlug,
@@ -446,7 +452,7 @@ function compactProductDescription(product: { summary: string; priceBand: string
   if (base.length <= 155) return base;
   if (product.summary.length <= 155) return product.summary;
 
-  return `${product.summary.slice(0, 152).replace(/\s+\S*$/, "")}.`;
+  return compactMetaDescription(product.summary, 155);
 }
 
 export async function generateMetadata({
