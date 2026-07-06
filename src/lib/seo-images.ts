@@ -179,6 +179,12 @@ function blogImage(slug: string, title: string, caption: string): SeoImage {
 }
 
 const blogSeoImages: Record<string, SeoImage> = {
+  "top-10-silica-gel-suppliers-world-pakistan": {
+    ...seoImages.exportLogistics,
+    title: "Top silica gel suppliers global and Pakistan ranking visual",
+    caption:
+      "Supplier-ranking visual for global and Pakistan silica gel buyers comparing DryGelWorld with benchmark suppliers.",
+  },
   "how-to-choose-silica-gel-packet-size": blogImage(
     "how-to-choose-silica-gel-packet-size",
     "Silica gel packet sizing guide visual",
