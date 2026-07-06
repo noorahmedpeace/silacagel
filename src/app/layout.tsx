@@ -77,9 +77,9 @@ export const metadata: Metadata = {
     "food grade silica gel",
   ],
   openGraph: {
-    title: "DryGelWorld | Official Silica Gel Manufacturer Exporter",
+    title: "DryGelWorld | Global Industrial Desiccant Exporter",
     description:
-      "Official DryGelWorld.com industrial desiccant supply for packaging, logistics, warehouse stock, private-label sachets, and export shipments with SDS, COA, and compliance documentation available on request.",
+      "Factory-direct silica gel: bulk packets, cargo strips, and private label support. Premium moisture protection for global shipping.",
     url: siteUrl,
       siteName: brandName,
       images: [
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
         url: defaultSeoImage,
         width: 1200,
         height: 630,
-        alt: "Dry Gel World industrial silica gel desiccant export supply",
+        alt: "DryGelWorld premium desiccants — silica gel packets, bulk beads, and cargo strips",
       },
     ],
     type: "website",
@@ -123,9 +123,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DryGelWorld | Silica Gel Manufacturer Exporter",
+    title: "DryGelWorld | Global Industrial Desiccant Exporter",
     description:
-      "Export-ready moisture protection for cartons, bulk packaging, private label packets, and container cargo.",
+      "Factory-direct silica gel: bulk packets, cargo strips, and private label support.",
     images: [defaultSeoImage],
   },
 };

@@ -16,10 +16,11 @@ export const brandName = publicEnv("NEXT_PUBLIC_BRAND_NAME", "DryGelWorld");
 
 export const brandDomain = publicEnv("NEXT_PUBLIC_BRAND_DOMAIN", "drygelworld.com");
 
-export const defaultSeoImage = publicEnv(
-  "NEXT_PUBLIC_DEFAULT_SEO_IMAGE",
-  "/seo-images/drygelworld-industrial-silica-gel-og.webp",
-);
+// Hardcoded (not env-driven) on purpose: the previous NEXT_PUBLIC_DEFAULT_SEO_IMAGE
+// value pointed at the dynamic /opengraph-image route, which has been removed in
+// favour of this static bento OG image. Reading the stale env var would break the
+// social preview, so the path is pinned here.
+export const defaultSeoImage = "/images/og-image.png";
 
 export const googleSiteVerification =
   process.env.GOOGLE_SITE_VERIFICATION?.trim() ||
