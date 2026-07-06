@@ -39,6 +39,13 @@ import "./globals.css";
 // GA4 measurement ID. Override via NEXT_PUBLIC_GA_ID in Vercel env if regenerated.
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-BJS67Z0D0D";
 
+// Optional Facebook App ID. Facebook's Sharing Debugger warns when fb:app_id
+// is absent, but it is NOT required for link sharing to work. Left unset here
+// so no invalid/empty tag is emitted; the moment a real ID is put in the
+// NEXT_PUBLIC_FB_APP_ID env var (after creating an app at developers.facebook.com),
+// the <meta property="fb:app_id"> below renders automatically.
+const FB_APP_ID = process.env.NEXT_PUBLIC_FB_APP_ID?.trim();
+
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
@@ -87,7 +94,7 @@ export const metadata: Metadata = {
         url: defaultSeoImage,
         width: 1200,
         height: 630,
-        alt: "DryGelWorld premium desiccants — silica gel packets, bulk beads, and cargo strips",
+        alt: "DryGelWorld premium desiccants: silica gel packets, bulk beads, and cargo strips",
       },
     ],
     type: "website",
@@ -168,6 +175,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${body.variable} ${display.variable}`}>
       <head>
+        {/* Facebook app id (property=, as FB expects). Renders only when the
+            NEXT_PUBLIC_FB_APP_ID env var is set, so there is never an invalid
+            empty tag. Optional — sharing works without it. */}
+        {FB_APP_ID ? <meta property="fb:app_id" content={FB_APP_ID} /> : null}
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
         <link rel="alternate" type="text/plain" title="LLM guide (llms.txt)" href="/llms.txt" />

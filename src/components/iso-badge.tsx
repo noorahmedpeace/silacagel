@@ -19,7 +19,7 @@ export function IsoBadge({
     <Link
       href="/documentation"
       className={`${styles.badge} ${tone === "dark" ? styles.dark : ""} ${className}`}
-      aria-label="ISO 9001:2015 certified — view certificate details"
+      aria-label="ISO 9001:2015 certified, view certificate details"
     >
       <span className={styles.seal} aria-hidden="true">
         <BadgeCheck size={18} strokeWidth={2.1} />

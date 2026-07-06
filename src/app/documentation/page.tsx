@@ -11,7 +11,7 @@ import { FaqBlock } from "@/components/faq-block";
 import styles from "./documentation.module.css";
 
 export const metadata: Metadata = {
-  title: "Documentation Center | ISO 9001, SDS, COA & Spec Sheets — DryGelWorld",
+  title: "Documentation Center | ISO 9001, SDS, COA & Spec Sheets | DryGelWorld",
   description:
     "Open and download DryGelWorld's ISO 9001:2015 certificate, silica gel SDS, COA, technical data sheets, and product specifications in one place.",
   alternates: { canonical: "/documentation" },
@@ -98,7 +98,7 @@ export default function DocumentationPage() {
               </div>
               <div>
                 <dt>Accreditation</dt>
-                <dd>{isoCertificate.accreditationBody} — Acc. no. {isoCertificate.verificationAccountNo}</dd>
+                <dd>{isoCertificate.accreditationBody}, Acc. no. {isoCertificate.verificationAccountNo}</dd>
               </div>
               <div>
                 <dt>Verify at</dt>

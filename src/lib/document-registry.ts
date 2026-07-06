@@ -101,7 +101,7 @@ export const documents: DocEntry[] = [
   {
     id: "sds-silica-gel",
     type: "sds",
-    title: "Silica Gel — Safety Data Sheet",
+    title: "Silica Gel: Safety Data Sheet",
     description: "Composition (silicon dioxide, CAS 7631-86-9), hazards, first-aid, handling, and transport classification. Not classified as dangerous goods (IMDG/IATA).",
     fileHref: "/documents/sds-silica-gel.pdf",
     format: "PDF",
@@ -115,7 +115,7 @@ export const documents: DocEntry[] = [
   {
     id: "coa-white-bead-2-4mm",
     type: "coa",
-    title: "COA — White Silica Gel Bead, 2–4 mm",
+    title: "COA: White Silica Gel Bead, 2–4 mm",
     description: "Material certificate of analysis against HG/T 2765.4-2005: SiO₂ ≥ 98%, bulk density, RH adsorption at 20/50/90%, loss on heating, pH, and specific resistance.",
     fileHref: "/documents/coa-white-silica-gel-2-4mm.pdf",
     format: "PDF",
@@ -129,7 +129,7 @@ export const documents: DocEntry[] = [
   {
     id: "tds-silica-gel",
     type: "tds",
-    title: "Silica Gel — Technical Data Sheet",
+    title: "Silica Gel: Technical Data Sheet",
     description: "Adsorption capacity by relative humidity, bulk density, pore structure, and regeneration guidance.",
     fileHref: "/documents/tds-silica-gel.pdf",
     format: "PDF",
@@ -139,7 +139,7 @@ export const documents: DocEntry[] = [
   {
     id: "spec-paper-sachets",
     type: "spec",
-    title: "Product Spec — Paper Sachets (0.5–10 g)",
+    title: "Product Spec: Paper Sachets (0.5–10 g)",
     description: "Sizes, pouch material, fill weights, carton pack, and MOQ context for breathable paper sachets.",
     fileHref: "/documents/spec-paper-sachets.pdf",
     format: "PDF",
@@ -149,7 +149,7 @@ export const documents: DocEntry[] = [
   {
     id: "spec-container-strips",
     type: "spec",
-    title: "Product Spec — Container Desiccant Strips (1–5 kg)",
+    title: "Product Spec: Container Desiccant Strips (1–5 kg)",
     description: "Hanging-strip formats, capacity, chamber count, and container-dosage guidance for ocean freight.",
     fileHref: "/documents/spec-container-strips.pdf",
     format: "PDF",
