@@ -228,7 +228,7 @@ export default function SilicaGelBuyerGuide() {
             visible saturation verification. Not worth it for single-use export
             shipments sized correctly upfront - non-indicating gel does identical work
             at lower cost. <strong>Orange indicating gel is the modern standard</strong>{" "}
-            because it uses non-cobalt-chloride dye and is REACH-compliant. Blue
+            because it uses non-cobalt-chloride dye, avoiding the REACH-restricted substance. Blue
             indicating gel uses cobalt chloride which is restricted in EU/UK/AU/CA and
             is migrating out of use globally.
           </p>

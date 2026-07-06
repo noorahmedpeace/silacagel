@@ -180,7 +180,7 @@ export function SiteFooter() {
               {column.viewAll ? (
                 <li>
                   <Link className={styles.viewAll} href={column.viewAll.href}>
-                    {column.viewAll.label} <span aria-hidden="true">â†’</span>
+                    {column.viewAll.label} <span aria-hidden="true">→</span>
                   </Link>
                 </li>
               ) : null}
@@ -200,7 +200,7 @@ export function SiteFooter() {
       </div>
 
       <div className={styles.bottomBar}>
-        <span className={styles.copyright}>Â© 2026 DryGelWorld. All rights reserved.</span>
+        <span className={styles.copyright}>© 2026 DryGelWorld. All rights reserved.</span>
         <div className={styles.bottomMeta}>
           <a href="/sitemap.xml">Sitemap</a>
           <address>{companyAddressFull}</address>

@@ -23,13 +23,15 @@ export async function generateMetadata({ params }: AuthorPageProps): Promise<Met
   if (!author) return {};
 
   return {
-    title: `${author.name} | ${siteName} Export Desk`,
+    // author.name already contains the brand ("DryGelWorld Export Desk"), so
+    // suffixing the site name produced "… | Dry Gel World Export Desk".
+    title: `${author.name} | Author Profile`,
     description: author.shortBio,
     alternates: {
       canonical: `/authors/${slug}`,
     },
     openGraph: {
-      title: `${author.name} | ${siteName} Export Desk`,
+      title: `${author.name} | Author Profile`,
       description: author.shortBio,
       url: `/authors/${slug}`,
       type: "profile",

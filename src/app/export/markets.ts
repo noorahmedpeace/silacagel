@@ -60,7 +60,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "Food-contact applications should request the DMF-free statement and food-grade documentation with the order.",
+        "Food-contact applications should request the DMF-free statement with the order; food-grade certifications (FDA, FSSC 22000) are not currently held.",
         "Bilingual Arabic/English carton labeling can be arranged for retail-facing packs.",
       ],
     },
@@ -169,13 +169,13 @@ export const exportMarkets: ExportMarket[] = [
       ],
       regulatoryNotes: [
         "ISF (10+2) filing is required before vessel loading for US-bound ocean freight — coordinate with your forwarder.",
-        "For food-contact use, request FDA food-contact compliance documentation (21 CFR) with the order.",
+        "For direct food-contact use, note that FDA food-contact certification (FCN/GRAS) is not currently held — confirm the requirement with the export desk before commercial terms.",
       ],
     },
     faqs: [
       { question: "What is the import duty on silica gel into the USA?", answer: "Silica gel is classified under HTS 2811.22 (commonly 2811.22.10). Duty rates and trade measures change, so confirm the live rate in the official USITC Harmonized Tariff Schedule or with your customs broker before costing a shipment." },
       { question: "How long does shipping from Pakistan to the USA take?", answer: "Typical sea transit from Karachi is roughly 30-40 days to East Coast ports and 28-38 days to the West Coast, depending on carrier routing and transshipment. Production adds 7-15 days after specification sign-off. Air freight is available for samples." },
-      { question: "What documents come with a US-bound silica gel shipment?", answer: "Commercial invoice, packing list, bill of lading, and Certificate of Origin as standard, with SDS, COA, and FDA food-contact documentation available on request. ISF (10+2) data is coordinated with your forwarder before vessel loading." },
+      { question: "What documents come with a US-bound silica gel shipment?", answer: "Commercial invoice, packing list, bill of lading, and Certificate of Origin as standard, with SDS and COA available on request. FDA food-contact certification is not currently held. ISF (10+2) data is coordinated with your forwarder before vessel loading." },
     ],
   },
   {

@@ -295,7 +295,7 @@ const highIntentSeoLandingPages = {
     buyerGuide: {
       title: "Silica gel explained for buyers",
       intro:
-        "Silica gel is a porous, granular form of amorphous silicon dioxide (SiOâ‚‚). Despite the name it is a solid, not a gel. Its huge internal surface area lets it adsorb and hold water vapour from the surrounding air, which is why it is the default desiccant for moisture protection.",
+        "Silica gel is a porous, granular form of amorphous silicon dioxide (SiO₂). Despite the name it is a solid, not a gel. Its huge internal surface area lets it adsorb and hold water vapour from the surrounding air, which is why it is the default desiccant for moisture protection.",
       sections: [
         {
           label: "How it works",
@@ -310,7 +310,7 @@ const highIntentSeoLandingPages = {
         {
           label: "Reuse",
           title: "Can silica gel be recharged?",
-          text: "Yes - silica gel is regenerable. Heating it (typically 110-130Â°C) drives off the adsorbed moisture so the beads can be reused. Single-voyage packaging sachets are usually treated as consumables, while bulk beads in closed-loop industrial use are often regenerated.",
+          text: "Yes - silica gel is regenerable. Heating it (typically 110-130°C) drives off the adsorbed moisture so the beads can be reused. Single-voyage packaging sachets are usually treated as consumables, while bulk beads in closed-loop industrial use are often regenerated.",
         },
       ],
     },
@@ -338,11 +338,11 @@ const highIntentSeoLandingPages = {
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
-      { question: "What is silica gel?", answer: "Silica gel is a porous, granular form of silicon dioxide (SiOâ‚‚) used as a desiccant. Its microscopic pores give it a very large internal surface area that adsorbs and holds water vapour, keeping packaged or stored goods dry. Despite the name it is a solid bead, not a liquid gel." },
+      { question: "What is silica gel?", answer: "Silica gel is a porous, granular form of silicon dioxide (SiO₂) used as a desiccant. Its microscopic pores give it a very large internal surface area that adsorbs and holds water vapour, keeping packaged or stored goods dry. Despite the name it is a solid bead, not a liquid gel." },
       { question: "How does silica gel work?", answer: "Silica gel works by adsorption: water molecules from the surrounding air bond to the walls of its internal pores and are held inside the beads. This lowers the humidity inside a sealed pack, carton, or container and prevents moisture damage, mold, and corrosion." },
       { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic - it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
       { question: "What are the types of silica gel?", answer: "The main types are white/clear non-indicating silica gel (standard packaging use), orange indicating silica gel (cobalt-free, changes colour when saturated), and blue indicating silica gel (older cobalt-chloride type). Formats include small sachets, larger desiccant bags, loose beads, and container strips." },
-      { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable - heating it to around 110-130Â°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
+      { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable - heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
       { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer and exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 190+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
     ],
   }),
@@ -2617,7 +2617,7 @@ const highIntentSeoLandingPages = {
     searchIntent: "B2B buyer keyword: silica gel beads, bulk silica gel beads, silica gel bead supplier, loose silica beads",
     primaryCta: "Request Bead Quote",
     proofPoints: [
-      "Amorphous silicon dioxide (SiOâ‚‚)",
+      "Amorphous silicon dioxide (SiO₂)",
       "Uniform 1-3mm bead size",
       "25kg bulk bag standard",
       "ISO 9001:2015, SDS, COA documentation",

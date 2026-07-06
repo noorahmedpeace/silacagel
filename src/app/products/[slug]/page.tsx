@@ -328,7 +328,7 @@ const productFaqs = {
     },
     {
       q: "What is the active absorption capacity of one container strip?",
-      a: "A standard 1kg container desiccant strip absorbs up to 200% of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake - performance data sheets are available at quote stage.",
+      a: "A standard 1kg silica gel container strip adsorbs up to roughly one-third of its weight in moisture under typical ocean freight humidity (RH 75-90%). Specific gel formulations and routes affect total uptake - performance data sheets are available at quote stage.",
     },
     {
       q: "Are container strips reusable after a single voyage?",
