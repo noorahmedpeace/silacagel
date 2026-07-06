@@ -51,17 +51,17 @@ export const metadata: Metadata = {
     "Buy silica gel desiccant in bulk direct from the manufacturer since 1983 - wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Buy Silica Gel in Bulk - Manufacturer & Exporter | DryGelWorld",
+    title: "DryGelWorld | Global Industrial Desiccant Exporter",
     description:
-      "Manufacturer-direct silica gel: wholesale packets, bulk beads, and container desiccant strips with SDS/COA and worldwide export shipping.",
+      "Factory-direct silica gel: bulk packets, cargo strips, and private label support. Premium moisture protection for global shipping.",
     url: "/",
     type: "website",
-    images: [{ url: defaultSeoImage, width: 1200, height: 630, alt: "Buy silica gel in bulk from DryGelWorld" }],
+    images: [{ url: defaultSeoImage, width: 1200, height: 630, alt: "DryGelWorld premium desiccants — silica gel packets, bulk beads, and cargo strips" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buy Silica Gel in Bulk | DryGelWorld",
-    description: "Manufacturer-direct silica gel packets, bulk beads, and container strips. Low MOQ, SDS/COA, worldwide shipping.",
+    title: "DryGelWorld | Global Industrial Desiccant Exporter",
+    description: "Factory-direct silica gel: bulk packets, cargo strips, and private label support.",
     images: [defaultSeoImage],
   },
 };
