@@ -4,6 +4,7 @@ import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { GuaranteeStrip } from "@/components/guarantee-strip";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -204,6 +205,7 @@ export default function RootLayout({
         <SiteHeader />
         <HashAnchorScroll />
         {children}
+        <GuaranteeStrip />
         <WhatsAppFloat />
         <SiteFooter />
         <Analytics />
