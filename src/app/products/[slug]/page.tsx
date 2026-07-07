@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
+import { ProductCrossSell } from "@/components/product-cross-sell";
+import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
 import {
@@ -859,6 +861,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
           ) : null}
 
           <Reveal>
+            <ProductCrossSell slug={product.slug} />
+          </Reveal>
+
+          <Reveal>
             <section id="quote-form" className={styles.quoteSection}>
               <div className={styles.quoteCopy}>
                 <p className={styles.eyebrow}>Direct Quote Flow</p>
@@ -872,6 +878,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <QuoteForm title={`Quote for ${product.shortName}`} defaultProduct={product.name} compact />
             </section>
           </Reveal>
+          <StickyQuoteBar productName={product.shortName} />
         </main>
         <script
           type="application/ld+json"

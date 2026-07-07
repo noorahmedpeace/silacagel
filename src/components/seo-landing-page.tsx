@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
+import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { getLandingSpec } from "@/lib/product-spec";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
@@ -204,7 +205,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
       </section>
 
       {page.quoteChecklist ? (
-        <section className={`${styles.section} ${styles.quoteSection}`}>
+        <section id="quote-form" className={`${styles.section} ${styles.quoteSection}`}>
           <div className={styles.quoteChecklist}>
             <div className={styles.sectionHead}>
               <h2>{page.quoteChecklist.title}</h2>
@@ -293,6 +294,10 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             ],
           }),
         }}
+      />
+      <StickyQuoteBar
+        href={page.quoteChecklist ? "#quote-form" : "/contact"}
+        productName={page.kicker}
       />
     </main>
   );

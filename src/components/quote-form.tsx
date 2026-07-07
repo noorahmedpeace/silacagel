@@ -115,10 +115,11 @@ export function QuoteForm({
     event.preventDefault();
     setError(null);
 
-    // Client-side validation of the three core fields before doing any work.
+    // Client-side validation of the two truly essential fields. Quantity is
+    // collected but not required: forcing it upfront was measurable friction,
+    // and the export desk can ask for it in the reply.
     if (!state.company.trim()) return setError("Please enter your company name.");
     if (!EMAIL_RE.test(state.email.trim())) return setError("Please enter a valid business email.");
-    if (!state.quantity.trim()) return setError("Please enter the quantity or monthly volume.");
 
     const route = getContactEmailChannel(state.department);
 
@@ -187,7 +188,7 @@ export function QuoteForm({
         <div className={styles.formHead}>
           <p>Export RFQ Engine</p>
           <h3>{title}</h3>
-          <span>Start with four core details - add shipment specifics only if you have them.</span>
+          <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
         </div>
 
         {/* Core fields - the four that let the export desk respond fast. */}
@@ -243,16 +244,13 @@ export function QuoteForm({
         </label>
 
         <label className={styles.field}>
-          <span>
-            Quantity / Monthly Volume <em className={styles.req}>*</em>
-          </span>
+          <span>Quantity / Monthly Volume</span>
           <input
             value={state.quantity}
             onChange={(event) => dispatch({ type: "set", field: "quantity", value: event.target.value })}
             placeholder="e.g. 500 kg, 2 tons, 100k sachets monthly"
             type="text"
             name="quantity"
-            required
           />
         </label>
 

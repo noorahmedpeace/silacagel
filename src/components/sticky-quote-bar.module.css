@@ -1,0 +1,114 @@
+/*
+ * Sticky quote pill - bottom-center, between the calculator float (left)
+ * and the WhatsApp float (right). Same z-band as the floats but one step
+ * below so corner CTAs stay clickable if they ever overlap on tiny screens.
+ */
+
+.bar {
+  position: fixed;
+  left: 50%;
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 58;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  opacity: 0;
+  transform: translate(-50%, 16px);
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.bar.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+
+  background: var(--ds-grad-cta, linear-gradient(135deg, #ff6a2b 0%, #ff8a3d 100%));
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 14px 30px -10px rgba(240, 96, 30, 0.55);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cta:hover,
+.cta:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 18px 34px -10px rgba(240, 96, 30, 0.62);
+}
+
+.ctaArrow {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+
+  background: rgba(9, 18, 37, 0.72);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  line-height: 1;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease;
+}
+
+.dismiss:hover,
+.dismiss:focus-visible {
+  background: rgba(9, 18, 37, 0.9);
+}
+
+@media (max-width: 640px) {
+  .bar {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .cta {
+    padding: 11px 16px;
+    font-size: 13px;
+  }
+
+  /* Corner floats shrink to 42px circles on mobile; keep the pill compact
+     so all three fit on a 320px viewport. */
+  .ctaProduct {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar,
+  .cta {
+    transition: none;
+  }
+
+  .cta:hover,
+  .cta:focus-visible {
+    transform: none;
+  }
+}
