@@ -158,9 +158,8 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     fitItems: input.useCases,
     specsTitle: `${input.kicker} RFQ details`,
     specsIntro:
-      "This page gives one buyer-intent keyword cluster its own clean destination so search engines and procurement teams see a clear match between query, content, and quote path.",
+      "Everything a procurement team needs to price this exact requirement on one page — formats, buyer types, documents, and quote basis — so your first quote comes back accurate and fast.",
     specs: [
-      { label: "Target keywords", value: input.targetKeywords },
       { label: "Formats", value: input.formats },
       { label: "Buyer types", value: input.buyerTypes },
       { label: "Documents", value: input.documents },
@@ -3935,7 +3934,7 @@ export const seoLandingPages = {
       {
         label: "Trust",
         title: "Clear buyer proof signals",
-        text: "Brand, product, documentation, and destination signals are grouped so search engines and buyers can understand the business faster.",
+        text: "Brand, products, documentation, and quote routes are grouped in one place so buyers can verify the business and reach the right contact faster.",
       },
     ],
     specsTitle: "DryGelWorld brand and search signals",
