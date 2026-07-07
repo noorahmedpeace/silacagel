@@ -588,9 +588,9 @@ const highIntentSeoLandingPages = {
   }),
   "industrial-desiccant-supplier": keywordClusterPage({
     slug: "industrial-desiccant-supplier",
-    title: "Industrial Desiccant Supplier | Bulk Moisture Control",
+    title: "Industrial Desiccant & Industrial Silica Gel Supplier",
     metaDescription:
-      "Industrial desiccant supplier for bulk silica gel, desiccant bags, packaging moisture control, warehouse stock, container desiccants, SDS, COA, and export RFQs.",
+      "Industrial desiccant supplier for industrial silica gel, desiccant bags, packaging moisture control, warehouse stock, container desiccants, SDS, COA, and export RFQs.",
     kicker: "Industrial desiccant supplier",
     h1: "Industrial desiccant supplier for factories, warehouses, packagers, and exporters.",
     lead:
