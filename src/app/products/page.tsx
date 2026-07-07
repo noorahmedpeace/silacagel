@@ -64,6 +64,12 @@ export default function ProductsPage() {
           const categoryLabel = product.categoryPath?.join(" > ");
           const colorLabel = product.colorOptions?.join(" / ");
           const sizeLabel = product.sizeOptions?.join(", ");
+          // Show the size RANGE, not just the first size — a lone "0.5 gm"
+          // badge read as if that were the only size available.
+          const sizeRange =
+            product.featuredSizes.length > 2
+              ? `${product.featuredSizes[0]} – ${product.featuredSizes[product.featuredSizes.length - 1]}`
+              : product.featuredSizes.join(" / ");
           const powderType = product.attributes?.["Powder Type"];
           const quoteMessage = [
             "Hello, I want a quote from DryGelWorld.",
@@ -86,7 +92,7 @@ export default function ProductsPage() {
                   sizes="(max-width: 900px) 100vw, 45vw"
                 />
                 <div className={styles.imageScrim} />
-                <span className={styles.formatBadge}>{product.featuredSizes[0]}</span>
+                <span className={styles.formatBadge}>{sizeRange}</span>
                 <span className={styles.globalBadge}>Worldwide dispatch</span>
               </div>
               <div className={styles.copy}>
@@ -97,7 +103,11 @@ export default function ProductsPage() {
                 <div className={styles.meta}>
                   {powderType ? <span>{powderType}</span> : null}
                   {colorLabel ? <span>Colors: {colorLabel}</span> : null}
-                  {sizeLabel ? <span>Sizes: {sizeLabel}</span> : <span>{product.featuredSizes[0]}</span>}
+                  {sizeLabel ? (
+                    <span>Sizes: {sizeLabel}</span>
+                  ) : (
+                    <span>Sizes: {product.featuredSizes.join(", ")}</span>
+                  )}
                   <span>{product.leadTime}</span>
                 </div>
                 <div className={styles.actions}>

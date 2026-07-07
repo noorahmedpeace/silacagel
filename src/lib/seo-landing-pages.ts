@@ -1,5 +1,13 @@
-import type { Metadata } from "next";
-import { absoluteUrl, brandDomain, brandName, defaultSeoImage, siteName } from "@/lib/seo";
+﻿import type { Metadata } from "next";
+import {
+  absoluteUrl,
+  brandDomain,
+  brandName,
+  compactMetaDescription,
+  compactMetaTitle,
+  defaultSeoImage,
+  siteName,
+} from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
 
 export type SeoLandingPage = {
@@ -423,7 +431,7 @@ const highIntentSeoLandingPages = {
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Silica gel beads", href: "/silica-gel-beads" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
       { label: "Wholesale silica gel packets", href: "/silica-gel-packets-wholesale" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
@@ -438,16 +446,17 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-manufacturer": keywordClusterPage({
     slug: "silica-gel-manufacturer",
-    title: "Silica Gel Manufacturer | Factory-Direct Production",
+    title: "Silica Gel Manufacturer & Exporter | Factory-Direct",
     metaDescription:
-      "Factory-direct silica gel manufacturer producing desiccant packets, beads, and bulk supply since 1983. ISO 9001:2015, in-house QC, SDS/COA, export RFQ.",
+      "Factory-direct silica gel manufacturer and exporter since 1983 — packets, beads, and bulk desiccant with ISO 9001:2015 QC, SDS/COA, and FOB/CIF worldwide.",
     kicker: "Silica gel manufacturer",
-    h1: "Silica gel manufacturer producing desiccant packets, beads, and bulk supply since 1983.",
+    h1: "Silica gel manufacturer and exporter — factory-direct desiccant supply since 1983.",
     lead:
-      "Buy direct from the producer: in-house manufacturing of silica gel packets, beads, and bulk desiccant with ISO 9001:2015 quality control and full export documentation.",
-    searchIntent: "High-intent buyer keyword: silica gel manufacturer",
+      "Buy direct from the producer: in-house manufacturing of silica gel packets, beads, and bulk desiccant with ISO 9001:2015 quality control, full export documentation, and FOB/CIF/EXW dispatch from Karachi to worldwide destinations.",
+    searchIntent:
+      "High-intent buyer keywords consolidated on this page: silica gel manufacturer, silica gel exporter, silica gel manufacturer exporter, factory-direct desiccant",
     primaryCta: "Request Manufacturer Quote",
-    proofPoints: ["Manufacturer since 1983", "In-house production & QC", "ISO 9001:2015 certified", "Bead grades & all formats"],
+    proofPoints: ["Manufacturer since 1983", "In-house production & QC", "ISO 9001:2015 certified", "FOB / CIF / EXW export"],
     image: "/products/product-range-export-showcase.webp",
     imageAlt: "Silica gel manufacturer product range with sachets and export packaging",
     imageCaption: "A manufacturer RFQ should identify format, quantity, destination, documentation, and repeat-volume needs.",
@@ -458,7 +467,8 @@ const highIntentSeoLandingPages = {
       { label: "Bulk", title: "Industrial and distributor supply", text: "For repackers, warehouses, importers, and recurring procurement by kg, pallet, or monthly volume." },
       { label: "Cargo", title: "Container moisture control", text: "For sea freight, palletized exports, container rain risk, and long-haul shipment protection." },
     ],
-    targetKeywords: "Silica gel manufacturer, silica gel company, industrial silica gel, silica gel manufacturer exporter",
+    targetKeywords:
+      "Silica gel manufacturer, silica gel exporter, silica gel manufacturer exporter, silica gel company, industrial silica gel, desiccant exporter",
     formats: "Silica gel packets, bulk silica gel, cargo strips, paper sachets, private-label packets",
     buyerTypes: "Importers, distributors, packagers, warehouses, exporters, OEM buyers",
     documents: "SDS, COA, ISO support, labeling, DMF-free or market statements where valid",
@@ -488,12 +498,13 @@ const highIntentSeoLandingPages = {
     },
     relatedLinks: [
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
       { question: "What should I ask a silica gel manufacturer before ordering?", answer: "Ask about product format, size range, MOQ, repeat capacity, documents, packing, destination support, and private-label options." },
       { question: "Can one manufacturer supply packets and bulk silica gel?", answer: "A stronger B2B supplier should be able to discuss packets, bulk bags, cargo strips, and private-label programs in one RFQ path." },
+      { question: "Does DryGelWorld export silica gel worldwide?", answer: "Yes — export orders ship from Karachi on FOB, CIF, or EXW terms with COO, COA, packing list, and SDS documentation coordinated before dispatch." },
       { question: "What documents matter for silica gel buyers?", answer: "Most industrial buyers request SDS and COA first, then ISO, labeling, DMF-free, or market-specific statements where relevant." },
     ],
   }),
@@ -528,53 +539,12 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
     ],
     faqs: [
       { question: "What silica gel formats can a supplier quote?", answer: "Common RFQs include small packets, bulk silica gel, indicating gel, non-indicating gel, cargo strips, and private-label sachets." },
       { question: "How do I get faster silica gel pricing?", answer: "Send product format, size, quantity, destination, Incoterms, and documents with the first inquiry." },
       { question: "Can DryGelWorld support wholesale silica gel buyers?", answer: "Wholesale and repeat B2B supply can be discussed by carton, pallet, kg, or monthly volume." },
-    ],
-  }),
-  "silica-gel-exporter": keywordClusterPage({
-    slug: "silica-gel-exporter",
-    title: "Silica Gel Exporter | FOB/CIF Desiccant Export, Karachi",
-    metaDescription:
-      "Silica gel exporter shipping desiccants worldwide on FOB, CIF, and EXW terms from Karachi. COO, COA, packing list, SDS, and full export documentation.",
-    kicker: "Silica gel exporter",
-    h1: "Silica gel exporter shipping desiccants worldwide on FOB, CIF, and EXW terms.",
-    lead:
-      "Plan export silica gel orders around format, MOQ, Incoterms, destination country, documentation, private label, and dispatch route before price negotiation.",
-    searchIntent: "Export buyer keyword: silica gel exporter, industrial silica gel exporter, desiccant exporter",
-    primaryCta: "Request Export Quote",
-    secondaryCta: "Explore Export Support",
-    secondaryHref: "/export",
-    proofPoints: ["FOB / CIF / EXW terms", "COO, COA, packing list", "Karachi port dispatch", "Worldwide destinations"],
-    image: "/applications/export-logistics.webp",
-    imageAlt: "Silica gel exporter logistics and container dispatch planning",
-    imageCaption: "Export buyers should send destination, Incoterms, product format, documents, and repeat schedule in the first RFQ.",
-    chips: ["Exporter", "FOB / CIF", "Documents", "Global"],
-    fitTitle: "Export silica gel buying paths",
-    useCases: [
-      { label: "Importers", title: "Country-specific procurement", text: "Request product format, documents, and Incoterms around your destination market." },
-      { label: "Distributors", title: "Repeat supply programs", text: "Quote by kg, carton, pallet, or monthly volume for recurring import cycles." },
-      { label: "OEM", title: "Private-label export packs", text: "Align sachet text, carton labels, documentation, and MOQ before dispatch." },
-    ],
-    targetKeywords: "Silica gel exporter, desiccant exporter, industrial silica gel exporter, silica gel for export packaging",
-    formats: "Silica gel packets, bulk desiccants, container strips, private-label sachets",
-    buyerTypes: "Importers, global distributors, exporters, packaging buyers, procurement teams",
-    documents: "SDS, COA, ISO support, origin and shipment documents where applicable",
-    buyerRisk: "Late document requests, unclear Incoterms, missing destination or packing details",
-    quoteBasis: "Destination, Incoterms, product format, quantity, packing, documents, repeat volume",
-    relatedLinks: [
-      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Export support hub", href: "/export" },
-    ],
-    faqs: [
-      { question: "What details should a silica gel export RFQ include?", answer: "Include product format, quantity, destination, Incoterms, required documents, packing needs, and repeat schedule." },
-      { question: "Can silica gel be quoted FOB or CIF?", answer: "FOB, CIF, EXW, and other terms can be discussed once quantity and destination details are clear." },
-      { question: "What products can be exported?", answer: "Export inquiries can include packets, bulk silica gel, cargo strips, and private-label desiccant programs." },
     ],
   }),
   "desiccant-manufacturer": keywordClusterPage({
@@ -924,7 +894,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Choosing only by country or price without checking capability, documents, and repeat supply fit",
     quoteBasis: "Target format, quantity, destination, Incoterms, documents, lead time, repeat volume",
     relatedLinks: [
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
+      { label: "Export markets", href: "/export" },
       { label: "Pakistan manufacturer", href: "/silica-gel-manufacturer-pakistan" },
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
     ],
@@ -1623,50 +1593,6 @@ const highIntentSeoLandingPages = {
       { question: "What sizes work for food production lines?", answer: "20 and 22 inch diameters are the most common production-line sizes. 18 inch is used for smaller heads and snug fit; 21 inch is a mid-range option." },
     ],
   }),
-  "silica-gel-exporter-germany": keywordClusterPage({
-    slug: "silica-gel-exporter-germany",
-    title: "Silica Gel Exporter for Germany | Karachi-to-Hamburg Desiccant Supply",
-    metaDescription:
-      "Silica gel desiccant exporter for German importers, OEM packagers, automotive suppliers, and pharma procurement teams. FOB Karachi to Hamburg, Bremerhaven, JadeWeserPort with SDS, COA, and ISO 9001:2015 documentation.",
-    kicker: "Silica Gel Exporter Germany",
-    h1: "Silica gel desiccant exporter for German B2B importers and OEM buyers.",
-    lead:
-      "Karachi-to-Germany silica gel desiccant supply for automotive, electronics, pharma packaging, and industrial procurement programs. Hamburg / Bremerhaven / JadeWeserPort routing with full SDS, COA, ISO 9001:2015 reference, and DMF-free product statement on request.",
-    searchIntent: "B2B German buyer keyword: silica gel exporter germany, desiccant supplier germany, Hamburg silica gel import",
-    primaryCta: "Request Germany Export Quote",
-    proofPoints: [
-      "Direct Karachi to Hamburg / Bremerhaven routing",
-      "SDS available in English (German on request)",
-      "ISO 9001:2015 quality reference",
-      "DMF-free product statement",
-    ],
-    image: "/silicagel_paper_technical.webp",
-    imageAlt: "Silica gel desiccant for German automotive, electronics, and pharma buyers",
-    imageCaption: "German importers should align REACH expectations and SDS language requirements before commercial terms.",
-    chips: ["Germany", "Karachi-DE", "OEM", "Pharma"],
-    fitTitle: "German buyer paths for Karachi-origin silica gel",
-    useCases: [
-      { label: "Automotive", title: "OEM and supplier packaging", text: "Silica gel sachets and bulk packs for automotive parts shipping, OEM packaging programs, and German Tier-1 supplier networks." },
-      { label: "Electronics", title: "Industrial electronics distribution", text: "Sachets for circuit boards, components, and electronics packaging through German distribution networks and re-packers." },
-      { label: "Pharma", title: "Healthcare procurement", text: "Sachets and bulk silica gel for German pharma packagers; document support discussed before commercial terms." },
-    ],
-    targetKeywords: "silica gel exporter germany, desiccant supplier germany, hamburg silica gel, bremerhaven silica gel import",
-    formats: "0.5g-10g sachets, 25g-500g bulk packs, 1kg-5kg cargo strips, dry clay packs",
-    buyerTypes: "Automotive OEM packagers, electronics distributors, pharma procurement, industrial re-packers",
-    documents: "ISO 9001:2015, SDS (EN/DE), COA, DMF-free statement; REACH discussed before commercial terms",
-    buyerRisk: "Mismatched REACH expectations or SDS language requirements before dispatch",
-    quoteBasis: "Volume, target German port, Incoterms, document language, REACH approach",
-    relatedLinks: [
-      { label: "Germany export market", href: "/export/germany" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-    ],
-    faqs: [
-      { question: "Do you ship silica gel directly to Hamburg?", answer: "Yes - Karachi-to-Hamburg is a standard ocean-freight lane for Pakistan-origin silica gel. Bremerhaven and JadeWeserPort are also supported. Buyers should confirm Incoterms and document language before commercial terms." },
-      { question: "Is the silica gel REACH-registered?", answer: "REACH registration is confirmed per buyer requirement. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement; formal REACH registration must be confirmed against the buyer's compliance program before dispatch." },
-      { question: "Can you supply SDS in German?", answer: "SDS is available in English by default; German-language SDS can be discussed for buyers requiring local-language documentation." },
-    ],
-  }),
   "hair-net-supplier-uae": keywordClusterPage({
     slug: "hair-net-supplier-uae",
     title: "Hair Net Supplier for UAE | Bouffant PPE Karachi-to-Jebel Ali",
@@ -1834,7 +1760,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Volume, target UK port, Incoterms, document expectations, REACH approach",
     relatedLinks: [
       { label: "UK export market", href: "/export/uk" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
@@ -1929,50 +1855,6 @@ const highIntentSeoLandingPages = {
       { question: "Do you ship hair nets directly to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms and Arabic / English labeling expectations before commercial terms." },
       { question: "Is SASO certification required?", answer: "SASO certification must be confirmed per buyer requirement. DryGelWorld supplies ISO 9001:2015 reference and standard export documentation; formal SASO compliance must be confirmed against the buyer's import program before dispatch." },
       { question: "Can you supply Arabic-language carton labeling?", answer: "Arabic / English carton labeling can be discussed alongside the order; confirm at RFQ stage so the artwork is prepared before dispatch." },
-    ],
-  }),
-  "silica-gel-exporter-canada": keywordClusterPage({
-    slug: "silica-gel-exporter-canada",
-    title: "Silica Gel Exporter Canada | Karachi-to-Vancouver / Montreal Desiccant Supply",
-    metaDescription:
-      "Silica gel desiccant exporter for Canadian importers, distributors, packaging companies, and electronics packers. Karachi-to-Vancouver West Coast and Karachi-to-Montreal East Coast routing with SDS, COA, and ISO 9001:2015 documentation.",
-    kicker: "Silica Gel Exporter Canada",
-    h1: "Silica gel desiccant exporter for Canadian B2B importers and distribution buyers.",
-    lead:
-      "Karachi-to-Canada silica gel desiccant supply for distributors, packaging companies, electronics packers, and textile or leather importers. West Coast (Vancouver, Prince Rupert) and East Coast (Montreal, Halifax) routing with full SDS, COA, ISO 9001:2015 reference, and DMF-free product statement on request.",
-    searchIntent: "Canadian buyer keyword: silica gel exporter canada, desiccant supplier canada, vancouver silica gel import",
-    primaryCta: "Request Canada Export Quote",
-    proofPoints: [
-      "West Coast (Vancouver) and East Coast (Montreal) routing",
-      "ISO 9001:2015 quality reference",
-      "Bilingual EN/FR labeling discussed",
-      "DMF-free product statement",
-    ],
-    image: "/silicagel_paper_technical.webp",
-    imageAlt: "Silica gel desiccant for Canadian distributors and packagers",
-    imageCaption: "Canadian buyers can route via West Coast (Vancouver, Prince Rupert) or East Coast (Montreal, Halifax) - Karachi-to-Vancouver is the most common Pakistani-origin lane.",
-    chips: ["Canada", "Karachi-CA", "Electronics", "Distribution"],
-    fitTitle: "Canadian buyer paths for Karachi-origin silica gel",
-    useCases: [
-      { label: "Distribution", title: "Canadian packaging distributors", text: "Sachets and bulk silica gel for Canadian distribution networks, re-packers, and regional supply programs." },
-      { label: "Electronics", title: "Electronics packaging", text: "Sachets for circuit boards, components, and electronics packaging through Canadian electronics packers." },
-      { label: "Textile / leather", title: "Apparel and leather imports", text: "Sachets and bulk silica gel for Canadian textile, apparel, and leather goods importers." },
-    ],
-    targetKeywords: "silica gel exporter canada, desiccant supplier canada, vancouver silica gel, montreal silica gel import",
-    formats: "0.5g-10g sachets, 25g-500g bulk packs, 1kg-5kg cargo strips, dry clay packs",
-    buyerTypes: "Canadian distributors, electronics packagers, textile and leather importers, industrial procurement, PPE distributors",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement; Health Canada / CFIA discussed per buyer market",
-    buyerRisk: "Mismatched bilingual labeling expectations or destination-port choice (West Coast vs East Coast) at RFQ stage",
-    quoteBasis: "Volume, target Canadian port, Incoterms, French / English labeling, document expectations",
-    relatedLinks: [
-      { label: "Canada export market", href: "/export/canada" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-    ],
-    faqs: [
-      { question: "Do you ship silica gel directly to Canada?", answer: "Yes - Karachi-to-Vancouver is the most common lane for Pakistani-origin desiccant supply to Canada. Prince Rupert (West Coast) and Montreal / Halifax (East Coast) are also supported. Buyers should confirm port preference and Incoterms at RFQ stage." },
-      { question: "Can you supply French-language carton labeling?", answer: "Bilingual EN / FR carton labeling can be discussed alongside the order - common requirement for Canadian retail and consumer-facing distribution. Confirm artwork at RFQ stage before dispatch." },
-      { question: "Is the silica gel approved by Health Canada?", answer: "Health Canada compliance must be confirmed per buyer requirement. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal Health Canada or CFIA approval must be confirmed against the buyer's compliance program before dispatch." },
     ],
   }),
   "18-inch-hair-nets": keywordClusterPage({
@@ -2281,50 +2163,6 @@ const highIntentSeoLandingPages = {
       { question: "Do you ship beard covers to the UK?", answer: "Yes - Karachi-to-Felixstowe is the standard ocean lane, with Southampton, London Gateway, and Liverpool also supported. Post-Brexit customs documentation aligned with the buyer's import broker before dispatch." },
       { question: "Are these beard covers EN 14126 certified?", answer: "EN 14126 is not a credential currently held by DryGelWorld. Beard covers are supplied as industrial-safety PPE; formal EN 14126 certification must be confirmed against the buyer's compliance program before commercial terms." },
       { question: "Can you supply UK-language carton labeling?", answer: "English-language carton labeling is the default. UK-specific brand or compliance markings can be discussed at RFQ stage; private label is viable above a few thousand cartons per design." },
-    ],
-  }),
-  "silica-gel-exporter-usa": keywordClusterPage({
-    slug: "silica-gel-exporter-usa",
-    title: "Silica Gel Exporter USA | Karachi-to-US Coast Desiccant Supplier",
-    metaDescription:
-      "Silica gel desiccant exporter for US distributors, packaging companies, electronics packers, leather and footwear importers, and pharma procurement. Karachi-to-US East Coast and West Coast routing with SDS, COA, and ISO 9001:2015 documentation.",
-    kicker: "Silica Gel Exporter USA",
-    h1: "Silica gel desiccant exporter for US B2B importers and distributors.",
-    lead:
-      "Karachi-to-USA silica gel desiccant supply for US distribution networks, packaging companies, electronics packers, leather and footwear importers, and pharma procurement programs. US East Coast (Atlantic) and West Coast (Pacific) routing with full SDS, COA, ISO 9001:2015 reference, and DMF-free product statement on request.",
-    searchIntent: "B2B US buyer keyword: silica gel exporter usa, desiccant supplier usa, silica gel manufacturer us",
-    primaryCta: "Request USA Export Quote",
-    proofPoints: [
-      "Karachi to US East Coast / West Coast routing",
-      "ISO 9001:2015 quality reference",
-      "DMF-free product statement",
-      "Private-label / OEM supply discussed",
-    ],
-    image: "/silicagel_paper_technical.webp",
-    imageAlt: "Silica gel desiccant for US distributors, electronics packers, and pharma buyers",
-    imageCaption: "US importers should align FDA documentation expectations early. FDA approval is not a credential currently held by DryGelWorld.",
-    chips: ["USA", "Karachi-US", "Electronics", "Distribution"],
-    fitTitle: "US buyer paths for Karachi-origin silica gel",
-    useCases: [
-      { label: "Distribution", title: "US packaging distributors", text: "Sachets and bulk silica gel for US distribution networks, re-packers, and regional supply programs serving consumer-goods packagers and industrial buyers." },
-      { label: "Electronics", title: "Electronics packaging", text: "Sachets for circuit boards, components, and electronics packaging through US electronics packers and consumer-electronics brands." },
-      { label: "Pharma", title: "Pharma packaging procurement", text: "Sachets for US pharma packagers; document support discussed before commercial terms. FDA registration is not a credential currently held by DryGelWorld." },
-    ],
-    targetKeywords: "silica gel exporter usa, desiccant supplier usa, silica gel us import, karachi silica gel us",
-    formats: "0.5g-10g sachets, 25g-500g bulk packs, 1kg-5kg cargo strips, dry clay packs",
-    buyerTypes: "US distributors, electronics packagers, pharma procurement, footwear and leather importers, PPE distributors",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement; FDA / FSSC alignment discussed per buyer market",
-    buyerRisk: "Assuming FDA registration from generic industrial silica gel without explicit compliance confirmation",
-    quoteBasis: "Volume, target US port (East / West), Incoterms, FDA documentation, private-label requirement",
-    relatedLinks: [
-      { label: "USA export market", href: "/export/usa" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-    ],
-    faqs: [
-      { question: "Do you ship silica gel directly to the US?", answer: "Yes - Karachi-to-US is a standard ocean freight lane. East Coast (NYC, Savannah) and West Coast (LA, Long Beach, Oakland, Seattle) are all supported. Buyers should confirm Incoterms and FDA documentation expectations at RFQ stage." },
-      { question: "Is the silica gel FDA-registered?", answer: "FDA registration must be confirmed per buyer requirement. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal FDA registration must be confirmed against the buyer's compliance program before dispatch." },
-      { question: "What's typical Karachi-to-US transit time?", answer: "East Coast (NYC, Savannah): ~30 days. West Coast (LA, Long Beach): ~28-32 days trans-Pacific. Add buffer for storm cycles and port congestion. Plan moisture protection accordingly - both routes are tropical-to-temperate long-haul." },
     ],
   }),
   "21-inch-hair-nets": keywordClusterPage({
@@ -2758,7 +2596,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Sachet sizing per product, master carton dosage, container strip count, destination market, DMF-free confirmation",
     relatedLinks: [
       { label: "Leather and footwear export industry", href: "/industries/leather-footwear-export" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "How to prevent moisture in export cartons (blog)", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
     ],
     faqs: [
@@ -3485,7 +3323,7 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
-      { label: "Silica gel manufacturer & exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Request quote", href: "/contact" },
     ],
@@ -4132,7 +3970,7 @@ export const seoLandingPages = {
       { label: "Official homepage", href: "/" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -4147,85 +3985,6 @@ export const seoLandingPages = {
       {
         question: "Why is the DryGelWorld brand page important for Google?",
         answer: "A new domain needs exact brand-name signals, internal links, structured data, and sitemap inclusion so search engines can distinguish the brand from similar names.",
-      },
-    ],
-  },
-  "silica-gel-manufacturer-exporter": {
-    slug: "silica-gel-manufacturer-exporter",
-    title: "Silica Gel Manufacturer & Exporter | Factory-Direct Supply",
-    metaDescription:
-      "Factory-direct silica gel manufacturer and exporter - buy desiccants from the producer with no middleman. Manufacturing, supply, and export in one RFQ.",
-    kicker: "Manufacturer exporter",
-    h1: "Silica gel manufacturer and exporter - factory-direct desiccant supply, no middleman.",
-    lead:
-      "Buy desiccants straight from the producer. As a combined manufacturer and exporter, Dry Gel World handles production, supply, and worldwide shipping through a single RFQ - pick a specialized path below or send one combined inquiry.",
-    searchIntent: "Long-tail combined intent: silica gel manufacturer exporter, factory-direct silica gel, manufacturer-direct desiccant export",
-    primaryCta: "Request Export Quote",
-    secondaryCta: "Explore Export Support",
-    secondaryHref: "/export",
-    proofPoints: ["Factory-direct, no middleman", "Manufacturing since 1983", "FOB / CIF / EXW export", "SDS, COA, ISO 9001:2015"],
-    fitTitle: "Why importers use a manufacturer and exporter page",
-    fitItems: [
-      {
-        label: "Procurement",
-        title: "One supplier across formats",
-        text: "Route sachets, bulk bags, cargo strips, and private-label requirements through one export inquiry path.",
-      },
-      {
-        label: "Compliance",
-        title: "Documents discussed before dispatch",
-        text: "SDS, COA, ISO support, and destination-specific claims should be aligned before final commercial terms.",
-      },
-      {
-        label: "Logistics",
-        title: "Quotes built around destination",
-        text: "Better RFQs include country, port, Incoterms, lead time, packing, and repeat volume.",
-      },
-    ],
-    specsTitle: "Manufacturer-exporter capability signals",
-    specsIntro:
-      "Everything importers need to confirm Dry Gel World fits their buying path - products, documents, and export support at a glance.",
-    specs: [
-      { label: "Core products", value: "Silica gel packets, paper sachets, bulk packs, cargo strips" },
-      { label: "Buyer types", value: "Importers, distributors, packagers, exporters, warehouses" },
-      { label: "Export support", value: "FOB, CIF, EXW, destination and document planning" },
-      { label: "Documents", value: "SDS, COA, ISO 9001:2015 support on request" },
-      { label: "Commercial basis", value: "MOQ, product format, destination, repeat volume, private label scope" },
-    ],
-    buyingTitle: "How to approach Dry Gel World for export supply",
-    buyingIntro:
-      "A manufacturer and exporter RFQ should be specific enough to quote and technical enough to prevent packaging mistakes.",
-    buyingSteps: [
-      {
-        title: "Choose product direction",
-        text: "Start with sachets, bulk gel, cargo strips, or private-label packets. If unsure, share the use case.",
-      },
-      {
-        title: "Send commercial inputs",
-        text: "Include quantity, destination country, port or city, Incoterms, target lead time, and repeat schedule.",
-      },
-      {
-        title: "Confirm proof requirements",
-        text: "List SDS, COA, ISO, DMF-free, labeling, or any market-specific compliance requirement before shipment planning.",
-      },
-    ],
-    relatedLinks: [
-      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Silica gel exporter", href: "/silica-gel-exporter" },
-    ],
-    faqs: [
-      {
-        question: "Does Dry Gel World export silica gel worldwide?",
-        answer: "Dry Gel World is positioned for international B2B silica gel desiccant inquiries and can discuss product format, MOQ, documents, and destination support.",
-      },
-      {
-        question: "What products can be included in one export inquiry?",
-        answer: "Buyers can request silica gel packets, paper sachets, bulk desiccants, cargo strips, and private-label programs in one RFQ.",
-      },
-      {
-        question: "What makes a manufacturer and exporter RFQ faster?",
-        answer: "Send product type, size, quantity, destination, Incoterms, packing details, documentation needs, and repeat volume expectations.",
       },
     ],
   },
@@ -4245,31 +4004,11 @@ export function getSeoLandingPage(slug: SeoLandingSlug) {
   return seoLandingPages[slug];
 }
 
-function compactSeoTitle(title: string) {
-  if (title.length <= 60) return title;
-
-  const primaryTitle = title.split("|")[0].trim();
-  if (primaryTitle.length <= 60) return primaryTitle;
-
-  return `${primaryTitle.slice(0, 57).replace(/\s+\S*$/, "")}...`;
-}
-
-function compactSeoDescription(description: string) {
-  if (description.length <= 158) return description;
-
-  const firstSentence = description.split(". ")[0];
-  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
-    return `${firstSentence}.`;
-  }
-
-  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
-}
-
 export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
   const page = getSeoLandingPage(slug);
   const heroImage = getLandingSeoImage(page);
-  const metaTitle = compactSeoTitle(page.title);
-  const metaDescription = compactSeoDescription(page.metaDescription);
+  const metaTitle = compactMetaTitle(page.title);
+  const metaDescription = compactMetaDescription(page.metaDescription);
 
   return {
     title: metaTitle,

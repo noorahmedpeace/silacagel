@@ -1,4 +1,4 @@
-/**
+﻿/**
  * /llms.txt - AI agent discovery file.
  *
  * Format spec: https://llmstxt.org (proposed by Answer.AI; adopted as a
@@ -68,7 +68,7 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - Material: amorphous silicon dioxide (SiO₂)
 - Adsorption capacity: up to 33% of own weight in water vapor (roughly 35% higher per gram than typical clay desiccants)
 - Regeneration: 150°C (max 250°C)
-- Indicating colors available: orange (cobalt-free, REACH-friendly indicator) and blue (cobalt-chloride type, for non-REACH markets) indicating silica gel, alongside standard white non-indicating gel
+- Indicating colors available: orange (cobalt-free indicator with no REACH-restricted cobalt dichloride) and blue (cobalt-chloride type, only for markets where it remains permitted) indicating silica gel, alongside standard white non-indicating gel
 - Format families: breathable paper sachets, woven bead bags, non-woven bead bags, custom
 
 ### Dry clay desiccant
@@ -190,7 +190,7 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 | Export markets | 190+ countries | ${absoluteUrl("/export")} |
 | Silica gel adsorption capacity | ~33% of own weight in water vapor | ${absoluteUrl("/guides/silica-gel-buyer-guide")} |
 | Dry clay desiccant capacity | Up to 25% of own weight | ${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")} |
-| Silica gel regeneration temp | 120-150°C, 2-4 hours | ${absoluteUrl("/blog/can-you-reuse-silica-gel")} |
+| Silica gel regeneration temp | 120-150°C, 2-4 hours | ${absoluteUrl("/blog/how-to-regenerate-silica-gel-oven-temperature-guide")} |
 | Silica gel working temp ceiling | Up to 150°C | ${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")} |
 | Dry clay working temp ceiling | ~50°C | ${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")} |
 | Sealed paper sachet shelf life | 24-36 months (sealed outer pouch) | ${absoluteUrl("/products/paper-sachets")} |
@@ -289,7 +289,7 @@ A: They solve different problems and are not substitutes. Silica gel removes wat
 Source: ${absoluteUrl("/compare/silica-gel-vs-oxygen-absorber")}
 
 **Q: What is the difference between orange and blue indicating silica gel?**
-A: Orange uses non-cobalt-chloride dye and is REACH-compliant - the modern industrial standard. Blue uses cobalt chloride, classified as a category 1B carcinogen under EU REACH and restricted in EU/UK/Australia/Canada. Color change: orange (dry) → colorless/pale green (saturated); blue (dry) → pink (saturated). Replace at 70-80% color shift, not at first sign.
+A: Orange uses non-cobalt-chloride dye, avoiding the REACH-restricted substance - the modern industrial standard. Blue uses cobalt chloride, classified as a category 1B carcinogen under EU REACH and restricted in EU/UK/Australia/Canada. Color change: orange (dry) → colorless/pale green (saturated); blue (dry) → pink (saturated). Replace at 70-80% color shift, not at first sign.
 Source: ${absoluteUrl("/blog/indicating-silica-gel-orange-blue-color-change-guide")}
 
 ### Documentation and compliance
@@ -307,11 +307,11 @@ A: DryGelWorld supplies industrial-grade silica gel. FDA food-contact, EU 1935/2
 Source: ${absoluteUrl("/blog/food-grade-silica-gel-procurement-guide")}
 
 **Q: Does DryGelWorld supply silica gel with REACH registration?**
-A: DryGelWorld's silica gel is REACH-compliant in its base form. REACH-specific food-contact registration is a separate regulatory category that is not currently held. Indicating silica gel option: orange (REACH-compliant dye) is supplied; blue (cobalt chloride) is stocked only for non-REACH markets.
+A: DryGelWorld's silica gel contains no REACH-restricted substances in its base form; a formal REACH registration is not held, and EU importers should confirm their own registration obligations (registration is the importer's or Only Representative's duty for volumes over 1 t/yr). Indicating gel: orange (cobalt-free dye, avoids the restricted cobalt dichloride) is supplied; blue (cobalt chloride) is stocked only for markets where it remains permitted.
 Source: ${absoluteUrl("/blog/silica-gel-sds-coa-requirements-for-buyers")}
 
 **Q: What is a DMF-free statement?**
-A: A manufacturer-letterhead statement that the silica gel is not produced under or referenced to a regulatory Drug Master File. Required by pharma buyers in some markets when sourcing for non-direct-contact secondary packaging where DMF registration is not needed but documentation of its absence is.
+A: A manufacturer-letterhead statement that the silica gel contains no dimethyl fumarate (DMF), the anti-mould biocide banned in the EU since 2009 (now REACH Annex XVII entry 61) after consumer sensitization cases. Required by leather, footwear, and consumer-goods buyers shipping to the EU/UK. Not to be confused with an FDA Drug Master File, which is a separate pharmaceutical filing that DryGelWorld does not hold.
 Source: ${absoluteUrl("/blog/silica-gel-sds-coa-requirements-for-buyers")}
 
 ### Shipping and export

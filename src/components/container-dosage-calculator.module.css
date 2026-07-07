@@ -63,10 +63,53 @@
   gap: 6px;
 }
 
-.field > span {
+.field > label {
   font-size: var(--ds-small);
   font-weight: 700;
   color: var(--ds-text);
+}
+
+.fieldWide {
+  grid-column: 1 / -1;
+}
+
+.sliderRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.slider {
+  flex: 1;
+  accent-color: var(--ds-brand);
+  min-height: 32px;
+}
+
+.slider:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+.number {
+  min-height: 48px;
+  width: 100%;
+  max-width: 110px;
+  padding: 0 12px;
+  border: 1px solid var(--ds-hairline-strong);
+  border-radius: var(--ds-radius-tight);
+  background: var(--ds-surface-tint);
+  color: var(--ds-text);
+  font-size: 16px; /* prevents iOS zoom */
+  font-weight: 600;
+}
+
+.field > .number {
+  max-width: 100%;
+}
+
+.number:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
 }
 
 .select {
@@ -122,6 +165,101 @@
   line-height: var(--ds-lh-body);
 }
 
+.riskBadge {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 16px;
+  border-radius: var(--ds-radius-pill);
+  font-size: var(--ds-small);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.risk_low {
+  background: rgba(22, 163, 74, 0.12);
+  color: #15803d;
+}
+
+.risk_moderate {
+  background: rgba(202, 138, 4, 0.14);
+  color: #a16207;
+}
+
+.risk_high {
+  background: rgba(234, 88, 12, 0.14);
+  color: #c2410c;
+}
+
+.risk_severe {
+  background: rgba(220, 38, 38, 0.14);
+  color: #b91c1c;
+}
+
+.riskExplain {
+  margin-top: 8px;
+  color: var(--ds-text);
+  font-size: var(--ds-small);
+  line-height: var(--ds-lh-body);
+}
+
+.voyageNote {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: var(--ds-radius-tight);
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  color: #991b1b;
+  font-size: var(--ds-small);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.math {
+  margin-top: 18px;
+  text-align: left;
+  border: 1px solid var(--ds-hairline-strong);
+  border-radius: var(--ds-radius-tight);
+  background: var(--ds-surface);
+}
+
+.math > summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  font-size: var(--ds-small);
+  font-weight: 800;
+  color: var(--ds-brand-deep);
+  list-style-position: inside;
+}
+
+.math > summary:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+.mathBody {
+  padding: 0 16px 16px;
+  font-size: var(--ds-small);
+  line-height: var(--ds-lh-body);
+  color: var(--ds-text);
+}
+
+.mathBody p {
+  margin: 8px 0;
+}
+
+.mathBody ol {
+  margin: 8px 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 8px;
+}
+
+.mathNote {
+  color: var(--ds-text-muted);
+  font-size: var(--ds-meta);
+}
+
 .disclaimer {
   margin-top: 10px;
   color: var(--ds-text-faint);
@@ -139,6 +277,8 @@
 
 .primary,
 .secondary {
+  cursor: pointer;
+  font-family: inherit;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,4 +314,56 @@
 .secondary:hover {
   transform: translateY(-2px);
   border-color: var(--ds-brand);
+}
+
+/* ---------- Print-friendly report ---------- */
+
+.printReport {
+  display: none;
+}
+
+@media print {
+  /* Visibility switching lives in globals.css (body.dosage-plan-printing);
+     this block lays the report out on paper. */
+  :global(body.dosage-plan-printing) .printReport {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    color: #000;
+    background: #fff;
+  }
+
+  .printReport h2 {
+    font-size: 20pt;
+    margin-bottom: 4px;
+  }
+
+  .printReport table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 11pt;
+  }
+
+  .printReport th,
+  .printReport td {
+    border: 1px solid #999;
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .printReport th {
+    width: 32%;
+    background: #f2f2f2;
+  }
+
+  .printMeta {
+    font-size: 9pt;
+    color: #444;
+    line-height: 1.5;
+  }
 }

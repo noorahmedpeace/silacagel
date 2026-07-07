@@ -400,3 +400,19 @@ input[type="button"] {
     scroll-behavior: auto !important;
   }
 }
+
+/* ----------------------------------------------------------------------
+ * PRINT: container desiccant dosage plan. When the calculator's print
+ * button toggles body.dosage-plan-printing, only the .dosage-print-report
+ * block (styled in its CSS module) stays visible on paper.
+ * -------------------------------------------------------------------- */
+@media print {
+  body.dosage-plan-printing * {
+    visibility: hidden;
+  }
+
+  body.dosage-plan-printing .dosage-print-report,
+  body.dosage-plan-printing .dosage-print-report * {
+    visibility: visible;
+  }
+}

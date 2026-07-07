@@ -1,0 +1,118 @@
+/*
+ * Glossary-only additions layered on top of strategy-pages.module.css.
+ * Shared classes (.page, .hero, .section, .card, .grid, ...) come from the
+ * shared module; this file only adds what the glossary needs: anchored term
+ * entries, the "§" permalink, related/source link rows, and the category TOC.
+ */
+
+/* ── Category jump nav (under the hero) ── */
+
+.tocNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.tocNav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 16px;
+  border: 1px solid rgba(45, 91, 255, 0.22);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface);
+  color: var(--ds-brand-deep);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--ds-dur-quick) var(--ds-ease),
+    border-color var(--ds-dur-quick) var(--ds-ease),
+    color var(--ds-dur-quick) var(--ds-ease);
+}
+
+.tocNav a:hover,
+.tocNav a:focus-visible {
+  background: var(--ds-brand-soft);
+  border-color: var(--ds-brand);
+}
+
+/* ── Term entry (composes with shared .card) ── */
+
+.entry {
+  /* Keep anchored headings clear of the fixed site header on jump. */
+  scroll-margin-top: 96px;
+}
+
+.entry h3 {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+/* "§" permalink next to each term heading. Visible at reduced opacity so
+ * keyboard users can always reach it; full opacity on hover/focus. */
+.anchor {
+  color: var(--ds-brand);
+  font-size: 0.85em;
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.4;
+  transition: opacity var(--ds-dur-quick) var(--ds-ease);
+}
+
+.entry:hover .anchor,
+.anchor:hover,
+.anchor:focus-visible {
+  opacity: 1;
+}
+
+.anchor:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Related + source link rows ── */
+
+.entryLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 2px 0 0;
+}
+
+.entryLinks a {
+  color: var(--ds-brand);
+  font-size: var(--ds-small);
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(45, 91, 255, 0.35);
+  transition: color var(--ds-dur-quick) var(--ds-ease),
+    border-color var(--ds-dur-quick) var(--ds-ease);
+}
+
+.entryLinks a:hover,
+.entryLinks a:focus-visible {
+  color: var(--ds-brand-deep);
+  border-color: var(--ds-brand-deep);
+}
+
+.sourceRow {
+  margin: 0;
+  font-size: var(--ds-meta);
+  color: var(--ds-text-muted);
+}
+
+.sourceRow a {
+  color: var(--ds-text-muted);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.sourceRow a:hover,
+.sourceRow a:focus-visible {
+  color: var(--ds-brand-deep);
+}

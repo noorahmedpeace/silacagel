@@ -43,8 +43,10 @@ export const MoistureCalculator = () => {
           <p className={styles.kicker}>Technical Utility</p>
           <h2 className="text-gradient">Moisture Load Calculator</h2>
           <p>
-            Determine the precise desiccant weight required for your specific cubic
-            volume based on industrial ASTM standards.
+            Estimate the desiccant weight for a storage volume using a
+            conservative industry rule of thumb for containers that are opened
+            repeatedly. For sealed export cartons and shipping containers, use
+            the container desiccant calculator instead.
           </p>
         </div>
 

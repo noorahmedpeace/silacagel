@@ -84,7 +84,9 @@ export const metadata: Metadata = {
     "food grade silica gel",
   ],
   openGraph: {
-    title: "DryGelWorld | Global Industrial Desiccant Exporter",
+    // Keep aligned with the <title> above — a diverging og:title makes shared
+    // links and SERP snippets tell two different stories.
+    title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
     description:
       "Factory-direct silica gel: bulk packets, cargo strips, and private label support. Premium moisture protection for global shipping.",
     url: siteUrl,
@@ -130,7 +132,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "DryGelWorld | Global Industrial Desiccant Exporter",
+    title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
     description:
       "Factory-direct silica gel: bulk packets, cargo strips, and private label support.",
     images: [defaultSeoImage],

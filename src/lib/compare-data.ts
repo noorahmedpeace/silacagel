@@ -78,7 +78,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Which is REACH-compliant?",
-        a: "Both materials are inert and REACH-compliant in their base form. The relevant REACH consideration is the indicator dye (if any) used on indicating silica gel - DryGelWorld's orange indicating gel uses a non-cobalt-chloride dye that's REACH-compliant.",
+        a: "Both base materials are inert and contain no REACH-restricted substances. The relevant REACH consideration is the indicator dye (if any) on indicating silica gel - DryGelWorld's orange indicating gel uses a non-cobalt-chloride dye that avoids the restricted substance. A formal REACH registration is the EU importer's obligation and is not held by DryGelWorld.",
       },
     ],
     relatedBlog: "/blog/silica-gel-vs-clay-desiccant",

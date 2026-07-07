@@ -267,8 +267,8 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Orange indicating silica gel (cobalt-free)",
       color: "Orange (dry) → colourless / pale green (saturated)",
-      indicating: "Indicating, cobalt-free and REACH-friendly (the modern default)",
-      application: "REACH-compliant visual moisture monitoring",
+      indicating: "Indicating, cobalt-free — no REACH-restricted cobalt dichloride (the modern default)",
+      application: "Visual moisture monitoring without REACH-restricted cobalt dichloride",
     },
   },
   "blue-silica-gel-manufacturer": {

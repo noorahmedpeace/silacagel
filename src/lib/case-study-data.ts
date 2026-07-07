@@ -1,4 +1,4 @@
-export type CaseStudy = {
+﻿export type CaseStudy = {
   slug: string;
   label: string;
   industry: string;
@@ -85,7 +85,7 @@ export const caseStudies: CaseStudy[] = [
     products: [
       { label: "Saudi Arabia silica gel supplier", href: "/export/saudi-arabia" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
-      { label: "Silica gel manufacturer and exporter", href: "/silica-gel-manufacturer-exporter" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
     ],
     nextLinks: [
       { label: "Documents hub", href: "/documents" },

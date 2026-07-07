@@ -15,7 +15,7 @@ const items = [
   {
     href: "/preview/landing",
     title: "SEO landing redesign",
-    text: "/silica-gel-manufacturer-exporter restyled: hero with quiet-glass proof panel, fit grid, specs table, buying steps, related chips, FAQs, CTA band.",
+    text: "/silica-gel-manufacturer restyled: hero with quiet-glass proof panel, fit grid, specs table, buying steps, related chips, FAQs, CTA band.",
   },
   {
     href: "/preview/product",

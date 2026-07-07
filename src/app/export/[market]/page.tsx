@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd, compactMetaDescription } from "@/lib/seo";
 import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { exportMarkets, getExportMarket } from "../markets";
@@ -43,17 +43,6 @@ export function generateStaticParams() {
   return exportMarkets.map((market) => ({ market: market.slug }));
 }
 
-function compactExportDescription(description: string) {
-  if (description.length <= 158) return description;
-
-  const firstSentence = description.split(". ")[0];
-  if (firstSentence.length >= 80 && firstSentence.length <= 158) {
-    return `${firstSentence}.`;
-  }
-
-  return `${description.slice(0, 155).replace(/\s+\S*$/, "")}.`;
-}
-
 export async function generateMetadata({ params }: ExportMarketPageProps): Promise<Metadata> {
   const { market: slug } = await params;
   const market = getExportMarket(slug);
@@ -78,7 +67,7 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     exportMarkets.map((m) => [MARKET_HREFLANG[m.slug] ?? "en", `/export/${m.slug}`]),
   );
   languages["x-default"] = "/export";
-  const metaDescription = compactExportDescription(market.description);
+  const metaDescription = compactMetaDescription(market.description);
 
   return {
     title: `${market.country} Silica Gel Supplier | Export Desiccant Supply`,
@@ -340,6 +329,51 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
                 <Link href="/tools/container-desiccant-calculator">container desiccant dosage calculator</Link>.
               </p>
             </article>
+          </div>
+        </section>
+      ) : null}
+
+      {market.customs ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>{market.country} customs &amp; import essentials.</h2>
+            <p>
+              The classification and document set customs brokers ask about first. Duty rates
+              change — always confirm the live rate in the official tariff database linked below.
+            </p>
+          </div>
+          <div className={styles.tableWrap}>
+            <table className={styles.dataTable}>
+              <tbody>
+                <tr>
+                  <th scope="row">HS classification</th>
+                  <td>{market.customs.hsCode}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Import duty</th>
+                  <td>
+                    {market.customs.dutyNote}{" "}
+                    <a
+                      href={market.customs.tariffLookup.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {market.customs.tariffLookup.label}
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Shipping documents</th>
+                  <td>{market.customs.requiredDocs.join(" · ")}</td>
+                </tr>
+                {market.customs.regulatoryNotes.map((note, index) => (
+                  <tr key={note}>
+                    <th scope="row">{index === 0 ? "Regulatory notes" : ""}</th>
+                    <td>{note}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       ) : null}

@@ -21,7 +21,13 @@ const whatsappPrefill = encodeURIComponent(
   "Hello, I am requesting a Dry Gel World export quotation. Product type, quantity, destination, and documents are below.",
 );
 
-export function ContactContent() {
+export type ContactPrefill = {
+  product?: string;
+  quantity?: string;
+  message?: string;
+};
+
+export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
   return (
     <main className={styles.page}>
       <div className={styles.ambient} aria-hidden="true">
@@ -63,7 +69,14 @@ export function ContactContent() {
         </article>
 
         <article className={`${styles.tile} ${styles.tileForm}`} id="rfq-form">
-          <QuoteForm title="Export Quote Request" compact defaultDepartment="export" />
+          <QuoteForm
+            title="Export Quote Request"
+            compact
+            defaultDepartment="export"
+            defaultProduct={prefill?.product ?? ""}
+            defaultQuantity={prefill?.quantity ?? ""}
+            defaultMessage={prefill?.message ?? ""}
+          />
         </article>
 
         <a

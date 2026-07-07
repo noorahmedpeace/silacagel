@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const PREVIEW_SLUG = "silica-gel-manufacturer-exporter" as const;
+const PREVIEW_SLUG = "silica-gel-manufacturer" as const;
 
 export default function PreviewLanding() {
   const page = getSeoLandingPage(PREVIEW_SLUG);

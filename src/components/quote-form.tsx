@@ -21,6 +21,8 @@ type QuoteFormProps = {
   compact?: boolean;
   defaultProduct?: string;
   defaultDepartment?: ContactDepartment;
+  defaultQuantity?: string;
+  defaultMessage?: string;
 };
 
 type FormFields = {
@@ -60,9 +62,13 @@ function reducer(state: FormState, action: FormAction): FormState {
 function initialState({
   defaultProduct,
   defaultDepartment,
+  defaultQuantity,
+  defaultMessage,
 }: {
   defaultProduct: string;
   defaultDepartment: ContactDepartment;
+  defaultQuantity: string;
+  defaultMessage: string;
 }): FormState {
   return {
     department: defaultDepartment,
@@ -70,7 +76,7 @@ function initialState({
     company: "",
     email: "",
     phone: "",
-    quantity: "",
+    quantity: defaultQuantity,
     country: "",
     currency: "USD",
     destination: "",
@@ -80,7 +86,7 @@ function initialState({
     application: "",
     targetPrice: "",
     sampleNeed: "Need sample before bulk order",
-    message: "",
+    message: defaultMessage,
     submitted: false,
   };
 }
@@ -90,12 +96,14 @@ export function QuoteForm({
   compact = false,
   defaultProduct = "",
   defaultDepartment = "sales",
+  defaultQuantity = "",
+  defaultMessage = "",
 }: QuoteFormProps) {
   const hasDefaultProductOption =
     defaultProduct.length > 0 && productCatalog.some((item) => item.name === defaultProduct);
   const [state, dispatch] = useReducer(
     reducer,
-    { defaultProduct, defaultDepartment },
+    { defaultProduct, defaultDepartment, defaultQuantity, defaultMessage },
     initialState,
   );
   const [pending, setPending] = useState(false);
