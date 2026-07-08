@@ -2,44 +2,17 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, Clock3, Gift, X } from "lucide-react";
+import {
+  FLASH10_CODE,
+  FLASH10_DURATION,
+  FLASH10_STORAGE_KEY,
+  formatFlash10Remaining,
+  readFlash10Campaign,
+  type Flash10Record,
+} from "@/lib/flash10";
 import styles from "./global-discount-campaign.module.css";
 
-const CAMPAIGN_KEY = "drygel:flash10:v1";
-const CAMPAIGN_DURATION = 60 * 60 * 1000;
-const PROMO_CODE = "FLASH10";
-
-type CampaignRecord = {
-  triggeredAt: number;
-  expiresAt: number;
-  celebrated: boolean;
-};
-
 type CampaignStatus = "unseen" | "active" | "expired";
-
-function readCampaign(): CampaignRecord | null {
-  try {
-    const value = window.localStorage.getItem(CAMPAIGN_KEY);
-    if (!value) return null;
-    const parsed = JSON.parse(value) as Partial<CampaignRecord>;
-    if (
-      typeof parsed.triggeredAt !== "number" ||
-      typeof parsed.expiresAt !== "number" ||
-      typeof parsed.celebrated !== "boolean"
-    ) {
-      return null;
-    }
-    return parsed as CampaignRecord;
-  } catch {
-    return null;
-  }
-}
-
-function formatRemaining(milliseconds: number) {
-  const seconds = Math.max(0, Math.ceil(milliseconds / 1000));
-  const minutes = Math.floor(seconds / 60);
-  const remainder = seconds % 60;
-  return `${String(minutes).padStart(2, "0")}:${String(remainder).padStart(2, "0")}`;
-}
 
 function isWhatsAppHref(href: string) {
   return href.startsWith("https://wa.me/") || href.startsWith("https://api.whatsapp.com/");
@@ -74,10 +47,10 @@ function addPromoToWhatsApp(href: string, remaining: string) {
   try {
     const url = new URL(href);
     const text = url.searchParams.get("text") ?? "";
-    if (!text.includes(PROMO_CODE)) {
+    if (!text.includes(FLASH10_CODE)) {
       url.searchParams.set(
         "text",
-        `${text}${text ? "\n\n" : ""}Active promotion: ${PROMO_CODE} (10% OFF, expires in ${remaining})`,
+        `${text}${text ? "\n\n" : ""}Active promotion: ${FLASH10_CODE} (10% OFF, expires in ${remaining})`,
       );
     }
     return url.toString();
@@ -94,11 +67,11 @@ export function GlobalDiscountCampaign() {
   const giftRef = useRef<HTMLDivElement>(null);
   const lidRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
-  const recordRef = useRef<CampaignRecord | null>(null);
+  const recordRef = useRef<Flash10Record | null>(null);
   const pendingHrefRef = useRef<string | null>(null);
 
   const syncCampaign = useCallback(() => {
-    const record = readCampaign();
+    const record = readFlash10Campaign();
     recordRef.current = record;
 
     if (!record) {
@@ -115,7 +88,7 @@ export function GlobalDiscountCampaign() {
   const enhanceFormsAndLinks = useCallback(() => {
     const record = recordRef.current;
     const active = Boolean(record && record.expiresAt > Date.now());
-    const countdown = active && record ? formatRemaining(record.expiresAt - Date.now()) : "";
+    const countdown = active && record ? formatFlash10Remaining(record.expiresAt - Date.now()) : "";
 
     document.querySelectorAll<HTMLFormElement>("form").forEach((form) => {
       const existingNodes = form.querySelectorAll<HTMLElement>("[data-discount-field], [data-discount-banner]");
@@ -136,7 +109,7 @@ export function GlobalDiscountCampaign() {
       if (banner.innerHTML !== bannerHtml) banner.innerHTML = bannerHtml;
 
       const fields = [
-        ["promo", PROMO_CODE],
+        ["promo", FLASH10_CODE],
         ["discount", "10%"],
         ["promo_expires_at", new Date(record!.expiresAt).toISOString()],
       ];
@@ -161,7 +134,7 @@ export function GlobalDiscountCampaign() {
   }, []);
 
   const triggerCampaign = useCallback(async () => {
-    const existing = readCampaign();
+    const existing = readFlash10Campaign();
     if (existing) {
       syncCampaign();
       if (existing.expiresAt > Date.now()) setModalOpen(true);
@@ -169,17 +142,18 @@ export function GlobalDiscountCampaign() {
     }
 
     const now = Date.now();
-    const record: CampaignRecord = {
+    const record: Flash10Record = {
       triggeredAt: now,
-      expiresAt: now + CAMPAIGN_DURATION,
+      expiresAt: now + FLASH10_DURATION,
       celebrated: true,
     };
-    window.localStorage.setItem(CAMPAIGN_KEY, JSON.stringify(record));
+    window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(record));
+    (window as typeof window & { __drygelPromoJustTriggered?: boolean }).__drygelPromoJustTriggered = true;
     recordRef.current = record;
     setStatus("active");
-    setRemaining(CAMPAIGN_DURATION);
+    setRemaining(FLASH10_DURATION);
     setModalOpen(true);
-    window.dispatchEvent(new CustomEvent("drygel:promo-activated", { detail: { code: PROMO_CODE } }));
+    window.dispatchEvent(new CustomEvent("drygel:promo-activated", { detail: { code: FLASH10_CODE } }));
 
     window.setTimeout(async () => {
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -193,6 +167,7 @@ export function GlobalDiscountCampaign() {
 
   const closeModal = useCallback(() => {
     setModalOpen(false);
+    (window as typeof window & { __drygelPromoJustTriggered?: boolean }).__drygelPromoJustTriggered = false;
     const pendingHref = pendingHrefRef.current;
     pendingHrefRef.current = null;
     if (pendingHref) window.location.assign(pendingHref);
@@ -215,7 +190,7 @@ export function GlobalDiscountCampaign() {
     }, 1000);
 
     const onStorage = (event: StorageEvent) => {
-      if (event.key === CAMPAIGN_KEY) syncCampaign();
+      if (event.key === FLASH10_STORAGE_KEY) syncCampaign();
     };
     window.addEventListener("storage", onStorage);
 
@@ -233,7 +208,7 @@ export function GlobalDiscountCampaign() {
       if (!target || !isHighIntentElement(target)) return;
 
       const href = target.getAttribute("href") ?? "";
-      const current = readCampaign();
+      const current = readFlash10Campaign();
       const firstTrigger = !current;
       if (
         firstTrigger &&
@@ -245,12 +220,12 @@ export function GlobalDiscountCampaign() {
         pendingHrefRef.current = href;
       }
       if (current?.expiresAt && current.expiresAt > Date.now() && isWhatsAppHref(href)) {
-        target.setAttribute("href", addPromoToWhatsApp(href, formatRemaining(current.expiresAt - Date.now())));
+        target.setAttribute("href", addPromoToWhatsApp(href, formatFlash10Remaining(current.expiresAt - Date.now())));
       }
       void triggerCampaign();
-      const activated = readCampaign();
+      const activated = readFlash10Campaign();
       if (activated?.expiresAt && isWhatsAppHref(href)) {
-        target.setAttribute("href", addPromoToWhatsApp(href, formatRemaining(activated.expiresAt - Date.now())));
+        target.setAttribute("href", addPromoToWhatsApp(href, formatFlash10Remaining(activated.expiresAt - Date.now())));
       }
     };
 
@@ -304,7 +279,7 @@ export function GlobalDiscountCampaign() {
 
   if (!hydrated || status === "unseen") return null;
 
-  const countdown = formatRemaining(remaining);
+  const countdown = formatFlash10Remaining(remaining);
 
   return (
     <div className={styles.root} data-promo-ui>
@@ -343,7 +318,7 @@ export function GlobalDiscountCampaign() {
               </div>
             </div>
             <button className={styles.claim} onClick={closeModal} type="button">
-              <Check size={18} /> Apply {PROMO_CODE} to my quote
+              <Check size={18} /> Apply {FLASH10_CODE} to my quote
             </button>
             <p className={styles.terms}>The discount is attached automatically to eligible quote and RFQ submissions.</p>
           </section>
@@ -360,7 +335,7 @@ export function GlobalDiscountCampaign() {
         <span className={styles.widgetIcon}><Gift size={20} /></span>
         <span>
           <span className={styles.widgetTitle}>{status === "active" ? "Exclusive 10% OFF" : "Offer Expired"}</span>
-          <span className={styles.widgetTimer}>{status === "active" ? `Ends in ${countdown}` : "FLASH10 has ended"}</span>
+          <span className={styles.widgetTimer}>{status === "active" ? `Ends in ${countdown}` : `${FLASH10_CODE} has ended`}</span>
         </span>
         {status === "active" ? <ArrowRight className={styles.widgetArrow} size={18} /> : null}
       </button>
