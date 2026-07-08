@@ -7,7 +7,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { GuaranteeStrip } from "@/components/guarantee-strip";
 import { GlobalDiscountCampaign } from "@/components/global-discount-campaign";
 import { ClarityBridge } from "@/components/clarity-bridge";
-import { ClarityConsent } from "@/components/clarity-consent";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -212,7 +211,6 @@ export default function RootLayout({
         <WhatsAppFloat />
         <GlobalDiscountCampaign />
         <ClarityBridge />
-        <ClarityConsent />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
