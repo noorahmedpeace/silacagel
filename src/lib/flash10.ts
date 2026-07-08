@@ -1,12 +1,17 @@
 export const FLASH10_STORAGE_KEY = "drygel:flash10:v1";
 export const FLASH10_DURATION = 60 * 60 * 1000;
+export const FLASH10_COOLDOWN = 24 * 60 * 60 * 1000;
 export const FLASH10_CODE = "FLASH10";
 export const FLASH10_RATE = 0.1;
 
 export type Flash10Record = {
   triggeredAt: number;
   expiresAt: number;
+  cooldownUntil: number;
   celebrated: boolean;
+  completed: boolean;
+  tenMinuteNotified: boolean;
+  fiveMinuteNotified: boolean;
 };
 
 export function readFlash10Campaign(): Flash10Record | null {
@@ -23,7 +28,18 @@ export function readFlash10Campaign(): Flash10Record | null {
     ) {
       return null;
     }
-    return parsed as Flash10Record;
+    return {
+      triggeredAt: parsed.triggeredAt,
+      expiresAt: parsed.expiresAt,
+      cooldownUntil:
+        typeof parsed.cooldownUntil === "number"
+          ? parsed.cooldownUntil
+          : parsed.expiresAt + FLASH10_COOLDOWN,
+      celebrated: parsed.celebrated,
+      completed: parsed.completed === true || parsed.expiresAt <= Date.now(),
+      tenMinuteNotified: parsed.tenMinuteNotified === true,
+      fiveMinuteNotified: parsed.fiveMinuteNotified === true,
+    };
   } catch {
     return null;
   }
@@ -32,6 +48,11 @@ export function readFlash10Campaign(): Flash10Record | null {
 export function getFlash10Remaining() {
   const record = readFlash10Campaign();
   return record ? Math.max(0, record.expiresAt - Date.now()) : 0;
+}
+
+export function getFlash10CooldownRemaining() {
+  const record = readFlash10Campaign();
+  return record ? Math.max(0, record.cooldownUntil - Date.now()) : 0;
 }
 
 export function formatFlash10Remaining(milliseconds: number) {

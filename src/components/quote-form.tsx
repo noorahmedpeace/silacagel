@@ -11,6 +11,7 @@ import {
   type ContactDepartment,
 } from "@/lib/product-data";
 import { submitRfq } from "@/app/actions/submit-rfq";
+import { FLASH10_CODE, formatFlash10Remaining, getFlash10Remaining } from "@/lib/flash10";
 import styles from "./quote-form.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -122,6 +123,8 @@ export function QuoteForm({
     if (!EMAIL_RE.test(state.email.trim())) return setError("Please enter a valid business email.");
 
     const route = getContactEmailChannel(state.department);
+    const promoRemaining = getFlash10Remaining();
+    const promoActive = promoRemaining > 0;
 
     const rfqMessage = [
       "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
@@ -141,6 +144,13 @@ export function QuoteForm({
       `Target Price / Current Supplier Benchmark: ${state.targetPrice || "Not provided"}`,
       `Sample Requirement: ${state.sampleNeed}`,
       `Additional Notes: ${state.message || "Not provided"}`,
+      ...(promoActive
+        ? [
+            `Promotion: ${FLASH10_CODE}`,
+            "Discount: 10%",
+            `Promotion Remaining Time: ${formatFlash10Remaining(promoRemaining)}`,
+          ]
+        : []),
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
