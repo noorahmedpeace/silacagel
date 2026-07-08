@@ -5,9 +5,9 @@ import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Price List | Indicative Export Prices in USD",
+  title: "Silica Gel Price, MOQ & Wholesale Quote | USD",
   description:
-    "Indicative silica gel prices: sachets from $0.0032/pc, container strips at $3.80-$5.50/kg, bulk tonnage quotes, MOQ tiers, and FOB/CIF terms.",
+    "Check indicative silica gel prices, wholesale rates, MOQ tiers and export terms for packets, bulk beads and container strips. Request a firm quotation.",
   alternates: {
     canonical: "/pricing",
   },
@@ -82,7 +82,7 @@ export default function PricingPage() {
     <main className={styles.page}>
       <section className={styles.hero}>
         <span className={styles.kicker}>Indicative Export Pricing</span>
-        <h1>Silica gel prices, published in the open.</h1>
+        <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>
         <p>
           Indicative USD price ranges for every sachet size and container strip we
           manufacture, taken from the same reference list behind our on-site
