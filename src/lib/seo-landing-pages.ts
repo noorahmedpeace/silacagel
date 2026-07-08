@@ -158,7 +158,7 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     fitItems: input.useCases,
     specsTitle: `${input.kicker} RFQ details`,
     specsIntro:
-      "This page gives one buyer-intent keyword cluster its own clean destination so search engines and procurement teams see a clear match between query, content, and quote path.",
+      "Use these commercial inputs to compare formats, documentation, packing, and quote terms before contacting a supplier.",
     specs: [
       { label: "Target keywords", value: input.targetKeywords },
       { label: "Formats", value: input.formats },
@@ -174,7 +174,7 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     contentBlock: input.contentBlock,
     buyingTitle: `How to request ${input.kicker.toLowerCase()}`,
     buyingIntro:
-      "A useful B2B inquiry should explain the product application, commercial quantity, destination, and document requirements before price negotiation starts.",
+      "Include the application, commercial quantity, destination, and document requirements so pricing starts from a usable specification.",
     buyingSteps: [
       {
         title: "Define the application",
@@ -355,7 +355,7 @@ const highIntentSeoLandingPages = {
     h1: "Buy silica gel in bulk - direct from the manufacturer, shipped worldwide.",
     lead:
       "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. Low MOQ, fast quotes, SDS and COA on request, and export shipping to 190+ countries. Tell us the format and quantity and get an indicative price the same day.",
-    searchIntent: "Transactional / commercial: buy silica gel, buy silica gel bulk, silica gel for sale, silica gel wholesale price",
+    searchIntent: "Transactional: buy silica gel online, purchase silica gel, order silica gel, and request bulk pricing",
     primaryCta: "Get Silica Gel Price",
     secondaryCta: "View Product Range",
     secondaryHref: "/products",
@@ -370,7 +370,7 @@ const highIntentSeoLandingPages = {
       { label: "Bulk", title: "Buy bulk beads & 25kg bags", text: "Buy loose silica gel beads and 25kg bulk bags for repackers, warehouses, and distributors - quoted by kg, pallet, or monthly volume." },
       { label: "Cargo", title: "Buy container desiccant strips", text: "Buy container desiccant strips for 20ft and 40ft ocean freight to stop container rain on long-haul export routes." },
     ],
-    targetKeywords: "Buy silica gel, buy silica gel bulk, silica gel for sale, silica gel wholesale, buy desiccant, silica gel price",
+    targetKeywords: "Buy silica gel, buy silica gel online, purchase silica gel, order silica gel, silica gel for sale, buy silica gel bulk",
     formats: "Silica gel packets (0.5g-100g), loose beads, 25kg bulk bags, container strips, private-label sachets",
     buyerTypes: "Importers, distributors, packagers, exporters, warehouses, OEM and private-label buyers",
     documents: "SDS, COA, ISO 9001:2015 support, DMF-free statement, labeling where valid",
@@ -450,11 +450,11 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Factory-direct silica gel manufacturer and exporter since 1983 — packets, beads, and bulk desiccant with ISO 9001:2015 QC, SDS/COA, and FOB/CIF worldwide.",
     kicker: "Silica gel manufacturer",
-    h1: "Silica gel manufacturer and exporter — factory-direct desiccant supply since 1983.",
+    h1: "Silica gel manufacturer and exporter since 1983.",
     lead:
       "Buy direct from the producer: in-house manufacturing of silica gel packets, beads, and bulk desiccant with ISO 9001:2015 quality control, full export documentation, and FOB/CIF/EXW dispatch from Karachi to worldwide destinations.",
     searchIntent:
-      "High-intent buyer keywords consolidated on this page: silica gel manufacturer, silica gel exporter, silica gel manufacturer exporter, factory-direct desiccant",
+      "For importers and procurement teams comparing factory-direct silica gel production, export documents, formats, MOQ, and repeat supply.",
     primaryCta: "Request Manufacturer Quote",
     proofPoints: ["Manufacturer since 1983", "In-house production & QC", "ISO 9001:2015 certified", "FOB / CIF / EXW export"],
     image: "/products/product-range-export-showcase.webp",
@@ -496,16 +496,75 @@ const highIntentSeoLandingPages = {
         },
       ],
     },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Manufacturer-direct vs distributor vs marketplace supply",
+      intro:
+        "The right buying channel depends on volume, customization, documentation, and whether the order must repeat against a controlled specification.",
+      columns: ["Manufacturer-direct", "Distributor", "Marketplace"],
+      rows: [
+        {
+          label: "Best fit",
+          values: [
+            "Repeat B2B orders, export supply, private label, mixed formats",
+            "Regional stock, shorter local delivery, smaller repeat orders",
+            "Samples, retail quantities, urgent one-off purchases",
+          ],
+        },
+        {
+          label: "Commercial unit",
+          values: [
+            "Packets, kg, pallets, tonnage, container programs",
+            "Cartons, local stock units, distributor MOQ",
+            "Individual packs or small bundles",
+          ],
+        },
+        {
+          label: "Documentation",
+          values: [
+            "SDS, COA, ISO reference, packing and export documents",
+            "Depends on distributor access to manufacturer documents",
+            "Often limited to listing-level product information",
+          ],
+        },
+        {
+          label: "Customization",
+          values: [
+            "Private-label packets, carton labels, recurring specifications",
+            "Usually limited to stocked formats",
+            "Usually none",
+          ],
+        },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("manufacturer-direct silica gel supply"),
+    contentBlock: {
+      heading: "Verify the factory and documents before price comparison",
+      parts: [
+        { text: "Review the " },
+        { href: "/about", label: "manufacturer profile" },
+        { text: ", open the " },
+        { href: "/documentation", label: "ISO, SDS, COA, and specification center" },
+        { text: ", then compare indicative commercial ranges on the " },
+        { href: "/pricing", label: "silica gel pricing page" },
+        { text: "." },
+      ],
+    },
     relatedLinks: [
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
       { label: "Export markets", href: "/export" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Manufacturer documents", href: "/documentation" },
+      { label: "Silica gel pricing", href: "/pricing" },
+      { label: "Manufacturer case studies", href: "/case-studies" },
     ],
     faqs: [
       { question: "What should I ask a silica gel manufacturer before ordering?", answer: "Ask about product format, size range, MOQ, repeat capacity, documents, packing, destination support, and private-label options." },
       { question: "Can one manufacturer supply packets and bulk silica gel?", answer: "A stronger B2B supplier should be able to discuss packets, bulk bags, cargo strips, and private-label programs in one RFQ path." },
       { question: "Does DryGelWorld export silica gel worldwide?", answer: "Yes — export orders ship from Karachi on FOB, CIF, or EXW terms with COO, COA, packing list, and SDS documentation coordinated before dispatch." },
       { question: "What documents matter for silica gel buyers?", answer: "Most industrial buyers request SDS and COA first, then ISO, labeling, DMF-free, or market-specific statements where relevant." },
+      { question: "What is the typical manufacturer lead time?", answer: "Standard stock formats may dispatch in roughly 3-7 days, while printed private-label runs commonly add 5-10 days. Final timing is confirmed against quantity, artwork, packing, and destination." },
+      { question: "Can a manufacturer quote FOB, CIF, EXW, and DAP?", answer: "Yes. DryGelWorld discusses EXW, FOB Karachi, CIF, and DAP after the destination, shipment volume, packing, and buyer logistics requirements are clear." },
     ],
   }),
   "silica-gel-supplier": keywordClusterPage({
@@ -517,7 +576,8 @@ const highIntentSeoLandingPages = {
     h1: "Silica gel supplier with packet, bulk, and cargo formats in reliable B2B supply.",
     lead:
       "One supplier for every silica gel format - packets, bulk beads, cargo strips, and private label - with flexible MOQ, dependable repeat supply, and fast quote turnaround.",
-    searchIntent: "High-intent buyer keyword: silica gel supplier",
+    searchIntent:
+      "For B2B buyers comparing silica gel packet, bulk, cargo, private-label, document, and delivery options from one supplier.",
     primaryCta: "Request Supplier Quote",
     proofPoints: ["Reliable repeat supply", "Flexible MOQ", "All formats, one supplier", "Fast RFQ turnaround"],
     image: "/products/white-nonindicating-clean-sachets.webp",
@@ -530,21 +590,102 @@ const highIntentSeoLandingPages = {
       { label: "Wholesale", title: "Bulk and repeat orders", text: "Quote kg, pallet targets, or recurring monthly volume for distributors and industrial users." },
       { label: "Export", title: "Destination-ready RFQs", text: "Align Incoterms, documents, carton packing, and dispatch schedule before final pricing." },
     ],
-    targetKeywords: "Silica gel supplier, silica gel wholesale, bulk silica gel supplier, silica gel packets supplier",
+    targetKeywords: "Silica gel supplier, silica gel wholesaler, silica gel distributor, silica gel wholesale, bulk silica gel supplier, silica gel packets supplier",
     formats: "White packets, indicating gel, non-indicating gel, bulk bags, cargo strips",
     buyerTypes: "Packaging teams, distributors, importers, exporters, warehouses, factories",
     documents: "SDS, COA, ISO support, labeling and compliance documents on request",
     buyerRisk: "Requesting a generic price without specifying format, size, quantity, or destination",
     quoteBasis: "Format, size, volume, packaging, destination, documents, repeat schedule",
+    buyerGuide: {
+      title: "How to qualify a silica gel supplier",
+      intro:
+        "A supplier should be evaluated on repeatability, product fit, documents, and delivery terms, not only the first quoted unit price.",
+      sections: [
+        {
+          label: "Specification",
+          title: "Can the supplier hold the same format across reorders?",
+          text: "Confirm gram size, bead grade, sachet material, carton packing, labeling, and document set before treating a sample or first shipment as approved.",
+        },
+        {
+          label: "Commercial fit",
+          title: "Does the MOQ match the buying program?",
+          text: "Separate trial quantities from recurring carton, pallet, kg, or monthly volume so the supplier can quote the right production and packing route.",
+        },
+        {
+          label: "Delivery",
+          title: "Can the quote match the destination and Incoterm?",
+          text: "A usable export quote identifies destination, FOB/CIF/EXW/DAP preference, dispatch timing, packing, and required customs or shipment documents.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Choose the supplier program that matches the order",
+      intro:
+        "One-off samples, repeat industrial supply, and private-label programs require different commercial and documentation workflows.",
+      columns: ["Trial / sample", "Repeat B2B supply", "Private label / OEM"],
+      rows: [
+        {
+          label: "Best use",
+          values: [
+            "Fit testing and buyer approval",
+            "Regular packets, bulk beads, or cargo-strip procurement",
+            "Printed sachets, buyer cartons, controlled reorders",
+          ],
+        },
+        {
+          label: "Key input",
+          values: [
+            "Application, sample size, destination",
+            "Format, quantity, schedule, Incoterm",
+            "Artwork, warning text, MOQ, carton labels",
+          ],
+        },
+        {
+          label: "Document focus",
+          values: [
+            "Product specification and available SDS/COA",
+            "Batch COA, SDS, packing, shipment documents",
+            "Approved copy, artwork, batch and carton references",
+          ],
+        },
+        {
+          label: "Pricing basis",
+          values: [
+            "Sample and courier cost",
+            "Carton, kg, pallet, or monthly volume",
+            "Print setup, material, production run, repeat volume",
+          ],
+        },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("silica gel supplier program"),
+    contentBlock: {
+      heading: "Compare supplier terms with the real buying documents",
+      parts: [
+        { text: "Check indicative ranges on the " },
+        { href: "/pricing", label: "pricing page" },
+        { text: ", review available files in the " },
+        { href: "/documents", label: "documents hub" },
+        { text: ", and use the " },
+        { href: "/guides/silica-gel-buyer-guide", label: "industrial buyer guide" },
+        { text: " before approving a supplier." },
+      ],
+    },
     relatedLinks: [
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Export markets", href: "/export" },
+      { label: "Supplier pricing", href: "/pricing" },
+      { label: "Supplier documents", href: "/documents" },
+      { label: "Supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
     ],
     faqs: [
       { question: "What silica gel formats can a supplier quote?", answer: "Common RFQs include small packets, bulk silica gel, indicating gel, non-indicating gel, cargo strips, and private-label sachets." },
       { question: "How do I get faster silica gel pricing?", answer: "Send product format, size, quantity, destination, Incoterms, and documents with the first inquiry." },
       { question: "Can DryGelWorld support wholesale silica gel buyers?", answer: "Wholesale and repeat B2B supply can be discussed by carton, pallet, kg, or monthly volume." },
+      { question: "Can I request samples before a bulk order?", answer: "Yes. Sample or trial quantities can be discussed before bulk commitment so the buyer can validate packet format, bead grade, packing, and documentation." },
+      { question: "How should I compare silica gel supplier prices?", answer: "Compare the same format, gram weight or kg, packing, MOQ, Incoterm, documents, lead time, and repeat schedule. A lower unit price may exclude packing, freight, or documentation." },
     ],
   }),
   "desiccant-manufacturer": keywordClusterPage({
@@ -592,7 +733,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Industrial desiccant supplier for industrial silica gel, desiccant bags, packaging moisture control, warehouse stock, container desiccants, SDS, COA, and export RFQs.",
     kicker: "Industrial desiccant supplier",
-    h1: "Industrial desiccant supplier for factories, warehouses, packagers, and exporters.",
+    h1: "Industrial desiccant supplier for factories and exporters.",
     lead:
       "Source industrial desiccants by use case: product packaging, warehouse storage, distributor repacking, cargo moisture control, or recurring bulk procurement.",
     searchIntent: "High-intent buyer keyword: industrial desiccant supplier",
@@ -631,7 +772,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Industrial desiccant page for silica gel moisture control in packaging, warehousing, export cartons, bulk supply, cargo containers, SDS, COA, and RFQs.",
     kicker: "Industrial desiccant",
-    h1: "Industrial desiccant options for packaging, storage, and export moisture control.",
+    h1: "Industrial desiccants for packaging, storage, and export.",
     lead:
       "Choose industrial desiccant formats by product sensitivity, carton size, warehouse exposure, container route, and document requirements.",
     searchIntent: "Product intent: industrial desiccant, industrial silica gel, industrial moisture absorber",
@@ -670,7 +811,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Packaging desiccant manufacturer for silica gel packets, desiccant bags, food packaging, pharma packs, electronics packaging, private label, SDS, COA, and RFQs.",
     kicker: "Packaging desiccant manufacturer",
-    h1: "Packaging desiccant manufacturer for cartons, product packs, and OEM insertion programs.",
+    h1: "Packaging desiccant manufacturer for cartons and OEM packs.",
     lead:
       "Plan packaging desiccants by packet size, product category, carton volume, sachet material, warning text, documents, and repeat order schedule.",
     searchIntent: "Buyer keyword: packaging desiccant manufacturer",
@@ -709,7 +850,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel packets manufacturer for desiccant sachets, wholesale packets, private-label warning text, electronics, pharma, food packaging, SDS, COA, and export RFQs.",
     kicker: "Silica gel packets manufacturer",
-    h1: "Silica gel packets manufacturer for product packaging and wholesale desiccant supply.",
+    h1: "Silica gel packets manufacturer for packaging and wholesale.",
     lead:
       "Source silica gel packets by gram size, sachet material, packet text, carton quantity, private-label needs, destination, and document requirements.",
     searchIntent: "Product buyer keyword: silica gel packets manufacturer",
@@ -748,7 +889,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Wholesale silica gel packets and bulk desiccant sachets for distributors, packaging buyers, importers, private-label programs, SDS, COA, and export RFQs.",
     kicker: "Silica gel packets wholesale",
-    h1: "Wholesale silica gel packets for distributors, packagers, and repeat bulk buyers.",
+    h1: "Wholesale silica gel packets for repeat bulk buyers.",
     lead:
       "Plan wholesale silica gel packet orders by gram size, carton quantity, MOQ, pallet volume, destination, private-label text, and document requirements.",
     searchIntent: "Wholesale buyer keyword: silica gel packets wholesale",
@@ -787,10 +928,10 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Container desiccant supplier for cargo desiccants, shipping container moisture control, container rain prevention, 20ft/40ft route planning, SDS, COA, and export RFQs.",
     kicker: "Container desiccant supplier",
-    h1: "Container desiccant suppliers for export cargo: quote-ready strips, SDS, and COA.",
+    h1: "Container desiccant supplier for export cargo.",
     lead:
       "Compare container desiccant suppliers and send one RFQ covering route, container size, transit days, cargo type, strip count, and Incoterms. ISO 9001:2015 and DMF-free, with SDS and COA on request.",
-    searchIntent: "Buyer keyword: container desiccant supplier, cargo desiccant, shipping container desiccant",
+    searchIntent: "For exporters comparing container-strip capacity, route planning, MOQ, documents, and landed terms",
     primaryCta: "Plan Container Quote",
     secondaryCta: "Container Rain Guide",
     secondaryHref: "/blog/container-rain-prevention",
@@ -811,15 +952,43 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, product specification and shipment support documents on request",
     buyerRisk: "Underestimating route humidity, transit days, or container rain risk",
     quoteBasis: "20ft/40ft container, route, transit days, cargo type, strip count, Incoterms",
+    sizeGuide: containerDesiccantSizeGuide,
+    comparison: {
+      title: "Choose the protection level before requesting price",
+      intro: "The right format depends on whether moisture risk sits inside the product pack, the master carton, or the full shipping container.",
+      columns: ["Product packets", "Carton bags", "Container strips"],
+      rows: [
+        { label: "Protection zone", values: ["Individual sealed pack", "Master carton or crate", "20ft / 40ft container"] },
+        { label: "Best fit", values: ["Small goods and components", "Machinery, footwear, textiles", "Sea-freight cargo and pallets"] },
+        { label: "Quote input", values: ["Pack volume and sensitivity", "Carton dimensions and storage", "Route, transit, cargo, container"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("container desiccant supply"),
+    contentBlock: {
+      heading: "Plan route risk before comparing supplier prices",
+      parts: [
+        { text: "Estimate the starting requirement with the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: ", review the " },
+        { href: "/blog/container-rain-prevention", label: "container rain prevention guide" },
+        { text: ", then include required " },
+        { href: "/documents", label: "SDS and COA documents" },
+        { text: " in one commercial RFQ." },
+      ],
+    },
     relatedLinks: [
       { label: "Container desiccant", href: "/container-desiccant" },
       { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
       { label: "Cargo strips", href: "/container-desiccant-strips" },
+      { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Export support", href: "/export" },
     ],
     faqs: [
       { question: "What is a container desiccant?", answer: "A container desiccant is used inside shipping containers to reduce humidity, condensation, and container rain risk." },
       { question: "How are container desiccants quoted?", answer: "Quotes depend on container size, route, transit days, cargo type, strip weight, strip count, and documents." },
       { question: "Do container desiccants replace product packets?", answer: "No. Container desiccants protect the container environment, while packets protect product packaging directly." },
+      { question: "What should I compare between container desiccant suppliers?", answer: "Compare strip weight and chemistry, recommended count by route, packing, MOQ, lead time, SDS and COA availability, Incoterms, and landed cost." },
+      { question: "Can I request a trial shipment before a repeat program?", answer: "Yes. Share the trial container route and expected repeat schedule so trial packing and future commercial quantities can be quoted separately." },
     ],
   }),
   "container-desiccant": keywordClusterPage({
@@ -869,7 +1038,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel manufacturer China alternative for buyers comparing export suppliers, bulk silica gel, packets, container desiccants, private label, SDS, COA, and RFQs.",
     kicker: "China alternative supplier",
-    h1: "Silica gel manufacturer China alternative for buyers comparing global supply options.",
+    h1: "Silica gel manufacturer China alternative for export buyers.",
     lead:
       "Use this page if you are comparing silica gel suppliers outside China and need packets, bulk desiccants, container strips, OEM sachets, documents, and export support.",
     searchIntent: "Export comparison keyword: silica gel manufacturer China alternative",
@@ -910,7 +1079,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Desiccant bags supplier for silica gel bags, bulk packs, carton moisture absorbers, warehouse desiccants, container cargo protection, SDS, COA, and export RFQs.",
     kicker: "Desiccant bags supplier",
-    h1: "Desiccant bags supplier for cartons, bulk storage, industrial packaging, and cargo shipments.",
+    h1: "Desiccant bags supplier for cartons, storage, and cargo.",
     lead:
       "Plan desiccant bag orders by bag size, fill material, carton volume, product sensitivity, bulk quantity, destination, and documents.",
     searchIntent: "Buyer keyword: desiccant bags supplier, desiccant bags manufacturer, silica gel bags",
@@ -997,7 +1166,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "OEM silica gel manufacturer for private-label desiccant packets, printed sachets, carton labels, packaging programs, SDS, COA, MOQ, and export RFQs.",
     kicker: "OEM silica gel manufacturer",
-    h1: "OEM silica gel manufacturer for private-label packets and repeat packaging programs.",
+    h1: "OEM silica gel manufacturer for private-label packets.",
     lead:
       "Build an OEM silica gel supply path around packet size, warning text, buyer label, carton packing, MOQ, destination, and document requirements.",
     searchIntent: "OEM buyer keyword: OEM silica gel manufacturer",
@@ -1038,10 +1207,10 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Private label silica gel supplier for printed desiccant packets, OEM sachets, carton labels, warning copy, bulk programs, SDS, COA, MOQ, and export RFQs.",
     kicker: "Private label silica gel supplier",
-    h1: "Private label silica gel supplier for printed packets, carton labels, and OEM buyers.",
+    h1: "Private label silica gel supplier for printed packets.",
     lead:
       "Use this page to plan buyer-specific silica gel packets with correct text, gram size, material, carton labels, MOQ, and document requirements.",
-    searchIntent: "OEM buyer keyword: private label silica gel supplier",
+    searchIntent: "For brands and distributors comparing printed packet MOQ, artwork, materials, documents, and repeat supply",
     primaryCta: "Request Private Label Quote",
     secondaryCta: "OEM Silica Gel",
     secondaryHref: "/oem-silica-gel-manufacturer",
@@ -1062,15 +1231,130 @@ const highIntentSeoLandingPages = {
     documents: "SDS, COA, label review, ISO support and buyer-specific statements on request",
     buyerRisk: "Printing unsupported claims or warning text that does not match destination requirements",
     quoteBasis: "Text, artwork, packet size, material, MOQ, carton label, destination, documents",
+    buyerGuide: {
+      title: "Private-label decisions to settle before artwork approval",
+      intro: "Lock the technical packet specification first. Print, carton identity, and repeat-order controls should follow an approved sample.",
+      sections: [
+        { label: "Specification", title: "Confirm fill weight and sachet material", text: "Choose gram size, silica gel grade, packet dimensions, paper or non-woven material, and intended packaging environment before print setup." },
+        { label: "Artwork", title: "Approve warning copy and print limits", text: "Provide editable artwork or exact wording, print colors, logo position, language, and destination-market warning requirements." },
+        { label: "Supply", title: "Define cartons and repeat controls", text: "Specify units per bag and carton, carton marks, batch references, inspection needs, monthly demand, and reorder lead time." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Select the right customization level",
+      intro: "Not every order needs custom printing. Match customization to launch volume, brand exposure, and repeat demand.",
+      columns: ["Stock packets", "Custom cartons", "Printed sachets"],
+      rows: [
+        { label: "Best for", values: ["Trials and urgent supply", "Distributor identification", "Consumer-facing packaging"] },
+        { label: "Setup", values: ["No artwork setup", "Outer-label approval", "Packet artwork and print approval"] },
+        { label: "Commercial effect", values: ["Lowest complexity", "Moderate MOQ", "Higher MOQ and setup lead time"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("private-label silica gel packets"),
+    contentBlock: {
+      heading: "Build an approvable OEM packet brief",
+      parts: [
+        { text: "Start with available " },
+        { href: "/silica-gel-packets", label: "silica gel packet sizes" },
+        { text: ", verify the supplier " },
+        { href: "/documents", label: "document set" },
+        { text: ", and use the " },
+        { href: "/contact", label: "commercial RFQ form" },
+        { text: " to attach artwork, packing, destination, and repeat-volume requirements." },
+      ],
+    },
     relatedLinks: [
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Documents hub", href: "/documents" },
+      { label: "Silica gel packet sizes", href: "/silica-gel-packets" },
+      { label: "Pricing process", href: "/pricing" },
     ],
     faqs: [
       { question: "Can silica gel packets be private labeled?", answer: "Private-label packet text and carton labeling can be discussed against packet size, material, MOQ, and repeat volume." },
       { question: "What text should be printed on packets?", answer: "Common wording includes SILICA GEL, DESICCANT, DO NOT EAT, and THROW AWAY, with final wording reviewed for buyer and market needs." },
       { question: "What is needed to quote private-label packets?", answer: "Share packet size, text or artwork, material preference, quantity, destination, documents, and repeat schedule." },
+      { question: "Can I approve a sample before bulk printing?", answer: "Sample and artwork approval should be included in the RFQ. Confirm whether approval is digital, a printed packet sample, or a production sample before the full run." },
+      { question: "How does customization affect lead time?", answer: "Printed sachets require specification, artwork, and print approval before production. Lead time depends on material availability, print setup, quantity, and export packing." },
+    ],
+  }),
+  "private-label": keywordClusterPage({
+    slug: "private-label",
+    title: "Private Label Desiccant Packets | OEM Silica Gel",
+    metaDescription:
+      "Private-label silica gel packets for brands and distributors. Compare sachet sizes, materials, print options, MOQ, cartons, SDS, COA, samples, and export terms.",
+    kicker: "Private label desiccant packets",
+    h1: "Private-label silica gel packets built for repeat supply.",
+    lead:
+      "Turn an OEM packet requirement into an approvable specification covering fill weight, sachet material, warning copy, artwork, carton marks, MOQ, documents, destination, and repeat volume.",
+    searchIntent: "For brands, distributors, and packagers ready to source custom desiccant packets",
+    primaryCta: "Request Private Label Quote",
+    secondaryCta: "Review Documents",
+    secondaryHref: "/documents",
+    proofPoints: ["Printed sachets", "Sample approval", "Carton labels", "Repeat OEM supply"],
+    image: "/products/procurement-checks-silica-sachets.webp",
+    imageAlt: "Private label silica gel sachets and custom desiccant packet artwork",
+    imageCaption: "Approve packet specification, warning copy, artwork, and carton packing before bulk production.",
+    chips: ["Private label", "OEM packets", "Artwork", "MOQ"],
+    fitTitle: "Private-label supply programs",
+    useCases: [
+      { label: "Brands", title: "Customer-facing product packs", text: "Match packet identity and warning text to a controlled packaging specification." },
+      { label: "Distributors", title: "Branded carton programs", text: "Standardize SKUs, outer labels, batch references, and repeat-order packing." },
+      { label: "Packagers", title: "Production-line insertion", text: "Align dimensions, material, fill weight, and carton count with the packing workflow." },
+    ],
+    targetKeywords: "Private label desiccant packets, OEM silica gel sachets, custom printed silica gel packets",
+    formats: "Printed paper or non-woven sachets, custom outer cartons, stock packets with buyer labels",
+    buyerTypes: "Brands, distributors, contract packers, importers, packaging suppliers",
+    documents: "SDS, COA, ISO support, artwork approval, packing specification and buyer statements where valid",
+    buyerRisk: "Approving artwork before fill weight, material, warning copy, MOQ, and destination requirements are fixed",
+    quoteBasis: "Packet size, material, artwork, print colors, units per carton, MOQ, destination and repeat demand",
+    buyerGuide: {
+      title: "From brief to repeat OEM production",
+      intro: "A controlled private-label program separates technical approval, artwork approval, and commercial approval.",
+      sections: [
+        { label: "Technical", title: "Approve the packet specification", text: "Confirm fill weight, dimensions, silica gel grade, sachet material, seal performance, and application before artwork." },
+        { label: "Print", title: "Approve exact copy and artwork", text: "Set warning text, languages, logo, print colors, barcode needs, and acceptable print tolerances." },
+        { label: "Commercial", title: "Approve packing and repeat terms", text: "Set MOQ, units per inner bag and carton, carton marks, sample method, lead time, Incoterms, and reorder forecast." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Compare OEM branding routes",
+      intro: "Choose the lowest-complexity option that still meets the buyer's presentation and traceability needs.",
+      columns: ["Stock sachet", "Buyer-labeled carton", "Printed sachet"],
+      rows: [
+        { label: "Brand visibility", values: ["None", "Outer carton only", "Inside every product pack"] },
+        { label: "Approval work", values: ["Specification", "Specification and label", "Specification, artwork, and print"] },
+        { label: "Typical use", values: ["Trials", "Wholesale distribution", "Repeat branded programs"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("private-label desiccant packets"),
+    contentBlock: {
+      heading: "Prepare the specification before artwork",
+      parts: [
+        { text: "Compare standard " },
+        { href: "/silica-gel-packets", label: "packet sizes and applications" },
+        { text: ", review available " },
+        { href: "/documents", label: "quality documents" },
+        { text: ", then send artwork and commercial requirements through the " },
+        { href: "/contact", label: "private-label RFQ" },
+        { text: "." },
+      ],
+    },
+    relatedLinks: [
+      { label: "Private-label silica gel supplier", href: "/private-label-silica-gel-supplier" },
+      { label: "OEM silica gel manufacturer", href: "/oem-silica-gel-manufacturer" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Documents hub", href: "/documents" },
+      { label: "Pricing process", href: "/pricing" },
+    ],
+    faqs: [
+      { question: "What information is required for a private-label quote?", answer: "Send fill weight, packet dimensions or size, sachet material, artwork or exact text, print colors, quantity, carton packing, destination, and documents." },
+      { question: "Can a sample be approved before production?", answer: "Yes. State whether you need a stock sizing sample, printed sample, or production sample and define the approval step before the bulk run." },
+      { question: "What determines private-label MOQ?", answer: "MOQ depends on packet size, material, print setup, artwork, packing configuration, and production efficiency." },
+      { question: "Can carton labels and packet print both be customized?", answer: "Both can be reviewed. Provide packet artwork and outer-carton label requirements as separate files with the RFQ." },
+      { question: "What documents can accompany OEM packets?", answer: "Request SDS, COA, ISO support, packing specification, and any buyer-specific statement when submitting the application and destination details." },
     ],
   }),
   "white-silica-gel": keywordClusterPage({
@@ -1306,7 +1590,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Moisture absorber manufacturer for silica gel packets, desiccant bags, industrial desiccants, packaging moisture control, container desiccants, SDS, COA, and RFQs.",
     kicker: "Moisture absorber manufacturer",
-    h1: "Moisture absorber manufacturer for packaging, storage, and export moisture control.",
+    h1: "Moisture absorber manufacturer for packaging and export.",
     lead:
       "Buyers searching for a moisture absorber manufacturer usually need a desiccant format matched to the exact risk: product pack, carton, warehouse, or shipping container.",
     searchIntent: "High-intent buyer keyword: moisture absorber manufacturer",
@@ -1345,7 +1629,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Shipping container moisture control page for container desiccants, cargo strips, container rain prevention, sea freight humidity, 20ft/40ft planning, SDS, COA, and RFQs.",
     kicker: "Shipping container moisture control",
-    h1: "Shipping container moisture control for export cargo, pallets, and long-haul sea freight.",
+    h1: "Shipping container moisture control for export cargo.",
     lead:
       "Plan moisture control before shipment by checking route, transit days, container size, cargo type, pallet density, packaging, and destination climate.",
     searchIntent: "Use case keyword: shipping container moisture control, container rain prevention, best desiccant for containers",
@@ -1428,7 +1712,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Electronic packaging desiccant page for silica gel packets, PCB packaging, component moisture control, anti-corrosion storage, SDS, COA, and export RFQs.",
     kicker: "Electronic packaging desiccant",
-    h1: "Electronic packaging desiccant for PCBs, components, accessories, and export cartons.",
+    h1: "Electronic packaging desiccant for PCBs and cartons.",
     lead:
       "Plan desiccants for electronics packaging by product sensitivity, package size, anti-corrosion risk, storage time, export route, and packet format.",
     searchIntent: "Industry keyword: electronic packaging desiccant, desiccant for electronics packaging, silica gel for PCBs",
@@ -2659,14 +2943,15 @@ export const seoLandingPages = {
     metaDescription:
       "Factory-direct silica gel packets and desiccant sachets for electronics, pharma, leather, food packaging, export cartons, private label, SDS, and COA support.",
     kicker: "Silica gel packets",
-    h1: "Silica gel packets for export cartons, product packaging, and repeat bulk supply.",
+    h1: "Silica gel packets for cartons, packaging, and bulk supply.",
     lead:
       "Source silica gel packets by gram size, sachet material, carton quantity, documentation needs, and destination market. Built for buyers who need clean RFQ inputs before price negotiation.",
-    searchIntent: "Primary product intent: silica gel packets, desiccant sachets, bulk silica gel packets",
+    searchIntent:
+      "For packaging buyers selecting packet size, sachet material, monthly quantity, documents, private label, and destination terms.",
     primaryCta: "Request Packet Quote",
     secondaryCta: "View Product Range",
     secondaryHref: "/products",
-    proofPoints: ["0.5g to 20g packet range", "SDS / COA on request", "Private-label discussion", "Worldwide export support"],
+    proofPoints: ["0.5g to 100g packet range", "SDS / COA on request", "Private-label discussion", "Worldwide export support"],
     heroImage: {
       src: "/products/white-nonindicating-clean-sachets.webp",
       alt: "Clean white silica gel packets with clear beads for industrial packaging",
@@ -2701,6 +2986,28 @@ export const seoLandingPages = {
       { label: "Documents", value: "SDS, COA, ISO 9001:2015, DMF-free support on request" },
       { label: "Quote basis", value: "Size, quantity, carton packing, destination, and Incoterms" },
     ],
+    buyerGuide: {
+      title: "What packet buyers should approve before bulk production",
+      intro:
+        "A packet order is not complete until the buyer has approved dosage, sachet material, printed text, carton packing, and the document set.",
+      sections: [
+        {
+          label: "Dosage",
+          title: "Validate gram size against the actual package",
+          text: "Use carton volume, barrier material, product sensitivity, storage time, and route humidity to choose packet weight. Do not approve a size only because it was used in another product.",
+        },
+        {
+          label: "Material",
+          title: "Match the sachet outer to the packing workflow",
+          text: "Paper and non-woven formats differ in strength, breathability, dust control, print options, and fit for automated or manual insertion.",
+        },
+        {
+          label: "Approval",
+          title: "Lock warning text, cartons, and documents",
+          text: "Confirm packet wording, private-label copy, units per carton, batch references, SDS, COA, and destination requirements before the production run.",
+        },
+      ],
+    },
     sizeGuide: {
       title: "Silica gel packet size guide for buyers",
       intro:
@@ -2800,10 +3107,25 @@ export const seoLandingPages = {
         text: "Mention destination country, port, Incoterms, SDS/COA needs, and whether compliance claims require proof.",
       },
     ],
+    contentBlock: {
+      heading: "Validate packet dosage and documents before ordering",
+      parts: [
+        { text: "Use the " },
+        { href: "/tools/moisture-load-calculator", label: "carton moisture-load calculator" },
+        { text: " as a planning aid, compare packet specifications on the " },
+        { href: "/products/retail-sachets", label: "silica gel sachet product page" },
+        { text: ", and review available " },
+        { href: "/documents", label: "SDS, COA, and certificate documents" },
+        { text: " before final approval." },
+      ],
+    },
     relatedLinks: [
       { label: "Small sachet product page", href: "/products/retail-sachets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
+      { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
+      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Technical documents", href: "/documents" },
       { label: "Request export quote", href: "/contact" },
     ],
     faqs: [
@@ -2819,6 +3141,14 @@ export const seoLandingPages = {
         question: "What documents should I request with silica gel packets?",
         answer: "Most buyers ask for SDS and COA first. ISO 9001:2015 and DMF-free support can be discussed where relevant to the exact product format.",
       },
+      {
+        question: "How many silica gel packets should I put in a carton?",
+        answer: "Packet count depends on carton volume, barrier material, product sensitivity, storage time, and route humidity. Use the moisture-load calculator for a planning estimate, then validate the dosage before bulk production.",
+      },
+      {
+        question: "What is the shelf life of sealed silica gel packets?",
+        answer: "Factory-sealed silica gel sachets are typically planned for 24-36 months of shelf life when stored cool, dry, and unopened. Confirm the selected format and packaging at quote stage.",
+      },
     ],
   },
   "bulk-silica-gel-desiccant": {
@@ -2830,11 +3160,12 @@ export const seoLandingPages = {
     h1: "Bulk silica gel desiccant for warehouses, distributors, and industrial buyers.",
     lead:
       "Plan bulk silica gel orders around kilograms, pallet volume, carton packing, product sensitivity, and repeat procurement schedules. Built for buyers who need commercial scale, not retail sachets.",
-    searchIntent: "Bulk product intent: bulk silica gel desiccant, bulk desiccant supplier, industrial silica gel",
+    searchIntent:
+      "For distributors, repackers, warehouses, and industrial buyers comparing loose kg, finished bags, pallets, documents, and repeat supply.",
     primaryCta: "Request Bulk Quote",
     secondaryCta: "Use Calculator",
     secondaryHref: "/bulk-sales",
-    proofPoints: ["25kg loose bags", "250g / 500g packs", "Pallet planning", "Recurring supply quotes"],
+    proofPoints: ["1kg-25kg bulk formats", "250g / 500g packs", "Pallet planning", "Recurring supply quotes"],
     heroImage: {
       src: "/products/premium-bulk-supply.webp",
       alt: "Bulk silica gel desiccant bags and clear beads in a warehouse supply setting",
@@ -2995,7 +3326,11 @@ export const seoLandingPages = {
       parts: [
         { text: "Estimate format, quantity, and weight with our " },
         { href: "/bulk-sales", label: "bulk silica gel sales planning" },
-        { text: " tools, then send a complete RFQ for accurate MOQ, lead time, and export pricing." },
+        { text: " tools, review the " },
+        { href: "/pricing", label: "indicative export price ranges" },
+        { text: ", and check the " },
+        { href: "/documents", label: "available SDS and COA documents" },
+        { text: " before requesting final MOQ, lead time, and export pricing." },
       ],
     },
     relatedLinks: [
@@ -3003,6 +3338,9 @@ export const seoLandingPages = {
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
       { label: "Bulk sales calculator", href: "/bulk-sales" },
       { label: "Export support", href: "/export" },
+      { label: "Indicative pricing", href: "/pricing" },
+      { label: "Bulk supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
+      { label: "Technical documents", href: "/documents" },
     ],
     faqs: [
       {
@@ -3017,6 +3355,14 @@ export const seoLandingPages = {
         question: "What details are needed for bulk pricing?",
         answer: "Send weight, format, packing requirement, destination country, port, repeat volume, and required documents.",
       },
+      {
+        question: "What is the typical MOQ for bulk silica gel?",
+        answer: "Bulk-bead export discussions commonly begin around 500 kg, while exact MOQ depends on bag format, grade, destination, and whether the program is a trial or recurring order.",
+      },
+      {
+        question: "Which bulk packing formats are available?",
+        answer: "Bulk supply can be discussed in 1kg, 5kg, 10kg, and 25kg bags, drums, palletized sacks, or larger industrial packing depending on the selected grade and shipment volume.",
+      },
     ],
   },
   "container-desiccant-strips": {
@@ -3028,11 +3374,12 @@ export const seoLandingPages = {
     h1: "Container desiccant strips for long-haul cargo and export moisture risk.",
     lead:
       "Plan cargo strips by route, container size, transit time, commodity type, and humidity exposure before final freight and desiccant pricing.",
-    searchIntent: "Export logistics intent: container desiccant strips, cargo desiccant, container rain prevention",
+    searchIntent:
+      "For export and logistics teams planning strip weight, count, placement, route humidity, transit time, documents, and Incoterms.",
     primaryCta: "Plan Cargo Strips",
     secondaryCta: "Read Container Rain Guide",
     secondaryHref: "/blog/container-rain-prevention",
-    proofPoints: ["1kg to 5kg strip direction", "20ft / 40ft planning", "FOB / CIF support", "SDS / COA on request"],
+    proofPoints: ["500g-5kg strip formats", "20ft / 40ft planning", "FOB / CIF support", "SDS / COA on request"],
     fitTitle: "Where cargo desiccant strips matter most",
     fitItems: [
       {
@@ -3085,7 +3432,21 @@ export const seoLandingPages = {
         { label: "Common mistake", values: ["Too few strips for humid routes", "Expecting packets to protect entire container", "Buying loose gel when finished packs are needed"] },
       ],
     },
-    quoteChecklist: desiccantQuoteChecklist("Container desiccant strips"),
+    quoteChecklist: {
+      title: "Container strip quote checklist",
+      formTitle: "Request Container Desiccant Strip Quote",
+      intro:
+        "Container strip quotes should use route and cargo data, not a fixed strip count copied from another shipment.",
+      defaultProduct: "Container desiccant strips / cargo moisture control",
+      items: [
+        "Container size: 20ft, 40ft, or 40ft high cube",
+        "Origin, destination, route, and estimated transit days",
+        "Cargo type, packaging, pallet count, and loading density",
+        "Known moisture risks: mold, corrosion, carton collapse, or container rain",
+        "Target strip weight or count, if already specified",
+        "Incoterm and required SDS, COA, ISO, or shipment documents",
+      ],
+    },
     buyingTitle: "How to request container desiccant strips",
     buyingIntro:
       "A cargo desiccant quote should start with container and route details, not only product price.",
@@ -3103,6 +3464,18 @@ export const seoLandingPages = {
         text: "Request suggested strip quantity, SDS/COA support, and Incoterms before dispatch planning.",
       },
     ],
+    contentBlock: {
+      heading: "Calculate the route requirement before freight is booked",
+      parts: [
+        { text: "Start with the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: ", review the " },
+        { href: "/blog/container-rain-prevention", label: "container rain prevention guide" },
+        { text: ", and compare " },
+        { href: "/compare/container-desiccant-vs-silica-gel-packets", label: "container strips against carton packets" },
+        { text: " before confirming the loading plan." },
+      ],
+    },
     relatedLinks: [
       { label: "Cargo strip product page", href: "/products/container-strips" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
@@ -3111,6 +3484,8 @@ export const seoLandingPages = {
       { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
+      { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Container strip documents", href: "/documents" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -3153,6 +3528,14 @@ export const seoLandingPages = {
       {
         question: "What details are needed for a container desiccant quote?",
         answer: "Send container size, route, transit days, cargo type, packing method, loading density, strip count target, destination, Incoterms, and document requirements.",
+      },
+      {
+        question: "Where should container desiccant strips be placed?",
+        answer: "Strips should be distributed along the container walls, corrugations, or approved hanging points so airflow reaches them. Avoid concentrating every strip in one location or placing them where cargo can crush or block them.",
+      },
+      {
+        question: "How do 20ft and 40ft container requirements differ?",
+        answer: "A 40ft or high-cube container generally needs more total desiccant than a 20ft container, but route humidity, cargo moisture, transit days, and loading density can matter more than container length alone.",
       },
     ],
   },
@@ -3433,7 +3816,7 @@ export const seoLandingPages = {
     metaDescription:
       "Food grade silica gel and food packaging desiccant RFQ page for moisture control in cartons, dry goods packaging, SDS, COA, labeling, and compliance review.",
     kicker: "Food packaging desiccant",
-    h1: "Food grade silica gel supplier path for packaging buyers who need document-backed claims.",
+    h1: "Food grade silica gel supplier path for packaging buyers.",
     lead:
       "Plan silica gel for food packaging with careful document review, correct packet text, carton quantity, application context, and destination requirements before using food-grade claims.",
     searchIntent: "Food packaging intent: food grade silica gel supplier, food grade desiccant, desiccant for food packaging",
@@ -3497,6 +3880,42 @@ export const seoLandingPages = {
         },
       ],
     },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Choose a food-packaging supply path",
+      intro: "Sachet placement determines the evidence, labeling, and material review required before ordering.",
+      columns: ["Secondary carton", "Sealed inner pack", "Direct food contact"],
+      rows: [
+        { label: "Position", values: ["Outside consumer pack", "Inside pack as an isolated sachet", "Touches food or ingredient"] },
+        { label: "Review", values: ["Application and documents", "Material, warning copy, contact risk", "Specific food-contact approvals"] },
+        { label: "Current fit", values: ["Industrial secondary packaging", "Case-by-case evidence review", "Not claimed without certification"] },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send details for a responsible packaging review",
+      formTitle: "Quote for food-packaging desiccant",
+      intro: "Packet placement and contact conditions must be clear before suitability or terms are confirmed.",
+      defaultProduct: "Food packaging silica gel packets",
+      items: [
+        "Food or dry-goods category and destination market",
+        "Exact sachet placement and whether direct contact is possible",
+        "Packet size, material, pack volume, and storage duration",
+        "Warning text, language, private label, and carton labels",
+        "Quantity, destination, required evidence, and approval process",
+      ],
+    },
+    contentBlock: {
+      heading: "Verify evidence before using food-grade wording",
+      parts: [
+        { text: "Review current " },
+        { href: "/documents", label: "quality and compliance documents" },
+        { text: ", compare " },
+        { href: "/silica-gel-packets", label: "packet formats" },
+        { text: ", then send the exact contact scenario through the " },
+        { href: "/contact", label: "application review form" },
+        { text: "." },
+      ],
+    },
     buyingTitle: "How to request food packaging desiccants",
     buyingIntro:
       "For food packaging programs, procurement should confirm documents and wording before price is treated as final.",
@@ -3518,6 +3937,8 @@ export const seoLandingPages = {
       { label: "Documents hub", href: "/documents" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Food packaging industry", href: "/industries/food-packaging" },
+      { label: "Private label packets", href: "/private-label" },
+      { label: "Pricing process", href: "/pricing" },
     ],
     faqs: [
       {
@@ -3532,6 +3953,14 @@ export const seoLandingPages = {
         question: "Are warning labels still needed for food packaging sachets?",
         answer: "Yes. Packet wording and warning copy should be reviewed for the market and packaging use case.",
       },
+      {
+        question: "Does industrial grade mean certified for direct food contact?",
+        answer: "No. Industrial grade and food-contact certification are different. Direct-contact use should not be claimed without the specific evidence required by the destination market.",
+      },
+      {
+        question: "What should a food-packaging RFQ show?",
+        answer: "Show the food category, packet placement, possible contact, pack size, destination, packet text, quantity, and required certifications or documents.",
+      },
     ],
   },
   "blue-silica-gel-manufacturer": {
@@ -3540,7 +3969,7 @@ export const seoLandingPages = {
     metaDescription:
       "Blue silica gel manufacturer and indicating desiccant RFQ page for humidity indication, lab storage, packaging programs, compliance review, SDS, and COA support.",
     kicker: "Blue indicating silica gel",
-    h1: "Blue silica gel manufacturer path for buyers who need moisture indication and compliance review.",
+    h1: "Blue silica gel manufacturer path for indicating gel buyers.",
     lead:
       "Use blue indicating silica gel only after confirming composition, destination rules, SDS, COA, and whether the buyer needs alternative indicating colors for regulated markets.",
     searchIntent: "Indicating gel intent: blue silica gel manufacturer, blue silica gel supplier, indicating silica gel",
@@ -3710,7 +4139,7 @@ export const seoLandingPages = {
     metaDescription:
       "Moisture absorber supplier for industrial desiccants, silica gel packets, packaging desiccants, warehouse moisture control, cargo desiccants, SDS, COA, and export RFQs.",
     kicker: "Moisture absorber supplier",
-    h1: "Moisture absorber supplier for packaging, warehouses, cartons, and export shipments.",
+    h1: "Moisture absorber supplier for packaging and export.",
     lead:
       "Use this page when the buyer searches for moisture absorbers but actually needs a desiccant format: silica gel packets, bulk desiccant, cargo strips, or packaging moisture control.",
     searchIntent: "Buyer intent: moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container",
@@ -3795,7 +4224,7 @@ export const seoLandingPages = {
     metaDescription:
       "Shipping container desiccant supplier for sea-freight cargo. Stop container rain on long-haul routes - strips, MOQ, ISO 9001:2015, FOB/CIF. RFQ in 24h.",
     kicker: "Shipping container desiccant",
-    h1: "Shipping container desiccant supplier for sea freight and container rain prevention.",
+    h1: "Shipping container desiccant supplier for sea freight.",
     lead:
       "As a shipping container desiccant supplier, Dry Gel World plans container desiccants by container size, route humidity, transit time, commodity risk, and destination - then quotes strip count, MOQ, lead time, and Incoterms. ISO 9001:2015, DMF-free, factory-direct export.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers",
@@ -3859,6 +4288,42 @@ export const seoLandingPages = {
         },
       ],
     },
+    sizeGuide: containerDesiccantSizeGuide,
+    comparison: {
+      title: "Match protection to the moisture exposure",
+      intro: "Container strips manage the shipping environment; carton bags and product packets solve smaller protection zones.",
+      columns: ["Product packet", "Carton desiccant", "Container strip"],
+      rows: [
+        { label: "Protection zone", values: ["Sealed unit pack", "Carton, crate, or pallet", "Entire shipping container"] },
+        { label: "Main risk", values: ["Local humidity", "Carton storage exposure", "Condensation and container rain"] },
+        { label: "Planning basis", values: ["Pack volume", "Carton volume and duration", "Route, cargo, transit, container"] },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send shipment data for a usable recommendation",
+      formTitle: "Quote for shipping container desiccants",
+      intro: "A route-specific RFQ is more useful than asking for a universal strip count.",
+      defaultProduct: "Shipping container desiccant strips",
+      items: [
+        "Origin, destination, season, and transit days",
+        "20ft or 40ft container and approximate loading density",
+        "Cargo type, carton material, pallets, and loading method",
+        "Damage risk: mold, corrosion, odor, labels, or carton collapse",
+        "Trial container count, repeat schedule, Incoterm, and documents",
+      ],
+    },
+    contentBlock: {
+      heading: "Turn route data into a container moisture plan",
+      parts: [
+        { text: "Use the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: ", review " },
+        { href: "/blog/container-rain-prevention", label: "container rain controls" },
+        { text: ", then submit route and cargo data for an " },
+        { href: "/contact", label: "export quotation" },
+        { text: "." },
+      ],
+    },
     buyingTitle: "How to request shipping container desiccants",
     buyingIntro:
       "A container desiccant RFQ should start with shipping risk, not only unit price.",
@@ -3880,6 +4345,8 @@ export const seoLandingPages = {
       { label: "Container strips", href: "/container-desiccant-strips" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Export support", href: "/export" },
+      { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Documents hub", href: "/documents" },
     ],
     faqs: [
       {
@@ -3898,6 +4365,14 @@ export const seoLandingPages = {
         question: "Do container desiccants replace packet desiccants?",
         answer: "No. Container desiccants protect the container environment, while packets protect products or cartons directly.",
       },
+      {
+        question: "Should 20ft and 40ft containers use the same strip count?",
+        answer: "No fixed count applies to every shipment. Container size, route, transit, cargo moisture, loading density, packaging, season, and strip capacity affect the recommendation.",
+      },
+      {
+        question: "Can one trial container be quoted before regular shipments?",
+        answer: "Yes. Provide trial route and cargo details plus the expected repeat schedule so trial quantity and future terms can be separated.",
+      },
     ],
   },
   drygelworld: {
@@ -3906,7 +4381,7 @@ export const seoLandingPages = {
     metaDescription:
       "Official DryGelWorld.com brand page for industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS, COA, and worldwide buyer support.",
     kicker: `Official ${brandName}.com`,
-    h1: "DryGelWorld is the official silica gel desiccant export brand for global B2B buyers.",
+    h1: "DryGelWorld official silica gel export brand.",
     lead:
       "DryGelWorld.com is the official website for Dry Gel World, built for procurement teams that need silica gel packets, bulk desiccant supply, container strips, private-label sachets, export documentation, and clear RFQ paths.",
     searchIntent: "Brand intent: DryGelWorld, drygelworld.com, Dry Gel World silica gel supplier",

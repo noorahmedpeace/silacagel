@@ -309,7 +309,7 @@ export const exportMarkets: ExportMarket[] = [
   {
     slug: "malaysia",
     country: "Malaysia",
-    title: "Silica gel desiccant supplier for Malaysia electronics, packaging, and logistics buyers.",
+    title: "Silica gel supplier for Malaysia packaging buyers.",
     description:
       "Silica gel packets, bulk beads, private-label sachets, and container strips for Malaysian electronics packagers, food packaging, warehouses, and importers.",
     buyerTypes: ["Electronics and component packagers", "Food and dry-goods packaging teams", "Packaging distributors", "Port Klang importers"],
@@ -442,7 +442,7 @@ export const exportMarkets: ExportMarket[] = [
   },
   {
     slug: "europe",
-    country: "Europe (EU-wide)",
+    country: "Europe",
     title: "Silica gel and desiccant export supply for European buyers.",
     description:
       "Multi-port European supply for distributors, importers, OEM packagers, and regional networks across the EU and adjacent markets - silica gel, dry clay, container strips, and private-label programs.",

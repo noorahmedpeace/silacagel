@@ -40,7 +40,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "top-10-silica-gel-suppliers-world-pakistan",
     label: "Supplier Ranking",
-    title: "Top 10 silica gel suppliers in the world and Pakistan: DryGelWorld recommended list",
+    title: "Top 10 silica gel suppliers in the world and Pakistan",
     metaTitle: "Top 10 Silica Gel Suppliers in the World & Pakistan (2026)",
     metaDescription:
       "A buyer-fit ranking of the top silica gel suppliers worldwide and in Pakistan — product range, export documents, MOQs, and which supplier fits which buyer.",
@@ -2357,7 +2357,7 @@ export const blogArticles: BlogArticle[] = [
   {
     slug: "how-long-does-silica-gel-last",
     label: "Buyer FAQ",
-    title: "How long does silica gel last? Shelf life, working capacity, and replacement timing",
+    title: "How long does silica gel last? Shelf life and replacement",
     metaTitle: "How Long Does Silica Gel Last? Lifespan and Replacement",
     metaDescription:
       "Silica gel's lifespan depends on the scenario: unopened storage, in-package working life, and regeneration cycles. Practical numbers for each case.",

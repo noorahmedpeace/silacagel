@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "../strategy-pages.module.css";
 import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Exporter | Global Desiccant Supply",
+  title: "Silica Gel Exporter | Worldwide B2B Desiccant Supply",
   description:
-    "Silica gel exporter from Karachi for global B2B buyers. FOB, CIF, EXW, and DAP quote support for sachets, bulk beads, and container strips.",
+    "Silica gel exporter from Pakistan for worldwide B2B supply. Request FOB, CIF, EXW or DAP quotes for packets, bulk beads, private label and cargo strips.",
   alternates: {
     canonical: "/export",
   },
@@ -35,16 +36,39 @@ const exportDeskChannels = contactEmailChannels.filter((channel) =>
   ["export", "sales", "support"].includes(channel.id),
 );
 
+const exportFaqs: Faq[] = [
+  {
+    question: "Does DryGelWorld export silica gel worldwide?",
+    answer:
+      "DryGelWorld quotes international B2B shipments for silica gel packets, bulk beads, private-label sachets, and container desiccant strips. Route availability and destination requirements are confirmed with each RFQ.",
+  },
+  {
+    question: "Which Incoterms are available for silica gel exports?",
+    answer:
+      "Export quotations can be prepared on EXW, FOB Karachi, CIF, or DAP terms depending on destination, quantity, product format, and logistics feasibility.",
+  },
+  {
+    question: "What information is required for an export quotation?",
+    answer:
+      "Send product format, size, quantity, destination city or port, preferred Incoterm, required documents, labeling needs, and expected repeat schedule.",
+  },
+  {
+    question: "Can distributors request wholesale or private-label supply?",
+    answer:
+      "Yes. Distributors can request wholesale cartons, recurring supply, buyer-specific carton labels, and private-label sachets subject to specification, artwork, and MOQ approval.",
+  },
+];
+
 export default function ExportPage() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <span className={styles.kicker}>Export Supply</span>
-        <h1>Silica gel export supply built for serious procurement teams.</h1>
+        <h1>Silica gel exporter for worldwide B2B supply.</h1>
         <p>
           A dedicated global buying path for importers, packagers, distributors, and
           manufacturers sourcing bulk desiccant packets, cargo strips, and documentation-backed
-          moisture control products.
+          moisture control products on EXW, FOB, CIF, or DAP terms.
         </p>
         <Link className={styles.cta} href="/contact">Request Export Quote</Link>
       </section>
@@ -115,6 +139,12 @@ export default function ExportPage() {
           ))}
         </div>
       </section>
+
+      <FaqBlock
+        title="Silica gel export questions"
+        intro="Commercial answers for importers, distributors, and procurement teams preparing an international RFQ."
+        faqs={exportFaqs}
+      />
     </main>
   );
 }
