@@ -378,6 +378,45 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         </section>
       ) : null}
 
+      {market.procurementNotes?.length ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Buying silica gel for Mexico.</h2>
+            <p>
+              Match the desiccant format to the packed product, labeling plan, destination port,
+              and inland handover before comparing landed quotations.
+            </p>
+          </div>
+          <div className={styles.grid}>
+            {market.procurementNotes.map((note) => (
+              <article className={styles.articleCard} key={note.title}>
+                <span>{note.label}</span>
+                <h3>{note.title}</h3>
+                <p>{note.text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {market.relatedLinks?.length ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Continue planning your Mexico order.</h2>
+          </div>
+          <div className={styles.grid}>
+            {market.relatedLinks.map((item) => (
+              <article className={styles.card} key={item.href}>
+                <span>{item.label}</span>
+                <h3>
+                  <Link href={item.href}>{item.description}</Link>
+                </h3>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {market.faqs && market.faqs.length ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>
