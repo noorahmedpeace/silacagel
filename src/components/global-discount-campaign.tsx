@@ -1,9 +1,10 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowRight, Check, Clock3, Gift, X } from "lucide-react";
+import { AlarmClock, AlertTriangle, ArrowRight, BadgeCheck, Check, Clock3, Gift, X } from "lucide-react";
 import {
   FLASH10_CODE,
+  FLASH10_COOLDOWN,
   FLASH10_DURATION,
   FLASH10_STORAGE_KEY,
   formatFlash10Remaining,
@@ -12,7 +13,8 @@ import {
 } from "@/lib/flash10";
 import styles from "./global-discount-campaign.module.css";
 
-type CampaignStatus = "unseen" | "active" | "expired";
+type CampaignStatus = "unseen" | "active" | "cooldown";
+type PromoToast = "ten-minute" | "five-minute" | "applied" | null;
 
 function isWhatsAppHref(href: string) {
   return href.startsWith("https://wa.me/") || href.startsWith("https://api.whatsapp.com/");
@@ -63,6 +65,7 @@ export function GlobalDiscountCampaign() {
   const [status, setStatus] = useState<CampaignStatus>("unseen");
   const [remaining, setRemaining] = useState(0);
   const [modalOpen, setModalOpen] = useState(false);
+  const [toast, setToast] = useState<PromoToast>(null);
   const [hydrated, setHydrated] = useState(false);
   const giftRef = useRef<HTMLDivElement>(null);
   const lidRef = useRef<HTMLDivElement>(null);
@@ -81,8 +84,26 @@ export function GlobalDiscountCampaign() {
     }
 
     const nextRemaining = record.expiresAt - Date.now();
-    setRemaining(Math.max(0, nextRemaining));
-    setStatus(nextRemaining > 0 ? "active" : "expired");
+    if (nextRemaining > 0) {
+      setRemaining(nextRemaining);
+      setStatus("active");
+      return;
+    }
+
+    if (record.cooldownUntil > Date.now()) {
+      const completedRecord = { ...record, completed: true };
+      recordRef.current = completedRecord;
+      window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(completedRecord));
+      setRemaining(0);
+      setStatus("cooldown");
+      setModalOpen(false);
+      return;
+    }
+
+    window.localStorage.removeItem(FLASH10_STORAGE_KEY);
+    recordRef.current = null;
+    setRemaining(0);
+    setStatus("unseen");
   }, []);
 
   const enhanceFormsAndLinks = useCallback(() => {
@@ -105,12 +126,16 @@ export function GlobalDiscountCampaign() {
         banner.setAttribute("role", "status");
         form.prepend(banner);
       }
-      const bannerHtml = `<span aria-hidden="true">✓</span><span><strong>10% Discount Applied</strong><span>Your exclusive discount expires in ${countdown}</span></span>`;
+      const bannerHtml =
+        form.dataset.discountSubmitted === "true"
+          ? `<span aria-hidden="true">✓</span><span><strong>${FLASH10_CODE} Applied Successfully</strong><span>Your exclusive discount has been attached to this inquiry. ${countdown} remaining.</span></span>`
+          : `<span aria-hidden="true">✓</span><span><strong>10% Discount Applied</strong><span>Your exclusive discount expires in ${countdown}</span></span>`;
       if (banner.innerHTML !== bannerHtml) banner.innerHTML = bannerHtml;
 
       const fields = [
         ["promo", FLASH10_CODE],
         ["discount", "10%"],
+        ["promo_remaining", countdown],
         ["promo_expires_at", new Date(record!.expiresAt).toISOString()],
       ];
       fields.forEach(([name, value]) => {
@@ -136,16 +161,24 @@ export function GlobalDiscountCampaign() {
   const triggerCampaign = useCallback(async () => {
     const existing = readFlash10Campaign();
     if (existing) {
-      syncCampaign();
-      if (existing.expiresAt > Date.now()) setModalOpen(true);
-      return;
+      if (existing.expiresAt <= Date.now() && existing.cooldownUntil <= Date.now()) {
+        window.localStorage.removeItem(FLASH10_STORAGE_KEY);
+        recordRef.current = null;
+      } else {
+        syncCampaign();
+        return;
+      }
     }
 
     const now = Date.now();
     const record: Flash10Record = {
       triggeredAt: now,
       expiresAt: now + FLASH10_DURATION,
+      cooldownUntil: now + FLASH10_DURATION + FLASH10_COOLDOWN,
       celebrated: true,
+      completed: false,
+      tenMinuteNotified: false,
+      fiveMinuteNotified: false,
     };
     window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(record));
     (window as typeof window & { __drygelPromoJustTriggered?: boolean }).__drygelPromoJustTriggered = true;
@@ -185,8 +218,26 @@ export function GlobalDiscountCampaign() {
       const record = recordRef.current;
       if (!record) return;
       const next = record.expiresAt - Date.now();
-      setRemaining(Math.max(0, next));
-      if (next <= 0) setStatus("expired");
+      if (next > 0) {
+        setRemaining(next);
+        return;
+      }
+
+      if (record.cooldownUntil > Date.now()) {
+        const completedRecord = { ...record, completed: true };
+        recordRef.current = completedRecord;
+        window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(completedRecord));
+        setRemaining(0);
+        setStatus("cooldown");
+        setModalOpen(false);
+        setToast(null);
+        return;
+      }
+
+      window.localStorage.removeItem(FLASH10_STORAGE_KEY);
+      recordRef.current = null;
+      setRemaining(0);
+      setStatus("unseen");
     }, 1000);
 
     const onStorage = (event: StorageEvent) => {
@@ -209,7 +260,9 @@ export function GlobalDiscountCampaign() {
 
       const href = target.getAttribute("href") ?? "";
       const current = readFlash10Campaign();
-      const firstTrigger = !current;
+      const firstTrigger =
+        !current ||
+        (current.expiresAt <= Date.now() && current.cooldownUntil <= Date.now());
       if (
         firstTrigger &&
         target instanceof HTMLAnchorElement &&
@@ -221,6 +274,7 @@ export function GlobalDiscountCampaign() {
       }
       if (current?.expiresAt && current.expiresAt > Date.now() && isWhatsAppHref(href)) {
         target.setAttribute("href", addPromoToWhatsApp(href, formatFlash10Remaining(current.expiresAt - Date.now())));
+        setToast("applied");
       }
       void triggerCampaign();
       const activated = readFlash10Campaign();
@@ -233,6 +287,15 @@ export function GlobalDiscountCampaign() {
       if (!(event.target instanceof HTMLFormElement)) return;
       void triggerCampaign();
       enhanceFormsAndLinks();
+      const activeSubmission = readFlash10Campaign();
+      if (activeSubmission && activeSubmission.expiresAt > Date.now()) {
+        event.target.dataset.discountSubmitted = "true";
+        const banner = event.target.querySelector<HTMLElement>("[data-discount-banner]");
+        if (banner) {
+          banner.innerHTML = `<span aria-hidden="true">✓</span><span><strong>${FLASH10_CODE} Applied Successfully</strong><span>Your exclusive discount has been attached to this inquiry. ${formatFlash10Remaining(activeSubmission.expiresAt - Date.now())} remaining.</span></span>`;
+        }
+        setToast("applied");
+      }
     };
 
     document.addEventListener("click", clickHandler, true);
@@ -277,9 +340,37 @@ export function GlobalDiscountCampaign() {
     if (status === "active") enhanceFormsAndLinks();
   }, [enhanceFormsAndLinks, remaining, status]);
 
-  if (!hydrated || status === "unseen") return null;
+  useEffect(() => {
+    if (status !== "active") return;
+    const record = recordRef.current;
+    if (!record) return;
+
+    if (remaining <= 5 * 60 * 1000 && remaining > 60 * 1000 && !record.fiveMinuteNotified) {
+      const updated = { ...record, fiveMinuteNotified: true, tenMinuteNotified: true };
+      recordRef.current = updated;
+      window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(updated));
+      setToast("five-minute");
+      return;
+    }
+
+    if (remaining <= 10 * 60 * 1000 && remaining > 5 * 60 * 1000 && !record.tenMinuteNotified) {
+      const updated = { ...record, tenMinuteNotified: true };
+      recordRef.current = updated;
+      window.localStorage.setItem(FLASH10_STORAGE_KEY, JSON.stringify(updated));
+      setToast("ten-minute");
+    }
+  }, [remaining, status]);
+
+  useEffect(() => {
+    if (!toast) return;
+    const timeout = window.setTimeout(() => setToast(null), toast === "applied" ? 5200 : 6000);
+    return () => window.clearTimeout(timeout);
+  }, [toast]);
+
+  if (!hydrated || status !== "active") return null;
 
   const countdown = formatFlash10Remaining(remaining);
+  const finalMinute = remaining <= 60 * 1000;
 
   return (
     <div className={styles.root} data-promo-ui>
@@ -317,7 +408,7 @@ export function GlobalDiscountCampaign() {
                 <span className={styles.timerValue}>{countdown}</span>
               </div>
             </div>
-            <button className={styles.claim} onClick={closeModal} type="button">
+            <button className={`${styles.claim}${finalMinute ? ` ${styles.finalMinuteClaim}` : ""}`} onClick={closeModal} type="button">
               <Check size={18} /> Apply {FLASH10_CODE} to my quote
             </button>
             <p className={styles.terms}>The discount is attached automatically to eligible quote and RFQ submissions.</p>
@@ -325,19 +416,47 @@ export function GlobalDiscountCampaign() {
         </div>
       ) : null}
 
+      {toast ? (
+        <aside
+          aria-live="polite"
+          className={`${styles.toast} ${toast === "five-minute" ? styles.warningToast : ""} ${toast === "applied" ? styles.appliedToast : ""}`}
+          role="status"
+        >
+          <span className={styles.toastIcon}>
+            {toast === "five-minute" ? <AlertTriangle size={20} /> : toast === "applied" ? <BadgeCheck size={20} /> : <AlarmClock size={20} />}
+          </span>
+          <span>
+            <strong>
+              {toast === "ten-minute"
+                ? "Only 10 minutes left!"
+                : toast === "five-minute"
+                  ? "Almost gone!"
+                  : `${FLASH10_CODE} Applied Successfully`}
+            </strong>
+            <span>
+              {toast === "ten-minute"
+                ? "Claim your exclusive 10% discount before it expires."
+                : toast === "five-minute"
+                  ? "Your 10% discount expires in less than 5 minutes. Complete your quote request now."
+                  : "Your exclusive discount has been attached to this inquiry."}
+            </span>
+          </span>
+          <button aria-label="Dismiss notification" onClick={() => setToast(null)} type="button"><X size={15} /></button>
+        </aside>
+      ) : null}
+
       <button
-        aria-label={status === "active" ? `Exclusive 10% discount ends in ${countdown}` : "Discount offer expired"}
-        className={`${styles.widget}${status === "expired" ? ` ${styles.expired}` : ""}`}
-        disabled={status === "expired"}
-        onClick={() => status === "active" && setModalOpen(true)}
+        aria-label={`Exclusive 10% discount ends in ${countdown}`}
+        className={`${styles.widget}${finalMinute ? ` ${styles.finalMinuteWidget}` : ""}`}
+        onClick={() => setModalOpen(true)}
         type="button"
       >
         <span className={styles.widgetIcon}><Gift size={20} /></span>
         <span>
-          <span className={styles.widgetTitle}>{status === "active" ? "Exclusive 10% OFF" : "Offer Expired"}</span>
-          <span className={styles.widgetTimer}>{status === "active" ? `Ends in ${countdown}` : `${FLASH10_CODE} has ended`}</span>
+          <span className={styles.widgetTitle}>Exclusive 10% OFF</span>
+          <span className={styles.widgetTimer}>Offer ends in: {countdown}</span>
         </span>
-        {status === "active" ? <ArrowRight className={styles.widgetArrow} size={18} /> : null}
+        <ArrowRight className={styles.widgetArrow} size={18} />
       </button>
     </div>
   );
