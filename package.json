@@ -16,8 +16,10 @@
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "canvas-confetti": "^1.9.4",
     "embla-carousel-autoplay": "^8.6.0",
     "embla-carousel-react": "^8.6.0",
+    "gsap": "^3.15.0",
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.8.0",
     "motion": "^12.41.0",
@@ -26,6 +28,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
