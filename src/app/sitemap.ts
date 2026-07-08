@@ -136,7 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     entries.push({
       url: absoluteUrl(`/export/${market.slug}`),
-      lastModified,
+      lastModified: new Date(market.updatedAt ?? sitemapLastModified),
       changeFrequency: "monthly",
       priority: 0.7,
       images: sitemapImages([image.src]),
