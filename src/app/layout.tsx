@@ -6,6 +6,8 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GuaranteeStrip } from "@/components/guarantee-strip";
 import { GlobalDiscountCampaign } from "@/components/global-discount-campaign";
+import { ClarityBridge } from "@/components/clarity-bridge";
+import { ClarityConsent } from "@/components/clarity-consent";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -209,6 +211,8 @@ export default function RootLayout({
         <GuaranteeStrip />
         <WhatsAppFloat />
         <GlobalDiscountCampaign />
+        <ClarityBridge />
+        <ClarityConsent />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
@@ -226,6 +230,18 @@ export default function RootLayout({
                   window.__drygelEventQueue.push({ name: name, params: payload });
                 }
               };
+              window.__drygelTrackClarity = function (name, reason) {
+                var commands = [['event', name], ['set', 'last_conversion_event', name]];
+                if (reason) commands.push(['upgrade', reason]);
+                commands.forEach(function (args) {
+                  if (typeof window.clarity === 'function') {
+                    window.clarity.apply(window, args);
+                  } else {
+                    window.__drygelClarityQueue = window.__drygelClarityQueue || [];
+                    window.__drygelClarityQueue.push(args);
+                  }
+                });
+              };
               document.addEventListener('click', function (event) {
                 var target = event.target && event.target.closest ? event.target.closest('a,button') : null;
                 if (!target) return;
@@ -234,6 +250,7 @@ export default function RootLayout({
                 var base = { link_url: href || undefined, link_text: label || undefined };
                 if (href.indexOf('mailto:') === 0) {
                   window.__drygelTrackEvent('email_click', Object.assign({}, base, { contact_method: 'email' }));
+                  window.__drygelTrackClarity('email_sales_click', 'Email sales intent');
                   return;
                 }
                 if (href.indexOf('tel:') === 0) {
@@ -242,14 +259,17 @@ export default function RootLayout({
                 }
                 if (href.indexOf('https://wa.me/') === 0 || href.indexOf('https://api.whatsapp.com/') === 0) {
                   window.__drygelTrackEvent('whatsapp_click', Object.assign({}, base, { contact_method: 'whatsapp' }));
+                  window.__drygelTrackClarity('whatsapp_quote_click', 'WhatsApp quote intent');
                   return;
                 }
                 if (href === '/contact' || href.indexOf('/contact') === 0 || /quote|rfq/i.test(label)) {
                   window.__drygelTrackEvent('quote_cta_click', base);
+                  window.__drygelTrackClarity('request_quote_click', 'Request quote intent');
                   return;
                 }
                 if (href.indexOf('#purchase-calculator') >= 0 || /calculator|requirement/i.test(label)) {
                   window.__drygelTrackEvent('calculator_click', base);
+                  window.__drygelTrackClarity('calculator_intent', 'Calculator purchase intent');
                   return;
                 }
                 if (href.indexOf('/documents') === 0 || /sds|coa|documents?/i.test(label)) {
@@ -259,16 +279,18 @@ export default function RootLayout({
             })();
           `}
         </Script>
-        {/* Microsoft Clarity (session replay + heatmaps). lazyOnload so it
-            never competes with LCP/INP — analytics loads after the page is
-            fully interactive, same philosophy as the idle-loaded GA below. */}
-        <Script id="ms-clarity" strategy="lazyOnload">
+        {/* Clarity loads once the page is interactive to capture short buying sessions. */}
+        <Script id="ms-clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "xgf9cuhe4e");
+            (window.__drygelClarityQueue || []).forEach(function(args) {
+              window.clarity.apply(window, args);
+            });
+            window.__drygelClarityQueue = [];
           `}
         </Script>
         <Script id="ga4-idle-loader" strategy="afterInteractive">

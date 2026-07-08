@@ -193,7 +193,11 @@ export function QuoteForm({
   }
 
   return (
-    <form className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`} onSubmit={handleSubmit}>
+    <form
+      className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`}
+      data-clarity-mask="true"
+      onSubmit={handleSubmit}
+    >
       <div className={styles.formMain}>
         <div className={styles.formHead}>
           <p>Export RFQ Engine</p>
