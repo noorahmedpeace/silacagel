@@ -38,7 +38,7 @@ const industryPages: Record<string, IndustryPage> = {
     metaTitle: "Silica Gel Desiccant for Electronics Shipping & Packaging",
     metaDescription:
       "Anti-static & standard silica gel desiccant packets for PCBs, batteries & electronics export cartons. Prevent corrosion in ocean freight. Get an RFQ.",
-    h1: "Silica gel desiccant for electronics shipping and packaging - protect boards, batteries, and assemblies.",
+    h1: "Silica gel desiccant for electronics shipping and packaging.",
     description:
       "Silica gel desiccant packets for electronics packaging, circuit boards, batteries, precision assemblies, and export cartons.",
     points: [
@@ -89,7 +89,7 @@ const industryPages: Record<string, IndustryPage> = {
   },
   "pharma-packaging": {
     title: "Desiccant for Pharma Packaging",
-    metaTitle: "Pharma Desiccant Packets | SDS/COA-Ready Healthcare Packaging",
+    metaTitle: "Pharma Desiccant Packets | SDS/COA Healthcare Packaging",
     metaDescription:
       "Pharma-grade silica gel desiccant packets and canisters for pill bottles, blister cartons & diagnostic kits. SDS, COA, batch docs. Export RFQ in 24h.",
     h1: "Documentation-ready desiccant supply for pharma and healthcare packaging.",
@@ -250,7 +250,7 @@ const industryPages: Record<string, IndustryPage> = {
   },
   "textile-garment-export": {
     title: "Silica Gel for Textile and Garment Export",
-    h1: "Reduce mildew, dye-migration, and odor risk in textile and garment export cartons.",
+    h1: "Reduce mildew and odor risk in garment export cartons.",
     description:
       "Silica gel sachets and bulk desiccant for textile mills, garment exporters, fabric rolls, and long-haul humid routes from South Asia to USA, EU, and the Middle East.",
     metaTitle: "Silica Gel for Textile & Garment Export | Mildew Control",
@@ -305,12 +305,12 @@ const industryPages: Record<string, IndustryPage> = {
   },
   "container-shipping": {
     title: "Container Desiccant for Ocean Freight",
-    h1: "Container desiccant supply for sealed ocean freight, transit humidity, and condensation cycling.",
+    h1: "Container desiccant supply for sealed ocean freight.",
     description:
       "Container desiccant strips, pole desiccants, and bulk silica gel for 20ft and 40ft containers on transpacific, trans-Atlantic, and trans-equatorial routes.",
     metaTitle: "Container Desiccant for Ocean Freight | Stop Container Rain",
     metaDescription:
-      "Container desiccant strips & bulk silica gel for 20ft/40ft ocean freight. Stop container rain, condensation & mold on long-haul sea routes. SDS/COA. Get an RFQ.",
+      "Container desiccant strips and bulk silica gel for 20ft/40ft ocean freight. Stop container rain, condensation, and mold. Get an RFQ.",
     points: [
       "Standard loading: 6-10 strips per 20ft container, 10-16 per 40ft. Long-haul tropical routes use the upper end.",
       "Container desiccant is single-voyage consumable. For reusable closed-loop applications, regenerable bulk silica gel beads are the right product.",
@@ -416,12 +416,12 @@ const industryPages: Record<string, IndustryPage> = {
   },
   "defense-and-ammunition-packaging": {
     title: "Silica Gel for Defense and Ammunition Packaging",
-    h1: "Moisture and corrosion control for defense components, ammunition, and military spare-parts packaging.",
+    h1: "Moisture control for defense and ammunition packaging.",
     description:
       "Silica gel and clay desiccant for defense-sector packaging - protecting metal components, ammunition, optics, and spare parts from corrosion and condensation in sealed transit and long-term storage.",
     metaTitle: "Silica Gel for Defense & Ammunition Packaging | Desiccant",
     metaDescription:
-      "Silica gel & clay desiccant for defense and ammunition packaging - corrosion control for metal parts, primers, optics & spares in sealed transit and storage. RFQ.",
+      "Silica gel and clay desiccant for defense packaging: corrosion control for metal parts, primers, optics, and spares in sealed storage. RFQ.",
     points: [
       "Defense and ammunition packaging fails through corrosion and condensation on metal parts, primers, and optics - desiccant holds the sealed-pack humidity below the point where that damage starts.",
       "Military specifications (such as MIL-D-3464) and desiccant 'unit' counts (DIN 55473) are buyer-supplied requirements: tell us the unit count and spec your contract calls for and we quote silica gel or clay to meet it.",

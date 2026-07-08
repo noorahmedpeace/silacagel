@@ -6,7 +6,7 @@ import styles from "../../strategy-pages.module.css";
 
 const metaTitle = "Moisture Load Calculator | Silica Gel Grams by Carton Size";
 const pageDescription =
-  "Free moisture load calculator. Enter carton length, width, and height in cm or inches to get the silica gel grams your packaging needs, based on the 56 g per cubic foot planning standard.";
+  "Free moisture load calculator. Enter carton length, width, and height to estimate silica gel grams using a 56 g/ft3 planning standard.";
 
 export const metadata: Metadata = {
   title: metaTitle,

@@ -269,7 +269,7 @@ export const productCatalog: ProductItem[] = [
     slug: "powder-free-blue-nitrile-gloves",
     name: "Powder-Free Nitrile Examination Gloves",
     shortName: "Powder-Free Nitrile Gloves",
-    metaTitle: "Powder-Free Blue & Black Nitrile Examination Gloves | DryGelWorld",
+    metaTitle: "Powder-Free Nitrile Examination Gloves | DryGelWorld",
     eyebrow: "Nitrile Gloves",
     summary:
       "Powder-free nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",
@@ -314,7 +314,7 @@ export const productCatalog: ProductItem[] = [
     slug: "powdered-nitrile-examination-gloves",
     name: "Powdered Nitrile Examination Gloves",
     shortName: "Powdered Nitrile Gloves",
-    metaTitle: "Powdered Blue & Black Nitrile Examination Gloves | DryGelWorld",
+    metaTitle: "Powdered Nitrile Examination Gloves | DryGelWorld",
     eyebrow: "Nitrile Gloves",
     summary:
       "Powdered nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",

@@ -6,7 +6,7 @@ import styles from "./dispensers.module.css";
 export const metadata: Metadata = {
   title: "Desiccant Dispensers | Silica Gel Packet Automation",
   description:
-    "Explore desiccant dispensing equipment for packaging lines, including silica gel packet insertion support for pharma, food, and industrial production workflows.",
+    "Explore desiccant dispensing equipment for packaging lines, including silica gel packet insertion support for pharma, food, and industrial workflows.",
   alternates: {
     canonical: "/dispensers",
   },

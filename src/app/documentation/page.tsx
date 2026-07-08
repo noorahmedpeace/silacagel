@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Download, FileText, ShieldCheck, Lock } from "lucide-react";
 import {
   documentGroups,
-  documents,
   documentsByType,
   isoCertificate,
 } from "@/lib/document-registry";
@@ -11,7 +10,7 @@ import { FaqBlock } from "@/components/faq-block";
 import styles from "./documentation.module.css";
 
 export const metadata: Metadata = {
-  title: "Documentation Center | ISO 9001, SDS, COA & Spec Sheets | DryGelWorld",
+  title: "Documentation Center | ISO 9001, SDS & COA | DryGelWorld",
   description:
     "Open and download DryGelWorld's ISO 9001:2015 certificate, silica gel SDS, COA, technical data sheets, and product specifications in one place.",
   alternates: { canonical: "/documentation" },

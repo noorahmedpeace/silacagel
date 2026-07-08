@@ -7,7 +7,7 @@ import styles from "./pricing.module.css";
 export const metadata: Metadata = {
   title: "Silica Gel Price List | Indicative Export Prices in USD",
   description:
-    "Indicative silica gel prices: sachets from $0.0032/pc, container strips around $3.80 to $5.50 per kg, bulk quoted by tonnage. MOQ tiers, EXW/FOB/CIF terms, USD ranges per 1,000 pcs.",
+    "Indicative silica gel prices: sachets from $0.0032/pc, container strips at $3.80-$5.50/kg, bulk tonnage quotes, MOQ tiers, and FOB/CIF terms.",
   alternates: {
     canonical: "/pricing",
   },

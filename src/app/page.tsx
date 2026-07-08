@@ -46,12 +46,12 @@ import styles from "./page.module.css";
 // commercial metadata rather than inheriting the layout default. Title/H1 carry
 // transactional "buy silica gel" intent; canonical is the slash-consistent root.
 export const metadata: Metadata = {
-  title: "Buy Silica Gel in Bulk | Manufacturer and Exporter | DryGelWorld",
+  title: "Buy Bulk Silica Gel | Manufacturer Exporter | DryGelWorld",
   description:
-    "Buy silica gel desiccant in bulk direct from the manufacturer. Since 1983, DryGelWorld has supplied wholesale packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping.",
+    "Buy bulk silica gel direct from DryGelWorld: wholesale packets, beads, container strips, low MOQ, SDS/COA, and worldwide shipping since 1983.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "DryGelWorld | Global Industrial Desiccant Exporter",
+    title: "DryGelWorld | Industrial Desiccant Exporter",
     description:
       "Factory-direct silica gel: bulk packets, cargo strips, and private label support. Premium moisture protection for global shipping.",
     url: "/",
@@ -241,7 +241,6 @@ export default function Home() {
             <picture>
               <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
               <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 {...heroDesktopProps}
                 id="hero-product-image"

@@ -60,7 +60,7 @@ const industries = [
 
 const pageTitle = "Industries We Serve - Silica Gel & Desiccant Applications";
 const pageDescription =
-  "Industry-specific silica gel and desiccant moisture protection for container shipping, electronics, pharma, leather and footwear, textiles, and food packaging exporters worldwide.";
+  "Industry-specific silica gel and desiccant moisture protection for shipping, electronics, pharma, leather, textiles, and food packaging exporters.";
 
 export const metadata: Metadata = {
   title: pageTitle,

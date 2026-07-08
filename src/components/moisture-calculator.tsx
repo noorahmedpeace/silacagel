@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import styles from "./moisture-calculator.module.css";
 import { LottiePlayer } from "./lottie-player";
 
@@ -97,9 +98,9 @@ export const MoistureCalculator = () => {
               Based on a standard moisture threshold of 56g/ft^3. For high-humidity
               maritime environments, increase weight by 20%.
             </p>
-            <a href="/contact" className={styles.procureLink}>
+            <Link href="/contact" className={styles.procureLink}>
               Request Technical Audit -&gt;
-            </a>
+            </Link>
           </div>
         </div>
       </div>
