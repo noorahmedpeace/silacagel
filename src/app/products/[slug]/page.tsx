@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 import { notFound } from "next/navigation";
+import { IsoBadge } from "@/components/iso-badge";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { ProductCrossSell } from "@/components/product-cross-sell";
@@ -560,6 +562,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <a href="#quote-form" className={styles.secondaryAction}>
                     Send Requirement
                   </a>
+                </div>
+
+                <div className={styles.docProof}>
+                  <IsoBadge />
+                  <Link href="/documentation" className={styles.docProofLink}>
+                    <FileText size={15} strokeWidth={2} aria-hidden="true" />
+                    SDS · COA · TDS · ISO — open documents
+                  </Link>
                 </div>
 
                 {(product.colorOptions?.length || product.sizeOptions?.length) ? (

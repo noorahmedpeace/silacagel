@@ -11,7 +11,6 @@ import {
 } from "@/lib/product-data";
 import styles from "./site-footer.module.css";
 import { SocialLinks } from "./social-links";
-import { IsoBadge } from "./iso-badge";
 
 const footerColumns = [
   {
@@ -190,7 +189,6 @@ export function SiteFooter() {
       </div>
 
       <div className={styles.trustRow}>
-        <IsoBadge tone="dark" />
         {trustBadges.map((badge) => (
           <span className={styles.trustBadge} key={badge.label}>
             <badge.icon aria-hidden="true" size={15} strokeWidth={1.8} />

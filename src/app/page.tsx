@@ -101,6 +101,7 @@ const procurementFlow = [
     text: "Pick sachets, strips, or bulk formats sized to your cartons and humidity risk.",
     icon: PackageCheck,
     image: "/workflow/define-pack.webp",
+    mobileImage: "/workflow/define-pack-mobile.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
   },
   {
@@ -109,6 +110,7 @@ const procurementFlow = [
     text: "Get SDS, COA, and destination paperwork sorted upfront.",
     icon: FileCheck2,
     image: "/workflow/confirm-documents.webp",
+    mobileImage: "/workflow/confirm-documents-mobile.webp",
     imageAlt: "Export documentation desk with silica gel sample and compliance papers",
   },
   {
@@ -117,6 +119,7 @@ const procurementFlow = [
     text: "Lock MOQ, Incoterms, and dispatch details, then confirm the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
+    mobileImage: "/workflow/plan-shipment-mobile.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
   },
 ];
@@ -251,10 +254,7 @@ export default function Home() {
             </picture>
             <div className={styles.heroXShade} aria-hidden="true" />
             <div className={styles.heroXAurora} aria-hidden="true" />
-            <div className={styles.heroXGrid} aria-hidden="true" />
-            <div className={styles.heroXNoise} aria-hidden="true" />
-            {/* Silica-bead dot grid + soft headline glow (pure CSS layers). */}
-            <div className={styles.heroXDots} aria-hidden="true" />
+            {/* Soft headline glow (pure CSS layer). */}
             <div className={styles.heroXGlow} aria-hidden="true" />
 
             <div className={styles.heroXContainer}>
@@ -332,8 +332,16 @@ export default function Home() {
                           src={item.image}
                           alt={item.imageAlt}
                           fill
-                          className={styles.procurementFlowImage}
+                          className={`${styles.procurementFlowImage} ${styles.procurementFlowImageDesktop}`}
                           sizes="(max-width: 900px) 100vw, 34vw"
+                        />
+                        <Image
+                          src={item.mobileImage}
+                          alt=""
+                          fill
+                          className={`${styles.procurementFlowImage} ${styles.procurementFlowImageMobile}`}
+                          sizes="84px"
+                          aria-hidden="true"
                         />
                         <div className={styles.procurementFlowIcon}>
                           <Icon size={18} strokeWidth={1.8} />
@@ -557,7 +565,7 @@ export default function Home() {
                   Four fields, one clean quote back, usually within 24 hours.
                 </p>
               </div>
-                <DeferredQuoteForm title="Send MOQ Requirement" />
+                <DeferredQuoteForm title="Send MOQ Requirement" compact />
             </section>
           </Reveal>
         </main>
