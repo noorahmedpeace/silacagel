@@ -5,8 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GuaranteeStrip } from "@/components/guarantee-strip";
-import { GlobalDiscountCampaign } from "@/components/global-discount-campaign";
-import { ClarityBridge } from "@/components/clarity-bridge";
+import { DeferredChrome } from "@/components/deferred-chrome";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -209,8 +208,7 @@ export default function RootLayout({
         {children}
         <GuaranteeStrip />
         <WhatsAppFloat />
-        <GlobalDiscountCampaign />
-        <ClarityBridge />
+        <DeferredChrome />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
