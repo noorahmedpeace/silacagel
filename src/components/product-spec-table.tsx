@@ -29,6 +29,22 @@ export function ProductSpecTable({
     brand: { "@type": "Brand", name: SPEC_BRAND },
     countryOfOrigin: spec.countryOfOrigin,
     material: spec.material,
+    offers: {
+      "@type": "Offer",
+      url: productUrl,
+      availability: "https://schema.org/InStock",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+        description:
+          "B2B quote on request. Final pricing depends on product format, size mix, carton volume, destination, documents, and repeat schedule.",
+      },
+      seller: {
+        "@type": "Organization",
+        name: SPEC_BRAND,
+      },
+    },
     additionalProperty: rows.map((r) => ({
       "@type": "PropertyValue",
       name: r.label,

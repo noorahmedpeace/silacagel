@@ -324,7 +324,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 12px 32px;
+  gap: 10px 12px;
   margin-top: clamp(30px, 4vw, 44px);
   padding-top: 22px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -334,11 +334,15 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: rgba(233, 238, 247, 0.56);
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(233, 238, 247, 0.68);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -423,6 +427,28 @@
 
   .emailDirectory {
     grid-template-columns: 1fr;
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .primary,
+  .secondary,
+  .whatsapp {
+    width: 100%;
+  }
+
+  .trustRow {
+    gap: 8px;
+  }
+
+  .trustBadge {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 9px 10px;
+    font-size: 0.66rem;
   }
 
   .bottomBar {

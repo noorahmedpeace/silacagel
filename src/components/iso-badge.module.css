@@ -1,12 +1,12 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
-  padding: 6px 13px 6px 7px;
-  border-radius: 12px;
-  border: 1px solid rgba(45, 91, 255, 0.2);
+  gap: 8px;
+  padding: 5px 11px 5px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(45, 91, 255, 0.16);
   background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(234, 240, 255, 0.72));
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(246, 248, 252, 0.86));
   color: var(--ds-brand-deep);
   text-decoration: none;
   box-shadow:
@@ -22,10 +22,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   flex-shrink: 0;
-  border-radius: 9px;
+  border-radius: 999px;
   color: var(--ds-brand);
   background: rgba(45, 91, 255, 0.14);
   border: 1px solid rgba(91, 134, 255, 0.34);
@@ -41,7 +41,7 @@
 
 .text strong {
   font-family: var(--font-display), var(--font-body);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -52,9 +52,9 @@
   gap: 5px;
   font-family: var(--font-mono);
   font-style: normal;
-  font-size: 0.55rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ds-brand);
 }
@@ -76,20 +76,18 @@
 
 /* ── Dark tone for hero / footer fields ── */
 .dark {
-  /* Near-opaque dark fill so the hero's background dot-grid never bleeds
-   * through the badge (this badge sits in a dense part of the grid). */
-  border-color: rgba(255, 255, 255, 0.12);
-  background: linear-gradient(135deg, rgba(24, 30, 48, 0.98), rgba(15, 20, 35, 0.98));
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
   color: #ffffff;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 18px 38px -20px rgba(6, 10, 24, 0.9);
+    0 12px 28px -22px rgba(6, 10, 24, 0.9);
 }
 
 .dark .seal {
-  color: var(--ds-brand-bright);
-  background: rgba(45, 91, 255, 0.2);
-  border-color: rgba(91, 134, 255, 0.4);
+  color: #dce7ff;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
@@ -113,14 +111,33 @@
     transform: translate(2px, -2px);
   }
   .dark:hover {
-    border-color: rgba(91, 134, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.28);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.22),
-      0 22px 42px -18px rgba(6, 10, 24, 0.95),
-      0 0 22px -8px rgba(45, 91, 255, 0.5);
+      0 18px 36px -24px rgba(6, 10, 24, 0.95);
   }
   .dark:hover .seal {
-    background: rgba(45, 91, 255, 0.3);
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+@media (max-width: 640px) {
+  .badge {
+    padding: 5px 10px 5px 6px;
+  }
+
+  .seal {
+    width: 24px;
+    height: 24px;
+  }
+
+  .text strong {
+    font-size: 0.74rem;
+  }
+
+  .text em,
+  .arrow {
+    display: none;
   }
 }
 
