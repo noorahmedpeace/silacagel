@@ -9,7 +9,7 @@ import styles from "./compare.module.css";
 export const metadata: Metadata = {
   title: `Desiccant Comparison Hub | ${siteName}`,
   description:
-    "Compare silica gel formats, indicating vs non-indicating gel, container desiccants, bulk gel, clay desiccant, molecular sieve, and oxygen absorbers for B2B buying decisions.",
+    "Compare silica gel formats, indicating gel, container desiccants, bulk gel, clay desiccant, molecular sieve, and oxygen absorbers for B2B buying.",
   alternates: {
     canonical: "/compare",
   },

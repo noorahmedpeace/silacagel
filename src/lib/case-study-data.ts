@@ -28,7 +28,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "UAE Container Export",
     title: "Sizing container desiccant for a Karachi-Jebel Ali electronics shipment.",
     metaDescription:
-      "Anonymous UAE container export case study: sizing cargo desiccant strips for electronics moving Karachi to Jebel Ali, with route humidity, MOQ, Incoterms, SDS, and COA planning.",
+      "UAE container case study: sizing cargo desiccant strips for electronics moving Karachi to Jebel Ali, with route humidity, MOQ, Incoterms, SDS, and COA.",
     image: "/applications/export-logistics.webp",
     context:
       "A UAE importer moving boxed electronics on the Karachi-Jebel Ali route needed a defensible container desiccant plan before confirming CIF terms.",
@@ -70,7 +70,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Saudi Bulk Supply",
     title: "Structuring a recurring bulk silica gel program for a Saudi distributor.",
     metaDescription:
-      "Anonymous Saudi Arabia bulk silica gel case study: building a recurring distributor supply program with MOQ, lead time, Jeddah/Dammam routing, Incoterms, SDS, and COA.",
+      "Saudi bulk silica gel case study: recurring distributor supply with MOQ, lead time, Jeddah/Dammam routing, Incoterms, SDS, and COA.",
     image: "/applications/warehouse-inventory.webp",
     context:
       "A Saudi distributor wanted predictable, repeatable bulk silica gel supply instead of re-quoting every shipment from scratch.",
@@ -138,7 +138,7 @@ export const caseStudies: CaseStudy[] = [
     industry: "Container Export",
     title: "Planning container desiccant strips before freight pricing.",
     metaDescription:
-      "Anonymous container export moisture protection case study covering container desiccant strips, route humidity, container rain risk, SDS, COA, and RFQ planning.",
+      "Container export moisture case study covering desiccant strips, route humidity, container rain risk, SDS, COA, and RFQ planning.",
     image: "/applications/export-logistics.webp",
     context:
       "A cargo team needed to evaluate desiccant strips before confirming FOB/CIF terms for long-haul sea freight.",

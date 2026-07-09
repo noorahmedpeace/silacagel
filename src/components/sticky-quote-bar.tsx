@@ -30,7 +30,7 @@ export function StickyQuoteBar({
 
   useEffect(() => {
     if (window.sessionStorage.getItem(DISMISS_KEY)) return;
-    setDismissed(false);
+    const revealFrame = window.requestAnimationFrame(() => setDismissed(false));
 
     let ticking = false;
     const update = () => {
@@ -62,6 +62,7 @@ export function StickyQuoteBar({
 
     update();
     return () => {
+      window.cancelAnimationFrame(revealFrame);
       window.removeEventListener("scroll", onScroll);
       observer?.disconnect();
     };

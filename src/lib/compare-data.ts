@@ -36,7 +36,7 @@ export const comparePages: ComparePage[] = [
     slug: "silica-gel-vs-clay-desiccant",
     productA: "Silica Gel",
     productB: "Dry Clay Desiccant",
-    h1: "Silica gel vs dry clay desiccant: buyer comparison for industrial moisture control",
+    h1: "Silica gel vs dry clay desiccant: buyer comparison",
     description:
       "Side-by-side comparison of silica gel and dry clay desiccant for industrial buyers - adsorption capacity, cost per kg, regulatory profile, regenerability, and the decision matrix for picking the right desiccant per cargo type.",
     introA:
@@ -88,7 +88,7 @@ export const comparePages: ComparePage[] = [
     slug: "silica-gel-vs-molecular-sieve",
     productA: "Silica Gel",
     productB: "Molecular Sieve",
-    h1: "Silica gel vs molecular sieve: buyer comparison for moisture and selective adsorption",
+    h1: "Silica gel vs molecular sieve: buyer comparison",
     description:
       "Buyer comparison of silica gel and molecular sieve desiccants - water capacity, selective adsorption capability, working temperature, cost, and the decision matrix for picking the right desiccant per industrial application.",
     introA:
@@ -138,7 +138,7 @@ export const comparePages: ComparePage[] = [
     slug: "silica-gel-vs-oxygen-absorber",
     productA: "Silica Gel",
     productB: "Oxygen Absorber",
-    h1: "Silica gel vs oxygen absorber: buyer comparison for moisture vs oxidation protection",
+    h1: "Silica gel vs oxygen absorber: buyer comparison",
     description:
       "Comparison of silica gel and oxygen absorbers - what each one protects against, when to use which, and the cases where buyers need both products in parallel inside the same package.",
     introA:
@@ -341,9 +341,9 @@ export const comparePages: ComparePage[] = [
     slug: "silica-gel-vs-calcium-chloride-container-desiccant",
     productA: "Silica Gel / Clay Container Desiccant",
     productB: "Calcium Chloride Container Desiccant",
-    h1: "Silica gel vs calcium chloride container desiccant: the ocean-freight buyer decision",
+    h1: "Silica gel vs calcium chloride container desiccant",
     description:
-      "Side-by-side comparison of adsorbing desiccants (silica gel and clay) versus deliquescent calcium chloride container desiccants for sea-freight 'container rain' - adsorption capacity, gel/leak risk, dosing, cost, and which to specify per cargo and route.",
+      "Compare silica gel and clay versus calcium chloride container desiccants for container rain: capacity, gel/leak risk, dosing, cost, and cargo fit.",
     introA:
       "Silica gel and clay container strips are adsorbing desiccants: they hold water vapor inside a porous structure (silica gel up to ~33% of its weight, clay up to ~25%) without changing into a liquid. They are the standard for protecting moisture-sensitive cargo (leather, electronics, textiles, packaged goods) where any free liquid near the cargo is unacceptable. DryGelWorld supplies both as 1-5 kg hanging cargo strips and bulk.",
     introB:
@@ -395,9 +395,9 @@ export const comparePages: ComparePage[] = [
     slug: "desiccant-vs-vci-corrosion-protection",
     productA: "Silica Gel Desiccant",
     productB: "VCI (Vapor Corrosion Inhibitor)",
-    h1: "Desiccant vs VCI for corrosion protection: which protects metal parts in export packaging?",
+    h1: "Desiccant vs VCI for corrosion protection",
     description:
-      "Buyer comparison of silica gel desiccant and VCI (vapor corrosion inhibitor) for protecting metal parts, automotive components, and machinery during export - how each works, when to use which, and why many metal exporters use both together.",
+      "Compare silica gel desiccant and VCI for metal parts, automotive components, and machinery exports: how each works and when to use both.",
     introA:
       "Silica gel desiccant controls corrosion indirectly: by keeping the relative humidity inside the package low, it removes the water film that metal corrosion needs to start. It protects everything in the package (metal and non-metal alike), is regenerable, and ships with SDS/COA. It does not chemically passivate the metal surface.",
     introB:

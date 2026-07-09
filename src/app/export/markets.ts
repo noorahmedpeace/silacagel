@@ -1,6 +1,7 @@
 export type ExportMarket = {
   slug: string;
   country: string;
+  updatedAt?: string;
   title: string;
   description: string;
   buyerTypes: string[];
@@ -16,6 +17,8 @@ export type ExportMarket = {
   currency?: string;
   incoterms?: string[];
   faqs?: Array<{ question: string; answer: string }>;
+  procurementNotes?: Array<{ label: string; title: string; text: string }>;
+  relatedLinks?: Array<{ label: string; description: string; href: string }>;
   // Customs and import essentials. Only verifiable facts belong here: the HS
   // classification, the destination's OFFICIAL tariff lookup (so buyers and AI
   // engines can verify duty themselves), standard shipping documents, and
@@ -237,16 +240,88 @@ export const exportMarkets: ExportMarket[] = [
   {
     slug: "mexico",
     country: "Mexico",
-    title: "Silica gel export supply for Mexico packaging and industrial buyers.",
+    updatedAt: "2026-07-09",
+    title: "Silica gel supplier for Mexico packaging and industrial buyers.",
     description:
-      "Factory-direct silica gel packets, bulk beads, private-label sachets, and cargo strips for Mexican distributors, electronics packagers, warehouses, and importers.",
-    buyerTypes: ["Packaging distributors", "Electronics and automotive suppliers", "Warehouse teams", "Private-label buyers"],
+      "Factory-direct silica gel packets, bulk beads, private-label sachets, and cargo strips for Mexican packaging distributors, electronics and automotive suppliers, warehouses, and importers.",
+    buyerTypes: ["Packaging distributors", "Electronics and automotive suppliers", "Warehouse and 3PL teams", "Private-label desiccant buyers"],
     ports: ["Manzanillo", "Veracruz", "Lazaro Cardenas", "Altamira"],
-    products: ["0.5g-10g sachets", "25g-500g carton packs", "25kg loose bulk", "Private-label programs"],
+    products: ["0.5g-10g silica gel sachets", "25g-500g carton packs", "25kg loose bulk beads", "Container desiccant strips"],
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     routeNote:
-      "Mexico buyers should clarify port, labeling language, private-label expectations, and whether the buying route is distributor stock or direct factory use.",
-    rfqTip: "Send destination port, Spanish/English labeling needs, quantity, Incoterms, and target product format.",
+      "Mexico programs should separate Pacific routing through Manzanillo or Lazaro Cardenas from Gulf routing through Veracruz or Altamira. The destination port, inland delivery point, labeling language, and storage duration all affect pack format and freight planning.",
+    rfqTip: "Send destination port and state, Spanish/English labeling needs, packet size, monthly quantity, Incoterms, and whether the material is for distributor stock or direct factory use.",
+    moq: "Typically from 100 kg or 100,000 sachets per format; 25 kg loose-bulk orders are quoted from 500 kg. Samples can be reviewed before bulk production.",
+    leadTime:
+      "Production is normally planned 7-15 days after specification and artwork approval. Ocean transit and inland delivery are quoted against the selected Mexico port and current carrier schedule.",
+    currency: "Export quotations issued in USD",
+    incoterms: ["FOB Karachi", "CIF Manzanillo", "CIF Veracruz", "DAP Mexico by quotation"],
+    procurementNotes: [
+      {
+        label: "Industrial demand",
+        title: "Electronics and automotive packaging",
+        text: "For components, spare parts, control modules, and metal assemblies, share the barrier-bag or carton dimensions, storage duration, and expected monthly volume so sachet size can be reviewed against the actual pack.",
+      },
+      {
+        label: "Distributor programs",
+        title: "Stock formats for Mexican resellers",
+        text: "Distributors can combine standard small sachets, larger carton packs, and loose bulk beads under one documented supply program. Repeat orders should retain the approved specification and carton configuration.",
+      },
+      {
+        label: "Label planning",
+        title: "Spanish and English private labeling",
+        text: "Private-label inquiries should include packet warning text, brand artwork, carton marks, barcode requirements, and preferred language before samples are approved. Final compliance remains subject to the buyer's local review.",
+      },
+      {
+        label: "Port selection",
+        title: "Pacific and Gulf routing",
+        text: "Use Manzanillo or Lazaro Cardenas for Pacific-side planning and Veracruz or Altamira for Gulf-side planning. Share the final inland destination so freight comparisons reflect the complete route rather than port cost alone.",
+      },
+    ],
+    relatedLinks: [
+      {
+        label: "Packet formats",
+        description: "Compare small sachets and industrial packet sizes for cartons and component packaging.",
+        href: "/silica-gel-packets",
+      },
+      {
+        label: "Private label",
+        description: "Review custom packet printing, artwork, and distributor packaging options.",
+        href: "/private-label-desiccant-packets",
+      },
+      {
+        label: "Container cargo",
+        description: "Plan moisture control for long-haul containers and warehouse handover.",
+        href: "/shipping-container-desiccant-supplier",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the MOQ for silica gel exports to Mexico?",
+        answer:
+          "Orders typically start from 100 kg or 100,000 sachets per format. Loose bulk silica gel is normally quoted from 500 kg, while samples can be reviewed before a bulk order.",
+      },
+      {
+        question: "Can sachets and cartons carry Spanish-language labeling?",
+        answer:
+          "Yes. Spanish or bilingual Spanish/English packet text and carton marks can be prepared from buyer-approved artwork. Share warning text, barcode, brand, and local labeling requirements before sample approval.",
+      },
+      {
+        question: "Which Mexico ports can be quoted?",
+        answer:
+          "CIF planning can be prepared for Manzanillo, Lazaro Cardenas, Veracruz, or Altamira. The best route depends on the final state or inland delivery point, shipment volume, and current carrier schedule.",
+      },
+      {
+        question: "Which documents are supplied with a Mexico shipment?",
+        answer:
+          "The standard documentation set can include the commercial invoice, packing list, SDS, Certificate of Analysis, ISO 9001:2015 certificate, and DMF-free statement. Confirm any additional broker or destination requirement before production.",
+      },
+      {
+        question: "Can Mexican distributors order private-label silica gel packets?",
+        answer:
+          "Yes. Private-label programs can cover packet printing, approved artwork, carton marks, and repeat specifications for distributors. MOQ depends on packet size, material, and print configuration.",
+      },
+    ],
   },
   {
     slug: "turkey",
@@ -309,7 +384,7 @@ export const exportMarkets: ExportMarket[] = [
   {
     slug: "malaysia",
     country: "Malaysia",
-    title: "Silica gel desiccant supplier for Malaysia electronics, packaging, and logistics buyers.",
+    title: "Silica gel supplier for Malaysia packaging buyers.",
     description:
       "Silica gel packets, bulk beads, private-label sachets, and container strips for Malaysian electronics packagers, food packaging, warehouses, and importers.",
     buyerTypes: ["Electronics and component packagers", "Food and dry-goods packaging teams", "Packaging distributors", "Port Klang importers"],
@@ -442,7 +517,7 @@ export const exportMarkets: ExportMarket[] = [
   },
   {
     slug: "europe",
-    country: "Europe (EU-wide)",
+    country: "Europe",
     title: "Silica gel and desiccant export supply for European buyers.",
     description:
       "Multi-port European supply for distributors, importers, OEM packagers, and regional networks across the EU and adjacent markets - silica gel, dry clay, container strips, and private-label programs.",

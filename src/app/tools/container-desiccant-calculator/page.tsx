@@ -14,7 +14,7 @@ import styles from "../../strategy-pages.module.css";
 
 const metaTitle = "Container Desiccant Calculator | kg per 20ft & 40ft";
 const pageDescription =
-  "Free container desiccant calculator. Get the desiccant kg a 20ft or 40ft container needs from cargo type, packaging, transit days, and route humidity - with the full moisture-load formula shown, plus a printable dosage plan.";
+  "Free container desiccant calculator for 20ft and 40ft cargo. Estimate kg from cargo type, packaging, transit days, route humidity, and dosage plan.";
 
 export const metadata: Metadata = {
   title: metaTitle,

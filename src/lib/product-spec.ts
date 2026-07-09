@@ -1,7 +1,7 @@
 /*
  * Standardised B2B product spec sheet — the ~25 attributes every product page
  * exposes for importers/distributors, rendered by <ProductSpecTable> and mirrored
- * into Product JSON-LD (additionalProperty).
+ * into non-Product specifications JSON-LD.
  *
  * HONESTY DISCIPLINE (matches /llms.txt and the certifications page): DryGelWorld
  * holds ONLY ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225) + a DMF-free statement.
@@ -235,6 +235,26 @@ export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
 
 // ── Category landing-page specs (keyed by SEO landing slug) ──────────────────
 const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }> = {
+  "silica-gel-manufacturer": {
+    name: "Manufacturer-direct silica gel supply",
+    spec: {
+      productType: "Manufacturer-direct silica gel desiccant supply",
+      sizes: "0.5 g-500 g sachets and bags; 1-25 kg bulk formats; 1-5 kg cargo strips",
+      packaging: "Paper and non-woven sachets, industrial bags, drums, sacks, cartons, and hanging strips",
+      application: "B2B product packaging, warehousing, repacking, private label, and export cargo",
+      industries: "Packaging, electronics, leather, textiles, logistics, food and pharma secondary packaging",
+    },
+  },
+  "silica-gel-supplier": {
+    name: "B2B silica gel supply program",
+    spec: {
+      productType: "Silica gel packets, bulk beads, bags, and cargo strips",
+      sizes: "0.5 g-500 g finished formats; 1-25 kg bulk formats; 1-5 kg cargo strips",
+      packaging: "Sachets, bags, sacks, drums, export cartons, and private-label packing",
+      application: "Repeat B2B supply for packaging, warehousing, distribution, and export logistics",
+      industries: "Distributors, packagers, importers, exporters, warehouses, and factories",
+    },
+  },
   "white-silica-gel": {
     name: "White (non-indicating) silica gel",
     spec: {
@@ -320,6 +340,46 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
       application: "Ocean-freight container rain and condensation control",
       industries: "Export logistics, ocean freight, project cargo",
       adsorptionCapacity: "Up to ~33% (silica gel strips); clay variants up to ~25%",
+    },
+  },
+  "container-desiccant-supplier": {
+    name: "Container cargo desiccants",
+    spec: {
+      productType: "Hanging container desiccant strips and cargo bags",
+      sizes: "500 g, 1 kg, 2 kg, 3 kg, and 5 kg formats",
+      packaging: "Multi-chamber hanging strips with hooks; export cartons",
+      application: "Route-based condensation and container-rain control",
+      industries: "Ocean freight, export logistics, textiles, leather, machinery",
+    },
+  },
+  "shipping-container-desiccant-supplier": {
+    name: "Shipping container desiccants",
+    spec: {
+      productType: "High-capacity cargo desiccant strips",
+      sizes: "1 kg to 5 kg strips for 20ft and 40ft planning",
+      packaging: "Hanging multi-chamber strips in sealed export packing",
+      application: "Sea-freight humidity, condensation, and container-rain control",
+      industries: "Export cargo, freight forwarding, warehousing, project shipments",
+    },
+  },
+  "private-label": {
+    name: "Private-label silica gel packets",
+    spec: {
+      productType: "Custom printed silica gel sachets",
+      sizes: "0.5 g to 100 g standard packet range",
+      packaging: "Paper or non-woven sachets; buyer-labeled inner and master cartons",
+      application: "Branded product packs, distributor SKUs, and OEM insertion lines",
+      industries: "Consumer goods, electronics, footwear, apparel, packaging",
+    },
+  },
+  "private-label-silica-gel-supplier": {
+    name: "OEM silica gel sachets",
+    spec: {
+      productType: "Printed and buyer-labeled desiccant packets",
+      sizes: "0.5 g to 100 g, subject to material and print setup",
+      packaging: "Custom sachets, inner bags, carton labels, and export cartons",
+      application: "Repeat private-label and contract-packing programs",
+      industries: "Brands, distributors, importers, and contract packers",
     },
   },
   "food-grade-silica-gel-supplier": {

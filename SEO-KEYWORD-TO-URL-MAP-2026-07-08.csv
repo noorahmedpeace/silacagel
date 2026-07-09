@@ -1,0 +1,71 @@
+keyword,primary_url,intent_cluster,action
+buy silica gel,/buy-silica-gel,buy silica gel,primary
+buy silica gel online,/buy-silica-gel,buy silica gel,consolidate
+purchase silica gel,/buy-silica-gel,buy silica gel,consolidate
+order silica gel,/buy-silica-gel,buy silica gel,consolidate
+silica gel for sale,/buy-silica-gel,buy silica gel,consolidate
+silica gel supplier,/silica-gel-supplier,supplier,primary
+silica gel wholesaler,/silica-gel-supplier,supplier,consolidate
+silica gel distributor,/silica-gel-supplier,supplier,consolidate
+industrial silica gel supplier,/industrial-desiccant-supplier,industrial supply,primary
+industrial desiccant supplier,/industrial-desiccant-supplier,industrial supply,consolidate
+silica gel manufacturer,/silica-gel-manufacturer,manufacturer,primary
+silica gel factory,/silica-gel-manufacturer,manufacturer,consolidate
+silica gel packaging company,/packaging-desiccant-manufacturer,packaging manufacturer,primary
+desiccant factory,/desiccant-manufacturer,desiccant manufacturer,consolidate
+silica gel exporter,/export,exporter,primary
+silica gel supplier for export,/export,exporter,consolidate
+silica gel exporter to Europe,/export,exporter,consolidate
+silica gel exporter to Middle East,/export,exporter,consolidate
+silica gel manufacturer Pakistan,/silica-gel-manufacturer-pakistan,Pakistan manufacturer,primary
+silica gel exporter Pakistan,/silica-gel-manufacturer-pakistan,Pakistan manufacturer,consolidate
+desiccant supplier Pakistan,/silica-gel-manufacturer-pakistan,Pakistan manufacturer,consolidate
+bulk silica gel,/bulk-silica-gel-desiccant,bulk silica gel,primary
+wholesale silica gel,/bulk-silica-gel-desiccant,bulk silica gel,consolidate
+silica gel bulk order,/bulk-silica-gel-desiccant,bulk silica gel,consolidate
+bulk moisture absorber supplier,/bulk-silica-gel-desiccant,bulk silica gel,consolidate
+silica gel price,/pricing,pricing,primary
+silica gel quote,/pricing,pricing,consolidate
+silica gel RFQ,/pricing,pricing,consolidate
+request silica gel quote,/pricing,pricing,consolidate
+silica gel quotation,/pricing,pricing,consolidate
+silica gel MOQ,/pricing,pricing,consolidate
+silica gel wholesale price,/pricing,pricing,consolidate
+silica gel packets supplier,/silica-gel-packets,packets,primary
+buy desiccant packets,/silica-gel-packets,packets,consolidate
+purchase desiccant packets,/silica-gel-packets,packets,consolidate
+desiccant sachets supplier,/silica-gel-packets,packets,consolidate
+bulk desiccant packets,/silica-gel-packets-wholesale,packet wholesale,primary
+silica gel packets wholesale,/silica-gel-packets-wholesale,packet wholesale,consolidate
+silica gel sachets bulk,/silica-gel-packets-wholesale,packet wholesale,consolidate
+desiccant packets manufacturer,/silica-gel-packets-manufacturer,packet manufacturer,primary
+silica gel pouches manufacturer,/silica-gel-packets-manufacturer,packet manufacturer,consolidate
+silica gel bags supplier,/desiccant-bags-supplier,desiccant bags,primary
+moisture absorber supplier,/moisture-absorber-supplier,moisture absorber,primary
+moisture absorber packets,/moisture-absorber-supplier,moisture absorber,consolidate
+container desiccant supplier,/container-desiccant-supplier,container supply,primary
+buy container desiccant,/container-desiccant-supplier,container supply,consolidate
+bulk container desiccant,/container-desiccant-supplier,container supply,consolidate
+cargo desiccant supplier,/container-desiccant-supplier,container supply,consolidate
+container desiccant manufacturer,/container-desiccant-supplier,container supply,consolidate
+shipping container desiccant,/shipping-container-desiccant-supplier,shipping container,primary
+container moisture absorber,/shipping-container-moisture-control,container moisture control,primary
+export container desiccant,/shipping-container-desiccant-supplier,shipping container,consolidate
+container desiccant strips,/container-desiccant-strips,container strips,primary
+container desiccant bags,/container-desiccant-strips,container strips,consolidate
+OEM silica gel supplier,/oem-silica-gel-manufacturer,OEM,primary
+private label silica gel,/private-label,private label,primary
+custom silica gel packets,/private-label,private label,consolidate
+custom desiccant sachets,/private-label,private label,consolidate
+food grade silica gel supplier,/food-grade-silica-gel-supplier,food packaging,primary
+pharmaceutical silica gel supplier,/pharmaceutical-desiccant,pharmaceutical packaging,primary
+buy silica gel USA,/export/usa,USA export,primary
+silica gel supplier USA,/export/usa,USA export,consolidate
+buy silica gel UK,/export/united-kingdom,UK export,primary
+silica gel supplier UK,/silica-gel-supplier-uk,UK supplier,primary
+buy silica gel UAE,/export/uae,UAE export,primary
+silica gel supplier UAE,/export/uae,UAE export,consolidate
+buy silica gel Saudi Arabia,/export/saudi-arabia,Saudi export,primary
+buy silica gel Germany,/export/germany,Germany export,primary
+buy silica gel Australia,/export/australia,Australia export,primary
+silica gel near me,/silica-gel-supplier,local proximity,limited by physical proximity
