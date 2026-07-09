@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ShieldCheck } from "lucide-react";
 import { caseStudies, getCaseStudy } from "@/lib/case-study-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import styles from "../case-studies.module.css";
@@ -122,11 +123,22 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
             <blockquote>&ldquo;{study.attribution.quote}&rdquo;</blockquote>
           ) : null}
           <figcaption>
-            <span className={study.attribution.name.includes("PLACEHOLDER") ? styles.metricPlaceholder : styles.attrName}>
-              {study.attribution.name}
-            </span>
+            <span className={styles.attrName}>{study.attribution.name}</span>
             <span className={styles.attrMeta}>
               {study.attribution.title} · {study.attribution.company}
+            </span>
+          </figcaption>
+        </figure>
+      ) : study.anonymizedRef ? (
+        <figure className={styles.anonRef}>
+          <span className={styles.anonRefBadge}>
+            <ShieldCheck size={14} strokeWidth={2} aria-hidden="true" /> Anonymized reference
+          </span>
+          <figcaption>
+            <span className={styles.anonRefName}>{study.anonymizedRef}</span>
+            <span className={styles.attrMeta}>
+              This buyer is referenced anonymously. A named reference will replace this
+              once written permission is granted.
             </span>
           </figcaption>
         </figure>
