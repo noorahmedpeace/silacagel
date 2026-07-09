@@ -3,8 +3,9 @@ import styles from "./product-spec-table.module.css";
 
 /**
  * Standardised B2B spec sheet for a product/category page. Renders a clean
- * two-column table of the ~25 buyer attributes plus a matching Product JSON-LD
- * `additionalProperty` block so the same facts are machine-readable.
+ * two-column table of the ~25 buyer attributes plus a matching specifications
+ * JSON-LD block so the same facts are machine-readable without creating an
+ * incomplete Product rich-result node on quote-based B2B pages.
  */
 export function ProductSpecTable({
   productName,
@@ -23,16 +24,21 @@ export function ProductSpecTable({
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    ...(productUrl ? { "@id": `${productUrl}#product` } : {}),
-    name: productName,
-    brand: { "@type": "Brand", name: SPEC_BRAND },
-    countryOfOrigin: spec.countryOfOrigin,
-    material: spec.material,
-    additionalProperty: rows.map((r) => ({
-      "@type": "PropertyValue",
-      name: r.label,
-      value: r.value,
+    "@type": "ItemList",
+    ...(productUrl ? { "@id": `${productUrl}#specifications` } : {}),
+    name: `${productName} specifications`,
+    itemListElement: [
+      { label: "Brand", value: SPEC_BRAND },
+      { label: "Product name", value: productName },
+      ...rows,
+    ].map((r, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "PropertyValue",
+        name: r.label,
+        value: r.value,
+      },
     })),
   };
 
@@ -71,7 +77,7 @@ export function ProductSpecTable({
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
     </section>
   );
