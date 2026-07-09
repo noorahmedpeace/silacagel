@@ -1,7 +1,7 @@
 /*
  * Standardised B2B product spec sheet — the ~25 attributes every product page
  * exposes for importers/distributors, rendered by <ProductSpecTable> and mirrored
- * into Product JSON-LD (additionalProperty).
+ * into non-Product specifications JSON-LD.
  *
  * HONESTY DISCIPLINE (matches /llms.txt and the certifications page): DryGelWorld
  * holds ONLY ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225) + a DMF-free statement.
