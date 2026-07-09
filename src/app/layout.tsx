@@ -186,20 +186,11 @@ export default function RootLayout({
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
         <link rel="alternate" type="text/plain" title="LLM guide (llms.txt)" href="/llms.txt" />
-        <link
-          rel="preload"
-          as="image"
-          href="/hero-macro-kraft-mobile.webp"
-          media="(max-width: 760px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/hero-macro-kraft.webp"
-          media="(min-width: 761px)"
-          fetchPriority="high"
-        />
+        {/* The hero LCP preload lives on the homepage itself (src/app/page.tsx),
+            media-scoped and pointing at the optimized /_next/image URL the <img>
+            actually fetches. It was previously here in the layout, which (a)
+            preloaded the raw un-optimized webp the hero never uses, and (b) forced
+            EVERY route to preload a homepage-only image. Both wasted bandwidth. */}
       </head>
       <body>
         <ScrollProgress />

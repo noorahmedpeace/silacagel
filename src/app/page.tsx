@@ -227,7 +227,12 @@ const testimonials = [
 ];
 
 const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
-const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", priority: true, quality: 72 } as const;
+// No `priority` here: a blanket priority on both art-directed variants makes Next
+// emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
+// downloads the desktop crop (and vice-versa), starving the real LCP resources
+// (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
+// our own media-scoped preloads below — exactly one hero image per viewport.
+const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
 const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
 const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
 
@@ -241,6 +246,24 @@ export default function Home() {
                 macro (mobile/desktop <picture>, preloaded LCP) sits behind a
                 near-black cobalt field with a drifting aurora and a fine
                 perspective grid - moody, engineered, premium. */}
+            {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
+                desktop only the desktop crop — React 19 hoists these to <head>. */}
+            <link
+              rel="preload"
+              as="image"
+              media="(max-width: 768px)"
+              imageSrcSet={heroMobileProps.srcSet}
+              imageSizes={heroMobileProps.sizes}
+              fetchPriority="high"
+            />
+            <link
+              rel="preload"
+              as="image"
+              media="(min-width: 769px)"
+              imageSrcSet={heroDesktopProps.srcSet}
+              imageSizes={heroDesktopProps.sizes}
+              fetchPriority="high"
+            />
             <picture>
               <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
               <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
@@ -248,6 +271,7 @@ export default function Home() {
                 {...heroDesktopProps}
                 id="hero-product-image"
                 className={styles.heroXImage}
+                loading="eager"
                 fetchPriority="high"
                 alt={HERO_ALT}
               />
