@@ -303,6 +303,22 @@ export default function AboutPage() {
             </p>
           </div>
 
+          <div className={styles.editorial}>
+            <h3>Independent B2B listing</h3>
+            <p>
+              Procurement buyers can cross-check {siteName} on an independent trade
+              platform:{" "}
+              <a
+                href="https://www.tradekey.com/product-free/Silica-Gel-Packets-Desiccant-Sachets-For-Moisture-Protection-12019655.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                our TradeKey supplier listing
+              </a>
+              .
+            </p>
+          </div>
+
           {author ? (
             <div className={styles.editorial}>
               <h3>Editorial accountability</h3>

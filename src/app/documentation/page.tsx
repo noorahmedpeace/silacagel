@@ -161,6 +161,10 @@ export default function DocumentationPage() {
           <p>Independent profiles a buyer can cross-check. Real links only.</p>
         </div>
         <div className={styles.verifyRow}>
+          <a href="https://www.tradekey.com/product-free/Silica-Gel-Packets-Desiccant-Sachets-For-Moisture-Protection-12019655.html" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+            <strong>TradeKey</strong>
+            <em>B2B supplier listing</em>
+          </a>
           <a href="https://www.linkedin.com/in/drygelworld/" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
             <strong>LinkedIn</strong>
             <em>Company profile</em>
