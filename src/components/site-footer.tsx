@@ -200,7 +200,8 @@ export function SiteFooter() {
       <div className={styles.bottomBar}>
         <span className={styles.copyright}>© 2026 DryGelWorld. All rights reserved.</span>
         <div className={styles.bottomMeta}>
-          <a href="/sitemap.xml">Sitemap</a>
+          {/* No human-facing /sitemap.xml link: it renders as raw XML (poor UX)
+              and Google already discovers it via robots.txt (see robots.ts). */}
           <address>{companyAddressFull}</address>
           <a href={`tel:${phoneHref}`}>{displayPhone}</a>
         </div>
