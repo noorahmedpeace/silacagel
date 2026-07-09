@@ -50,6 +50,43 @@ const stats = [
   { value: "24h", label: "Quote response target" },
 ];
 
+// Real, unstaged photographs of our own Karachi factory and warehouse - never
+// stock, never AI. Each caption/alt describes exactly what the frame shows; the
+// bead-stock sacks are honestly labelled as raw stock, not implied as in-house
+// bead manufacturing.
+const facilityPhotos = [
+  {
+    src: "/facility/production-floor-sachet-line.webp",
+    alt: "Sachet production floor at the DryGelWorld factory in Karachi with sachet-making machines and an operator",
+    caption: "Sachet production floor, with an operator at the packing line.",
+  },
+  {
+    src: "/facility/finished-sachet-inventory.webp",
+    alt: "Shelves of bagged and labelled finished silica gel sachets in the DryGelWorld store room",
+    caption: "Finished sachets — bagged, labelled, and shelved by size.",
+  },
+  {
+    src: "/facility/warehouse-bulk-bags.webp",
+    alt: "Store-room shelves stacked with white bulk silica gel bags",
+    caption: "Store-room shelves of bagged bulk silica gel.",
+  },
+  {
+    src: "/facility/nonwoven-fabric-rolls.webp",
+    alt: "Wall of blue non-woven sachet fabric rolls in the DryGelWorld warehouse",
+    caption: "Non-woven sachet fabric stock, feeding the sachet lines.",
+  },
+  {
+    src: "/facility/bulk-stock-made-in-china.webp",
+    alt: "Stacked sacks of 2 to 4 mm silica gel bead stock",
+    caption: "Bulk silica gel bead stock (2–4 mm), sacked for processing.",
+  },
+  {
+    src: "/facility/warehouse-aisle-rolls-bags.webp",
+    alt: "Warehouse aisle lined with blue fabric rolls and white bagged stock",
+    caption: "Warehouse aisle — fabric rolls alongside bagged stock.",
+  },
+];
+
 // Verifiable corporate claims. These are the documented facts; anything
 // not in this list is either marketing language or honest scope rather
 // than a verifiable claim.
@@ -191,6 +228,37 @@ export default function AboutPage() {
                 <h3>{value.title}</h3>
                 <p>{value.desc}</p>
               </article>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className={styles.facility}>
+        <Reveal direction="up">
+          <div className={styles.sectionHead}>
+            <span className={styles.kicker}>Inside the operation</span>
+            <h2>Real photos from our Karachi factory and warehouse.</h2>
+            <p>
+              Unstaged photographs of our own production floor, sachet lines, and
+              stock rooms — genuine facility imagery, never stock photos or AI renders.
+            </p>
+          </div>
+        </Reveal>
+        <div className={styles.facilityGrid}>
+          {facilityPhotos.map((photo, idx) => (
+            <Reveal key={photo.src} direction="up" delay={0.06 * idx}>
+              <figure className={styles.facilityCard}>
+                <div className={styles.facilityMedia}>
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    fill
+                    sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+                <figcaption>{photo.caption}</figcaption>
+              </figure>
             </Reveal>
           ))}
         </div>
