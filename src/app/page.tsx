@@ -87,13 +87,6 @@ const trustSignalsArray = [
   },
 ];
 
-const heroCerts = [
-  "Serving since 1983",
-  "COA / SDS Available",
-  "Worldwide Delivery",
-  "Bulk Supply",
-];
-
 const procurementFlow = [
   {
     step: "01",
@@ -306,9 +299,6 @@ export default function Home() {
 
               <div className={`${styles.heroXProof} gsap-hero-fade`}>
                 <IsoBadge tone="dark" />
-                {heroCerts.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
               </div>
 
               <div className={`${styles.heroXSignals} gsap-hero-fade`}>
