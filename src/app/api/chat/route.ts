@@ -1,5 +1,6 @@
 // POST /api/chat — grounded, streamed answer from the DryGelWorld knowledge base.
 // Same-origin with the site, so no CORS needed.
+import { after } from "next/server";
 import { SYSTEM_PROMPT, businessInfo } from "@/lib/drybot/prompt";
 import { retrieve } from "@/lib/drybot/retrieve";
 
@@ -71,6 +72,14 @@ export async function POST(req: Request) {
     messages: [{ role: "system", content: SYSTEM_PROMPT }, ...priorTurns, { role: "user", content: userText }],
   };
 
+  // Log the conversation AFTER the response is sent — never block the chat on it.
+  let logData: Parameters<typeof logConversation>[0] | null = null;
+  let signalLogReady: () => void = () => {};
+  const logReady = new Promise<void>((resolve) => {
+    signalLogReady = resolve;
+  });
+  after(logReady.then(() => (logData ? logConversation(logData) : undefined)));
+
   const encoder = new TextEncoder();
   const stream = new ReadableStream({
     async start(controller) {
@@ -99,8 +108,7 @@ export async function POST(req: Request) {
           });
           send({ done: true });
           controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-          controller.close();
-          return;
+          return; // finally closes the stream
         }
 
         let answer = "";
@@ -133,12 +141,13 @@ export async function POST(req: Request) {
         send({ done: true });
         controller.enqueue(encoder.encode("data: [DONE]\n\n"));
         const fellBack = /couldn't find this information in the DryGelWorld knowledge base/i.test(answer);
-        await logConversation({ session, question: last.content, answer, sources, fellBack });
+        logData = { session, question: last.content, answer, sources, fellBack };
       } catch (err) {
         console.error("chat error:", err);
         send({ error: true });
       } finally {
         controller.close();
+        signalLogReady(); // fire the (non-blocking) log after the response
       }
     },
   });
