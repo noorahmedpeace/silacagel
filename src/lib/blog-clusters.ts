@@ -85,6 +85,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -226,6 +227,16 @@ export const blogClusters: Record<string, BlogCluster> = {
   "food-grade-silica-gel-procurement-guide": {
     guides: [
       guide("why-hair-nets-matter-in-food-export", "Why hair nets matter in food export"),
+      guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+    industry: IND_FOOD,
+  },
+  "is-silica-gel-toxic-safety-guide": {
+    guides: [
+      guide("food-grade-silica-gel-procurement-guide", "Food-grade silica gel procurement guide"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue: the safety question"),
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_RETAIL],
