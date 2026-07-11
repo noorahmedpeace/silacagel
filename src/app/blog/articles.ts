@@ -2874,9 +2874,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "food-grade-silica-gel-procurement-guide",
     label: "Food Industry",
     title: "Food-grade silica gel procurement guide for industrial buyers",
-    metaTitle: "Food-Grade Silica Gel: What It Means and How to Buy It",
+    metaTitle: "Food-Grade Silica Gel: Buyer's Guide, FDA/EU Rules & MOQs",
     metaDescription:
-      "What food-grade actually means for silica gel in each market, when it's mandatory, and the certifications to demand before a food-contact order.",
+      "What 'food-grade' really means for silica gel, when it's mandatory, FDA/EU compliance, sachet sizes, MOQs, and the certificates to demand before a food-contact order.",
     sources: [
       {
         label: "21 CFR Part 176 — indirect food additives: paper and paperboard components",
@@ -3209,9 +3209,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "is-silica-gel-toxic-safety-guide",
     label: "Safety Guide",
     title: "Is silica gel toxic? A safety guide for buyers, workers, and packers",
-    metaTitle: "Is Silica Gel Toxic? What DO NOT EAT Actually Means",
+    metaTitle: "Is Silica Gel Toxic or Poisonous? Safe If Swallowed?",
     metaDescription:
-      "Plain silica gel is non-toxic amorphous silica — the real concerns are choking, cobalt-blue dye, and dust. Safety facts for buyers and packing teams.",
+      "Is silica gel poisonous if eaten? Plain silica gel is non-toxic amorphous silica — what to do if a child or pet swallows a packet, why it says 'Do Not Eat', and the real risks.",
     sources: [
       {
         label: "Silica gel: is it dangerous to eat?",
@@ -3663,9 +3663,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-import-customs-hs-code-guide",
     label: "Export Operations",
     title: "Silica gel HS code and import customs guide for buyers and exporters",
-    metaTitle: "Silica Gel HS Code 2811.22: Import and Customs Guide",
+    metaTitle: "Silica Gel HS Code (2811.22): Import & Customs Guide 2026",
     metaDescription:
-      "Silica gel is classified under HS 2811.22 (silicon dioxide). Country variants, the documents customs expect, and how to avoid clearance delays.",
+      "Silica gel's HS code is 2811.22 (silicon dioxide). Country variants, the exact documents customs expect, duty tips, and how to clear shipments without delays.",
     sources: [
       {
         label: "Harmonized Tariff Schedule search (heading 2811)",
@@ -4360,9 +4360,9 @@ export const blogArticles: BlogArticle[] = [
     slug: "cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
     label: "Compliance",
     title: "Cobalt-free orange vs blue indicating silica gel: the safety and REACH question",
-    metaTitle: "Is Blue Silica Gel Banned? Cobalt-Free Orange vs Blue",
+    metaTitle: "Orange vs Blue Silica Gel: Which Is Safe? (Cobalt-Free)",
     metaDescription:
-      "Blue indicating silica gel relies on cobalt chloride, restricted under EU REACH. Why buyers now specify cobalt-free orange, and how to choose by market.",
+      "Orange vs blue indicating silica gel compared: how each changes colour, why blue's cobalt chloride is restricted under EU REACH, and which is safe to buy for food, pharma, and export.",
     sources: [
       {
         label: "Candidate List of substances of very high concern (SVHC)",
