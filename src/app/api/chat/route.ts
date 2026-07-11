@@ -10,8 +10,9 @@ export const maxDuration = 60;
 
 type Msg = { role: string; content: string };
 
-const MODEL = process.env.GROQ_MODEL || "llama-3.1-8b-instant";
-const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+// Cerebras — OpenAI-compatible (same request/stream shape), much higher free limits than Groq.
+const MODEL = process.env.CEREBRAS_MODEL || "gpt-oss-120b";
+const LLM_URL = "https://api.cerebras.ai/v1/chat/completions";
 
 // Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
 // and time-bounded so it never slows the chat. No-op if the env var is unset.
@@ -68,7 +69,7 @@ export async function POST(req: Request) {
     model: MODEL,
     stream: true,
     temperature: 0.2,
-    max_tokens: 1024,
+    max_tokens: 2048,
     messages: [{ role: "system", content: SYSTEM_PROMPT }, ...priorTurns, { role: "user", content: userText }],
   };
 
@@ -87,9 +88,12 @@ export async function POST(req: Request) {
       try {
         let gres: Response | null = null;
         for (let attempt = 0; ; attempt++) {
-          gres = await fetch(GROQ_URL, {
+          gres = await fetch(LLM_URL, {
             method: "POST",
-            headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.GROQ_API_KEY}` },
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${process.env.CEREBRAS_API_KEY || process.env.GROQ_API_KEY || ""}`,
+            },
             body: JSON.stringify(payload),
           });
           if (gres.ok && gres.body) break;
