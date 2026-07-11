@@ -22,6 +22,8 @@ const ClarityBridge = dynamic(
   () => import("./clarity-bridge").then((m) => m.ClarityBridge),
   { ssr: false },
 );
+// DryBot: the AI sales assistant. Deferred so its JS never competes with LCP.
+const DryBot = dynamic(() => import("./drybot").then((m) => m.DryBot), { ssr: false });
 
 export function DeferredChrome() {
   const [ready, setReady] = useState(false);
@@ -64,6 +66,7 @@ export function DeferredChrome() {
     <>
       <GlobalDiscountCampaign />
       <ClarityBridge />
+      <DryBot />
     </>
   );
 }

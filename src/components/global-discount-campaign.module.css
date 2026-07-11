@@ -209,8 +209,8 @@
 
 .widget {
   position: fixed;
-  right: 22px;
-  bottom: 94px;
+  left: 22px;
+  bottom: 90px;
   z-index: 1100;
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -434,9 +434,10 @@
   }
 
   .widget {
-    right: 12px;
-    bottom: 84px;
     left: 12px;
+    right: auto;
+    bottom: 84px;
+    max-width: calc(100vw - 90px);
     min-width: 0;
   }
 
