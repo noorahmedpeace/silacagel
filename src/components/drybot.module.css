@@ -18,6 +18,12 @@
   background: linear-gradient(135deg, var(--b1), var(--b2) 55%, var(--b3));
   box-shadow: 0 12px 30px rgba(30, 90, 168, 0.42);
   transition: transform 0.18s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.18s;
+  /* Fun entrance: pop in from bottom-right with a little bounce. */
+  animation: launcherPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+@keyframes launcherPop {
+  from { transform: scale(0.2) translateY(28px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
 }
 .launcher:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(30, 90, 168, 0.52); }
 .launcherRing { position: absolute; inset: 0; border-radius: 999px; animation: pulse 2.4s infinite; }
