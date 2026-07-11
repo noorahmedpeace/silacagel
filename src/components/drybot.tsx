@@ -44,6 +44,8 @@ export function DryBot() {
   const [rfqError, setRfqError] = useState("");
   const logRef = useRef<HTMLDivElement>(null);
   const greeted = useRef(false);
+  const sessionRef = useRef<string>("");
+  if (!sessionRef.current) sessionRef.current = Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
 
   useEffect(() => {
     if (open && !greeted.current) {
@@ -66,7 +68,10 @@ export function DryBot() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: history.map((m) => ({ role: m.role === "bot" ? "assistant" : "user", content: m.text })) }),
+        body: JSON.stringify({
+          session: sessionRef.current,
+          messages: history.map((m) => ({ role: m.role === "bot" ? "assistant" : "user", content: m.text })),
+        }),
       });
       if (!res.ok || !res.body) throw new Error("bad response");
       const reader = res.body.getReader();

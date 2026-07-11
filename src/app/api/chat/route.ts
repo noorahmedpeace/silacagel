@@ -12,9 +12,40 @@ type Msg = { role: string; content: string };
 const MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
+// Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
+// and time-bounded so it never slows the chat. No-op if the env var is unset.
+async function logConversation(payload: {
+  session: string; question: string; answer: string; sources: string[]; fellBack: boolean;
+}) {
+  const url = process.env.CHAT_LOG_URL;
+  if (!url) return;
+  try {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 1500);
+    await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        type: "chat",
+        time: new Date().toISOString(),
+        session: payload.session,
+        question: payload.question,
+        answer: payload.answer.slice(0, 3000),
+        sources: payload.sources,
+        unanswered: payload.fellBack,
+      }),
+      signal: ctrl.signal,
+    });
+    clearTimeout(t);
+  } catch {
+    /* logging is best-effort */
+  }
+}
+
 export async function POST(req: Request) {
-  const body = (await req.json().catch(() => ({}))) as { messages?: Msg[] };
+  const body = (await req.json().catch(() => ({}))) as { messages?: Msg[]; session?: string };
   const messages = Array.isArray(body.messages) ? body.messages.slice(-12) : [];
+  const session = typeof body.session === "string" ? body.session : "";
   const last = [...messages].reverse().find((m) => m.role === "user");
   if (!last) return new Response(JSON.stringify({ error: "no user message" }), { status: 400 });
 
@@ -101,6 +132,8 @@ export async function POST(req: Request) {
         if (sources.length && answer.trim()) send({ sources });
         send({ done: true });
         controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+        const fellBack = /couldn't find this information in the DryGelWorld knowledge base/i.test(answer);
+        await logConversation({ session, question: last.content, answer, sources, fellBack });
       } catch (err) {
         console.error("chat error:", err);
         send({ error: true });
