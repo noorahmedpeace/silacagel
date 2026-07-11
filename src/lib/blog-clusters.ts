@@ -48,10 +48,21 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("silica-gel-vs-molecular-sieve-vs-activated-alumina", "Silica gel vs molecular sieve vs activated alumina"),
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
+      guide("calcium-chloride-vs-silica-gel-desiccant", "Calcium chloride vs silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
+  },
+  "calcium-chloride-vs-silica-gel-desiccant": {
+    guides: [
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
+      guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
+    ],
+    products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    compare: COMPARE_CLAY,
+    industry: IND_SHIPPING,
   },
   "container-rain-prevention": {
     guides: [
