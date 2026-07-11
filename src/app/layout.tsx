@@ -10,7 +10,6 @@ import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
 import {
   companyAddressLocality,
   companyAddressRegion,
@@ -198,7 +197,6 @@ export default function RootLayout({
         <HashAnchorScroll />
         {children}
         <GuaranteeStrip />
-        <WhatsAppFloat />
         <DeferredChrome />
         <SiteFooter />
         <Analytics />

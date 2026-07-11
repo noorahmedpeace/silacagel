@@ -14,10 +14,12 @@ const EMAIL = process.env.NEXT_PUBLIC_SALES_EMAIL || "sales@drygelworld.com";
 const EMPTY_RFQ: Rfq = { contactName: "", company: "", email: "", phone: "", product: "", quantity: "", destination: "", notes: "" };
 
 const SUGGESTIONS = [
-  "Which desiccant for electronics?",
-  "Best for food packaging?",
-  "How many for a container?",
-  "Where can I buy / get a quote?",
+  "Pricing & MOQ",
+  "Certifications",
+  "SDS / COA docs",
+  "Our factory",
+  "Electronics",
+  "Food-grade",
 ];
 
 function renderHtml(t: string): string {
@@ -30,10 +32,6 @@ function renderHtml(t: string): string {
   e = e.replace(/^\s*[-*]\s+(.*)$/gm, "• $1");
   return e.replace(/\n/g, "<br>");
 }
-
-const Droplet = () => (
-  <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden><path fill="currentColor" d="M12 2s6 7 6 12a6 6 0 1 1-12 0C6 9 12 2 12 2z" /></svg>
-);
 
 export function DryBot() {
   const [open, setOpen] = useState(false);
@@ -122,11 +120,11 @@ export function DryBot() {
   const emHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Quote request — DryGelWorld")}`;
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root} data-drybot>
       {!open && (
         <button className={styles.launcher} onClick={() => setOpen(true)} aria-label="Chat with DryGelWorld">
           <span className={styles.launcherRing} />
-          <svg viewBox="0 0 24 24" width="23" height="23" aria-hidden><path fill="currentColor" d="M12 3C6.5 3 2 6.9 2 11.7c0 2.2 1 4.2 2.6 5.7L4 21l4.3-1.5c1.1.4 2.4.6 3.7.6 5.5 0 10-3.9 10-8.7S17.5 3 12 3z" /></svg>
+          <span className={styles.launcherAv} aria-hidden />
           Ask DryBot
         </button>
       )}
@@ -135,7 +133,7 @@ export function DryBot() {
         <section className={styles.panel} role="dialog" aria-label="DryGelWorld assistant">
           <header className={styles.head}>
             <div className={styles.id}>
-              <span className={styles.logo}><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden><path fill="currentColor" d="M12 2s6 7 6 12a6 6 0 1 1-12 0C6 9 12 2 12 2z" /></svg></span>
+              <span className={styles.logo} aria-hidden />
               <div className={styles.idText}>
                 <strong>DryBot</strong>
                 <span className={styles.status}><i className={styles.statusDot} /> DryGelWorld · replies in seconds</span>
@@ -151,7 +149,7 @@ export function DryBot() {
               <div className={styles.log} ref={logRef} aria-live="polite">
                 {msgs.map((m, i) => (
                   <div key={i} className={`${styles.row} ${m.role === "bot" ? styles.rowBot : styles.rowUser}`}>
-                    {m.role === "bot" && <span className={styles.av}><Droplet /></span>}
+                    {m.role === "bot" && <span className={styles.av} aria-hidden />}
                     <div className={`${styles.msg} ${m.role === "bot" ? styles.bot : styles.user}`}>
                       {m.role === "bot" && m.text === "" ? (
                         <span className={styles.typing}><i /><i /><i /></span>
@@ -165,9 +163,11 @@ export function DryBot() {
                 ))}
               </div>
 
-              <div className={styles.suggest}>
-                {SUGGESTIONS.map((s) => (<button key={s} onClick={() => ask(s)}>{s}</button>))}
-              </div>
+              {msgs.filter((m) => m.role === "user").length === 0 && (
+                <div className={styles.suggest}>
+                  {SUGGESTIONS.map((s) => (<button key={s} onClick={() => ask(s)}>{s}</button>))}
+                </div>
+              )}
 
               <div className={styles.contact}>
                 <a className={styles.wa} href={waHref} target="_blank" rel="noopener">WhatsApp</a>

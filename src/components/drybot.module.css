@@ -5,7 +5,7 @@
   --ink: #0e1a2b; --muted: #5b6b82;
   --glass: rgba(255, 255, 255, 0.72); --card: rgba(255, 255, 255, 0.72);
   --line: rgba(14, 26, 43, 0.1);
-  position: fixed; right: 22px; bottom: 92px; z-index: 61;
+  position: fixed; right: 22px; bottom: 22px; z-index: 61;
   font-family: var(--font-sans, "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif);
   color: var(--ink);
 }
@@ -26,10 +26,15 @@
   70% { box-shadow: 0 0 0 15px rgba(47, 111, 224, 0); }
   100% { box-shadow: 0 0 0 0 rgba(47, 111, 224, 0); }
 }
+.launcherAv {
+  flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; overflow: hidden; position: relative; z-index: 1;
+  background: url("/drybot-avatar.jpg") 50% 18% / cover;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
+}
 
 .panel {
-  position: absolute; right: 0; bottom: 0; width: 384px; max-width: calc(100vw - 32px);
-  height: 620px; max-height: calc(100vh - 130px); display: flex; flex-direction: column;
+  position: absolute; right: 0; bottom: 0; width: 358px; max-width: calc(100vw - 32px);
+  height: 520px; max-height: calc(100dvh - 120px); display: flex; flex-direction: column;
   overflow: hidden; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.5);
   background: var(--glass); backdrop-filter: blur(24px) saturate(155%);
   -webkit-backdrop-filter: blur(24px) saturate(155%); box-shadow: 0 24px 66px rgba(11, 42, 74, 0.3);
@@ -43,8 +48,9 @@
 }
 .id { display: flex; align-items: center; gap: 11px; }
 .logo {
-  display: grid; place-items: center; width: 36px; height: 36px; border-radius: 11px;
-  background: rgba(255, 255, 255, 0.16); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+  width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+  background: url("/drybot-avatar.jpg") 50% 18% / cover, rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 .idText strong { font-size: 15px; letter-spacing: 0.2px; }
 .status { display: flex; align-items: center; gap: 6px; font-size: 11.5px; opacity: 0.9; margin-top: 2px; }
@@ -58,7 +64,7 @@
 .row { display: flex; gap: 9px; align-items: flex-end; max-width: 90%; }
 .rowBot { align-self: flex-start; }
 .rowUser { align-self: flex-end; flex-direction: row-reverse; }
-.av { flex: 0 0 26px; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 4px 10px rgba(30, 90, 168, 0.35); }
+.av { flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; overflow: hidden; background: url("/drybot-avatar.jpg") 50% 18% / cover, linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 4px 10px rgba(30, 90, 168, 0.35); }
 .msg { padding: 10px 13px; border-radius: 15px; font-size: 14px; line-height: 1.55; white-space: pre-wrap; word-wrap: break-word; }
 .bot { background: var(--card); border: 1px solid var(--line); border-bottom-left-radius: 5px; box-shadow: 0 3px 12px rgba(11, 42, 74, 0.06); }
 .user { color: #fff; background: linear-gradient(135deg, var(--b2), var(--b3)); border-bottom-right-radius: 5px; box-shadow: 0 6px 16px rgba(30, 90, 168, 0.32); }
@@ -72,22 +78,22 @@
 .typing i:nth-child(3) { animation-delay: 0.3s; }
 @keyframes bounce { 0%, 60%, 100% { opacity: 0.35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
 
-.suggest { display: flex; flex-wrap: wrap; gap: 7px; padding: 6px 14px 4px; }
-.suggest button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 7px 12px; font-size: 12.5px; color: var(--ink); cursor: pointer; font-family: inherit; }
+.suggest { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 2px 14px 0; }
+.suggest button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 4px; font-size: 11px; color: var(--ink); cursor: pointer; font-family: inherit; white-space: nowrap; text-align: center; overflow: hidden; text-overflow: ellipsis; }
 .suggest button:hover { border-color: var(--b3); color: var(--b3); }
 
-.contact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; padding: 8px 14px 4px; }
+.contact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; padding: 6px 14px 2px; }
 .contact a, .contact button { display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; cursor: pointer; font-size: 12px; font-weight: 600; padding: 9px 4px; border-radius: 11px; color: #fff; border: 0; font-family: inherit; }
 .wa { background: linear-gradient(135deg, #1faa54, #25d366); }
 .em { background: linear-gradient(135deg, #3a4a63, #5b6b82); }
 .qt { background: linear-gradient(135deg, var(--b2), var(--b3)); }
 
-.form { display: flex; align-items: flex-end; gap: 9px; padding: 10px 12px; margin-top: 4px; border-top: 1px solid var(--line); background: var(--card); }
+.form { display: flex; align-items: flex-end; gap: 9px; padding: 8px 12px; margin-top: 2px; border-top: 1px solid var(--line); background: var(--card); }
 .input { flex: 1; resize: none; max-height: 110px; border: 1px solid var(--line); border-radius: 12px; padding: 11px 13px; font: inherit; font-size: 14px; background: #fff; color: var(--ink); outline: none; }
 .input:focus { border-color: var(--b3); box-shadow: 0 0 0 3px rgba(47, 111, 224, 0.15); }
 .send { border: 0; cursor: pointer; width: 42px; height: 42px; border-radius: 12px; color: #fff; display: grid; place-items: center; background: linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 8px 18px rgba(30, 90, 168, 0.35); }
 .send:disabled { opacity: 0.5; cursor: default; }
-.legal { margin: 0; padding: 0 14px 10px; font-size: 10.5px; color: var(--muted); text-align: center; }
+.legal { margin: 0; padding: 6px 14px 8px; font-size: 10.5px; color: var(--muted); text-align: center; }
 
 /* RFQ form view */
 .rfq { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 9px; }
@@ -108,6 +114,6 @@
   .em { background: linear-gradient(135deg, #33415a, #4a5a72); }
 }
 @media (max-width: 430px) {
-  .root { right: 12px; bottom: 84px; }
-  .panel { width: calc(100vw - 24px); height: calc(100vh - 150px); }
+  .root { right: 12px; bottom: 16px; }
+  .panel { width: calc(100vw - 24px); height: calc(100dvh - 96px); }
 }
