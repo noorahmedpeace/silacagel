@@ -10,7 +10,7 @@ export const maxDuration = 60;
 
 type Msg = { role: string; content: string };
 
-const MODEL = process.env.GROQ_MODEL || "llama-3.3-70b-versatile";
+const MODEL = process.env.GROQ_MODEL || "llama-3.1-8b-instant";
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
 
 // Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
@@ -50,7 +50,7 @@ export async function POST(req: Request) {
   const last = [...messages].reverse().find((m) => m.role === "user");
   if (!last) return new Response(JSON.stringify({ error: "no user message" }), { status: 400 });
 
-  const chunks = retrieve(last.content, 5);
+  const chunks = retrieve(last.content, 3);
   const sources = [...new Set(chunks.map((c) => c.url))];
   const context = [
     businessInfo(),
@@ -108,6 +108,8 @@ export async function POST(req: Request) {
           });
           send({ done: true });
           controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+          // Log the question even when rate-limited, so tracking still works.
+          logData = { session, question: last.content, answer: gres.status === 429 ? "(rate-limited — fallback shown)" : "(error — fallback shown)", sources: [], fellBack: true };
           return; // finally closes the stream
         }
 
