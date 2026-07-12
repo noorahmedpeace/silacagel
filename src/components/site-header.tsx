@@ -43,6 +43,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
+import { CartBadge } from "./cart-badge";
 import styles from "./site-header.module.css";
 
 type NavLink = { label: string; href: string; icon: LucideIcon; desc?: string };
@@ -294,6 +295,8 @@ export function SiteHeader() {
                 <strong>Requirement Calculator</strong>
               </span>
             </Link>
+
+            <CartBadge />
 
             <Link href="/contact" className={styles.navCta}>
               Request Quote

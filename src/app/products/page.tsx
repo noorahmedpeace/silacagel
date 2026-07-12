@@ -5,6 +5,7 @@ import { productCatalog, whatsappNumber } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 
 const productsFaqs = [
   {
@@ -114,13 +115,18 @@ export default function ProductsPage() {
                   <Link href={`/products/${product.slug}`} className={shared.ctaBtn}>
                     View Product Page
                   </Link>
+                  <AddToCartButton
+                    productFullName={product.name}
+                    productSlug={product.slug}
+                    className={styles.quoteBtn}
+                  />
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(quoteMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.quoteBtn}
                   >
-                    Request Quote
+                    WhatsApp
                   </a>
                 </div>
               </div>

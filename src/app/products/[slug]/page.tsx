@@ -8,6 +8,7 @@ import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { ProductCrossSell } from "@/components/product-cross-sell";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
 import {
@@ -557,6 +558,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   >
                     Request a Quote
                   </Link>
+                  <AddToCartButton
+                    productFullName={product.name}
+                    productSlug={product.slug}
+                    className={styles.secondaryAction}
+                  />
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(purchaseMessage)}`}
                     target="_blank"
