@@ -6,6 +6,7 @@
 // into the quote cart. Used on catalog cards, product heroes, and anywhere
 // else a product can be added.
 import { useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { addToCart } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
 import styles from "./sticky-quote-bar.module.css";
@@ -90,7 +91,10 @@ export function AddToCartButton({
         {label}
       </button>
 
-      {showModal ? (
+      {/* Portal to <body>: ancestors with transform/filter (card hover
+          animations, Reveal) break position:fixed and drag the overlay out
+          of center. */}
+      {showModal && typeof document !== "undefined" ? createPortal(
         <div
           className={styles.overlay}
           role="dialog"
@@ -165,7 +169,8 @@ export function AddToCartButton({
               </form>
             )}
           </div>
-        </div>
+        </div>,
+        document.body,
       ) : null}
     </>
   );

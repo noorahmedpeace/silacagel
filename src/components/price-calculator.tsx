@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Check, Clock3, Tag } from "lucide-react";
 import { priceOptions, whatsappNumber } from "@/lib/product-data";
+import { AddToCartButton } from "@/components/add-to-cart-button";
 import {
   FLASH10_CODE,
   FLASH10_RATE,
@@ -319,6 +320,13 @@ export function PriceCalculator() {
       >
         {promoActive ? "Send Discounted Estimate on WhatsApp" : "Submit Procurement Estimate"}
       </button>
+
+      <AddToCartButton
+        productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
+        productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+        className={styles.submit}
+        label="Add to Cart — Get Exact Price by Email"
+      />
     </aside>
   );
 }

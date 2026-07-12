@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
@@ -200,7 +201,7 @@ export function StickyQuoteBar({
       </button>
     </div>
 
-    {showModal ? (
+    {showModal && typeof document !== "undefined" ? createPortal(
       <div
         className={styles.overlay}
         role="dialog"
@@ -275,7 +276,8 @@ export function StickyQuoteBar({
             </form>
           )}
         </div>
-      </div>
+      </div>,
+      document.body,
     ) : null}
     </>
   );
