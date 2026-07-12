@@ -119,3 +119,126 @@ button.cta {
   border: none;
   cursor: pointer;
 }
+
+/* Quick add-to-cart modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(10, 20, 34, 0.55);
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.modal {
+  position: relative;
+  width: min(420px, 100%);
+  background: var(--surface, #fff);
+  color: var(--ink, #16233a);
+  border-radius: 16px;
+  padding: 26px;
+  box-shadow: 0 24px 60px rgba(10, 20, 34, 0.35);
+}
+
+.modalClose {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--muted, #5b6572);
+}
+
+.modalForm {
+  display: grid;
+  gap: 12px;
+}
+
+.modalForm h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.modalForm p {
+  margin: 0;
+  color: var(--muted, #5b6572);
+  font-size: 0.9rem;
+}
+
+.modalForm label {
+  display: grid;
+  gap: 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted, #5b6572);
+}
+
+.modalForm input,
+.modalForm select,
+.modalForm textarea {
+  font: inherit;
+  font-weight: 400;
+  color: var(--ink, #16233a);
+  background: var(--bg, #fff);
+  border: 1px solid var(--glass-border, rgba(15, 40, 68, 0.18));
+  border-radius: 9px;
+  padding: 10px 12px;
+}
+
+.modalRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.modalSubmit {
+  font: inherit;
+  font-weight: 700;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  cursor: pointer;
+  background: var(--cta-gradient, linear-gradient(135deg, #1c4e80, #2e7dd1));
+}
+
+.modalSubmit:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.modalError {
+  color: #a83226;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.modalSuccess {
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.modalCheck {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 26px;
+  color: #fff;
+  background: #3e7350;
+}
+
+.hp {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
