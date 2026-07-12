@@ -127,7 +127,7 @@ export default function ProductsPage() {
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(quoteMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.quoteBtn}
+                    className={styles.whatsappBtn}
                   >
                     WhatsApp
                   </a>

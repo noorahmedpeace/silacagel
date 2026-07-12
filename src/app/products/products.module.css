@@ -288,3 +288,17 @@
     transform: none;
   }
 }
+
+/* WhatsApp action: brand-green hover so the channel is instantly
+   recognizable (screenshot feedback: blue hover read as generic). */
+.whatsappBtn {
+  composes: quoteBtn;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .whatsappBtn:hover {
+    background: #25d366;
+    border-color: #25d366;
+    color: #fff;
+  }
+}
