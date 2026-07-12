@@ -9,6 +9,7 @@ import { ProductSpecTable } from "@/components/product-spec-table";
 import { ProductCrossSell } from "@/components/product-cross-sell";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { HowToOrder } from "@/components/how-to-order";
 import { getProductSpec } from "@/lib/product-spec";
 import { Reveal } from "@/components/reveal";
 import {
@@ -556,7 +557,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     href={`/request-a-quote?product=${encodeURIComponent(product.name)}`}
                     className={styles.primaryAction}
                   >
-                    Request a Quote
+                    Get Price &amp; Order
                   </Link>
                   <AddToCartButton
                     productFullName={product.name}
@@ -653,6 +654,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </section>
           </Reveal>
+
+          <HowToOrder />
 
           {product.galleryImages?.length ? (
             <Reveal>

@@ -6,6 +6,7 @@ import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import { HowToOrder } from "@/components/how-to-order";
 
 const productsFaqs = [
   {
@@ -59,6 +60,8 @@ export default function ProductsPage() {
           <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
         </p>
       </section>
+
+      <HowToOrder />
 
       <section className={styles.grid}>
         {productCatalog.map((product) => {
