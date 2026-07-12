@@ -72,6 +72,12 @@
   font-weight: 700;
 }
 
+/* .section a (above) outranks .cta's plain class when the CTA sits inside a
+   section, which rendered blue text on the orange pill. Keep the CTA white. */
+.section a.cta {
+  color: #ffffff;
+}
+
 .list {
   margin: 8px 0 0;
   padding: 0 0 0 22px;
