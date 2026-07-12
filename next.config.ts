@@ -175,6 +175,20 @@ const nextConfig: NextConfig = {
         destination: "/shipping-container-desiccant-supplier",
         permanent: true,
       },
+      // C9: remaining container-desiccant twins -> the 185-impr leader.
+      // /container-desiccant (52 impr, pos 55) and /container-desiccant-supplier
+      // (28 impr, pos 26) both compete with /shipping-container-desiccant-supplier
+      // for the same "container desiccant supplier" intent; consolidate.
+      {
+        source: "/container-desiccant",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/container-desiccant-supplier",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
     ];
   },
   async headers() {
