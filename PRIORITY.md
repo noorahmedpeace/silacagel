@@ -1,0 +1,113 @@
+# DryGelWorld — Master Prioritized Action Plan
+
+**Date:** 2026-07-12
+**Scope:** Synthesis of six audit lenses — Content/On-page SEO, GEO/AI-search, Structured Data, CRO/UX, Information Architecture, and B2B Trust & Content-Gap strategy.
+**Context anchor:** New, low-authority exporter domain. Measured traffic is roughly **24 sessions over 3 days** (~8/day), ~50/50 mobile/desktop, B2B importer buyers. Every priority call below is weighted for that reality.
+
+---
+
+## Read this first — brutal honesty about what actually moves leads
+
+At ~8 sessions/day, **your bottleneck is traffic and trust, not on-page markup.** The audits found a genuinely well-built site (strong schema graph, deep comparison/blog/glossary content, honest compliance disclosure, working RFQ + DryBot). Polishing JSON-LD further will not produce leads on its own.
+
+What actually moves leads for a new low-authority exporter, in order:
+
+1. **Off-site authority** — backlinks, trade directory listings, a Google Business Profile, and a verified presence on Alibaba/IndiaMART-type platforms. The repo already has BACKLINK-KIT, BACKLINKS-EXECUTION-PLAN, CITATION-BACKLINK-SHEET etc. — **executing those is higher-leverage than any single on-site fix below.** Nothing on this list substitutes for links and citations.
+2. **Paid acquisition** — Google Ads / LinkedIn on the money terms (container desiccant supplier, silica gel supplier [country]) buys the qualified traffic organic can't yet win, and lets you validate which landing pages convert.
+3. **Verifiable social proof** — real named references, logos, a real review channel. This is the one *on-site* item that meaningfully lifts conversion of the traffic you do get.
+4. **Removing dead-ends in the funnel** — the mounted-but-invisible WhatsApp float and the mobile hero hiding all trust cues are pure leak-plugging: cheap, and they compound whatever traffic you buy or earn.
+
+Everything else (structured-data richness, cannibalization consolidation, orphan-page linking, new tools/content) raises your *ceiling* and your AI-citability, but pays off only once real traffic and authority arrive. Sequence accordingly: **plug funnel leaks now, run authority + ads in parallel, then invest in SEO consolidation and new content.**
+
+---
+
+## Top 10 — Do First
+
+Ranked by impact-per-effort for the current stage. Each is either a direct lead leak or a near-free authority/indexation win.
+
+1. **Mount the WhatsApp float globally** — it's fully built but rendered nowhere; WhatsApp-first Gulf/South-Asia/Africa importers (50% mobile) currently have no persistent tap-to-chat. Trivial effort, likely the single largest absolute lift.
+2. **Un-hide the ISO badge + trust signals on the mobile hero** — mobile above-the-fold currently shows zero credibility cues for a domain with none to spare; 50% of sessions.
+3. **Fix the Product Offer price mismatch** — schema emits a concrete price (e.g. $0.0035) that appears nowhere on the page; risks suppressing the Product rich result and Merchant disapproval on your only 4 schema'd money pages.
+4. **Link the 15 orphan landing pages** — high-commercial-intent geo/PPE pages (incl. your HQ city `silica-gel-supplier-karachi`) have zero internal links and are sitemap-only; adding footer/contextual links gives immediate indexation with no new content.
+5. **Add StickyQuoteBar to the homepage** — the homepage has no persistent CTA during an 8-section scroll; captures intent formed at the mid-page pricing/calculator sections. (Pass `href="#contact"` — the default `#quote-form` doesn't exist there.)
+6. **Replace anonymous testimonials with verifiable named proof** — generic "Footwear exporter" quotes read as invented and are the biggest trust deficit; wire real references into the already-built `attribution` field.
+7. **Distribute homepage link equity** — the strongest URL passes ~5 body links and reaches none of /export, /industries, /compare, or product categories; point IndustryScrolly cards at /industries/[slug] and add a format/hub link block.
+8. **Consolidate the worst cannibalization clusters (301 + canonical)** — container/shipping-container (6 URLs), moisture-absorber (near-duplicate manufacturer/supplier twins), private-label (duplicate titles), and geo-vs-/export twins split thin authority so nothing ranks.
+9. **Fill the 15 thin export-market pages (FAQs + customs + supply terms)** — the render + FAQPage schema already fire automatically once data exists; "silica gel supplier in [country]" is your highest-intent query class and prime AI-Overview real estate.
+10. **Ship the DIN 55473 desiccant-unit calculator** — the blog already ranks for the concept but serves it as prose; an interactive unit-sizing tool is the top AI-citation/backlink magnet in this niche and routes every result to an RFQ.
+
+---
+
+## Full Ranked Action Table
+
+| Rank | Action | Category | Severity | Effort | Expected Impact | File(s) |
+|---|---|---|---|---|---|---|
+| 1 | Mount `<WhatsAppFloat />` globally (inside DeferredChrome next to DryBot); confirm no overlap with DryBot launcher | CRO | Critical | Trivial | Restores highest-converting mobile CTA for WhatsApp-first importers | `src/components/whatsapp-float.tsx`, `src/components/deferred-chrome.tsx`, `src/app/layout.tsx` |
+| 2 | Show a compact ISO 9001 + "Since 1983 / 190+ markets" trust chip on mobile; un-hide/replace `.heroXProof`/`.heroXSignals` | CRO / Trust | High | Small | Restores above-the-fold credibility for 50% of sessions | `src/app/page.tsx` (L300-319), `src/app/page.module.css` (L6425-6445) |
+| 3 | Fix Product Offer price to byte-match visible content — render "From $X/unit" or use UnitPriceSpecification min/max band shown on page | Tech | High | Small | Protects Product rich result + Merchant Center eligibility on the only 4 schema'd money pages | `src/app/products/[slug]/page.tsx` (L1010-1017, L709), `src/lib/product-data.ts` |
+| 4 | Link the 15 zero-inbound landing pages via footer columns + contextual links (Karachi→about/PK pages; PPE geo→/export + product pages; pharma/shipping→industries) | IA | Critical | Small | Immediate crawl/indexation + ranking of high-intent pages, no new content | `src/lib/seo-landing-pages.ts`, `src/components/site-footer.tsx`, `src/app/export/[market]/`, `src/app/industries/[industry]/` |
+| 5 | Render `<StickyQuoteBar href="#contact" />` on the homepage | CRO | High | Small | Captures mid-page intent without scroll-back | `src/app/page.tsx` (L574), `src/components/sticky-quote-bar.tsx` |
+| 6 | Distribute homepage equity: IndustryScrolly cards → /industries/[slug]; add "explore by format" block → core /products/[slug] + /export, /compare, /industries + 2-3 head-term landing pages | IA / SEO | High | Small | Routes the domain's strongest page's authority to money pages | `src/app/page.tsx`, `src/components/industry-scrolly.tsx` |
+| 7 | Populate `attribution` in case-study data with 2-3 permission-cleared named references; render instead of placeholder testimonials; add one verifiable external proof channel (GBP/verified WhatsApp/trade badge) | CRO / Trust | High | Medium | Largest on-site conversion lever for an unknown exporter | `src/app/page.tsx` (L195-220), `src/lib/case-study-data.ts` |
+| 8 | Consolidate container/shipping cluster (6→hub), moisture-absorber twins, private-label duplicates, silica-gel-packets trio, and generic silica-gel head; 301 losers, merge copy, fix relatedLinks + sitemap dupes | SEO | High | Medium | Concentrates thin link equity on one URL per money term | `src/lib/seo-landing-pages.ts`, `src/app/sitemap.ts` |
+| 9 | Author 3-4 buyer FAQs + populate `customs` (HS 2811.22/3824, duty, docs) + `moq`/`leadTime`/`incoterms` for the 14-15 thin export markets; interpolate `market.country` in hardcoded "Mexico" headings before extending | GEO | High | Medium | Lights up FAQPage + citable tables for the highest-intent B2B query class | `src/app/export/markets.ts`, `src/app/export/[market]/page.tsx` (L204, L296, L336, L384) |
+| 10 | Build `/tools/desiccant-unit-calculator` (DIN 55473 / MIL-D-3464) with RFQ CTA; cross-link the two existing DIN/packets blog articles | Content / Feature | Critical (gap) | Medium | Top AI-citation + backlink magnet; converts existing informational traffic | `src/app/tools/`, `src/app/blog/articles.ts` (L3977, L4081) |
+| 11 | Consolidate geo landing pages into /export/[market] (301 silica-gel-supplier-uk/-pakistan/-karachi) — /export carries the richer customs depth | SEO / IA | Medium | Medium | Stops thin geo twins cannibalizing the better commercial pages | `src/lib/seo-landing-pages.ts`, `src/app/export/markets.ts` |
+| 12 | Build the SEO landing-page HTML hub (`/desiccant-solutions` or expand /products), grouped by theme; add to header dropdown | IA | High | Medium | Single fan-out point; consolidates equity on head-term pages (fixes ~48% orphan/near-orphan) | `src/lib/seo-landing-pages.ts`, new hub page, `src/components/site-header.tsx` |
+| 13 | Add a secondary "prefill on-page RFQ / route to /contact with estimate" action to the homepage price calculator; relabel button to disclose WhatsApp | CRO | High | Medium | Recovers desktop/no-WhatsApp buyers who currently dead-end after sizing | `src/components/price-calculator.tsx` (L136-172, L314-321), `src/components/quote-form.tsx` |
+| 14 | Create `/samples` (or `/free-sample`) low-friction 3-field landing; link from hero, product pages, DryBot | CRO / Feature | High | Medium | Widens top of funnel with the standard B2B entry offer | new route, `src/components/quote-form.tsx` (L89, L416-426) |
+| 15 | Add `/tools/moisture-damage-roi-calculator` (cargo value / route / transit → USD damage exposure vs desiccant spend + RFQ) | Content / Feature | Medium/High | Medium | Quantified business case = high-intent lead magnet + SEO | `src/app/tools/`, `src/lib/container-dosage-model.ts` |
+| 16 | Add troubleshooting/problem-solution cluster ("mould despite desiccant", "condensation in sealed packaging", "cargo arrived wet", "packets still wet") each ending in a selector/sizing CTA | Content | High | Medium | Wins low-competition, high-intent failure-mode queries + AI snippets | `src/app/blog/articles.ts` or new `/guides/troubleshooting` |
+| 17 | De-emphasize PPE topical dilution: collapse 18 PPE landing pages to 2-3, drop size/geo doorway variants from sitemap (or move PPE to a subdomain) | SEO | High | Large | Sharpens the desiccant entity signal Google rewards | `src/lib/seo-landing-pages.ts`, `src/lib/product-data.ts`, `src/app/sitemap.ts` |
+| 18 | Add CollectionPage + ItemList + BreadcrumbList to /products (and /blog, /export index) | Tech / GEO | Medium | Small | Surfaces the full catalog as a machine-readable list; breadcrumb SERP | `src/app/products/page.tsx` (mirror `compare/page.tsx`, `industries/page.tsx`) |
+| 19 | Emit price-less Product (or Service) nodes for the 6-8 quote-only products (PPE, clay, calcium chloride) — brand+manufacturer+material, no offers | Tech / GEO | Medium | Small/Medium | Makes half the catalog citable as entities to Google/AI | `src/app/products/[slug]/page.tsx` (L998), reuse Service pattern from `export/[market]/page.tsx` |
+| 20 | Add a guided product-selector wizard (cargo → enclosure → volume → recommended SKU + prefilled RFQ); drive from compare-data decisions + product-data fits | CRO / Feature | High | Large | Compresses funnel for non-expert buyers; pre-qualifies leads | `src/app/tools/`, `src/lib/compare-data.ts`, `src/lib/product-data.ts`, `src/components/quote-form.tsx` |
+| 21 | Add a shared visible Breadcrumb component (product, blog, landing, compare, industry, case-study) from the arrays already feeding breadcrumbJsonLd; make product categoryTrail real links | IA | Medium | Medium | Adds anchor-text links up to hubs + user orientation | `src/app/products/[slug]/page.tsx` (L632-634), `blog/[slug]`, `seo-landing-page.tsx` |
+| 22 | Add 2-3 authoritative `sources` (DIN 55473, ISO, REACH/ECHA, HS 2811.22, ASTM, own glossary anchors) to the 37 uncited articles | GEO | Medium | Medium | Raises citability/trust as a grounded source for a low-authority domain | `src/app/blog/articles.ts`, `src/app/blog/[slug]/page.tsx` (L262) |
+| 23 | Surface `authors.ts` credentials into author schema on blog + compare, or add a named Person expert (jobTitle, hasCredential, sameAs LinkedIn) | GEO / Trust | Medium | Small | Strengthens E-E-A-T / citable authorship | `src/lib/authors.ts`, `blog/[slug]/page.tsx` (L244), `compare/[slug]/page.tsx` (L217-223) |
+| 24 | Reference `#organization` @id from inlined publisher/parentOrganization on blog, compare, guide, author pages (match case-studies pattern) | Tech | Medium | Small | Consolidates trust signals onto the single Organization entity | `blog/[slug]`, `compare/[slug]`, `guides/silica-gel-buyer-guide`, `authors/[slug]` |
+| 25 | Model genuine, permission-cleared case-study attributions as Review on Org/Product (can roll up to aggregateRating) — do NOT synthesize ratings | Tech / CRO | Medium | Medium | Star ratings = highest-CTR SERP enhancement | `src/lib/case-study-data.ts`, `src/app/products/[slug]/page.tsx` (L993-996) |
+| 26 | Consolidate /documents vs /documentation (301 one; repoint hero "Documents" signal to the page with the real ISO PDF) | CRO / IA | Medium | Small | Removes a fork in the compliance-verification journey | `src/app/page.tsx` (L86), `documents/page.tsx`, `documentation/page.tsx` |
+| 27 | Replace FLASH10 consumer discount countdown with a volume-tier/trade-terms incentive in RFQ + calculator | CRO / Trust | Medium | Small | Aligns incentive with B2B norms; protects pricing integrity | `src/components/price-calculator.tsx`, `src/components/quote-form.tsx` (L147-153), `deferred-chrome.tsx` |
+| 28 | Harden RFQ fallback: replace bare `window.location.href` mailto with a capture endpoint or copyable WhatsApp/email option; only claim "email opened" if a handler exists | CRO | Medium | Medium | Prevents silent lead loss on the fallback branch | `src/components/quote-form.tsx` (L180, L189, L462-472) |
+| 29 | Rename `/bentonite-clay` → `/clay-desiccant-supplier` (301, keep "bentonite" as synonym); make it the hub the geo clay + dry-clay product pages link into | SEO | Medium | Small | Captures the explicit "clay desiccant" target term (URL keyword match) | `src/lib/seo-landing-pages.ts` (L2320-2329) |
+| 30 | Create `/export-packaging-desiccant` commercial hub tying silica packets/strips/VCI/barrier bags; link the two existing blog guides + /export pages | SEO / Content | Medium | Medium | Closes an explicit target-term keyword gap | `src/lib/seo-landing-pages.ts`, `src/app/blog/articles.ts` (L979, L2054) |
+| 31 | DryBot: on sendRfq failure auto-offer prefilled WhatsApp/mailto (reuse waHref/emHref); surface a persistent "Get a quote" chip; consider requiring company+product | CRO | Medium | Small | Recovers chat leads on API failure | `src/components/drybot.tsx` (L107-122, L53, L177-181) |
+| 32 | Add cross-market "Other export markets" link block (4-6 siblings) to export pages; rotate tier-2 markets into footer; link /export/pakistan from PK landing pages | IA | Medium | Small | Lifts 11 hub-only export pages incl. home market | `src/app/export/[market]/page.tsx`, `src/components/site-footer.tsx` |
+| 33 | Cross-link the 7 calcium-chloride comparison pages from the calcium-chloride product clusters + to each other | IA | Medium | Small | Raises crawl priority of "X vs Y" commercial pages | `src/app/products/[slug]/page.tsx` (L110-131), `src/lib/compare-data.ts` |
+| 34 | Build an interactive country/compliance finder (destination + application → required docs + honest held/confirm answer → prefilled RFQ) from markets.ts + honestScope | Feature | Medium | Medium | Turns real doc depth into a lead magnet for compliance-screening buyers | `src/app/export/markets.ts`, `src/app/about/page.tsx` |
+| 35 | Add "best desiccant for [electronics/pharma/food/metal parts]" verdict pages (material recommendation + mini table, not a supplier rehash) | Content / SEO | Medium | Small | Wins distinct high-conversion decision queries | new `/guides/best-desiccant-for-*`, `src/lib/compare-data.ts`, `src/app/industries/[industry]/` |
+| 36 | Add `/tools/page.tsx` hub listing all calculators/tools + RFQ CTAs; link from header Resources + footer | Feature / IA | Medium | Trivial | Concentrates link equity; ranks for "silica gel calculator/tools"; homes future tools | `src/app/tools/` |
+| 37 | Add one or two genuinely defensible guarantees (COA-backed batch/free replacement, sample dispatch SLA) to GuaranteeStrip + /samples | Trust / CRO | Medium | Small | Lowers first-order risk vs faceless marketplaces | `src/components/guarantee-strip.tsx`, `src/app/about/page.tsx` |
+| 38 | Promote the "honest scope — what we do/don't hold" compliance block onto the homepage + export landing pages, linking to /certifications | Trust / Differentiation | Medium | Small | Memorable, defensible wedge for skeptical procurement buyers | `src/app/about/page.tsx`, `src/app/certifications/page.tsx`, `src/app/page.tsx` |
+| 39 | Add `about`/`mentions` entity links from compare + blog Article nodes to /products/*#product, #organization, and glossary DefinedTerm @ids | GEO | Low | Small | Connects the editorial→product→term knowledge graph | `compare/[slug]/page.tsx` (L210-240), `blog/[slug]/page.tsx` (L227-265) |
+| 40 | Add homepage ItemList/CollectionPage referencing each /products/[slug]#product @id | GEO | Low | Small | Makes the concrete catalog discoverable for brand-entity AI queries | `src/app/page.tsx` (L586-617), `src/app/layout.tsx` |
+| 41 | Extend BlogArticle section type to allow inline links; seed 3-5 contextual money-page anchors per article | IA | Medium | Large | Strongest internal-link signal from the site's largest content asset | `src/app/blog/[slug]/page.tsx`, `src/app/blog/articles.ts` |
+| 42 | Compute `priceValidUntil` dynamically (today + 1yr) instead of hardcoded 2026-12-31 | Tech | Low | Trivial | Prevents silent year-end loss of Product rich-result eligibility | `src/app/products/[slug]/page.tsx` (L1014) |
+| 43 | Vary templated `buyingSteps`/`specsIntro`/`buyingIntro` per cluster page; replace size/geo doorway variants with anchor sections on a parent page | SEO | Medium | Medium | Reduces helpful-content/doorway risk across ~40 near-duplicate URLs | `src/lib/seo-landing-pages.ts` (L160-191) |
+| 44 | Add explicit blogClusters entries for the 4 fallback articles (top-10-suppliers, colors, shelf-life, rice-grain-spice) | IA | Low | Trivial | Precise topical interlinking + money-page anchors | `src/lib/blog-clusters.ts` (L356-364) |
+| 45 | Link `/silica-gel` and `/buy-silica-gel` from products/compare/industries hub intros + product relatedLinks + header dropdown | IA | Low | Trivial | Turns under-linked head-term pages into topical anchors | `src/lib/seo-landing-pages.ts`, hub pages, `site-header.tsx` |
+| 46 | Add `/compare/silica-gel-vs-activated-alumina` + 1-2 named-competitor-alternative pages (Sorbead/Clariant/Container Dri) | Content / SEO | Low | Small | Captures remaining bottom-funnel + brand-alternative searches | `src/lib/compare-data.ts`, `src/app/blog/articles.ts` (L847) |
+| 47 | Vary the default "View Product Range" secondary CTA anchor per page; replace generic relatedLinks labels with target keywords | SEO | Low | Small | Passes keyword context via internal anchors | `src/lib/seo-landing-pages.ts` (L148) |
+| 48 | Add 3-5 substantive export markets first (Nigeria, Egypt, South Africa, Netherlands, Oman/Kuwait) with populated commercial-terms block — no blanket rollout | Content | Medium | Small | Opens low-competition buyer segments without doorway risk | `src/app/export/markets.ts` |
+| 49 | Add `/guides/silica-gel-hs-code-import-duty-by-country` structured reference table; cross-link HS blog + export pages | Content | Low | Medium | Durable link/citation asset; pre-answers landed-cost friction | new guide, `src/app/blog/articles.ts` (L3663), `src/app/export/markets.ts` |
+| 50 | Add `/guides` (or `/resources`) pillar hub aggregating tools + guides + glossary + comparisons (no new content) | IA | Low | Small | Consolidates crawl/authority; canonical LLM entry point | `src/app/guides/` |
+| 51 | Add `priceRange` to LocalBusiness (or reconsider the node for a non-walk-in exporter); cross-link sister brand + publish export/registration doc alongside ISO | Tech / Trust | Low | Trivial/Small | Clears validator notice; anchors self-asserted scale claims | `src/app/layout.tsx` (L457-487), `src/lib/document-registry.ts`, `src/components/trust-band.tsx` |
+| 52 | Delete orphaned mobile hero CSS block (`.hero`, `.heroBgImage`, `.heroTrustBar`, etc.) and audit overlapping header rules | Tech / Perf | Low | Small | Smaller CSS payload for 50% mobile; fewer regression risks | `src/app/page.module.css` (L3062-3170), `site-header.module.css` |
+| 53 | Keep HowTo/FAQPage markup for GEO value but reset SERP expectations — no FAQ accordions/HowTo carousels for a commercial domain | Tech | Low | Trivial | Redirects effort to ItemList/Offer/Review that still yield rich results | `src/app/page.tsx` (L590-615), `container-desiccant-calculator/page.tsx`, `faq-block.tsx` |
+
+**Explicit non-recommendation:** Do **not** add new material-vs-material comparison pages — silica vs clay/molecular-sieve/oxygen-absorber/calcium-chloride/bentonite/VCI/activated-carbon all already exist in `src/lib/compare-data.ts`. New ones would be duplicative/cannibalizing.
+
+---
+
+## How to sequence (impact-per-effort view)
+
+- **Week 1 — plug funnel leaks (mostly trivial/small):** Items 1-6, plus 18, 42. Nearly free, and they stop losing the traffic you already have.
+- **In parallel, ongoing — authority + demand:** Execute the existing backlink/citation playbooks and stand up a Google Business Profile + trade-platform presence; consider a small Google Ads test on money terms. *This is what actually grows leads* — it is not on the on-site table but outranks everything on it.
+- **Weeks 2-4 — trust + consolidation:** Items 7-9, 11-12, 17, 26-27, 37-38. Convert more of the incoming traffic and stop splitting authority.
+- **Month 2+ — new tools & content (compounding):** Items 10, 13-16, 20, 22, 34-36, 41. High ceiling, but they pay off only once traffic and authority exist.
+- **Cleanup/marginal — as capacity allows:** Items 39-40, 43-53.
+
+---
+
+*Total: 53 ranked on-site actions + a Top-10 do-first list + 1 explicit non-recommendation, framed by the off-site-authority reality section. All references are specific to this codebase. The lone "Technical SEO test" entry in the source findings was a schema probe and was excluded as non-substantive.*
