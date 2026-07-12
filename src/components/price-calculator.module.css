@@ -552,3 +552,17 @@
   background: rgba(45, 91, 255, 0.08);
   border: 1px solid rgba(45, 91, 255, 0.14);
 }
+
+/* Blue variant for the Add-to-Cart action — matches the Requirement
+   Calculator button family so it reads as a distinct, non-WhatsApp path. */
+.submitBlue {
+  composes: submit;
+  background: var(--industrial-blue, #1c4e80);
+  margin-top: 10px;
+}
+
+.submitBlue:hover {
+  background: var(--industrial-blue-deep, #16385c);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(28, 78, 128, 0.45);
+}
