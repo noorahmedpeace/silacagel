@@ -5,6 +5,34 @@ Each entry is dated and states exactly what changed, what did **not** change, an
 
 ---
 
+## 2026-07-12 — Implementation pass 1 (shipped to production)
+
+Applied and **deployed** the safe, high-confidence subset of PRIORITY.md. Each change was build-verified (`npm run build`, exit 0) before push. The owner's uncommitted WIP (calcium-chloride product work across 7 files) was left untouched — none of the edits below touch those files.
+
+### Shipped — CRO / internal-linking (commit `289b7ea`)
+- **StickyQuoteBar on the homepage** (`href="#contact"`) — persistent CTA during the long homepage scroll; auto-hides while the RFQ section is in view. (`src/app/page.tsx`)
+- **Restored the ISO 9001:2015 badge on the mobile hero** — it was `display:none`, leaving 50% of sessions with zero above-the-fold trust cues. (`src/app/page.module.css`)
+- **IndustryScrolly cards now deep-link to `/industries/[slug]`** (keyword-rich anchor text) while keeping the Request-Quote CTA. (`src/components/industry-scrolly.tsx`, `src/app/page.tsx`)
+- **Footer de-orphaning** — added `/silica-gel-supplier-karachi` (HQ city, previously zero internal links), `/private-label`, `/bulk-sales`. (`src/components/site-footer.tsx`)
+
+### Shipped — cannibalization 301s (commits `9c1b726`, `605551a`)
+Data-driven (GSC 90-day impressions). 301'd the weaker twin in each cluster to the impression leader; excluded all internal 301 sources from the sitemap.
+- `/silica-gel-packets-manufacturer` (1 impr), `/silica-gel-packets-wholesale` (3) → `/silica-gel-packets` (165)
+- `/moisture-absorber-manufacturer` (29) → `/moisture-absorber-supplier` (66)
+- `/shipping-container-moisture-control` (23), `/container-desiccant` (52), `/container-desiccant-supplier` (28) → `/shipping-container-desiccant-supplier` (185)
+- `sitemap.ts`: added `REDIRECTED_SLUGS` filter so redirecting URLs are no longer submitted.
+
+### Deliberately NOT done (needs owner input — see PRIORITY.md)
+- Product-page schema/link items (18, 42, 19, 33) — those files are in the owner's uncommitted WIP; would collide.
+- Named testimonials / Review schema (6, 25) — needs **real** permission-cleared references; will not fabricate.
+- Head-term / export-geo consolidation (silica-gel-manufacturer family, /export vs /silica-gel-exporter-*) — ambiguous intent + `/silica-gel-manufacturer-pakistan` ranks pos 5; left for a supervised decision.
+- New tools/content pages (10, 15, 20, 36) — larger builds better done supervised for design quality.
+
+### Reminder
+The dominant lead lever remains **off-site authority + paid ads**, not these on-site refinements. These reduce funnel leaks and stop authority-splitting; they raise the ceiling but do not substitute for links/citations.
+
+---
+
 ## 2026-07-12 — Autonomous audit pass 1
 
 ### What this run did
