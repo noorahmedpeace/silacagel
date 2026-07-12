@@ -21,7 +21,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/preview", "/preview/"],
+        disallow: ["/preview", "/preview/", "/admin", "/admin/"],
       },
       // Explicit, version-controlled welcome for AI search / grounding crawlers
       // so the policy is unambiguous. These agents consume /llms.txt and can

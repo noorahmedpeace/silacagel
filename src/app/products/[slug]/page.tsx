@@ -549,16 +549,19 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <p className={styles.description}>{product.description}</p>
 
                 <div className={styles.heroActions}>
+                  <Link
+                    href={`/request-a-quote?product=${encodeURIComponent(product.name)}`}
+                    className={styles.primaryAction}
+                  >
+                    Request a Quote
+                  </Link>
                   <a
                     href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(purchaseMessage)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={styles.primaryAction}
+                    className={styles.secondaryAction}
                   >
-                    Request Export Quote
-                  </a>
-                  <a href="#quote-form" className={styles.secondaryAction}>
-                    Send Requirement
+                    WhatsApp Us
                   </a>
                 </div>
 
@@ -878,7 +881,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <QuoteForm title={`Quote for ${product.shortName}`} defaultProduct={product.name} compact />
             </section>
           </Reveal>
-          <StickyQuoteBar productName={product.shortName} />
+          <StickyQuoteBar
+            productName={product.shortName}
+            href={`/request-a-quote?product=${encodeURIComponent(product.name)}`}
+          />
         </main>
         <script
           type="application/ld+json"
