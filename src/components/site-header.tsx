@@ -186,6 +186,8 @@ export function SiteHeader() {
               width={930}
               height={245}
               className={styles.brandLogo}
+              priority
+              fetchPriority="high"
             />
           </Link>
 

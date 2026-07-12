@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 import { notFound } from "next/navigation";
+import { IsoBadge } from "@/components/iso-badge";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { ProductCrossSell } from "@/components/product-cross-sell";
@@ -565,6 +567,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </a>
                 </div>
 
+                <div className={styles.docProof}>
+                  <IsoBadge />
+                  <Link href="/documentation" className={styles.docProofLink}>
+                    <FileText size={15} strokeWidth={2} aria-hidden="true" />
+                    SDS · COA · TDS · ISO — open documents
+                  </Link>
+                </div>
+
                 {(product.colorOptions?.length || product.sizeOptions?.length) ? (
                   <div className={styles.optionGroups} aria-label="Available product options">
                     {product.colorOptions?.length ? (
@@ -893,12 +903,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@graph": [
-                // Product + AggregateOffer using the SAME indicative export
-                // prices already published on the homepage/buy pages. review &
-                // aggregateRating are intentionally omitted (none exist yet), so
-                // the node validates without inventing ratings. Only products
-                // with a real published price get a node; quote-only PPE/clay
-                // are skipped so no invented price is ever emitted.
+                // Product + Offer using the SAME indicative export prices
+                // already published on the homepage/buy pages. A single Offer
+                // with a concrete `price` (the indicative "from"/low unit price)
+                // is emitted instead of an AggregateOffer: Google's merchant-
+                // listing validator requires `price`/`priceSpecification.price`
+                // and rejects an AggregateOffer's lowPrice/highPrice with
+                // "Either 'price' or 'priceSpecification.price' should be
+                // specified (in 'offers')". priceValidUntil is included so the
+                // offer is not flagged as stale. review & aggregateRating are
+                // intentionally omitted (none exist yet). Only products with a
+                // real published price get a node; quote-only PPE/clay are
+                // skipped so no invented price is ever emitted.
                 ...(offerPricing
                   ? [
                       {
@@ -912,11 +928,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         brand: { "@type": "Brand", name: brandName },
                         manufacturer: { "@id": `${absoluteUrl()}#organization` },
                         offers: {
-                          "@type": "AggregateOffer",
+                          "@type": "Offer",
+                          price: offerPricing.lowPrice,
                           priceCurrency: "USD",
-                          lowPrice: offerPricing.lowPrice,
-                          highPrice: offerPricing.highPrice,
-                          offerCount: offerPricing.offerCount,
+                          priceValidUntil: "2026-12-31",
                           availability: "https://schema.org/InStock",
                           seller: { "@id": `${absoluteUrl()}#organization` },
                         },

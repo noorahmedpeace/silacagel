@@ -7,6 +7,7 @@ import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { IsoBadge } from "@/components/iso-badge";
+import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import {
   DeferredEmblaCarousel,
   DeferredPriceCalculator,
@@ -87,13 +88,6 @@ const trustSignalsArray = [
   },
 ];
 
-const heroCerts = [
-  "Serving since 1983",
-  "COA / SDS Available",
-  "Worldwide Delivery",
-  "Bulk Supply",
-];
-
 const procurementFlow = [
   {
     step: "01",
@@ -101,6 +95,7 @@ const procurementFlow = [
     text: "Pick sachets, strips, or bulk formats sized to your cartons and humidity risk.",
     icon: PackageCheck,
     image: "/workflow/define-pack.webp",
+    mobileImage: "/workflow/define-pack-mobile.webp",
     imageAlt: "Silica gel sachets and loose beads prepared for pack selection",
   },
   {
@@ -109,6 +104,7 @@ const procurementFlow = [
     text: "Get SDS, COA, and destination paperwork sorted upfront.",
     icon: FileCheck2,
     image: "/workflow/confirm-documents.webp",
+    mobileImage: "/workflow/confirm-documents-mobile.webp",
     imageAlt: "Export documentation desk with silica gel sample and compliance papers",
   },
   {
@@ -117,6 +113,7 @@ const procurementFlow = [
     text: "Lock MOQ, Incoterms, and dispatch details, then confirm the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
+    mobileImage: "/workflow/plan-shipment-mobile.webp",
     imageAlt: "Wrapped export cartons on a pallet ready for shipment",
   },
 ];
@@ -169,30 +166,35 @@ const scrollyIndustries = [
     overline: "Preservation Systems",
     image: seoImages.pharmaDesiccant.src,
     description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
+    href: "/industries/pharma-packaging",
   },
   {
     name: "Electronics & Semiconductors",
     overline: "Circuit Protection",
     image: seoImages.electronicsPackaging.src,
     description: "Moisture control for microchips, PCBs, and sensitive components that need corrosion and short-circuit protection in transit.",
+    href: "/industries/electronics-packaging",
   },
   {
     name: "Leather, Textiles & Garments",
     overline: "Mold & Mildew Control",
     image: "/applications/leather-footwear.webp",
     description: "Protecting leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
+    href: "/industries/leather-footwear-export",
   },
   {
     name: "Food & Nutraceutical Packaging",
     overline: "Food-Grade Programs",
     image: seoImages.foodPackaging.src,
     description: "Desiccant programs for snacks, spices, and dried export goods where cartons need controlled humidity and clear documentation.",
+    href: "/industries/food-packaging",
   },
   {
     name: "Ocean Freight & Container Cargo",
     overline: "Container Moisture Control",
     image: seoImages.containerDesiccant.src,
     description: "Container-scale desiccant support for export shipments exposed to condensation, humid routes, and long ocean transit.",
+    href: "/industries/container-shipping",
   },
 ];
 
@@ -224,7 +226,12 @@ const testimonials = [
 ];
 
 const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
-const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", priority: true, quality: 72 } as const;
+// No `priority` here: a blanket priority on both art-directed variants makes Next
+// emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
+// downloads the desktop crop (and vice-versa), starving the real LCP resources
+// (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
+// our own media-scoped preloads below — exactly one hero image per viewport.
+const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
 const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
 const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
 
@@ -238,6 +245,24 @@ export default function Home() {
                 macro (mobile/desktop <picture>, preloaded LCP) sits behind a
                 near-black cobalt field with a drifting aurora and a fine
                 perspective grid - moody, engineered, premium. */}
+            {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
+                desktop only the desktop crop — React 19 hoists these to <head>. */}
+            <link
+              rel="preload"
+              as="image"
+              media="(max-width: 768px)"
+              imageSrcSet={heroMobileProps.srcSet}
+              imageSizes={heroMobileProps.sizes}
+              fetchPriority="high"
+            />
+            <link
+              rel="preload"
+              as="image"
+              media="(min-width: 769px)"
+              imageSrcSet={heroDesktopProps.srcSet}
+              imageSizes={heroDesktopProps.sizes}
+              fetchPriority="high"
+            />
             <picture>
               <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
               <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
@@ -245,16 +270,14 @@ export default function Home() {
                 {...heroDesktopProps}
                 id="hero-product-image"
                 className={styles.heroXImage}
+                loading="eager"
                 fetchPriority="high"
                 alt={HERO_ALT}
               />
             </picture>
             <div className={styles.heroXShade} aria-hidden="true" />
             <div className={styles.heroXAurora} aria-hidden="true" />
-            <div className={styles.heroXGrid} aria-hidden="true" />
-            <div className={styles.heroXNoise} aria-hidden="true" />
-            {/* Silica-bead dot grid + soft headline glow (pure CSS layers). */}
-            <div className={styles.heroXDots} aria-hidden="true" />
+            {/* Soft headline glow (pure CSS layer). */}
             <div className={styles.heroXGlow} aria-hidden="true" />
 
             <div className={styles.heroXContainer}>
@@ -282,9 +305,6 @@ export default function Home() {
 
               <div className={`${styles.heroXProof} gsap-hero-fade`}>
                 <IsoBadge tone="dark" />
-                {heroCerts.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
               </div>
 
               <div className={`${styles.heroXSignals} gsap-hero-fade`}>
@@ -332,8 +352,16 @@ export default function Home() {
                           src={item.image}
                           alt={item.imageAlt}
                           fill
-                          className={styles.procurementFlowImage}
+                          className={`${styles.procurementFlowImage} ${styles.procurementFlowImageDesktop}`}
                           sizes="(max-width: 900px) 100vw, 34vw"
+                        />
+                        <Image
+                          src={item.mobileImage}
+                          alt=""
+                          fill
+                          className={`${styles.procurementFlowImage} ${styles.procurementFlowImageMobile}`}
+                          sizes="84px"
+                          aria-hidden="true"
                         />
                         <div className={styles.procurementFlowIcon}>
                           <Icon size={18} strokeWidth={1.8} />
@@ -557,10 +585,13 @@ export default function Home() {
                   Four fields, one clean quote back, usually within 24 hours.
                 </p>
               </div>
-                <DeferredQuoteForm title="Send MOQ Requirement" />
+                <DeferredQuoteForm title="Send MOQ Requirement" compact />
             </section>
           </Reveal>
         </main>
+        {/* Persistent CTA during the long homepage scroll; hides itself while the
+            #contact RFQ section is in view (see StickyQuoteBar). */}
+        <StickyQuoteBar href="#contact" />
         <script
           type="application/ld+json"
           suppressHydrationWarning

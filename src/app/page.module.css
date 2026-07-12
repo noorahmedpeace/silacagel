@@ -4887,33 +4887,6 @@
   to   { transform: translate3d(3%, 2%, 0) scale(1.08); }
 }
 
-/* Fine perspective grid, fading upward - the "engineered" texture. */
-.heroXGrid {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background-image:
-    linear-gradient(rgba(120, 150, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(120, 150, 255, 0.09) 1px, transparent 1px);
-  background-size: 54px 54px;
-  mask-image: radial-gradient(120% 90% at 30% 100%, #000 20%, transparent 78%);
-  -webkit-mask-image: radial-gradient(120% 90% at 30% 100%, #000 20%, transparent 78%);
-  opacity: 0.7;
-}
-
-.heroXNoise {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  /* No blend mode - overlay forces an extra compositing pass over the whole
-   * hero; plain low-opacity dots read the same. */
-  opacity: 0.035;
-  background-image: radial-gradient(circle at center, #fff 0 0.6px, transparent 0.6px);
-  background-size: 3px 3px;
-}
-
 .heroXCopy {
   position: relative;
   z-index: 2;
@@ -6147,20 +6120,6 @@
   padding: 0 clamp(20px, 4vw, 36px);
 }
 
-/* Silica-bead dot grid - pure CSS. Masked to the navy copy zone on the left
- * and faded out before the product photo, so it reads as texture BEHIND the
- * imagery instead of a pattern stamped over it. */
-.heroXDots {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-  background-size: 16px 16px;
-  mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 42%, transparent 72%);
-  pointer-events: none;
-}
-
 /* Soft lighter-navy glow behind the headline area for depth (~8% opacity). */
 .heroXGlow {
   position: absolute;
@@ -6262,5 +6221,257 @@
 
   .partnerSection .sectionVisual {
     display: none;
+  }
+}
+
+/* Mobile workflow cleanup: phone cards should read as compact steps, not a
+ * sticky deck with a huge empty media well. Keep desktop/tablet behavior above. */
+.procurementFlowImageMobile {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .procurementFlowSection {
+    overflow: hidden;
+    padding: 24px 14px;
+  }
+
+  .procurementFlowIntro {
+    gap: 10px;
+  }
+
+  .procurementFlowIntro h2 {
+    display: block;
+    max-width: 11ch;
+    font-size: clamp(1.72rem, 7.2vw, 2.08rem);
+    line-height: 1.08;
+  }
+
+  .flowIntroSub {
+    max-width: 30ch;
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .flowCta {
+    min-height: 44px;
+    margin-top: 12px;
+    padding: 11px 16px;
+    border-radius: 10px;
+    font-size: 0.88rem;
+  }
+
+  .procurementFlowGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .procurementFlowCard,
+  .procurementFlowCard:nth-child(1),
+  .procurementFlowCard:nth-child(2),
+  .procurementFlowCard:nth-child(3) {
+    position: relative;
+    top: auto;
+    display: grid;
+    grid-template-columns: 84px minmax(0, 1fr);
+    align-items: center;
+    gap: 14px;
+    min-height: 0;
+    padding: 14px;
+    border-radius: 12px;
+    background:
+      radial-gradient(110% 140% at 0% 0%, rgba(45, 91, 255, 0.07), transparent 54%),
+      #ffffff;
+    box-shadow: 0 16px 34px -26px rgba(8, 30, 80, 0.28);
+  }
+
+  .procurementFlowMedia {
+    width: 84px;
+    height: 84px;
+    min-height: 84px;
+    aspect-ratio: 1;
+    flex: 0 0 84px;
+    border-radius: 10px;
+  }
+
+  .procurementFlowImageDesktop {
+    display: none;
+  }
+
+  .procurementFlowImageMobile {
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    transform: none;
+    filter: saturate(1.02) contrast(1.02);
+  }
+
+  .procurementFlowIcon {
+    width: 31px;
+    height: 31px;
+    border-radius: 8px;
+    top: auto;
+    left: auto;
+    right: 6px;
+    bottom: 6px;
+    transform: none;
+  }
+
+  .procurementFlowIcon svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .procurementFlowContent {
+    min-width: 0;
+    padding: 0;
+  }
+
+  .procurementFlowCard span {
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+  }
+
+  .procurementFlowCard h3 {
+    margin-top: 4px;
+    font-size: 1.03rem;
+    line-height: 1.16;
+    letter-spacing: 0;
+  }
+
+  .procurementFlowCard p {
+    margin-top: 5px;
+    font-size: 0.84rem;
+    line-height: 1.42;
+  }
+}
+
+/* Mobile hero reset: keep the first screen calm and sales-focused. */
+@media (max-width: 760px) {
+  .heroX {
+    min-height: auto;
+    padding: 30px 22px 34px;
+    border-radius: 18px;
+  }
+
+  .heroXImage {
+    object-position: 58% center;
+    opacity: 0.48;
+  }
+
+  .heroXAurora,
+  .heroXGrid {
+    display: none;
+  }
+
+  .heroXShade {
+    background:
+      linear-gradient(180deg, rgba(7, 11, 26, 0.76) 0%, rgba(7, 11, 26, 0.7) 58%, rgba(7, 11, 26, 0.82) 100%),
+      radial-gradient(120% 80% at 0% 0%, rgba(45, 91, 255, 0.34), transparent 58%);
+  }
+
+  .heroXEyebrow {
+    max-width: 100%;
+    margin-bottom: 18px;
+    padding: 7px 11px;
+    font-size: 0.61rem;
+    letter-spacing: 0.07em;
+    white-space: normal;
+  }
+
+  .heroXTitle {
+    max-width: 12ch;
+    margin-bottom: 16px;
+    font-size: clamp(2.15rem, 10.2vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: 0;
+  }
+
+  .heroXLead {
+    max-width: 31ch;
+    margin-bottom: 22px;
+    font-size: 1rem;
+    line-height: 1.48;
+    color: rgba(233, 238, 247, 0.78);
+  }
+
+  .heroXActions {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .heroXPrimary {
+    width: 100%;
+    min-height: 52px;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .heroXGhost {
+    display: none;
+  }
+
+  .heroXProof {
+    display: flex;
+    width: 100%;
+    gap: 8px 12px;
+    margin-bottom: 0;
+    font-size: 0.75rem;
+  }
+
+  /* Keep the verifiable ISO 9001:2015 badge visible above the fold on mobile
+     (50% of sessions). It is the single strongest trust cue for a new domain;
+     hiding it left the mobile hero with zero credibility signals. */
+  .heroXProof a {
+    display: inline-flex;
+  }
+
+  .heroXProof > span {
+    color: rgba(233, 238, 247, 0.72);
+    white-space: normal;
+  }
+
+  .heroXProof > span:nth-of-type(n + 3) {
+    display: none;
+  }
+
+  .heroXProof > span::before {
+    width: 4px;
+    height: 4px;
+  }
+
+  .heroXSignals {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .heroX {
+    padding-inline: 18px;
+  }
+
+  .heroXTitle {
+    font-size: clamp(2rem, 10vw, 2.65rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .homeRfqSection {
+    content-visibility: visible;
+    contain-intrinsic-size: auto;
+    gap: 18px;
+    padding: 28px 16px;
+  }
+
+  .homeRfqSection .sectionHead {
+    gap: 10px;
+  }
+
+  .homeRfqSection .sectionHead h2 {
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+    line-height: 1.08;
   }
 }

@@ -48,10 +48,21 @@ export const blogClusters: Record<string, BlogCluster> = {
     guides: [
       guide("silica-gel-vs-molecular-sieve-vs-activated-alumina", "Silica gel vs molecular sieve vs activated alumina"),
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
+      guide("calcium-chloride-vs-silica-gel-desiccant", "Calcium chloride vs silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
+  },
+  "calcium-chloride-vs-silica-gel-desiccant": {
+    guides: [
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
+      guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
+    ],
+    products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    compare: COMPARE_CLAY,
+    industry: IND_SHIPPING,
   },
   "container-rain-prevention": {
     guides: [
@@ -85,6 +96,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -226,6 +238,16 @@ export const blogClusters: Record<string, BlogCluster> = {
   "food-grade-silica-gel-procurement-guide": {
     guides: [
       guide("why-hair-nets-matter-in-food-export", "Why hair nets matter in food export"),
+      guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+    industry: IND_FOOD,
+  },
+  "is-silica-gel-toxic-safety-guide": {
+    guides: [
+      guide("food-grade-silica-gel-procurement-guide", "Food-grade silica gel procurement guide"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue: the safety question"),
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_RETAIL],

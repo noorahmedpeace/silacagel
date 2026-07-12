@@ -10,6 +10,8 @@ export type ScrollyIndustry = {
   overline: string;
   description: string;
   image: string;
+  /** Deep link to the matching /industries/[slug] hub (internal-link equity). */
+  href?: string;
 };
 
 /**
@@ -100,7 +102,15 @@ export function IndustryScrolly({ industries }: { industries: ScrollyIndustry[] 
               />
             </span>
             <span className={styles.overline}>{industry.overline}</span>
-            <h3>{industry.name}</h3>
+            <h3>
+              {industry.href ? (
+                <Link href={industry.href} style={{ color: "inherit", textDecoration: "none" }}>
+                  {industry.name}
+                </Link>
+              ) : (
+                industry.name
+              )}
+            </h3>
             <p>{industry.description}</p>
             <Link href="/contact" className={styles.quoteBtn}>
               Request Quote

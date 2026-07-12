@@ -29,6 +29,32 @@ const INDUSTRY_SLUGS = [
 
 const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
 
+// Landing slugs that are 301 redirect sources in next.config.ts. They must NOT
+// appear in the sitemap (submitting a redirecting URL earns a GSC "Page with
+// redirect" notice and wastes crawl budget). Keep in sync with next.config
+// redirects() — every internal redirect whose source is otherwise a
+// seoLandingPages key belongs here.
+const REDIRECTED_SLUGS = new Set<string>([
+  "food-grade-silica-gel",
+  "blue-silica-gel",
+  "orange-silica-gel",
+  "electronics-packaging",
+  "silica-gel-exporter",
+  "silica-gel-manufacturer-exporter",
+  "silica-gel-exporter-usa",
+  "silica-gel-exporter-canada",
+  "silica-gel-exporter-germany",
+  "cargo-desiccant-supplier",
+  "container-desiccants-for-exporters",
+  "container-desiccant-supplier-worldwide",
+  "silica-gel-packets-manufacturer",
+  "silica-gel-packets-wholesale",
+  "moisture-absorber-manufacturer",
+  "shipping-container-moisture-control",
+  "container-desiccant",
+  "container-desiccant-supplier",
+]);
+
 const STATIC_ROUTES = [
   "",
   "/about",
@@ -108,6 +134,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   for (const slug of Object.keys(seoLandingPages)) {
+    if (REDIRECTED_SLUGS.has(slug)) continue; // don't sitemap a 301 source
     const page = seoLandingPages[slug as keyof typeof seoLandingPages];
     const image = getLandingSeoImage(page);
 

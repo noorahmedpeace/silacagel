@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { FileText } from "lucide-react";
 import { notFound } from "next/navigation";
+import { IsoBadge } from "@/components/iso-badge";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
@@ -594,6 +596,13 @@ export default async function IndustryPage({
         <h1>{page.h1}</h1>
         <p>{page.description}</p>
         <Link href="/contact" className={styles.cta}>Request Industry Quote</Link>
+        <div className={styles.heroProof}>
+          <IsoBadge />
+          <Link href="/documentation" className={styles.docLink}>
+            <FileText size={15} strokeWidth={2} aria-hidden="true" />
+            SDS · COA · TDS · ISO — open documents
+          </Link>
+        </div>
       </section>
 
       <figure className={styles.articleVisual}>

@@ -112,6 +112,11 @@ export function GlobalDiscountCampaign() {
     const countdown = active && record ? formatFlash10Remaining(record.expiresAt - Date.now()) : "";
 
     document.querySelectorAll<HTMLFormElement>("form").forEach((form) => {
+      // Skip the DryBot assistant's own forms — the promo banner must never appear inside the chat.
+      if (form.closest("[data-drybot]")) {
+        form.querySelectorAll("[data-discount-field], [data-discount-banner]").forEach((node) => node.remove());
+        return;
+      }
       const existingNodes = form.querySelectorAll<HTMLElement>("[data-discount-field], [data-discount-banner]");
       if (!active) {
         existingNodes.forEach((node) => node.remove());

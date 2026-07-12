@@ -511,3 +511,43 @@
   font-size: 0.88rem;
   color: var(--ds-text-muted);
 }
+
+/* Anonymized reference (default until a named, permission-cleared reference). */
+.anonRef {
+  margin: clamp(20px, 3vw, 32px) 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px dashed var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface-tint);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anonRefBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 5px 11px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.anonRef figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.anonRefName {
+  font-weight: 700;
+  color: var(--ds-text);
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+}

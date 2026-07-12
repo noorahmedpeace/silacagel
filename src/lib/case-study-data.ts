@@ -13,6 +13,10 @@
   /** One measurable, quantified result — the headline number a buyer trusts.
    *  Optional so anonymous cases still render; fill with a real figure. */
   metric?: { value: string; label: string };
+  /** Anonymized buyer descriptor — industry (+ region only where the case
+   *  actually states it), never a real name. This is the current default until
+   *  written permission lets us swap in a named `attribution`. */
+  anonymizedRef?: string;
   /** Named attribution (no anonymous "Great supplier!" quotes). Only render
    *  when you have a real, permission-cleared reference. */
   attribution?: { name: string; title: string; company: string; quote?: string };
@@ -40,14 +44,9 @@ export const caseStudies: CaseStudy[] = [
       "The buyer received a documented strip allocation, ceiling-placement guidance, and a clear UAE supply-terms summary (MOQ, lead time, currency) before pricing - the supporting metrics and dated loading photos are added from the buyer's own shipment records.",
     outcome:
       "The conversation moved from a bare strip price to a documented, repeatable UAE container program the importer could reorder against.",
-    // Fill with a real figure + a named, permission-cleared reference. Until
-    // then these render as clearly-labeled placeholders (no invented data).
-    metric: { value: "[PLACEHOLDER: e.g. 0]", label: "moisture-damage claims across [N] container shipments" },
-    attribution: {
-      name: "[PLACEHOLDER: contact name]",
-      title: "[PLACEHOLDER: job title]",
-      company: "[PLACEHOLDER: company — with written permission]",
-    },
+    // Anonymized until written permission lets us name the buyer. No numeric
+    // claims are published (the buyer's own records hold the figures).
+    anonymizedRef: "Electronics importer · UAE",
     products: [
       { label: "UAE silica gel supplier", href: "/export/uae" },
       { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
@@ -82,6 +81,7 @@ export const caseStudies: CaseStudy[] = [
       "The distributor compared each new order against one consistent commercial and documentation baseline; pricing and quantity histories come from the buyer's own purchase records.",
     outcome:
       "Repeat RFQs became faster and more predictable, supporting a recurring Saudi distribution relationship rather than one-off transactions.",
+    anonymizedRef: "Bulk silica gel distributor · Saudi Arabia",
     products: [
       { label: "Saudi Arabia silica gel supplier", href: "/export/saudi-arabia" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
@@ -116,6 +116,7 @@ export const caseStudies: CaseStudy[] = [
       "The case used a document-first RFQ checklist: packaging context, moisture risk, packet size, order volume, destination, warning text, SDS, COA, and any buyer-side compliance requirements.",
     outcome:
       "The buyer could compare silica gel formats without unsupported claims and move the internal approval conversation from generic price to documented packaging fit.",
+    anonymizedRef: "Pharmaceutical packaging buyer",
     products: [
       { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
@@ -150,6 +151,7 @@ export const caseStudies: CaseStudy[] = [
       "The buyer was guided to share route, port/city, recurring shipment schedule, cargo sensitivity, and documentation requirements before final quotation.",
     outcome:
       "The quote conversation became useful for both technical sizing and freight planning instead of only comparing strip price.",
+    anonymizedRef: "Container cargo exporter",
     products: [
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
@@ -184,6 +186,7 @@ export const caseStudies: CaseStudy[] = [
       "The buyer request path emphasized SDS, COA, DMF-free support, MOQ, packing quantity, carton placement, and export route details before price negotiation.",
     outcome:
       "The buyer could send clearer RFQs with size, quantity, route, and document needs aligned before final quotation.",
+    anonymizedRef: "Leather & footwear exporter",
     products: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
@@ -218,6 +221,7 @@ export const caseStudies: CaseStudy[] = [
       "The recommended request included product format, application, shipment destination, SDS/COA needs, sample requirement, and whether non-indicating white gel was preferred.",
     outcome:
       "The buyer had fewer back-and-forth questions before quote and a clearer document checklist for internal approval.",
+    anonymizedRef: "Electronics packaging buyer",
     products: [
       { label: "Electronic packaging desiccant", href: "/electronic-packaging-desiccant" },
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
@@ -252,6 +256,7 @@ export const caseStudies: CaseStudy[] = [
       "The RFQ checklist separated real document support from marketing wording, reducing the risk of unsupported claims in buyer packaging.",
     outcome:
       "The buyer received a clearer path for packaging review, document approval, and final quote inputs.",
+    anonymizedRef: "Food packaging buyer",
     products: [
       { label: "Food grade silica gel supplier", href: "/food-grade-silica-gel-supplier" },
       { label: "White silica gel", href: "/white-silica-gel" },
@@ -286,6 +291,7 @@ export const caseStudies: CaseStudy[] = [
       "The repeat template helped the buyer compare new shipments against a consistent technical and commercial baseline.",
     outcome:
       "Future inquiries became faster because the buyer could update only route, volume, destination, and dispatch timing instead of rebuilding the full request.",
+    anonymizedRef: "Recurring container exporter",
     products: [
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },

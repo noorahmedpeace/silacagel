@@ -5,13 +5,11 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GuaranteeStrip } from "@/components/guarantee-strip";
-import { GlobalDiscountCampaign } from "@/components/global-discount-campaign";
-import { ClarityBridge } from "@/components/clarity-bridge";
+import { DeferredChrome } from "@/components/deferred-chrome";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { WhatsAppFloat } from "@/components/whatsapp-float";
 import {
   companyAddressLocality,
   companyAddressRegion,
@@ -187,20 +185,11 @@ export default function RootLayout({
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
         <link rel="alternate" type="text/plain" title="LLM guide (llms.txt)" href="/llms.txt" />
-        <link
-          rel="preload"
-          as="image"
-          href="/hero-macro-kraft-mobile.webp"
-          media="(max-width: 760px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/hero-macro-kraft.webp"
-          media="(min-width: 761px)"
-          fetchPriority="high"
-        />
+        {/* The hero LCP preload lives on the homepage itself (src/app/page.tsx),
+            media-scoped and pointing at the optimized /_next/image URL the <img>
+            actually fetches. It was previously here in the layout, which (a)
+            preloaded the raw un-optimized webp the hero never uses, and (b) forced
+            EVERY route to preload a homepage-only image. Both wasted bandwidth. */}
       </head>
       <body>
         <ScrollProgress />
@@ -208,9 +197,7 @@ export default function RootLayout({
         <HashAnchorScroll />
         {children}
         <GuaranteeStrip />
-        <WhatsAppFloat />
-        <GlobalDiscountCampaign />
-        <ClarityBridge />
+        <DeferredChrome />
         <SiteFooter />
         <Analytics />
         <SpeedInsights />

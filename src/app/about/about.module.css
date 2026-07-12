@@ -340,6 +340,72 @@
   transition-duration: var(--ds-dur-quick);
 }
 
+/* ─────────────────────── FACTORY / WAREHOUSE GALLERY ─────────────────────── */
+
+.facility {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 4vw, 44px);
+}
+
+.facilityGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ds-stack-lg);
+}
+
+.facilityCard {
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ds-hairline);
+  background: var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  border-radius: var(--ds-radius-card);
+}
+
+.facilityMedia {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ds-brand-soft);
+}
+
+.facilityMedia img {
+  transition: transform var(--ds-dur-slow, 0.5s) var(--ds-ease, ease);
+}
+
+.facilityCard:hover .facilityMedia img {
+  transform: scale(1.04);
+}
+
+.facilityCard figcaption {
+  padding: clamp(14px, 1.6vw, 18px) clamp(16px, 1.8vw, 20px);
+  color: var(--ds-text-muted);
+  font-size: var(--ds-body-sm, 0.9rem);
+  line-height: var(--ds-lh-snug);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .facilityCard:hover .facilityMedia img {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .facilityGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .facilityGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ─────────────────────── VERIFIABLE CLAIMS BLOCK ─────────────────────── */
 
 .verifiable {

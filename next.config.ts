@@ -150,6 +150,45 @@ const nextConfig: NextConfig = {
         destination: "/shipping-container-desiccant-supplier",
         permanent: true,
       },
+      // C8: thin twins -> the impression leader in each cluster (GSC 90d).
+      // /silica-gel-packets 165 impr vs -manufacturer 1 / -wholesale 3;
+      // /moisture-absorber-supplier 66 vs /moisture-absorber-manufacturer 29;
+      // /shipping-container-desiccant-supplier 185 vs -moisture-control 23.
+      // 301 the weaker twins so the leader stops splitting thin authority.
+      {
+        source: "/silica-gel-packets-manufacturer",
+        destination: "/silica-gel-packets",
+        permanent: true,
+      },
+      {
+        source: "/silica-gel-packets-wholesale",
+        destination: "/silica-gel-packets",
+        permanent: true,
+      },
+      {
+        source: "/moisture-absorber-manufacturer",
+        destination: "/moisture-absorber-supplier",
+        permanent: true,
+      },
+      {
+        source: "/shipping-container-moisture-control",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      // C9: remaining container-desiccant twins -> the 185-impr leader.
+      // /container-desiccant (52 impr, pos 55) and /container-desiccant-supplier
+      // (28 impr, pos 26) both compete with /shipping-container-desiccant-supplier
+      // for the same "container desiccant supplier" intent; consolidate.
+      {
+        source: "/container-desiccant",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/container-desiccant-supplier",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
     ];
   },
   async headers() {

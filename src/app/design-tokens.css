@@ -38,11 +38,13 @@
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
 
-  /* Signature gradients. Action = warm coral (single CTA colour everywhere,
+  /* Signature gradients. Action = deep coral (single CTA colour everywhere,
    * maximum contrast against the cobalt brand + dark fields); brand = cobalt
-   * for structure, links, and headings. */
+   * for structure, links, and headings.
+   * NOTE: CTA stops are darkened so #fff button text clears WCAG AA 4.5:1
+   * (lightest stop #d1420f ~= 4.67:1). Do not lighten below #d1420f. */
   --ds-grad-brand: linear-gradient(135deg, #5b86ff 0%, #2d5bff 45%, #1e3fcc 100%);
-  --ds-grad-cta: linear-gradient(135deg, #ff8154 0%, #ff6b3d 45%, #e5502a 100%);
+  --ds-grad-cta: linear-gradient(135deg, #d1420f 0%, #c53c0c 45%, #b8350a 100%);
   --ds-grad-heading: linear-gradient(120deg, #0a0e17 0%, #1e3fcc 60%, #2d5bff 100%);
   --ds-grad-heading-dark: linear-gradient(120deg, #ffffff 0%, #c8d6ff 55%, #5b86ff 100%);
 
