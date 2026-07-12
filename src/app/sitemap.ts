@@ -27,7 +27,7 @@ const INDUSTRY_SLUGS = [
   "defense-and-ammunition-packaging",
 ] as const;
 
-const AUTHOR_SLUGS = ["dry-gel-world-export-desk"] as const;
+const AUTHOR_SLUGS = ["noor-ahmed-khan", "dry-gel-world-export-desk"] as const;
 
 // Landing slugs that are 301 redirect sources in next.config.ts. They must NOT
 // appear in the sitemap (submitting a redirecting URL earns a GSC "Page with

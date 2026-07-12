@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { authors, getAuthor } from "@/lib/authors";
@@ -57,6 +58,15 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
       <article className={styles.profile}>
         <header className={styles.header}>
           <p className={styles.kicker}>Author Profile</p>
+          {author.image ? (
+            <Image
+              src={author.image}
+              alt={`${author.name}, ${author.role}`}
+              width={96}
+              height={96}
+              style={{ borderRadius: "50%", objectFit: "cover", marginBottom: 12 }}
+            />
+          ) : null}
           <h1>{author.name}</h1>
           <p className={styles.role}>{author.role}</p>
         </header>
@@ -108,23 +118,46 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
+              author.isPerson
+                ? {
+                    "@type": "Person",
+                    "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
+                    name: author.name,
+                    jobTitle: author.role,
+                    description: author.shortBio,
+                    url: absoluteUrl(`/authors/${author.slug}`),
+                    email: author.contactEmail,
+                    ...(author.image ? { image: absoluteUrl(author.image) } : {}),
+                    ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
+                    worksFor: {
+                      "@type": "Organization",
+                      name: siteName,
+                      url: absoluteUrl(),
+                    },
+                    knowsAbout: author.topics,
+                  }
+                : {
+                    "@type": "Organization",
+                    "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
+                    name: author.name,
+                    description: author.shortBio,
+                    url: absoluteUrl(`/authors/${author.slug}`),
+                    email: author.contactEmail,
+                    parentOrganization: {
+                      "@type": "Organization",
+                      name: siteName,
+                      url: absoluteUrl(),
+                    },
+                    knowsAbout: author.topics,
+                    hasCredential: author.credentials.map((credential) => ({
+                      "@type": "EducationalOccupationalCredential",
+                      name: credential,
+                    })),
+                  },
               {
-                "@type": "Organization",
-                "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-                name: author.name,
-                description: author.shortBio,
+                "@type": "ProfilePage",
+                mainEntity: { "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author` },
                 url: absoluteUrl(`/authors/${author.slug}`),
-                email: author.contactEmail,
-                parentOrganization: {
-                  "@type": "Organization",
-                  name: siteName,
-                  url: absoluteUrl(),
-                },
-                knowsAbout: author.topics,
-                hasCredential: author.credentials.map((credential) => ({
-                  "@type": "EducationalOccupationalCredential",
-                  name: credential,
-                })),
               },
               breadcrumbJsonLd([
                 { name: "Home", href: "/" },
