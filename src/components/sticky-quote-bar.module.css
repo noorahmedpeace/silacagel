@@ -112,3 +112,10 @@
     transform: none;
   }
 }
+
+/* .cta can render as a <button> in Add-to-Cart mode — normalize it. */
+button.cta {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}

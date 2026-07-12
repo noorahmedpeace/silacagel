@@ -893,6 +893,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Reveal>
           <StickyQuoteBar
             productName={product.shortName}
+            productFullName={product.name}
+            productSlug={product.slug}
             href={`/request-a-quote?product=${encodeURIComponent(product.name)}`}
           />
         </main>

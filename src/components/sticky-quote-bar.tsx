@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
 import styles from "./sticky-quote-bar.module.css";
 
 const DISMISS_KEY = "dgw-quote-bar-dismissed";
@@ -18,15 +19,30 @@ const SHOW_AFTER = 0.22;
 export function StickyQuoteBar({
   href = "#quote-form",
   productName,
+  productFullName,
+  productSlug,
 }: {
   /** Anchor or route the CTA points at. Defaults to the on-page quote form. */
   href?: string;
   /** Optional product name woven into the label. */
   productName?: string;
+  /** Full catalog name + slug enable the Add-to-Cart mode of the pill. */
+  productFullName?: string;
+  productSlug?: string;
 }) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(true); // SSR-safe: start hidden
+  const [count, setCount] = useState(0);
+  const [justAdded, setJustAdded] = useState(false);
   const formInView = useRef(false);
+  const cartMode = Boolean(productFullName && productSlug);
+
+  useEffect(() => {
+    setCount(getCart().length);
+    const onChange = (e: Event) => setCount((e as CustomEvent<number>).detail ?? getCart().length);
+    window.addEventListener(CART_EVENT, onChange);
+    return () => window.removeEventListener(CART_EVENT, onChange);
+  }, []);
 
   useEffect(() => {
     if (window.sessionStorage.getItem(DISMISS_KEY)) return;
@@ -75,15 +91,40 @@ export function StickyQuoteBar({
       className={`${styles.bar} ${visible ? styles.show : ""}`}
       aria-hidden={!visible}
     >
-      <a href={href} className={styles.cta} tabIndex={visible ? 0 : -1}>
-        <span className={styles.ctaLabel}>
-          Request Quote
-          {productName ? <span className={styles.ctaProduct}> · {productName}</span> : null}
-        </span>
-        <span className={styles.ctaArrow} aria-hidden="true">
-          →
-        </span>
-      </a>
+      {cartMode ? (
+        justAdded || count > 0 ? (
+          <a href="/request-a-quote?cart=1" className={styles.cta} tabIndex={visible ? 0 : -1}>
+            <span className={styles.ctaLabel}>
+              {justAdded ? "✓ Added" : "Cart"} · Request Quote ({count})
+            </span>
+            <span className={styles.ctaArrow} aria-hidden="true">→</span>
+          </a>
+        ) : (
+          <button
+            type="button"
+            className={styles.cta}
+            tabIndex={visible ? 0 : -1}
+            onClick={() => {
+              addToCart({ name: productFullName!, slug: productSlug! });
+              setJustAdded(true);
+            }}
+          >
+            <span className={styles.ctaLabel}>
+              Add to Cart
+              {productName ? <span className={styles.ctaProduct}> · {productName}</span> : null}
+            </span>
+            <span className={styles.ctaArrow} aria-hidden="true">+</span>
+          </button>
+        )
+      ) : (
+        <a href={href} className={styles.cta} tabIndex={visible ? 0 : -1}>
+          <span className={styles.ctaLabel}>
+            Request Quote
+            {productName ? <span className={styles.ctaProduct}> · {productName}</span> : null}
+          </span>
+          <span className={styles.ctaArrow} aria-hidden="true">→</span>
+        </a>
+      )}
       <button
         type="button"
         className={styles.dismiss}

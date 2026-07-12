@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
+import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
 import styles from "./rfq-form.module.css";
 
 const UNITS = ["kg", "cartons", "pallets", "containers"];
@@ -73,12 +74,14 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
   const [inquiryId, setInquiryId] = useState("");
   const [files, setFiles] = useState<Attachment[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [cart, setCart] = useState<CartItem[]>([]);
   const startedAt = useRef(Date.now());
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     startedAt.current = Date.now();
     readFirstTouch();
+    setCart(getCart());
   }, []);
 
   const knownProduct = productCatalog.some((p) => p.name === defaultProduct);
@@ -119,6 +122,10 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
     const v = (name: string) => String(fd.get(name) ?? "");
     const ft = readFirstTouch();
 
+    const cartLines = cart.length
+      ? `Products in quote cart:\n${cart.map((c) => `- ${c.name}`).join("\n")}\n\n`
+      : "";
+
     const payload: InquiryFormInput = {
       companyName: v("companyName"),
       contactPerson: v("contactPerson"),
@@ -134,7 +141,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
       deliveryDate: v("deliveryDate"),
       destinationCountry: v("destinationCountry"),
       destinationPort: v("destinationPort"),
-      message: v("message"),
+      message: cartLines + v("message"),
       attachments: files,
       screen: `${window.screen.width}x${window.screen.height}`,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone ?? "",
@@ -155,6 +162,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
       if (result.ok) {
         setInquiryId(result.id);
         setState("done");
+        clearCart();
         return;
       }
       if (result.fallback) {
@@ -239,6 +247,23 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
 
       <section className={styles.section} aria-labelledby="rfq-product">
         <h2 className={styles.sectionTitle} id="rfq-product">Product information</h2>
+        {cart.length ? (
+          <div className={styles.uploadBox} aria-label="Products in your quote cart">
+            <span><strong>In your quote cart ({cart.length})</strong> — all included in this request:</span>
+            {cart.map((c) => (
+              <span className={styles.fileRow} key={c.slug}>
+                🛒 {c.name}
+                <button
+                  type="button"
+                  onClick={() => setCart(removeFromCart(c.slug))}
+                  aria-label={`Remove ${c.name} from cart`}
+                >
+                  ×
+                </button>
+              </span>
+            ))}
+          </div>
+        ) : null}
         <div className={styles.grid2}>
           <label className={styles.field}>
             <span>Product *</span>
