@@ -70,7 +70,7 @@ export function AddToCartButton({
         gclid: first?.gclid ?? "",
         sessionId: sessionStorage.getItem("dgw-session-id") ?? "",
         website2: String(fd.get("website2") ?? ""),
-        formStartedAt: openedAt.current,
+        formElapsedMs: Date.now() - openedAt.current,
       });
       if (result.ok) {
         addToCart({ name: productFullName, slug: productSlug });

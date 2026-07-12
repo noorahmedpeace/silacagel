@@ -153,7 +153,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
       gclid: ft.gclid,
       sessionId: sessionId(),
       website2: v("website2"),
-      formStartedAt: startedAt.current,
+      formElapsedMs: Date.now() - startedAt.current,
     };
 
     setState("submitting");

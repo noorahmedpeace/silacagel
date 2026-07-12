@@ -37,7 +37,10 @@ export type InquiryFormInput = {
   sessionId: string;
   // spam traps
   website2: string; // honeypot — must stay empty
-  formStartedAt: number;
+  /** Milliseconds the form was open before submit, measured on the client.
+      Never compare client wall-clock to server wall-clock — clock skew made
+      every real submission look "too fast" and silently swallowed leads. */
+  formElapsedMs: number;
 };
 
 export type InquiryResult =
@@ -103,7 +106,7 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
   // Spam traps: honeypot filled or form submitted inhumanly fast — pretend
   // success so bots learn nothing, store nothing.
   if (input.website2?.trim()) return { ok: true, id: "received" };
-  if (!input.formStartedAt || Date.now() - input.formStartedAt < 3000) {
+  if (typeof input.formElapsedMs !== "number" || input.formElapsedMs < 1500) {
     return { ok: true, id: "received" };
   }
 
