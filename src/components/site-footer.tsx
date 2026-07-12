@@ -56,6 +56,7 @@ const footerColumns = [
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
+      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
     ],
     viewAll: { label: "All export markets", href: "/export" },
   },
@@ -103,6 +104,8 @@ const footerColumns = [
       { label: "Manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Private label program", href: "/private-label" },
+      { label: "Bulk & wholesale sales", href: "/bulk-sales" },
     ],
   },
 ];

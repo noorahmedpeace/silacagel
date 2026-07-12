@@ -7,6 +7,7 @@ import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { IsoBadge } from "@/components/iso-badge";
+import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import {
   DeferredEmblaCarousel,
   DeferredPriceCalculator,
@@ -165,30 +166,35 @@ const scrollyIndustries = [
     overline: "Preservation Systems",
     image: seoImages.pharmaDesiccant.src,
     description: "Maintaining strict moisture thresholds for highly sensitive medical compounds, pill bottles, and active pharmaceutical ingredients against degradation.",
+    href: "/industries/pharma-packaging",
   },
   {
     name: "Electronics & Semiconductors",
     overline: "Circuit Protection",
     image: seoImages.electronicsPackaging.src,
     description: "Moisture control for microchips, PCBs, and sensitive components that need corrosion and short-circuit protection in transit.",
+    href: "/industries/electronics-packaging",
   },
   {
     name: "Leather, Textiles & Garments",
     overline: "Mold & Mildew Control",
     image: "/applications/leather-footwear.webp",
     description: "Protecting leather goods, designer garments, and textiles from mold, mildew, and odor during long oceanic transit.",
+    href: "/industries/leather-footwear-export",
   },
   {
     name: "Food & Nutraceutical Packaging",
     overline: "Food-Grade Programs",
     image: seoImages.foodPackaging.src,
     description: "Desiccant programs for snacks, spices, and dried export goods where cartons need controlled humidity and clear documentation.",
+    href: "/industries/food-packaging",
   },
   {
     name: "Ocean Freight & Container Cargo",
     overline: "Container Moisture Control",
     image: seoImages.containerDesiccant.src,
     description: "Container-scale desiccant support for export shipments exposed to condensation, humid routes, and long ocean transit.",
+    href: "/industries/container-shipping",
   },
 ];
 
@@ -583,6 +589,9 @@ export default function Home() {
             </section>
           </Reveal>
         </main>
+        {/* Persistent CTA during the long homepage scroll; hides itself while the
+            #contact RFQ section is in view (see StickyQuoteBar). */}
+        <StickyQuoteBar href="#contact" />
         <script
           type="application/ld+json"
           suppressHydrationWarning

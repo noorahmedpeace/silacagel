@@ -6422,8 +6422,11 @@
     font-size: 0.75rem;
   }
 
+  /* Keep the verifiable ISO 9001:2015 badge visible above the fold on mobile
+     (50% of sessions). It is the single strongest trust cue for a new domain;
+     hiding it left the mobile hero with zero credibility signals. */
   .heroXProof a {
-    display: none;
+    display: inline-flex;
   }
 
   .heroXProof > span {
