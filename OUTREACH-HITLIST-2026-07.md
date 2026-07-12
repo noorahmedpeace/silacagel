@@ -124,3 +124,15 @@ press@drygelworld.com
 Log every send in the outreach spreadsheet (see kit §5): target, contact, asset pitched, date sent, follow-up date, status, live-link URL. Aim: 3–4 personalized sends/week; do Quick Wins first, then Medium in table order. Re-verify any page before sending — dates and mastheads move.
 
 *Compiled 2026-07-13. Every target fetched and verified live this week. Excludes direct desiccant competitors (AGM, Sorbent Systems, Desiccare, Absortech, DesiccantPak, Multisorb, SorbStar, EPG, Edco, DryCon, SSE, desiccant.com) and all targets already in `OUTREACH-KIT.md` / `BACKLINKS-PLAYBOOK.md`.*
+
+---
+
+## SENT LOG
+
+| Date sent | Target | To | Follow-up due | Replied? | Result |
+|---|---|---|---|---|---|
+| 2026-07-13 | Universal Cargo | jared@universalcargo.com | 2026-07-20 | | |
+| 2026-07-13 | IQAX | info@iqax.com | 2026-07-20 | | |
+| 2026-07-13 | FreightAmigo | enquiry@freightamigo.com | 2026-07-20 | | |
+| 2026-07-13 | REAP | info@reap.com.pk | 2026-07-20 | | |
+| 2026-07-13 | PaperIndex Academy | wecare@paperindex.com | 2026-07-20 | | |
