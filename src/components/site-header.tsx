@@ -61,6 +61,8 @@ const navGroups: NavGroup[] = [
       { label: "Retail sachets", href: "/products/retail-sachets", icon: ShoppingBag, desc: "Printed consumer-ready packets" },
       { label: "Bulk silica gel (by kg)", href: "/products/bulk-industrial", icon: Layers, desc: "By kg, drums & jumbo bags" },
       { label: "Cargo container strips", href: "/products/container-strips", icon: Container, desc: "1-5 kg cargo hanging strips" },
+      { label: "Calcium chloride strips", href: "/products/calcium-chloride-container-strip", icon: Container, desc: "High-uptake hanging strips" },
+      { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", icon: Layers, desc: "Bulk bags for cargo moisture" },
       { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
       { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory PPE hair nets" },
       { label: "Beard covers", href: "/products/beard-covers", icon: HardHat, desc: "Disposable PPE beard covers" },
