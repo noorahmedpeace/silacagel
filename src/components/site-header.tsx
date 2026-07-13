@@ -106,6 +106,7 @@ const navGroups: NavGroup[] = [
     accent: "#7c3aed",
     children: [
       { label: "Indicative pricing", href: "/pricing", icon: CircleDollarSign, desc: "USD ranges, MOQ & Incoterms" },
+      { label: "All buyer resources", href: "/guides", icon: BookOpen, desc: "Guides, glossary, comparisons & tools" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", icon: BookOpen, desc: "Definitive procurement reference" },
       { label: "Desiccant glossary", href: "/guides/desiccant-glossary", icon: Library, desc: "Desiccant terms A-Z" },
       { label: "Compare desiccants", href: "/compare", icon: Scale, desc: "Silica gel vs other desiccants" },

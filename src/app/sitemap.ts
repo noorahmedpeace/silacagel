@@ -74,6 +74,7 @@ const STATIC_ROUTES = [
   "/export",
   "/drygelworld",
   "/compare",
+  "/guides",
   "/guides/silica-gel-buyer-guide",
   "/guides/desiccant-glossary",
   "/media-kit",
