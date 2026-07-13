@@ -1,10 +1,35 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
+// Phase 1: Report-Only. Catalogued every external origin actually referenced
+// in the codebase (Clarity, GTM, Pexels remote images, Vercel's own insights
+// script, same-origin /api/* for RFQ/chat/lead). Report-Only mode enforces
+// nothing - it only logs would-be violations - specifically because a wrong
+// origin in an enforcing policy would silently break Clarity/GTM/DryBot with
+// no way to catch it without live-browser testing this session doesn't have.
+// Once violation reports come back clean in production, flip
+// "Content-Security-Policy-Report-Only" to "Content-Security-Policy" below.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.clarity.ms https://www.googletagmanager.com https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://images.pexels.com https://www.clarity.ms",
+  "font-src 'self' data:",
+  "connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
+  "frame-src 'self' https://www.youtube.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
 const SECURITY_HEADERS = [
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "Content-Security-Policy-Report-Only",
+    value: CONTENT_SECURITY_POLICY,
   },
   {
     key: "X-Content-Type-Options",
