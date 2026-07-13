@@ -34,6 +34,8 @@ import {
   ShieldCheck,
   PackageCheck,
   Truck,
+  Cpu,
+  Warehouse,
 } from "lucide-react";
 import {
   priceGroups,
@@ -198,29 +200,33 @@ const scrollyIndustries = [
   },
 ];
 
+// Buyer-segment illustrative quotes, not attributed individual reviews - no
+// named person exists behind these, so the avatar renders a category icon
+// (never letter initials, which would visually imply a specific real person)
+// matching the same honest-disclosure pattern already used on /case-studies.
 const testimonials = [
   {
     quote:
       "We needed repeatable sachet sizes for export cartons and a faster quote path. The product range felt much easier to understand.",
-    name: "Footwear exporter",
-    title: "Repeat dispatch buying",
-    initial: "FB",
+    segment: "Footwear exporter",
+    context: "Repeat dispatch buying",
+    icon: PackageCheck,
     color: "#CDAA6B"
   },
   {
     quote:
       "The calculator and product breakdown helped our team estimate container requirements before we asked for a final quotation.",
-    name: "Electronics logistics team",
-    title: "Container planning",
-    initial: "EL",
+    segment: "Electronics logistics team",
+    context: "Container planning",
+    icon: Cpu,
     color: "#3D6D8F"
   },
   {
     quote:
       "For warehouse stock and outbound shipments, it helped to see formats, guidance, and contact options in one place instead of hunting around.",
-    name: "Warehouse operations partner",
-    title: "Bulk support",
-    initial: "IW",
+    segment: "Warehouse operations partner",
+    context: "Bulk support",
+    icon: Warehouse,
     color: "#4E5F78"
   },
 ];
@@ -548,21 +554,25 @@ export default function Home() {
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
                 <AnimatedText text="What buyers say after switching." mode="rise" />
+                <p>
+                  Illustrative buyer-segment quotes, not attributed to a named individual.
+                  For verifiable, permission-cleared references, see the case studies below.
+                </p>
               </div>
 
               <DeferredEmblaCarousel options={{ align: "start", loop: true }}>
                 {testimonials.map((item) => (
                   <article key={item.quote} className={styles.testimonialCard}>
                     <div className={styles.testimonialHeader}>
-                      <div 
-                        className={styles.testimonialAvatar} 
+                      <div
+                        className={styles.testimonialAvatar}
                         style={{ backgroundColor: item.color }}
                       >
-                        {item.initial}
+                        <item.icon size={20} strokeWidth={1.8} aria-hidden="true" />
                       </div>
                       <div className={styles.testimonialInfo}>
-                        <strong>{item.name}</strong>
-                        <span>{item.title}</span>
+                        <strong>{item.segment}</strong>
+                        <span>{item.context}</span>
                       </div>
                     </div>
                     <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
