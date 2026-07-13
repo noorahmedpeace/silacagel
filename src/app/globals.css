@@ -374,7 +374,7 @@ input[type="button"] {
   [data-reveal-direction] {
     animation-delay: 0s !important;
     animation-timeline: view();
-    animation-range: entry 6% cover 24%;
+    animation-range: entry 0% entry 40%; /* complete on entry — cover-based range parked sections at ~40% opacity mid-read */
   }
 }
 

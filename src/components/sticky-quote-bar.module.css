@@ -134,7 +134,9 @@ button.cta {
 .modal {
   position: relative;
   width: min(420px, 100%);
-  background: var(--surface, #fff);
+  max-height: calc(100dvh - 88px);
+  overflow-y: auto;
+  background: #fff;
   color: var(--ink, #16233a);
   border-radius: 16px;
   padding: 26px;
@@ -143,9 +145,14 @@ button.cta {
 
 .modalClose {
   position: absolute;
-  top: 10px;
-  right: 12px;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
   border: none;
+  border-radius: 50%;
   background: none;
   font-size: 22px;
   cursor: pointer;
@@ -180,7 +187,12 @@ button.cta {
 .modalForm select,
 .modalForm textarea {
   font: inherit;
+  font-size: 16px; /* not the label 0.82rem — sub-16px triggers iOS zoom */
   font-weight: 400;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  min-height: 44px;
   color: var(--ink, #16233a);
   background: var(--bg, #fff);
   border: 1px solid var(--glass-border, rgba(15, 40, 68, 0.18));
@@ -195,6 +207,8 @@ button.cta {
 }
 
 .modalSubmit {
+  position: sticky;
+  bottom: 0;
   font: inherit;
   font-weight: 700;
   color: #fff;
@@ -241,4 +255,25 @@ button.cta {
   height: 1px;
   overflow: hidden;
   clip: rect(0 0 0 0);
+}
+
+
+/* Mobile: DryBot (z61) was overlapping the centered pill by ~70px, burying
+   its dismiss button. Anchor the pill left and reserve the right lane.
+   Keep the translate-based show/hide, but zero the X component. */
+@media (max-width: 640px) {
+  .bar {
+    left: 12px;
+    right: 92px;
+    transform: translate(0, 16px);
+    justify-content: space-between;
+  }
+
+  .bar.show {
+    transform: translate(0, 0);
+  }
+
+  .ctaProduct {
+    display: none; /* pill self-truncated its own label at this width */
+  }
 }

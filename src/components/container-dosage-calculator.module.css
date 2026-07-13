@@ -53,8 +53,26 @@
 
 @media (max-width: 640px) {
   .fields {
-    grid-template-columns: 1fr;
+    /* minmax(0,…) is load-bearing: a bare 1fr floors at the column's
+       min-content, and the widest <select> option ("Mixed / seasonal
+       (e.g. Karachi → EU…)") is ~498px — which pushed every field
+       ~150px off-screen on phones. */
+    grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Never let a control's intrinsic width (long <option>, native file input)
+   exceed its grid cell. */
+.field,
+.field > * {
+  min-width: 0;
+}
+
+.field select,
+.field input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .field {
