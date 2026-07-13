@@ -1489,8 +1489,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
-  padding: 0 12px;
+  min-height: 44px;
+  padding: 10px 18px;
   border-radius: 999px;
   background: rgba(31, 94, 255, 0.08);
   border: 1px solid rgba(31, 94, 255, 0.12);
@@ -2741,10 +2741,11 @@
 }
 
 .priceQuoteLink {
-  min-height: 26px;
-  padding: 0 9px;
+  /* 44px minimum tap target (was measured at 62x28). */
+  min-height: 44px;
+  padding: 10px 18px;
   border-radius: 6px;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   background: rgba(45, 91, 255, 0.06);
 }
 
@@ -5529,15 +5530,16 @@
   font-variant-numeric: tabular-nums;
 }
 
-/* Quote = action → coral family (resting: soft coral chip; hover: solid). */
+/* Quote = action → coral family (resting: soft coral chip; hover: solid).
+ * 44px min height + real padding: the pill measured 62x28, below tap size. */
 .priceQuoteLink {
-  min-height: 28px;
-  padding: 0 12px;
+  min-height: 44px;
+  padding: 10px 18px;
   border-radius: var(--ds-radius-pill);
   background: var(--ds-accent-soft);
   border: 1px solid rgba(255, 107, 61, 0.26);
   color: var(--ds-accent-deep);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.02em;
   transition: transform var(--ds-dur-quick) var(--ds-ease-out),
@@ -6473,5 +6475,140 @@
   .homeRfqSection .sectionHead h2 {
     font-size: clamp(1.85rem, 8vw, 2.25rem);
     line-height: 1.08;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * 2026 REDESIGN (structural batch) — NEW classes only.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Pricing rows: primary "Quote" route link + tiny secondary WhatsApp icon. */
+.priceRowActions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceWaLink {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  color: var(--ink);
+  opacity: 0.55;
+  transition: opacity var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.priceWaLink:hover,
+.priceWaLink:focus-visible {
+  opacity: 1;
+  border-color: rgba(15, 23, 42, 0.24);
+}
+
+/* Industries: single section-end filled CTA. */
+.industryCta {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+/* Track record: verified-stat proof cards (replace persona quote cards). */
+.trackGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.trackCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 28px 26px;
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--ink);
+  text-decoration: none;
+  box-shadow: 0 22px 44px -30px rgba(13, 27, 42, 0.2);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.trackStat {
+  font-family: var(--font-display), var(--font-body);
+  font-size: clamp(1.5rem, 1.15rem + 1.2vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  color: var(--ds-brand-deep);
+}
+
+.trackLabel {
+  font-size: 0.95rem;
+  font-weight: 750;
+  letter-spacing: -0.01em;
+}
+
+.trackDetail {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ds-text-muted);
+}
+
+.trackProof {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ds-brand-deep);
+}
+
+.trackProof svg {
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .trackCard:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 91, 255, 0.24);
+    box-shadow: 0 28px 52px -30px rgba(13, 27, 42, 0.28);
+  }
+
+  .trackCard:hover .trackProof svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (max-width: 900px) {
+  .trackGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .trackCard {
+    padding: 22px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trackCard,
+  .trackProof svg,
+  .priceWaLink {
+    transition: none;
+  }
+
+  .trackCard:hover {
+    transform: none;
+  }
+
+  .trackCard:hover .trackProof svg {
+    transform: none;
   }
 }

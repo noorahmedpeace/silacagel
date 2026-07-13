@@ -162,7 +162,6 @@ export function PriceCalculator() {
         ? [
             `${FLASH10_CODE} Savings (10%): -${selectedCurrency.symbol}${currencyFormatter.format(activeSavings)} ${selectedCurrency.code}`,
             `Discounted Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(activeTotal)} ${selectedCurrency.code}`,
-            `Promotion expires in: ${formatFlash10Remaining(activeRemaining)}`,
           ]
         : []),
       "Please advise export quote, MOQ, lead time, documentation, and suitable shipping terms.",
@@ -289,7 +288,7 @@ export function PriceCalculator() {
             </div>
           </dl>
           <p className={styles.discountExpiry}>
-            <Clock3 size={15} /> Offer expires in {formatFlash10Remaining(promoRemaining)}
+            <Clock3 size={15} /> Trial-order pricing available — ask for a first-order quote
           </p>
         </section>
       ) : null}
@@ -318,7 +317,7 @@ export function PriceCalculator() {
         onClick={handleWhatsAppQuote}
         type="button"
       >
-        {promoActive ? "Send Discounted Estimate on WhatsApp" : "Submit Procurement Estimate"}
+        {promoActive ? "Send Estimate on WhatsApp" : "Send Estimate on WhatsApp"}
       </button>
 
       <AddToCartButton

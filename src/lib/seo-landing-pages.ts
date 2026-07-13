@@ -4479,6 +4479,37 @@ export function getSeoLandingPage(slug: SeoLandingSlug) {
   return seoLandingPages[slug];
 }
 
+// Thin, near-duplicate PPE permutation pages (geo / size / material swaps of a
+// shared template, mostly orphaned and reachable only via the sitemap). They
+// stay LIVE for direct and paid traffic, but are noindexed and dropped from
+// the sitemap so a mass of thin doorway variants stops dragging the whole
+// domain's site-wide quality signal. Category-head pages (e.g.
+// "hair-net-supplier", "food-grade-hair-nets") deliberately stay indexed. The
+// `satisfies` clause makes an invalid slug a build error.
+const NOINDEX_LANDING_SLUGS = [
+  "hair-net-supplier-uae",
+  "hair-net-supplier-usa",
+  "hair-net-supplier-saudi-arabia",
+  "beard-cover-supplier-usa",
+  "beard-cover-supplier-uk",
+  "beard-cover-supplier-saudi-arabia",
+  "dry-clay-desiccant-supplier-uae",
+  "dry-clay-desiccant-supplier-saudi-arabia",
+  "18-inch-hair-nets",
+  "20-inch-hair-nets",
+  "21-inch-hair-nets",
+  "22-inch-hair-nets",
+  "non-woven-hair-nets",
+  "non-woven-beard-covers",
+  "disposable-beard-covers",
+] as const satisfies readonly SeoLandingSlug[];
+
+export const noindexLandingSlugs = new Set<string>(NOINDEX_LANDING_SLUGS);
+
+export function isNoindexLandingSlug(slug: string): boolean {
+  return noindexLandingSlugs.has(slug);
+}
+
 export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
   const page = getSeoLandingPage(slug);
   const heroImage = getLandingSeoImage(page);
@@ -4488,6 +4519,11 @@ export function landingPageMetadata(slug: SeoLandingSlug): Metadata {
   return {
     title: metaTitle,
     description: metaDescription,
+    // Thin permutation pages: keep crawlable for link equity (follow) but out
+    // of the index (noindex) so they don't dilute the domain's quality signal.
+    ...(noindexLandingSlugs.has(page.slug)
+      ? { robots: { index: false, follow: true } }
+      : {}),
     alternates: {
       canonical: `/${page.slug}`,
     },

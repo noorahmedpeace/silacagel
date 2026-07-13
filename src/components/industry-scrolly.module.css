@@ -266,3 +266,20 @@
     transform: none;
   }
 }
+
+/* Per-card action demoted from a filled button to a brand text link — six
+   filled coral buttons in one section outshouted the real CTAs. */
+.quoteTextLink {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 0;
+  color: var(--ds-brand);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.quoteTextLink:hover {
+  color: var(--ds-brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

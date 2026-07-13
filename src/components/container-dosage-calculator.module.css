@@ -99,8 +99,53 @@
 
 .slider {
   flex: 1;
-  accent-color: var(--ds-brand);
   min-height: 32px;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  accent-color: var(--ds-brand);
+  cursor: pointer;
+}
+
+/* 4px hairline track; Firefox additionally paints brand progress. */
+.slider::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ds-hairline);
+}
+
+.slider::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ds-hairline);
+}
+
+.slider::-moz-range-progress {
+  height: 4px;
+  border-radius: 999px;
+  background: var(--ds-brand);
+}
+
+/* 18px white thumb with hairline border + soft shadow. */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7px; /* centers the 18px thumb on the 4px track */
+  border-radius: 50%;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-hairline-strong);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--ds-surface);
+  border: 1px solid var(--ds-hairline-strong);
+  box-shadow: var(--ds-shadow-soft);
 }
 
 .slider:focus-visible {

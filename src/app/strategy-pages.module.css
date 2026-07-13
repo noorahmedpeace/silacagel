@@ -43,9 +43,10 @@
   align-items: center;
   align-self: center;
   padding: 7px 14px;
-  /* Label chip on the brand family - coral stays reserved for actions. */
+  /* Standard passive-chip recipe: brand-soft fill + brand ink. Coral stays
+   * reserved for real action buttons (.cta). */
   background: var(--ds-brand-soft);
-  color: var(--ds-brand-deep);
+  color: var(--ds-brand);
   border: 1px solid rgba(45, 91, 255, 0.18);
   font-size: 12px;
   font-weight: 700;
@@ -286,7 +287,7 @@
   gap: 6px;
   padding: 4px 12px;
   background: var(--ds-brand-soft);
-  color: var(--ds-brand-deep);
+  color: var(--ds-brand);
   font-size: var(--ds-meta);
   font-weight: 600;
   letter-spacing: 0.04em;

@@ -12,7 +12,7 @@
  * `available` to true.
  */
 
-export type DocumentType = "certificate" | "sds" | "coa" | "tds" | "spec";
+export type DocumentType = "certificate" | "sds" | "coa" | "tds" | "spec" | "profile";
 
 export type DocEntry = {
   id: string;
@@ -44,6 +44,7 @@ export const documentGroups: DocGroup[] = [
   { key: "coa", label: "Certificates of Analysis (COA)", blurb: "Batch/material test results against a published standard." },
   { key: "tds", label: "Technical Data Sheets (TDS)", blurb: "Adsorption performance and physical properties." },
   { key: "spec", label: "Product Specifications", blurb: "Format, size range, packing, and MOQ context per SKU." },
+  { key: "profile", label: "Company Profile", blurb: "Overview of the company, facilities, and product range." },
 ];
 
 /*
@@ -96,6 +97,19 @@ export const documents: DocEntry[] = [
       { label: "Standard", value: isoCertificate.standard },
       { label: "Certificate no.", value: isoCertificate.certificateNumber },
       { label: "Valid to", value: "09 Dec 2028" },
+    ],
+  },
+  {
+    id: "iso-9001-scan",
+    type: "certificate",
+    title: "ISO 9001:2015 Certificate (scanned copy)",
+    description: "Scanned copy of the ISO 9001:2015 registration certificate issued to Kamran Enterprises (trading as DryGelWorld).",
+    fileHref: "/documents/iso-9001-2015-certificate-scan.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Standard", value: "ISO 9001:2015" },
+      { label: "Certificate no.", value: "9101225" },
     ],
   },
   {
@@ -165,6 +179,15 @@ export const documents: DocEntry[] = [
     format: "PDF",
     available: true,
     appliesTo: "All silica gel formats",
+  },
+  {
+    id: "company-profile",
+    type: "profile",
+    title: "DryGelWorld Company Profile & Product Catalogue",
+    description: "Company overview, manufacturing background since 1983, product range, and the industries served — with ISO 9001:2015, SDS, COA, and DMF-free documentation referenced throughout.",
+    fileHref: "/documents/company-profile.pdf",
+    format: "PDF",
+    available: true,
   },
 ];
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, useReducer } from "react";
+import { FormEvent, useEffect, useRef, useState, useReducer } from "react";
 import Link from "next/link";
 import {
   contactEmailChannels,
@@ -10,8 +10,9 @@ import {
   productCatalog,
   type ContactDepartment,
 } from "@/lib/product-data";
-import { submitRfq } from "@/app/actions/submit-rfq";
-import { FLASH10_CODE, formatFlash10Remaining, getFlash10Remaining } from "@/lib/flash10";
+import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
+import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
+import { FLASH10_CODE, getFlash10Remaining } from "@/lib/flash10";
 import styles from "./quote-form.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -110,7 +111,15 @@ export function QuoteForm({
   const [pending, setPending] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [inquiryId, setInquiryId] = useState("");
   const routedChannel = getContactEmailChannel(state.department);
+  const startedAt = useRef(Date.now());
+  const website2 = useRef(""); // honeypot — bots fill it, humans never see it
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+    clientTracking(); // stash first-touch UTM/gclid on mount
+  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -147,8 +156,7 @@ export function QuoteForm({
       ...(promoActive
         ? [
             `Promotion: ${FLASH10_CODE}`,
-            "Discount: 10%",
-            `Promotion Remaining Time: ${formatFlash10Remaining(promoRemaining)}`,
+            "Discount: 10% (first-order trial pricing)",
           ]
         : []),
       `Global Support Line: ${displayPhone}`,
@@ -157,24 +165,44 @@ export function QuoteForm({
     const subject = `${route.defaultSubject} - ${state.product || "Silica gel inquiry"}`;
     const url = createMailtoHref(route.email, subject, rfqMessage);
 
+    // One pipeline for every lead: persist to the CRM, capture gclid/UTM, send
+    // the buyer confirmation, and stay spam-protected. The rich per-field data
+    // rides along in `message`; the key fields are also stored structured.
+    const payload: InquiryFormInput = {
+      companyName: state.company,
+      contactPerson: "",
+      email: state.email,
+      phone: state.phone,
+      country: state.country,
+      city: "",
+      productName: state.product,
+      quantity: state.quantity,
+      unit: "",
+      packaging: state.packaging,
+      application: state.application,
+      deliveryDate: "",
+      destinationCountry: "",
+      destinationPort: state.destination,
+      message: rfqMessage,
+      attachments: [],
+      ...clientTracking(),
+      website2: website2.current,
+      formElapsedMs: Date.now() - startedAt.current,
+    };
+
     setPending(true);
     try {
-      const result = await submitRfq({
-        company: state.company,
-        email: state.email,
-        quantity: state.quantity,
-        toEmail: route.email,
-        subject,
-        body: rfqMessage,
-      });
+      const result = await submitInquiry(payload);
 
       if (result.ok) {
-        // Confirmed delivered by the server - show an honest success state.
+        // Confirmed stored/delivered by the server - honest success state.
+        setInquiryId(result.id);
         setStatus("sent");
         dispatch({ type: "submit" });
+        fireLeadConversion(result.id, "quote_form");
       } else if (result.fallback) {
-        // No backend configured or provider failed: open the mail client as a
-        // genuine fallback so the lead is not silently dropped.
+        // Neither stored nor emailed: open the mail client as a genuine
+        // fallback so the lead is not silently dropped.
         setStatus("fallback");
         dispatch({ type: "submit" });
         window.location.href = url;
@@ -200,7 +228,7 @@ export function QuoteForm({
     >
       <div className={styles.formMain}>
         <div className={styles.formHead}>
-          <p>Export RFQ Engine</p>
+          <p>Get an export quote</p>
           <h3>{title}</h3>
           <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
         </div>
@@ -437,8 +465,21 @@ export function QuoteForm({
           </div>
         </details>
 
+        {/* Honeypot — humans never see or fill this. */}
+        <input
+          type="text"
+          name="website2"
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          onChange={(event) => {
+            website2.current = event.target.value;
+          }}
+          style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+        />
+
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending RFQ…" : "Send Export RFQ"}
+          {pending ? "Sending…" : "Send my requirement — quote in 24h"}
         </button>
 
         {error ? (
@@ -451,8 +492,9 @@ export function QuoteForm({
           <div className={styles.successNote} role="status">
             <strong>RFQ received.</strong>
             <span>
-              Your inquiry was sent to our {routedChannel.label} export desk - expect a reply to{" "}
-              {state.email}. WhatsApp remains available for urgent follow-up.
+              Your inquiry was logged{inquiryId && inquiryId !== "received" ? ` as ${inquiryId}` : ""} and
+              routed to our {routedChannel.label} export desk - expect a reply to {state.email}. WhatsApp
+              remains available for urgent follow-up.
             </span>
           </div>
         ) : null}

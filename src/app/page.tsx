@@ -6,10 +6,8 @@ import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
-import { IsoBadge } from "@/components/iso-badge";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import {
-  DeferredEmblaCarousel,
   DeferredPriceCalculator,
   DeferredQuoteForm,
 } from "@/components/deferred-home-widgets";
@@ -31,6 +29,7 @@ import {
   ArrowRight,
   FileCheck2,
   Globe,
+  MessageCircle,
   ShieldCheck,
   PackageCheck,
   Truck,
@@ -198,30 +197,29 @@ const scrollyIndustries = [
   },
 ];
 
-const testimonials = [
+// Honest track record: only verified, provable facts — each card links to the
+// page that documents the claim. No invented customers or persona quotes.
+const trackRecord = [
   {
-    quote:
-      "We needed repeatable sachet sizes for export cartons and a faster quote path. The product range felt much easier to understand.",
-    name: "Footwear exporter",
-    title: "Repeat dispatch buying",
-    initial: "FB",
-    color: "#CDAA6B"
+    stat: "10M+",
+    label: "Sachets shipped",
+    detail: "Manufacturing continuously since 1983.",
+    href: "/media-kit",
+    proof: "See the media kit",
   },
   {
-    quote:
-      "The calculator and product breakdown helped our team estimate container requirements before we asked for a final quotation.",
-    name: "Electronics logistics team",
-    title: "Container planning",
-    initial: "EL",
-    color: "#3D6D8F"
+    stat: "190+",
+    label: "Export markets",
+    detail: "Quoted FOB / CIF / DAP with full shipping documentation.",
+    href: "/export",
+    proof: "Browse export markets",
   },
   {
-    quote:
-      "For warehouse stock and outbound shipments, it helped to see formats, guidance, and contact options in one place instead of hunting around.",
-    name: "Warehouse operations partner",
-    title: "Bulk support",
-    initial: "IW",
-    color: "#4E5F78"
+    stat: "ISO 9001:2015",
+    label: "Certificate #9101225",
+    detail: "SDS and COA supplied with every batch.",
+    href: "/certifications",
+    proof: "Verify the certificate",
   },
 ];
 
@@ -284,7 +282,7 @@ export default function Home() {
             <div className={styles.heroXCopy}>
               <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
                 <span className={styles.heroXEyebrowDot} aria-hidden="true" />
-                Manufacturer and exporter since 1983
+                ISO 9001:2015 · Manufacturer since 1983
               </span>
               <h1 className={styles.heroXTitle}>
                 {splitTextToSpans("Industrial silica gel for cargo that has to arrive dry.")}
@@ -299,12 +297,8 @@ export default function Home() {
                   <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
                 <Link href="/products" className={styles.heroXGhost}>
-                  Explore the range
+                  Explore products
                 </Link>
-              </div>
-
-              <div className={`${styles.heroXProof} gsap-hero-fade`}>
-                <IsoBadge tone="dark" />
               </div>
 
               <div className={`${styles.heroXSignals} gsap-hero-fade`}>
@@ -337,7 +331,7 @@ export default function Home() {
                 <p className={styles.kicker}>How it works</p>
                 <AnimatedText text="Three steps to a quote." mode="bubble" />
                 <p className={styles.flowIntroSub}>Send the right details once and get a clearer quote path.</p>
-                <Link href="/contact" className={styles.flowCta}>
+                <Link href="/request-a-quote" className={styles.flowCta}>
                   Start your quote
                   <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
@@ -466,21 +460,31 @@ export default function Home() {
                         {group.items.slice(0, 4).map((item) => (
                           <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
                             <strong>{item.label}</strong>
-                            <a
-                              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                                [
-                                  "Hello, I'm requesting a Dry Gel World export quote.",
-                                  `Category: ${group.title}`,
-                                  `Size: ${item.label}`,
-                                  "Please advise MOQ, lead time, documentation, and shipping terms.",
-                                ].join("\n"),
-                              )}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={styles.priceQuoteLink}
-                            >
-                              Quote
-                            </a>
+                            <span className={styles.priceRowActions}>
+                              <Link
+                                href={`/request-a-quote?product=${encodeURIComponent(`Silica Gel ${item.label}`)}`}
+                                className={styles.priceQuoteLink}
+                                aria-label={`Get quote for ${item.label}`}
+                              >
+                                Quote
+                              </Link>
+                              <a
+                                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+                                  [
+                                    "Hello, I'm requesting a Dry Gel World export quote.",
+                                    `Category: ${group.title}`,
+                                    `Size: ${item.label}`,
+                                    "Please advise MOQ, lead time, documentation, and shipping terms.",
+                                  ].join("\n"),
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={styles.priceWaLink}
+                                aria-label={`WhatsApp quote for ${item.label}`}
+                              >
+                                <MessageCircle size={14} strokeWidth={2.2} aria-hidden="true" />
+                              </a>
+                            </span>
                           </div>
                         ))}
                       </div>
@@ -540,6 +544,13 @@ export default function Home() {
               </div>
 
               <IndustryScrolly industries={scrollyIndustries} />
+
+              <div className={styles.industryCta}>
+                <Link href="/request-a-quote" className={styles.flowCta}>
+                  Match my industry
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
+              </div>
             </section>
           </Reveal>
 
@@ -547,28 +558,22 @@ export default function Home() {
             <section id="proof" className={styles.proofSection}>
               <div className={styles.sectionHead}>
                 <p className={styles.kicker}>Buyer Confidence</p>
-                <AnimatedText text="What buyers say after switching." mode="rise" />
+                <AnimatedText text="Track record." mode="rise" />
               </div>
 
-              <DeferredEmblaCarousel options={{ align: "start", loop: true }}>
-                {testimonials.map((item) => (
-                  <article key={item.quote} className={styles.testimonialCard}>
-                    <div className={styles.testimonialHeader}>
-                      <div 
-                        className={styles.testimonialAvatar} 
-                        style={{ backgroundColor: item.color }}
-                      >
-                        {item.initial}
-                      </div>
-                      <div className={styles.testimonialInfo}>
-                        <strong>{item.name}</strong>
-                        <span>{item.title}</span>
-                      </div>
-                    </div>
-                    <p className={styles.testimonialQuote}>&ldquo;{item.quote}&rdquo;</p>
-                  </article>
+              <div className={styles.trackGrid}>
+                {trackRecord.map((item) => (
+                  <Link key={item.stat} href={item.href} className={styles.trackCard}>
+                    <span className={styles.trackStat}>{item.stat}</span>
+                    <span className={styles.trackLabel}>{item.label}</span>
+                    <span className={styles.trackDetail}>{item.detail}</span>
+                    <span className={styles.trackProof}>
+                      {item.proof}
+                      <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
+                  </Link>
                 ))}
-              </DeferredEmblaCarousel>
+              </div>
 
               <div className={styles.caseStudyAction}>
                 <Link href="/case-studies" className={styles.secondaryCta}>Read the case studies</Link>
@@ -589,9 +594,9 @@ export default function Home() {
             </section>
           </Reveal>
         </main>
-        {/* Persistent CTA during the long homepage scroll; hides itself while the
-            #contact RFQ section is in view (see StickyQuoteBar). */}
-        <StickyQuoteBar href="#contact" />
+        {/* Persistent CTA during the long homepage scroll; routes all quote
+            intent to the dedicated /request-a-quote page (2026 redesign). */}
+        <StickyQuoteBar href="/request-a-quote" />
         <script
           type="application/ld+json"
           suppressHydrationWarning

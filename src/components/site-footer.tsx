@@ -39,8 +39,6 @@ const footerColumns = [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
-      { label: "Container moisture control", href: "/shipping-container-moisture-control" },
       { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
     ],
     viewAll: { label: "View all formats", href: "/products" },

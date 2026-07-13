@@ -31,6 +31,7 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
   const params = await searchParams;
   const product =
     typeof params.product === "string" ? params.product.trim().slice(0, 120) : "";
+  const qty = typeof params.qty === "string" ? params.qty.trim().slice(0, 20) : "";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -89,7 +90,22 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
       </section>
 
       <section className={styles.section}>
-        <RfqForm defaultProduct={product} />
+        <p style={{ display: "flex", alignItems: "center", gap: 12, margin: "0 0 14px", fontSize: 14.5, color: "var(--ds-text-muted, #5b6572)" }}>
+          {/* A face beside a form measurably lifts B2B submissions. */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/authors/noor-ahmed-khan.jpg"
+            alt=""
+            width={40}
+            height={40}
+            style={{ borderRadius: "50%", objectFit: "cover" }}
+          />
+          <span>
+            Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Export
+            Director — factory export desk, Karachi.
+          </span>
+        </p>
+        <RfqForm defaultProduct={product} defaultQuantity={qty} />
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">

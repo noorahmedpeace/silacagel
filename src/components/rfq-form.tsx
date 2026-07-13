@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
+import { fireLeadConversion } from "@/lib/lead-tracking";
 import { productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
 import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
 import styles from "./rfq-form.module.css";
@@ -68,7 +69,7 @@ function sessionId(): string {
   }
 }
 
-export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
+export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { defaultProduct?: string; defaultQuantity?: string }) {
   const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
   const [error, setError] = useState("");
   const [inquiryId, setInquiryId] = useState("");
@@ -163,6 +164,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
         setInquiryId(result.id);
         setState("done");
         clearCart();
+        fireLeadConversion(result.id, "rfq_form");
         return;
       }
       if (result.fallback) {
@@ -249,10 +251,10 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
         <h2 className={styles.sectionTitle} id="rfq-product">Product information</h2>
         {cart.length ? (
           <div className={styles.uploadBox} aria-label="Products in your quote cart">
-            <span><strong>In your quote cart ({cart.length})</strong> — all included in this request:</span>
+            <span><strong>In your quote list ({cart.length})</strong> — all included in this request:</span>
             {cart.map((c) => (
               <span className={styles.fileRow} key={c.slug}>
-                🛒 {c.name}
+                <span aria-hidden="true">▸</span> {c.name}
                 <button
                   type="button"
                   onClick={() => setCart(removeFromCart(c.slug))}
@@ -280,7 +282,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
           </label>
           <label className={styles.field}>
             <span>Quantity</span>
-            <input name="quantity" inputMode="decimal" placeholder="e.g. 500" />
+            <input name="quantity" inputMode="decimal" placeholder="e.g. 500" defaultValue={defaultQuantity} />
           </label>
           <label className={styles.field}>
             <span>Unit</span>
@@ -338,7 +340,7 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
           {uploading ? <span aria-live="polite">Uploading…</span> : null}
           {files.map((f) => (
             <span className={styles.fileRow} key={f.url}>
-              📎 {f.name} ({Math.round(f.size / 1024)} KB)
+              <span aria-hidden="true">▮</span> {f.name} ({Math.round(f.size / 1024)} KB)
               <button type="button" onClick={() => setFiles(files.filter((x) => x.url !== f.url))} aria-label={`Remove ${f.name}`}>
                 ×
               </button>
@@ -356,6 +358,8 @@ export function RfqForm({ defaultProduct = "" }: { defaultProduct?: string }) {
       {error ? (
         <p className={styles.error} role="alert">{error}</p>
       ) : null}
+
+      <p className={styles.proofLine}>ISO 9001:2015 · Cert No. 9101225 · SDS &amp; COA with every batch · Reply within 24 business hours</p>
 
       <div className={styles.actions}>
         <button className={styles.submit} type="submit" disabled={state === "submitting" || uploading}>

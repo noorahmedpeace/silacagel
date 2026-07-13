@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
@@ -47,7 +47,16 @@ import { CartBadge } from "./cart-badge";
 import styles from "./site-header.module.css";
 
 type NavLink = { label: string; href: string; icon: LucideIcon; desc?: string };
-type NavGroup = { label: string; icon: LucideIcon; accent: string; href?: string; children: NavLink[] };
+type NavGroup = {
+  label: string;
+  icon: LucideIcon;
+  accent: string;
+  href?: string;
+  children: NavLink[];
+  /** Subdued trailing group rendered after the main grid (e.g. PPE supplies). */
+  trailingLabel?: string;
+  trailing?: NavLink[];
+};
 
 const navGroups: NavGroup[] = [
   {
@@ -62,6 +71,9 @@ const navGroups: NavGroup[] = [
       { label: "Bulk silica gel (by kg)", href: "/products/bulk-industrial", icon: Layers, desc: "By kg, drums & jumbo bags" },
       { label: "Cargo container strips", href: "/products/container-strips", icon: Container, desc: "1-5 kg cargo hanging strips" },
       { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
+    ],
+    trailingLabel: "Other supplies",
+    trailing: [
       { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory PPE hair nets" },
       { label: "Beard covers", href: "/products/beard-covers", icon: HardHat, desc: "Disposable PPE beard covers" },
     ],
@@ -112,7 +124,7 @@ const navGroups: NavGroup[] = [
       { label: "Blog", href: "/blog", icon: Newspaper, desc: "Buyer guides & how-tos" },
       { label: "Videos", href: "/videos", icon: Video, desc: "Product & manufacturer footage" },
       { label: "Documents", href: "/documents", icon: FileText, desc: "SDS, COA, DMF-free statement" },
-      { label: "Requirement calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
+      { label: "Dosage calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", icon: Calculator, desc: "Grams needed by carton L x W x H" },
     ],
   },
@@ -136,7 +148,7 @@ function tint(accent: string, amount: number) {
 
 function isGroupActive(group: NavGroup, pathname: string) {
   if (group.href && pathname === group.href) return true;
-  return group.children.some(
+  return [...group.children, ...(group.trailing ?? [])].some(
     (child) => pathname === child.href || (child.href !== "/" && pathname.startsWith(`${child.href}/`)),
   );
 }
@@ -181,15 +193,23 @@ export function SiteHeader() {
       <div className={styles.navShell}>
         <div className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
-            <Image
-              src="/drygelworld-logo.svg"
-              alt="Dry Gel World Professional Gel Solutions"
-              width={930}
-              height={245}
-              className={styles.brandLogo}
-              priority
-              fetchPriority="high"
-            />
+            <span className={styles.brandMark} aria-hidden="true">
+              {/* The company's actual mark — the blue/silver sphere. */}
+              <Image
+                src="/images/brand/logo-ball.png"
+                alt=""
+                width={34}
+                height={34}
+                priority
+                className={styles.brandBall}
+              />
+            </span>
+            <span className={styles.brandText}>
+              <span className={styles.brandWordmark}>
+                DRYGEL<span className={styles.brandWordAccent}>WORLD</span>
+              </span>
+              <span className={styles.brandSubline}>MOISTURE CONTROL · SINCE 1983</span>
+            </span>
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
@@ -275,6 +295,33 @@ export function SiteHeader() {
                         );
                       })}
                     </div>
+                    {group.trailing?.length ? (
+                      <div className={styles.dropdownTrailing}>
+                        <span className={styles.dropdownTrailingLabel}>{group.trailingLabel}</span>
+                        <div className={styles.dropdownGrid}>
+                          {group.trailing.map((child) => {
+                            const ItemIcon = child.icon;
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                role="menuitem"
+                                className={`${styles.dropdownCard} ${styles.dropdownCardMuted}`}
+                                onClick={() => setOpenMenu(null)}
+                              >
+                                <span className={styles.cardIcon}>
+                                  <ItemIcon size={16} strokeWidth={2} aria-hidden="true" />
+                                </span>
+                                <span className={styles.cardText}>
+                                  <span className={styles.cardTitle}>{child.label}</span>
+                                  {child.desc ? <span className={styles.cardDesc}>{child.desc}</span> : null}
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
                 </div>
               );
@@ -291,8 +338,8 @@ export function SiteHeader() {
                 <Calculator size={17} strokeWidth={2.35} />
               </span>
               <span className={styles.calcText}>
-                <span>Requirement</span>
-                <strong>Requirement Calculator</strong>
+                <span>Dosage</span>
+                <strong>Dosage Calculator</strong>
               </span>
             </Link>
 
@@ -376,6 +423,33 @@ export function SiteHeader() {
                           </Link>
                         );
                       })}
+                      {group.trailing?.length ? (
+                        <>
+                          <span className={styles.dropdownTrailingLabel}>{group.trailingLabel}</span>
+                          {group.trailing.map((child) => {
+                            const ItemIcon = child.icon;
+                            return (
+                              <Link
+                                key={child.href}
+                                href={child.href}
+                                className={`${styles.dropdownCard} ${styles.dropdownCardMuted}`}
+                                onClick={() => {
+                                  setMobileOpen(false);
+                                  setMobileExpanded(null);
+                                }}
+                              >
+                                <span className={styles.cardIcon}>
+                                  <ItemIcon size={16} strokeWidth={2} aria-hidden="true" />
+                                </span>
+                                <span className={styles.cardText}>
+                                  <span className={styles.cardTitle}>{child.label}</span>
+                                  {child.desc ? <span className={styles.cardDesc}>{child.desc}</span> : null}
+                                </span>
+                              </Link>
+                            );
+                          })}
+                        </>
+                      ) : null}
                     </div>
                   ) : null}
                 </div>

@@ -52,7 +52,9 @@ export function ContainerDosageCalculator() {
   const cargoOption = CARGO_TYPES.find((c) => c.id === cargo)!;
   const packagingOption = PACKAGING_TYPES.find((p) => p.id === packaging)!;
 
-  const rfqHref = `/contact?product=container-strips&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
+  // Highest-intent click on the site → the RFQ engine (prefilled), not the
+  // contact directory.
+  const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
 
   const planLines = [
     `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,

@@ -31,6 +31,15 @@ export const googleSiteVerification =
 // Per-article dates are preferable; tracked in the SEO action plan.
 export const sitemapLastModified = "2026-06-24";
 
+// Rolling ~13-month validity for Product Offer JSON-LD. A hardcoded date
+// silently lapses and Google then flags the offer as expired; deriving it at
+// render keeps it always fresh without a manual bump.
+export function priceValidUntil(): string {
+  const d = new Date();
+  d.setMonth(d.getMonth() + 13);
+  return d.toISOString().slice(0, 10);
+}
+
 export const META_TITLE_LIMIT = 60;
 export const META_DESCRIPTION_LIMIT = 158;
 

@@ -8,17 +8,11 @@
   top: 0;
   left: 0;
   z-index: 300; /* above the fixed header (z-index 200) */
-  height: 3px;
+  height: 2px;
   width: 100%;
   transform-origin: 0 50%;
   transform: scaleX(0);
-  background: linear-gradient(
-    90deg,
-    var(--ds-brand) 0%,
-    var(--ds-brand-deep) 40%,
-    var(--ds-accent) 100%
-  );
-  box-shadow: 0 1px 8px rgba(45, 91, 255, 0.4);
+  background: var(--ds-brand);
   pointer-events: none;
   will-change: transform;
 }

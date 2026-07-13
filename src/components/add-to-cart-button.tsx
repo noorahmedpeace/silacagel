@@ -15,7 +15,7 @@ export function AddToCartButton({
   productFullName,
   productSlug,
   className,
-  label = "Add to Cart",
+  label = "Add to Quote",
 }: {
   productFullName: string;
   productSlug: string;
@@ -87,7 +87,12 @@ export function AddToCartButton({
 
   return (
     <>
-      <button type="button" className={className} onClick={() => setShowModal(true)}>
+      <button
+        type="button"
+        className={className}
+        data-promo-quiet
+        onClick={() => setShowModal(true)}
+      >
         {label}
       </button>
 
@@ -99,7 +104,7 @@ export function AddToCartButton({
           className={styles.overlay}
           role="dialog"
           aria-modal="true"
-          aria-label={`Quick inquiry for ${productFullName}`}
+          aria-label={`Quick pricing request for ${productFullName}`}
           onClick={(e) => {
             if (e.target === e.currentTarget) setShowModal(false);
           }}
@@ -125,7 +130,7 @@ export function AddToCartButton({
               </div>
             ) : (
               <form onSubmit={quickSubmit} className={styles.modalForm}>
-                <h3>Add to cart: {productFullName}</h3>
+                <h3>Add to quote: {productFullName}</h3>
                 <p>Leave your email and quantity — we will reach you soon.</p>
                 <label>
                   <span>Email *</span>
@@ -163,9 +168,13 @@ export function AddToCartButton({
                   className={styles.hp}
                 />
                 {quickError ? <p className={styles.modalError} role="alert">{quickError}</p> : null}
-                <button type="submit" className={styles.modalSubmit} disabled={quick === "sending"}>
-                  {quick === "sending" ? "Sending…" : "Add to Cart & Notify Team"}
-                </button>
+                {/* Solid shelf under the sticky submit so it never floats
+                    transparently over the fields it has scrolled past. */}
+                <div className={styles.modalSubmitShelf}>
+                  <button type="submit" className={styles.modalSubmit} disabled={quick === "sending"}>
+                    {quick === "sending" ? "Sending…" : "Request Pricing for This Item"}
+                  </button>
+                </div>
               </form>
             )}
           </div>

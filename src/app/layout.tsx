@@ -193,10 +193,14 @@ export default function RootLayout({
             EVERY route to preload a homepage-only image. Both wasted bandwidth. */}
       </head>
       <body>
+        <a href="#main-content" className="skip-to-content">
+          Skip to content
+        </a>
         <DeployRecovery />
         <ScrollProgress />
         <SiteHeader />
         <HashAnchorScroll />
+        <span id="main-content" tabIndex={-1} />
         {children}
         <GuaranteeStrip />
         <DeferredChrome />

@@ -55,6 +55,28 @@
   min-width: 0;
 }
 
+/* Native file control styled as a real button so the upload affordance
+ * matches the rest of the form (44px target, hairline border, tint fill). */
+.uploadBox input[type="file"]::file-selector-button {
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 44px;
+  margin-right: 12px;
+  padding: 10px 16px;
+  border: 1px solid var(--ds-hairline-strong, #ccd3e2);
+  border-radius: 9px;
+  background: var(--ds-surface-tint, #f3f7ff);
+  color: var(--ds-text, #0a0e17);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.uploadBox input[type="file"]::file-selector-button:hover {
+  background: var(--ds-brand-soft, #eaf0ff);
+  border-color: var(--ds-brand, #2d5bff);
+}
+
 .field input,
 .field select,
 .field textarea {
@@ -64,8 +86,10 @@
   box-sizing: border-box;
   font: inherit;
   color: var(--ink, #16233a);
-  background: var(--bg, #fff);
-  border: 1px solid var(--glass-border, rgba(15, 40, 68, 0.16));
+  /* Unified field recipe: every control (inputs, selects, textareas) sits on
+   * the same white surface with the strong hairline - no grey/white mix. */
+  background: var(--ds-surface, #fff);
+  border: 1px solid var(--ds-hairline-strong, #ccd3e2);
   border-radius: 10px;
   padding: 11px 13px;
   min-height: 44px;
@@ -210,4 +234,11 @@
   .submit {
     transition: none;
   }
+}
+
+.proofLine {
+  margin: 0;
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+  color: var(--muted, #5b6572);
 }

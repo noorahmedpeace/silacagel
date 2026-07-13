@@ -124,11 +124,20 @@ button.cta {
 .overlay {
   position: fixed;
   inset: 0;
-  z-index: 90;
-  background: rgba(10, 20, 34, 0.55);
+  /* Above the header, discount toast, and DryBot — nothing may sit on the dialog. */
+  z-index: 1000;
+  background: rgba(10, 20, 34, 0.42);
+  -webkit-backdrop-filter: blur(10px) saturate(1.2);
+  backdrop-filter: blur(10px) saturate(1.2);
   display: grid;
   place-items: center;
   padding: 16px;
+  animation: overlayIn 0.18s ease-out;
+}
+
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .modal {
@@ -136,27 +145,52 @@ button.cta {
   width: min(420px, 100%);
   max-height: calc(100dvh - 88px);
   overflow-y: auto;
-  background: #fff;
+  overflow-x: hidden;
+  /* Near-solid glass: the blurred backdrop shows through the rim while the
+     fields themselves stay on solid white for readability. */
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   color: var(--ink, #16233a);
-  border-radius: 16px;
-  padding: 26px;
+  border-radius: 18px;
+  padding: 24px;
   box-shadow: 0 24px 60px rgba(10, 20, 34, 0.35);
+  animation: modalIn 0.22s cubic-bezier(0.32, 0.72, 0.35, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .modal {
+    animation: none;
+  }
 }
 
 .modalClose {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 44px;
-  height: 44px;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
   display: grid;
   place-items: center;
   border: none;
   border-radius: 50%;
-  background: none;
-  font-size: 22px;
+  background: rgba(15, 40, 68, 0.06);
+  font-size: 18px;
+  line-height: 1;
   cursor: pointer;
-  color: var(--muted, #5b6572);
+  color: var(--ink, #16233a);
+  transition: background 0.15s ease;
+}
+
+.modalClose:hover {
+  background: rgba(15, 40, 68, 0.12);
 }
 
 .modalForm {
@@ -166,21 +200,27 @@ button.cta {
 
 .modalForm h3 {
   margin: 0;
-  font-size: 1.05rem;
+  /* Clear the 40px close button so long product names never run under it. */
+  padding-right: 40px;
+  font-size: 1.08rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
 .modalForm p {
   margin: 0;
   color: var(--muted, #5b6572);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
 }
 
 .modalForm label {
   display: grid;
-  gap: 4px;
-  font-size: 0.82rem;
+  gap: 5px;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--muted, #5b6572);
+  letter-spacing: 0.01em;
+  color: #45536b;
 }
 
 .modalForm input,
@@ -194,10 +234,15 @@ button.cta {
   box-sizing: border-box;
   min-height: 44px;
   color: var(--ink, #16233a);
-  background: var(--bg, #fff);
+  background: #fff;
   border: 1px solid var(--glass-border, rgba(15, 40, 68, 0.18));
   border-radius: 9px;
   padding: 10px 12px;
+}
+
+.modalForm textarea {
+  resize: vertical;
+  min-height: 56px;
 }
 
 .modalRow {
@@ -206,14 +251,34 @@ button.cta {
   gap: 10px;
 }
 
-.modalSubmit {
+/* The campaign script injects its yellow "discount applied" banner as the
+   form's first child, colliding with the close button. Re-slot it just above
+   the submit shelf instead. */
+.modalForm > :global([data-discount-banner]) {
+  order: 1;
+  margin: 0;
+}
+
+/* Sticky shelf keeps the submit reachable while scrolled, on a solid
+   background so it never floats transparently over the fields above it. */
+.modalSubmitShelf {
+  order: 2;
   position: sticky;
-  bottom: 0;
+  bottom: -24px; /* bleed over the modal's 24px padding */
+  margin: 0 -24px -24px;
+  padding: 12px 24px 20px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 12px);
+  display: grid;
+}
+
+.modalSubmit {
   font: inherit;
+  font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
   border: none;
   border-radius: 999px;
+  min-height: 48px;
   padding: 12px 20px;
   cursor: pointer;
   background: var(--cta-gradient, linear-gradient(135deg, #1c4e80, #2e7dd1));

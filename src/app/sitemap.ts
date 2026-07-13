@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { absoluteUrl, sitemapLastModified } from "@/lib/seo";
-import { seoLandingPages } from "@/lib/seo-landing-pages";
+import { seoLandingPages, isNoindexLandingSlug } from "@/lib/seo-landing-pages";
 import { productCatalog } from "@/lib/product-data";
 import {
   getBlogSeoImage,
@@ -133,8 +133,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Slugs that also have a bespoke static route (e.g. "/private-label") are
+  // emitted above in the STATIC_ROUTES loop; skip them here so the URL is not
+  // listed twice with divergent metadata.
+  const staticRouteSlugs = new Set(STATIC_ROUTES.map((r) => r.replace(/^\//, "")));
+
   for (const slug of Object.keys(seoLandingPages)) {
     if (REDIRECTED_SLUGS.has(slug)) continue; // don't sitemap a 301 source
+    if (staticRouteSlugs.has(slug)) continue; // already emitted as a static route
+    if (isNoindexLandingSlug(slug)) continue; // thin permutation page — noindexed
     const page = seoLandingPages[slug as keyof typeof seoLandingPages];
     const image = getLandingSeoImage(page);
 

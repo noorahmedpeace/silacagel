@@ -38,6 +38,14 @@
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
 
+  /* Status - success / warning / danger, each with a soft tint surface */
+  --ds-ok: #0e7a4d;
+  --ds-ok-soft: #e6f6ee;
+  --ds-warn: #b45309;
+  --ds-warn-soft: #fef3c7;
+  --ds-danger: #b3261e;
+  --ds-danger-soft: #fdecea;
+
   /* Signature gradients. Action = deep coral (single CTA colour everywhere,
    * maximum contrast against the cobalt brand + dark fields); brand = cobalt
    * for structure, links, and headings.
@@ -157,6 +165,8 @@
   /* Focus - one accessible, on-brand focus ring reused everywhere so keyboard
    * navigation looks intentional instead of the default browser outline. */
   --ds-focus-ring: 0 0 0 2px var(--ds-surface), 0 0 0 4px var(--ds-brand);
+  /* Same ring recipe for dark (near-black) surfaces - dark gap + bright brand. */
+  --ds-focus-ring-dark: 0 0 0 2px #06070d, 0 0 0 4px #5b86ff;
 }
 
 @media (max-width: 760px) {

@@ -130,7 +130,7 @@ export function DryBot() {
         <button className={styles.launcher} onClick={() => setOpen(true)} aria-label="Chat with DryGelWorld">
           <span className={styles.launcherRing} />
           <span className={styles.launcherAv} aria-hidden />
-          Ask DryBot
+          <span className={styles.launcherText}>Ask DryBot</span>
         </button>
       )}
 

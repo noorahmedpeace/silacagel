@@ -694,3 +694,12 @@ a.tileAction:active {
     text-align: center;
   }
 }
+
+/* 2026 redesign: long email addresses must wrap inside their tile instead of
+   overflowing it (the main-email overflow bug). */
+.emailValue {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

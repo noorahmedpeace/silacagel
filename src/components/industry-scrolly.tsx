@@ -112,8 +112,11 @@ export function IndustryScrolly({ industries }: { industries: ScrollyIndustry[] 
               )}
             </h3>
             <p>{industry.description}</p>
-            <Link href="/contact" className={styles.quoteBtn}>
-              Request Quote
+            <Link
+              href={`/request-a-quote?product=${encodeURIComponent(`Silica gel for ${industry.name}`)}`}
+              className={styles.quoteTextLink}
+            >
+              Request quote →
             </Link>
           </div>
         ))}

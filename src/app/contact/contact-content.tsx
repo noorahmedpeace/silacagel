@@ -21,6 +21,12 @@ const whatsappPrefill = encodeURIComponent(
   "Hello, I am requesting a Dry Gel World export quotation. Product type, quantity, destination, and documents are below.",
 );
 
+// Export and sales channels lead the directory; general/support follow.
+const channelPriority: Record<string, number> = { export: 0, sales: 1, general: 2, support: 3 };
+const orderedEmailChannels = [...contactEmailChannels].sort(
+  (a, b) => (channelPriority[a.id] ?? 9) - (channelPriority[b.id] ?? 9),
+);
+
 export type ContactPrefill = {
   product?: string;
   quantity?: string;
@@ -94,19 +100,12 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
           <span className={styles.actionValue}>{displayPhone}</span>
         </a>
 
-        <a
-          className={`${styles.tile} ${styles.tileAction} ${styles.tilePrimaryEmail}`}
-          href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
-          rel="nofollow"
-        >
-          <span className={styles.actionKicker}>Main email</span>
-          <span className={styles.actionValue}>{mainEmail}</span>
-        </a>
-
+        {/* Export/sales channels lead; the owner's personal inbox is demoted to
+            a secondary row below the directory. */}
         <article className={`${styles.tile} ${styles.emailDirectoryTile}`}>
           <span className={styles.actionKicker}>Email routing</span>
           <div className={styles.emailDirectory}>
-            {contactEmailChannels.map((channel) => (
+            {orderedEmailChannels.map((channel) => (
               <a
                 className={styles.emailRoute}
                 href={createMailtoHref(channel.email, channel.defaultSubject)}
@@ -114,12 +113,21 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
                 rel="nofollow"
               >
                 <span>{channel.label}</span>
-                <strong>{channel.email}</strong>
+                <strong className={styles.emailValue}>{channel.email}</strong>
                 <small>{channel.purpose}</small>
               </a>
             ))}
           </div>
         </article>
+
+        <a
+          className={`${styles.tile} ${styles.tileAction}`}
+          href={createMailtoHref(mainEmail, "DryGelWorld primary inquiry")}
+          rel="nofollow"
+        >
+          <span className={styles.actionKicker}>Owner&apos;s desk</span>
+          <span className={`${styles.actionValue} ${styles.emailValue}`}>{mainEmail}</span>
+        </a>
 
         <div className={`${styles.tile} ${styles.tileAction} ${styles.tileMuted}`}>
           <span className={styles.actionKicker}>Hours</span>

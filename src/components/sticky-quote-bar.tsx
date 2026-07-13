@@ -160,7 +160,7 @@ export function StickyQuoteBar({
         justAdded || count > 0 ? (
           <a href="/request-a-quote?cart=1" className={styles.cta} tabIndex={visible ? 0 : -1}>
             <span className={styles.ctaLabel}>
-              {justAdded ? "✓ Added" : "Cart"} · Request Quote ({count})
+              {justAdded ? "✓ Added" : "Quote list"} · Get Quote ({count})
             </span>
             <span className={styles.ctaArrow} aria-hidden="true">→</span>
           </a>
@@ -169,10 +169,11 @@ export function StickyQuoteBar({
             type="button"
             className={styles.cta}
             tabIndex={visible ? 0 : -1}
+            data-promo-quiet
             onClick={() => setShowModal(true)}
           >
             <span className={styles.ctaLabel}>
-              Add to Cart
+              Add to Quote
               {productName ? <span className={styles.ctaProduct}> · {productName}</span> : null}
             </span>
             <span className={styles.ctaArrow} aria-hidden="true">+</span>
@@ -232,7 +233,7 @@ export function StickyQuoteBar({
             </div>
           ) : (
             <form onSubmit={quickSubmit} className={styles.modalForm}>
-              <h3>Add to cart: {productFullName}</h3>
+              <h3>Add to quote: {productFullName}</h3>
               <p>Leave your email and quantity — we will reach you soon.</p>
               <label>
                 <span>Email *</span>
@@ -271,7 +272,7 @@ export function StickyQuoteBar({
               />
               {quickError ? <p className={styles.modalError} role="alert">{quickError}</p> : null}
               <button type="submit" className={styles.modalSubmit} disabled={quick === "sending"}>
-                {quick === "sending" ? "Sending…" : "Add to Cart & Notify Team"}
+                {quick === "sending" ? "Sending…" : "Request Pricing for This Item"}
               </button>
             </form>
           )}

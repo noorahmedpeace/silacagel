@@ -123,3 +123,23 @@
   .root { right: 12px; bottom: 16px; }
   .panel { width: calc(100vw - 24px); height: calc(100dvh - 96px); }
 }
+
+/* 2026 redesign: on small screens the launcher collapses to a 48px circle
+   (icon only) at right:16px, clear of the sticky quote pill's reserved lane
+   (the pill ends at right:92px on mobile). z-index stays 61. */
+.launcherText { position: relative; z-index: 1; }
+
+@media (max-width: 640px) {
+  .root { right: 16px; bottom: 16px; }
+  .launcher {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .launcherText { display: none; }
+  .launcherAv { flex-basis: 30px; width: 30px; height: 30px; }
+  /* Keep the open panel inside the viewport with the root at right:16px. */
+  .panel { width: min(358px, calc(100vw - 32px)); }
+}

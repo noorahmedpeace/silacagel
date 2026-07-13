@@ -1,6 +1,8 @@
-// POST /api/lead — an RFQ captured by DryBot, delivered through the site's
-// existing Resend pipeline (submitRfq) so it lands wherever RFQs already go.
-import { submitRfq } from "@/app/actions/submit-rfq";
+// POST /api/lead — an RFQ captured by DryBot. Routes through the same unified
+// pipeline as every other form (submitInquiry): persists to the CRM, issues an
+// inquiry ID, emails sales, and confirms to the buyer. Previously this used the
+// email-only path, so chatbot leads never appeared in the dashboard.
+import { submitInquiry } from "@/app/actions/submit-inquiry";
 
 export const runtime = "nodejs";
 
@@ -11,6 +13,7 @@ type LeadBody = {
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const empty = { source: "", medium: "", campaign: "", term: "", content: "" };
 
 export async function POST(req: Request) {
   const b = (await req.json().catch(() => ({}))) as LeadBody;
@@ -18,32 +21,52 @@ export async function POST(req: Request) {
     return Response.json({ ok: false, error: "email or phone required" }, { status: 400 });
   }
 
-  const toEmail =
+  // A phone-only chatbot lead still needs a syntactically valid email for the
+  // pipeline; fall back to the sales inbox so the record is created and the
+  // phone number is preserved in the message.
+  const salesEmail =
     process.env.RFQ_TO?.trim() || process.env.NEXT_PUBLIC_SALES_EMAIL?.trim() || "sales@drygelworld.com";
+  const email = b.email && EMAIL_RE.test(b.email) ? b.email : salesEmail;
 
-  const bodyText = [
-    "New RFQ captured by the website AI assistant (DryBot).",
-    "",
-    `Company:        ${b.company || "-"}`,
-    `Contact name:   ${b.contactName || "-"}`,
-    `Email:          ${b.email || "-"}`,
-    `Phone/WhatsApp: ${b.phone || "-"}`,
-    `Country:        ${b.country || "-"}`,
-    `Product:        ${b.product || "-"}`,
-    `Quantity:       ${b.quantity || "-"}`,
-    `Destination:    ${b.destination || "-"}`,
-    `Delivery date:  ${b.deliveryDate || "-"}`,
-    `Notes:          ${b.notes || "-"}`,
-  ].join("\n");
+  const notes = [
+    "Captured by the website AI assistant (DryBot).",
+    b.phone ? `Phone/WhatsApp: ${b.phone}` : "",
+    b.deliveryDate ? `Delivery date: ${b.deliveryDate}` : "",
+    b.notes || "",
+  ]
+    .filter(Boolean)
+    .join("\n");
 
-  const result = await submitRfq({
-    company: b.company || b.contactName || "Website visitor",
-    // submitRfq requires a valid email; fall back so a phone-only lead still sends.
-    email: b.email && EMAIL_RE.test(b.email) ? b.email : toEmail,
-    quantity: b.quantity || "(not specified)",
-    toEmail,
-    subject: `DryBot RFQ — ${b.company || b.contactName || b.email || b.phone || "new enquiry"}`,
-    body: bodyText,
+  const result = await submitInquiry({
+    companyName: b.company || b.contactName || "Website visitor (DryBot)",
+    contactPerson: b.contactName || "",
+    email,
+    phone: b.phone || "",
+    country: b.country || "",
+    city: "",
+    productName: b.product || "",
+    quantity: b.quantity || "",
+    unit: "",
+    packaging: "",
+    application: "",
+    deliveryDate: b.deliveryDate || "",
+    destinationCountry: b.destination || "",
+    destinationPort: "",
+    message: notes,
+    attachments: [],
+    screen: "",
+    timeZone: "",
+    language: "",
+    referrer: "",
+    landingPage: "",
+    productPageUrl: "",
+    utm: empty,
+    gclid: "",
+    sessionId: "",
+    website2: "",
+    // Conversational capture, not a form timer; a human worked through the
+    // chat to get here, so satisfy the timing trap explicitly.
+    formElapsedMs: 60_000,
   });
 
   return Response.json(result);

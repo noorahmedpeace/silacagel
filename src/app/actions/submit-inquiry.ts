@@ -110,14 +110,15 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     return { ok: true, id: "received" };
   }
 
-  // Authoritative validation
+  // Authoritative validation. Only company + a valid email are required so
+  // every form (including the short homepage/contact/landing forms and the
+  // chatbot) can share this one pipeline. Contact person, country, and product
+  // are optional and stored as-is (empty, never a "(not provided)" placeholder
+  // that would pollute dashboard segmentation).
   if (!clean(input.companyName)) return { ok: false, error: "Company name is required." };
-  if (!clean(input.contactPerson)) return { ok: false, error: "Contact person is required." };
   if (!EMAIL_RE.test(input.email?.trim() || "")) {
     return { ok: false, error: "A valid business email is required." };
   }
-  if (!clean(input.country)) return { ok: false, error: "Country is required." };
-  if (!clean(input.productName)) return { ok: false, error: "Please select a product." };
 
   const h = await headers();
   const ip = (h.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
@@ -229,7 +230,7 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
 
   const adminSent = await sendEmail(
     [salesEmail],
-    `New RFQ ${id}: ${p.name} — ${c.companyName} (${c.country})`,
+    `New RFQ ${id}: ${p.name || "Silica gel inquiry"} — ${c.companyName}${c.country ? ` (${c.country})` : ""}`,
     adminBody,
     c.email,
   );
@@ -248,6 +249,17 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     ].join("\n"),
     salesEmail,
   );
+
+  // Delivery-failure observability. A lead that persists to the dashboard but
+  // whose admin email fails (Resend outage/misconfig) would otherwise succeed
+  // silently and be missed until someone happens to open /admin. Surface every
+  // partial failure to the server log (captured by Vercel log drains) so it is
+  // detectable without watching the dashboard.
+  if (!stored || !adminSent) {
+    console.error(
+      `[RFQ] partial delivery failure for ${id} — stored=${stored} adminNotified=${adminSent}`,
+    );
+  }
 
   // If we could neither store nor notify, hand the client the mailto fallback.
   if (!stored && !adminSent) return { ok: false, fallback: true };

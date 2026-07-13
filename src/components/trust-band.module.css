@@ -105,16 +105,9 @@
   line-height: 1;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
-  background: linear-gradient(120deg, var(--ds-brand-deep) 0%, var(--ds-brand) 70%, var(--ds-brand-bright) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.metricAccent .valueNum {
-  background: linear-gradient(120deg, #e5502a 0%, #ff6b3d 75%, #ff8f68 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  color: var(--ds-brand);
+  /* Long stat strings ("ISO 9001:2015") wrap instead of clipping. */
+  overflow-wrap: anywhere;
 }
 
 .meta {
@@ -193,7 +186,9 @@
   }
 
   .valueNum {
-    font-size: clamp(1.7rem, 8vw, 2.1rem);
+    /* Audited fix: "ISO 9001:2015" was truncating in the 390px two-up grid.
+     * 7.5vw ≈ 29px at 390px; 20px floor, 31px cap. */
+    font-size: clamp(20px, 7.5vw, 31px);
   }
 }
 

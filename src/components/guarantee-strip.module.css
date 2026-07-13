@@ -72,8 +72,9 @@
   }
 
   .item {
-    font-size: 10.5px;
-    letter-spacing: 0.04em;
+    /* 12px floor for legibility; tighter tracking compensates for the size. */
+    font-size: 12px;
+    letter-spacing: 0.02em;
     text-align: left;
   }
 }
