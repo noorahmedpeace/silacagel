@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { authors, getAuthor } from "@/lib/authors";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, authorJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { phoneHref, displayPhone } from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
 import styles from "../authors.module.css";
@@ -118,42 +118,19 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@graph": [
-              author.isPerson
-                ? {
-                    "@type": "Person",
-                    "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-                    name: author.name,
-                    jobTitle: author.role,
-                    description: author.shortBio,
-                    url: absoluteUrl(`/authors/${author.slug}`),
-                    email: author.contactEmail,
-                    ...(author.image ? { image: absoluteUrl(author.image) } : {}),
-                    ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
-                    worksFor: {
-                      "@type": "Organization",
-                      name: siteName,
-                      url: absoluteUrl(),
-                    },
-                    knowsAbout: author.topics,
-                  }
-                : {
-                    "@type": "Organization",
-                    "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-                    name: author.name,
-                    description: author.shortBio,
-                    url: absoluteUrl(`/authors/${author.slug}`),
-                    email: author.contactEmail,
-                    parentOrganization: {
-                      "@type": "Organization",
-                      name: siteName,
-                      url: absoluteUrl(),
-                    },
-                    knowsAbout: author.topics,
-                    hasCredential: author.credentials.map((credential) => ({
-                      "@type": "EducationalOccupationalCredential",
-                      name: credential,
-                    })),
-                  },
+              {
+                ...authorJsonLd(author),
+                email: author.contactEmail,
+                // The corporate-byline (non-Person) branch already had
+                // hasCredential; authorJsonLd now provides both branches
+                // consistently, plus links worksFor to the canonical
+                // #organization node instead of a disconnected duplicate.
+                ...(!author.isPerson
+                  ? {
+                      parentOrganization: { "@id": `${absoluteUrl()}#organization` },
+                    }
+                  : {}),
+              },
               {
                 "@type": "ProfilePage",
                 mainEntity: { "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author` },

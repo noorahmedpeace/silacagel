@@ -153,5 +153,13 @@ export function authorJsonLd(author: AuthorLike) {
     url,
     description: author.shortBio,
     knowsAbout: author.topics,
+    ...(author.credentials.length
+      ? {
+          hasCredential: author.credentials.map((credential) => ({
+            "@type": "EducationalOccupationalCredential",
+            name: credential,
+          })),
+        }
+      : {}),
   };
 }
