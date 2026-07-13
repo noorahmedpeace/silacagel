@@ -1,13 +1,7 @@
 // Blob-backed persistence for RFQ inquiries. Every function degrades
 // gracefully when BLOB_READ_WRITE_TOKEN is absent (local dev/build) so the
 // form still works via the email/mailto path and nothing crashes.
-//
-// SECURITY: inquiries hold customer PII (name, email, phone, IP). They are
-// stored with access:"private" so they are NOT readable by anonymous URL —
-// reads go through the authenticated get() SDK call (token-scoped), never a
-// bare fetch(url). The earlier public-read design meant one leaked inquiry
-// URL exposed the whole sequentially-named database by incrementing the ID.
-import { get, list, put } from "@vercel/blob";
+import { list, put } from "@vercel/blob";
 import { createHash } from "node:crypto";
 
 export type InquiryStatus = "new" | "contacted" | "quotation_sent" | "won" | "lost";
@@ -59,20 +53,18 @@ export type Inquiry = {
 
 const hasBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 
-// Inquiry JSON lives under a prefix derived from the admin key. Access is
-// private, so the prefix is defense-in-depth, not the sole control.
+// Inquiry JSON lives under a non-guessable prefix derived from the admin key
+// (the blob store is public-read by URL; the prefix keeps paths unenumerable).
 function prefix() {
   const key = process.env.RFQ_ADMIN_KEY?.trim() || "dev";
   return `inquiries-${createHash("sha256").update(key).digest("hex").slice(0, 12)}`;
 }
 
-// Read a private blob by pathname via the token-authenticated SDK. useCache
-// is false so a just-written counter/inquiry reads back its latest value.
-async function readJson<T>(pathname: string): Promise<T | null> {
+async function readJson<T>(url: string): Promise<T | null> {
   try {
-    const res = await get(pathname, { access: "private", useCache: false });
-    if (!res) return null;
-    return (await new Response(res.stream).json()) as T;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) return null;
+    return (await res.json()) as T;
   } catch {
     return null;
   }
@@ -84,15 +76,15 @@ export async function nextInquiryId(): Promise<string> {
   if (!hasBlob()) return fallback();
   try {
     const counterPath = `${prefix()}/counter.json`;
-    // Read-modify-write is not atomic across concurrent submissions; at this
-    // site's volume (a few RFQs/day) the millisecond race window makes an ID
-    // collision negligible. Revisit with a real atomic store if volume grows.
+    const existing = await list({ prefix: counterPath, limit: 1 });
     let n = 122; // first issued ID becomes ...000123
-    const data = await readJson<{ n: number }>(counterPath);
-    if (data && Number.isFinite(data.n)) n = data.n;
+    if (existing.blobs[0]) {
+      const data = await readJson<{ n: number }>(existing.blobs[0].url);
+      if (data && Number.isFinite(data.n)) n = data.n;
+    }
     n += 1;
     await put(counterPath, JSON.stringify({ n }), {
-      access: "private",
+      access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
@@ -107,7 +99,7 @@ export async function saveInquiry(inquiry: Inquiry): Promise<boolean> {
   if (!hasBlob()) return false;
   try {
     await put(`${prefix()}/${inquiry.id}.json`, JSON.stringify(inquiry), {
-      access: "private",
+      access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
@@ -122,7 +114,7 @@ export async function listInquiries(): Promise<Inquiry[]> {
   if (!hasBlob()) return [];
   try {
     const { blobs } = await list({ prefix: `${prefix()}/DGW-`, limit: 1000 });
-    const items = await Promise.all(blobs.map((b) => readJson<Inquiry>(b.pathname)));
+    const items = await Promise.all(blobs.map((b) => readJson<Inquiry>(b.url)));
     return items
       .filter((x): x is Inquiry => Boolean(x?.id))
       .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
@@ -133,8 +125,12 @@ export async function listInquiries(): Promise<Inquiry[]> {
 
 export async function getInquiry(id: string): Promise<Inquiry | null> {
   if (!hasBlob() || !/^DGW-\d{4}-\d{6}$/.test(id)) return null;
-  // Deterministic path + private read; no need to list first.
-  return readJson<Inquiry>(`${prefix()}/${id}.json`);
+  try {
+    const { blobs } = await list({ prefix: `${prefix()}/${id}.json`, limit: 1 });
+    return blobs[0] ? readJson<Inquiry>(blobs[0].url) : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function updateInquiry(
@@ -157,11 +153,15 @@ export async function rateLimitOk(ip: string, limit = 5): Promise<boolean> {
     const hour = new Date().toISOString().slice(0, 13);
     const key = createHash("sha256").update(`${ip}|${hour}`).digest("hex").slice(0, 16);
     const path = `${prefix()}/ratelimit/${key}.json`;
-    const data = await readJson<{ n: number }>(path);
-    const n = data?.n ?? 0;
+    const existing = await list({ prefix: path, limit: 1 });
+    let n = 0;
+    if (existing.blobs[0]) {
+      const data = await readJson<{ n: number }>(existing.blobs[0].url);
+      n = data?.n ?? 0;
+    }
     if (n >= limit) return false;
     await put(path, JSON.stringify({ n: n + 1 }), {
-      access: "private",
+      access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
       contentType: "application/json",
