@@ -105,6 +105,7 @@ const navGroups: NavGroup[] = [
     icon: BookOpen,
     accent: "#7c3aed",
     children: [
+      { label: "Request a sample", href: "/samples", icon: FileText, desc: "See the product before a bulk order" },
       { label: "Indicative pricing", href: "/pricing", icon: CircleDollarSign, desc: "USD ranges, MOQ & Incoterms" },
       { label: "All buyer resources", href: "/guides", icon: BookOpen, desc: "Guides, glossary, comparisons & tools" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", icon: BookOpen, desc: "Definitive procurement reference" },

@@ -77,6 +77,7 @@ const footerColumns = [
   {
     title: "Resources",
     links: [
+      { label: "Request a sample", href: "/samples" },
       { label: "Indicative pricing", href: "/pricing" },
       { label: "All buyer resources", href: "/guides" },
       { label: "All calculators & tools", href: "/tools" },
