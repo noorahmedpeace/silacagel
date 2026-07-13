@@ -40,6 +40,8 @@ const catalogImages: Record<string, string> = {
   "paper-sachets": "/products/catalog-kraft-indicating.webp",
   "bulk-industrial": "/products/catalog-bulk-supply.webp",
   "container-strips": "/products/catalog-cargo-strips.webp",
+  "calcium-chloride-container-strip": "/products/calcium-chloride-container-strip.webp",
+  "calcium-chloride-container-bulk": "/products/calcium-chloride-container-bulk.webp",
   "dry-clay-desiccant": "/products/industrial-dry-clay-desiccant-packs.webp",
   "powder-free-blue-nitrile-gloves": "/products/powder-free-nitrile-examination-gloves.webp",
   "powdered-nitrile-examination-gloves": "/products/powdered-nitrile-examination-gloves.webp",
