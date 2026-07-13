@@ -32,7 +32,7 @@ const footerColumns = [
   {
     title: "Desiccant Range",
     links: [
-      { label: "Bentonite clay desiccant", href: "/bentonite-clay" },
+      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
       { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },

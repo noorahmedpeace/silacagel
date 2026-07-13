@@ -2317,8 +2317,8 @@ const highIntentSeoLandingPages = {
       { question: "How many disposable hair nets per worker per shift?", answer: "Working starting point: 1-2 hair nets per worker per shift, depending on shift length and contamination risk profile." },
     ],
   }),
-  "bentonite-clay": keywordClusterPage({
-    slug: "bentonite-clay",
+  "clay-desiccant-supplier": keywordClusterPage({
+    slug: "clay-desiccant-supplier",
     title: "Activated Clay Desiccant Supplier | Industrial Clay Packs",
     metaDescription:
       "Activated clay desiccant supplier for industrial cargo and durable-goods storage. Clay desiccant packs in sachet and bag formats - B2B export supply.",

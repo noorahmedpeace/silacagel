@@ -199,6 +199,15 @@ const nextConfig: NextConfig = {
         destination: "/documentation",
         permanent: true,
       },
+      // C11: /bentonite-clay -> /clay-desiccant-supplier (PRIORITY.md #29). The
+      // page's own title/H1 already targeted "clay desiccant supplier" as the
+      // primary term; only the URL slug didn't match. Pure rename, same content
+      // (still mentions bentonite throughout as the material synonym).
+      {
+        source: "/bentonite-clay",
+        destination: "/clay-desiccant-supplier",
+        permanent: true,
+      },
     ];
   },
   async headers() {
