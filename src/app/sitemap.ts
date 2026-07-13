@@ -78,6 +78,7 @@ const STATIC_ROUTES = [
   "/guides/desiccant-glossary",
   "/media-kit",
   "/industries",
+  "/tools",
   "/tools/container-desiccant-calculator",
   "/tools/moisture-load-calculator",
 ] as const;

@@ -78,6 +78,7 @@ const footerColumns = [
     title: "Resources",
     links: [
       { label: "Indicative pricing", href: "/pricing" },
+      { label: "All calculators & tools", href: "/tools" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
