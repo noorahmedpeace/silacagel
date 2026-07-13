@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../strategy-pages.module.css";
 
 // Hub index for /tools/*. Keep in sync with the calculator routes under
@@ -33,11 +34,20 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: "/tools",
     type: "website",
+    images: [
+      {
+        url: seoImages.desiccantSizing.src,
+        width: seoImages.desiccantSizing.width,
+        height: seoImages.desiccantSizing.height,
+        alt: seoImages.desiccantSizing.alt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [seoImages.desiccantSizing.src],
   },
 };
 

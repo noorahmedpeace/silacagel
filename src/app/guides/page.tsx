@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../strategy-pages.module.css";
 
 // Pillar hub aggregating existing content - no new writing, just a single
@@ -50,11 +51,20 @@ export const metadata: Metadata = {
     description: pageDescription,
     url: "/guides",
     type: "website",
+    images: [
+      {
+        url: seoImages.buyerGuideProcess.src,
+        width: seoImages.buyerGuideProcess.width,
+        height: seoImages.buyerGuideProcess.height,
+        alt: seoImages.buyerGuideProcess.alt,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: pageTitle,
     description: pageDescription,
+    images: [seoImages.buyerGuideProcess.src],
   },
 };
 
