@@ -41,7 +41,7 @@ export default function CompareHub() {
         <p className={styles.description}>
           Industrial moisture control is a decision problem before it&apos;s a purchase. These
           side-by-side guides cover the comparisons procurement teams ask about most:
-          white vs orange silica gel, indicating vs non-indicating gel, bulk gel vs packets,
+          white vs orange <Link href="/silica-gel">silica gel</Link>, indicating vs non-indicating gel, bulk gel vs packets,
           container desiccants vs packets, and material alternatives like clay, molecular
           sieve, and oxygen absorbers.
         </p>

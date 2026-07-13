@@ -59,7 +59,8 @@ export default function ProductsPage() {
           Every format in one place, from{" "}
           <Link href="/silica-gel-packets">sachets</Link> to{" "}
           <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
-          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
+          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing, or
+          start with <Link href="/silica-gel">how silica gel works</Link>.
         </p>
       </section>
 
