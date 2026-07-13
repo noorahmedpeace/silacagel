@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { GuaranteeStrip } from "@/components/guarantee-strip";
 import { DeferredChrome } from "@/components/deferred-chrome";
+import { DeployRecovery } from "@/components/deploy-recovery";
 import { HashAnchorScroll } from "@/components/hash-anchor-scroll";
 import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
@@ -192,6 +193,7 @@ export default function RootLayout({
             EVERY route to preload a homepage-only image. Both wasted bandwidth. */}
       </head>
       <body>
+        <DeployRecovery />
         <ScrollProgress />
         <SiteHeader />
         <HashAnchorScroll />
