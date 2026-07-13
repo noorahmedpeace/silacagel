@@ -115,6 +115,16 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
     notFound();
   }
 
+  // Deterministic rotation (not random - keeps static generation stable):
+  // 5 siblings starting right after this market's position in the list,
+  // wrapping around, so every market page cross-links to a varied set
+  // instead of every page linking the same first 5 (PRIORITY.md #32).
+  const currentIndex = exportMarkets.findIndex((m) => m.slug === market.slug);
+  const otherMarkets: typeof exportMarkets = [];
+  for (let i = 1; i < exportMarkets.length && otherMarkets.length < 5; i++) {
+    otherMarkets.push(exportMarkets[(currentIndex + i) % exportMarkets.length]);
+  }
+
   const blocks = [
     {
       label: "Buyer Types",
@@ -381,7 +391,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
       {market.procurementNotes?.length ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>
-            <h2>Buying silica gel for Mexico.</h2>
+            <h2>Buying silica gel for {market.country}.</h2>
             <p>
               Match the desiccant format to the packed product, labeling plan, destination port,
               and inland handover before comparing landed quotations.
@@ -402,7 +412,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
       {market.relatedLinks?.length ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>
-            <h2>Continue planning your Mexico order.</h2>
+            <h2>Continue planning your {market.country} order.</h2>
           </div>
           <div className={styles.grid}>
             {market.relatedLinks.map((item) => (
@@ -410,6 +420,25 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
                 <span>{item.label}</span>
                 <h3>
                   <Link href={item.href}>{item.description}</Link>
+                </h3>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {otherMarkets.length ? (
+        <section className={styles.section}>
+          <div className={styles.sectionHead}>
+            <h2>Other export markets.</h2>
+            <p>Shipping to more than one destination? Every market page carries its own customs, MOQ, and Incoterms notes.</p>
+          </div>
+          <div className={styles.grid}>
+            {otherMarkets.map((sibling) => (
+              <article className={styles.card} key={sibling.slug}>
+                <span>Export market</span>
+                <h3>
+                  <Link href={`/export/${sibling.slug}`}>{sibling.country}</Link>
                 </h3>
               </article>
             ))}

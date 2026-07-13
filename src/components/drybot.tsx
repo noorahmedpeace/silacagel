@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./drybot.module.css";
 
 type Msg = { role: "user" | "bot"; text: string; sources?: string[] };
@@ -178,6 +179,7 @@ export function DryBot() {
                 <a className={styles.wa} href={waHref} target="_blank" rel="noopener">WhatsApp</a>
                 <a className={styles.em} href={emHref}>Email</a>
                 <button className={styles.qt} onClick={() => { setView("rfq"); setRfqError(""); }}>Get a quote</button>
+                <Link className={styles.em} href="/samples">Request a sample</Link>
               </div>
 
               <form className={styles.form} onSubmit={(e) => { e.preventDefault(); ask(); }}>

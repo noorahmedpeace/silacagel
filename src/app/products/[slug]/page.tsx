@@ -48,7 +48,7 @@ const procurementDetails = {
     related: [
       { label: "Electronics case study", href: "/case-studies" },
       { label: "USA export page", href: "/export/usa" },
-      { label: "Document hub", href: "/documents" },
+      { label: "Document hub", href: "/documentation" },
     ],
   },
   "paper-sachets": {
@@ -79,7 +79,7 @@ const procurementDetails = {
     packaging: ["25kg loose bags", "250g / 500g packs", "Pallet planning", "Recurring distributor supply"],
     related: [
       { label: "FOB Karachi", href: "/export/fob-karachi" },
-      { label: "Documents", href: "/documents" },
+      { label: "Documents", href: "/documentation" },
       { label: "Bulk sales", href: "/bulk-sales" },
     ],
   },
@@ -112,7 +112,7 @@ const procurementDetails = {
     related: [
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Document hub", href: "/documents" },
+      { label: "Document hub", href: "/documentation" },
     ],
   },
   "hair-nets": {
@@ -128,7 +128,7 @@ const procurementDetails = {
     related: [
       { label: "Beard covers", href: "/products/beard-covers" },
       { label: "Food industry PPE blog", href: "/blog/why-hair-nets-matter-in-food-export" },
-      { label: "Document hub", href: "/documents" },
+      { label: "Document hub", href: "/documentation" },
     ],
   },
   "powder-free-blue-nitrile-gloves": {
@@ -174,7 +174,7 @@ const procurementDetails = {
     packaging: ["Standard carton 100 ct", "Bulk carton 1000 ct", "Color options on request", "Private label discussion"],
     related: [
       { label: "Hair nets", href: "/products/hair-nets" },
-      { label: "Document hub", href: "/documents" },
+      { label: "Document hub", href: "/documentation" },
     ],
   },
 } as const;
@@ -795,7 +795,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <li key={doc}>{doc}</li>
                   ))}
                 </ul>
-                <Link href="/documents" className={styles.textAction}>Open document hub</Link>
+                <Link href="/documentation" className={styles.textAction}>Open document hub</Link>
               </article>
 
               <article className={styles.supportCard}>

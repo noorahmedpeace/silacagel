@@ -1,0 +1,67 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 440px;
+  width: 100%;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.92rem;
+  color: var(--muted, #4d5b78);
+}
+
+.field input {
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  font-size: 1rem;
+  min-height: 44px;
+  width: 100%;
+  min-width: 0;
+}
+
+.req {
+  color: #c0392b;
+  font-style: normal;
+}
+
+.submit {
+  margin-top: 4px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 44px;
+  background: var(--ds-grad-heading, #0d5bff);
+  color: #fff;
+}
+
+.submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.statusOk {
+  color: #146c43;
+}
+
+.statusError {
+  color: #c0392b;
+}
+
+.note {
+  font-size: 0.82rem;
+  color: var(--muted, #4d5b78);
+  margin: 0;
+}

@@ -115,7 +115,7 @@ export default function IndustriesHubPage() {
         <span className={styles.kicker}>Industries</span>
         <h1>Silica gel and desiccant moisture protection, by industry.</h1>
         <p>
-          DryGelWorld supplies industry-matched silica gel and desiccant formats for exporters and
+          DryGelWorld supplies industry-matched <Link href="/buy-silica-gel">silica gel</Link> and desiccant formats for exporters and
           manufacturers worldwide. Choose your application to see the moisture risks, recommended
           formats, and documentation each sector needs before an RFQ.
         </p>

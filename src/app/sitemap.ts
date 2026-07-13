@@ -62,10 +62,10 @@ const STATIC_ROUTES = [
   "/products",
   "/contact",
   "/request-a-quote",
+  "/samples",
   "/faq",
   "/blog",
   "/case-studies",
-  "/documents",
   "/documentation",
   "/certifications",
   "/dispensers",
@@ -75,10 +75,12 @@ const STATIC_ROUTES = [
   "/export",
   "/drygelworld",
   "/compare",
+  "/guides",
   "/guides/silica-gel-buyer-guide",
   "/guides/desiccant-glossary",
   "/media-kit",
   "/industries",
+  "/tools",
   "/tools/container-desiccant-calculator",
   "/tools/moisture-load-calculator",
 ] as const;
@@ -97,7 +99,7 @@ const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]
   "/case-studies": [seoImages.moistureProtection.src],
   "/bulk-sales": [seoImages.industrialBulk.src],
   "/private-label": [seoImages.privateLabelPackaging.src],
-  "/documents": [seoImages.pharmaDesiccant.src],
+  "/documentation": [seoImages.pharmaDesiccant.src],
 };
 
 function sitemapImages(paths: string[]) {
