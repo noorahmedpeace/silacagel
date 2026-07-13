@@ -113,6 +113,20 @@ const credentials: CredentialRow[] = [
     detail:
       "Not currently held. EU-bound hair net and beard cover programs should confirm their PPE documentation requirements before commercial terms.",
   },
+  {
+    name: "DIN 55473",
+    status: "discussed",
+    category: "Desiccant unit-sizing standard (Germany)",
+    detail:
+      "Not a certification DryGelWorld holds - it's a sizing/unit-of-adsorption standard, not a manufacturer credential. Buyers specifying container loads by DIN 55473 units should confirm calculation basis at RFQ stage.",
+  },
+  {
+    name: "AFNOR NF H00321",
+    status: "discussed",
+    category: "Desiccant packaging standard (France)",
+    detail:
+      "Not currently held. France-bound export programs specifying desiccant packaging to this standard should confirm requirements before commercial terms.",
+  },
 ];
 
 const productSpecs = [
