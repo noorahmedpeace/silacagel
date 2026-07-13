@@ -189,6 +189,16 @@ const nextConfig: NextConfig = {
         destination: "/shipping-container-desiccant-supplier",
         permanent: true,
       },
+      // C10: /documents vs /documentation fork (PRIORITY.md #26). /documentation
+      // has the real registry-backed content (ISO cert detail, one-click SDS/COA/
+      // TDS/spec downloads); /documents was a weaker, request-gated duplicate
+      // whose "Claim Discipline" section had leaked internal content-governance
+      // notes into buyer-facing copy. Redirect the weaker page to the real one.
+      {
+        source: "/documents",
+        destination: "/documentation",
+        permanent: true,
+      },
     ];
   },
   async headers() {

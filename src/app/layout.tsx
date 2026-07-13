@@ -259,7 +259,7 @@ export default function RootLayout({
                   window.__drygelTrackClarity('calculator_intent', 'Calculator purchase intent');
                   return;
                 }
-                if (href.indexOf('/documents') === 0 || /sds|coa|documents?/i.test(label)) {
+                if (href.indexOf('/document') === 0 || /sds|coa|documents?/i.test(label)) {
                   window.__drygelTrackEvent('document_cta_click', base);
                 }
               }, { passive: true });

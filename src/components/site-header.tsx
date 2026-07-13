@@ -111,7 +111,7 @@ const navGroups: NavGroup[] = [
       { label: "Compare desiccants", href: "/compare", icon: Scale, desc: "Silica gel vs other desiccants" },
       { label: "Blog", href: "/blog", icon: Newspaper, desc: "Buyer guides & how-tos" },
       { label: "Videos", href: "/videos", icon: Video, desc: "Product & manufacturer footage" },
-      { label: "Documents", href: "/documents", icon: FileText, desc: "SDS, COA, DMF-free statement" },
+      { label: "Documents", href: "/documentation", icon: FileText, desc: "SDS, COA, DMF-free statement" },
       { label: "Requirement calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", icon: Calculator, desc: "Grams needed by carton L x W x H" },
     ],

@@ -65,7 +65,6 @@ const STATIC_ROUTES = [
   "/faq",
   "/blog",
   "/case-studies",
-  "/documents",
   "/documentation",
   "/certifications",
   "/dispensers",
@@ -97,7 +96,7 @@ const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]
   "/case-studies": [seoImages.moistureProtection.src],
   "/bulk-sales": [seoImages.industrialBulk.src],
   "/private-label": [seoImages.privateLabelPackaging.src],
-  "/documents": [seoImages.pharmaDesiccant.src],
+  "/documentation": [seoImages.pharmaDesiccant.src],
 };
 
 function sitemapImages(paths: string[]) {

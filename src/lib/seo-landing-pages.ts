@@ -666,7 +666,7 @@ const highIntentSeoLandingPages = {
         { text: "Check indicative ranges on the " },
         { href: "/pricing", label: "pricing page" },
         { text: ", review available files in the " },
-        { href: "/documents", label: "documents hub" },
+        { href: "/documentation", label: "documents hub" },
         { text: ", and use the " },
         { href: "/guides/silica-gel-buyer-guide", label: "industrial buyer guide" },
         { text: " before approving a supplier." },
@@ -677,7 +677,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Export markets", href: "/export" },
       { label: "Supplier pricing", href: "/pricing" },
-      { label: "Supplier documents", href: "/documents" },
+      { label: "Supplier documents", href: "/documentation" },
       { label: "Supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
     ],
     faqs: [
@@ -972,7 +972,7 @@ const highIntentSeoLandingPages = {
         { text: ", review the " },
         { href: "/blog/container-rain-prevention", label: "container rain prevention guide" },
         { text: ", then include required " },
-        { href: "/documents", label: "SDS and COA documents" },
+        { href: "/documentation", label: "SDS and COA documents" },
         { text: " in one commercial RFQ." },
       ],
     },
@@ -1258,7 +1258,7 @@ const highIntentSeoLandingPages = {
         { text: "Start with available " },
         { href: "/silica-gel-packets", label: "silica gel packet sizes" },
         { text: ", verify the supplier " },
-        { href: "/documents", label: "document set" },
+        { href: "/documentation", label: "document set" },
         { text: ", and use the " },
         { href: "/contact", label: "commercial RFQ form" },
         { text: " to attach artwork, packing, destination, and repeat-volume requirements." },
@@ -1267,7 +1267,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel packet sizes", href: "/silica-gel-packets" },
       { label: "Pricing process", href: "/pricing" },
     ],
@@ -1291,7 +1291,7 @@ const highIntentSeoLandingPages = {
     searchIntent: "For brands, distributors, and packagers ready to source custom desiccant packets",
     primaryCta: "Request Private Label Quote",
     secondaryCta: "Review Documents",
-    secondaryHref: "/documents",
+    secondaryHref: "/documentation",
     proofPoints: ["Printed sachets", "Sample approval", "Carton labels", "Repeat OEM supply"],
     image: "/products/procurement-checks-silica-sachets.webp",
     imageAlt: "Private label silica gel sachets and custom desiccant packet artwork",
@@ -1336,7 +1336,7 @@ const highIntentSeoLandingPages = {
         { text: "Compare standard " },
         { href: "/silica-gel-packets", label: "packet sizes and applications" },
         { text: ", review available " },
-        { href: "/documents", label: "quality documents" },
+        { href: "/documentation", label: "quality documents" },
         { text: ", then send artwork and commercial requirements through the " },
         { href: "/contact", label: "private-label RFQ" },
         { text: "." },
@@ -1346,7 +1346,7 @@ const highIntentSeoLandingPages = {
       { label: "Private-label silica gel supplier", href: "/private-label-silica-gel-supplier" },
       { label: "OEM silica gel manufacturer", href: "/oem-silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Pricing process", href: "/pricing" },
     ],
     faqs: [
@@ -1490,7 +1490,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
@@ -1676,7 +1676,7 @@ const highIntentSeoLandingPages = {
     searchIntent: "Industry keyword: pharmaceutical desiccant, pharma desiccant, pharma silica gel supplier",
     primaryCta: "Request Pharma Desiccant Quote",
     secondaryCta: "View Documents",
-    secondaryHref: "/documents",
+    secondaryHref: "/documentation",
     proofPoints: ["Pharma packaging review", "SDS / COA", "Packet sizing", "Documentation first"],
     image: "/hero-pharma.webp",
     imageAlt: "Pharmaceutical desiccant silica gel packet planning",
@@ -1696,7 +1696,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Packaging context, packet size, quantity, material, destination, documents",
     relatedLinks: [
       { label: "Pharma industry page", href: "/industries/pharma-packaging" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
       { label: "Pharma packaging case study", href: "/case-studies/pharmaceutical-packaging-desiccants" },
     ],
@@ -3115,7 +3115,7 @@ export const seoLandingPages = {
         { text: " as a planning aid, compare packet specifications on the " },
         { href: "/products/retail-sachets", label: "silica gel sachet product page" },
         { text: ", and review available " },
-        { href: "/documents", label: "SDS, COA, and certificate documents" },
+        { href: "/documentation", label: "SDS, COA, and certificate documents" },
         { text: " before final approval." },
       ],
     },
@@ -3125,7 +3125,7 @@ export const seoLandingPages = {
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
       { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
-      { label: "Technical documents", href: "/documents" },
+      { label: "Technical documents", href: "/documentation" },
       { label: "Request export quote", href: "/contact" },
     ],
     faqs: [
@@ -3329,7 +3329,7 @@ export const seoLandingPages = {
         { text: " tools, review the " },
         { href: "/pricing", label: "indicative export price ranges" },
         { text: ", and check the " },
-        { href: "/documents", label: "available SDS and COA documents" },
+        { href: "/documentation", label: "available SDS and COA documents" },
         { text: " before requesting final MOQ, lead time, and export pricing." },
       ],
     },
@@ -3340,7 +3340,7 @@ export const seoLandingPages = {
       { label: "Export support", href: "/export" },
       { label: "Indicative pricing", href: "/pricing" },
       { label: "Bulk supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
-      { label: "Technical documents", href: "/documents" },
+      { label: "Technical documents", href: "/documentation" },
     ],
     faqs: [
       {
@@ -3485,7 +3485,7 @@ export const seoLandingPages = {
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Container strip documents", href: "/documents" },
+      { label: "Container strip documents", href: "/documentation" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -3623,7 +3623,7 @@ export const seoLandingPages = {
     relatedLinks: [
       { label: "Private label page", href: "/private-label" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
     ],
     faqs: [
       {
@@ -3822,7 +3822,7 @@ export const seoLandingPages = {
     searchIntent: "Food packaging intent: food grade silica gel supplier, food grade desiccant, desiccant for food packaging",
     primaryCta: "Request Food Packaging Quote",
     secondaryCta: "View Documents",
-    secondaryHref: "/documents",
+    secondaryHref: "/documentation",
     proofPoints: ["Food packaging RFQs", "SDS / COA review", "Packet text planning", "Compliance claims checked"],
     heroImage: {
       src: "/products/white-nonindicating-clean-sachets.webp",
@@ -3908,7 +3908,7 @@ export const seoLandingPages = {
       heading: "Verify evidence before using food-grade wording",
       parts: [
         { text: "Review current " },
-        { href: "/documents", label: "quality and compliance documents" },
+        { href: "/documentation", label: "quality and compliance documents" },
         { text: ", compare " },
         { href: "/silica-gel-packets", label: "packet formats" },
         { text: ", then send the exact contact scenario through the " },
@@ -3934,7 +3934,7 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Food packaging industry", href: "/industries/food-packaging" },
       { label: "Private label packets", href: "/private-label" },
@@ -4030,7 +4030,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
     ],
     faqs: [
@@ -4115,7 +4115,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -4346,7 +4346,7 @@ export const seoLandingPages = {
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Export support", href: "/export" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
     ],
     faqs: [
       {

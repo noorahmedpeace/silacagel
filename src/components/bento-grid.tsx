@@ -42,7 +42,7 @@ export const BentoGrid = () => {
         className={styles.large}
       />
       <BentoItem
-        href="/documents"
+        href="/documentation"
         icon={<ClipboardList size={28} strokeWidth={1.8} />}
         title="Compliance & Standards"
         description="Request ISO 9001:2015, SDS, COA, DMF-free, and product specification support for buyer review."
