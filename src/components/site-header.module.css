@@ -1292,13 +1292,16 @@
 @media (min-width: 1025px) {
   .header {
     width: min(1248px, calc(100% - 48px));
-    grid-template-columns: 168px minmax(0, 1fr) 358px;
+    /* Brand column wide enough for the DRYGELWORLD wordmark (168px clipped it
+       into the first nav item once the sixth group was added); actions size to
+       their content instead of a fixed 358px so the nav gets the slack. */
+    grid-template-columns: 236px minmax(0, 1fr) auto;
     gap: 16px;
     padding: 7px 10px 7px 14px;
   }
 
   .brand {
-    width: 168px;
+    width: 236px;
     padding-right: 0;
   }
 
@@ -1594,13 +1597,9 @@
    hide the secondary Dosage Calculator button (still reachable in Resources).
    Request Quote always stays. ── */
 @media (min-width: 1025px) and (max-width: 1360px) {
-  .header {
-    grid-template-columns: 212px minmax(0, 1fr) auto;
-    gap: 12px;
-  }
-  .brand {
-    width: 212px;
-  }
+  /* Six mega-menu groups + the secondary Dosage Calculator button don't both
+     fit under 1360px; hide the calculator button (still in the Resources menu)
+     so the nav never collides. Request Quote always stays. */
   .calcCta {
     display: none;
   }
