@@ -100,6 +100,38 @@ const procurementDetails = {
       { label: "Qatar export page", href: "/export/qatar" },
     ],
   },
+  "calcium-chloride-container-strip": {
+    moq: "Quoted by strip count, strip weight, container size, route humidity, and dispatch schedule",
+    sample: "Sample strips can be discussed after confirming route, container size, and cargo type",
+    documents: ["SDS", "COA", "Lot documents on request"],
+    skuRows: [
+      { size: "1kg", material: "Calcium chloride hanging strip", fit: "20ft containers, shorter routes, moderate humidity", pack: "Carton / pallet supply" },
+      { size: "2kg-3kg", material: "Multi-chamber calcium chloride strip", fit: "20ft / 40ft sea freight planning", pack: "Shipment-based quote" },
+      { size: "5kg / custom", material: "High-capacity hanging strip", fit: "Long-haul humid routes and high-moisture cargo", pack: "Container program" },
+    ],
+    packaging: ["1kg-5kg hanging strips", "Multi-chamber pouch", "Carton / pallet quantities", "FOB / CIF route support"],
+    related: [
+      { label: "Calcium chloride bulk bags", href: "/products/calcium-chloride-container-bulk" },
+      { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
+      { label: "Container shipping", href: "/industries/container-shipping" },
+    ],
+  },
+  "calcium-chloride-container-bulk": {
+    moq: "Quoted by bag weight, carton volume, destination, and recurring supply plan",
+    sample: "Sample bags can be discussed after confirming target size and cargo application",
+    documents: ["SDS", "COA", "Lot documents on request"],
+    skuRows: [
+      { size: "500g", material: "Calcium chloride pouch bag", fit: "Pallets, cartons, and smaller cargo zones", pack: "Carton quantities" },
+      { size: "1kg", material: "Calcium chloride bulk bag", fit: "Container cargo and warehouse staging", pack: "Export cartons / pallets" },
+      { size: "2kg / custom", material: "High-capacity calcium chloride bag", fit: "High-humidity storage and sea-freight programs", pack: "Shipment-based quote" },
+    ],
+    packaging: ["500g-2kg bag formats", "Non-woven / pouch construction by requirement", "Export cartons", "Private-label discussion"],
+    related: [
+      { label: "Calcium chloride container strips", href: "/products/calcium-chloride-container-strip" },
+      { label: "Container desiccant strips", href: "/products/container-strips" },
+      { label: "Document hub", href: "/documents" },
+    ],
+  },
   "dry-clay-desiccant": {
     moq: "Discuss MOQ by sachet size, monthly volume, and dispatch program",
     sample: "Sample packs available; confirm size and packaging format before bulk planning",
@@ -226,6 +258,24 @@ const productClusters: Record<string, ProductCluster> = {
     compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
     industry: { label: "Container shipping", href: "/industries/container-shipping" },
   },
+  "calcium-chloride-container-strip": {
+    guides: [
+      { label: "Best desiccant for shipping containers", href: "/blog/best-desiccant-for-shipping-containers" },
+      { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
+      { label: "How exporters protect cargo from humidity", href: "/blog/how-exporters-protect-cargo-from-humidity" },
+    ],
+    compare: { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
+    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+  },
+  "calcium-chloride-container-bulk": {
+    guides: [
+      { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
+      { label: "Best desiccant for shipping containers", href: "/blog/best-desiccant-for-shipping-containers" },
+      { label: "Industrial packaging protection solutions", href: "/blog/industrial-packaging-protection-solutions" },
+    ],
+    compare: { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
+    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+  },
   "dry-clay-desiccant": {
     guides: [
       { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
@@ -340,6 +390,42 @@ const productFaqs = {
     {
       q: "Are container strips reusable after a single voyage?",
       a: "Container desiccant strips are designed as single-voyage consumables. Strips reach near-saturation by the end of a 25-35 day ocean voyage and are removed and disposed of with the cargo. Regenerable bulk silica gel is the right product for closed-loop reuse.",
+    },
+  ],
+  "calcium-chloride-container-strip": [
+    {
+      q: "When should buyers choose calcium chloride container strips?",
+      a: "Calcium chloride strips are useful on humid, long-haul sea-freight routes where high moisture uptake is needed at container level. They are deliquescent, so absorbed water becomes contained brine or gel inside the pouch; pouch quality and correct hanging installation matter.",
+    },
+    {
+      q: "How are calcium chloride container strips installed?",
+      a: "The strips are hung from container corrugations, rails, or approved fixing points before the doors are sealed. They should not be placed where cargo can crush, puncture, or tear the pouch during transit.",
+    },
+    {
+      q: "What sizes are available?",
+      a: "Common sizes include 1kg, 2kg, 3kg, and 5kg hanging strips. Final strip count depends on container size, route humidity, cargo moisture, transit duration, and loading density.",
+    },
+    {
+      q: "Are calcium chloride strips the same as silica gel strips?",
+      a: "No. Calcium chloride absorbs moisture and can turn it into contained liquid/brine, while silica gel adsorbs moisture and remains a dry solid. Calcium chloride offers high uptake in humid containers; silica gel is preferred where dry-solid handling near sensitive cargo is important.",
+    },
+  ],
+  "calcium-chloride-container-bulk": [
+    {
+      q: "What are calcium chloride bulk desiccant bags used for?",
+      a: "They are used for cargo-level moisture absorption in containers, pallets, warehouse staging, and high-humidity export shipments where a larger bag format is preferred over a hanging strip.",
+    },
+    {
+      q: "What bag sizes are available?",
+      a: "Common sizes include 500g, 1kg, and 2kg bags, with custom sizes quoted by requirement. Bag construction, carton packing, and pouch integrity are confirmed before final quotation.",
+    },
+    {
+      q: "Can calcium chloride bags be placed directly with cargo?",
+      a: "They should be positioned so the pouch cannot be crushed, punctured, or exposed to sharp cargo edges. Because calcium chloride is deliquescent, containment integrity is important near sensitive goods.",
+    },
+    {
+      q: "What documents are available?",
+      a: "SDS and COA can be requested at quotation stage. Any market-specific certifications or test reports should be confirmed against the exact supplied lot before order confirmation.",
     },
   ],
   "dry-clay-desiccant": [
