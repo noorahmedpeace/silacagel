@@ -129,7 +129,7 @@ const procurementDetails = {
     related: [
       { label: "Calcium chloride container strips", href: "/products/calcium-chloride-container-strip" },
       { label: "Container desiccant strips", href: "/products/container-strips" },
-      { label: "Document hub", href: "/documents" },
+      { label: "Document hub", href: "/documentation" },
     ],
   },
   "dry-clay-desiccant": {
