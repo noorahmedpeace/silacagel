@@ -1319,7 +1319,7 @@
     min-width: 0;
     justify-self: center;
     justify-content: center;
-    gap: 4px;
+    gap: 3px;
     margin: 0;
   }
 
@@ -1329,14 +1329,14 @@
 
   .navItem {
     min-height: 38px;
-    padding-inline: 9px;
-    font-size: 0.78rem;
+    padding-inline: 7px;
+    font-size: 0.74rem;
     line-height: 1;
     white-space: nowrap;
   }
 
   .navTrigger {
-    gap: 6px;
+    gap: 4px;
   }
 
   .triggerIcon {
@@ -1601,43 +1601,13 @@
    column so the wordmark is contained, let the actions shrink to content, and
    hide the secondary Dosage Calculator button (still reachable in Resources).
    Request Quote always stays. ── */
-@media (min-width: 1025px) and (max-width: 1360px) {
-  /* Six mega-menu groups + the secondary Dosage Calculator button don't both
-     fit under 1360px; hide the calculator button (still in the Resources menu)
-     and gently compress the nav items so all six groups fit without clipping
-     the last one. Request Quote and the wide brand column always stay. */
+/* Below 1296px the header isn't width-capped yet, so the nav column is too
+   narrow to also show the secondary Dosage Calculator button; hide it there
+   (still reachable in the Resources menu). Request Quote always stays. The nav
+   items are compressed in the base min-width:1025 rule so the six centred
+   groups fit the column at every desktop width without overflowing the logo. */
+@media (min-width: 1025px) and (max-width: 1295px) {
   .calcCta {
     display: none;
-  }
-  .nav {
-    gap: 2px;
-  }
-  .navItem {
-    padding-inline: 6px;
-    font-size: 0.72rem;
-  }
-  .navTrigger {
-    gap: 3px;
-  }
-}
-
-/* ── Wide screens (>=1361px): symmetric centered nav. Below this, the compact
-   206px/1fr/auto layout keeps all six groups fitting; here there's enough slack
-   to use equal 1fr side columns so the logo sits hard-left, the nav dead-centre,
-   and the CTAs hard-right — no lopsided gap between the last group and the
-   buttons. ── */
-/* (Centered wide-screen layout removed — the logo and actions have very
-   different widths, so equal side columns overflowed. The nav is right-grouped
-   with the CTAs instead; see the min-width:1025 .nav rule.) */
-
-/* Wide screens (>=1361px): there's slack, so right-group the nav next to the
-   CTAs (logo hard-left) — reads as an intentional logo | menu+CTA split rather
-   than a lopsided centred gap. Below 1361px the nav stays centred so the
-   compressed six groups never touch the logo. */
-@media (min-width: 1361px) {
-  .nav {
-    justify-self: end;
-    justify-content: flex-end;
-    margin-right: 14px;
   }
 }
