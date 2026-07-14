@@ -1295,13 +1295,13 @@
     /* Compact base for 1025–1360px: fixed brand column + content-sized actions
        so all six groups fit. Wide screens (>=1361px) switch to a symmetric
        centered layout below. */
-    grid-template-columns: 206px minmax(0, 1fr) auto;
+    grid-template-columns: 244px minmax(0, 1fr) auto;
     gap: 14px;
     padding: 7px 10px 7px 14px;
   }
 
   .brand {
-    width: 206px;
+    width: 244px;
     padding-right: 0;
     justify-self: start;
   }
