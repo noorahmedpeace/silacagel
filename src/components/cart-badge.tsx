@@ -23,16 +23,16 @@ export function CartBadge() {
     };
   }, []);
 
-  if (!count) return null;
-
+  // Always render (reserve the slot) so adding items only lights up the count
+  // bubble — it never appears from nothing and shifts the header layout.
   return (
     <Link
       href="/request-a-quote?cart=1"
-      className={styles.badge}
-      aria-label={`Quote cart: ${count} product${count > 1 ? "s" : ""}`}
+      className={`${styles.badge} ${count ? styles.badgeActive : ""}`}
+      aria-label={count ? `Quote cart: ${count} product${count > 1 ? "s" : ""}` : "Quote cart (empty)"}
     >
       🛒
-      <span className={styles.count}>{count}</span>
+      {count ? <span className={styles.count}>{count}</span> : null}
     </Link>
   );
 }
