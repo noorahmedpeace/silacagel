@@ -1317,10 +1317,10 @@
   .nav {
     width: 100%;
     min-width: 0;
-    justify-self: center;
-    justify-content: center;
+    justify-self: end;
+    justify-content: flex-end;
     gap: 4px;
-    margin: 0;
+    margin: 0 12px 0 0;
   }
 
   .headerActions {
@@ -1626,14 +1626,6 @@
    to use equal 1fr side columns so the logo sits hard-left, the nav dead-centre,
    and the CTAs hard-right — no lopsided gap between the last group and the
    buttons. ── */
-@media (min-width: 1361px) {
-  .header {
-    grid-template-columns: minmax(210px, 1fr) auto minmax(210px, 1fr);
-  }
-  .brand {
-    width: auto;
-  }
-  .nav {
-    width: auto;
-  }
-}
+/* (Centered wide-screen layout removed — the logo and actions have very
+   different widths, so equal side columns overflowed. The nav is right-grouped
+   with the CTAs instead; see the min-width:1025 .nav rule.) */
