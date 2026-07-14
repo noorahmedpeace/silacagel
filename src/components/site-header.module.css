@@ -1317,10 +1317,10 @@
   .nav {
     width: 100%;
     min-width: 0;
-    justify-self: end;
-    justify-content: flex-end;
+    justify-self: center;
+    justify-content: center;
     gap: 4px;
-    margin: 0 12px 0 0;
+    margin: 0;
   }
 
   .headerActions {
@@ -1629,3 +1629,15 @@
 /* (Centered wide-screen layout removed — the logo and actions have very
    different widths, so equal side columns overflowed. The nav is right-grouped
    with the CTAs instead; see the min-width:1025 .nav rule.) */
+
+/* Wide screens (>=1361px): there's slack, so right-group the nav next to the
+   CTAs (logo hard-left) — reads as an intentional logo | menu+CTA split rather
+   than a lopsided centred gap. Below 1361px the nav stays centred so the
+   compressed six groups never touch the logo. */
+@media (min-width: 1361px) {
+  .nav {
+    justify-self: end;
+    justify-content: flex-end;
+    margin-right: 14px;
+  }
+}
