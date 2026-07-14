@@ -187,10 +187,4 @@
   color: var(--ds-brand, #2d5bff);
 }
 
-@media (prefers-color-scheme: dark) {
-  .calc,
-  .formWrap {
-    background: var(--ds-surface, #121722);
-    border-color: var(--ds-border, #26303f);
-  }
-}
+/* Light-only site — no dark-mode override (it made card text invisible). */
