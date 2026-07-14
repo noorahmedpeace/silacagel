@@ -141,7 +141,7 @@ export default function FlowWrapPackingPage() {
       />
 
       <header className={styles.hero}>
-        <p className={styles.kicker}>Part of our contract packaging services</p>
+        <p className={styles.kicker}>Precision Flow-Wrap Co-Packing · ISO 9001:2015</p>
         <h1>Flow wrap (pillow pack) contract packing services in Pakistan.</h1>
         <p className={styles.lead}>
           Horizontal flow wrapping for manufacturers and brands: your solid product sealed in a

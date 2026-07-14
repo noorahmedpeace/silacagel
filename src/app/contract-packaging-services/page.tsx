@@ -138,7 +138,7 @@ export default function ContractPackagingPage() {
       />
 
       <header className={styles.hero}>
-        <p className={styles.kicker}>Professional Packaging &amp; Contract Packing</p>
+        <p className={styles.kicker}>Export-Grade Contract Packing · Since 1983</p>
         <h1>Contract packaging &amp; sachet filling services in Pakistan.</h1>
         <p className={styles.lead}>
           The machinery that fills millions of our own desiccant sachets is now available for your

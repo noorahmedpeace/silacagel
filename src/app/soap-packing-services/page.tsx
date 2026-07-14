@@ -147,7 +147,7 @@ export default function SoapPackingPage() {
       />
 
       <header className={styles.hero}>
-        <p className={styles.kicker}>Soap Packing &amp; Flow Wrapping</p>
+        <p className={styles.kicker}>Premium Soap Flow-Wrapping · ISO 9001:2015</p>
         <h1>Soap packing &amp; flow-wrapping services in Pakistan.</h1>
         <p className={styles.lead}>
           Machine-wrapped soap bars in pearlized BOPP — no machine to buy, no wrapping line to
