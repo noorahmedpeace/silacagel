@@ -836,7 +836,9 @@
 }
 
 /* ---- Mobile breakpoint: dropdown bar -> hamburger drawer ---- */
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
+  /* Below 1120px there isn't room for six horizontal mega-menu groups, so use
+     the hamburger menu (which holds them all cleanly) instead of clipping. */
   .nav {
     display: none;
   }
