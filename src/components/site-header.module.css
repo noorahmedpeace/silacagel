@@ -1609,7 +1609,7 @@
    (still reachable in the Resources menu). Request Quote always stays. The nav
    items are compressed in the base min-width:1025 rule so the six centred
    groups fit the column at every desktop width without overflowing the logo. */
-@media (min-width: 1025px) and (max-width: 1295px) {
+@media (min-width: 1025px) and (max-width: 1360px) {
   /* Tighter desktops (1025–1295px): hide the Dosage Calculator button and the
      brand tagline, and narrow the brand column, freeing ~55px so the six nav
      groups fit centred without touching the logo or Request Quote. The wordmark
