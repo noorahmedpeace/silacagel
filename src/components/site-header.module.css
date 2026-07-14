@@ -1607,6 +1607,19 @@
    items are compressed in the base min-width:1025 rule so the six centred
    groups fit the column at every desktop width without overflowing the logo. */
 @media (min-width: 1025px) and (max-width: 1295px) {
+  /* Tighter desktops (1025–1295px): hide the Dosage Calculator button and the
+     brand tagline, and narrow the brand column, freeing ~55px so the six nav
+     groups fit centred without touching the logo or Request Quote. The wordmark
+     stays; only the "MOISTURE CONTROL · SINCE 1983" subline drops. */
+  .header {
+    grid-template-columns: 190px minmax(0, 1fr) auto;
+  }
+  .brand {
+    width: 190px;
+  }
+  .brandSubline {
+    display: none;
+  }
   .calcCta {
     display: none;
   }
@@ -1614,8 +1627,8 @@
     gap: 2px;
   }
   .navItem {
-    padding-inline: 5px;
-    font-size: 0.71rem;
+    padding-inline: 6px;
+    font-size: 0.72rem;
   }
   .navTrigger {
     gap: 3px;
