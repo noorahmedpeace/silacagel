@@ -1292,17 +1292,16 @@
 @media (min-width: 1025px) {
   .header {
     width: min(1248px, calc(100% - 48px));
-    /* Classic centered nav: equal flexible side columns (1fr | auto | 1fr) put
-       the logo hard-left, the six-group nav dead-centre, and the CTAs hard-
-       right with symmetric breathing room — no lopsided void between the last
-       group and the buttons. */
-    grid-template-columns: minmax(200px, 1fr) auto minmax(200px, 1fr);
+    /* Compact base for 1025–1360px: fixed brand column + content-sized actions
+       so all six groups fit. Wide screens (>=1361px) switch to a symmetric
+       centered layout below. */
+    grid-template-columns: 206px minmax(0, 1fr) auto;
     gap: 14px;
     padding: 7px 10px 7px 14px;
   }
 
   .brand {
-    width: auto;
+    width: 206px;
     padding-right: 0;
     justify-self: start;
   }
@@ -1316,7 +1315,7 @@
   }
 
   .nav {
-    width: auto;
+    width: 100%;
     min-width: 0;
     justify-self: center;
     justify-content: center;
@@ -1619,5 +1618,22 @@
   }
   .navTrigger {
     gap: 3px;
+  }
+}
+
+/* ── Wide screens (>=1361px): symmetric centered nav. Below this, the compact
+   206px/1fr/auto layout keeps all six groups fitting; here there's enough slack
+   to use equal 1fr side columns so the logo sits hard-left, the nav dead-centre,
+   and the CTAs hard-right — no lopsided gap between the last group and the
+   buttons. ── */
+@media (min-width: 1361px) {
+  .header {
+    grid-template-columns: minmax(210px, 1fr) auto minmax(210px, 1fr);
+  }
+  .brand {
+    width: auto;
+  }
+  .nav {
+    width: auto;
   }
 }
