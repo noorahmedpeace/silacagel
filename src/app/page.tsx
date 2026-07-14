@@ -33,6 +33,8 @@ import {
   ShieldCheck,
   PackageCheck,
   Truck,
+  Cpu,
+  Warehouse,
 } from "lucide-react";
 import {
   priceGroups,
@@ -83,7 +85,7 @@ const trustSignalsArray = [
     icon: ShieldCheck,
     title: "Technical docs on request",
     label: "Documents",
-    href: "/documents",
+    href: "/documentation",
   },
 ];
 

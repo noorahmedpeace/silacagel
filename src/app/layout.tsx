@@ -263,7 +263,7 @@ export default function RootLayout({
                   window.__drygelTrackClarity('calculator_intent', 'Calculator purchase intent');
                   return;
                 }
-                if (href.indexOf('/documents') === 0 || /sds|coa|documents?/i.test(label)) {
+                if (href.indexOf('/document') === 0 || /sds|coa|documents?/i.test(label)) {
                   window.__drygelTrackEvent('document_cta_click', base);
                 }
               }, { passive: true });
@@ -464,6 +464,16 @@ export default function RootLayout({
                   "@type": "LocalBusiness",
                   "@id": `${absoluteUrl()}#localbusiness`,
                   name: brandName,
+                  // priceRange is deliberately omitted, not missing: it's an
+                  // optional schema.org field meant to coarsely signal a
+                  // walk-in consumer price tier ("$"/"$$$"/"Under $10"). This
+                  // is a B2B wholesale manufacturer with MOQ-based unit
+                  // pricing spanning ~4 orders of magnitude ($0.0035/sachet
+                  // to bulk industrial), so any single value here would be
+                  // either meaningless or actively misleading. The honest,
+                  // schema.org-correct place for real pricing is per-product
+                  // Offer.price (see products/[slug]/page.tsx), which is
+                  // already implemented there.
                   parentOrganization: { "@id": `${absoluteUrl()}#organization` },
                   url: absoluteUrl(),
                   image: absoluteUrl(defaultSeoImage),

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   absoluteUrl,
+  authorJsonLd,
   breadcrumbJsonLd,
   compactMetaDescription,
   compactMetaTitle,
@@ -235,14 +236,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 articleSection: article.label,
                 image: absoluteUrl(heroImage.src),
                 author: author
-                  ? {
-                      "@type": "Organization",
-                      "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-                      name: author.name,
-                      url: absoluteUrl(`/authors/${author.slug}`),
-                      description: author.shortBio,
-                      knowsAbout: author.topics,
-                    }
+                  ? authorJsonLd(author)
                   : {
                       "@type": "Organization",
                       name: siteName,

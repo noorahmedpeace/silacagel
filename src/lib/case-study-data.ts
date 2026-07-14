@@ -88,7 +88,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
     ],
     nextLinks: [
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel SDS & COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
       { label: "Request Saudi bulk quote", href: "/contact" },
     ],
@@ -120,7 +120,7 @@ export const caseStudies: CaseStudy[] = [
     products: [
       { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
     ],
     nextLinks: [
       { label: "Pharma packaging industry page", href: "/industries/pharma-packaging" },
@@ -260,7 +260,7 @@ export const caseStudies: CaseStudy[] = [
     products: [
       { label: "Food grade silica gel supplier", href: "/food-grade-silica-gel-supplier" },
       { label: "White silica gel", href: "/white-silica-gel" },
-      { label: "Documents hub", href: "/documents" },
+      { label: "Documents hub", href: "/documentation" },
     ],
     nextLinks: [
       { label: "Food packaging industry", href: "/industries/food-packaging" },

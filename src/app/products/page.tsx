@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { productCatalog, whatsappNumber } from "@/lib/product-data";
+import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { seoImages } from "@/lib/seo-images";
 import shared from "../shared-page.module.css";
 import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
@@ -57,7 +59,8 @@ export default function ProductsPage() {
           Every format in one place, from{" "}
           <Link href="/silica-gel-packets">sachets</Link> to{" "}
           <Link href="/shipping-container-desiccant-supplier">container strips</Link> and{" "}
-          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing.
+          <Link href="/bulk-sales">bulk supply</Link>. Open a category for specs and pricing, or
+          start with <Link href="/silica-gel">how silica gel works</Link>.
         </p>
       </section>
 
@@ -139,6 +142,53 @@ export default function ProductsPage() {
       </section>
 
       <FaqBlock title="Silica gel & desiccant product FAQs" faqs={productsFaqs} />
+
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "CollectionPage",
+                "@id": `${absoluteUrl("/products")}#hub`,
+                name: "Silica Gel & Desiccant Product Catalog",
+                description: metadata.description,
+                url: absoluteUrl("/products"),
+                image: absoluteUrl(seoImages.silicaGelSachets.src),
+                inLanguage: "en",
+                isPartOf: {
+                  "@type": "WebSite",
+                  url: absoluteUrl(),
+                  name: siteName,
+                },
+                hasPart: productCatalog.map((product) => ({
+                  "@type": "Product",
+                  name: product.name,
+                  url: absoluteUrl(`/products/${product.slug}`),
+                  description: product.summary,
+                  image: absoluteUrl(product.heroImage),
+                })),
+              },
+              {
+                "@type": "ItemList",
+                "@id": `${absoluteUrl("/products")}#list`,
+                itemListElement: productCatalog.map((product, index) => ({
+                  "@type": "ListItem",
+                  position: index + 1,
+                  name: product.name,
+                  url: absoluteUrl(`/products/${product.slug}`),
+                })),
+              },
+              breadcrumbJsonLd([
+                { name: "Home", href: "/" },
+                { name: "Products", href: "/products" },
+              ]),
+            ],
+          }),
+        }}
+      />
     </main>
   );
 }

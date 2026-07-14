@@ -1,10 +1,35 @@
 import path from "node:path";
 import type { NextConfig } from "next";
 
+// Phase 1: Report-Only. Catalogued every external origin actually referenced
+// in the codebase (Clarity, GTM, Pexels remote images, Vercel's own insights
+// script, same-origin /api/* for RFQ/chat/lead). Report-Only mode enforces
+// nothing - it only logs would-be violations - specifically because a wrong
+// origin in an enforcing policy would silently break Clarity/GTM/DryBot with
+// no way to catch it without live-browser testing this session doesn't have.
+// Once violation reports come back clean in production, flip
+// "Content-Security-Policy-Report-Only" to "Content-Security-Policy" below.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://www.clarity.ms https://www.googletagmanager.com https://va.vercel-scripts.com",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://images.pexels.com https://www.clarity.ms",
+  "font-src 'self' data:",
+  "connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
+  "frame-src 'self' https://www.youtube.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
 const SECURITY_HEADERS = [
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
+  },
+  {
+    key: "Content-Security-Policy-Report-Only",
+    value: CONTENT_SECURITY_POLICY,
   },
   {
     key: "X-Content-Type-Options",
@@ -187,6 +212,25 @@ const nextConfig: NextConfig = {
       {
         source: "/container-desiccant-supplier",
         destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      // C10: /documents vs /documentation fork (PRIORITY.md #26). /documentation
+      // has the real registry-backed content (ISO cert detail, one-click SDS/COA/
+      // TDS/spec downloads); /documents was a weaker, request-gated duplicate
+      // whose "Claim Discipline" section had leaked internal content-governance
+      // notes into buyer-facing copy. Redirect the weaker page to the real one.
+      {
+        source: "/documents",
+        destination: "/documentation",
+        permanent: true,
+      },
+      // C11: /bentonite-clay -> /clay-desiccant-supplier (PRIORITY.md #29). The
+      // page's own title/H1 already targeted "clay desiccant supplier" as the
+      // primary term; only the URL slug didn't match. Pure rename, same content
+      // (still mentions bentonite throughout as the material synonym).
+      {
+        source: "/bentonite-clay",
+        destination: "/clay-desiccant-supplier",
         permanent: true,
       },
     ];

@@ -350,6 +350,42 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_BULK, PRODUCT_CONTAINER, PRODUCT_PAPER],
   },
+  // PRIORITY.md #44: these 4 articles had no cluster entry and fell through
+  // to the generic two-link fallback regardless of topic. Added below with
+  // topically-matched cross-links (verified against existing blog slugs).
+  "top-10-silica-gel-suppliers-world-pakistan": {
+    guides: [
+      guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
+      guide("silica-gel-bulk-pricing-factors-for-exporters", "Silica gel bulk pricing factors"),
+      guide("bulk-silica-gel-supplier-checklist", "Bulk silica gel supplier checklist"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-colors-white-blue-orange-explained": {
+    guides: [
+      guide("indicating-silica-gel-orange-blue-color-change-guide", "Indicating silica gel color-change guide"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Cobalt-free orange vs blue indicating gel"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+    compare: { label: "Indicating vs non-indicating silica gel", href: "/compare/indicating-vs-non-indicating-silica-gel" },
+  },
+  "silica-gel-shelf-life-and-storage-guide": {
+    guides: [
+      guide("how-long-does-silica-gel-last", "How long does silica gel last"),
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel"),
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-for-rice-grain-spice-export": {
+    guides: [
+      guide("food-grade-silica-gel-procurement-guide", "Food-grade silica gel procurement guide"),
+      guide("how-to-prevent-moisture-in-export-cartons", "How to prevent moisture in export cartons"),
+    ],
+    products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+    compare: COMPARE_O2,
+    industry: IND_FOOD,
+  },
 };
 
 export function getBlogCluster(slug: string): BlogCluster {

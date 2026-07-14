@@ -524,7 +524,7 @@ export function QuoteForm({
           <span>Destination country, port, and Incoterms</span>
           <span>SDS, COA, ISO, and private-label needs</span>
         </div>
-        <Link href="/documents" className={styles.datasheetButton}>
+        <Link href="/documentation" className={styles.datasheetButton}>
           Review documents and standards
         </Link>
       </aside>

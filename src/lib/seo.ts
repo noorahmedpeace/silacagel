@@ -109,3 +109,66 @@ export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
     })),
   };
 }
+
+type AuthorLike = {
+  slug: string;
+  name: string;
+  role: string;
+  shortBio: string;
+  topics: string[];
+  credentials: string[];
+  image?: string;
+  isPerson?: boolean;
+  sameAs?: string[];
+};
+
+// Emits a real Person node (jobTitle, sameAs, hasCredential) when the author
+// registry marks a real named individual with a real portrait; falls back to
+// Organization for corporate-byline authors. Previously every author schema
+// was hardcoded to Organization regardless of `isPerson`, which discarded
+// the credentials/sameAs/portrait data already sitting in authors.ts and
+// weakened the E-E-A-T signal Google/AI actually look for on a named expert.
+export function authorJsonLd(author: AuthorLike) {
+  const id = `${absoluteUrl(`/authors/${author.slug}`)}#author`;
+  const url = absoluteUrl(`/authors/${author.slug}`);
+
+  if (author.isPerson) {
+    return {
+      "@type": "Person",
+      "@id": id,
+      name: author.name,
+      url,
+      jobTitle: author.role,
+      description: author.shortBio,
+      ...(author.image ? { image: absoluteUrl(author.image) } : {}),
+      ...(author.sameAs?.length ? { sameAs: author.sameAs } : {}),
+      ...(author.credentials.length
+        ? {
+            hasCredential: author.credentials.map((credential) => ({
+              "@type": "EducationalOccupationalCredential",
+              name: credential,
+            })),
+          }
+        : {}),
+      knowsAbout: author.topics,
+      worksFor: { "@id": `${absoluteUrl()}#organization` },
+    };
+  }
+
+  return {
+    "@type": "Organization",
+    "@id": id,
+    name: author.name,
+    url,
+    description: author.shortBio,
+    knowsAbout: author.topics,
+    ...(author.credentials.length
+      ? {
+          hasCredential: author.credentials.map((credential) => ({
+            "@type": "EducationalOccupationalCredential",
+            name: credential,
+          })),
+        }
+      : {}),
+  };
+}

@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { comparePages, getComparePage } from "@/lib/compare-data";
 import {
   absoluteUrl,
+  authorJsonLd,
   breadcrumbJsonLd,
   compactMetaDescription,
   compactMetaTitle,
@@ -215,12 +216,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                 articleSection: "Product Comparison",
                 image: absoluteUrl(heroImage.src),
                 author: author
-                  ? {
-                      "@type": "Organization",
-                      "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-                      name: author.name,
-                      url: absoluteUrl(`/authors/${author.slug}`),
-                    }
+                  ? authorJsonLd(author)
                   : {
                       "@type": "Organization",
                       name: siteName,

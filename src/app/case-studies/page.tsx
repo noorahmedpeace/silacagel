@@ -32,7 +32,7 @@ export default function CaseStudiesPage() {
         </p>
         <div className={styles.heroActions}>
           <Link href="/contact" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
-          <Link href="/documents" className={styles.secondaryBtn}>View Document Hub</Link>
+          <Link href="/documentation" className={styles.secondaryBtn}>View Document Hub</Link>
         </div>
       </section>
 

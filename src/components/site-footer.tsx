@@ -32,7 +32,7 @@ const footerColumns = [
   {
     title: "Desiccant Range",
     links: [
-      { label: "Bentonite clay desiccant", href: "/bentonite-clay" },
+      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
       { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
@@ -75,12 +75,15 @@ const footerColumns = [
   {
     title: "Resources",
     links: [
+      { label: "Request a sample", href: "/samples" },
       { label: "Indicative pricing", href: "/pricing" },
+      { label: "All buyer resources", href: "/guides" },
+      { label: "All calculators & tools", href: "/tools" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant comparisons", href: "/compare" },
-      { label: "Documents (SDS, COA)", href: "/documents" },
+      { label: "Documents (SDS, COA)", href: "/documentation" },
       { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
       { label: "Export carton moisture guide", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
       { label: "SDS and COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
