@@ -836,9 +836,10 @@
 }
 
 /* ---- Mobile breakpoint: dropdown bar -> hamburger drawer ---- */
-@media (max-width: 1120px) {
-  /* Below 1120px there isn't room for six horizontal mega-menu groups, so use
-     the hamburger menu (which holds them all cleanly) instead of clipping. */
+@media (max-width: 1279px) {
+  /* Below 1280px there isn't room for six horizontal mega-menu groups, so use
+     the hamburger menu (which holds them all cleanly) instead of clipping.
+     The full horizontal nav shows at 1280px and up, where it's verified clean. */
   .nav {
     display: none;
   }
@@ -1634,5 +1635,14 @@
   }
   .navTrigger {
     gap: 3px;
+  }
+}
+
+/* Below 1280px the horizontal nav is hidden (hamburger instead), so collapse
+   the header to a clean two-column layout: brand left, actions (Request Quote +
+   hamburger) right — no empty middle column. Placed last to win the cascade. */
+@media (max-width: 1279px) {
+  .header {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 }
