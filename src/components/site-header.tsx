@@ -40,7 +40,6 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
-import { CartBadge } from "./cart-badge";
 import { HeaderSearch } from "./header-search";
 import { displayPhone, phoneHref, mainEmail } from "@/lib/product-data";
 import styles from "./site-header.module.css";
@@ -357,8 +356,6 @@ export function SiteHeader() {
             <div className={styles.headerSearchSlot}>
               <HeaderSearch />
             </div>
-
-            <CartBadge />
 
             <Link href="/contact" className={styles.navCta}>
               Request Quote
