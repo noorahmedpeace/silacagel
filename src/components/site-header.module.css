@@ -1013,10 +1013,14 @@
 /* 1025-1240px: keep the three-column inline header (logo | nav | actions).
    The calculator CTA is hidden in this band to make room, so the nav never
    drops onto its own line below the logo. */
-@media (min-width: 1025px) and (max-width: 1240px) {
+@media (min-width: 1025px) and (max-width: 1360px) {
   .header {
     /* Brand column is a FIXED width here (was minmax(0,auto), which could
-       shrink to 0 and let the logo spill onto the first nav item). */
+       shrink to 0 and let the logo spill onto the first nav item). Range
+       extended to 1360px: with six mega-menu groups, the secondary Dosage
+       Calculator button is hidden below 1360px so the nav never collides with
+       the logo (Request Quote stays; the calculator is still in the Resources
+       menu). */
     grid-template-columns: 232px minmax(0, 1fr) auto;
     min-height: 62px;
     gap: 12px;
