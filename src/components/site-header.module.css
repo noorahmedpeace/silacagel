@@ -1610,4 +1610,14 @@
   .calcCta {
     display: none;
   }
+  .nav {
+    gap: 2px;
+  }
+  .navItem {
+    padding-inline: 5px;
+    font-size: 0.71rem;
+  }
+  .navTrigger {
+    gap: 3px;
+  }
 }
