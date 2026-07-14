@@ -142,6 +142,7 @@ const navGroups: NavGroup[] = [
       { label: "Certifications", href: "/certifications", icon: BadgeCheck, desc: "ISO 9001:2015 & documents" },
       { label: "Case studies", href: "/case-studies", icon: Award, desc: "Real export references" },
       { label: "Private label", href: "/private-label", icon: Tag, desc: "OEM sachet branding" },
+      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
       { label: "Contact", href: "/contact", icon: Mail, desc: "Talk to the export desk" },
     ],
   },

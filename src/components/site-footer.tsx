@@ -106,6 +106,7 @@ const footerColumns = [
       { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Private label program", href: "/private-label" },
+      { label: "Contract packaging services", href: "/contract-packaging-services" },
       { label: "Bulk & wholesale sales", href: "/bulk-sales" },
     ],
   },

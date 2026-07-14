@@ -1,0 +1,196 @@
+.planner {
+  display: grid;
+  gap: 26px;
+}
+@media (min-width: 960px) {
+  .planner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: start;
+  }
+}
+
+.calc,
+.formWrap {
+  border: 1px solid var(--ds-border, #e5e7eb);
+  border-radius: 18px;
+  background: var(--ds-surface, #fff);
+  padding: 26px;
+}
+.calc h3,
+.formWrap h3 {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+}
+.calcIntro {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--ds-muted, #5b6472);
+}
+
+.calcGrid,
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.field span {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ds-ink, #14224a);
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  font-size: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--ds-border, #d6dae2);
+  border-radius: 10px;
+  background: var(--ds-surface, #fff);
+  color: inherit;
+}
+.fieldFull {
+  grid-column: 1 / -1;
+}
+
+.planCard {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid color-mix(in srgb, var(--ds-brand, #2d5bff) 30%, transparent);
+  background: color-mix(in srgb, var(--ds-brand, #2d5bff) 6%, transparent);
+}
+.planCard strong {
+  display: block;
+  margin-bottom: 8px;
+}
+.planCard ul {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 5px;
+  font-size: 0.92rem;
+}
+.planCard em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ds-brand, #2d5bff);
+}
+.planNote {
+  margin: 10px 0 12px;
+  font-size: 0.82rem;
+  color: var(--ds-muted, #5b6472);
+}
+.planEmpty {
+  margin-top: 16px;
+  font-size: 0.88rem;
+  color: var(--ds-muted, #5b6472);
+}
+
+.applyBtn,
+.submit {
+  appearance: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--ds-brand, #2d5bff);
+  color: #fff;
+}
+.applyBtn:hover,
+.submit:hover {
+  filter: brightness(1.08);
+}
+.submit {
+  margin-top: 16px;
+}
+.submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.uploadBox {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px dashed var(--ds-border, #d6dae2);
+  border-radius: 12px;
+  font-size: 0.84rem;
+  color: var(--ds-muted, #5b6472);
+}
+.fileRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  color: var(--ds-ink, #14224a);
+}
+.fileRow button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--ds-muted, #5b6472);
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.error {
+  margin: 12px 0 0;
+  color: #b42318;
+  font-size: 0.88rem;
+}
+
+.success {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+}
+.success span[aria-hidden] {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #16a34a;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+.success h3 {
+  margin: 4px 0 0;
+}
+.successId {
+  font-weight: 700;
+}
+.success a {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--ds-brand, #2d5bff);
+}
+
+@media (prefers-color-scheme: dark) {
+  .calc,
+  .formWrap {
+    background: var(--ds-surface, #121722);
+    border-color: var(--ds-border, #26303f);
+  }
+}

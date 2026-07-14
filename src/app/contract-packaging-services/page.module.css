@@ -1,0 +1,189 @@
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 40px 18px 70px;
+  display: grid;
+  gap: 44px;
+}
+
+.hero {
+  display: grid;
+  gap: 14px;
+  max-width: 780px;
+}
+.kicker {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ds-brand, #2d5bff);
+}
+.hero h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+  line-height: 1.12;
+}
+.lead {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--ds-muted, #5b6472);
+}
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+.primaryCta,
+.ghostCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+.primaryCta {
+  background: var(--ds-brand, #2d5bff);
+  color: #fff;
+}
+.ghostCta {
+  border: 1.5px solid var(--ds-border, #d6dae2);
+  color: var(--ds-ink, #14224a);
+}
+.proofRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+.proofChip {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--ds-border, #e5e7eb);
+  color: var(--ds-muted, #5b6472);
+}
+
+.sectionHead {
+  display: grid;
+  gap: 8px;
+  max-width: 720px;
+}
+.sectionHead h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+.sectionHead p {
+  margin: 0;
+  color: var(--ds-muted, #5b6472);
+  line-height: 1.55;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 22px;
+}
+.serviceCard {
+  border: 1px solid var(--ds-border, #e5e7eb);
+  border-radius: 16px;
+  padding: 20px;
+  background: var(--ds-surface, #fff);
+  display: grid;
+  gap: 8px;
+  align-content: start;
+}
+.serviceCard strong {
+  font-size: 1.02rem;
+}
+.serviceCard p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ds-muted, #5b6472);
+}
+
+.facility {
+  border: 1px solid var(--ds-border, #e5e7eb);
+  border-radius: 18px;
+  padding: 26px;
+  background: var(--ds-surface, #fff);
+  display: grid;
+  gap: 10px;
+}
+.facility h2 {
+  margin: 0;
+}
+.facility p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--ds-muted, #5b6472);
+  max-width: 75ch;
+}
+.facilityList {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+  line-height: 1.55;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+  gap: 16px;
+  margin-top: 22px;
+  counter-reset: step;
+}
+.step {
+  border: 1px solid var(--ds-border, #e5e7eb);
+  border-radius: 16px;
+  padding: 20px;
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  counter-increment: step;
+}
+.step::before {
+  content: counter(step);
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--ds-brand, #2d5bff) 12%, transparent);
+  color: var(--ds-brand, #2d5bff);
+  font-weight: 800;
+}
+.step strong {
+  font-size: 0.98rem;
+}
+.step p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: var(--ds-muted, #5b6472);
+}
+
+.honesty {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ds-muted, #5b6472);
+  border-left: 3px solid var(--ds-border, #e5e7eb);
+  padding-left: 14px;
+  max-width: 75ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  .serviceCard,
+  .facility {
+    background: var(--ds-surface, #121722);
+    border-color: var(--ds-border, #26303f);
+  }
+}
