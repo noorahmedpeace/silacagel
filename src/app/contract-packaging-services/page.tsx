@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Flow wrap / pillow pack packing",
-    text: "Horizontal flow-wrap line for solid items — bars, kits, hardware, moulded parts — sealed in printed or plain film.",
+    text: "Horizontal flow-wrap line for solid items — soap bars, dhoop sticks and incense cones, hardware kits, cutlery sets, sponges, moulded parts — sealed in printed or plain film.",
   },
   {
     title: "Automatic sachet packing",
@@ -195,7 +195,14 @@ export default function ContractPackagingPage() {
           same ISO 9001:2015 quality system as our manufacturing.
         </p>
         <ul className={styles.facilityList}>
-          <li>Horizontal flow-wrap (pillow-pack) line for solid items</li>
+          <li>
+            <strong>Flow-wrap line capability:</strong> pack (cut) length 60–200&nbsp;mm, pack width
+            25–100&nbsp;mm, product height up to ~45&nbsp;mm — single items or grouped multipacks
+          </li>
+          <li>
+            <strong>Films handled:</strong> heat-sealable laminates — OPP/CPP, BOPP (incl. pearlized),
+            PET/PE, and metalized film; printed or plain, with batch/date coding available
+          </li>
           <li>Automatic sachet lines proven on millions of desiccant sachets</li>
           <li>Trial/sample runs before volume commitment</li>
           <li>In-house export documentation from Karachi port</li>
@@ -232,9 +239,11 @@ export default function ContractPackagingPage() {
         <p className={styles.honesty} style={{ marginTop: 18 }}>
           What we don&apos;t pack: food and beverage, pharmaceuticals, nutraceuticals, and
           skin-contact cosmetics — those require food-safety and GMP certifications (FSSC 22000,
-          HACCP, FDA registration) that we do not currently hold. Our quality system is ISO
-          9001:2015, and we say so plainly rather than imply otherwise. Industrial powders,
-          granules, beads, hardware kits, and non-food consumer goods are exactly our lane.
+          HACCP, FDA registration) that we do not currently hold. We also don&apos;t fill liquids,
+          pastes, or gels — that is a different machine class, and we&apos;ll tell you so instead of
+          quoting badly. Our quality system is ISO 9001:2015, and we say so plainly rather than
+          imply otherwise. Solid items for flow wrap, industrial powders and granules for sachets,
+          hardware kits, and non-food consumer goods are exactly our lane.
         </p>
       </section>
 
@@ -271,9 +280,12 @@ export default function ContractPackagingPage() {
 
       <section className={styles.sectionHead} aria-label="Related services">
         <p>
-          Looking for our own products instead? See{" "}
-          <Link href="/private-label">private-label desiccant packets</Link>,{" "}
-          <Link href="/products">the product range</Link>, or{" "}
+          Packing soap bars? See the dedicated{" "}
+          <Link href="/soap-packing-services">soap packing &amp; flow-wrapping service</Link>, or
+          the full <Link href="/flow-wrap-packing-services">flow wrap &amp; pillow-pack co-packing</Link>{" "}
+          spec page. Or
+          for our own products: <Link href="/private-label">private-label desiccant packets</Link>,{" "}
+          <Link href="/products">the product range</Link>, and{" "}
           <Link href="/bulk-sales">bulk supply</Link>.
         </p>
       </section>

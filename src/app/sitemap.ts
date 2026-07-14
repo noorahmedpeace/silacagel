@@ -73,6 +73,8 @@ const STATIC_ROUTES = [
   "/private-label",
   "/videos",
   "/contract-packaging-services",
+  "/soap-packing-services",
+  "/flow-wrap-packing-services",
   "/export",
   "/drygelworld",
   "/compare",
