@@ -1295,13 +1295,13 @@
     /* Brand column wide enough for the DRYGELWORLD wordmark (168px clipped it
        into the first nav item once the sixth group was added); actions size to
        their content instead of a fixed 358px so the nav gets the slack. */
-    grid-template-columns: 236px minmax(0, 1fr) auto;
-    gap: 16px;
+    grid-template-columns: 206px minmax(0, 1fr) auto;
+    gap: 14px;
     padding: 7px 10px 7px 14px;
   }
 
   .brand {
-    width: 236px;
+    width: 206px;
     padding-right: 0;
   }
 
@@ -1608,10 +1608,10 @@
     gap: 2px;
   }
   .navItem {
-    padding-inline: 7px;
-    font-size: 0.74rem;
+    padding-inline: 6px;
+    font-size: 0.72rem;
   }
   .navTrigger {
-    gap: 4px;
+    gap: 3px;
   }
 }
