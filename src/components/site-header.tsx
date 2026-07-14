@@ -203,7 +203,6 @@ export function SiteHeader() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const homeActive = pathname === "/";
 
   return (
     <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
@@ -230,14 +229,8 @@ export function SiteHeader() {
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
-            <Link
-              href="/"
-              className={`${styles.navItem} ${styles.navTrigger} ${homeActive ? styles.navItemActive : ""}`}
-            >
-              <Home size={16} strokeWidth={2.2} className={styles.triggerIcon} aria-hidden="true" />
-              Home
-            </Link>
-
+            {/* No desktop "Home" link — the logo is the home link. Dropping it
+                keeps the six mega-menu groups from overflowing the nav column. */}
             {navGroups.map((group, index) => {
               const open = openMenu === group.label;
               const active = isGroupActive(group, pathname);
