@@ -7,6 +7,7 @@ import {
   isoCertificate,
 } from "@/lib/document-registry";
 import { FaqBlock } from "@/components/faq-block";
+import { AdsorptionIsotherm } from "@/components/adsorption-isotherm";
 import styles from "./documentation.module.css";
 
 export const metadata: Metadata = {
@@ -153,6 +154,15 @@ export default function DocumentationPage() {
           </section>
         );
       })}
+
+      {/* Technical figure — the RH-vs-capacity data procurement engineers expect. */}
+      <section className={styles.docSection} aria-label="Adsorption performance">
+        <div className={styles.docHead}>
+          <h2>Adsorption performance</h2>
+          <p>How much moisture silica gel holds across the relative-humidity range.</p>
+        </div>
+        <AdsorptionIsotherm />
+      </section>
 
       {/* P2.3 — connection to the rest of the web: verifiable external presence. */}
       <section className={styles.verifySection} aria-label="Verify us elsewhere">
