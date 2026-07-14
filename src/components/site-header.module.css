@@ -1599,8 +1599,19 @@
 @media (min-width: 1025px) and (max-width: 1360px) {
   /* Six mega-menu groups + the secondary Dosage Calculator button don't both
      fit under 1360px; hide the calculator button (still in the Resources menu)
-     so the nav never collides. Request Quote always stays. */
+     and gently compress the nav items so all six groups fit without clipping
+     the last one. Request Quote and the wide brand column always stay. */
   .calcCta {
     display: none;
+  }
+  .nav {
+    gap: 2px;
+  }
+  .navItem {
+    padding-inline: 7px;
+    font-size: 0.74rem;
+  }
+  .navTrigger {
+    gap: 4px;
   }
 }
