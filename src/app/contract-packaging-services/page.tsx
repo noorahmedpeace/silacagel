@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqBlock } from "@/components/faq-block";
+import { MachineShowcase } from "@/components/machine-showcase";
 import { PackagingPlanner } from "@/components/packaging-planner";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { whatsappNumber } from "@/lib/product-data";
@@ -208,11 +209,44 @@ export default function ContractPackagingPage() {
           <li>In-house export documentation from Karachi port</li>
         </ul>
         <p className={styles.honesty}>
-          Machine photos and line footage from our own floor are being prepared for this page — we
-          publish only genuine facility imagery. Exact throughput and tolerance figures are quoted
-          per product after a trial run, not claimed generically.
+          Exact throughput and tolerance figures are quoted per product after a trial run, not
+          claimed generically. Real photos and footage from our own floor are shown below.
         </p>
       </section>
+
+      <MachineShowcase
+        heading="Modern automatic packaging machinery"
+        intro="Our horizontal flow-wrap line and sachet machines, on our own floor in Karachi — for accurate weights, airtight sealing, and consistent presentation under ISO 9001:2015."
+        video="/videos/packaging-line.mp4"
+        feature={{
+          src: "/images/packaging/new-packaging-machine-wide-shot.webp",
+          alt: "DryGelWorld automatic flow-wrap packaging machine, wide shot",
+          caption: "Horizontal flow-wrap (pillow pack) line",
+        }}
+        gallery={[
+          {
+            src: "/images/packaging/contract-packaging-line.webp",
+            alt: "Contract packaging flow-wrap line with infeed conveyor",
+            caption: "Flow-wrap line with infeed conveyor",
+          },
+          {
+            src: "/images/packaging/soap-packing-machine-hero.webp",
+            alt: "Soap bar flow-wrapping on the packaging machine",
+            caption: "Soap-bar flow wrapping in film",
+          },
+          {
+            src: "/images/packaging/soap-flow-wrap-closeup.webp",
+            alt: "Close-up of sealed flow-wrapped pack",
+            caption: "Sealed pillow-pack close-up",
+          },
+        ]}
+        stats={[
+          { label: "Line format", value: "Horizontal flow wrap" },
+          { label: "Pack length", value: "60–200 mm" },
+          { label: "Films", value: "OPP / BOPP / metalized" },
+          { label: "Quality system", value: "ISO 9001:2015" },
+        ]}
+      />
 
       <section aria-label="Ways to work with us">
         <div className={styles.sectionHead}>

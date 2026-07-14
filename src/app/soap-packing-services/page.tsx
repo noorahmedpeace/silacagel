@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqBlock } from "@/components/faq-block";
+import { MachineShowcase } from "@/components/machine-showcase";
 import { PackagingPlanner } from "@/components/packaging-planner";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { whatsappNumber } from "@/lib/product-data";
@@ -293,6 +294,35 @@ export default function SoapPackingPage() {
           machine would really cost you to run.
         </p>
       </section>
+
+      <MachineShowcase
+        heading="Your soap, wrapped on our line"
+        intro="The flow-wrap machine on our Karachi floor, running soap bars in sealed film. Real photos and footage — send sample bars for a free wrap trial."
+        video="/videos/packaging-line.mp4"
+        feature={{
+          src: "/images/packaging/soap-packing-machine-hero.webp",
+          alt: "Soap bar flow-wrapping machine at DryGelWorld",
+          caption: "Soap-bar flow wrapping in sealed film",
+        }}
+        gallery={[
+          {
+            src: "/images/packaging/soap-flow-wrap-closeup.webp",
+            alt: "Close-up of a flow-wrapped soap bar",
+            caption: "Sealed pillow-pack finish",
+          },
+          {
+            src: "/images/packaging/new-packaging-machine-wide-shot.webp",
+            alt: "Wide shot of the automatic flow-wrap line",
+            caption: "The automatic flow-wrap line",
+          },
+        ]}
+        stats={[
+          { label: "Bar range", value: "40 g – 200 g+" },
+          { label: "Films", value: "Pearlized / clear / printed BOPP" },
+          { label: "Coding", value: "In-line date & batch" },
+          { label: "Quality system", value: "ISO 9001:2015" },
+        ]}
+      />
 
       <PackagingPlanner />
 

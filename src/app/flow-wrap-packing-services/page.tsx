@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqBlock } from "@/components/faq-block";
+import { MachineShowcase } from "@/components/machine-showcase";
 import { PackagingPlanner } from "@/components/packaging-planner";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { whatsappNumber } from "@/lib/product-data";
@@ -237,6 +238,35 @@ export default function FlowWrapPackingPage() {
           </li>
         </ul>
       </section>
+
+      <MachineShowcase
+        heading="The flow-wrap line, on our floor"
+        intro="Real photos and footage of the horizontal flow-wrap line and its infeed conveyor — the machine your product runs on, not a stock image."
+        video="/videos/packaging-line.mp4"
+        feature={{
+          src: "/images/packaging/contract-packaging-line.webp",
+          alt: "Horizontal flow-wrap line with infeed conveyor at DryGelWorld",
+          caption: "Flow-wrap line with lug-chain infeed conveyor",
+        }}
+        gallery={[
+          {
+            src: "/images/packaging/new-packaging-machine-wide-shot.webp",
+            alt: "Wide shot of the automatic flow-wrap machine",
+            caption: "Automatic flow-wrap machine, wide shot",
+          },
+          {
+            src: "/images/packaging/soap-flow-wrap-closeup.webp",
+            alt: "Close-up of a finished sealed pillow pack",
+            caption: "Finished pillow-pack seal",
+          },
+        ]}
+        stats={[
+          { label: "Pack length", value: "60–200 mm" },
+          { label: "Product height", value: "up to ~45 mm" },
+          { label: "Throughput", value: "30–60 packs/min" },
+          { label: "Quality system", value: "ISO 9001:2015" },
+        ]}
+      />
 
       <PackagingPlanner />
 

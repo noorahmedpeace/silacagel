@@ -1013,14 +1013,10 @@
 /* 1025-1240px: keep the three-column inline header (logo | nav | actions).
    The calculator CTA is hidden in this band to make room, so the nav never
    drops onto its own line below the logo. */
-@media (min-width: 1025px) and (max-width: 1360px) {
+@media (min-width: 1025px) and (max-width: 1240px) {
   .header {
     /* Brand column is a FIXED width here (was minmax(0,auto), which could
-       shrink to 0 and let the logo spill onto the first nav item). Range
-       extended to 1360px: with six mega-menu groups, the secondary Dosage
-       Calculator button is hidden below 1360px so the nav never collides with
-       the logo (Request Quote stays; the calculator is still in the Resources
-       menu). */
+       shrink to 0 and let the logo spill onto the first nav item). */
     grid-template-columns: 232px minmax(0, 1fr) auto;
     min-height: 62px;
     gap: 12px;
@@ -1588,4 +1584,24 @@
    global half in the brand color. */
 .brandWordAccent {
   color: var(--ds-brand, #2d5bff);
+}
+
+/* ── Six-group nav: mid-width safety (placed LAST so it wins the cascade over
+   the base min-width:1025 block). Adding the sixth "Services" group made the
+   nav overflow between ~1240–1360px: the wordmark spilled onto the first nav
+   item and the last group clipped the actions. Below 1360px, widen the brand
+   column so the wordmark is contained, let the actions shrink to content, and
+   hide the secondary Dosage Calculator button (still reachable in Resources).
+   Request Quote always stays. ── */
+@media (min-width: 1025px) and (max-width: 1360px) {
+  .header {
+    grid-template-columns: 212px minmax(0, 1fr) auto;
+    gap: 12px;
+  }
+  .brand {
+    width: 212px;
+  }
+  .calcCta {
+    display: none;
+  }
 }
