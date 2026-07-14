@@ -1629,3 +1629,112 @@
     grid-template-columns: minmax(0, 1fr) auto;
   }
 }
+
+/* ══ Option-1 header: utility bar + search + one CTA ══ */
+.utilityBar {
+  width: 100%;
+  /* Deep-navy corporate strip — premium/serious, like top industrial brands. */
+  background: linear-gradient(90deg, #0a1430 0%, #0e1d44 55%, #0a1430 100%);
+  border-bottom: 1px solid rgba(201, 154, 60, 0.35); /* faint gold hairline ties to the rest of the site */
+  color: #e8edf6;
+  pointer-events: auto;
+  transition: max-height 0.3s ease, opacity 0.2s ease;
+}
+.headerWrapScrolled .utilityBar {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  border-color: transparent;
+}
+.utilityInner {
+  width: min(1280px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 0.78rem;
+}
+.utilityLeft,
+.utilityRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-width: 0;
+}
+.utilityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #f2d492;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+.utilityBadge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c99a3c;
+  box-shadow: 0 0 0 3px rgba(201, 154, 60, 0.2);
+}
+.utilityLink {
+  color: rgba(232, 237, 246, 0.78);
+  text-decoration: none;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.utilityLink:hover {
+  color: #ffffff;
+}
+
+.headerSearchSlot {
+  display: flex;
+  align-items: center;
+}
+
+/* Utility bar + inline search are desktop-only; on hamburger widths they live
+   in the drawer. */
+@media (max-width: 1279px) {
+  .utilityBar {
+    display: none;
+  }
+  .headerSearchSlot {
+    display: none;
+  }
+}
+
+/* Mobile drawer additions */
+.mobileSearch {
+  margin: 4px 0 10px;
+}
+.mobileUtility {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(45, 91, 255, 0.1);
+}
+.mobileUtility a {
+  color: #5b6472;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.mobileContactRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+.mobileContactRow a {
+  color: #2d5bff;
+  text-decoration: none;
+  font-weight: 600;
+}

@@ -1,0 +1,232 @@
+.wrap {
+  position: relative;
+  width: clamp(160px, 18vw, 220px);
+}
+.block {
+  width: 100%;
+}
+
+/* Collapsed trigger — just the glass icon. */
+.trigger {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(45, 91, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  color: #33415a;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+.trigger:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(45, 91, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Expanded, translucent "glass" field that slides in and collapses back. */
+.wrapOpen {
+  animation: searchIn 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes searchIn {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.field {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 9px;
+  height: 42px;
+  padding: 0 7px 0 15px;
+  border: 1px solid #e2e7f0;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+  transition: border-color 0.18s ease, box-shadow 0.2s ease;
+}
+.field:hover {
+  border-color: #cfd7e6;
+}
+.field:focus-within {
+  border-color: #c19a3c;
+  box-shadow: 0 0 0 3px rgba(193, 154, 60, 0.16), 0 6px 16px -12px rgba(15, 23, 42, 0.4);
+}
+.close {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  margin-left: 2px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.06);
+  color: #5b6472;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.close:hover {
+  background: rgba(15, 23, 42, 0.12);
+  color: #14224a;
+}
+.icon {
+  color: #9aa3b2;
+  flex: 0 0 auto;
+  transition: color 0.18s ease;
+}
+.field:focus-within .icon {
+  color: #14224a;
+}
+.input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #14224a;
+}
+.input::placeholder {
+  color: #9aa3b2;
+  font-weight: 400;
+}
+/* Kill the browser/global blue focus outline on the input itself — the gold
+   ring lives on the .field wrapper (:focus-within), not the input. */
+.input:focus,
+.input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+.input::-webkit-search-cancel-button {
+  appearance: none;
+}
+/* Pro keyboard-shortcut hint — press "/" to focus. Hidden once typing. */
+.kbd {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  margin-right: 4px;
+  padding: 0 6px;
+  border: 1px solid #e3e8f2;
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: #f6f8fc;
+  color: #8a95a9;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.field:focus-within .kbd {
+  display: none;
+}
+
+.results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  /* Frosted-glass suggestions panel. */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow: 0 26px 52px -22px rgba(15, 23, 42, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  min-width: 280px;
+  animation: glassIn 0.18s ease;
+}
+@keyframes glassIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Slightly lift the row hover so it reads on the translucent panel. */
+.result:hover,
+.resultActive {
+  background: rgba(45, 91, 255, 0.1);
+}
+.block .results {
+  min-width: 0;
+}
+.result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 10px;
+  border: 0;
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: #14224a;
+}
+.result:hover,
+.resultActive {
+  background: rgba(45, 91, 255, 0.07);
+}
+.resultLabel {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.resultGroup {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #2d5bff;
+  background: rgba(45, 91, 255, 0.08);
+  padding: 3px 7px;
+  border-radius: 999px;
+}
+.resultArrow {
+  color: #9aa3b2;
+  flex: 0 0 auto;
+}
+.noResults {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  padding: 14px;
+  border: 1px solid rgba(45, 91, 255, 0.14);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 24px 48px -24px rgba(15, 23, 42, 0.5);
+  font-size: 0.85rem;
+  color: #5b6472;
+  min-width: 280px;
+}
+
+.resultsLabel {
+  padding: 6px 10px 4px;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9aa3b2;
+}

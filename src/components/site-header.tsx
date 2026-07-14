@@ -6,11 +6,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import {
   Apple,
-  Award,
-  BadgeCheck,
   BookOpen,
   Boxes,
-  Building2,
   Calculator,
   Car,
   CircleDollarSign,
@@ -21,12 +18,11 @@ import {
   FileText,
   Footprints,
   Globe,
+  HandHelping,
   HardHat,
   Home,
-  Info,
   Layers,
   Library,
-  Mail,
   MapPin,
   Menu,
   Newspaper,
@@ -45,6 +41,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { CartBadge } from "./cart-badge";
+import { HeaderSearch } from "./header-search";
+import { displayPhone, phoneHref, mainEmail } from "@/lib/product-data";
 import styles from "./site-header.module.css";
 
 type NavLink = { label: string; href: string; icon: LucideIcon; desc?: string };
@@ -75,10 +73,24 @@ const navGroups: NavGroup[] = [
       { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", icon: Layers, desc: "Bulk bags for cargo moisture" },
       { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
     ],
-    trailingLabel: "Other supplies",
+    trailingLabel: "Other supplies (PPE)",
     trailing: [
-      { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory PPE hair nets" },
+      { label: "Powder-free nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves", icon: HandHelping, desc: "Blue examination gloves" },
+      { label: "Powdered nitrile gloves", href: "/products/powdered-nitrile-examination-gloves", icon: HandHelping, desc: "Examination gloves, powdered" },
+      { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory hair nets" },
       { label: "Beard covers", href: "/products/beard-covers", icon: HardHat, desc: "Disposable PPE beard covers" },
+    ],
+  },
+  {
+    label: "Services",
+    icon: Sparkles,
+    accent: "#b45309",
+    href: "/contract-packaging-services",
+    children: [
+      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
+      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
+      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack — published specs & limits" },
+      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
     ],
   },
   {
@@ -116,18 +128,6 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Services",
-    icon: Sparkles,
-    accent: "#4338ca",
-    href: "/contract-packaging-services",
-    children: [
-      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
-      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
-      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack — published specs & limits" },
-      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
-    ],
-  },
-  {
     label: "Resources",
     icon: BookOpen,
     accent: "#7c3aed",
@@ -146,17 +146,16 @@ const navGroups: NavGroup[] = [
       { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", icon: Calculator, desc: "Grams needed by carton L x W x H" },
     ],
   },
-  {
-    label: "Company",
-    icon: Building2,
-    accent: "#d97706",
-    children: [
-      { label: "About", href: "/about", icon: Info, desc: "Since 1983, Karachi manufacturer" },
-      { label: "Certifications", href: "/certifications", icon: BadgeCheck, desc: "ISO 9001:2015 & documents" },
-      { label: "Case studies", href: "/case-studies", icon: Award, desc: "Real export references" },
-      { label: "Contact", href: "/contact", icon: Mail, desc: "Talk to the export desk" },
-    ],
-  },
+];
+
+// Low-frequency trust/credibility links live in the slim utility bar above the
+// main nav (NN/g "utility navigation"), not as a sixth mega-menu peer.
+const utilityLinks = [
+  { label: "Samples", href: "/samples" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "About", href: "/about" },
+  { label: "Certifications", href: "/certifications" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function tint(accent: string, amount: number) {
@@ -206,6 +205,22 @@ export function SiteHeader() {
 
   return (
     <header className={`${styles.headerWrap} ${isScrolled ? styles.headerWrapScrolled : ""}`}>
+      <div className={styles.utilityBar}>
+        <div className={styles.utilityInner}>
+          <div className={styles.utilityLeft}>
+            <span className={styles.utilityBadge}>ISO 9001:2015</span>
+            <a href={`tel:${phoneHref}`} className={styles.utilityLink}>{displayPhone}</a>
+            <a href={`mailto:${mainEmail}`} className={styles.utilityLink}>{mainEmail}</a>
+          </div>
+          <nav className={styles.utilityRight} aria-label="Utility">
+            {utilityLinks.map((l) => (
+              <Link key={l.href} href={l.href} className={styles.utilityLink}>
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
       <div className={styles.navShell}>
         <div className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
@@ -339,19 +354,9 @@ export function SiteHeader() {
           </nav>
 
           <div className={styles.headerActions}>
-            <Link
-              href="/#purchase-calculator"
-              className={styles.calcCta}
-              aria-label="Calculate silica gel requirement"
-            >
-              <span className={styles.calcIcon} aria-hidden="true">
-                <Calculator size={17} strokeWidth={2.35} />
-              </span>
-              <span className={styles.calcText}>
-                <span>Dosage</span>
-                <strong>Dosage Calculator</strong>
-              </span>
-            </Link>
+            <div className={styles.headerSearchSlot}>
+              <HeaderSearch />
+            </div>
 
             <CartBadge />
 
@@ -377,6 +382,10 @@ export function SiteHeader() {
               <Home size={18} strokeWidth={2.2} aria-hidden="true" />
               Home
             </Link>
+
+            <div className={styles.mobileSearch}>
+              <HeaderSearch variant="block" />
+            </div>
 
             {navGroups.map((group) => {
               const expanded = mobileExpanded === group.label;
@@ -465,6 +474,18 @@ export function SiteHeader() {
                 </div>
               );
             })}
+
+            <div className={styles.mobileUtility}>
+              {utilityLinks.map((l) => (
+                <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}>
+                  {l.label}
+                </Link>
+              ))}
+            </div>
+            <div className={styles.mobileContactRow}>
+              <a href={`tel:${phoneHref}`}>{displayPhone}</a>
+              <a href={`mailto:${mainEmail}`}>{mainEmail}</a>
+            </div>
 
             <Link
               href="/contact"
