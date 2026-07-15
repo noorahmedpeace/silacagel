@@ -98,7 +98,9 @@ export async function POST(req: Request) {
           });
           if (gres.ok && gres.body) break;
           const errText = await gres.text().catch(() => "");
-          console.error("Groq error:", gres.status, errText);
+          // Label follows LLM_URL, not the legacy provider: the stale "Groq"
+          // prefix sent a debugging session hunting the wrong API key.
+          console.error("LLM error:", gres.status, errText);
           if (gres.status === 429 && attempt < 2) {
             const m = errText.match(/try again in ([0-9.]+)s/);
             await new Promise((r) => setTimeout(r, m ? Math.min(6000, Math.ceil(parseFloat(m[1]) * 1000) + 300) : 3000));
