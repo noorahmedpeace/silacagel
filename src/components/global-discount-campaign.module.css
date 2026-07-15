@@ -207,11 +207,17 @@
   font-size: 12px;
 }
 
-.widget {
+/* The wrapper owns the fixed positioning so the dismiss button can sit on the
+   widget's corner as a sibling rather than being nested inside the button. */
+.widgetWrap {
   position: fixed;
   left: 22px;
   bottom: 90px;
   z-index: 1100;
+}
+
+.widget {
+  position: relative;
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 10px;
@@ -258,6 +264,27 @@
 
 .widgetArrow {
   color: var(--promo-gold);
+}
+
+.widgetDismiss {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  background: #0a1923;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  color: #c8d4da;
+  cursor: pointer;
+}
+
+.widgetDismiss:hover {
+  background: #16323f;
+  color: #fff;
 }
 
 .finalMinuteWidget {
@@ -424,21 +451,37 @@
     padding: 28px 20px 22px;
   }
 
+  /* The gift-box art is a GSAP-animated flourish that starts at opacity:0 and
+     is ~124px tall. On a phone it reads as a large blank gap at the top of the
+     sheet (and eats vertical space the offer itself needs), so it is desktop-
+     only. The "10% OFF" it carries is already the modal's <h2>. */
   .giftStage {
-    transform: scale(0.88);
-    margin-bottom: 8px;
+    display: none;
   }
 
   .offer {
     font-size: 16px;
   }
 
-  .widget {
+  .widgetWrap {
     left: 12px;
     right: auto;
     bottom: 84px;
     max-width: calc(100vw - 90px);
+  }
+
+  .widget {
     min-width: 0;
+    max-width: 100%;
+  }
+
+  /* 44px minimum touch target on mobile (matches the site's a11y baseline);
+     offset so it stays clear of the widget's own rounded corner. */
+  .widgetDismiss {
+    top: -12px;
+    right: -12px;
+    width: 44px;
+    height: 44px;
   }
 
   .toast {

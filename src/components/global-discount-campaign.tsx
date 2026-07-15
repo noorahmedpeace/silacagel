@@ -15,6 +15,14 @@ import styles from "./global-discount-campaign.module.css";
 type CampaignStatus = "unseen" | "active" | "cooldown";
 type PromoToast = "applied" | null;
 
+// Lets a visitor dismiss the floating promo widget for the CURRENT campaign.
+// Stores that campaign's expiresAt, so a later campaign surfaces again while
+// this one stays closed. The widget previously had no close control at all: on
+// mobile it floated over page content (stacked above the sticky quote pill,
+// with the DryBot launcher opposite) and its only click action re-opened the
+// modal, so it was genuinely impossible to get rid of.
+const PROMO_WIDGET_DISMISS_KEY = "drygel_promo_widget_dismissed";
+
 function isWhatsAppHref(href: string) {
   return href.startsWith("https://wa.me/") || href.startsWith("https://api.whatsapp.com/");
 }
@@ -65,6 +73,7 @@ export function GlobalDiscountCampaign() {
   const [modalOpen, setModalOpen] = useState(false);
   const [toast, setToast] = useState<PromoToast>(null);
   const [hydrated, setHydrated] = useState(false);
+  const [widgetDismissed, setWidgetDismissed] = useState(false);
   const giftRef = useRef<HTMLDivElement>(null);
   const lidRef = useRef<HTMLDivElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -82,6 +91,14 @@ export function GlobalDiscountCampaign() {
 
     if (record.expiresAt - Date.now() > 0) {
       setStatus("active");
+      // Restore a dismissal that belongs to this same campaign instance.
+      try {
+        setWidgetDismissed(
+          window.localStorage.getItem(PROMO_WIDGET_DISMISS_KEY) === String(record.expiresAt),
+        );
+      } catch {
+        /* storage blocked (private mode) — widget simply stays visible */
+      }
       return;
     }
 
@@ -180,6 +197,9 @@ export function GlobalDiscountCampaign() {
     (window as typeof window & { __drygelPromoJustTriggered?: boolean }).__drygelPromoJustTriggered = true;
     recordRef.current = record;
     setStatus("active");
+    // A brand-new campaign starts undismissed (the stored dismissal is keyed to
+    // the previous campaign's expiresAt, so it can never leak into this one).
+    setWidgetDismissed(false);
     window.dispatchEvent(new CustomEvent("drygel:promo-activated", { detail: { code: FLASH10_CODE } }));
 
     /* Quiet mode: the click is already opening a dialog (quick add-to-quote)
@@ -207,6 +227,17 @@ export function GlobalDiscountCampaign() {
     const pendingHref = pendingHrefRef.current;
     pendingHrefRef.current = null;
     if (pendingHref) window.location.assign(pendingHref);
+  }, []);
+
+  const dismissWidget = useCallback(() => {
+    setWidgetDismissed(true);
+    const record = recordRef.current;
+    if (!record) return;
+    try {
+      window.localStorage.setItem(PROMO_WIDGET_DISMISS_KEY, String(record.expiresAt));
+    } catch {
+      /* storage blocked — dismissal still holds for this page session */
+    }
   }, []);
 
   useEffect(() => {
@@ -405,19 +436,33 @@ export function GlobalDiscountCampaign() {
         </aside>
       ) : null}
 
-      <button
-        aria-label={`${FLASH10_CODE} first-order discount — view details`}
-        className={styles.widget}
-        onClick={() => setModalOpen(true)}
-        type="button"
-      >
-        <span className={styles.widgetIcon}><Gift size={20} /></span>
-        <span>
-          <span className={styles.widgetTitle}>10% OFF · {FLASH10_CODE}</span>
-          <span className={styles.widgetTimer}>Trial-order pricing — ask for a first-order quote.</span>
-        </span>
-        <ArrowRight className={styles.widgetArrow} size={18} />
-      </button>
+      {!widgetDismissed ? (
+        <div className={styles.widgetWrap}>
+          <button
+            aria-label={`${FLASH10_CODE} first-order discount — view details`}
+            className={styles.widget}
+            onClick={() => setModalOpen(true)}
+            type="button"
+          >
+            <span className={styles.widgetIcon}><Gift size={20} /></span>
+            <span>
+              <span className={styles.widgetTitle}>10% OFF · {FLASH10_CODE}</span>
+              <span className={styles.widgetTimer}>Trial-order pricing — ask for a first-order quote.</span>
+            </span>
+            <ArrowRight className={styles.widgetArrow} size={18} />
+          </button>
+          {/* Sibling, not nested: a <button> inside a <button> is invalid HTML
+              and the inner control is unreachable for keyboard/AT users. */}
+          <button
+            aria-label="Dismiss discount offer"
+            className={styles.widgetDismiss}
+            onClick={dismissWidget}
+            type="button"
+          >
+            <X size={14} />
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }
