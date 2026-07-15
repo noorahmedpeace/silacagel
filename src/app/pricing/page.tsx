@@ -5,9 +5,9 @@ import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
 export const metadata: Metadata = {
-  title: "Silica Gel Price, MOQ & Wholesale Quote | USD",
+  title: "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export",
   description:
-    "Check indicative silica gel prices, wholesale rates, MOQ tiers and export terms for packets, bulk beads and container strips. Request a firm quotation.",
+    "Indicative silica gel prices, wholesale rates and MOQ tiers for packets, bulk beads and container strips. Buyers in Pakistan can request a PKR quote; export buyers get USD terms — request a firm quotation.",
   alternates: {
     canonical: "/pricing",
   },

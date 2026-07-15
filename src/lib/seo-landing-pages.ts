@@ -2941,7 +2941,7 @@ export const seoLandingPages = {
     slug: "silica-gel-packets",
     title: "Silica Gel Packets Supplier | Bulk Desiccant Sachets",
     metaDescription:
-      "Factory-direct silica gel packets and desiccant sachets for electronics, pharma, leather, food packaging, export cartons, private label, SDS, and COA support.",
+      "Silica gel packets and desiccant sachets factory-direct, 0.5g to 100g, for electronics, pharma, leather, and food packaging. PKR quotes for buyers in Pakistan, plus private label, SDS, COA, and RFQ support for export.",
     kicker: "Silica gel packets",
     h1: "Silica gel packets for cartons, packaging, and bulk supply.",
     lead:
@@ -3642,18 +3642,18 @@ export const seoLandingPages = {
   },
   "silica-gel-manufacturer-pakistan": {
     slug: "silica-gel-manufacturer-pakistan",
-    title: "Silica Gel Manufacturer in Pakistan | DryGelWorld",
+    title: "Silica Gel in Pakistan | Packets & Bulk Supplier | DryGelWorld",
     metaDescription:
-      "DryGelWorld supports Pakistan and export buyers with silica gel packets, bulk desiccants, container desiccants, packaging desiccants, SDS, COA, and RFQ support.",
-    kicker: "Pakistan silica gel manufacturer",
-    h1: "Silica gel manufacturer in Pakistan for industrial and export buyers.",
+      "Buy silica gel packets and bulk desiccants in Pakistan direct from the manufacturer. Sizes from 0.5g to bulk drums, quick PKR quotes on WhatsApp, based in Karachi with export support.",
+    kicker: "Silica gel in Pakistan",
+    h1: "Silica gel packets and bulk desiccants in Pakistan, factory-direct.",
     lead:
-      "Source silica gel from Pakistan with clearer buying inputs: product format, gram size, bulk quantity, destination, Incoterms, and document requirements before final quotation.",
-    searchIntent: "Local buyer intent: silica gel manufacturer in Pakistan, silica gel Pakistan, silica gel company",
-    primaryCta: "Request Pakistan Quote",
-    secondaryCta: "View Export Support",
-    secondaryHref: "/export",
-    proofPoints: ["Pakistan supplier positioning", "Bulk and packet formats", "Export RFQ support", "SDS / COA on request"],
+      "Buy silica gel in Pakistan straight from the manufacturer — packets from 0.5g to 100g and bulk beads by the drum. Get a quick PKR price by phone, WhatsApp, or email; we ship across Pakistan and worldwide, or you can collect from our Karachi factory.",
+    searchIntent: "Local buyer intent: silica gel in Pakistan, silica gel packets in Pakistan, silica gel price in Pakistan, silica gel manufacturer Pakistan",
+    primaryCta: "Get a PKR Price Quote",
+    secondaryCta: "View Product Range",
+    secondaryHref: "/products",
+    proofPoints: ["Factory-direct in Pakistan", "0.5g packets to bulk drums", "Quick PKR quotes", "Ships worldwide or factory pickup"],
     heroImage: {
       src: "/applications/export-logistics.webp",
       alt: "Silica gel export logistics from Pakistan for global buyers",
@@ -3729,16 +3729,16 @@ export const seoLandingPages = {
     slug: "silica-gel-supplier-karachi",
     title: "Silica Gel Supplier in Karachi | DryGelWorld",
     metaDescription:
-      "Silica gel supplier in Karachi for packets, bulk desiccants, packaging moisture absorbers, container desiccant planning, SDS, COA, and export RFQs.",
+      "Silica gel supplier in Karachi, factory-direct — packets and bulk desiccants for packaging lines, warehouses, and export cartons. Quick PKR quotes, factory pickup, plus SDS, COA, and export RFQs.",
     kicker: "Karachi silica gel supplier",
     h1: "Silica gel supplier in Karachi for packaging, warehouse, and export buyers.",
     lead:
-      "Use this Karachi-focused page to plan silica gel packets, bulk orders, packaging desiccants, and export moisture control RFQs with clearer local and international buying details.",
+      "Silica gel packets and bulk desiccants supplied factory-direct in Karachi — for packaging lines, warehouse stock, and export cartons. Get a quick PKR price by phone, WhatsApp, or email, or collect from the factory; export RFQs with SDS, COA, and Incoterms handled too.",
     searchIntent: "Local buyer intent: silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi",
-    primaryCta: "Request Karachi Quote",
+    primaryCta: "Get a Karachi Quote",
     secondaryCta: "View Products",
     secondaryHref: "/products",
-    proofPoints: ["Karachi buyer path", "Packets and bulk supply", "Packaging desiccants", "Export support"],
+    proofPoints: ["Factory-direct in Karachi", "Packets to bulk supply", "Quick PKR quotes or pickup", "Export RFQ support"],
     heroImage: {
       src: "/products/product-range-export-showcase.webp",
       alt: "Silica gel product range for Karachi packaging and export buyers",
