@@ -3155,11 +3155,11 @@ export const seoLandingPages = {
     slug: "bulk-silica-gel-desiccant",
     title: "Bulk Silica Gel Desiccant Supplier | Industrial Moisture Control",
     metaDescription:
-      "Bulk silica gel desiccant supply for 25kg bags, large desiccant packs, warehouse stock, distributors, exporters, SDS/COA support, and recurring procurement.",
+      "Bulk silica gel desiccant factory-direct — loose beads by the kilogram, 25kg bags, and large packs for warehouses, distributors, and exporters. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Bulk silica gel desiccant",
     h1: "Bulk silica gel desiccant for warehouses, distributors, and industrial buyers.",
     lead:
-      "Plan bulk silica gel orders around kilograms, pallet volume, carton packing, product sensitivity, and repeat procurement schedules. Built for buyers who need commercial scale, not retail sachets.",
+      "Buy bulk silica gel desiccant factory-direct — loose beads by the kilogram, 25kg bags, and large desiccant packs for warehouses, distributors, and production lines. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
     searchIntent:
       "For distributors, repackers, warehouses, and industrial buyers comparing loose kg, finished bags, pallets, documents, and repeat supply.",
     primaryCta: "Request Bulk Quote",
@@ -3814,11 +3814,11 @@ export const seoLandingPages = {
     slug: "food-grade-silica-gel-supplier",
     title: "Food Grade Silica Gel Supplier | Packaging Desiccant RFQ",
     metaDescription:
-      "Food grade silica gel and food packaging desiccant RFQ page for moisture control in cartons, dry goods packaging, SDS, COA, labeling, and compliance review.",
+      "Food grade silica gel supplier for food and dry-goods packaging — moisture control with SDS, COA, and labeling support. Quick PKR quotes, worldwide shipping or factory pickup, compliance review before every order.",
     kicker: "Food packaging desiccant",
-    h1: "Food grade silica gel supplier path for packaging buyers.",
+    h1: "Food grade silica gel supplier for packaging buyers.",
     lead:
-      "Plan silica gel for food packaging with careful document review, correct packet text, carton quantity, application context, and destination requirements before using food-grade claims.",
+      "Food grade silica gel and desiccants for food and dry-goods packaging — supplied with the SDS, COA, correct packet text, and documentation buyers need to confirm food-contact suitability before an order. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
     searchIntent: "Food packaging intent: food grade silica gel supplier, food grade desiccant, desiccant for food packaging",
     primaryCta: "Request Food Packaging Quote",
     secondaryCta: "View Documents",
@@ -3967,11 +3967,11 @@ export const seoLandingPages = {
     slug: "blue-silica-gel-manufacturer",
     title: "Blue Silica Gel Manufacturer | Indicating Desiccant Supplier",
     metaDescription:
-      "Blue silica gel manufacturer and indicating desiccant RFQ page for humidity indication, lab storage, packaging programs, compliance review, SDS, and COA support.",
+      "Blue silica gel manufacturer — indicating desiccant for humidity monitoring and lab storage. Blue uses cobalt chloride (restricted in the EU); we help you pick blue or a cobalt-free orange alternative. Quick PKR quotes, worldwide shipping.",
     kicker: "Blue indicating silica gel",
-    h1: "Blue silica gel manufacturer path for indicating gel buyers.",
+    h1: "Blue silica gel manufacturer for indicating gel buyers.",
     lead:
-      "Use blue indicating silica gel only after confirming composition, destination rules, SDS, COA, and whether the buyer needs alternative indicating colors for regulated markets.",
+      "Blue indicating silica gel that shifts from blue to pink as it absorbs moisture, for humidity monitoring and lab storage. Note that blue uses cobalt chloride, which is restricted in the EU under REACH — we will help you confirm whether blue or a cobalt-free orange alternative fits your market before ordering. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
     searchIntent: "Indicating gel intent: blue silica gel manufacturer, blue silica gel supplier, indicating silica gel",
     primaryCta: "Request Blue Gel Quote",
     secondaryCta: "Compare Orange Gel",
@@ -4052,11 +4052,11 @@ export const seoLandingPages = {
     slug: "orange-silica-gel-supplier",
     title: "Orange Silica Gel Supplier | Indicating Desiccant RFQ",
     metaDescription:
-      "Orange silica gel supplier page for indicating desiccant RFQs, humidity signal applications, packaging support, SDS, COA, compliance review, and export buyers.",
+      "Orange silica gel supplier — cobalt-free indicating desiccant in beads or packets for humidity monitoring in packaging, storage, and instruments. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Orange indicating silica gel",
     h1: "Orange silica gel supplier for buyers who need visible humidity indication.",
     lead:
-      "Plan orange indicating silica gel orders around color-change requirements, bead or packet format, use case, documentation, quantity, and destination rules.",
+      "Orange indicating silica gel that changes colour as it absorbs moisture — cobalt-free, in beads or packets, for humidity monitoring in packaging, storage, and instruments. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA.",
     searchIntent: "Indicating gel intent: orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier",
     primaryCta: "Request Orange Gel Quote",
     secondaryCta: "Compare Blue Gel",
@@ -4137,11 +4137,11 @@ export const seoLandingPages = {
     slug: "moisture-absorber-supplier",
     title: "Moisture Absorber Supplier | Industrial Desiccant Manufacturer",
     metaDescription:
-      "Moisture absorber supplier for industrial desiccants, silica gel packets, packaging desiccants, warehouse moisture control, cargo desiccants, SDS, COA, and export RFQs.",
+      "Moisture absorber supplier — silica gel packets, bulk desiccant, and container strips for packaging, warehouses, and cargo. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA and export RFQs.",
     kicker: "Moisture absorber supplier",
-    h1: "Moisture absorber supplier for packaging and export.",
+    h1: "Moisture absorber supplier for packaging, warehouses, and export.",
     lead:
-      "Use this page when the buyer searches for moisture absorbers but actually needs a desiccant format: silica gel packets, bulk desiccant, cargo strips, or packaging moisture control.",
+      "Moisture absorbers and desiccants for packaging, warehouses, and cargo — silica gel packets, bulk desiccant, and container strips that stop humidity damage in storage and transit. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
     searchIntent: "Buyer intent: moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container",
     primaryCta: "Request Moisture Absorber Quote",
     secondaryCta: "View Product Range",
