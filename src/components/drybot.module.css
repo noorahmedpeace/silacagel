@@ -39,8 +39,10 @@
 }
 
 .panel {
-  position: absolute; right: 0; bottom: 0; width: 358px; max-width: calc(100vw - 32px);
-  height: 520px; max-height: calc(100dvh - 120px); display: flex; flex-direction: column;
+  position: absolute; right: 0; bottom: 0; width: 340px; max-width: calc(100vw - 32px);
+  /* Height leaves the fixed header (38px announcement + ~110px nav) plus a
+     visible gap clear, so the panel never crowds the nav on short viewports. */
+  height: 470px; max-height: calc(100dvh - 190px); display: flex; flex-direction: column;
   overflow: hidden; border-radius: 22px; border: 1px solid rgba(255, 255, 255, 0.5);
   background: var(--glass); backdrop-filter: blur(24px) saturate(155%);
   -webkit-backdrop-filter: blur(24px) saturate(155%); box-shadow: 0 24px 66px rgba(11, 42, 74, 0.3);
@@ -49,22 +51,25 @@
 @keyframes rise { from { opacity: 0; transform: translateY(14px) scale(0.98); } to { opacity: 1; transform: none; } }
 
 .head {
-  display: flex; align-items: center; justify-content: space-between; padding: 14px 15px;
+  display: flex; align-items: center; justify-content: space-between; padding: 11px 13px;
   background: radial-gradient(120% 140% at 0% 0%, var(--b3), var(--b2) 42%, var(--b1)); color: #fff;
 }
 .id { display: flex; align-items: center; gap: 11px; }
 .logo {
-  width: 38px; height: 38px; border-radius: 50%; overflow: hidden;
+  width: 34px; height: 34px; border-radius: 50%; overflow: hidden;
   background: url("/drybot-avatar.jpg") 50% 18% / cover, rgba(255, 255, 255, 0.16);
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
-.idText strong { font-size: 15px; letter-spacing: 0.2px; }
+/* Explicit column + line-height: the name inherited a tight line-height and
+   clipped at the cap-height without them. */
+.idText { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.idText strong { font-size: 15px; letter-spacing: 0.2px; line-height: 1.3; display: block; }
 .status { display: flex; align-items: center; gap: 6px; font-size: 11.5px; opacity: 0.9; margin-top: 2px; }
 .statusDot { width: 7px; height: 7px; border-radius: 50%; background: #38e08a; box-shadow: 0 0 0 3px rgba(56, 224, 138, 0.28); }
 .close { background: rgba(255, 255, 255, 0.12); border: 0; color: #fff; width: 32px; height: 32px; border-radius: 9px; cursor: pointer; display: grid; place-items: center; }
 .close:hover { background: rgba(255, 255, 255, 0.24); }
 
-.log { flex: 1; overflow-y: auto; padding: 16px 15px 6px; display: flex; flex-direction: column; gap: 13px; }
+.log { flex: 1; overflow-y: auto; padding: 13px 13px 6px; display: flex; flex-direction: column; gap: 11px; }
 .log::-webkit-scrollbar { width: 7px; }
 .log::-webkit-scrollbar-thumb { background: rgba(14, 26, 43, 0.16); border-radius: 9px; }
 .row { display: flex; gap: 9px; align-items: flex-end; max-width: 90%; }
@@ -84,18 +89,55 @@
 .typing i:nth-child(3) { animation-delay: 0.3s; }
 @keyframes bounce { 0%, 60%, 100% { opacity: 0.35; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
 
-.suggest { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; padding: 2px 14px 0; }
-.suggest button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 4px; font-size: 11px; color: var(--ink); cursor: pointer; font-family: inherit; white-space: nowrap; text-align: center; overflow: hidden; text-overflow: ellipsis; }
-.suggest button:hover { border-color: var(--b3); color: var(--b3); }
+.suggest { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; padding: 2px 13px 0; }
+.suggest button {
+  border: 1px solid var(--line); background: var(--card); border-radius: 999px;
+  padding: 6px 4px; font-size: 11px; font-weight: 550; color: var(--ink); cursor: pointer;
+  font-family: inherit; white-space: nowrap; text-align: center; overflow: hidden;
+  text-overflow: ellipsis; box-shadow: 0 1px 3px rgba(11, 42, 74, 0.05);
+  transition: border-color 0.16s ease, color 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+}
+.suggest button:hover {
+  border-color: var(--b3); color: var(--b3); transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(47, 111, 224, 0.16);
+}
 
-.contact { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 7px; padding: 6px 14px 2px; }
-.contact a, .contact button { display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; cursor: pointer; font-size: 12px; font-weight: 600; padding: 9px 4px; border-radius: 11px; color: #fff; border: 0; font-family: inherit; }
-.wa { background: linear-gradient(135deg, #1faa54, #25d366); }
-.em { background: linear-gradient(135deg, #3a4a63, #5b6b82); }
+/* Four actions on one row: each cell lands near 72px at the panel's width, so
+   the label is trimmed to one word and the icon shrunk to keep them on one line. */
+/* minmax(0,…) not 1fr: a bare 1fr floors each track at its content width, so
+   the nowrap labels pushed the row wider than the panel and got clipped. */
+.contact { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px; padding: 7px 13px 3px; }
+.contactTwo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.contact a, .contact button {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  text-decoration: none; cursor: pointer; font-size: 10px; font-weight: 650;
+  letter-spacing: 0; padding: 8px 2px; border-radius: 10px; color: #fff;
+  border: 0; font-family: inherit; white-space: nowrap; position: relative;
+  min-width: 0; overflow: hidden;
+  /* Inner top highlight + soft drop = the lifted, glassy look the rest of the
+     2026 shell uses; transform on hover keeps it feeling tactile. */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 4px 12px rgba(11, 42, 74, 0.18);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+.contact a:hover, .contact button:hover {
+  transform: translateY(-1.5px); filter: saturate(1.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34), 0 8px 18px rgba(11, 42, 74, 0.26);
+}
+.contact a:active, .contact button:active { transform: translateY(0); }
+.contact svg { flex: 0 0 auto; width: 12px; height: 12px; }
+.wa { background: linear-gradient(135deg, #17994a, #25d366 62%, #4ae585); }
+.em { background: linear-gradient(135deg, #2f3d52, #5b6b82 62%, #74849c); }
 .qt { background: linear-gradient(135deg, var(--b2), var(--b3)); }
 
-.form { display: flex; align-items: flex-end; gap: 9px; padding: 8px 12px; margin-top: 2px; border-top: 1px solid var(--line); background: var(--card); }
-.input { flex: 1; resize: none; max-height: 110px; border: 1px solid var(--line); border-radius: 12px; padding: 11px 13px; font: inherit; font-size: 14px; background: #fff; color: var(--ink); outline: none; }
+.form { display: flex; align-items: flex-end; gap: 8px; padding: 7px 11px; margin-top: 2px; border-top: 1px solid var(--line); background: var(--card); }
+/* line-height + matching min-height keep the single-row textarea from clipping
+   its own placeholder/first line. */
+.input {
+  flex: 1; resize: none; max-height: 110px; border: 1px solid var(--line);
+  border-radius: 12px; padding: 11px 13px; font: inherit; font-size: 14px;
+  line-height: 1.4; min-height: 42px; background: #fff; color: var(--ink); outline: none;
+}
+.input::placeholder { color: rgba(91, 107, 130, 0.75); text-overflow: ellipsis; }
 .input:focus { border-color: var(--b3); box-shadow: 0 0 0 3px rgba(47, 111, 224, 0.15); }
 .send { border: 0; cursor: pointer; width: 42px; height: 42px; border-radius: 12px; color: #fff; display: grid; place-items: center; background: linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 8px 18px rgba(30, 90, 168, 0.35); }
 .send:disabled { opacity: 0.5; cursor: default; }
@@ -103,14 +145,42 @@
 
 /* RFQ form view */
 .rfq { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 9px; }
-.rfq h3 { margin: 0 0 2px; font-size: 15px; color: var(--b1); }
-.rfq p.hint { margin: 0 0 6px; font-size: 12.5px; color: var(--muted); }
-.rfq input, .rfq textarea { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 13.5px; background: #fff; color: var(--ink); outline: none; }
-.rfq input:focus, .rfq textarea:focus { border-color: var(--b3); }
+.rfq h3 { margin: 0 0 2px; font-size: 16.5px; font-weight: 700; letter-spacing: -0.01em; color: var(--b1); }
+.rfq p.hint { margin: 0 0 8px; font-size: 12.5px; color: var(--muted); }
+/* Inset fields + a focus ring (rather than a bare border swap) so the form
+   reads as the same glass surface as the panel instead of a plain webform. */
+.rfq input, .rfq textarea {
+  border: 1px solid var(--line); border-radius: 11px; padding: 11px 13px; font: inherit;
+  font-size: 13.5px; background: rgba(255, 255, 255, 0.86); color: var(--ink); outline: none;
+  box-shadow: inset 0 1px 2px rgba(11, 42, 74, 0.05);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+.rfq input::placeholder, .rfq textarea::placeholder { color: rgba(91, 107, 130, 0.75); }
+.rfq input:focus, .rfq textarea:focus {
+  border-color: var(--b3); background: #fff;
+  box-shadow: 0 0 0 3px rgba(47, 111, 224, 0.14), inset 0 1px 2px rgba(11, 42, 74, 0.04);
+}
 .rfq .two { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
-.rfqSubmit { margin-top: 4px; border: 0; cursor: pointer; padding: 12px; border-radius: 12px; color: #fff; font: inherit; font-weight: 650; background: linear-gradient(135deg, var(--b2), var(--b3)); }
+.rfqSubmit {
+  margin-top: 6px; border: 0; cursor: pointer; padding: 12.5px; border-radius: 12px;
+  color: #fff; font: inherit; font-weight: 650; letter-spacing: 0.01em;
+  background: linear-gradient(135deg, var(--b2), var(--b3));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 0 6px 16px rgba(30, 90, 168, 0.3);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+.rfqSubmit:hover:not(:disabled) {
+  transform: translateY(-1.5px); filter: saturate(1.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.32), 0 10px 22px rgba(30, 90, 168, 0.36);
+}
+.rfqSubmit:active:not(:disabled) { transform: translateY(0); }
 .rfqSubmit:disabled { opacity: 0.6; }
-.back { align-self: flex-start; background: none; border: 0; color: var(--b3); cursor: pointer; font: inherit; font-size: 13px; padding: 4px 0; }
+.back {
+  align-self: flex-start; background: rgba(47, 111, 224, 0.07);
+  border: 1px solid rgba(47, 111, 224, 0.14); color: var(--b3); cursor: pointer;
+  font: inherit; font-size: 12px; font-weight: 600; padding: 5px 11px; border-radius: 999px;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+.back:hover { background: rgba(47, 111, 224, 0.12); border-color: rgba(47, 111, 224, 0.28); }
 .ok { text-align: center; padding: 24px 16px; }
 .okBadge { width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; margin: 0 auto 12px; color: #fff; background: linear-gradient(135deg, #1faa54, #25d366); }
 
@@ -121,7 +191,8 @@
 }
 @media (max-width: 430px) {
   .root { right: 12px; bottom: 16px; }
-  .panel { width: calc(100vw - 24px); height: calc(100dvh - 96px); }
+  /* Same header clearance as desktop, measured from the mobile header height. */
+  .panel { width: calc(100vw - 24px); height: calc(100dvh - 150px); }
 }
 
 /* 2026 redesign: on small screens the launcher collapses to a 48px circle
