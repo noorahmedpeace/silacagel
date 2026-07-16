@@ -90,19 +90,23 @@ export function clientTracking(): LeadTracking {
 
 // Fire the conversion on confirmed success. GA4's own session already holds
 // the gclid from the landing URL, so a client-side `generate_lead` lets GA4 →
-// Google Ads import attribute the conversion without extra plumbing. Mirrored
-// to the site's click-tracker and Clarity. Never throws.
+// Google Ads import attribute the conversion without extra plumbing.
+//
+// Route through the layout's __drygelTrackEvent / __drygelTrackClarity helpers,
+// never through window.gtag / window.clarity directly. Both tags load lazily
+// (afterInteractive + requestIdleCallback), so a direct `w.gtag?.()` on a fast
+// submit silently dropped the conversion — while a submit *after* they loaded
+// fired it twice, once directly and once via the helper. The helpers queue
+// until their tag is ready and each event lands exactly once. Never throws.
 export function fireLeadConversion(leadId: string, method = "rfq_form"): void {
   if (typeof window === "undefined") return;
   const w = window as unknown as {
-    gtag?: (...args: unknown[]) => void;
-    clarity?: (...args: unknown[]) => void;
     __drygelTrackEvent?: (name: string, params?: Record<string, unknown>) => void;
+    __drygelTrackClarity?: (name: string, reason?: string) => void;
   };
   try {
-    w.gtag?.("event", "generate_lead", { currency: "USD", lead_id: leadId, method });
-    w.__drygelTrackEvent?.("generate_lead", { lead_id: leadId, method });
-    w.clarity?.("event", "generate_lead");
+    w.__drygelTrackEvent?.("generate_lead", { currency: "USD", lead_id: leadId, method });
+    w.__drygelTrackClarity?.("generate_lead", "Submitted a lead form");
   } catch {
     /* analytics must never block a submission */
   }
