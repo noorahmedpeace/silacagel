@@ -6,6 +6,7 @@ import {
   FLASH10_CODE,
   FLASH10_COOLDOWN,
   FLASH10_DURATION,
+  FLASH10_ENABLED,
   FLASH10_STORAGE_KEY,
   readFlash10Campaign,
   type Flash10Record,
@@ -172,6 +173,11 @@ export function GlobalDiscountCampaign() {
   }, []);
 
   const triggerCampaign = useCallback(async (options?: { quiet?: boolean }) => {
+    // Guard here as well as in readFlash10Campaign: this function sets
+    // status "active" directly, so the master switch alone would not stop it
+    // from opening the modal.
+    if (!FLASH10_ENABLED) return;
+
     const existing = readFlash10Campaign();
     if (existing) {
       if (existing.expiresAt <= Date.now() && existing.cooldownUntil <= Date.now()) {
