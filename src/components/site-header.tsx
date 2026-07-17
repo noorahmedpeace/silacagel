@@ -71,6 +71,7 @@ const navGroups: NavGroup[] = [
       { label: "Calcium chloride strips", href: "/products/calcium-chloride-container-strip", icon: Container, desc: "High-uptake hanging strips" },
       { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", icon: Layers, desc: "Bulk bags for cargo moisture" },
       { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
+      { label: "Humidity indicator cards", href: "/products/humidity-indicator-cards", icon: Target, desc: "Visual RH check for dry packs" },
     ],
     trailingLabel: "Other supplies (PPE)",
     trailing: [

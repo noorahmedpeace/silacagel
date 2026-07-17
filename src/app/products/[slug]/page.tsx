@@ -896,7 +896,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <h2>Request documents early.</h2>
                 <ul className={styles.badgeList}>
                   {procurement.documents.map((doc) => (
-                    <li key={doc}>{doc}</li>
+                    <li key={doc}>
+                      <Link href="/documentation" className={styles.badgeLink}>{doc}</Link>
+                    </li>
                   ))}
                 </ul>
                 <Link href="/documentation" className={styles.textAction}>Open document hub</Link>
@@ -907,7 +909,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <h2>Match supply format to the buyer.</h2>
                 <ul className={styles.badgeList}>
                   {procurement.packaging.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>
+                      <Link href="/private-label" className={styles.badgeLink}>{item}</Link>
+                    </li>
                   ))}
                 </ul>
                 <Link href="/private-label" className={styles.textAction}>Plan private label</Link>

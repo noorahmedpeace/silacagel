@@ -531,8 +531,8 @@ export const productCatalog: ProductItem[] = [
       "Reversible humidity indicator cards that change colour at set relative-humidity thresholds, for moisture-sensitive electronics, dry-pack, and export QC. Sourced and private-labelled to your specification.",
     useCaseLine: "A visual moisture check that pairs with desiccant inside sealed moisture-barrier packaging.",
     description:
-      "Humidity indicator cards (HICs) carry printed spots that change colour as the relative humidity inside a sealed pack rises past marked thresholds, so a QC operator can read the moisture state of the pack without opening it. They are the visual half of a dry-pack system: desiccant controls the moisture, the card reports it. DryGelWorld supplies HICs as a sourced and private-label item to complete a buyer's moisture-barrier bag programme — it does not manufacture the cards, so chemistry, threshold layout, and any standard compliance are matched to the buyer's specification and confirmed against the supplied lot, not claimed as a DryGelWorld credential. Cobalt-dichloride (blue-to-pink) and cobalt-free options are both available; the cobalt-free version avoids the REACH-restricted cobalt salt for EU/UK-bound cargo, in line with the same caution DryGelWorld applies to indicating silica gel.",
-    heroImage: "/products/humidity-indicator-cards-hero.webp",
+      "Humidity indicator cards are the visual half of a dry pack: the desiccant controls the moisture, the card reports it. A QC operator reads a sealed pack's moisture state from the colour-changing spots without opening it. DryGelWorld sources and private-labels these cards to your specification, in cobalt or cobalt-free (REACH-friendly) chemistry and any spot layout, with compliance confirmed per supplied lot.",
+    heroImage: "/products/humidity-indicator-cards-photo.webp",
     heroLandscape: true,
     useCases: [
       "Moisture-sensitive electronics and PCB dry-pack (with desiccant + barrier bag)",
@@ -542,10 +542,10 @@ export const productCatalog: ProductItem[] = [
     ],
     packingOptions: [
       "Format: reversible spot card; common layouts are single-spot and 3-, 4-, or 6-spot",
-      "Thresholds: typical spot points 5, 10, 20, 30, 40, 50, 60% RH — configured to your spec",
+      "Thresholds: typical spot points 5, 10, 20, 30, 40, 50, 60% RH, configured to your spec",
       "Chemistry: cobalt-dichloride (blue-to-pink) or cobalt-free (REACH-friendly) on request",
       "Packing: sealed moisture-barrier can or foil bag; count per pack quoted by volume",
-      "Standards: MIL-STD-3464 / JEDEC J-STD-033-style cards available if specified — test reports and compliance confirmed against the supplied lot, not held by DryGelWorld",
+      "Standards: MIL-STD-3464 / JEDEC J-STD-033-style cards available if specified; test reports and compliance confirmed against the supplied lot, not held by DryGelWorld",
       "Pairs with: silica gel or clay desiccant and moisture-barrier (MBB) bags for a full dry pack",
     ],
     leadTime: "Quoted by spot layout, chemistry, pack count, and dispatch schedule",
@@ -560,7 +560,7 @@ export const productCatalog: ProductItem[] = [
       "Spot Layouts": "Single-spot, 3-spot, 4-spot, 6-spot, custom",
       "Threshold Points": "5–60% RH, configured to spec",
       Chemistry: "Cobalt-dichloride or cobalt-free (REACH-friendly)",
-      Reversible: "Yes — colour returns as humidity falls",
+      Reversible: "Yes, colour returns as humidity falls",
       Packaging: "Sealed moisture-barrier can or foil bag",
       Sourcing: "Sourced / private-label; not manufactured by DryGelWorld",
       Standards: "MIL-STD-3464 / JEDEC J-STD-033-style available if specified; confirmed per lot",

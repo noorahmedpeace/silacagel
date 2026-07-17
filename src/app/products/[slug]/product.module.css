@@ -347,13 +347,11 @@
 }
 
 /* A short landscape hero photo would float to the vertical middle against the
-   tall text column (align-items: center). Pin it to the top and let it stick as
-   the taller text column scrolls, so it stays beside the content instead of
-   leaving a large void below. */
+   tall text column (align-items: center). Pin it to the top so it sits beside
+   the heading. (Sticky is not usable here: the hero uses overflow:hidden for
+   its rounded background, which disables position:sticky on descendants.) */
 .visualTop {
   align-self: start;
-  position: sticky;
-  top: 100px;
 }
 
 .imageWrap {
@@ -381,7 +379,7 @@
 
 /* Wide hero for real lifestyle photography: fill the frame edge-to-edge. */
 .imageWrapWide {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1080 / 629;
 }
 .imageCover {
   object-fit: cover;
@@ -678,6 +676,22 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   border-radius: var(--ds-radius-pill);
+  transition: background 0.15s ease;
+}
+
+/* The pill is a real link: make its whole area clickable (fill the li's padding
+   box) and give it a hover so the affordance matches the behaviour. */
+.badgeLink {
+  display: inline-flex;
+  align-items: center;
+  margin: -6px -12px;
+  padding: 6px 12px;
+  border-radius: var(--ds-radius-pill);
+  color: inherit;
+  text-decoration: none;
+}
+.badgeList li:hover {
+  background: color-mix(in srgb, var(--ds-brand) 22%, transparent);
 }
 
 .linkList {

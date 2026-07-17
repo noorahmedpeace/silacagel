@@ -19,6 +19,7 @@ const SEARCH_INDEX: Entry[] = [
   { label: "Calcium chloride container strips", href: "/products/calcium-chloride-container-strip", group: "Product", keywords: "high uptake cargo" },
   { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", group: "Product", keywords: "bags cargo moisture" },
   { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", group: "Product", keywords: "bentonite cost tier" },
+  { label: "Humidity indicator cards", href: "/products/humidity-indicator-cards", group: "Product", keywords: "hic rh reversible cobalt free msd jedec mil dry pack" },
   { label: "Nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves", group: "Product", keywords: "ppe examination" },
   { label: "Hair nets & beard covers", href: "/products/hair-nets", group: "Product", keywords: "ppe bouffant" },
   { label: "All products", href: "/products", group: "Product", keywords: "range catalogue" },

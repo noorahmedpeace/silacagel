@@ -46,7 +46,7 @@ const catalogImages: Record<string, string> = {
   "calcium-chloride-container-strip": "/products/calcium-chloride-container-strip.webp",
   "calcium-chloride-container-bulk": "/products/calcium-chloride-container-bulk.webp",
   "dry-clay-desiccant": "/products/industrial-dry-clay-desiccant-packs.webp",
-  "humidity-indicator-cards": "/products/humidity-indicator-cards-hero.webp",
+  "humidity-indicator-cards": "/products/humidity-indicator-cards-photo.webp",
   "powder-free-blue-nitrile-gloves": "/products/powder-free-nitrile-examination-gloves.webp",
   "powdered-nitrile-examination-gloves": "/products/powdered-nitrile-examination-gloves.webp",
   "hair-nets": "/products/simple-bouffant-hair-nets.webp",
