@@ -3545,7 +3545,7 @@ export const blogArticles: BlogArticle[] = [
     title: "Silica gel for rice, grain, and spice export: moisture and mould control",
     metaTitle: "Silica Gel for Rice, Grain, and Spice Export",
     metaDescription:
-      "Moisture and mould control for rice, grain, and spice shipments: food-safe desiccant options, dosage by bag and container, and export packing rules.",
+      "Moisture and mould control for rice, grain, and spice shipments: desiccant placement, dosage by bag and container, and export packing rules.",
     description:
       "How food-commodity exporters use silica gel and container desiccants to protect rice, grains, pulses, and spices from container condensation, mould, and aflatoxin during ocean freight - placement, sizing per container, food-contact rules, and rejection-risk reduction.",
     readTime: "9 min read",
@@ -3646,7 +3646,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Can DryGelWorld supply container desiccants for food-commodity export?",
         answer:
-          "Yes. DryGelWorld supplies inert silica gel container desiccants and sachets suitable for protecting rice, grains, pulses, and spices in ocean freight from Karachi and the wider region. Specify cargo type, container size, route, and any food-grade or indicating requirement in your RFQ, and request the SDS so your compliance and customs teams have it on file.",
+          "Yes, for the container and packaging environment. DryGelWorld supplies inert, industrial-grade silica gel container desiccants and sachets used to protect rice, grains, pulses, and spices in ocean freight from Karachi and the wider region — hung in the container space or placed in the pack, never in direct contact with the food. DryGelWorld holds ISO 9001:2015 and issues a DMF-free statement; food-contact certifications (FDA, FSSC 22000, EU 1935/2004) are not currently held, so buyers whose destination regulator requires certified food-contact material should source that from a food-contact-certified manufacturer. Specify cargo type, container size, and route in your RFQ, and request the SDS for your compliance and customs teams.",
       },
     ],
   },
