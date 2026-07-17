@@ -17,6 +17,29 @@
   display: flex;
   flex-direction: column;
   gap: 100px;
+  position: relative;
+}
+
+/* Full-bleed particle wash behind the hero. Anchored to the centred .page so
+   the 100vw band stays centred on the viewport, then faded out at the bottom
+   so it blends into the page instead of ending on a hard edge. */
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-50vw + 50%);
+  width: 100vw;
+  height: 620px;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("/backgrounds/blue-particle-board-wide.webp");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent);
 }
 
 .hero {
@@ -29,20 +52,8 @@
   isolation: isolate;
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: -120px -360px -120px -220px;
-  z-index: -1;
-  width: auto;
-  background-image: url("/backgrounds/blue-particle-board-wide.webp");
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: max(1500px, 120%) auto;
-  opacity: 0.13;
-  pointer-events: none;
-  mix-blend-mode: multiply;
-}
+/* The hero's own particle wash now lives on .page::before as a full-bleed
+   band; the hero no longer paints its own so the two don't stack. */
 
 .kicker {
   display: inline-flex;
