@@ -1490,6 +1490,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
+      { label: "Silica gel for transformer breathers", href: "/silica-gel-for-transformer-breather" },
       { label: "Documents hub", href: "/documentation" },
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
@@ -1507,6 +1508,107 @@ const highIntentSeoLandingPages = {
       { question: "Is indicating silica gel food safe?", answer: "Indicating gel is usually not the first choice for direct food packaging. Buyers should request documents and confirm market requirements before using food-related claims." },
       { question: "What documents should I request?", answer: "Request SDS, COA, composition notes where relevant, ISO 9001:2015 support, and destination-specific compliance review before approving the color and format." },
       { question: "What should I include in an indicating silica gel RFQ?", answer: "Include color preference, bead size, pack format, quantity, application, destination country, required documents, and whether regeneration or visual monitoring is required." },
+    ],
+  }),
+  "silica-gel-for-transformer-breather": keywordClusterPage({
+    slug: "silica-gel-for-transformer-breather",
+    title: "Silica Gel for Transformer Breathers | Cobalt-Free Orange Refill",
+    metaDescription:
+      "Silica gel refill for transformer breathers. Cobalt-free orange indicating gel for REACH-sensitive and EU-bound utility and transformer OEM programs, in bulk kg with SDS, COA, and ISO 9001:2015 reference. We supply the desiccant gel, not the breather housing.",
+    kicker: "Transformer breather silica gel",
+    h1: "Cobalt-free orange silica gel refill for transformer breathers.",
+    lead:
+      "The indicating silica gel that dries the air drawn into a transformer's conservator as the oil breathes with temperature. We supply the desiccant refill in cobalt-free orange, the modern REACH-friendly alternative to cobalt-blue gel, in bulk kg for utilities, transformer OEMs, and repair programs. We supply the gel, not the breather housing.",
+    searchIntent:
+      "Application keyword: silica gel for transformer breather, transformer breather silica gel refill, dehydrating breather desiccant",
+    primaryCta: "Request Breather Gel Quote",
+    secondaryCta: "Cobalt-free vs blue gel",
+    secondaryHref: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
+    proofPoints: ["Cobalt-free orange gel", "REACH-friendly chemistry", "Bulk kg refill", "SDS / COA on request"],
+    image: "/macro_silica_beads_1775989669467.webp",
+    imageAlt: "Indicating silica gel beads used to refill transformer dehydrating breathers",
+    imageCaption:
+      "Transformer breather refills are quoted by colour system, bead size, kg per breather, and destination compliance. We supply the gel, not the breather unit.",
+    chips: ["Orange indicating", "Cobalt-free", "Bulk kg", "Utility / OEM"],
+    fitTitle: "Where transformer breather silica gel fits",
+    useCases: [
+      {
+        label: "Utilities",
+        title: "Grid & distribution transformers",
+        text: "Recurring breather refills for power and distribution transformers whose conservators breathe with load and ambient temperature.",
+      },
+      {
+        label: "OEM / Repair",
+        title: "Transformer makers & service firms",
+        text: "Bulk indicating gel for transformer OEMs, switchgear builders, and repair/maintenance programs replacing saturated breather charges.",
+      },
+      {
+        label: "REACH",
+        title: "EU-bound & cobalt-sensitive programs",
+        text: "Cobalt-free orange gel for buyers avoiding cobalt-chloride chemistry on REACH-sensitive or EU-destined transformer work.",
+      },
+    ],
+    targetKeywords:
+      "Silica gel for transformer breather, transformer breather silica gel, breather silica gel refill, dehydrating breather desiccant, cobalt-free breather gel",
+    formats: "Cobalt-free orange indicating beads (2-5 mm typical), blue indicating on request, bulk kg, refill packs",
+    buyerTypes: "Utilities, power/distribution transformer OEMs, switchgear builders, repair & maintenance firms, EPC contractors, distributors",
+    documents: "SDS, COA, cobalt-free/composition statement, ISO 9001:2015 reference; transformer-specific standard confirmed at RFQ",
+    buyerRisk: "Specifying cobalt-blue gel into an EU or REACH-restricted program, or the wrong bead size or charge weight for the breather",
+    quoteBasis: "Colour system, bead size, kg per breather, number of breathers, refill frequency, destination, documents",
+    buyerGuide: {
+      title: "Transformer breather silica gel buyer guide",
+      intro:
+        "A dehydrating (silica gel) breather dries the air pulled into the conservator as the transformer oil expands and contracts with temperature. The silica gel is a consumable that saturates and needs periodic replacement. This page is about that refill desiccant, not the breather housing.",
+      sections: [
+        { label: "Function", title: "What the gel does in a breather", text: "As the oil cools and the transformer 'inhales', ambient air passes through the silica gel, which adsorbs the moisture so water vapour never reaches the insulating oil. Indicating gel shows a colour change as it saturates." },
+        { label: "Cobalt-free", title: "Why orange (cobalt-free) gel", text: "Traditional blue indicating gel uses cobalt chloride, a substance of concern under EU REACH. Orange indicating gel uses a cobalt-free organic indicator with the same adsorption behaviour. It reads dark orange when dry and turns green as it saturates, and is the accepted REACH-friendly substitute." },
+        { label: "Sizing", title: "How much gel per breather", text: "Charge weight depends on the breather size (commonly quoted around 0.5 to 5 kg per unit) and refill interval. Confirm the exact breather model, bead size, and kg per unit so the quote matches your maintenance cycle." },
+        { label: "Honest scope", title: "What we do and don't supply", text: "We manufacture and export the indicating silica gel refill. We do not supply the metal breather housing or oil cup. Transformer-specific standards (e.g. national breather-gel specs) are confirmed against your requirement at RFQ, and we don't blanket-claim them." },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Which gel for a transformer breather",
+      intro:
+        "For breather refills the choice is mainly colour chemistry, a visible saturation signal that is either cobalt-free or traditional cobalt-blue.",
+      columns: ["Orange indicating (cobalt-free)", "Blue indicating (cobalt)", "Non-indicating"],
+      rows: [
+        { label: "Saturation signal", values: ["Orange → green", "Blue → pink", "None (no colour change)"] },
+        { label: "REACH posture", values: ["Cobalt-free, REACH-friendly", "Cobalt chloride, an EU concern", "Cobalt-free, but no signal"] },
+        { label: "Best fit", values: ["EU / REACH-sensitive breather programs", "Legacy specs that still call blue", "/non-indicating-silica-gel"] },
+        { label: "RFQ detail", values: ["kg per breather, bead size, docs", "Confirm cobalt acceptance first", "Size, format, application"] },
+      ],
+    },
+    quoteChecklist: desiccantQuoteChecklist("Transformer breather silica gel"),
+    contentBlock: {
+      heading: "Buying breather refill gel honestly",
+      parts: [
+        { text: "For transformer breathers we recommend " },
+        { href: "/orange-silica-gel-supplier", label: "cobalt-free orange indicating gel" },
+        { text: " over traditional cobalt-blue, especially for EU-bound or REACH-sensitive utility work. The reasoning is set out in our guide on " },
+        { href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety", label: "cobalt-free vs blue indicating silica gel safety" },
+        { text: ". Both are forms of " },
+        { href: "/indicating-silica-gel", label: "indicating silica gel" },
+        { text: ", and we can supply the refill in bulk kg with SDS and COA. We supply the desiccant gel only, not the breather housing, and confirm any transformer-specific standard against your requirement before quoting." },
+      ],
+    },
+    relatedLinks: [
+      { label: "Orange silica gel (cobalt-free)", href: "/orange-silica-gel-supplier" },
+      { label: "Indicating silica gel", href: "/indicating-silica-gel" },
+      { label: "Cobalt-free vs blue gel (safety)", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
+      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Documents hub", href: "/documentation" },
+      { label: "Request breather gel quote", href: "/contact" },
+    ],
+    faqs: [
+      { question: "What silica gel is used in a transformer breather?", answer: "An indicating silica gel that shows a colour change as it saturates. Modern practice favours cobalt-free orange gel (dark orange when dry, green when saturated) over traditional cobalt-blue gel, because cobalt chloride is a substance of concern under EU REACH." },
+      { question: "Do you supply the transformer breather itself or just the gel?", answer: "We supply the silica gel refill that goes inside the breather. We do not manufacture the metal breather housing or oil cup, which are sourced separately. The gel is the recurring consumable that saturates and needs replacement." },
+      { question: "Is your breather gel cobalt-free and REACH-friendly?", answer: "Our orange indicating gel is cobalt-free and uses an organic indicator instead of cobalt chloride, which is the accepted REACH-friendly substitute. Blue (cobalt) gel can be supplied on request where a legacy spec still requires it. Confirm cobalt acceptance for your destination first." },
+      { question: "How much silica gel does a breather need?", answer: "Charge weight depends on the breather model, commonly in the region of 0.5 to 5 kg per unit. Share the breather size, bead size, and refill interval so the quote matches your maintenance cycle. Exact figures are confirmed at RFQ." },
+      { question: "What colour change tells me the gel is spent?", answer: "Cobalt-free orange gel shifts from dark orange to green as it adsorbs moisture; traditional blue gel shifts from blue to pink. When most of the charge has changed colour, the gel should be replaced or regenerated per the product SDS." },
+      { question: "Can the breather gel be regenerated?", answer: "Many indicating gels can be regenerated with controlled heating, but the regeneration temperature and handling must follow the exact product SDS. For utility programs, replacement refills are often specified instead of on-site regeneration." },
+      { question: "What documents come with a breather gel order?", answer: "SDS, COA, a cobalt-free/composition statement for the orange gel, and an ISO 9001:2015 quality reference. Any transformer-specific breather-gel standard is confirmed against your requirement rather than blanket-claimed." },
+      { question: "What should I include in a transformer breather gel RFQ?", answer: "Colour system (cobalt-free orange or blue), bead size, kg per breather, number of breathers, refill frequency, destination country, and required documents. That lets us quote a realistic bulk price and shipping option." },
     ],
   }),
   "non-indicating-silica-gel": keywordClusterPage({
@@ -4115,6 +4217,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
+      { label: "Silica gel for transformer breathers", href: "/silica-gel-for-transformer-breather" },
       { label: "Documents hub", href: "/documentation" },
       { label: "Request quote", href: "/contact" },
     ],
