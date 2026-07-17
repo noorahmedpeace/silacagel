@@ -21,6 +21,9 @@ export type ProductItem = {
   sizeOptions?: string[];
   categoryPath?: string[];
   attributes?: Record<string, string>;
+  /** Fill the hero frame edge-to-edge with a wide photo (cover) instead of the
+      default padded, contained product render. For real lifestyle photography. */
+  heroLandscape?: boolean;
   galleryImages?: {
     src: string;
     alt: string;
@@ -240,15 +243,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "container-strips",
-    name: "Maritime Export Cargo Protection",
-    shortName: "Cargo Strips",
-    metaTitle: "Container Cargo Strips | 1-5 kg Hanging Desiccant",
-    eyebrow: "Global Logistics",
+    name: "CargoDry Container Strips",
+    shortName: "CargoDry Strips",
+    metaTitle: "CargoDry Container Strips | 1-5 kg Hanging Cargo Desiccant",
+    eyebrow: "CargoDry System",
     summary:
-      "High-adsorption maritime strips for international container loads, long-haul shipping, and extreme humidity transit.",
+      "High-adsorption maritime hanging strips for international container loads, long-haul shipping, and extreme humidity transit.",
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
-      "Our cargo strips are specifically engineered for the extreme humidity shifts of maritime transit. They are the global standard for protecting high-value export containers over long-haul oceanic routes.",
+      "CargoDry Container Strips are the hanging-strip format of our CargoDry container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes — pair them with CargoDry Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
     heroImage: seoImages.containerDesiccant.src,
     useCases: [
       "International ocean freight containers",
@@ -267,15 +270,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-strip",
-    name: "Calcium Chloride Container Strip",
-    shortName: "Calcium Chloride Strip",
-    metaTitle: "Calcium Chloride Container Strip | High-Capacity Cargo Desiccant",
-    eyebrow: "Calcium Chloride",
+    name: "CargoDry Calcium Chloride Container Strip",
+    shortName: "CargoDry CaCl₂ Strip",
+    metaTitle: "Calcium Chloride Container Strip | CargoDry High-Capacity Cargo Desiccant",
+    eyebrow: "CargoDry System",
     summary:
       "High-capacity calcium chloride hanging strips for sea-freight containers, humid routes, and container-rain risk.",
     useCaseLine: "High-uptake hanging strip format for long ocean freight and humid container lanes.",
     description:
-      "Calcium chloride container strips are deliquescent cargo desiccants built for high-humidity sea freight. The strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety.",
+      "The high-uptake calcium chloride option in the CargoDry container desiccant system. These deliquescent cargo strips are built for high-humidity sea freight: the strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety. Choose the calcium chloride strip when the moisture load is heavy; choose CargoDry Container Strips (silica gel) for cleaner, dust-free cargo.",
     heroImage: "/products/calcium-chloride-container-strip.webp",
     useCases: [
       "Long-haul ocean freight containers",
@@ -305,15 +308,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-bulk",
-    name: "Calcium Chloride Container Bulk Bags",
-    shortName: "Calcium Chloride Bulk",
-    metaTitle: "Calcium Chloride Bulk Desiccant Bags | Container Moisture Absorber",
-    eyebrow: "Calcium Chloride",
+    name: "CargoDry Calcium Chloride Bulk Bags",
+    shortName: "CargoDry CaCl₂ Bags",
+    metaTitle: "Calcium Chloride Bulk Desiccant Bags | CargoDry Container Moisture Absorber",
+    eyebrow: "CargoDry System",
     summary:
       "Bulk calcium chloride desiccant bags for container cargo, storage, pallets, and high-humidity export shipments.",
     useCaseLine: "Bulk bag format for cargo-level moisture absorption in containers and storage zones.",
     description:
-      "Calcium chloride bulk desiccant bags are designed for buyers who need high moisture uptake in container cargo, warehouse staging, or palletized export loads. They are quote-only products because bag size, pouch construction, carton packing, destination, and documentation requirements vary by shipment.",
+      "The floor- and pallet-level format of the CargoDry container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment — use them alongside CargoDry hanging strips for full-container coverage.",
     heroImage: "/products/calcium-chloride-container-bulk.webp",
     useCases: [
       "Container cargo moisture absorption",
@@ -517,6 +520,59 @@ export const productCatalog: ProductItem[] = [
     leadTime: "Quoted by format, volume, and dispatch schedule",
     priceBand: "Export reference from ~USD 2.00 / kg packed · tiered by format & volume",
     featuredSizes: ["1 g", "5 g", "10 g", "25 g", "50 g", "Custom"],
+  },
+  {
+    slug: "humidity-indicator-cards",
+    name: "Humidity Indicator Cards (HIC)",
+    shortName: "Humidity Indicator Cards",
+    metaTitle: "Humidity Indicator Cards (HIC) Supplier | MSD Packaging",
+    eyebrow: "Humidity Indicator",
+    summary:
+      "Reversible humidity indicator cards that change colour at set relative-humidity thresholds, for moisture-sensitive electronics, dry-pack, and export QC. Sourced and private-labelled to your specification.",
+    useCaseLine: "A visual moisture check that pairs with desiccant inside sealed moisture-barrier packaging.",
+    description:
+      "Humidity indicator cards (HICs) carry printed spots that change colour as the relative humidity inside a sealed pack rises past marked thresholds, so a QC operator can read the moisture state of the pack without opening it. They are the visual half of a dry-pack system: desiccant controls the moisture, the card reports it. DryGelWorld supplies HICs as a sourced and private-label item to complete a buyer's moisture-barrier bag programme — it does not manufacture the cards, so chemistry, threshold layout, and any standard compliance are matched to the buyer's specification and confirmed against the supplied lot, not claimed as a DryGelWorld credential. Cobalt-dichloride (blue-to-pink) and cobalt-free options are both available; the cobalt-free version avoids the REACH-restricted cobalt salt for EU/UK-bound cargo, in line with the same caution DryGelWorld applies to indicating silica gel.",
+    heroImage: "/products/humidity-indicator-cards-hero.webp",
+    heroLandscape: true,
+    useCases: [
+      "Moisture-sensitive electronics and PCB dry-pack (with desiccant + barrier bag)",
+      "Incoming and outgoing QC checks without opening the sealed pack",
+      "Export cartons where a visual humidity record supports damage claims",
+      "Pharma, optics, and precision goods needing a documented dry state",
+    ],
+    packingOptions: [
+      "Format: reversible spot card; common layouts are single-spot and 3-, 4-, or 6-spot",
+      "Thresholds: typical spot points 5, 10, 20, 30, 40, 50, 60% RH — configured to your spec",
+      "Chemistry: cobalt-dichloride (blue-to-pink) or cobalt-free (REACH-friendly) on request",
+      "Packing: sealed moisture-barrier can or foil bag; count per pack quoted by volume",
+      "Standards: MIL-STD-3464 / JEDEC J-STD-033-style cards available if specified — test reports and compliance confirmed against the supplied lot, not held by DryGelWorld",
+      "Pairs with: silica gel or clay desiccant and moisture-barrier (MBB) bags for a full dry pack",
+    ],
+    leadTime: "Quoted by spot layout, chemistry, pack count, and dispatch schedule",
+    priceBand: "Quote-only sourced item. Pricing depends on spot layout, chemistry, pack count, and any standard/compliance requirement.",
+    featuredSizes: ["Single-spot", "3-spot", "4-spot", "6-spot", "Custom layout"],
+    colorOptions: ["Cobalt (blue-to-pink)", "Cobalt-free (REACH-friendly)"],
+    sizeOptions: ["Single-spot", "3-spot", "4-spot", "6-spot", "Custom layout"],
+    categoryPath: ["Moisture Control", "Humidity Indicator", "MSD Dry Pack"],
+    attributes: {
+      "Product Type": "Humidity Indicator Card (reversible)",
+      "Reads": "Relative humidity inside a sealed pack",
+      "Spot Layouts": "Single-spot, 3-spot, 4-spot, 6-spot, custom",
+      "Threshold Points": "5–60% RH, configured to spec",
+      Chemistry: "Cobalt-dichloride or cobalt-free (REACH-friendly)",
+      Reversible: "Yes — colour returns as humidity falls",
+      Packaging: "Sealed moisture-barrier can or foil bag",
+      Sourcing: "Sourced / private-label; not manufactured by DryGelWorld",
+      Standards: "MIL-STD-3464 / JEDEC J-STD-033-style available if specified; confirmed per lot",
+      "Pairs With": "Desiccant + moisture-barrier bag",
+    },
+    galleryImages: [
+      {
+        src: "/products/humidity-indicator-cards-2.webp",
+        alt: "Humidity indicator cards fanned beside foil moisture-barrier bags and loose silica gel beads",
+        label: "Cards ship alongside desiccant and moisture-barrier bags for a complete dry pack",
+      },
+    ],
   },
 ];
 

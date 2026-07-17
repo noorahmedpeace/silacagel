@@ -9,6 +9,7 @@ import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import { HowToOrder } from "@/components/how-to-order";
+import { CobaltFreeBand } from "@/components/cobalt-free-band";
 
 const productsFaqs = [
   {
@@ -45,6 +46,7 @@ const catalogImages: Record<string, string> = {
   "calcium-chloride-container-strip": "/products/calcium-chloride-container-strip.webp",
   "calcium-chloride-container-bulk": "/products/calcium-chloride-container-bulk.webp",
   "dry-clay-desiccant": "/products/industrial-dry-clay-desiccant-packs.webp",
+  "humidity-indicator-cards": "/products/humidity-indicator-cards-hero.webp",
   "powder-free-blue-nitrile-gloves": "/products/powder-free-nitrile-examination-gloves.webp",
   "powdered-nitrile-examination-gloves": "/products/powdered-nitrile-examination-gloves.webp",
   "hair-nets": "/products/simple-bouffant-hair-nets.webp",
@@ -142,6 +144,8 @@ export default function ProductsPage() {
           );
         })}
       </section>
+
+      <CobaltFreeBand />
 
       <FaqBlock title="Silica gel & desiccant product FAQs" faqs={productsFaqs} />
 

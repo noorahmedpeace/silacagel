@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { FaqBlock, type Faq } from "@/components/faq-block";
+import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import styles from "../strategy-pages.module.css";
 import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportMarkets } from "./markets";
@@ -139,6 +140,8 @@ export default function ExportPage() {
           ))}
         </div>
       </section>
+
+      <CobaltFreeBand />
 
       <FaqBlock
         title="Silica gel export questions"
