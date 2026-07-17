@@ -169,13 +169,12 @@ export default function ProductsPage() {
                   url: absoluteUrl(),
                   name: siteName,
                 },
-                hasPart: productCatalog.map((product) => ({
-                  "@type": "Product",
-                  name: product.name,
-                  url: absoluteUrl(`/products/${product.slug}`),
-                  description: product.summary,
-                  image: absoluteUrl(product.heroImage),
-                })),
+                // No `hasPart` array of bare Product objects here: Google
+                // validates each as a Product rich result and rejects it for
+                // lacking offers/review/aggregateRating ("11 invalid items").
+                // The ItemList below lists the catalogue by URL, and each
+                // product page carries its own full Product + Offer schema.
+                mainEntity: { "@id": `${absoluteUrl("/products")}#list` },
               },
               {
                 "@type": "ItemList",
