@@ -148,6 +148,23 @@ const procurementDetails = {
       { label: "Document hub", href: "/documentation" },
     ],
   },
+  "humidity-indicator-cards": {
+    moq: "Quoted by spot layout, chemistry, pack count, and dispatch program",
+    sample: "Sample cards can be discussed after confirming spot layout, chemistry, and any standard",
+    documents: ["SDS", "COA (per lot)", "Standard / REACH test report if specified — per lot"],
+    skuRows: [
+      { size: "Single-spot", material: "Cobalt or cobalt-free indicator card", fit: "One critical RH threshold (e.g. 60%)", pack: "Sealed can / foil bag" },
+      { size: "3-spot / 4-spot", material: "Reversible indicator card", fit: "MSD electronics dry-pack and QC checks", pack: "Sealed can / foil bag" },
+      { size: "6-spot", material: "Reversible card, 10-60% RH", fit: "Full-range humidity read for precision goods", pack: "Sealed can / foil bag" },
+      { size: "Custom layout", material: "Cobalt-free (REACH-friendly) on request", fit: "Buyer-specific thresholds and print", pack: "Custom pack count" },
+    ],
+    packaging: ["Sealed moisture-barrier can", "Foil / MBB bag", "Count per pack by requirement", "Private-label print discussion"],
+    related: [
+      { label: "Cobalt-free vs blue indicating gel", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
+      { label: "Desiccant for electronics packaging", href: "/blog/desiccant-for-electronics-packaging" },
+      { label: "Document hub", href: "/documentation" },
+    ],
+  },
   "hair-nets": {
     moq: "Discuss MOQ by carton size and monthly volume",
     sample: "Sample packs available; confirm size, color, and material on request",
@@ -726,14 +743,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               </div>
 
-              <div className={styles.visual}>
-                <div className={styles.imageWrap}>
+              <div className={`${styles.visual} ${product.heroLandscape ? styles.visualTop : ""}`}>
+                <div className={`${styles.imageWrap} ${product.heroLandscape ? styles.imageWrapWide : ""}`}>
                   <Image
                     src={product.heroImage}
                     alt={`${product.name} - ${product.summary}`}
                     title={`${product.name} | ${siteName} product supply`}
                     fill
-                    className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
+                    className={`${styles.image} ${product.heroLandscape ? styles.imageCover : product.colorOptions?.length ? styles.imageContain : ""}`}
                     sizes="(max-width: 960px) 100vw, 70vw"
                     priority
                   />
@@ -742,17 +759,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </section>
           </Reveal>
 
-          <HowToOrder />
-
           {product.galleryImages?.length ? (
             <Reveal>
               <section className={styles.gallerySection} aria-labelledby="product-gallery-heading">
                 <div className={styles.sectionHead}>
-                  <p className={styles.eyebrow}>Product Image Concept</p>
-                  <h2 id="product-gallery-heading">Image gallery direction for this product.</h2>
+                  <p className={styles.eyebrow}>Product Gallery</p>
+                  <h2 id="product-gallery-heading">How it ships.</h2>
                   <p>
-                    Concept visuals for the product page. Replace with real product photography
-                    when final box artwork and supplier images are approved.
+                    Reversible indicator cards packed alongside desiccant and moisture-barrier
+                    bags: the components of a complete dry pack.
                   </p>
                 </div>
                 <div className={styles.galleryGrid}>
@@ -774,6 +789,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </section>
             </Reveal>
           ) : null}
+
+          <HowToOrder />
 
           <section className={styles.gridSection}>
             <Reveal>

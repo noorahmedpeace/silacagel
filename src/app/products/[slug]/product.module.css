@@ -346,6 +346,16 @@
   position: relative;
 }
 
+/* A short landscape hero photo would float to the vertical middle against the
+   tall text column (align-items: center). Pin it to the top and let it stick as
+   the taller text column scrolls, so it stays beside the content instead of
+   leaving a large void below. */
+.visualTop {
+  align-self: start;
+  position: sticky;
+  top: 100px;
+}
+
 .imageWrap {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -367,6 +377,16 @@
 .imageContain {
   object-fit: contain;
   background: #fff;
+}
+
+/* Wide hero for real lifestyle photography: fill the frame edge-to-edge. */
+.imageWrapWide {
+  aspect-ratio: 4 / 3;
+}
+.imageCover {
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
 }
 
 .gallerySection {
@@ -395,6 +415,17 @@
   position: relative;
   aspect-ratio: 1 / 1;
   background: var(--ds-surface-tint);
+}
+
+/* A lone gallery photo shouldn't read as a small stray thumbnail: give it a
+   centred, landscape card instead of one narrow 1/5 grid cell. */
+.galleryCard:only-child {
+  grid-column: 1 / -1;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.galleryCard:only-child .galleryImageWrap {
+  aspect-ratio: 16 / 10;
 }
 
 .galleryCard figcaption {
