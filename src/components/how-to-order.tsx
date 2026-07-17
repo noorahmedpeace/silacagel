@@ -1,14 +1,18 @@
 // Server-rendered "how ordering works" strip. Session recordings showed
 // visitors hunting for a Buy button and bouncing — this makes the
-// quote-based buying path explicit in plain language.
+// quote-based buying path explicit in plain language. Recordings later showed
+// buyers clicking the step *text* itself ("Pay by bank transfer", the heading)
+// as if it were a button and dead-clicking, so the actual next step is now a
+// pair of real buttons at the end instead of a small text link.
 import Link from "next/link";
+import { whatsappNumber } from "@/lib/product-data";
 import styles from "./how-to-order.module.css";
 
 const steps = [
   {
     n: "1",
     title: "Tell us what you need",
-    text: "Add to Cart, WhatsApp us, or fill the quote form — email and quantity are enough.",
+    text: "Add to Quote, WhatsApp us, or fill the quote form — email and quantity are enough.",
   },
   {
     n: "2",
@@ -21,6 +25,10 @@ const steps = [
     text: "Pay by bank transfer (T/T), we produce and ship worldwide — documents included.",
   },
 ];
+
+const waHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+  "Hi DryGelWorld, I'd like a quote for silica gel. Here's what I need:",
+)}`;
 
 export function HowToOrder() {
   return (
@@ -37,11 +45,18 @@ export function HowToOrder() {
           </div>
         ))}
       </div>
-      <p className={styles.note}>
-        No account, no checkout needed — every order starts with a quick inquiry.{" "}
-        <Link href="/pricing">See indicative prices</Link> ·{" "}
-        <Link href="/request-a-quote">Start your order</Link>
-      </p>
+      <div className={styles.actions}>
+        <Link href="/request-a-quote" className={styles.primary}>
+          Request a Quote
+        </Link>
+        <a href={waHref} target="_blank" rel="noopener" className={styles.secondary}>
+          WhatsApp us
+        </a>
+        <Link href="/pricing" className={styles.tertiary}>
+          See indicative prices
+        </Link>
+      </div>
+      <p className={styles.note}>No account, no checkout — every order starts with a quick inquiry.</p>
     </section>
   );
 }
