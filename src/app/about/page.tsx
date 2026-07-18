@@ -429,6 +429,7 @@ export default function AboutPage() {
                     "https://www.instagram.com/drygelworld",
                     "https://www.youtube.com/@DryGelWorld",
                     "https://www.linkedin.com/in/drygelworld/",
+                    "https://www.daraz.pk/shop/6ttbbzu2/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",
                   ],

@@ -28,6 +28,13 @@ const SOCIALS: Social[] = [
     href: "https://www.youtube.com/@DryGelWorld",
     path: "M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
   },
+  {
+    // Daraz store (Pakistan marketplace). Shopping-bag glyph — Daraz has no
+    // standard brand path; the bag reads clearly as "shop / store".
+    name: "Daraz",
+    href: "https://www.daraz.pk/shop/6ttbbzu2/",
+    path: "M18 6h-2c0-2.21-1.79-4-4-4S8 3.79 8 6H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-6-2c1.1 0 2 .9 2 2h-4c0-1.1.9-2 2-2zm6 16H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h4v2c0 .55.45 1 1 1s1-.45 1-1V8h2v12z",
+  },
 ];
 
 type SocialLinksProps = {
@@ -40,7 +47,7 @@ export function SocialLinks({ className, label }: SocialLinksProps) {
   return (
     <div className={`${styles.wrap} ${className ?? ""}`.trim()}>
       {label ? <span className={styles.label}>{label}</span> : null}
-      <ul className={styles.row} aria-label="DryGelWorld social media profiles">
+      <ul className={styles.row} aria-label="DryGelWorld profiles and stores">
         {SOCIALS.map((social) => (
           <li key={social.name}>
             <a

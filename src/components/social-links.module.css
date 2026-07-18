@@ -75,6 +75,12 @@
   border-color: #ff0000;
 }
 
+.daraz:hover,
+.daraz:focus-visible {
+  background-color: #f85606;
+  border-color: #f85606;
+}
+
 @media (max-width: 600px) {
   .row {
     gap: 0.55rem;

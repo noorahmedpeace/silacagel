@@ -100,6 +100,18 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
           <span className={styles.actionValue}>{displayPhone}</span>
         </a>
 
+        {/* Local retail / small-quantity channel. Kept distinct from the export
+            RFQ flow: Daraz is Pakistan-only, so it is labelled as such. */}
+        <a
+          className={`${styles.tile} ${styles.tileAction}`}
+          href="https://www.daraz.pk/shop/6ttbbzu2/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.actionKicker}>Buy in Pakistan</span>
+          <span className={styles.actionValue}>Daraz store</span>
+        </a>
+
         {/* Export/sales channels lead; the owner's personal inbox is demoted to
             a secondary row below the directory. */}
         <article className={`${styles.tile} ${styles.emailDirectoryTile}`}>
