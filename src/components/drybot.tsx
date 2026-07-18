@@ -39,7 +39,13 @@ function renderHtml(t: string): string {
   e = e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
   e = e.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   e = e.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
-  e = e.replace(/(^|[\s(])(https?:\/\/[^\s<)]+)/g, '$1<a href="$2" target="_blank" rel="noopener">$2</a>');
+  // Auto-link bare URLs, but keep any trailing sentence punctuation OUTSIDE the
+  // href — otherwise "...visit https://site/contact." links to "/contact." and
+  // 404s. Group 3 captures the trailing .,;:!? and is re-appended after the link.
+  e = e.replace(
+    /(^|[\s(])(https?:\/\/[^\s<)]+?)([.,;:!?]*)(?=[\s<)]|$)/g,
+    '$1<a href="$2" target="_blank" rel="noopener">$2</a>$3',
+  );
   e = e.replace(/(^|[\s(])(sales@drygelworld\.com|export@drygelworld\.com)/g, '$1<a href="mailto:$2">$2</a>');
   e = e.replace(/^\s*[-*]\s+(.*)$/gm, "• $1");
   return e.replace(/\n/g, "<br>");
