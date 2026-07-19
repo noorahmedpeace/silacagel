@@ -1,8 +1,21 @@
 // Blob-backed persistence for RFQ inquiries. Every function degrades
 // gracefully when BLOB_READ_WRITE_TOKEN is absent (local dev/build) so the
 // form still works via the email/mailto path and nothing crashes.
-import { list, put } from "@vercel/blob";
+import { BlobPreconditionFailedError, list, put } from "@vercel/blob";
 import { createHash, randomInt } from "node:crypto";
+
+// A single put() lets the SDK retry ~10x with exponential backoff, which can
+// stall for many minutes and burn the Server Action deadline before the
+// caller's email/mailto fallback runs. Bound every write with this timeout.
+const WRITE_TIMEOUT_MS = 8000;
+
+// Real calendar date (rejects 2026-02-31 / 9999-99-99 that pass a shape regex).
+export function isCalendarDate(v: string): boolean {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return false;
+  const [y, m, d] = v.split("-").map(Number);
+  const dt = new Date(Date.UTC(y, m - 1, d));
+  return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
 
 export type InquiryStatus = "new" | "contacted" | "quotation_sent" | "won" | "lost";
 
@@ -95,34 +108,35 @@ export async function nextInquiryId(): Promise<string> {
 
 // Create a NEW inquiry without ever clobbering an existing one. `allowOverwrite:
 // false` is the hard guarantee — the write throws rather than overwrite a taken
-// pathname, which is exactly the concurrent-ID bug we are closing. On any write
-// error we retry with a fresh random ID: on a 1-in-a-million random path the
-// dominant failure cause is a genuine collision, while a persistent storage
-// error simply exhausts these few fast retries and returns stored:false so the
-// caller can fall back (email/mailto). Returns the FINAL id either way.
+// pathname, which is exactly the concurrent-ID bug we are closing.
 //
-// Trade-off: if a write succeeds server-side but the response is lost, a retry
-// can create one duplicate under a new ID (Low, same class as the client
-// network-blip fallback). Acceptable versus silently overwriting a real lead.
+// We retry ONLY on a precondition/conflict (a genuine 1-in-a-million random-ID
+// collision), with a fresh ID. Any OTHER failure (storage down, aborted) stops
+// immediately and returns stored:false with the last attempted id — so a lost
+// write is never retried into a DUPLICATE record, and we never return an id we
+// didn't try to store. Each attempt is time-bounded so a Blob stall can't eat
+// the request before the caller's email/mailto fallback runs.
 export async function createInquiry(
   data: Omit<Inquiry, "id">,
 ): Promise<{ id: string; stored: boolean }> {
   if (!hasBlob()) return { id: generateInquiryId(), stored: false };
-  for (let attempt = 0; attempt < 5; attempt++) {
-    const id = generateInquiryId();
+  let id = generateInquiryId();
+  for (let attempt = 0; attempt < 3; attempt++) {
+    id = generateInquiryId();
     try {
       await put(`${prefix()}/${id}.json`, JSON.stringify({ ...data, id }), {
         access: "public",
         addRandomSuffix: false,
-        allowOverwrite: false, // never overwrite a lead; collision → retry
+        allowOverwrite: false, // never overwrite a lead
         contentType: "application/json",
+        abortSignal: AbortSignal.timeout(WRITE_TIMEOUT_MS),
       });
       return { id, stored: true };
-    } catch {
-      /* collision → fresh ID next loop; storage failure → exhaust → stored:false */
+    } catch (err) {
+      if (!(err instanceof BlobPreconditionFailedError)) break; // not a collision → stop
     }
   }
-  return { id: generateInquiryId(), stored: false };
+  return { id, stored: false };
 }
 
 export async function saveInquiry(inquiry: Inquiry): Promise<boolean> {
@@ -142,62 +156,103 @@ export async function saveInquiry(inquiry: Inquiry): Promise<boolean> {
 
 export async function listInquiries(): Promise<Inquiry[]> {
   if (!hasBlob()) return [];
-  try {
-    // Vercel lists lexicographically (not by date) and caps each page at 1000.
-    // With mixed legacy/new IDs, un-paginated listing would hide the newest
-    // leads once past 1000. Page through the cursor, bounded so an unexpected
-    // blob explosion can't hang the admin request (25k-lead ceiling).
-    const blobs: Array<{ url: string }> = [];
-    let cursor: string | undefined;
-    for (let page = 0; page < 25; page++) {
-      const res = await list({ prefix: `${prefix()}/DGW-`, limit: 1000, cursor });
-      blobs.push(...res.blobs);
-      if (!res.hasMore || !res.cursor) break;
-      cursor = res.cursor;
+  // Vercel lists lexicographically (not by date) and caps each page at 1000.
+  // Page through the cursor. If a later page fails we KEEP the pages we already
+  // fetched (returning [] would blank the whole dashboard), and if we hit the
+  // page cap with more still available we warn rather than silently truncate.
+  const blobs: Array<{ url: string }> = [];
+  let cursor: string | undefined;
+  let truncated = false;
+  for (let page = 0; page < 40; page++) {
+    let res: Awaited<ReturnType<typeof list>>;
+    try {
+      res = await list({ prefix: `${prefix()}/DGW-`, limit: 1000, cursor });
+    } catch {
+      break; // keep what we have
     }
-    const items = await Promise.all(blobs.map((b) => readJson<Inquiry>(b.url)));
-    return items
-      .filter((x): x is Inquiry => Boolean(x?.id))
-      .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
-  } catch {
-    return [];
+    blobs.push(...res.blobs);
+    if (!res.hasMore || !res.cursor) break;
+    cursor = res.cursor;
+    if (page === 39) truncated = true;
   }
+  if (truncated) {
+    console.warn("[RFQ] listInquiries hit the 40-page (40k) cap; some leads may be omitted.");
+  }
+  const items = await Promise.all(blobs.map((b) => readJson<Inquiry>(b.url)));
+  return items
+    .filter((x): x is Inquiry => Boolean(x?.id))
+    .sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1));
 }
 
 export async function getInquiry(id: string): Promise<Inquiry | null> {
+  return (await readInquiryWithEtag(id))?.inquiry ?? null;
+}
+
+// Read the record AND its current ETag in one list call, so updateInquiry can do
+// a compare-and-set write.
+async function readInquiryWithEtag(
+  id: string,
+): Promise<{ inquiry: Inquiry; etag: string } | null> {
   if (!hasBlob() || !/^DGW-\d{4}-\d{6}$/.test(id)) return null;
   try {
     const { blobs } = await list({ prefix: `${prefix()}/${id}.json`, limit: 1 });
-    return blobs[0] ? readJson<Inquiry>(blobs[0].url) : null;
+    const b = blobs[0];
+    if (!b) return null;
+    const inquiry = await readJson<Inquiry>(b.url);
+    return inquiry?.id ? { inquiry, etag: b.etag } : null;
   } catch {
     return null;
   }
 }
 
-// NOTE: this is still a read-modify-write with `allowOverwrite` (saveInquiry).
-// Two admins editing the SAME lead within the Blob CDN propagation window can
-// clobber one another's status/note/follow-up change — a pre-existing hazard
-// for status/notes that follow-up now shares. A concurrency-safe rewrite using
-// `head()` ETag + `ifMatch` conditional writes (retry on
-// BlobPreconditionFailedError) is a separate, deliberately-deferred change; for
-// a 1-2 person export desk the collision window is small.
+// Concurrency-safe edit via ETag compare-and-set: read the record + its etag,
+// apply the patch to that fresh copy, and write only if the etag still matches
+// (ifMatch). If another write landed in between (BlobPreconditionFailedError) we
+// re-read and retry, so two consecutive edits — even from one admin (status then
+// follow-up) — can never silently revert one another. A real failure returns
+// false so the admin UI rolls the optimistic change back and shows an error.
 export async function updateInquiry(
   id: string,
   patch: { status?: InquiryStatus; addNote?: string; followUpDate?: string | null },
 ): Promise<boolean> {
-  const current = await getInquiry(id);
-  if (!current) return false;
-  if (patch.status) current.status = patch.status;
-  if (patch.addNote?.trim()) {
-    current.notes.push({ at: new Date().toISOString(), text: patch.addNote.trim().slice(0, 2000) });
+  // Reject an invalid follow-up date up front (server actions are untrusted): an
+  // impossible date must fail visibly, never silently clear or store garbage.
+  if (patch.followUpDate !== undefined && patch.followUpDate !== null) {
+    const v = String(patch.followUpDate).trim();
+    if (v !== "" && !isCalendarDate(v)) return false;
   }
-  if (patch.followUpDate !== undefined) {
-    // Accept a valid YYYY-MM-DD or clear it (""/null). Reject anything else so a
-    // malformed date never poisons the overdue view.
-    const v = (patch.followUpDate ?? "").trim();
-    current.followUpDate = /^\d{4}-\d{2}-\d{2}$/.test(v) ? v : undefined;
+  if (!hasBlob()) return false;
+
+  for (let attempt = 0; attempt < 4; attempt++) {
+    const found = await readInquiryWithEtag(id);
+    if (!found) return false;
+    const { inquiry, etag } = found;
+
+    if (patch.status) inquiry.status = patch.status;
+    if (patch.addNote?.trim()) {
+      inquiry.notes.push({ at: new Date().toISOString(), text: patch.addNote.trim().slice(0, 2000) });
+    }
+    if (patch.followUpDate !== undefined) {
+      const v = String(patch.followUpDate ?? "").trim();
+      inquiry.followUpDate = v === "" ? undefined : v; // validated above
+    }
+
+    try {
+      await put(`${prefix()}/${id}.json`, JSON.stringify(inquiry), {
+        access: "public",
+        addRandomSuffix: false,
+        allowOverwrite: true,
+        ifMatch: etag, // only overwrite if the record hasn't changed under us
+        contentType: "application/json",
+        abortSignal: AbortSignal.timeout(WRITE_TIMEOUT_MS),
+      });
+      return true;
+    } catch (err) {
+      if (err instanceof BlobPreconditionFailedError) continue; // changed → re-read
+      return false;
+    }
   }
-  return saveInquiry(current);
+  return false;
 }
 
 // Simple blob-based rate limiter: max `limit` hits per ip-hash per hour.

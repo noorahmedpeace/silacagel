@@ -29,9 +29,12 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   const [open, setOpen] = useState<string | null>(null);
   const [noteDraft, setNoteDraft] = useState("");
   const [actionError, setActionError] = useState("");
-  // Follow-up highlighting uses a plain UTC YYYY-MM-DD string compare (lexical =
-  // chronological), so there is no timezone-parsing ambiguity. Computed once.
-  const [todayStr] = useState(() => new Date().toISOString().slice(0, 10));
+  // "Today" in the export desk's business timezone (Asia/Karachi) as YYYY-MM-DD
+  // — en-CA formats ISO-style. Plain string compare stays lexical = chronological.
+  // (A tab left open across midnight keeps the mount-day; acceptable for a hint.)
+  const [todayStr] = useState(() =>
+    new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Karachi" }),
+  );
 
   const countries = useMemo(
     () => [...new Set(rows.map((r) => r.company.country).filter(Boolean))].sort(),
@@ -54,46 +57,50 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   });
 
   // Every mutation is optimistic but ROLLS BACK if the server action returns
-  // false (or throws) — the store write can fail (Blob outage / lost update) and
+  // false (or throws) — the store write can fail (Blob outage / stale ETag) and
   // a silent "success" would let staff trust a change that never persisted.
+  // Rollback reverts ONLY the one row's one field, so it can't erase a different
+  // row's concurrent optimistic edit.
   async function changeStatus(id: string, next: InquiryStatus) {
-    const prev = rows;
+    const prevStatus = rows.find((r) => r.id === id)?.status;
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: next } : r)));
     setActionError("");
     const ok = await setInquiryStatus(id, next).catch(() => false);
-    if (!ok) {
-      setRows(prev);
+    if (!ok && prevStatus !== undefined) {
+      setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: prevStatus } : r)));
       setActionError(`Could not save status for ${id} — please retry.`);
     }
   }
 
   async function changeFollowUp(id: string, date: string) {
-    const prev = rows;
+    const prevDate = rows.find((r) => r.id === id)?.followUpDate;
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: date || undefined } : r)));
     setActionError("");
     const ok = await setInquiryFollowUp(id, date).catch(() => false);
     if (!ok) {
-      setRows(prev);
-      setActionError(`Could not save follow-up for ${id} — please retry.`);
+      setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: prevDate } : r)));
+      setActionError(`Could not save follow-up for ${id} — check the date is valid, then retry.`);
     }
   }
 
   async function saveNote(id: string) {
     const text = noteDraft.trim();
     if (!text) return;
-    const prev = rows;
+    const optimisticNote = { at: new Date().toISOString(), text };
     setRows((rs) =>
-      rs.map((r) =>
-        r.id === id
-          ? { ...r, notes: [...r.notes, { at: new Date().toISOString(), text }] }
-          : r,
-      ),
+      rs.map((r) => (r.id === id ? { ...r, notes: [...r.notes, optimisticNote] } : r)),
     );
     setNoteDraft("");
     setActionError("");
     const ok = await addInquiryNote(id, text).catch(() => false);
     if (!ok) {
-      setRows(prev);
+      // Remove just the optimistic note (by reference) and give the text back.
+      setRows((rs) =>
+        rs.map((r) =>
+          r.id === id ? { ...r, notes: r.notes.filter((n) => n !== optimisticNote) } : r,
+        ),
+      );
+      setNoteDraft(text);
       setActionError(`Could not save note for ${id} — please retry.`);
     }
   }
