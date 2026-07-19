@@ -333,7 +333,7 @@ const highIntentSeoLandingPages = {
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel beads", href: "/silica-gel-beads" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container desiccant", href: "/container-desiccant" },
+      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
@@ -432,7 +432,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel beads", href: "/silica-gel-beads" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Export markets", href: "/export" },
-      { label: "Wholesale silica gel packets", href: "/silica-gel-packets-wholesale" },
+      { label: "Wholesale silica gel packets", href: "/silica-gel-packets" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
@@ -758,7 +758,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Moisture absorber manufacturer", href: "/moisture-absorber-manufacturer" },
+      { label: "Moisture absorber manufacturer", href: "/moisture-absorber-supplier" },
     ],
     faqs: [
       { question: "What makes a desiccant industrial grade?", answer: "Industrial desiccant buying is usually based on repeat volume, format control, documents, packaging needs, and application risk." },
@@ -797,7 +797,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Industrial supplier", href: "/industrial-desiccant-supplier" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container desiccant", href: "/container-desiccant" },
+      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
       { question: "What is an industrial desiccant?", answer: "An industrial desiccant is a moisture control product used in packaging, storage, shipment, or production environments." },
@@ -874,7 +874,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Packet size, material, quantity, print scope, carton packing, destination, documents",
     relatedLinks: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Packets wholesale", href: "/silica-gel-packets-wholesale" },
+      { label: "Packets wholesale", href: "/silica-gel-packets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
     ],
     faqs: [
@@ -912,7 +912,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Comparing unit price without carton quantity, MOQ, packing, or repeat volume",
     quoteBasis: "Packet size, units per carton, cartons per shipment, destination, documents, repeat schedule",
     relatedLinks: [
-      { label: "Packet manufacturer", href: "/silica-gel-packets-manufacturer" },
+      { label: "Packet manufacturer", href: "/silica-gel-packets" },
       { label: "Private label silica gel", href: "/private-label-silica-gel-supplier" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
@@ -977,8 +977,8 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Container desiccant", href: "/container-desiccant" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
+      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Cargo strips", href: "/container-desiccant-strips" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Export support", href: "/export" },
@@ -1022,8 +1022,8 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Using packet-only protection when the whole container environment is the moisture risk",
     quoteBasis: "Container size, route, cargo type, transit days, humidity risk, strip count, documents",
     relatedLinks: [
-      { label: "Container supplier", href: "/container-desiccant-supplier" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Container supplier", href: "/shipping-container-desiccant-supplier" },
+      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Container strips", href: "/container-desiccant-strips" },
     ],
     faqs: [
@@ -1193,7 +1193,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Private-label silica gel", href: "/private-label-silica-gel-supplier" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
-      { label: "Silica gel packets manufacturer", href: "/silica-gel-packets-manufacturer" },
+      { label: "Silica gel packets manufacturer", href: "/silica-gel-packets" },
     ],
     faqs: [
       { question: "What is OEM silica gel supply?", answer: "OEM silica gel supply means packets, carton labels, warning text, and packing can be discussed around a buyer-specific program." },
@@ -1717,7 +1717,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
       { question: "Is silica gel a moisture absorber?", answer: "Yes. Silica gel is a desiccant moisture absorber used inside packaging, storage, and shipment environments." },
@@ -1756,7 +1756,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Waiting until after container loading to plan moisture protection",
     quoteBasis: "Container size, route, transit days, cargo type, loading style, strip quantity",
     relatedLinks: [
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
     ],
@@ -2938,7 +2938,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Format mix, volume, route, destination, documentation",
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
@@ -3583,7 +3583,7 @@ export const seoLandingPages = {
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "FOB Karachi quotes", href: "/export/fob-karachi" },
       { label: "Container export case study", href: "/case-studies/container-export-moisture-protection" },
-      { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Shipping container moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
