@@ -140,8 +140,20 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                   <td>{r.createdAt.slice(0, 10)}</td>
                   <td>
                     <strong>{r.company.companyName}</strong>
+                    {r.suspectedBot ? (
+                      <span
+                        title="Fast / odd submit timing — likely bot, review before quoting"
+                        style={{
+                          marginLeft: 6, padding: "1px 6px", borderRadius: 6, fontSize: 11,
+                          background: "#fde68a", color: "#7c2d12", whiteSpace: "nowrap",
+                        }}
+                      >
+                        ⚠ bot?
+                      </span>
+                    ) : null}
                     <br />
                     <a href={`mailto:${r.company.email}`}>{r.company.email}</a>
+                    {r.source ? <small className={styles.mono}> · via {r.source}</small> : null}
                   </td>
                   <td>{r.company.country}</td>
                   <td>{r.product.name}</td>

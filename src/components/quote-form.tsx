@@ -186,6 +186,7 @@ export function QuoteForm({
       message: rfqMessage,
       attachments: [],
       ...clientTracking(),
+      source: "quote_form",
       website2: website2.current,
       formElapsedMs: Date.now() - startedAt.current,
     };

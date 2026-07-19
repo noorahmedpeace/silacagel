@@ -5,6 +5,7 @@ import { createPortal } from "react-dom";
 
 import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { createMailtoHref, salesEmail } from "@/lib/product-data";
 import styles from "./sticky-quote-bar.module.css";
 
 const DISMISS_KEY = "dgw-quote-bar-dismissed";
@@ -37,8 +38,9 @@ export function StickyQuoteBar({
   const [count, setCount] = useState(0);
   const [justAdded, setJustAdded] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [quick, setQuick] = useState<"idle" | "sending" | "sent">("idle");
+  const [quick, setQuick] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const [quickError, setQuickError] = useState("");
+  const [fallbackHref, setFallbackHref] = useState("");
   const openedAt = useRef(Date.now());
   const formInView = useRef(false);
   const cartMode = Boolean(productFullName && productSlug);
@@ -54,6 +56,23 @@ export function StickyQuoteBar({
     }
     setQuickError("");
     setQuick("sending");
+
+    const detail = String(fd.get("detail") ?? "");
+    const quantity = String(fd.get("quantity") ?? "");
+    const unit = String(fd.get("unit") ?? "kg");
+    const phone = String(fd.get("phone") ?? "");
+    const mailto = createMailtoHref(
+      salesEmail,
+      `Quote request: ${productFullName}`,
+      [
+        `Product: ${productFullName}`,
+        `Email: ${email}`,
+        `Quantity: ${quantity || "-"} ${unit}`,
+        `Phone/WhatsApp: ${phone || "-"}`,
+        `Details: ${detail || "-"}`,
+      ].join("\n"),
+    );
+
     try {
       const first = (() => {
         try { return JSON.parse(sessionStorage.getItem("dgw-first-touch") ?? "null"); } catch { return null; }
@@ -62,18 +81,18 @@ export function StickyQuoteBar({
         companyName: "(Quick add-to-cart lead)",
         contactPerson: "(not provided)",
         email,
-        phone: String(fd.get("phone") ?? ""),
+        phone,
         country: "(not provided)",
         city: "",
         productName: productFullName!,
-        quantity: String(fd.get("quantity") ?? ""),
-        unit: String(fd.get("unit") ?? "kg"),
+        quantity,
+        unit,
         packaging: "",
         application: "",
         deliveryDate: "",
         destinationCountry: "",
         destinationPort: "",
-        message: String(fd.get("detail") ?? ""),
+        message: detail,
         attachments: [],
         screen: `${window.screen.width}x${window.screen.height}`,
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone ?? "",
@@ -84,6 +103,7 @@ export function StickyQuoteBar({
         utm: first?.utm ?? { source: "", medium: "", campaign: "", term: "", content: "" },
         gclid: first?.gclid ?? "",
         sessionId: sessionStorage.getItem("dgw-session-id") ?? "",
+        source: "sticky_bar",
         website2: String(fd.get("website2") ?? ""),
         formElapsedMs: Date.now() - openedAt.current,
       });
@@ -91,13 +111,18 @@ export function StickyQuoteBar({
         addToCart({ name: productFullName!, slug: productSlug! });
         setJustAdded(true);
         setQuick("sent");
+      } else if (result.fallback) {
+        setFallbackHref(mailto);
+        setQuick("fallback");
+        window.location.href = mailto;
       } else {
         setQuickError(result.error ?? "Could not send — please use WhatsApp or the quote page.");
         setQuick("idle");
       }
     } catch {
-      setQuickError("Could not send — please use WhatsApp or the quote page.");
-      setQuick("idle");
+      setFallbackHref(mailto);
+      setQuick("fallback");
+      window.location.href = mailto;
     }
   }
 
@@ -230,6 +255,14 @@ export function StickyQuoteBar({
                 business hours with pricing for {productFullName}.
               </p>
               <a href="/request-a-quote?cart=1">Need more products? Open your quote cart →</a>
+            </div>
+          ) : quick === "fallback" ? (
+            <div className={styles.modalSuccess}>
+              <h3>Almost there — please hit send.</h3>
+              <p>
+                We opened your email client with the request pre-filled. If nothing
+                opened, email us directly at <a href={fallbackHref}>{salesEmail}</a>.
+              </p>
             </div>
           ) : (
             <form onSubmit={quickSubmit} className={styles.modalForm}>

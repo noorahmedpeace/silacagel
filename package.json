@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "indexnow": "node scripts/indexnow-ping.mjs",
     "gsc:check": "node scripts/gsc-index-check.mjs",
     "freshness:pick": "node scripts/daily-freshness.mjs pick",
@@ -35,6 +37,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.2",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }

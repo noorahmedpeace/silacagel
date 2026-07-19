@@ -63,6 +63,7 @@ export async function POST(req: Request) {
     utm: empty,
     gclid: "",
     sessionId: "",
+    source: "drybot",
     website2: "",
     // Conversational capture, not a form timer; a human worked through the
     // chat to get here, so satisfy the timing trap explicitly.

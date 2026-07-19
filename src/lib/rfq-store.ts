@@ -12,6 +12,11 @@ export type Inquiry = {
   id: string;
   createdAt: string;
   status: InquiryStatus;
+  /** Non-human timing (too fast / missing / non-finite) at submit. The lead is
+      still stored — this only lets the dashboard filter likely bots. */
+  suspectedBot?: boolean;
+  /** Surface that produced the lead (quote_form, add_to_cart, drybot, …). */
+  source?: string;
   notes: InquiryNote[];
   company: {
     companyName: string;
