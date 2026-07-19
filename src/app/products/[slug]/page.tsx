@@ -17,6 +17,7 @@ import {
   brandName,
   breadcrumbJsonLd,
   compactMetaDescription,
+  priceValidFrom,
   priceValidUntil,
   siteName,
 } from "@/lib/seo";
@@ -1050,6 +1051,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                           "@type": "Offer",
                           price: offerPricing.lowPrice,
                           priceCurrency: "USD",
+                          validFrom: priceValidFrom(),
                           priceValidUntil: priceValidUntil(),
                           availability: "https://schema.org/InStock",
                           seller: { "@id": `${absoluteUrl()}#organization` },

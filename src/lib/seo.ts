@@ -40,6 +40,14 @@ export function priceValidUntil(): string {
   return d.toISOString().slice(0, 10);
 }
 
+// Offer.validFrom for merchant-listing structured data. Start of the current
+// year: always in the past, and stable within the year so the value does not
+// churn on every render. Google flags a missing validFrom as a (non-critical)
+// merchant-listing suggestion.
+export function priceValidFrom(): string {
+  return `${new Date().getFullYear()}-01-01`;
+}
+
 export const META_TITLE_LIMIT = 60;
 export const META_DESCRIPTION_LIMIT = 158;
 
