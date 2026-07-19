@@ -9,7 +9,7 @@
 // no longer drops a lead; it only flags `suspectedBot` for review.
 import { headers } from "next/headers";
 import { classifySubmit } from "@/lib/inquiry-guard";
-import { nextInquiryId, rateLimitOk, saveInquiry, type Inquiry } from "@/lib/rfq-store";
+import { createInquiry, rateLimitOk, type Inquiry } from "@/lib/rfq-store";
 import { salesEmail } from "@/lib/product-data";
 
 export type InquiryFormInput = {
@@ -160,15 +160,12 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     );
   }
 
-  const id = await nextInquiryId();
-
   const attachments = (input.attachments ?? [])
     .slice(0, 3)
     .filter((a) => typeof a?.url === "string" && a.url.includes(".blob.vercel-storage.com"))
     .map((a) => ({ name: clean(a.name, 120), url: a.url, size: Number(a.size) || 0 }));
 
-  const inquiry: Inquiry = {
-    id,
+  const inquiry: Omit<Inquiry, "id"> = {
     createdAt: new Date().toISOString(),
     status: "new",
     // Flagged, never dropped: lets the dashboard filter fast/odd-timing leads
@@ -223,7 +220,10 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     },
   };
 
-  const stored = await saveInquiry(inquiry);
+  // Atomic create: allocates the ID and writes in one shot so two concurrent
+  // leads can never share an ID or overwrite each other. Returns the FINAL id
+  // used everywhere below (emails, conversion, dashboard).
+  const { id, stored } = await createInquiry(inquiry);
 
   const c = inquiry.company;
   const p = inquiry.product;

@@ -22,7 +22,7 @@
 //   RFQ_BCC         - optional internal archive inbox (BCC on every RFQ)
 
 import { headers } from "next/headers";
-import { nextInquiryId, saveInquiry, type Inquiry } from "@/lib/rfq-store";
+import { createInquiry, type Inquiry } from "@/lib/rfq-store";
 
 export type RfqResult = { ok: true } | { ok: false; error?: string; fallback?: boolean };
 
@@ -56,11 +56,10 @@ async function persistLead(data: RfqPayload): Promise<void> {
       /* headers() unavailable in some contexts — tracking is optional */
     }
 
-    const id = await nextInquiryId();
-    const inquiry: Inquiry = {
-      id,
+    const inquiry: Omit<Inquiry, "id"> = {
       createdAt: new Date().toISOString(),
       status: "new",
+      source: "samples",
       notes: [],
       company: {
         companyName: data.company.trim().slice(0, 300),
@@ -100,7 +99,7 @@ async function persistLead(data: RfqPayload): Promise<void> {
         sessionId: "",
       },
     };
-    await saveInquiry(inquiry);
+    await createInquiry(inquiry);
   } catch {
     /* persistence is best-effort; the email/mailto path is the guarantee */
   }

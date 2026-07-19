@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Inquiry, InquiryStatus } from "@/lib/rfq-store";
-import { addInquiryNote, setInquiryStatus } from "./actions";
+import { addInquiryNote, setInquiryFollowUp, setInquiryStatus } from "./actions";
 import styles from "./admin.module.css";
 
 const STATUSES: InquiryStatus[] = ["new", "contacted", "quotation_sent", "won", "lost"];
@@ -28,6 +28,10 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   const [to, setTo] = useState("");
   const [open, setOpen] = useState<string | null>(null);
   const [noteDraft, setNoteDraft] = useState("");
+  const [actionError, setActionError] = useState("");
+  // Follow-up highlighting uses a plain UTC YYYY-MM-DD string compare (lexical =
+  // chronological), so there is no timezone-parsing ambiguity. Computed once.
+  const [todayStr] = useState(() => new Date().toISOString().slice(0, 10));
 
   const countries = useMemo(
     () => [...new Set(rows.map((r) => r.company.country).filter(Boolean))].sort(),
@@ -49,14 +53,35 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     return true;
   });
 
+  // Every mutation is optimistic but ROLLS BACK if the server action returns
+  // false (or throws) — the store write can fail (Blob outage / lost update) and
+  // a silent "success" would let staff trust a change that never persisted.
   async function changeStatus(id: string, next: InquiryStatus) {
+    const prev = rows;
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: next } : r)));
-    await setInquiryStatus(id, next).catch(() => {});
+    setActionError("");
+    const ok = await setInquiryStatus(id, next).catch(() => false);
+    if (!ok) {
+      setRows(prev);
+      setActionError(`Could not save status for ${id} — please retry.`);
+    }
+  }
+
+  async function changeFollowUp(id: string, date: string) {
+    const prev = rows;
+    setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: date || undefined } : r)));
+    setActionError("");
+    const ok = await setInquiryFollowUp(id, date).catch(() => false);
+    if (!ok) {
+      setRows(prev);
+      setActionError(`Could not save follow-up for ${id} — please retry.`);
+    }
   }
 
   async function saveNote(id: string) {
     const text = noteDraft.trim();
     if (!text) return;
+    const prev = rows;
     setRows((rs) =>
       rs.map((r) =>
         r.id === id
@@ -65,7 +90,12 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
       ),
     );
     setNoteDraft("");
-    await addInquiryNote(id, text).catch(() => {});
+    setActionError("");
+    const ok = await addInquiryNote(id, text).catch(() => false);
+    if (!ok) {
+      setRows(prev);
+      setActionError(`Could not save note for ${id} — please retry.`);
+    }
   }
 
   function exportCsv() {
@@ -74,6 +104,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
       "Country", "City", "Product", "Quantity", "Unit", "Packaging", "Application",
       "Delivery date", "Destination country", "Destination port", "Message",
       "Attachments", "IP", "Device", "Referrer", "UTM source", "UTM campaign",
+      "Source", "Suspected bot", "Follow-up",
     ];
     const lines = filtered.map((r) =>
       [
@@ -85,6 +116,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         r.attachments.map((a) => a.url).join(" "), r.tracking.ip,
         `${r.tracking.deviceType}/${r.tracking.os}/${r.tracking.browser}`,
         r.tracking.referrer, r.tracking.utm.source, r.tracking.utm.campaign,
+        r.source ?? "", r.suspectedBot ? "yes" : "", r.followUpDate ?? "",
       ]
         .map((v) => csvEscape(String(v ?? "")))
         .join(","),
@@ -124,12 +156,16 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         <button type="button" onClick={exportCsv}>Export CSV ({filtered.length})</button>
       </div>
 
+      {actionError ? (
+        <p role="alert" style={{ color: "#b91c1c", margin: "8px 0", fontSize: 13 }}>{actionError}</p>
+      ) : null}
+
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
             <tr>
               <th>ID</th><th>Date</th><th>Company</th><th>Country</th>
-              <th>Product</th><th>Qty</th><th>Status</th><th></th>
+              <th>Product</th><th>Qty</th><th>Status</th><th>Follow-up</th><th></th>
             </tr>
           </thead>
           <tbody>
@@ -170,6 +206,28 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                     </select>
                   </td>
                   <td>
+                    <input
+                      type="date"
+                      value={r.followUpDate ?? ""}
+                      onChange={(e) => changeFollowUp(r.id, e.target.value)}
+                      aria-label={`Follow-up date for ${r.id}`}
+                      title={
+                        r.followUpDate && r.followUpDate < todayStr
+                          ? "Overdue"
+                          : r.followUpDate === todayStr
+                            ? "Due today"
+                            : undefined
+                      }
+                      style={
+                        r.followUpDate && r.followUpDate < todayStr
+                          ? { background: "#fecaca" }
+                          : r.followUpDate === todayStr
+                            ? { background: "#fde68a" }
+                            : undefined
+                      }
+                    />
+                  </td>
+                  <td>
                     <button type="button" onClick={() => setOpen(open === r.id ? null : r.id)}>
                       {open === r.id ? "Close" : "Details"}
                     </button>
@@ -177,7 +235,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                 </tr>
                 {open === r.id ? (
                   <tr key={`${r.id}-detail`}>
-                    <td colSpan={8} className={styles.detail}>
+                    <td colSpan={9} className={styles.detail}>
                       <div className={styles.detailGrid}>
                         <div>
                           <h4>Contact</h4>
@@ -238,7 +296,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
             ))}
             {!filtered.length ? (
               <tr>
-                <td colSpan={8} className={styles.empty}>No inquiries match the current filters.</td>
+                <td colSpan={9} className={styles.empty}>No inquiries match the current filters.</td>
               </tr>
             ) : null}
           </tbody>
