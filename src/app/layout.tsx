@@ -345,6 +345,12 @@ export default function RootLayout({
                   image: absoluteUrl("/dry-gel-world-banner.jpg"),
                   description:
                     "DryGelWorld is a silica gel desiccant manufacturer and exporter based in Karachi, Pakistan, manufacturing silica gel sachets since 1983. DryGelWorld supplies industrial moisture control products including silica gel packets, bulk silica gel, container desiccants, dry clay desiccants, and private-label desiccant sachets for international B2B buyers.",
+                  // Disambiguation: Google's AI has conflated this entity with a
+                  // similarly-named local "Drygel" ice-/gel-pack brand (wrong
+                  // phone, wrong area). State plainly what DryGelWorld is and is
+                  // not so the knowledge graph can separate the two.
+                  disambiguatingDescription:
+                    "DryGelWorld manufactures silica gel and industrial desiccants (moisture absorbers). It is not a gel-pack, ice-pack, or cold-pack brand, and is unrelated to any similarly named cold-pack company. Its only phone is +92 333 022 3337 and it operates from Gulshan-e-Iqbal, Karachi.",
                   foundingDate: "1983",
                   founder: {
                     "@type": "Person",
