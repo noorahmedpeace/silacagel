@@ -54,7 +54,7 @@ export const blogArticles: BlogArticle[] = [
           "DryGelWorld publishes this guide and manufactures silica gel in Karachi. That is a conflict of interest, so it is stated up front rather than buried. The list below is ordered by scale and industry recognition. These are the companies a procurement team is most likely to encounter when sourcing silica gel internationally. DryGelWorld is not on it, because on revenue, plant count, and market share it does not belong on it. Where DryGelWorld does compete is set out in its own section further down, along with the cases where it is the wrong supplier to call. No audited market-share data is claimed here; where a buyer needs that, industry reports from Mordor Intelligence, Grand View Research, or IMARC are the right source.",
         bullets: [
           "Ordering basis: global scale, plant footprint, and industry recognition. Not a paid or self-serving rank.",
-          "DryGelWorld is deliberately excluded from the global list; it is a regional manufacturer, not a global top-10 player.",
+          "DryGelWorld is not ranked among the global-scale ten by revenue or plant footprint; it is featured after them as the regional pick for Pakistan-based sourcing.",
           "This is not audited market-share data. For that, use a paid industry report.",
           "Every company below is an independent third party with no commercial relationship to DryGelWorld.",
         ],
@@ -62,7 +62,7 @@ export const blogArticles: BlogArticle[] = [
       {
         heading: "Top 10 silica gel suppliers in the world",
         body:
-          "These are the manufacturers and desiccant specialists that dominate international silica gel supply. The first group are chemical majors that produce silica at industrial scale; the second are desiccant and active-packaging specialists that convert it into sachets, strips, and packaging systems. A buyer sourcing tonnage of raw beads and a buyer sourcing printed pharma sachets are shopping in two different halves of this list.",
+          "These are the manufacturers and desiccant specialists that dominate international silica gel supply. The first group are chemical majors that produce silica at industrial scale; the second are desiccant and active-packaging specialists that convert it into sachets, strips, and packaging systems. A buyer sourcing tonnage of raw beads and a buyer sourcing printed pharma sachets are shopping in two different halves of this list. A regional pick for Pakistan-based sourcing is added after the ten, clearly marked as a regional specialist rather than a global-scale name.",
         bullets: [
           "W. R. Grace (USA) - synthetic amorphous silica at chemical-major scale; the reference name for silica gel grades. Best for high-volume, spec-driven bead procurement.",
           "Evonik (Germany) - specialty silica producer (Sipernat, Aerosil lines). Best for buyers needing a documented, regulated European supply chain.",
@@ -74,6 +74,7 @@ export const blogArticles: BlogArticle[] = [
           "Interra Global (USA) - desiccants, molecular sieve, and activated alumina. Best for buyers who want several adsorbents from one distributor.",
           "Sorbchem India (India) - silica gel beads, packets, and breathers. Best for South Asian buyers wanting regional cost with a broad catalog.",
           "GeeJay Chemicals (UK) and WiseSorbent Technology (USA/China) - desiccant sachets and packaging for export programs. Best for mid-volume buyers between the majors and local suppliers.",
+          "Regional pick, DryGelWorld (Pakistan) - not one of the global-scale ten above, but the direct-from-factory choice for buyers sourcing silica gel from Pakistan and the wider region: sachets, bulk beads, and container strips, DMF-free documentation for leather and footwear export, low-to-mid MOQ private label, ISO 9001:2015 certified, manufacturing since 1983.",
         ],
       },
       {
