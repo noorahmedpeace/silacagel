@@ -9,7 +9,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
-import { whatsappNumber } from "@/lib/product-data";
+import { createMailtoHref, salesEmail, whatsappNumber } from "@/lib/product-data";
 import styles from "./packaging-planner.module.css";
 
 const PACK_TYPES = [
@@ -47,9 +47,10 @@ export function PackagingPlanner() {
   const [message, setMessage] = useState("");
   const [files, setFiles] = useState<Attachment[]>([]);
   const [uploading, setUploading] = useState(false);
-  const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
+  const [state, setState] = useState<"idle" | "submitting" | "done" | "fallback">("idle");
   const [inquiryId, setInquiryId] = useState("");
   const [error, setError] = useState("");
+  const [fallbackHref, setFallbackHref] = useState("");
   const startedAt = useRef(Date.now());
   const website2 = useRef("");
   const formRef = useRef<HTMLDivElement>(null);
@@ -160,9 +161,22 @@ export function PackagingPlanner() {
       message: body,
       attachments: files,
       ...clientTracking(),
+      source: "packaging",
       website2: website2.current,
       formElapsedMs: Date.now() - startedAt.current,
     };
+
+    // Carry the already-uploaded file URLs into the fallback mail so a server
+    // outage does not orphan the buyer's artwork/specs (they live at public
+    // Blob URLs regardless of whether the inquiry persisted).
+    const attachmentLines = files.length
+      ? `\n\nUploaded files:\n${files.map((f) => `${f.name}: ${f.url}`).join("\n")}`
+      : "";
+    const mailto = createMailtoHref(
+      salesEmail,
+      `Contract packaging inquiry — ${company || "new"}`,
+      `${body}\n\nEmail: ${email}${attachmentLines}`,
+    );
 
     setState("submitting");
     try {
@@ -173,11 +187,20 @@ export function PackagingPlanner() {
         fireLeadConversion(result.id, "packaging_form");
         return;
       }
+      if (result.fallback) {
+        // Store and email both failed — open the mail client so the fully typed
+        // packaging brief is not lost.
+        setFallbackHref(mailto);
+        setState("fallback");
+        window.location.href = mailto;
+        return;
+      }
       setError(result.error ?? "Something went wrong. Please try again or reach us on WhatsApp.");
       setState("idle");
     } catch {
-      setError("Something went wrong. Please try again or reach us on WhatsApp.");
-      setState("idle");
+      setFallbackHref(mailto);
+      setState("fallback");
+      window.location.href = mailto;
     }
   }
 
@@ -250,6 +273,21 @@ export function PackagingPlanner() {
             >
               Prefer WhatsApp? Message us directly
             </a>
+          </div>
+        ) : state === "fallback" ? (
+          <div className={styles.success} role="status" aria-live="polite">
+            <h3>Almost there — please hit send.</h3>
+            <p>
+              We opened your email client with the full packaging brief pre-filled. If
+              nothing opened, email us at <a href={fallbackHref}>{salesEmail}</a> or{" "}
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I'd like a contract packaging quote.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                message us on WhatsApp
+              </a>.
+            </p>
           </div>
         ) : (
           <form onSubmit={onSubmit} data-clarity-mask="true">

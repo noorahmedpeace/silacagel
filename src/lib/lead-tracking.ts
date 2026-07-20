@@ -100,6 +100,11 @@ export function clientTracking(): LeadTracking {
 // until their tag is ready and each event lands exactly once. Never throws.
 export function fireLeadConversion(leadId: string, method = "rfq_form"): void {
   if (typeof window === "undefined") return;
+  // "received" is the opaque sentinel the server returns for a honeypot bot hit
+  // (no lead stored). Never report it as a conversion — it would poison GA4 /
+  // Google Ads with phantom leads and corrupt the very spend measurement this
+  // exists to provide.
+  if (!leadId || leadId === "received") return;
   const w = window as unknown as {
     __drygelTrackEvent?: (name: string, params?: Record<string, unknown>) => void;
     __drygelTrackClarity?: (name: string, reason?: string) => void;

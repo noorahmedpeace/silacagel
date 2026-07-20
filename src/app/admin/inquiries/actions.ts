@@ -37,3 +37,10 @@ export async function addInquiryNote(id: string, note: string) {
   await assertAdmin();
   return updateInquiry(id, { addNote: note });
 }
+
+// Set (YYYY-MM-DD) or clear ("") the staff follow-up date. Validation is
+// enforced again in updateInquiry so a malformed value can never reach storage.
+export async function setInquiryFollowUp(id: string, date: string) {
+  await assertAdmin();
+  return updateInquiry(id, { followUpDate: date });
+}

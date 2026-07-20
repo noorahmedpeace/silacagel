@@ -154,7 +154,7 @@ export const caseStudies: CaseStudy[] = [
     anonymizedRef: "Container cargo exporter",
     products: [
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Container vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
     ],
     nextLinks: [

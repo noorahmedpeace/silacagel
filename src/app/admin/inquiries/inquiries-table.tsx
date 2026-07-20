@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Inquiry, InquiryStatus } from "@/lib/rfq-store";
-import { addInquiryNote, setInquiryStatus } from "./actions";
+import { addInquiryNote, setInquiryFollowUp, setInquiryStatus } from "./actions";
 import styles from "./admin.module.css";
 
 const STATUSES: InquiryStatus[] = ["new", "contacted", "quotation_sent", "won", "lost"];
@@ -28,6 +28,13 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   const [to, setTo] = useState("");
   const [open, setOpen] = useState<string | null>(null);
   const [noteDraft, setNoteDraft] = useState("");
+  const [actionError, setActionError] = useState("");
+  // "Today" in the export desk's business timezone (Asia/Karachi) as YYYY-MM-DD
+  // — en-CA formats ISO-style. Plain string compare stays lexical = chronological.
+  // (A tab left open across midnight keeps the mount-day; acceptable for a hint.)
+  const [todayStr] = useState(() =>
+    new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Karachi" }),
+  );
 
   const countries = useMemo(
     () => [...new Set(rows.map((r) => r.company.country).filter(Boolean))].sort(),
@@ -49,23 +56,53 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     return true;
   });
 
+  // Every mutation is optimistic but ROLLS BACK if the server action returns
+  // false (or throws) — the store write can fail (Blob outage / stale ETag) and
+  // a silent "success" would let staff trust a change that never persisted.
+  // Rollback reverts ONLY the one row's one field, so it can't erase a different
+  // row's concurrent optimistic edit.
   async function changeStatus(id: string, next: InquiryStatus) {
+    const prevStatus = rows.find((r) => r.id === id)?.status;
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: next } : r)));
-    await setInquiryStatus(id, next).catch(() => {});
+    setActionError("");
+    const ok = await setInquiryStatus(id, next).catch(() => false);
+    if (!ok && prevStatus !== undefined) {
+      setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: prevStatus } : r)));
+      setActionError(`Could not save status for ${id} — please retry.`);
+    }
+  }
+
+  async function changeFollowUp(id: string, date: string) {
+    const prevDate = rows.find((r) => r.id === id)?.followUpDate;
+    setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: date || undefined } : r)));
+    setActionError("");
+    const ok = await setInquiryFollowUp(id, date).catch(() => false);
+    if (!ok) {
+      setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: prevDate } : r)));
+      setActionError(`Could not save follow-up for ${id} — check the date is valid, then retry.`);
+    }
   }
 
   async function saveNote(id: string) {
     const text = noteDraft.trim();
     if (!text) return;
+    const optimisticNote = { at: new Date().toISOString(), text };
     setRows((rs) =>
-      rs.map((r) =>
-        r.id === id
-          ? { ...r, notes: [...r.notes, { at: new Date().toISOString(), text }] }
-          : r,
-      ),
+      rs.map((r) => (r.id === id ? { ...r, notes: [...r.notes, optimisticNote] } : r)),
     );
     setNoteDraft("");
-    await addInquiryNote(id, text).catch(() => {});
+    setActionError("");
+    const ok = await addInquiryNote(id, text).catch(() => false);
+    if (!ok) {
+      // Remove just the optimistic note (by reference) and give the text back.
+      setRows((rs) =>
+        rs.map((r) =>
+          r.id === id ? { ...r, notes: r.notes.filter((n) => n !== optimisticNote) } : r,
+        ),
+      );
+      setNoteDraft(text);
+      setActionError(`Could not save note for ${id} — please retry.`);
+    }
   }
 
   function exportCsv() {
@@ -74,6 +111,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
       "Country", "City", "Product", "Quantity", "Unit", "Packaging", "Application",
       "Delivery date", "Destination country", "Destination port", "Message",
       "Attachments", "IP", "Device", "Referrer", "UTM source", "UTM campaign",
+      "Source", "Suspected bot", "Follow-up",
     ];
     const lines = filtered.map((r) =>
       [
@@ -85,6 +123,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         r.attachments.map((a) => a.url).join(" "), r.tracking.ip,
         `${r.tracking.deviceType}/${r.tracking.os}/${r.tracking.browser}`,
         r.tracking.referrer, r.tracking.utm.source, r.tracking.utm.campaign,
+        r.source ?? "", r.suspectedBot ? "yes" : "", r.followUpDate ?? "",
       ]
         .map((v) => csvEscape(String(v ?? "")))
         .join(","),
@@ -124,12 +163,16 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         <button type="button" onClick={exportCsv}>Export CSV ({filtered.length})</button>
       </div>
 
+      {actionError ? (
+        <p role="alert" style={{ color: "#b91c1c", margin: "8px 0", fontSize: 13 }}>{actionError}</p>
+      ) : null}
+
       <div className={styles.tableWrap}>
         <table className={styles.table}>
           <thead>
             <tr>
               <th>ID</th><th>Date</th><th>Company</th><th>Country</th>
-              <th>Product</th><th>Qty</th><th>Status</th><th></th>
+              <th>Product</th><th>Qty</th><th>Status</th><th>Follow-up</th><th></th>
             </tr>
           </thead>
           <tbody>
@@ -140,8 +183,20 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                   <td>{r.createdAt.slice(0, 10)}</td>
                   <td>
                     <strong>{r.company.companyName}</strong>
+                    {r.suspectedBot ? (
+                      <span
+                        title="Fast / odd submit timing — likely bot, review before quoting"
+                        style={{
+                          marginLeft: 6, padding: "1px 6px", borderRadius: 6, fontSize: 11,
+                          background: "#fde68a", color: "#7c2d12", whiteSpace: "nowrap",
+                        }}
+                      >
+                        ⚠ bot?
+                      </span>
+                    ) : null}
                     <br />
                     <a href={`mailto:${r.company.email}`}>{r.company.email}</a>
+                    {r.source ? <small className={styles.mono}> · via {r.source}</small> : null}
                   </td>
                   <td>{r.company.country}</td>
                   <td>{r.product.name}</td>
@@ -158,6 +213,28 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                     </select>
                   </td>
                   <td>
+                    <input
+                      type="date"
+                      value={r.followUpDate ?? ""}
+                      onChange={(e) => changeFollowUp(r.id, e.target.value)}
+                      aria-label={`Follow-up date for ${r.id}`}
+                      title={
+                        r.followUpDate && r.followUpDate < todayStr
+                          ? "Overdue"
+                          : r.followUpDate === todayStr
+                            ? "Due today"
+                            : undefined
+                      }
+                      style={
+                        r.followUpDate && r.followUpDate < todayStr
+                          ? { background: "#fecaca" }
+                          : r.followUpDate === todayStr
+                            ? { background: "#fde68a" }
+                            : undefined
+                      }
+                    />
+                  </td>
+                  <td>
                     <button type="button" onClick={() => setOpen(open === r.id ? null : r.id)}>
                       {open === r.id ? "Close" : "Details"}
                     </button>
@@ -165,7 +242,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                 </tr>
                 {open === r.id ? (
                   <tr key={`${r.id}-detail`}>
-                    <td colSpan={8} className={styles.detail}>
+                    <td colSpan={9} className={styles.detail}>
                       <div className={styles.detailGrid}>
                         <div>
                           <h4>Contact</h4>
@@ -226,7 +303,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
             ))}
             {!filtered.length ? (
               <tr>
-                <td colSpan={8} className={styles.empty}>No inquiries match the current filters.</td>
+                <td colSpan={9} className={styles.empty}>No inquiries match the current filters.</td>
               </tr>
             ) : null}
           </tbody>

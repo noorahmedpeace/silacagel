@@ -153,6 +153,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
       utm: ft.utm,
       gclid: ft.gclid,
       sessionId: sessionId(),
+      source: "rfq_form",
       website2: v("website2"),
       formElapsedMs: Date.now() - startedAt.current,
     };
