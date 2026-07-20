@@ -3,25 +3,25 @@
 // Header cart indicator: shows the quote-cart count on every page and links
 // to the RFQ page. Hidden entirely while the cart is empty.
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { getCart, CART_EVENT } from "@/lib/quote-cart";
 import styles from "./cart-badge.module.css";
 
-export function CartBadge() {
-  const [count, setCount] = useState(0);
+function subscribe(cb: () => void) {
+  window.addEventListener(CART_EVENT, cb);
+  window.addEventListener("storage", cb);
+  return () => {
+    window.removeEventListener(CART_EVENT, cb);
+    window.removeEventListener("storage", cb);
+  };
+}
 
-  useEffect(() => {
-    setCount(getCart().length);
-    const onChange = (e: Event) =>
-      setCount((e as CustomEvent<number>).detail ?? getCart().length);
-    const onStorage = () => setCount(getCart().length);
-    window.addEventListener(CART_EVENT, onChange);
-    window.addEventListener("storage", onStorage);
-    return () => {
-      window.removeEventListener(CART_EVENT, onChange);
-      window.removeEventListener("storage", onStorage);
-    };
-  }, []);
+export function CartBadge() {
+  // useSyncExternalStore is the SSR-safe, lint-clean way to read an external
+  // (localStorage) store: the server snapshot (0) avoids a hydration mismatch,
+  // the client snapshot reads the cart, and it re-renders on CART_EVENT /
+  // storage — no setState-inside-an-effect.
+  const count = useSyncExternalStore(subscribe, () => getCart().length, () => 0);
 
   // Always render (reserve the slot) so adding items only lights up the count
   // bubble — it never appears from nothing and shifts the header layout.

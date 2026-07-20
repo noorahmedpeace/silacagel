@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 
 import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
@@ -11,6 +12,13 @@ import styles from "./sticky-quote-bar.module.css";
 const DISMISS_KEY = "dgw-quote-bar-dismissed";
 /** Page-scroll fraction after which the bar appears. */
 const SHOW_AFTER = 0.22;
+
+// Subscribe the cart count to CART_EVENT via useSyncExternalStore (SSR-safe,
+// lint-clean) instead of a setState-inside-an-effect.
+function subscribeCart(cb: () => void) {
+  window.addEventListener(CART_EVENT, cb);
+  return () => window.removeEventListener(CART_EVENT, cb);
+}
 
 /*
  * Sticky "Request Quote" pill - bottom-CENTER, sitting between the two
@@ -35,13 +43,15 @@ export function StickyQuoteBar({
 }) {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(true); // SSR-safe: start hidden
-  const [count, setCount] = useState(0);
+  const count = useSyncExternalStore(subscribeCart, () => getCart().length, () => 0);
   const [justAdded, setJustAdded] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [quick, setQuick] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const [quickError, setQuickError] = useState("");
   const [fallbackHref, setFallbackHref] = useState("");
-  const openedAt = useRef(Date.now());
+  // Stamped when the modal opens (Date.now() in render is impure; the timer
+  // should measure how long the form was actually open).
+  const openedAt = useRef(0);
   const formInView = useRef(false);
   const cartMode = Boolean(productFullName && productSlug);
 
@@ -127,13 +137,6 @@ export function StickyQuoteBar({
   }
 
   useEffect(() => {
-    setCount(getCart().length);
-    const onChange = (e: Event) => setCount((e as CustomEvent<number>).detail ?? getCart().length);
-    window.addEventListener(CART_EVENT, onChange);
-    return () => window.removeEventListener(CART_EVENT, onChange);
-  }, []);
-
-  useEffect(() => {
     if (window.sessionStorage.getItem(DISMISS_KEY)) return;
     const revealFrame = window.requestAnimationFrame(() => setDismissed(false));
 
@@ -183,19 +186,22 @@ export function StickyQuoteBar({
     >
       {cartMode ? (
         justAdded || count > 0 ? (
-          <a href="/request-a-quote?cart=1" className={styles.cta} tabIndex={visible ? 0 : -1}>
+          <Link href="/request-a-quote?cart=1" className={styles.cta} tabIndex={visible ? 0 : -1}>
             <span className={styles.ctaLabel}>
               {justAdded ? "✓ Added" : "Quote list"} · Get Quote ({count})
             </span>
             <span className={styles.ctaArrow} aria-hidden="true">→</span>
-          </a>
+          </Link>
         ) : (
           <button
             type="button"
             className={styles.cta}
             tabIndex={visible ? 0 : -1}
             data-promo-quiet
-            onClick={() => setShowModal(true)}
+            onClick={() => {
+              openedAt.current = Date.now();
+              setShowModal(true);
+            }}
           >
             <span className={styles.ctaLabel}>
               Add to Quote
@@ -254,7 +260,7 @@ export function StickyQuoteBar({
                 Our export team has your details and will contact you within 24
                 business hours with pricing for {productFullName}.
               </p>
-              <a href="/request-a-quote?cart=1">Need more products? Open your quote cart →</a>
+              <Link href="/request-a-quote?cart=1">Need more products? Open your quote cart →</Link>
             </div>
           ) : quick === "fallback" ? (
             <div className={styles.modalSuccess}>

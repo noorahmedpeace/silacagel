@@ -5,6 +5,7 @@
 // (dashboard + sales email + customer confirmation) and drops the product
 // into the quote cart. Used on catalog cards, product heroes, and anywhere
 // else a product can be added.
+import Link from "next/link";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { addToCart } from "@/lib/quote-cart";
@@ -28,7 +29,9 @@ export function AddToCartButton({
   const [quick, setQuick] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const [quickError, setQuickError] = useState("");
   const [fallbackHref, setFallbackHref] = useState("");
-  const openedAt = useRef(Date.now());
+  // Stamped when the modal opens (not at render — Date.now() in render is impure
+  // and the timer should measure how long the form was actually open).
+  const openedAt = useRef(0);
 
   async function quickSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -119,7 +122,10 @@ export function AddToCartButton({
         type="button"
         className={className}
         data-promo-quiet
-        onClick={() => setShowModal(true)}
+        onClick={() => {
+          openedAt.current = Date.now();
+          setShowModal(true);
+        }}
       >
         {label}
       </button>
@@ -154,7 +160,7 @@ export function AddToCartButton({
                   Our export team has your details and will contact you within 24
                   business hours with pricing for {productFullName}.
                 </p>
-                <a href="/request-a-quote?cart=1">Need more products? Open your quote cart →</a>
+                <Link href="/request-a-quote?cart=1">Need more products? Open your quote cart →</Link>
               </div>
             ) : quick === "fallback" ? (
               <div className={styles.modalSuccess}>

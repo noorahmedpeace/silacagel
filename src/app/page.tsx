@@ -34,8 +34,6 @@ import {
   ShieldCheck,
   PackageCheck,
   Truck,
-  Cpu,
-  Warehouse,
 } from "lucide-react";
 import {
   priceGroups,

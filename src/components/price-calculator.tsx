@@ -7,7 +7,6 @@ import { AddToCartButton } from "@/components/add-to-cart-button";
 import {
   FLASH10_CODE,
   FLASH10_RATE,
-  formatFlash10Remaining,
   getFlash10Remaining,
 } from "@/lib/flash10";
 import styles from "./price-calculator.module.css";
