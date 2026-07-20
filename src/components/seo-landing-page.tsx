@@ -26,7 +26,9 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           <p className={styles.lead}>{page.lead}</p>
           <p className={styles.intent}>{page.searchIntent}</p>
           <div className={styles.actions}>
-            <Link className={styles.primaryCta} href="/contact">
+            {/* Paid traffic lands here and bounces if the CTA sends it off-page.
+                When this page carries its own quote form, keep the buyer on it. */}
+            <Link className={styles.primaryCta} href={page.quoteChecklist ? "#quote-form" : "/contact"}>
               {page.primaryCta}
             </Link>
             <Link className={styles.secondaryCta} href={page.secondaryHref}>
