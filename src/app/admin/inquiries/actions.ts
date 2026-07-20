@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
+import { deleteInquiry, updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
 
 export async function authenticateAdmin(formData: FormData) {
   const key = String(formData.get("key") ?? "");
@@ -43,4 +43,10 @@ export async function addInquiryNote(id: string, note: string) {
 export async function setInquiryFollowUp(id: string, date: string) {
   await assertAdmin();
   return updateInquiry(id, { followUpDate: date });
+}
+
+// Permanently remove an inquiry (junk / test / bot). Admin-guarded + irreversible.
+export async function removeInquiry(id: string) {
+  await assertAdmin();
+  return deleteInquiry(id);
 }

@@ -1,7 +1,7 @@
 // Blob-backed persistence for RFQ inquiries. Every function degrades
 // gracefully when BLOB_READ_WRITE_TOKEN is absent (local dev/build) so the
 // form still works via the email/mailto path and nothing crashes.
-import { BlobPreconditionFailedError, list, put } from "@vercel/blob";
+import { BlobPreconditionFailedError, del, list, put } from "@vercel/blob";
 import { createHash, randomInt } from "node:crypto";
 
 // A single put() lets the SDK retry ~10x with exponential backoff, which can
@@ -253,6 +253,19 @@ export async function updateInquiry(
     }
   }
   return false;
+}
+
+// Permanently delete an inquiry (for junk / test / bot leads). Irreversible —
+// the Blob object is removed. Validates the ID shape so a malformed value can't
+// target an arbitrary path.
+export async function deleteInquiry(id: string): Promise<boolean> {
+  if (!hasBlob() || !/^DGW-\d{4}-\d{6}$/.test(id)) return false;
+  try {
+    await del(`${prefix()}/${id}.json`, { abortSignal: AbortSignal.timeout(WRITE_TIMEOUT_MS) });
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 // Simple blob-based rate limiter: max `limit` hits per ip-hash per hour.

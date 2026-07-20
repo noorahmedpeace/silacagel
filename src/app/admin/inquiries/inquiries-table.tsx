@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Inquiry, InquiryStatus } from "@/lib/rfq-store";
-import { addInquiryNote, setInquiryFollowUp, setInquiryStatus } from "./actions";
+import { addInquiryNote, removeInquiry, setInquiryFollowUp, setInquiryStatus } from "./actions";
 import styles from "./admin.module.css";
 
 const STATUSES: InquiryStatus[] = ["new", "contacted", "quotation_sent", "won", "lost"];
@@ -80,6 +80,23 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     if (!ok) {
       setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: prevDate } : r)));
       setActionError(`Could not save follow-up for ${id} — check the date is valid, then retry.`);
+    }
+  }
+
+  // Permanent delete (junk / test / bot). Confirm first; optimistic remove with
+  // a surgical re-insert (re-sorted by date) if the server delete fails.
+  async function removeRow(id: string) {
+    if (!window.confirm(`Delete inquiry ${id}? This permanently removes it and cannot be undone.`)) {
+      return;
+    }
+    const removed = rows.find((r) => r.id === id);
+    setRows((rs) => rs.filter((r) => r.id !== id));
+    if (open === id) setOpen(null);
+    setActionError("");
+    const ok = await removeInquiry(id).catch(() => false);
+    if (!ok && removed) {
+      setRows((rs) => [removed, ...rs].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)));
+      setActionError(`Could not delete ${id} — please retry.`);
     }
   }
 
@@ -295,6 +312,21 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                             <button type="button" onClick={() => saveNote(r.id)}>Add</button>
                           </div>
                         </div>
+                      </div>
+                      <div style={{ marginTop: 12, borderTop: "1px solid #eee", paddingTop: 10 }}>
+                        <button
+                          type="button"
+                          onClick={() => removeRow(r.id)}
+                          style={{
+                            color: "#b91c1c", background: "#fff", border: "1px solid #fecaca",
+                            borderRadius: 6, padding: "4px 12px", fontSize: 13, cursor: "pointer",
+                          }}
+                        >
+                          🗑 Delete inquiry
+                        </button>
+                        <span style={{ marginLeft: 8, fontSize: 12, color: "#6b7280" }}>
+                          Permanent — for test / bot / junk leads only.
+                        </span>
                       </div>
                     </td>
                   </tr>
