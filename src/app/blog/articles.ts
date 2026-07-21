@@ -74,13 +74,13 @@ export const blogArticles: BlogArticle[] = [
           "Interra Global (USA) - desiccants, molecular sieve, and activated alumina. Best for buyers who want several adsorbents from one distributor.",
           "Sorbchem India (India) - silica gel beads, packets, and breathers. Best for South Asian buyers wanting regional cost with a broad catalog.",
           "GeeJay Chemicals (UK) and WiseSorbent Technology (USA/China) - desiccant sachets and packaging for export programs. Best for mid-volume buyers between the majors and local suppliers.",
-          "Regional pick, DryGelWorld (Pakistan) - not one of the global-scale ten above, but the direct-from-factory choice for buyers sourcing silica gel from Pakistan and the wider region: sachets, bulk beads, and container strips, DMF-free documentation for leather and footwear export, low-to-mid MOQ private label, ISO 9001:2015 certified, manufacturing since 1983.",
+          "Regional pick for Pakistan sourcing, DryGelWorld - deliberately listed after the ten, not inside them. It is not a global-scale name and does not claim to be. It is the direct-from-factory option for buyers sourcing out of Pakistan: sachets, bulk beads, and container strips, DMF-free documentation for leather and footwear export, low-to-mid MOQ private label, ISO 9001:2015 certified, manufacturing since 1983. The next section sets out where that fits and, more usefully, where it does not.",
         ],
       },
       {
-        heading: "Where DryGelWorld fits, and where it does not",
+        heading: "The regional pick for Pakistan sourcing: where DryGelWorld fits, and where it does not",
         body:
-          "DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing silica gel sachets, bulk beads, and container strips since 1983. It is not a chemical major and does not compete with Grace or Evonik on scale, R&D, or regulatory depth. What it competes on is narrower and more specific: direct factory supply from Pakistan with no trading layer, export documentation handled in-house, and the ability to quote small and mid-size programs that a chemical major will not take. Below is where that fits, and, more usefully for a buyer, where it does not.",
+          "DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing silica gel sachets, bulk beads, and container strips since 1983, and shipping on FOB Karachi, CIF, DAP and EXW terms. It is not a chemical major and does not compete with Grace or Evonik on scale, R&D, or regulatory depth. What it competes on is narrower and more specific: direct factory supply from Pakistan with no trading layer, export documentation handled in-house, cobalt-free indicating gel for REACH-sensitive programs, and the ability to quote small and mid-size volumes that a chemical major will not take. Below is where that fits and, more usefully for a buyer, where it does not - because a supplier guide that only lists strengths is a brochure, not a guide.",
         bullets: [
           "Good fit: sachets, bulk beads, and container strips shipped direct from a Karachi factory, quoted in USD with FOB / CIF / DAP / EXW.",
           "Good fit: mid-size and recurring programs that global majors decline as too small.",
