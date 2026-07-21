@@ -12,7 +12,6 @@ import {
 } from "@/lib/product-data";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
-import { FLASH10_CODE, getFlash10Remaining } from "@/lib/flash10";
 import styles from "./quote-form.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -132,8 +131,6 @@ export function QuoteForm({
     if (!EMAIL_RE.test(state.email.trim())) return setError("Please enter a valid business email.");
 
     const route = getContactEmailChannel(state.department);
-    const promoRemaining = getFlash10Remaining();
-    const promoActive = promoRemaining > 0;
 
     const rfqMessage = [
       "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
@@ -153,12 +150,6 @@ export function QuoteForm({
       `Target Price / Current Supplier Benchmark: ${state.targetPrice || "Not provided"}`,
       `Sample Requirement: ${state.sampleNeed}`,
       `Additional Notes: ${state.message || "Not provided"}`,
-      ...(promoActive
-        ? [
-            `Promotion: ${FLASH10_CODE}`,
-            "Discount: 10% (first-order trial pricing)",
-          ]
-        : []),
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 

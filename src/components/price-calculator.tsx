@@ -1,14 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, Clock3, Tag } from "lucide-react";
 import { priceOptions, whatsappNumber } from "@/lib/product-data";
 import { AddToCartButton } from "@/components/add-to-cart-button";
-import {
-  FLASH10_CODE,
-  FLASH10_RATE,
-  getFlash10Remaining,
-} from "@/lib/flash10";
 import styles from "./price-calculator.module.css";
 
 const numberFormatter = new Intl.NumberFormat("en-US", {
@@ -68,22 +62,6 @@ export function PriceCalculator() {
   const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
   const [quantity, setQuantity] = useState("1000");
   const [currencyCode, setCurrencyCode] = useState<CurrencyCode>("USD");
-  const [promoRemaining, setPromoRemaining] = useState(0);
-
-  useEffect(() => {
-    const syncPromo = () => setPromoRemaining(getFlash10Remaining());
-    const initialFrame = window.requestAnimationFrame(syncPromo);
-    const timer = window.setInterval(syncPromo, 1000);
-    window.addEventListener("drygel:promo-activated", syncPromo);
-    window.addEventListener("storage", syncPromo);
-
-    return () => {
-      window.cancelAnimationFrame(initialFrame);
-      window.clearInterval(timer);
-      window.removeEventListener("drygel:promo-activated", syncPromo);
-      window.removeEventListener("storage", syncPromo);
-    };
-  }, []);
 
   const selectedOption =
     priceOptions.find((option) => option.key === selectedKey) ?? priceOptions[0];
@@ -104,9 +82,6 @@ export function PriceCalculator() {
       : selectedOption.exportUsd * (selectedCurrency.rateFromPkr / usdRateFromPkr)
     : 0;
   const referenceTotal = unitInSelectedCurrency * quantityValue;
-  const promoActive = promoRemaining > 0;
-  const discountAmount = promoActive ? referenceTotal * FLASH10_RATE : 0;
-  const discountedTotal = referenceTotal - discountAmount;
   const hasBulkSignal = totalKilograms >= 25 || quantityValue >= 50000;
   const currencyFormatter = useMemo(
     () =>
@@ -138,31 +113,13 @@ export function PriceCalculator() {
       return;
     }
 
-    const activeRemaining = getFlash10Remaining();
-    const activeDiscount = activeRemaining > 0;
-    const activeSavings = activeDiscount ? referenceTotal * FLASH10_RATE : 0;
-    const activeTotal = referenceTotal - activeSavings;
-    const promoWindow = window as typeof window & { __drygelPromoJustTriggered?: boolean };
-    const justUnlocked = promoWindow.__drygelPromoJustTriggered === true;
-
-    if (justUnlocked) {
-      setPromoRemaining(activeRemaining);
-      return;
-    }
-
     const message = [
       "Hello, I'm requesting an industrial Dry Gel World procurement quote.",
       `Technical Spec: ${selectedOption.label}`,
       `Industrial Category: ${selectedOption.groupTitle}`,
       `Quantity Requirement: ${numberFormatter.format(quantityValue)} units`,
       `Verified Net Weight: ${weightFormatter.format(totalGrams)}g (${weightFormatter.format(totalKilograms)}kg)`,
-      `Regular Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(referenceTotal)} ${selectedCurrency.code}`,
-      ...(activeDiscount
-        ? [
-            `${FLASH10_CODE} Savings (10%): -${selectedCurrency.symbol}${currencyFormatter.format(activeSavings)} ${selectedCurrency.code}`,
-            `Discounted Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(activeTotal)} ${selectedCurrency.code}`,
-          ]
-        : []),
+      `Reference Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(referenceTotal)} ${selectedCurrency.code}`,
       "Please advise export quote, MOQ, lead time, documentation, and suitable shipping terms.",
     ].join("\n");
 
@@ -243,54 +200,14 @@ export function PriceCalculator() {
           <AnimatedCounter value={totalKilograms} formatter={weightFormatter} suffix=" kg" />
         </article>
         <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
-          <span>{promoActive ? "Discounted Estimate" : "Reference Estimate"}</span>
-          {promoActive ? (
-            <span className={styles.regularPrice}>
-              {selectedCurrency.symbol}{currencyFormatter.format(referenceTotal)}
-            </span>
-          ) : null}
+          <span>Reference Estimate</span>
           <AnimatedCounter
-            value={promoActive ? discountedTotal : referenceTotal}
+            value={referenceTotal}
             formatter={currencyFormatter}
             prefix={selectedCurrency.symbol}
           />
         </article>
       </div>
-
-      {promoActive ? (
-        <section className={styles.discountBreakdown} aria-label="FLASH10 discount applied">
-          <div className={styles.discountHead}>
-            <span className={styles.discountIcon}><Tag size={18} /></span>
-            <div>
-              <strong><Check size={15} /> 10% Discount Applied</strong>
-              <span>Promo code {FLASH10_CODE}</span>
-            </div>
-          </div>
-          <dl className={styles.discountRows}>
-            <div>
-              <dt>Regular estimate</dt>
-              <dd>{selectedCurrency.symbol}{currencyFormatter.format(referenceTotal)}</dd>
-            </div>
-            <div className={styles.savingsRow}>
-              <dt>{FLASH10_CODE} savings</dt>
-              <dd>-{selectedCurrency.symbol}{currencyFormatter.format(discountAmount)}</dd>
-            </div>
-            <div className={styles.discountTotal}>
-              <dt>Discounted estimate</dt>
-              <dd>
-                <AnimatedCounter
-                  value={discountedTotal}
-                  formatter={currencyFormatter}
-                  prefix={selectedCurrency.symbol}
-                />
-              </dd>
-            </div>
-          </dl>
-          <p className={styles.discountExpiry}>
-            <Clock3 size={15} /> Trial-order pricing available — ask for a first-order quote
-          </p>
-        </section>
-      ) : null}
 
       <div className={styles.meta}>
         <p>
@@ -316,7 +233,7 @@ export function PriceCalculator() {
         onClick={handleWhatsAppQuote}
         type="button"
       >
-        {promoActive ? "Send Estimate on WhatsApp" : "Send Estimate on WhatsApp"}
+        Send Estimate on WhatsApp
       </button>
 
       <AddToCartButton
