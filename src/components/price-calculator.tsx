@@ -184,12 +184,24 @@ export function PriceCalculator() {
 
       <div className={styles.summaryGrid}>
         <article className={styles.summaryCard}>
-          <span>Reference Unit</span>
-          <AnimatedCounter
-            value={unitInSelectedCurrency}
-            formatter={unitFormatter}
-            prefix={selectedCurrency.symbol}
-          />
+          {/* Sub-cent per-piece prices (a 1gm sachet is ~$0.0045) read as a toy
+              business to a bulk buyer, who thinks in price-per-thousand anyway.
+              Show "/ 1,000 pcs" below one cent, plain per-piece above it. */}
+          <span>{unitInSelectedCurrency > 0 && unitInSelectedCurrency < 0.05 ? "Reference (per 1,000 pcs)" : "Reference Unit"}</span>
+          {unitInSelectedCurrency > 0 && unitInSelectedCurrency < 0.05 ? (
+            <AnimatedCounter
+              value={unitInSelectedCurrency * 1000}
+              formatter={currencyFormatter}
+              prefix={selectedCurrency.symbol}
+              suffix=" / 1,000"
+            />
+          ) : (
+            <AnimatedCounter
+              value={unitInSelectedCurrency}
+              formatter={unitFormatter}
+              prefix={selectedCurrency.symbol}
+            />
+          )}
         </article>
         <article className={styles.summaryCard}>
           <span>Net Weight (g)</span>

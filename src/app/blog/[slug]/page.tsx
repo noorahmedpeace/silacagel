@@ -12,6 +12,7 @@ import {
 } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getBlogCluster } from "@/lib/blog-clusters";
+import { whatsappNumber } from "@/lib/product-data";
 import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
@@ -121,6 +122,28 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <figcaption>{heroImage.caption}</figcaption>
         </figure>
 
+        {/* Early conversion path. Clarity shows average scroll depth of ~32%,
+            so two-thirds of readers never reach the end-of-article CTA. This
+            compact card puts a tracked quote path (RfqForm fires generate_lead)
+            and WhatsApp above the fold of the body, where readers actually are. */}
+        <aside className={styles.inlineQuote} aria-label="Get a quote">
+          <div>
+            <strong>Need this for a real order?</strong>
+            <span>Tell us the format, quantity, and destination — export quote in 24 business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
+          </div>
+          <div className={styles.inlineQuoteActions}>
+            <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
+            <a
+              className={styles.inlineQuoteWa}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I'd like a quote for silica gel / desiccants.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </aside>
+
         <section className={styles.articleBody}>
           {article.sections.map((section) => (
             <div className={styles.articleBlock} key={section.heading}>
@@ -167,7 +190,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               </div>
             ))}
           </div>
-          <Link className={styles.cta} href="/contact">
+          <Link className={styles.cta} href="/request-a-quote">
             Request export quote
           </Link>
         </section>

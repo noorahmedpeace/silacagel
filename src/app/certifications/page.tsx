@@ -7,6 +7,7 @@ import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "../strategy-pages.module.css";
 import { FaqBlock } from "@/components/faq-block";
+import { CobaltFreeBand } from "@/components/cobalt-free-band";
 
 const certFaqs = [
   {
@@ -464,6 +465,8 @@ export default function CertificationsPage() {
           </a>
         </div>
       </section>
+
+      <CobaltFreeBand />
 
       <FaqBlock title="Certification & compliance FAQs" faqs={certFaqs} />
 

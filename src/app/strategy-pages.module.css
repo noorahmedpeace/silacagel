@@ -420,6 +420,38 @@
 
 .cta:active { transform: translateY(0) scale(0.98); }
 
+/* Early inline quote card, injected between a blog hero and its body so the
+   conversion path is seen at ~32% scroll depth, not only at the end. */
+.inlineQuote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px 24px;
+  margin: 22px 0 4px;
+  padding: 18px 22px;
+  border: 1px solid var(--ds-hairline, rgba(11, 20, 36, 0.12));
+  border-left: 4px solid var(--ds-accent, #f0601e);
+  border-radius: 14px;
+  background: var(--surface-elevated, #f4f7fb);
+}
+.inlineQuote strong { display: block; font-size: 16px; color: var(--ds-text, #132542); }
+.inlineQuote span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--ds-text-muted, #5b6b82); max-width: 62ch; }
+.inlineQuoteActions { display: inline-flex; gap: 10px; align-items: center; flex-shrink: 0; }
+.inlineQuoteActions .cta { margin-top: 0; padding: 12px 20px; font-size: 14px; }
+.inlineQuoteWa {
+  display: inline-flex; align-items: center; padding: 12px 18px; border-radius: var(--ds-radius-pill, 999px);
+  background: #25d366; color: #05270f; font-size: 14px; font-weight: 700; text-decoration: none;
+  transition: transform 0.16s ease, background 0.16s ease;
+}
+.inlineQuoteWa:hover { transform: translateY(-2px); background: #20c15c; }
+
+@media (max-width: 640px) {
+  .inlineQuote { flex-direction: column; align-items: stretch; }
+  .inlineQuoteActions { width: 100%; }
+  .inlineQuoteActions .cta, .inlineQuoteWa { flex: 1; justify-content: center; }
+}
+
 /* ─────────────────────── BLOG RELATED-CONTENT CLUSTER ─────────────────────── */
 
 .relatedGrid {
