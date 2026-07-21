@@ -9,15 +9,14 @@ import { useEffect, useState } from "react";
 // interactive - dropping their cost out of the LCP/TBT window.
 //
 // Safe to defer:
-//  - GlobalDiscountCampaign: a body-wide MutationObserver + 1s interval + global
-//    capture click/submit listeners. It only reacts to high-intent clicks, which
-//    never occur in the first idle window, so a short delay is invisible to users.
 //  - ClarityBridge: analytics event bridge (queues into __drygelClarityQueue), so
 //    nothing is lost by mounting it a beat later.
-const GlobalDiscountCampaign = dynamic(
-  () => import("./global-discount-campaign").then((m) => m.GlobalDiscountCampaign),
-  { ssr: false },
-);
+//
+// The FLASH10 GlobalDiscountCampaign used to mount here. It is gone: its global
+// capture-phase click listener called preventDefault() on every internal link
+// and only resumed navigation from closeModal(), so once the promo was switched
+// off the modal never opened and every in-site link click died silently. Real
+// buyers tapped "Request a Quote" repeatedly and left.
 const ClarityBridge = dynamic(
   () => import("./clarity-bridge").then((m) => m.ClarityBridge),
   { ssr: false },
@@ -64,7 +63,6 @@ export function DeferredChrome() {
 
   return (
     <>
-      <GlobalDiscountCampaign />
       <ClarityBridge />
       <DryBot />
     </>

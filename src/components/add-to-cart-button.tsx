@@ -121,7 +121,7 @@ export function AddToCartButton({
       <button
         type="button"
         className={className}
-        data-promo-quiet
+
         onClick={() => {
           openedAt.current = Date.now();
           setShowModal(true);

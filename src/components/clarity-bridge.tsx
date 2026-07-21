@@ -47,11 +47,9 @@ export function ClarityBridge() {
   }, [pathname]);
 
   useEffect(() => {
-    const promoActivated = () => {
-      clarityCall("set", "flash10_status", "active");
-      clarityCall("event", "flash10_unlocked");
-      clarityCall("upgrade", "FLASH10 purchase intent");
-    };
+    // The FLASH10 promo listener lived here. Its emitter (GlobalDiscountCampaign)
+    // was removed for swallowing internal link clicks, so "drygel:promo-activated"
+    // can no longer fire.
     const formSubmitted = (event: SubmitEvent) => {
       const form = event.target;
       if (!(form instanceof HTMLFormElement)) return;
@@ -72,10 +70,8 @@ export function ClarityBridge() {
       clarityCall("upgrade", "RFQ form submission");
     };
 
-    window.addEventListener("drygel:promo-activated", promoActivated);
     document.addEventListener("submit", formSubmitted, true);
     return () => {
-      window.removeEventListener("drygel:promo-activated", promoActivated);
       document.removeEventListener("submit", formSubmitted, true);
     };
   }, []);

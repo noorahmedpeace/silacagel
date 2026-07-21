@@ -197,7 +197,7 @@ export function StickyQuoteBar({
             type="button"
             className={styles.cta}
             tabIndex={visible ? 0 : -1}
-            data-promo-quiet
+
             onClick={() => {
               openedAt.current = Date.now();
               setShowModal(true);
