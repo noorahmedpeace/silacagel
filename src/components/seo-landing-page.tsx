@@ -6,6 +6,7 @@ import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { getLandingSpec } from "@/lib/product-spec";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
+import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
 
@@ -16,6 +17,14 @@ type SeoLandingPageProps = {
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
   const landingSpec = getLandingSpec(page.slug);
+  const isLocalBuyerPage = new Set([
+    "silica-gel-packets",
+    "silica-gel-manufacturer-pakistan",
+    "silica-gel-supplier-karachi",
+  ]).has(page.slug);
+  const localWhatsAppHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello, I need a PKR quote for ${page.h1}`,
+  )}`;
 
   return (
     <main className={styles.page}>
@@ -34,6 +43,21 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             <Link className={styles.secondaryCta} href={page.secondaryHref}>
               {page.secondaryCta}
             </Link>
+            {isLocalBuyerPage ? (
+              <>
+                <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
+                  Call {displayPhone}
+                </a>
+                <a
+                  className={styles.secondaryCta}
+                  href={localWhatsAppHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp PKR Quote
+                </a>
+              </>
+            ) : null}
           </div>
         </div>
 

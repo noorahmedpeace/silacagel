@@ -11,6 +11,10 @@ export type BlogCluster = {
   products: ClusterLink[];
   compare?: ClusterLink;
   industry?: ClusterLink;
+  // Commercial "supplier" landing page for the blog's topic. Renders in the
+  // buyer-decision column so informational articles hand the reader a
+  // converting page (RFQ/quote) without changing the article body.
+  commercial?: ClusterLink;
 };
 
 const PRODUCT_RETAIL: ClusterLink = { label: "Retail silica gel sachets", href: "/products/retail-sachets" };
@@ -31,6 +35,11 @@ const IND_LEATHER: ClusterLink = { label: "Leather and footwear export", href: "
 const IND_FOOD: ClusterLink = { label: "Food packaging", href: "/industries/food-packaging" };
 const IND_TEXTILE: ClusterLink = { label: "Textile and garment export", href: "/industries/textile-garment-export" };
 const IND_SHIPPING: ClusterLink = { label: "Container shipping", href: "/industries/container-shipping" };
+
+// Commercial supplier landing pages (converting RFQ pages), linked from the
+// topically-matched informational blogs that previously had no path to them.
+const COMMERCIAL_CONTAINER: ClusterLink = { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" };
+const COMMERCIAL_CLAY: ClusterLink = { label: "Activated clay desiccant supplier", href: "/clay-desiccant-supplier" };
 
 const guide = (slug: string, label: string): ClusterLink => ({ label, href: `/blog/${slug}` });
 
@@ -53,6 +62,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
+    commercial: COMMERCIAL_CLAY,
   },
   "calcium-chloride-vs-silica-gel-desiccant": {
     guides: [
@@ -63,6 +73,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     compare: COMPARE_CLAY,
     industry: IND_SHIPPING,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "container-rain-prevention": {
     guides: [
@@ -72,6 +83,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     industry: IND_SHIPPING,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "desiccant-for-electronics-packaging": {
     guides: [
@@ -152,6 +164,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     industry: IND_SHIPPING,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "ppe-products-for-factories": {
     guides: [
@@ -174,6 +187,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("container-rain-prevention", "Container rain prevention"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "industrial-packaging-protection-solutions": {
     guides: [
@@ -189,6 +203,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "reusable-vs-disposable-desiccants": {
     guides: [
@@ -210,6 +225,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_PAPER],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "silica-gel-for-pharma-packaging-buyer-guide": {
     guides: [

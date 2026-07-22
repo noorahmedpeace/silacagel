@@ -3041,13 +3041,13 @@ export const seoLandingPages = {
   ...highIntentSeoLandingPages,
   "silica-gel-packets": {
     slug: "silica-gel-packets",
-    title: "Silica Gel Packets Supplier | Bulk Desiccant Sachets",
+    title: "Silica Gel Packets in Pakistan | Price & Bulk Supplier",
     metaDescription:
-      "Silica gel packets and desiccant sachets factory-direct, 0.5g to 100g, for electronics, pharma, leather, and food packaging. PKR quotes for buyers in Pakistan, plus private label, SDS, COA, and RFQ support for export.",
+      "Buy silica gel packets in Pakistan from a Karachi manufacturer. 0.5g to 100g sizes, PKR pricing, bulk supply, WhatsApp quotes, SDS, COA, and export support.",
     kicker: "Silica gel packets",
-    h1: "Silica gel packets for cartons, packaging, and bulk supply.",
+    h1: "Buy silica gel packets in Pakistan, factory-direct.",
     lead:
-      "Source silica gel packets by gram size, sachet material, carton quantity, documentation needs, and destination market. Built for buyers who need clean RFQ inputs before price negotiation.",
+      "Choose the packet size and quantity you need, then request a quick PKR price by phone or WhatsApp. Karachi pickup, Pakistan-wide supply, and export documentation are available.",
     searchIntent:
       "For packaging buyers selecting packet size, sachet material, monthly quantity, documents, private label, and destination terms.",
     primaryCta: "Request Packet Quote",
@@ -4446,6 +4446,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Container strips", href: "/container-desiccant-strips" },
+      { label: "CargoDry bulk bags (product)", href: "/products/calcium-chloride-container-bulk" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Export support", href: "/export" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },

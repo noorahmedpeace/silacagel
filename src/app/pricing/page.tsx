@@ -33,6 +33,10 @@ function fmtUsd(value: number) {
   return value.toFixed(4);
 }
 
+function fmtPkr(value: number) {
+  return `PKR ${Math.round(value).toLocaleString("en-PK")}`;
+}
+
 function usdRange(reference: number) {
   return `$${fmtUsd(reference * BAND_LOW)} to $${fmtUsd(reference * BAND_HIGH)}`;
 }
@@ -83,11 +87,10 @@ export default function PricingPage() {
       <section className={styles.hero}>
         <span className={styles.kicker}>Indicative Export Pricing</span>
         <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>
-        <p>
-          Indicative USD price ranges for every sachet size and container strip we
-          manufacture, taken from the same reference list behind our on-site
-          calculator. Use these ranges to budget, then request a quote for exact
-          pricing based on quantity, packaging, and Incoterm.
+          <p>
+          Pakistan buyers can use the published PKR reference prices below for
+          budgeting. Export buyers can use the USD ranges, then request a firm
+          quote based on quantity, packaging, destination, and Incoterm.
         </p>
         <div className={styles.heroActions}>
           <Link href="/contact" className={styles.primaryBtn}>Request Export Quote</Link>
@@ -124,6 +127,7 @@ export default function PricingPage() {
                   <tr>
                     <th scope="col">Size / format</th>
                     <th scope="col">Net fill</th>
+                    <th scope="col">Pakistan reference price</th>
                     <th scope="col">Indicative USD per piece</th>
                     <th scope="col">{perKg ? "Indicative USD per kg" : "Indicative USD per 1,000 pcs"}</th>
                   </tr>
@@ -133,6 +137,7 @@ export default function PricingPage() {
                     <tr key={`${group.title}-${item.label}`}>
                       <th scope="row">{item.label}</th>
                       <td>{item.grams >= 1000 ? `${item.grams / 1000} kg` : `${item.grams} g`}</td>
+                      <td>{fmtPkr(item.unitPrice)}</td>
                       <td>{usdRange(item.exportUsd)}</td>
                       <td>
                         {perKg
@@ -145,7 +150,7 @@ export default function PricingPage() {
                     <tr>
                       <th scope="row">Loose bulk beads (per kg / per MT)</th>
                       <td>25 kg bags, drums, jumbo bags</td>
-                      <td colSpan={2}>
+                      <td colSpan={3}>
                         Quoted by tonnage, typically 1 to 5 metric tons per shipment,
                         below packed format per kg rates. <Link href="/contact">Request a bulk quote</Link>.
                       </td>
