@@ -4,7 +4,7 @@
 // notify sales + confirm to the buyer via Resend. Degrades gracefully at every
 // step: without BLOB token it still emails; without RESEND key the forms that
 // honor `{fallback:true}` open a pre-filled mailto. A lead is only truly lost
-// if the store AND the sales email BOTH fail — surfaced to the server log and
+// if the store AND the sales email BOTH fail, surfaced to the server log and
 // handed back as `fallback` so the client can recover it. Suspicious *timing*
 // no longer drops a lead; it only flags `suspectedBot` for review.
 import { headers } from "next/headers";
@@ -44,9 +44,9 @@ export type InquiryFormInput = {
       telemetry and dashboard segmentation. Optional so older callers compile. */
   source?: string;
   // spam traps
-  website2: string; // honeypot — must stay empty
+  website2: string; // honeypot, must stay empty
   /** Milliseconds the form was open before submit, measured on the client.
-      Never compare client wall-clock to server wall-clock — clock skew made
+      Never compare client wall-clock to server wall-clock, clock skew made
       every real submission look "too fast" and silently swallowed leads. */
   formElapsedMs: number;
 };
@@ -122,7 +122,7 @@ async function sendEmail(to: string[], subject: string, text: string, replyTo?: 
 export async function submitInquiry(input: InquiryFormInput): Promise<InquiryResult> {
   // Bot handling. The honeypot (a hidden field a human never sees) is a
   // high-confidence signal: return an opaque success so the bot learns nothing
-  // and store nothing. We deliberately do NOT log per honeypot hit — bots would
+  // and store nothing. We deliberately do NOT log per honeypot hit, bots would
   // flood the log and rate limiting is downstream. Suspicious *timing* is NO
   // LONGER a hard drop: it is recorded as `suspectedBot` on the stored lead so
   // a human can filter it, because the client timer is trivially forged (the
@@ -153,10 +153,10 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
 
   // Observability for the fast path, emitted only after the rate-limit gate so
   // bots cannot flood the log. Low-cardinality on purpose: no raw IP and no
-  // email — just enough to tell whether genuine buyers are landing here.
+  // email, just enough to tell whether genuine buyers are landing here.
   if (suspectedBot) {
     console.warn(
-      `[RFQ] suspected-bot lead captured — source=${source} bucket=${elapsedBucket} device=${deviceType}`,
+      `[RFQ] suspected-bot lead captured, source=${source} bucket=${elapsedBucket} device=${deviceType}`,
     );
   }
 
@@ -231,18 +231,18 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
   const adminBody = [
     `New RFQ ${id}`,
     suspectedBot
-      ? "⚠ SUSPECTED BOT — fast/odd submit timing. Verify this is a real buyer before quoting."
+      ? "⚠ SUSPECTED BOT, fast/odd submit timing. Verify this is a real buyer before quoting."
       : "",
     `Source: ${source}`,
     "",
-    "— Company —",
+    ", Company, ",
     `Company: ${c.companyName}`,
     `Contact: ${c.contactPerson}`,
     `Email: ${c.email}`,
     `Phone/WhatsApp: ${c.phone || "-"}`,
     `Country / City: ${c.country} / ${c.city || "-"}`,
     "",
-    "— Product —",
+    ", Product, ",
     `Product: ${p.name}`,
     `Quantity: ${p.quantity || "-"} ${p.unit || ""}`,
     `Packaging: ${p.packaging || "-"}`,
@@ -250,13 +250,13 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     `Required delivery: ${p.deliveryDate || "-"}`,
     `Destination: ${inquiry.shipping.destinationCountry || "-"} / port: ${inquiry.shipping.destinationPort || "-"}`,
     "",
-    "— Message —",
+    ", Message, ",
     inquiry.message || "-",
     "",
     attachments.length
-      ? `— Attachments —\n${attachments.map((a) => `${a.name}: ${a.url}`).join("\n")}\n`
+      ? `, Attachments, \n${attachments.map((a) => `${a.name}: ${a.url}`).join("\n")}\n`
       : "",
-    "— Tracking (internal) —",
+    ", Tracking (internal), ",
     `IP: ${t.ip} | ${t.deviceType} | ${t.os} | ${t.browser}`,
     `Screen: ${t.screen} | TZ: ${t.timeZone} | Lang: ${t.language}`,
     `Referrer: ${t.referrer || "-"}`,
@@ -269,7 +269,7 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
 
   const adminSent = await sendEmail(
     [salesEmail],
-    `${suspectedBot ? "⚠ SUSPECTED BOT — " : ""}New RFQ ${id}: ${p.name || "Silica gel inquiry"} — ${c.companyName}${c.country ? ` (${c.country})` : ""}`,
+    `${suspectedBot ? "⚠ SUSPECTED BOT, " : ""}New RFQ ${id}: ${p.name || "Silica gel inquiry"}, ${c.companyName}${c.country ? ` (${c.country})` : ""}`,
     adminBody,
     c.email,
   );
@@ -292,12 +292,12 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
   // Delivery-failure observability. A lead that persists to the dashboard but
   // whose admin email fails (Resend outage/misconfig) would otherwise succeed
   // silently and be missed until someone happens to open /admin. Surface every
-  // partial failure — including a failed buyer confirmation — to the server log
+  // partial failure, including a failed buyer confirmation, to the server log
   // (captured by Vercel log drains) so it is detectable without watching the
   // dashboard.
   if (!stored || !adminSent || !buyerSent) {
     console.error(
-      `[RFQ] partial delivery for ${id} — stored=${stored} adminNotified=${adminSent} buyerConfirmed=${buyerSent}`,
+      `[RFQ] partial delivery for ${id}, stored=${stored} adminNotified=${adminSent} buyerConfirmed=${buyerSent}`,
     );
   }
 

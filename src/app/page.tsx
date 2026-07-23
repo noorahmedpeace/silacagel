@@ -198,7 +198,7 @@ const scrollyIndustries = [
   },
 ];
 
-// Honest track record: only verified, provable facts — each card links to the
+// Honest track record: only verified, provable facts, each card links to the
 // page that documents the claim. No invented customers or persona quotes.
 const trackRecord = [
   {
@@ -229,7 +229,7 @@ const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
 // emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
 // downloads the desktop crop (and vice-versa), starving the real LCP resources
 // (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
-// our own media-scoped preloads below — exactly one hero image per viewport.
+// our own media-scoped preloads below, exactly one hero image per viewport.
 const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
 const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
 const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
@@ -245,7 +245,7 @@ export default function Home() {
                 near-black cobalt field with a drifting aurora and a fine
                 perspective grid - moody, engineered, premium. */}
             {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
-                desktop only the desktop crop — React 19 hoists these to <head>. */}
+                desktop only the desktop crop, React 19 hoists these to <head>. */}
             <link
               rel="preload"
               as="image"

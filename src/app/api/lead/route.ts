@@ -1,4 +1,4 @@
-// POST /api/lead — an RFQ captured by DryBot. Routes through the same unified
+// POST /api/lead, an RFQ captured by DryBot. Routes through the same unified
 // pipeline as every other form (submitInquiry): persists to the CRM, issues an
 // inquiry ID, emails sales, and confirms to the buyer. Previously this used the
 // email-only path, so chatbot leads never appeared in the dashboard.

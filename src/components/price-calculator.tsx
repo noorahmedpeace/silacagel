@@ -252,7 +252,7 @@ export function PriceCalculator() {
         productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
         productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
         className={styles.submitBlue}
-        label="Add to Cart — Get Exact Price by Email"
+        label="Add to Cart, Get Exact Price by Email"
       />
     </aside>
   );

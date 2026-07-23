@@ -169,7 +169,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         return;
       }
       if (result.fallback) {
-        const subject = encodeURIComponent(`RFQ: ${payload.productName} — ${payload.companyName}`);
+        const subject = encodeURIComponent(`RFQ: ${payload.productName}, ${payload.companyName}`);
         const body = encodeURIComponent(
           `Company: ${payload.companyName}\nContact: ${payload.contactPerson}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nCountry: ${payload.country}\nProduct: ${payload.productName}\nQuantity: ${payload.quantity} ${payload.unit}\nDestination: ${payload.destinationCountry}\n\n${payload.message}`,
         );
@@ -252,7 +252,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <h2 className={styles.sectionTitle} id="rfq-product">Product information</h2>
         {cart.length ? (
           <div className={styles.uploadBox} aria-label="Products in your quote cart">
-            <span><strong>In your quote list ({cart.length})</strong> — all included in this request:</span>
+            <span><strong>In your quote list ({cart.length})</strong>, all included in this request:</span>
             {cart.map((c) => (
               <span className={styles.fileRow} key={c.slug}>
                 <span aria-hidden="true">▸</span> {c.name}
@@ -329,7 +329,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
           <textarea name="message" placeholder="Specs, compliance needs, target price, repeat volume…" />
         </label>
         <div className={styles.uploadBox}>
-          <span>Attach specs or documents (PDF, DOCX, XLSX, images — max 20 MB, up to {MAX_FILES} files)</span>
+          <span>Attach specs or documents (PDF, DOCX, XLSX, images, max 20 MB, up to {MAX_FILES} files)</span>
           <input
             type="file"
             accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg,.webp"
@@ -350,7 +350,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         </div>
       </section>
 
-      {/* Honeypot — humans never see or fill this. */}
+      {/* Honeypot, humans never see or fill this. */}
       <label className={styles.hp} aria-hidden="true">
         Website
         <input name="website2" type="text" tabIndex={-1} autoComplete="off" />

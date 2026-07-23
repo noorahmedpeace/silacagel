@@ -3,7 +3,7 @@
 // Normal, always-visible header search. Tapping it opens a frosted-glass
 // suggestions dropdown (popular pages first, then live-filtered results as you
 // type). Press "/" anywhere to focus it. Backed by a small curated index of the
-// site's real pages — a fast finder, not a full search engine.
+// site's real pages, a fast finder, not a full search engine.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, ArrowRight } from "lucide-react";
@@ -178,7 +178,7 @@ export function HeaderSearch({ variant = "bar" }: { variant?: "bar" | "block" })
         </ul>
       ) : null}
       {open && term && !results.length ? (
-        <div className={styles.noResults}>No matches — try “sachet”, “soap”, “calculator”, or “SDS”.</div>
+        <div className={styles.noResults}>No matches, try “sachet”, “soap”, “calculator”, or “SDS”.</div>
       ) : null}
     </div>
   );

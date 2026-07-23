@@ -1,4 +1,4 @@
-// POST /api/chat — grounded, streamed answer from the DryGelWorld knowledge base.
+// POST /api/chat, grounded, streamed answer from the DryGelWorld knowledge base.
 // Same-origin with the site, so no CORS needed.
 import { after } from "next/server";
 import { SYSTEM_PROMPT, businessInfo } from "@/lib/drybot/prompt";
@@ -10,7 +10,7 @@ export const maxDuration = 60;
 
 type Msg = { role: string; content: string };
 
-// Cerebras — OpenAI-compatible (same request/stream shape), much higher free limits than Groq.
+// Cerebras, OpenAI-compatible (same request/stream shape), much higher free limits than Groq.
 const MODEL = process.env.CEREBRAS_MODEL || "gpt-oss-120b";
 const LLM_URL = "https://api.cerebras.ai/v1/chat/completions";
 
@@ -55,10 +55,10 @@ export async function POST(req: Request) {
   const sources = [...new Set(chunks.map((c) => c.url))];
   const context = [
     businessInfo(),
-    ...chunks.map((c, i) => `[Source ${i + 1} — ${c.url}]\n${c.text}`),
+    ...chunks.map((c, i) => `[Source ${i + 1}, ${c.url}]\n${c.text}`),
   ].join("\n\n");
   const userText =
-    "SOURCE DOCUMENTS FROM drygelworld.com — answer factual questions using ONLY these, and name the page(s) you used:\n\n" +
+    "SOURCE DOCUMENTS FROM drygelworld.com, answer factual questions using ONLY these, and name the page(s) you used:\n\n" +
     `${context}\n\n---\nVisitor question: ${last.content}`;
   const priorTurns = messages.slice(0, messages.length - 1).map((m) => ({
     role: m.role === "assistant" ? "assistant" : "user",
@@ -73,7 +73,7 @@ export async function POST(req: Request) {
     messages: [{ role: "system", content: SYSTEM_PROMPT }, ...priorTurns, { role: "user", content: userText }],
   };
 
-  // Log the conversation AFTER the response is sent — never block the chat on it.
+  // Log the conversation AFTER the response is sent, never block the chat on it.
   let logData: Parameters<typeof logConversation>[0] | null = null;
   let signalLogReady: () => void = () => {};
   const logReady = new Promise<void>((resolve) => {
@@ -109,13 +109,13 @@ export async function POST(req: Request) {
           send({
             text:
               gres.status === 429
-                ? "We're getting a lot of requests right now — please try again in a few seconds. Meanwhile you can reach our sales team on WhatsApp/phone +92 333 022 3337 or email sales@drygelworld.com."
+                ? "We're getting a lot of requests right now, please try again in a few seconds. Meanwhile you can reach our sales team on WhatsApp/phone +92 333 022 3337 or email sales@drygelworld.com."
                 : "I'm having a brief technical hiccup. Please try again shortly, or contact sales@drygelworld.com / WhatsApp +92 333 022 3337.",
           });
           send({ done: true });
           controller.enqueue(encoder.encode("data: [DONE]\n\n"));
           // Log the question even when rate-limited, so tracking still works.
-          logData = { session, question: last.content, answer: gres.status === 429 ? "(rate-limited — fallback shown)" : "(error — fallback shown)", sources: [], fellBack: true };
+          logData = { session, question: last.content, answer: gres.status === 429 ? "(rate-limited, fallback shown)" : "(error, fallback shown)", sources: [], fellBack: true };
           return; // finally closes the stream
         }
 

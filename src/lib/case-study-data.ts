@@ -10,10 +10,10 @@
   approach: string;
   proof: string;
   outcome: string;
-  /** One measurable, quantified result — the headline number a buyer trusts.
+  /** One measurable, quantified result, the headline number a buyer trusts.
    *  Optional so anonymous cases still render; fill with a real figure. */
   metric?: { value: string; label: string };
-  /** Anonymized buyer descriptor — industry (+ region only where the case
+  /** Anonymized buyer descriptor, industry (+ region only where the case
    *  actually states it), never a real name. This is the current default until
    *  written permission lets us swap in a named `attribution`. */
   anonymizedRef?: string;

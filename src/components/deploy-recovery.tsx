@@ -9,8 +9,8 @@ import { useEffect } from "react";
  * JS/CSS chunk filenames whose content-hash changed in the new build. Loading
  * those now-missing chunks throws a ChunkLoadError (a client-side nav can land
  * on the not-found page; CSS can momentarily fail to apply). This listener
- * catches exactly those errors and does a single, silent full reload — which
- * re-fetches the current, matching HTML + chunks — so the visitor never sees a
+ * catches exactly those errors and does a single, silent full reload, which
+ * re-fetches the current, matching HTML + chunks, so the visitor never sees a
  * broken page or a false 404.
  *
  * A short per-tab throttle prevents reload loops if a chunk is genuinely,
@@ -32,10 +32,10 @@ export function DeployRecovery() {
       try {
         const last = Number(window.sessionStorage.getItem(THROTTLE_KEY) || "0");
         const now = Date.now();
-        if (now - last < THROTTLE_MS) return; // already tried very recently — avoid a loop
+        if (now - last < THROTTLE_MS) return; // already tried very recently, avoid a loop
         window.sessionStorage.setItem(THROTTLE_KEY, String(now));
       } catch {
-        // sessionStorage unavailable (private mode edge cases) — reload anyway.
+        // sessionStorage unavailable (private mode edge cases), reload anyway.
       }
       window.location.reload();
     };

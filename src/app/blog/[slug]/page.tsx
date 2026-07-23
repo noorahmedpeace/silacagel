@@ -129,7 +129,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
         <aside className={styles.inlineQuote} aria-label="Get a quote">
           <div>
             <strong>Need this for a real order?</strong>
-            <span>Tell us the format, quantity, and destination — export quote in 24 business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
+            <span>Tell us the format, quantity, and destination, export quote in 24 business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
           </div>
           <div className={styles.inlineQuoteActions}>
             <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
@@ -165,7 +165,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                     <a href={source.href} target="_blank" rel="noopener noreferrer">
                       {source.label}
                     </a>{" "}
-                    — {source.publisher}
+, {source.publisher}
                   </li>
                 ))}
               </ul>

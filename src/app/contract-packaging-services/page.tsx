@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 
 // HONESTY RULES for this page: ISO 9001:2015 and DMF-free are the only
 // credentials that may be claimed. No food-safety certifications (FSSC 22000,
-// FDA registration, HACCP, GMP) are held — food-contact work is disclosed as
+// FDA registration, HACCP, GMP) are held, food-contact work is disclosed as
 // such below. No invented capacity, accuracy, or lead-time numbers: those get
 // added only when the owner supplies real figures from the installed line.
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contract Packaging & Sachet Filling Services in Pakistan | DryGelWorld",
     description:
-      "Automatic flow-wrap and sachet contract packing, toll or turnkey, OEM printing, repacking, and export packaging from Karachi — quote within 24 business hours.",
+      "Automatic flow-wrap and sachet contract packing, toll or turnkey, OEM printing, repacking, and export packaging from Karachi, quote within 24 business hours.",
     url: "/contract-packaging-services",
     siteName,
     type: "website",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 const services = [
   {
     title: "Flow wrap / pillow pack packing",
-    text: "Horizontal flow-wrap line for solid items — soap bars, dhoop sticks and incense cones, hardware kits, cutlery sets, sponges, moulded parts — sealed in printed or plain film.",
+    text: "Horizontal flow-wrap line for solid items, soap bars, dhoop sticks and incense cones, hardware kits, cutlery sets, sponges, moulded parts, sealed in printed or plain film.",
   },
   {
     title: "Automatic sachet packing",
@@ -61,7 +61,7 @@ const services = [
   },
   {
     title: "Custom sizes & weights",
-    text: "Pack weights and formats set to your requirement — trial runs on request before committing to volume.",
+    text: "Pack weights and formats set to your requirement, trial runs on request before committing to volume.",
   },
 ];
 
@@ -79,7 +79,7 @@ const faqs = [
   {
     question: "Do you offer printed packaging?",
     answer:
-      "Yes — custom printed film and sachets with your brand, or plain/stock film with labels. Send your design with the quote request, or ask our team to arrange the print layout.",
+      "Yes, custom printed film and sachets with your brand, or plain/stock film with labels. Send your design with the quote request, or ask our team to arrange the print layout.",
   },
   {
     question: "What is the minimum order quantity?",
@@ -89,20 +89,20 @@ const faqs = [
   {
     question: "Can you pack food or pharmaceutical products?",
     answer:
-      "Not at present. Food, pharma, nutraceutical, and skin-contact cosmetic packing require certifications (FSSC 22000, HACCP, GMP, FDA registration) that we do not currently hold — our quality system is ISO 9001:2015. We focus on industrial powders, granules, beads, hardware kits, and non-food consumer goods, and we state this honestly rather than imply otherwise.",
+      "Not at present. Food, pharma, nutraceutical, and skin-contact cosmetic packing require certifications (FSSC 22000, HACCP, GMP, FDA registration) that we do not currently hold, our quality system is ISO 9001:2015. We focus on industrial powders, granules, beads, hardware kits, and non-food consumer goods, and we state this honestly rather than imply otherwise.",
   },
   {
     question: "How do I get a price?",
     answer:
-      "Use the calculator to build your packing plan, then submit the quote form — we reply with a firm quotation, usually within 24 business hours. Per-pack or per-thousand rates depend on film type, print colours, and volume; printed-film runs carry a one-time setup charge, which we state in the quote.",
+      "Use the calculator to build your packing plan, then submit the quote form, we reply with a firm quotation, usually within 24 business hours. Per-pack or per-thousand rates depend on film type, print colours, and volume; printed-film runs carry a one-time setup charge, which we state in the quote.",
   },
   {
     question: "Who supplies the product and the film?",
     answer:
-      "Both models work. Toll packing: you ship us bulk product (and film, if you have it) and we only run the machines. Turnkey: we arrange film — printed or plain — and return finished packs. State your preference in the form.",
+      "Both models work. Toll packing: you ship us bulk product (and film, if you have it) and we only run the machines. Turnkey: we arrange film, printed or plain, and return finished packs. State your preference in the form.",
   },
   {
-    question: "Who owns my formula and design — is it confidential?",
+    question: "Who owns my formula and design, is it confidential?",
     answer:
       "You do, always. In toll packing your product, recipe, and artwork remain entirely yours; we are the machine capacity. An NDA can be signed before you share specifications.",
   },
@@ -143,7 +143,7 @@ export default function ContractPackagingPage() {
         <h1>Contract packaging &amp; sachet filling services in Pakistan.</h1>
         <p className={styles.lead}>
           The machinery that fills millions of our own desiccant sachets is now available for your
-          product. Automatic flow-wrap (pillow pack) and sachet lines in Karachi — co-packing and
+          product. Automatic flow-wrap (pillow pack) and sachet lines in Karachi, co-packing and
           toll packing with precision weights, airtight sealing, and printed or plain film, run
           under ISO 9001:2015 by a manufacturer exporting since 1983.
         </p>
@@ -165,7 +165,7 @@ export default function ContractPackagingPage() {
         <div className={styles.proofRow}>
           <span className={styles.proofChip}>ISO 9001:2015 · Cert #9101225</span>
           <span className={styles.proofChip}>Manufacturer since 1983</span>
-          <span className={styles.proofChip}>Karachi port — export ready</span>
+          <span className={styles.proofChip}>Karachi port, export ready</span>
         </div>
       </header>
 
@@ -190,18 +190,18 @@ export default function ContractPackagingPage() {
       <section className={styles.facility} aria-label="Our packaging facility">
         <h2>Our packaging facility</h2>
         <p>
-          Our Karachi facility runs modern automatic packaging machinery — a horizontal flow-wrap
-          (pillow-pack) line alongside the sachet lines that fill our own desiccant production —
+          Our Karachi facility runs modern automatic packaging machinery, a horizontal flow-wrap
+          (pillow-pack) line alongside the sachet lines that fill our own desiccant production,
           for accurate weights, airtight sealing, and consistent presentation, operated under the
           same ISO 9001:2015 quality system as our manufacturing.
         </p>
         <ul className={styles.facilityList}>
           <li>
             <strong>Flow-wrap line capability:</strong> pack (cut) length 60–200&nbsp;mm, pack width
-            25–100&nbsp;mm, product height up to ~45&nbsp;mm — single items or grouped multipacks
+            25–100&nbsp;mm, product height up to ~45&nbsp;mm, single items or grouped multipacks
           </li>
           <li>
-            <strong>Films handled:</strong> heat-sealable laminates — OPP/CPP, BOPP (incl. pearlized),
+            <strong>Films handled:</strong> heat-sealable laminates, OPP/CPP, BOPP (incl. pearlized),
             PET/PE, and metalized film; printed or plain, with batch/date coding available
           </li>
           <li>Automatic sachet lines proven on millions of desiccant sachets</li>
@@ -216,7 +216,7 @@ export default function ContractPackagingPage() {
 
       <MachineShowcase
         heading="Modern automatic packaging machinery"
-        intro="Our horizontal flow-wrap line and sachet machines, on our own floor in Karachi — for accurate weights, airtight sealing, and consistent presentation under ISO 9001:2015."
+        intro="Our horizontal flow-wrap line and sachet machines, on our own floor in Karachi, for accurate weights, airtight sealing, and consistent presentation under ISO 9001:2015."
         video="/videos/packaging-line.mp4"
         feature={{
           src: "/images/packaging/new-packaging-machine-wide-shot.webp",
@@ -254,17 +254,17 @@ export default function ContractPackagingPage() {
         </div>
         <div className={styles.serviceGrid}>
           <article className={styles.serviceCard}>
-            <strong>Toll packing — you supply the product</strong>
+            <strong>Toll packing, you supply the product</strong>
             <p>
               Ship us your bulk product (and film if you have it); we run the machines and return
-              sealed, finished packs. Your formula, brand, and IP stay entirely yours — an NDA is
+              sealed, finished packs. Your formula, brand, and IP stay entirely yours, an NDA is
               available before you share specs.
             </p>
           </article>
           <article className={styles.serviceCard}>
-            <strong>Turnkey — we arrange the packaging</strong>
+            <strong>Turnkey, we arrange the packaging</strong>
             <p>
-              We source the film — custom printed or plain — pack your product, and hand over
+              We source the film, custom printed or plain, pack your product, and hand over
               retail- or export-ready cartons. One supplier, one quotation, one point of
               responsibility.
             </p>
@@ -272,9 +272,9 @@ export default function ContractPackagingPage() {
         </div>
         <p className={styles.honesty} style={{ marginTop: 18 }}>
           What we don&apos;t pack: food and beverage, pharmaceuticals, nutraceuticals, and
-          skin-contact cosmetics — those require food-safety and GMP certifications (FSSC 22000,
+          skin-contact cosmetics, those require food-safety and GMP certifications (FSSC 22000,
           HACCP, FDA registration) that we do not currently hold. We also don&apos;t fill liquids,
-          pastes, or gels — that is a different machine class, and we&apos;ll tell you so instead of
+          pastes, or gels, that is a different machine class, and we&apos;ll tell you so instead of
           quoting badly. Our quality system is ISO 9001:2015, and we say so plainly rather than
           imply otherwise. Solid items for flow wrap, industrial powders and granules for sachets,
           hardware kits, and non-food consumer goods are exactly our lane.
@@ -290,7 +290,7 @@ export default function ContractPackagingPage() {
         <div className={styles.steps}>
           <div className={styles.step}>
             <strong>Send your spec</strong>
-            <p>Product, pack weight, monthly volume, printed or plain — via the form or WhatsApp.</p>
+            <p>Product, pack weight, monthly volume, printed or plain, via the form or WhatsApp.</p>
           </div>
           <div className={styles.step}>
             <strong>Sample / trial run</strong>

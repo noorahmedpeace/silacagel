@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import { classifySubmit, FAST_SUBMIT_MS } from "./inquiry-guard";
 
-describe("classifySubmit — honeypot", () => {
+describe("classifySubmit, honeypot", () => {
   it("flags a filled honeypot as a bot", () => {
     expect(classifySubmit({ website2: "http://spam", formElapsedMs: 9000 }).honeypot).toBe(true);
   });
@@ -14,7 +14,7 @@ describe("classifySubmit — honeypot", () => {
   });
 });
 
-describe("classifySubmit — timing is a risk signal, never a hard drop", () => {
+describe("classifySubmit, timing is a risk signal, never a hard drop", () => {
   it("marks a fast submit as suspected but keeps it capturable", () => {
     const c = classifySubmit({ formElapsedMs: 500 });
     expect(c.suspectedBot).toBe(true);

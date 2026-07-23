@@ -7,7 +7,7 @@ import styles from "./pricing.module.css";
 export const metadata: Metadata = {
   title: "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export",
   description:
-    "Indicative silica gel prices, wholesale rates and MOQ tiers for packets, bulk beads and container strips. Buyers in Pakistan can request a PKR quote; export buyers get USD terms — request a firm quotation.",
+    "Indicative silica gel prices, wholesale rates and MOQ tiers for packets, bulk beads and container strips. Buyers in Pakistan can request a PKR quote; export buyers get USD terms, request a firm quotation.",
   alternates: {
     canonical: "/pricing",
   },

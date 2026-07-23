@@ -3,7 +3,7 @@
 // Contract-packaging planner: a spec calculator + quote form that share state.
 // The calculator turns rough inputs into a concrete packing plan (throughput,
 // film format, print spec) and pre-fills the quote form with it. It deliberately
-// does NOT invent a per-pack price — final rates depend on film type, print
+// does NOT invent a per-pack price, final rates depend on film type, print
 // colours, and MOQ, so the output is an exact-quote request, not a fake number.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
@@ -16,7 +16,7 @@ const PACK_TYPES = [
   "Flow wrap / pillow pack",
   "Sachet (3- or 4-side seal)",
   "Bulk-to-retail repacking",
-  "Not sure — advise me",
+  "Not sure, advise me",
 ] as const;
 
 const MAX_FILES = 3;
@@ -43,7 +43,7 @@ export function PackagingPlanner() {
   const [whatsapp, setWhatsapp] = useState("");
   const [productName, setProductName] = useState("");
   const [targetCountry, setTargetCountry] = useState("");
-  const [materials, setMaterials] = useState("Toll packing — I ship bulk product");
+  const [materials, setMaterials] = useState("Toll packing, I ship bulk product");
   const [message, setMessage] = useState("");
   const [files, setFiles] = useState<Attachment[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -78,14 +78,14 @@ export function PackagingPlanner() {
             : "Existing bulk supply repacked into retail formats",
       printSpec:
         printed === "Printed film"
-          ? "Custom printed film — send your design or brief"
+          ? "Custom printed film, send your design or brief"
           : "Plain / stock film with optional label",
     };
   }, [weight, packs, packType, printed]);
 
   function applyPlanToForm() {
     const lines = [
-      "— Packing plan from the calculator —",
+      ", Packing plan from the calculator, ",
       `Pack type: ${packType}`,
       `Weight per pack: ${weight} g`,
       `Monthly quantity: ${fmt(packs)} packs (~${fmt(plan?.monthlyKg ?? 0)} kg/month)`,
@@ -150,7 +150,7 @@ export function PackagingPlanner() {
       phone: whatsapp,
       country: targetCountry,
       city: "",
-      productName: `Contract packaging — ${packType}`,
+      productName: `Contract packaging, ${packType}`,
       quantity: packsPerMonth,
       unit: "packs/month",
       packaging: `${packType} · ${printed}`,
@@ -174,7 +174,7 @@ export function PackagingPlanner() {
       : "";
     const mailto = createMailtoHref(
       salesEmail,
-      `Contract packaging inquiry — ${company || "new"}`,
+      `Contract packaging inquiry, ${company || "new"}`,
       `${body}\n\nEmail: ${email}${attachmentLines}`,
     );
 
@@ -188,7 +188,7 @@ export function PackagingPlanner() {
         return;
       }
       if (result.fallback) {
-        // Store and email both failed — open the mail client so the fully typed
+        // Store and email both failed, open the mail client so the fully typed
         // packaging brief is not lost.
         setFallbackHref(mailto);
         setState("fallback");
@@ -211,7 +211,7 @@ export function PackagingPlanner() {
         <h3>Packaging cost calculator</h3>
         <p className={styles.calcIntro}>
           Enter your pack spec to see the production plan. Exact per-pack rates depend on film type,
-          print colours, and MOQ — submit the plan and we reply with a firm quotation.
+          print colours, and MOQ, submit the plan and we reply with a firm quotation.
         </p>
         <div className={styles.calcGrid}>
           <label className={styles.field}>
@@ -248,7 +248,7 @@ export function PackagingPlanner() {
               <li>Format: {plan.film}</li>
               <li>{plan.printSpec}</li>
             </ul>
-            <p className={styles.planNote}>Final rate confirmed in your quotation — usually within 24 business hours.</p>
+            <p className={styles.planNote}>Final rate confirmed in your quotation, usually within 24 business hours.</p>
             <button type="button" className={styles.applyBtn} onClick={applyPlanToForm}>
               Get exact quote for this plan ↓
             </button>
@@ -276,7 +276,7 @@ export function PackagingPlanner() {
           </div>
         ) : state === "fallback" ? (
           <div className={styles.success} role="status" aria-live="polite">
-            <h3>Almost there — please hit send.</h3>
+            <h3>Almost there, please hit send.</h3>
             <p>
               We opened your email client with the full packaging brief pre-filled. If
               nothing opened, email us at <a href={fallbackHref}>{salesEmail}</a> or{" "}
@@ -316,9 +316,9 @@ export function PackagingPlanner() {
               <label className={styles.field}>
                 <span>Who supplies the materials?</span>
                 <select value={materials} onChange={(e) => setMaterials(e.target.value)}>
-                  <option>Toll packing — I ship bulk product</option>
-                  <option>Turnkey — source film for me</option>
-                  <option>Not sure — advise me</option>
+                  <option>Toll packing, I ship bulk product</option>
+                  <option>Turnkey, source film for me</option>
+                  <option>Not sure, advise me</option>
                 </select>
               </label>
               <label className={`${styles.field} ${styles.fieldFull}`}>
@@ -328,7 +328,7 @@ export function PackagingPlanner() {
             </div>
 
             <div className={styles.uploadBox}>
-              <span>Upload design or spec (PDF, DOCX, XLSX, images — max 20 MB, up to {MAX_FILES} files)</span>
+              <span>Upload design or spec (PDF, DOCX, XLSX, images, max 20 MB, up to {MAX_FILES} files)</span>
               <input
                 type="file"
                 accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg,.webp"
@@ -346,7 +346,7 @@ export function PackagingPlanner() {
               ))}
             </div>
 
-            {/* Honeypot — humans never see or fill this. */}
+            {/* Honeypot, humans never see or fill this. */}
             <input
               type="text"
               name="website2"

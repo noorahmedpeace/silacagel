@@ -3,7 +3,7 @@ import styles from "./adsorption-isotherm.module.css";
 // Typical equilibrium adsorption capacity of white/Type-A silica gel at ~25 C,
 // by relative humidity. These are REPRESENTATIVE published values for silica
 // gel as a material (a well-documented physical property), not a claim about a
-// specific batch — batch-specific figures are stated on each COA. RH in %,
+// specific batch, batch-specific figures are stated on each COA. RH in %,
 // capacity in % of the desiccant's own dry weight.
 const ISOTHERM: Array<{ rh: number; cap: number }> = [
   { rh: 10, cap: 5 },
@@ -35,7 +35,7 @@ const capTicks = [0, 10, 20, 30, 40];
 
 /**
  * Static, dependency-free SVG chart of silica gel's adsorption isotherm.
- * Server component — no interactivity, just an accessible technical figure
+ * Server component, no interactivity, just an accessible technical figure
  * that gives procurement engineers the RH-vs-capacity data they expect from a
  * serious supplier. Honest by construction: labelled "typical/representative"
  * and pointed at the per-batch COA for exact numbers.
@@ -96,7 +96,7 @@ export function AdsorptionIsotherm() {
       </div>
 
       <p className={styles.note}>
-        Silica gel keeps adsorbing across the full humidity range and holds moisture as a solid — it does
+        Silica gel keeps adsorbing across the full humidity range and holds moisture as a solid, it does
         not deliquesce into liquid. For aggressive, high-uptake cargo protection where some run-off is
         acceptable, calcium chloride strips reach higher absolute capacity; for clean, no-leak
         electronics, pharma and packaged goods, silica gel is the safer choice.

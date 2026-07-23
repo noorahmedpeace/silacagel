@@ -51,7 +51,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (AED on request)",
     incoterms: ["FOB Karachi", "CIF Jebel Ali", "DAP UAE"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "The UAE applies the GCC common external tariff; most industrial goods enter at the 5% standard rate. Confirm the live 2811.22 rate before costing:",
       tariffLookup: { label: "Dubai Customs", href: "https://www.dubaicustoms.gov.ae/" },
@@ -92,9 +92,9 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (SAR on request)",
     incoterms: ["FOB Karachi", "CIF Jeddah", "CIF Dammam", "DAP Saudi Arabia"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
-        "The GCC common tariff baseline is 5%, but Saudi Arabia has raised rates on several categories since 2020 — verify the live 2811.22 rate with ZATCA before costing:",
+        "The GCC common tariff baseline is 5%, but Saudi Arabia has raised rates on several categories since 2020, verify the live 2811.22 rate with ZATCA before costing:",
       tariffLookup: { label: "ZATCA (Saudi customs authority)", href: "https://zatca.gov.sa/" },
       requiredDocs: [
         "Commercial invoice",
@@ -104,7 +104,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "Some import routes require SABER platform conformity registration — confirm with your importer of record whether it applies to your desiccant shipment.",
+        "Some import routes require SABER platform conformity registration, confirm with your importer of record whether it applies to your desiccant shipment.",
         "Saudi clearing agents commonly request attested commercial documents; align the document set before dispatch.",
       ],
     },
@@ -159,7 +159,7 @@ export const exportMarkets: ExportMarket[] = [
     incoterms: ["FOB Karachi", "CIF US port", "DAP with buyer's forwarder"],
     customs: {
       hsCode:
-        "HTS 2811.22 (silicon dioxide); silica gel is commonly entered under 2811.22.10 — confirm the statistical suffix with your customs broker",
+        "HTS 2811.22 (silicon dioxide); silica gel is commonly entered under 2811.22.10, confirm the statistical suffix with your customs broker",
       dutyNote:
         "Confirm the live general rate and any active trade measures for 2811.22 in the official Harmonized Tariff Schedule:",
       tariffLookup: { label: "USITC HTS search", href: "https://hts.usitc.gov/" },
@@ -171,8 +171,8 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "ISF (10+2) filing is required before vessel loading for US-bound ocean freight — coordinate with your forwarder.",
-        "For direct food-contact use, note that FDA food-contact certification (FCN/GRAS) is not currently held — confirm the requirement with the export desk before commercial terms.",
+        "ISF (10+2) filing is required before vessel loading for US-bound ocean freight, coordinate with your forwarder.",
+        "For direct food-contact use, note that FDA food-contact certification (FCN/GRAS) is not currently held, confirm the requirement with the export desk before commercial terms.",
       ],
     },
     faqs: [
@@ -351,9 +351,9 @@ export const exportMarkets: ExportMarket[] = [
       "Indian buyers usually compare local supply with import alternatives. Clear price discussion needs format, monthly volume, destination, documents, and whether private label is required.",
     rfqTip: "Send city or port, use case, volume, compliance expectations, and whether the inquiry is for resale, factory use, or export packaging.",
     customs: {
-      hsCode: "HS 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811 22 00 (silicon dioxide), silica gel desiccant",
       dutyNote:
-        "India applies basic customs duty plus IGST on this line; rates change with budget cycles — confirm the live rate on the official customs portal before costing:",
+        "India applies basic customs duty plus IGST on this line; rates change with budget cycles, confirm the live rate on the official customs portal before costing:",
       tariffLookup: { label: "ICEGATE (Indian Customs)", href: "https://www.icegate.gov.in/" },
       requiredDocs: [
         "Commercial invoice",
@@ -363,7 +363,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "Pakistan-India trade routing may require third-country transshipment — confirm the practical route and documentation with your forwarder before committing to a schedule.",
+        "Pakistan-India trade routing may require third-country transshipment, confirm the practical route and documentation with your forwarder before committing to a schedule.",
       ],
     },
   },
@@ -437,7 +437,7 @@ export const exportMarkets: ExportMarket[] = [
       "UK buyers should align REACH expectations and post-Brexit import documentation before commercial terms. REACH registration is not a certification currently held by DryGelWorld, so the conversation should start early.",
     rfqTip: "Send target port, monthly volume, Incoterms, REACH expectations, and whether you need silica gel, dry clay, or both formats in one program.",
     customs: {
-      hsCode: "UK commodity code 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      hsCode: "UK commodity code 2811 22 00 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live UK Global Tariff rate and any preferential scheme for imports from Pakistan (the UK Developing Countries Trading Scheme may reduce the rate) in the official tariff:",
       tariffLookup: { label: "UK Integrated Online Tariff", href: "https://www.trade-tariff.service.gov.uk/" },
@@ -449,7 +449,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "UK REACH applies post-Brexit: cobalt-chloride blue indicating gel is restricted — specify cobalt-free orange indicating gel for UK-bound orders.",
+        "UK REACH applies post-Brexit: cobalt-chloride blue indicating gel is restricted, specify cobalt-free orange indicating gel for UK-bound orders.",
       ],
     },
   },
@@ -467,7 +467,7 @@ export const exportMarkets: ExportMarket[] = [
       "German procurement teams typically require SDS in German and align EU import documentation before pricing. REACH support is a buyer-led discussion - DryGelWorld supplies SDS, COA, and ISO 9001:2015, while REACH registration must be confirmed against the buyer's compliance program.",
     rfqTip: "Send REACH expectations, target port, language requirements (DE/EN), monthly volume, and whether silica gel or dry clay better fits the use case.",
     customs: {
-      hsCode: "CN 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      hsCode: "CN 2811 22 00 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live EU conventional rate and any GSP preference for imports from Pakistan (Pakistan holds EU GSP+ status, which zero-rates many chemical lines) in TARIC:",
       tariffLookup: {
@@ -482,8 +482,8 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request",
       ],
       regulatoryNotes: [
-        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel — specify cobalt-free orange indicating gel for EU-bound orders.",
-        "German buyers often specify DIN 55473 desiccant units for packaging programs — state DIN unit requirements in the RFQ.",
+        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel, specify cobalt-free orange indicating gel for EU-bound orders.",
+        "German buyers often specify DIN 55473 desiccant units for packaging programs, state DIN unit requirements in the RFQ.",
       ],
     },
   },

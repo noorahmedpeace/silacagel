@@ -63,7 +63,7 @@ const facilityPhotos = [
   {
     src: "/facility/finished-sachet-inventory.webp",
     alt: "Shelves of bagged and labelled finished silica gel sachets in the DryGelWorld store room",
-    caption: "Finished sachets — bagged, labelled, and shelved by size.",
+    caption: "Finished sachets, bagged, labelled, and shelved by size.",
   },
   {
     src: "/facility/warehouse-bulk-bags.webp",
@@ -83,7 +83,7 @@ const facilityPhotos = [
   {
     src: "/facility/warehouse-aisle-rolls-bags.webp",
     alt: "Warehouse aisle lined with blue fabric rolls and white bagged stock",
-    caption: "Warehouse aisle — fabric rolls alongside bagged stock.",
+    caption: "Warehouse aisle, fabric rolls alongside bagged stock.",
   },
 ];
 
@@ -240,7 +240,7 @@ export default function AboutPage() {
             <h2>Real photos from our Karachi factory and warehouse.</h2>
             <p>
               Unstaged photographs of our own production floor, sachet lines, and
-              stock rooms — genuine facility imagery, never stock photos or AI renders.
+              stock rooms, genuine facility imagery, never stock photos or AI renders.
             </p>
           </div>
         </Reveal>

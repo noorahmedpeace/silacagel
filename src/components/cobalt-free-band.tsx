@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./cobalt-free-band.module.css";
 
-// The cobalt-free / REACH wedge — the site's real differentiation against
+// The cobalt-free / REACH wedge, the site's real differentiation against
 // commodity suppliers who still ship cobalt-blue indicating gel.
 //
 // HONESTY: cobalt-free is a factual product property, not a certification, and
@@ -16,16 +16,16 @@ import styles from "./cobalt-free-band.module.css";
 // regulation, not a mark we hold). Keep this wording; do not inflate it.
 const points = [
   {
-    title: "Orange indicating gel — cobalt-free",
+    title: "Orange indicating gel, cobalt-free",
     text: "Our indicating desiccant ships in cobalt-free orange: an organic indicator with the same colour-change behaviour, the REACH-friendly alternative to cobalt-blue.",
   },
   {
-    title: "White gel & clay — no cobalt at all",
+    title: "White gel & clay, no cobalt at all",
     text: "White non-indicating silica gel, activated clay, and calcium chloride contain no cobalt. The default across most of the catalogue is already cobalt-free.",
   },
   {
-    title: "Blue cobalt gel — only if you ask",
-    text: "Traditional blue gel uses cobalt(II) chloride, an EU REACH substance of very high concern. We still supply it on request, clearly labelled — we never slip it into a cobalt-free order.",
+    title: "Blue cobalt gel, only if you ask",
+    text: "Traditional blue gel uses cobalt(II) chloride, an EU REACH substance of very high concern. We still supply it on request, clearly labelled, we never slip it into a cobalt-free order.",
   },
 ];
 
@@ -40,7 +40,7 @@ export function CobaltFreeBand() {
           </h2>
           <p className={styles.lead}>
             EU and cobalt-sensitive buyers should not have to interrogate a supplier
-            about cobalt chloride. Across our range the default is cobalt-free — and
+            about cobalt chloride. Across our range the default is cobalt-free, and
             where blue cobalt gel is involved, we say so up front.
           </p>
         </div>

@@ -113,7 +113,7 @@ export function QuoteForm({
   const [inquiryId, setInquiryId] = useState("");
   const routedChannel = getContactEmailChannel(state.department);
   const startedAt = useRef(Date.now());
-  const website2 = useRef(""); // honeypot — bots fill it, humans never see it
+  const website2 = useRef(""); // honeypot, bots fill it, humans never see it
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -457,7 +457,7 @@ export function QuoteForm({
           </div>
         </details>
 
-        {/* Honeypot — humans never see or fill this. */}
+        {/* Honeypot, humans never see or fill this. */}
         <input
           type="text"
           name="website2"
@@ -471,7 +471,7 @@ export function QuoteForm({
         />
 
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending…" : "Send my requirement — quote in 24h"}
+          {pending ? "Sending…" : "Send my requirement, quote in 24h"}
         </button>
 
         {error ? (

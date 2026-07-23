@@ -1,7 +1,7 @@
 // Pure, framework-free classification of an inbound RFQ submission. No Next.js
 // imports so it is unit-testable without mocking the server runtime.
 //
-// History: the client-measured `formElapsedMs` used to be a DESTRUCTIVE gate —
+// History: the client-measured `formElapsedMs` used to be a DESTRUCTIVE gate,
 // anything under 1500ms (or a missing/non-finite value) returned a fake success
 // and silently discarded the lead. That signal is trivially forged (the DryBot
 // route hard-codes 60_000) and two modal forms start their timer at mount, so
@@ -13,12 +13,12 @@
 /** Below this client-measured fill duration, a submission looks non-human. */
 export const FAST_SUBMIT_MS = 1500;
 
-/** Coarse, low-cardinality bucket for telemetry — the raw timing value is never
+/** Coarse, low-cardinality bucket for telemetry, the raw timing value is never
     logged (it is weakly identifying and high-cardinality). */
 export type ElapsedBucket = "missing" | "invalid" | "lt1500" | "1500-5000" | "gt5000";
 
 export type SubmitClassification = {
-  /** Honeypot field filled — definitely a bot. Caller returns opaque success. */
+  /** Honeypot field filled, definitely a bot. Caller returns opaque success. */
   honeypot: boolean;
   /** Timing looks non-human (too fast, missing, or non-finite). NOT a hard drop:
       the lead is still stored/emailed, just flagged for review. */

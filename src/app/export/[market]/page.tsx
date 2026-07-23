@@ -349,7 +349,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
             <h2>{market.country} customs &amp; import essentials.</h2>
             <p>
               The classification and document set customs brokers ask about first. Duty rates
-              change — always confirm the live rate in the official tariff database linked below.
+              change, always confirm the live rate in the official tariff database linked below.
             </p>
           </div>
           <div className={styles.tableWrap}>

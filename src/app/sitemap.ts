@@ -32,7 +32,7 @@ const AUTHOR_SLUGS = ["noor-ahmed-khan", "dry-gel-world-export-desk"] as const;
 // Landing slugs that are 301 redirect sources in next.config.ts. They must NOT
 // appear in the sitemap (submitting a redirecting URL earns a GSC "Page with
 // redirect" notice and wastes crawl budget). Keep in sync with next.config
-// redirects() — every internal redirect whose source is otherwise a
+// redirects(), every internal redirect whose source is otherwise a
 // seoLandingPages key belongs here.
 const REDIRECTED_SLUGS = new Set<string>([
   "food-grade-silica-gel",
@@ -146,7 +146,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const slug of Object.keys(seoLandingPages)) {
     if (REDIRECTED_SLUGS.has(slug)) continue; // don't sitemap a 301 source
     if (staticRouteSlugs.has(slug)) continue; // already emitted as a static route
-    if (isNoindexLandingSlug(slug)) continue; // thin permutation page — noindexed
+    if (isNoindexLandingSlug(slug)) continue; // thin permutation page, noindexed
     const page = seoLandingPages[slug as keyof typeof seoLandingPages];
     const image = getLandingSeoImage(page);
 

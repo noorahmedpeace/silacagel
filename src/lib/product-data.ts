@@ -251,7 +251,7 @@ export const productCatalog: ProductItem[] = [
       "High-adsorption maritime hanging strips for international container loads, long-haul shipping, and extreme humidity transit.",
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
-      "CargoDry Container Strips are the hanging-strip format of our CargoDry container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes — pair them with CargoDry Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
+      "CargoDry Container Strips are the hanging-strip format of our CargoDry container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes, pair them with CargoDry Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
     heroImage: seoImages.containerDesiccant.src,
     useCases: [
       "International ocean freight containers",
@@ -316,7 +316,7 @@ export const productCatalog: ProductItem[] = [
       "Bulk calcium chloride desiccant bags for container cargo, storage, pallets, and high-humidity export shipments.",
     useCaseLine: "Bulk bag format for cargo-level moisture absorption in containers and storage zones.",
     description:
-      "The floor- and pallet-level format of the CargoDry container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment — use them alongside CargoDry hanging strips for full-container coverage.",
+      "The floor- and pallet-level format of the CargoDry container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment, use them alongside CargoDry hanging strips for full-container coverage.",
     heroImage: "/products/calcium-chloride-container-bulk.webp",
     useCases: [
       "Container cargo moisture absorption",

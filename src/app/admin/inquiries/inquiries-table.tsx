@@ -30,7 +30,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   const [noteDraft, setNoteDraft] = useState("");
   const [actionError, setActionError] = useState("");
   // "Today" in the export desk's business timezone (Asia/Karachi) as YYYY-MM-DD
-  // — en-CA formats ISO-style. Plain string compare stays lexical = chronological.
+  //, en-CA formats ISO-style. Plain string compare stays lexical = chronological.
   // (A tab left open across midnight keeps the mount-day; acceptable for a hint.)
   const [todayStr] = useState(() =>
     new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Karachi" }),
@@ -57,7 +57,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
   });
 
   // Every mutation is optimistic but ROLLS BACK if the server action returns
-  // false (or throws) — the store write can fail (Blob outage / stale ETag) and
+  // false (or throws), the store write can fail (Blob outage / stale ETag) and
   // a silent "success" would let staff trust a change that never persisted.
   // Rollback reverts ONLY the one row's one field, so it can't erase a different
   // row's concurrent optimistic edit.
@@ -68,7 +68,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     const ok = await setInquiryStatus(id, next).catch(() => false);
     if (!ok && prevStatus !== undefined) {
       setRows((rs) => rs.map((r) => (r.id === id ? { ...r, status: prevStatus } : r)));
-      setActionError(`Could not save status for ${id} — please retry.`);
+      setActionError(`Could not save status for ${id}, please retry.`);
     }
   }
 
@@ -79,7 +79,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     const ok = await setInquiryFollowUp(id, date).catch(() => false);
     if (!ok) {
       setRows((rs) => rs.map((r) => (r.id === id ? { ...r, followUpDate: prevDate } : r)));
-      setActionError(`Could not save follow-up for ${id} — check the date is valid, then retry.`);
+      setActionError(`Could not save follow-up for ${id}, check the date is valid, then retry.`);
     }
   }
 
@@ -96,7 +96,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
     const ok = await removeInquiry(id).catch(() => false);
     if (!ok && removed) {
       setRows((rs) => [removed, ...rs].sort((a, b) => (a.createdAt < b.createdAt ? 1 : -1)));
-      setActionError(`Could not delete ${id} — please retry.`);
+      setActionError(`Could not delete ${id}, please retry.`);
     }
   }
 
@@ -118,7 +118,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         ),
       );
       setNoteDraft(text);
-      setActionError(`Could not save note for ${id} — please retry.`);
+      setActionError(`Could not save note for ${id}, please retry.`);
     }
   }
 
@@ -202,7 +202,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                     <strong>{r.company.companyName}</strong>
                     {r.suspectedBot ? (
                       <span
-                        title="Fast / odd submit timing — likely bot, review before quoting"
+                        title="Fast / odd submit timing, likely bot, review before quoting"
                         style={{
                           marginLeft: 6, padding: "1px 6px", borderRadius: 6, fontSize: 11,
                           background: "#fde68a", color: "#7c2d12", whiteSpace: "nowrap",
@@ -325,7 +325,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
                           🗑 Delete inquiry
                         </button>
                         <span style={{ marginLeft: 8, fontSize: 12, color: "#6b7280" }}>
-                          Permanent — for test / bot / junk leads only.
+                          Permanent, for test / bot / junk leads only.
                         </span>
                       </div>
                     </td>

@@ -126,7 +126,7 @@ export function StickyQuoteBar({
         setQuick("fallback");
         window.location.href = mailto;
       } else {
-        setQuickError(result.error ?? "Could not send — please use WhatsApp or the quote page.");
+        setQuickError(result.error ?? "Could not send, please use WhatsApp or the quote page.");
         setQuick("idle");
       }
     } catch {
@@ -255,7 +255,7 @@ export function StickyQuoteBar({
           {quick === "sent" ? (
             <div className={styles.modalSuccess}>
               <span className={styles.modalCheck} aria-hidden="true">✓</span>
-              <h3>Added — we will reach you soon!</h3>
+              <h3>Added, we will reach you soon!</h3>
               <p>
                 Our export team has your details and will contact you within 24
                 business hours with pricing for {productFullName}.
@@ -264,7 +264,7 @@ export function StickyQuoteBar({
             </div>
           ) : quick === "fallback" ? (
             <div className={styles.modalSuccess}>
-              <h3>Almost there — please hit send.</h3>
+              <h3>Almost there, please hit send.</h3>
               <p>
                 We opened your email client with the request pre-filled. If nothing
                 opened, email us directly at <a href={fallbackHref}>{salesEmail}</a>.
@@ -273,7 +273,7 @@ export function StickyQuoteBar({
           ) : (
             <form onSubmit={quickSubmit} className={styles.modalForm}>
               <h3>Add to quote: {productFullName}</h3>
-              <p>Leave your email and quantity — we will reach you soon.</p>
+              <p>Leave your email and quantity, we will reach you soon.</p>
               <label>
                 <span>Email *</span>
                 <input name="email" type="email" required autoFocus autoComplete="email" />

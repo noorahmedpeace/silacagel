@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     "food grade silica gel",
   ],
   openGraph: {
-    // Keep aligned with the <title> above — a diverging og:title makes shared
+    // Keep aligned with the <title> above, a diverging og:title makes shared
     // links and SERP snippets tell two different stories.
     title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
     description:
@@ -181,7 +181,7 @@ export default function RootLayout({
       <head>
         {/* Facebook app id (property=, as FB expects). Renders only when the
             NEXT_PUBLIC_FB_APP_ID env var is set, so there is never an invalid
-            empty tag. Optional — sharing works without it. */}
+            empty tag. Optional, sharing works without it. */}
         {FB_APP_ID ? <meta property="fb:app_id" content={FB_APP_ID} /> : null}
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}

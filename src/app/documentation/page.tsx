@@ -55,7 +55,7 @@ export default function DocumentationPage() {
         </p>
       </section>
 
-      {/* ── ISO 9001:2015 certificate — the headline proof ── */}
+      {/* ── ISO 9001:2015 certificate, the headline proof ── */}
       <section className={styles.certSection} aria-label="ISO 9001:2015 certificate">
         <article className={styles.certCard}>
           <div className={styles.certBadge} aria-hidden="true">
@@ -155,7 +155,7 @@ export default function DocumentationPage() {
         );
       })}
 
-      {/* Technical figure — the RH-vs-capacity data procurement engineers expect. */}
+      {/* Technical figure, the RH-vs-capacity data procurement engineers expect. */}
       <section className={styles.docSection} aria-label="Adsorption performance">
         <div className={styles.docHead}>
           <h2>Adsorption performance</h2>
@@ -164,7 +164,7 @@ export default function DocumentationPage() {
         <AdsorptionIsotherm />
       </section>
 
-      {/* P2.3 — connection to the rest of the web: verifiable external presence. */}
+      {/* P2.3, connection to the rest of the web: verifiable external presence. */}
       <section className={styles.verifySection} aria-label="Verify us elsewhere">
         <div className={styles.docHead}>
           <h2>Verify us elsewhere</h2>

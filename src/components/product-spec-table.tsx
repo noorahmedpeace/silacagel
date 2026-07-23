@@ -16,7 +16,7 @@ export function ProductSpecTable({
   productName: string;
   spec: ProductSpec;
   intro?: string;
-  /** Canonical product/category URL — sets JSON-LD @id so this merges with any
+  /** Canonical product/category URL, sets JSON-LD @id so this merges with any
    *  existing Product node on the page instead of creating a duplicate entity. */
   productUrl?: string;
 }) {

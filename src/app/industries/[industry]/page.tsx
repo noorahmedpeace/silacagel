@@ -237,7 +237,7 @@ const industryPages: Record<string, IndustryPage> = {
       {
         question: "Do you provide food-grade and compliance documentation?",
         answer:
-          "We provide SDS, COA, and a DMF-free statement with orders. FDA food-contact, FSSC 22000, Halal, and equivalent food-grade certifications are not currently held — buyers whose application requires them should confirm requirements with the export desk before commercial terms.",
+          "We provide SDS, COA, and a DMF-free statement with orders. FDA food-contact, FSSC 22000, Halal, and equivalent food-grade certifications are not currently held, buyers whose application requires them should confirm requirements with the export desk before commercial terms.",
       },
       {
         question: "How does silica gel extend the shelf life of dry foods?",
@@ -600,7 +600,7 @@ export default async function IndustryPage({
           <IsoBadge />
           <Link href="/documentation" className={styles.docLink}>
             <FileText size={15} strokeWidth={2} aria-hidden="true" />
-            SDS · COA · TDS · ISO — open documents
+            SDS · COA · TDS · ISO, open documents
           </Link>
         </div>
       </section>

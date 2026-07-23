@@ -67,7 +67,7 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
         <span className={styles.kicker}>Request a Quote</span>
         <h1>Request an export quotation.</h1>
         <p>
-          Tell us the product, quantity, and destination — our export specialists reply
+          Tell us the product, quantity, and destination, our export specialists reply
           within 24 business hours with pricing, lead time, and shipping details. Every
           inquiry is handled by the factory team in Karachi, not a call center.
         </p>
@@ -102,7 +102,7 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
           />
           <span>
             Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Export
-            Director — factory export desk, Karachi.
+            Director, factory export desk, Karachi.
           </span>
         </p>
         <RfqForm defaultProduct={product} defaultQuantity={qty} />

@@ -16,9 +16,9 @@ import styles from "../contract-packaging-services/page.module.css";
 // piece-work/job intent, not B2B).
 
 export const metadata: Metadata = {
-  title: "Flow Wrap Packing Services in Pakistan | Pillow Pack Co-Packing — Karachi",
+  title: "Flow Wrap Packing Services in Pakistan | Pillow Pack Co-Packing, Karachi",
   description:
-    "Flow wrap (pillow pack) contract packing in Karachi for manufacturers and brands: published spec envelope 60–200 mm packs, OPP/BOPP/metalized/printed film, realistic 30–60 packs/min, seal and weight QC under ISO 9001:2015. B2B only — MOQ applies.",
+    "Flow wrap (pillow pack) contract packing in Karachi for manufacturers and brands: published spec envelope 60–200 mm packs, OPP/BOPP/metalized/printed film, realistic 30–60 packs/min, seal and weight QC under ISO 9001:2015. B2B only, MOQ applies.",
   alternates: { canonical: "/flow-wrap-packing-services" },
   keywords: [
     "flow wrap packing services Pakistan",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flow Wrap (Pillow Pack) Contract Packing Services in Pakistan | DryGelWorld",
     description:
-      "Published machine specs, honest limits, printed or plain film, seal & weight QC — flow wrap co-packing for manufacturers and brands from Karachi.",
+      "Published machine specs, honest limits, printed or plain film, seal & weight QC, flow wrap co-packing for manufacturers and brands from Karachi.",
     url: "/flow-wrap-packing-services",
     siteName,
     type: "website",
@@ -53,19 +53,19 @@ const specs = [
 const packClasses = [
   {
     title: "Soap bars",
-    text: "The classic flow-wrap product — pearlized or printed BOPP, 40 g guest bars to 200 g+ bars. See the dedicated soap packing service page.",
+    text: "The classic flow-wrap product, pearlized or printed BOPP, 40 g guest bars to 200 g+ bars. See the dedicated soap packing service page.",
   },
   {
     title: "Dhoop sticks, incense cones & bakhoor",
-    text: "Bambooless dhoop (75–125 mm), cones, and sambrani/bakhoor tablets fit the envelope. Honest limit: full-length 8–9\" agarbatti exceeds our 180 mm product maximum — we'll say no rather than jam your product.",
+    text: "Bambooless dhoop (75–125 mm), cones, and sambrani/bakhoor tablets fit the envelope. Honest limit: full-length 8–9\" agarbatti exceeds our 180 mm product maximum, we'll say no rather than jam your product.",
   },
   {
     title: "Cutlery & hospitality kits",
-    text: "Napkin + fork + spoon sets for caterers, flight kitchens, and delivery brands — counted, sealed, and boxed.",
+    text: "Napkin + fork + spoon sets for caterers, flight kitchens, and delivery brands, counted, sealed, and boxed.",
   },
   {
     title: "Hardware & fastener kits",
-    text: "Carded or boxed screw/fitting kits for flat-pack furniture and hardware traders — sealed against moisture with an optional desiccant insert (our home turf).",
+    text: "Carded or boxed screw/fitting kits for flat-pack furniture and hardware traders, sealed against moisture with an optional desiccant insert (our home turf).",
   },
   {
     title: "Sponges, candles & household items",
@@ -81,7 +81,7 @@ const faqs = [
   {
     question: "What size products can you flow wrap?",
     answer:
-      "Pack length 60–200 mm, pack width 25–100 mm, product height up to ~45 mm. Because the end crimp needs clearance, the practical maximum product length is about 180 mm. Solid, regular-shaped items — single or grouped. If your product exceeds this, we will tell you straight away rather than run it badly.",
+      "Pack length 60–200 mm, pack width 25–100 mm, product height up to ~45 mm. Because the end crimp needs clearance, the practical maximum product length is about 180 mm. Solid, regular-shaped items, single or grouped. If your product exceeds this, we will tell you straight away rather than run it badly.",
   },
   {
     question: "What is your minimum order quantity and how is pricing calculated?",
@@ -91,17 +91,17 @@ const faqs = [
   {
     question: "Can we supply our own printed film?",
     answer:
-      "Yes — heat-sealable OPP/BOPP or laminate reels with an eye-mark for registration. Send the reel spec (web width, core size, film structure) with your inquiry and we confirm compatibility before you commit stock.",
+      "Yes, heat-sealable OPP/BOPP or laminate reels with an eye-mark for registration. Send the reel spec (web width, core size, film structure) with your inquiry and we confirm compatibility before you commit stock.",
   },
   {
     question: "Do you pack food items like biscuits?",
     answer:
-      "Not yet. Food packing requires a Sindh Food Authority-licensed premises, which we are honest about not holding today. Our current lane is non-food solids — soap, incense formats, kits, household goods. If your product is food, tell us anyway: we will say so plainly rather than quote something we should not run.",
+      "Not yet. Food packing requires a Sindh Food Authority-licensed premises, which we are honest about not holding today. Our current lane is non-food solids, soap, incense formats, kits, household goods. If your product is food, tell us anyway: we will say so plainly rather than quote something we should not run.",
   },
   {
-    question: "Flow wrap vs premade pouch — which is cheaper for my product?",
+    question: "Flow wrap vs premade pouch, which is cheaper for my product?",
     answer:
-      "For solid, regular-shaped items at volume, flow wrap from a film reel is usually cheaper per unit than filling premade pouches, and faster. Premade pouches win for loose powders and granules — which our sachet lines handle separately — and for zipper/stand-up retail formats.",
+      "For solid, regular-shaped items at volume, flow wrap from a film reel is usually cheaper per unit than filling premade pouches, and faster. Premade pouches win for loose powders and granules, which our sachet lines handle separately, and for zipper/stand-up retail formats.",
   },
   {
     question: "Do you offer home-based packing work?",
@@ -146,7 +146,7 @@ export default function FlowWrapPackingPage() {
         <h1>Flow wrap (pillow pack) contract packing services in Pakistan.</h1>
         <p className={styles.lead}>
           Horizontal flow wrapping for manufacturers and brands: your solid product sealed in a
-          printed or plain film envelope — fin seal, crimped ends, date-coded — at machine speed
+          printed or plain film envelope, fin seal, crimped ends, date-coded, at machine speed
           with per-pack consistency. B2B production runs with MOQ, from our Karachi facility,
           under ISO 9001:2015. We publish our specs and our limits; most co-packers hide both.
         </p>
@@ -176,7 +176,7 @@ export default function FlowWrapPackingPage() {
         <div className={styles.sectionHead}>
           <h2>What flow wrapping is</h2>
           <p>
-            Flow wrap — also called pillow pack or HFFS (horizontal form-fill-seal) — forms a film
+            Flow wrap, also called pillow pack or HFFS (horizontal form-fill-seal), forms a film
             tube around your product as it travels on a lug-chain infeed, seals it lengthwise with
             a fin seal, then crimps and cuts both ends. The result is the sealed, tamper-evident
             pillow pack you see on mainstream retail bars, biscuits, and kits worldwide.
@@ -187,7 +187,7 @@ export default function FlowWrapPackingPage() {
       <section className={styles.facility} aria-label="Published machine specifications">
         <h2>Published line specifications</h2>
         <p>
-          These are our real working numbers — including the honest limits most packers leave out.
+          These are our real working numbers, including the honest limits most packers leave out.
         </p>
         <ul className={styles.facilityList}>
           {specs.map((s) => (
@@ -220,20 +220,20 @@ export default function FlowWrapPackingPage() {
         <h2>What we can&apos;t flow wrap (and what to do instead)</h2>
         <ul className={styles.facilityList}>
           <li>
-            <strong>Products longer than ~180 mm</strong> — including full-length 8–9&quot;
+            <strong>Products longer than ~180 mm</strong>, including full-length 8–9&quot;
             agarbatti sticks. Shorter dhoop, cones, and bakhoor tablets run fine.
           </li>
           <li>
-            <strong>Loose powders and granules</strong> — wrong machine class for flow wrap, but our{" "}
+            <strong>Loose powders and granules</strong>, wrong machine class for flow wrap, but our{" "}
             <Link href="/contract-packaging-services">automatic sachet lines</Link> handle exactly
             these.
           </li>
           <li>
-            <strong>Liquids, pastes, and gels</strong> — we don&apos;t fill them, and we&apos;ll say
+            <strong>Liquids, pastes, and gels</strong>, we don&apos;t fill them, and we&apos;ll say
             so instead of quoting badly.
           </li>
           <li>
-            <strong>Food items</strong> — pending Sindh Food Authority premises licensing; stated
+            <strong>Food items</strong>, pending Sindh Food Authority premises licensing; stated
             honestly above.
           </li>
         </ul>
@@ -241,7 +241,7 @@ export default function FlowWrapPackingPage() {
 
       <MachineShowcase
         heading="The flow-wrap line, on our floor"
-        intro="Real photos and footage of the horizontal flow-wrap line and its infeed conveyor — the machine your product runs on, not a stock image."
+        intro="Real photos and footage of the horizontal flow-wrap line and its infeed conveyor, the machine your product runs on, not a stock image."
         video="/videos/packaging-line.mp4"
         feature={{
           src: "/images/packaging/contract-packaging-line.webp",

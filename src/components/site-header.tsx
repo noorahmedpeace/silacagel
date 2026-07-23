@@ -89,7 +89,7 @@ const navGroups: NavGroup[] = [
     children: [
       { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
       { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
-      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack — published specs & limits" },
+      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack, published specs & limits" },
       { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
     ],
   },
@@ -225,7 +225,7 @@ export function SiteHeader() {
         <div className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
             <span className={styles.brandMark} aria-hidden="true">
-              {/* The company's actual mark — the blue/silver sphere. */}
+              {/* The company's actual mark, the blue/silver sphere. */}
               <Image
                 src="/images/brand/logo-ball.png"
                 alt=""
@@ -244,7 +244,7 @@ export function SiteHeader() {
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
-            {/* No desktop "Home" link — the logo is the home link. Dropping it
+            {/* No desktop "Home" link, the logo is the home link. Dropping it
                 keeps the six mega-menu groups from overflowing the nav column. */}
             {navGroups.map((group, index) => {
               const open = openMenu === group.label;

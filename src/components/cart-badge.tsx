@@ -20,11 +20,11 @@ export function CartBadge() {
   // useSyncExternalStore is the SSR-safe, lint-clean way to read an external
   // (localStorage) store: the server snapshot (0) avoids a hydration mismatch,
   // the client snapshot reads the cart, and it re-renders on CART_EVENT /
-  // storage — no setState-inside-an-effect.
+  // storage, no setState-inside-an-effect.
   const count = useSyncExternalStore(subscribe, () => getCart().length, () => 0);
 
   // Always render (reserve the slot) so adding items only lights up the count
-  // bubble — it never appears from nothing and shifts the header layout.
+  // bubble, it never appears from nothing and shifts the header layout.
   return (
     <Link
       href="/request-a-quote?cart=1"

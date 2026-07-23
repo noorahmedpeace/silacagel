@@ -40,7 +40,7 @@ function renderHtml(t: string): string {
   e = e.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   e = e.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   // Auto-link bare URLs, but keep any trailing sentence punctuation OUTSIDE the
-  // href — otherwise "...visit https://site/contact." links to "/contact." and
+  // href, otherwise "...visit https://site/contact." links to "/contact." and
   // 404s. Group 3 captures the trailing .,;:!? and is re-appended after the link.
   e = e.replace(
     /(^|[\s(])(https?:\/\/[^\s<)]+?)([.,;:!?]*)(?=[\s<)]|$)/g,
@@ -70,7 +70,7 @@ export function DryBot() {
       greeted.current = true;
       // Kept short on purpose: a long greeting pushes the chips and actions out
       // of a short viewport and forces the visitor to scroll on first open.
-      setMsgs([{ role: "bot", text: "Hi — I'm DryBot. Tell me what you're shipping and I'll recommend the right desiccant, or ask about MOQ, pricing, or export." }]);
+      setMsgs([{ role: "bot", text: "Hi, I'm DryBot. Tell me what you're shipping and I'll recommend the right desiccant, or ask about MOQ, pricing, or export." }]);
     }
   }, [open]);
 
@@ -135,14 +135,14 @@ export function DryBot() {
       });
       const data = await res.json().catch(() => ({}));
       if (data.ok) { setView("sent"); setRfq(EMPTY_RFQ); }
-      else setRfqError("We couldn't send it automatically — please reach us on WhatsApp or email below.");
+      else setRfqError("We couldn't send it automatically, please reach us on WhatsApp or email below.");
     } catch {
-      setRfqError("Network issue — please reach us on WhatsApp or email below.");
+      setRfqError("Network issue, please reach us on WhatsApp or email below.");
     } finally { setSending(false); }
   }
 
   const waHref = `https://wa.me/${WA}?text=${encodeURIComponent("Hello DryGelWorld, I'd like a quote.")}`;
-  const emHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Quote request — DryGelWorld")}`;
+  const emHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Quote request, DryGelWorld")}`;
 
   return (
     <div className={styles.root} data-drybot>
@@ -212,7 +212,7 @@ export function DryBot() {
                   <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden><path fill="currentColor" d="M3.4 20.4l17.5-8.4c.8-.4.8-1.6 0-2L3.4 3.6c-.7-.3-1.5.3-1.3 1.1L4 11l10 1-10 1-1.9 5.3c-.2.8.6 1.4 1.3 1.1z" /></svg>
                 </button>
               </form>
-              <p className={styles.legal}>Answers from drygelworld.com — never invented.</p>
+              <p className={styles.legal}>Answers from drygelworld.com, never invented.</p>
             </>
           )}
 
@@ -220,7 +220,7 @@ export function DryBot() {
             <form className={styles.rfq} onSubmit={sendRfq}>
               <button type="button" className={styles.back} onClick={() => setView("chat")}>&larr; Back to chat</button>
               <h3>Request a quote</h3>
-              <p className={styles.hint}>Share your requirement — the team replies, usually within 24 hours.</p>
+              <p className={styles.hint}>Share your requirement, the team replies, usually within 24 hours.</p>
               <div className={styles.two}>
                 <input placeholder="Contact name" value={rfq.contactName} onChange={(e) => setRfq({ ...rfq, contactName: e.target.value })} />
                 <input placeholder="Company" value={rfq.company} onChange={(e) => setRfq({ ...rfq, company: e.target.value })} />
@@ -248,7 +248,7 @@ export function DryBot() {
             <div className={styles.ok}>
               <div className={styles.okBadge}><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden><path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z" /></svg></div>
               <h3 style={{ margin: "0 0 6px", color: "var(--b1)" }}>Request sent</h3>
-              <p className={styles.hint}>Thank you — our sales team will get back to you shortly, usually within 24 hours.</p>
+              <p className={styles.hint}>Thank you, our sales team will get back to you shortly, usually within 24 hours.</p>
               <button className={styles.back} style={{ margin: "10px auto 0" }} onClick={() => setView("chat")}>Back to chat</button>
             </div>
           )}

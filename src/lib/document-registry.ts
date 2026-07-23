@@ -1,5 +1,5 @@
 /*
- * Document registry — single source of truth for the downloadable
+ * Document registry, single source of truth for the downloadable
  * documentation center (/documentation) modelled on how industrial suppliers
  * (e.g. Trelleborg) publish verifiable proof: real, openable PDFs grouped by
  * type, each with concrete metadata.
@@ -184,7 +184,7 @@ export const documents: DocEntry[] = [
     id: "company-profile",
     type: "profile",
     title: "DryGelWorld Company Profile & Product Catalogue",
-    description: "Company overview, manufacturing background since 1983, product range, and the industries served — with ISO 9001:2015, SDS, COA, and DMF-free documentation referenced throughout.",
+    description: "Company overview, manufacturing background since 1983, product range, and the industries served, with ISO 9001:2015, SDS, COA, and DMF-free documentation referenced throughout.",
     fileHref: "/documents/company-profile.pdf",
     format: "PDF",
     available: true,

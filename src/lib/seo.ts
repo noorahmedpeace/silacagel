@@ -57,7 +57,7 @@ export const META_DESCRIPTION_LIMIT = 158;
 // "...the REACH classification, where blue is."
 export function truncateAtWord(text: string, limit: number) {
   if (text.length <= limit) return text;
-  const cut = text.slice(0, limit - 1).replace(/[\s,;:–—-]+\S*$/u, "");
+  const cut = text.slice(0, limit - 1).replace(/[\s,;:–, -]+\S*$/u, "");
   return `${cut}…`;
 }
 

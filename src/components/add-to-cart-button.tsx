@@ -29,7 +29,7 @@ export function AddToCartButton({
   const [quick, setQuick] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const [quickError, setQuickError] = useState("");
   const [fallbackHref, setFallbackHref] = useState("");
-  // Stamped when the modal opens (not at render — Date.now() in render is impure
+  // Stamped when the modal opens (not at render, Date.now() in render is impure
   // and the timer should measure how long the form was actually open).
   const openedAt = useRef(0);
 
@@ -101,12 +101,12 @@ export function AddToCartButton({
         addToCart({ name: productFullName, slug: productSlug });
         setQuick("sent");
       } else if (result.fallback) {
-        // Neither stored nor emailed — open the mail client so the lead survives.
+        // Neither stored nor emailed, open the mail client so the lead survives.
         setFallbackHref(mailto);
         setQuick("fallback");
         window.location.href = mailto;
       } else {
-        setQuickError(result.error ?? "Could not send — please use WhatsApp or the quote page.");
+        setQuickError(result.error ?? "Could not send, please use WhatsApp or the quote page.");
         setQuick("idle");
       }
     } catch {
@@ -155,7 +155,7 @@ export function AddToCartButton({
             {quick === "sent" ? (
               <div className={styles.modalSuccess}>
                 <span className={styles.modalCheck} aria-hidden="true">✓</span>
-                <h3>Added — we will reach you soon!</h3>
+                <h3>Added, we will reach you soon!</h3>
                 <p>
                   Our export team has your details and will contact you within 24
                   business hours with pricing for {productFullName}.
@@ -164,7 +164,7 @@ export function AddToCartButton({
               </div>
             ) : quick === "fallback" ? (
               <div className={styles.modalSuccess}>
-                <h3>Almost there — please hit send.</h3>
+                <h3>Almost there, please hit send.</h3>
                 <p>
                   We opened your email client with the request pre-filled. If nothing
                   opened, email us directly at{" "}
@@ -174,7 +174,7 @@ export function AddToCartButton({
             ) : (
               <form onSubmit={quickSubmit} className={styles.modalForm}>
                 <h3>Add to quote: {productFullName}</h3>
-                <p>Leave your email and quantity — we will reach you soon.</p>
+                <p>Leave your email and quantity, we will reach you soon.</p>
                 <label>
                   <span>Email *</span>
                   <input name="email" type="email" required autoFocus autoComplete="email" />

@@ -18,7 +18,7 @@ type Metric = {
   placeholder?: boolean;
 };
 
-// Track record — owner-verifiable facts only. The two production figures
+// Track record, owner-verifiable facts only. The two production figures
 // (10M+ packets, 10,000+ customers) are the owner's own published claims on
 // the sister brand site silicagelpk.com; 190+ markets is owner-confirmed;
 // 1983, ISO 9001:2015 and DMF-free are documented. No invented numbers.

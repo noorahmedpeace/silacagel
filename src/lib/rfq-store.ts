@@ -26,7 +26,7 @@ export type Inquiry = {
   createdAt: string;
   status: InquiryStatus;
   /** Non-human timing (too fast / missing / non-finite) at submit. The lead is
-      still stored — this only lets the dashboard filter likely bots. */
+      still stored, this only lets the dashboard filter likely bots. */
   suspectedBot?: boolean;
   /** Surface that produced the lead (quote_form, add_to_cart, drybot, …). */
   source?: string;
@@ -93,7 +93,7 @@ async function readJson<T>(url: string): Promise<T | null> {
 // Human-friendly but stateless ID. The old read-modify-write on counter.json
 // raced under concurrency AND could read a stale public-CDN copy (up to ~60s),
 // so two leads could share an ID and silently overwrite each other. Format is
-// unchanged — DGW-YYYY-NNNNNN — so every existing validator, email, and
+// unchanged, DGW-YYYY-NNNNNN, so every existing validator, email, and
 // analytics field keeps working; only the allocation is now stateless.
 export function generateInquiryId(): string {
   const year = new Date().getFullYear();
@@ -107,12 +107,12 @@ export async function nextInquiryId(): Promise<string> {
 }
 
 // Create a NEW inquiry without ever clobbering an existing one. `allowOverwrite:
-// false` is the hard guarantee — the write throws rather than overwrite a taken
+// false` is the hard guarantee, the write throws rather than overwrite a taken
 // pathname, which is exactly the concurrent-ID bug we are closing.
 //
 // We retry ONLY on a precondition/conflict (a genuine 1-in-a-million random-ID
 // collision), with a fresh ID. Any OTHER failure (storage down, aborted) stops
-// immediately and returns stored:false with the last attempted id — so a lost
+// immediately and returns stored:false with the last attempted id, so a lost
 // write is never retried into a DUPLICATE record, and we never return an id we
 // didn't try to store. Each attempt is time-bounded so a Blob stall can't eat
 // the request before the caller's email/mailto fallback runs.
@@ -208,8 +208,8 @@ async function readInquiryWithEtag(
 // Concurrency-safe edit via ETag compare-and-set: read the record + its etag,
 // apply the patch to that fresh copy, and write only if the etag still matches
 // (ifMatch). If another write landed in between (BlobPreconditionFailedError) we
-// re-read and retry, so two consecutive edits — even from one admin (status then
-// follow-up) — can never silently revert one another. A real failure returns
+// re-read and retry, so two consecutive edits, even from one admin (status then
+// follow-up), can never silently revert one another. A real failure returns
 // false so the admin UI rolls the optimistic change back and shows an error.
 export async function updateInquiry(
   id: string,
@@ -255,7 +255,7 @@ export async function updateInquiry(
   return false;
 }
 
-// Permanently delete an inquiry (for junk / test / bot leads). Irreversible —
+// Permanently delete an inquiry (for junk / test / bot leads). Irreversible,
 // the Blob object is removed. Validates the ID shape so a malformed value can't
 // target an arbitrary path.
 export async function deleteInquiry(id: string): Promise<boolean> {

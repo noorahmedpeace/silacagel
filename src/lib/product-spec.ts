@@ -1,5 +1,5 @@
 /*
- * Standardised B2B product spec sheet — the ~25 attributes every product page
+ * Standardised B2B product spec sheet, the ~25 attributes every product page
  * exposes for importers/distributors, rendered by <ProductSpecTable> and mirrored
  * into non-Product specifications JSON-LD.
  *
@@ -300,7 +300,7 @@ export function getProductSpec(slug: string): ProductSpec | null {
   return { ...SILICA_BASE, ...override };
 }
 
-/** Build a silica-gel spec from partial overrides — for category landing pages. */
+/** Build a silica-gel spec from partial overrides, for category landing pages. */
 export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
   return { ...SILICA_BASE, ...override };
 }
@@ -359,7 +359,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Orange indicating silica gel (cobalt-free)",
       color: "Orange (dry) → colourless / pale green (saturated)",
-      indicating: "Indicating, cobalt-free — no REACH-restricted cobalt dichloride (the modern default)",
+      indicating: "Indicating, cobalt-free, no REACH-restricted cobalt dichloride (the modern default)",
       application: "Visual moisture monitoring without REACH-restricted cobalt dichloride",
     },
   },

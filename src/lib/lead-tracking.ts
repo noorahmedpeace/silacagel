@@ -95,13 +95,13 @@ export function clientTracking(): LeadTracking {
 // Route through the layout's __drygelTrackEvent / __drygelTrackClarity helpers,
 // never through window.gtag / window.clarity directly. Both tags load lazily
 // (afterInteractive + requestIdleCallback), so a direct `w.gtag?.()` on a fast
-// submit silently dropped the conversion — while a submit *after* they loaded
+// submit silently dropped the conversion, while a submit *after* they loaded
 // fired it twice, once directly and once via the helper. The helpers queue
 // until their tag is ready and each event lands exactly once. Never throws.
 export function fireLeadConversion(leadId: string, method = "rfq_form"): void {
   if (typeof window === "undefined") return;
   // "received" is the opaque sentinel the server returns for a honeypot bot hit
-  // (no lead stored). Never report it as a conversion — it would poison GA4 /
+  // (no lead stored). Never report it as a conversion, it would poison GA4 /
   // Google Ads with phantom leads and corrupt the very spend measurement this
   // exists to provide.
   if (!leadId || leadId === "received") return;

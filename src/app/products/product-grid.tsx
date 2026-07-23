@@ -93,7 +93,7 @@ export function ProductGrid() {
           const categoryLabel = product.categoryPath?.join(" > ");
           const colorLabel = product.colorOptions?.join(" / ");
           const sizeLabel = product.sizeOptions?.join(", ");
-          // Show the size RANGE, not just the first size — a lone "0.5 gm"
+          // Show the size RANGE, not just the first size, a lone "0.5 gm"
           // badge read as if that were the only size available.
           const sizeRange =
             product.featuredSizes.length > 2
