@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { productCatalog, whatsappNumber } from "@/lib/product-data";
+import { productCatalog } from "@/lib/product-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { seoImages } from "@/lib/seo-images";
 import shared from "../shared-page.module.css";
-import styles from "./products.module.css";
 import { FaqBlock } from "@/components/faq-block";
-import { AddToCartButton } from "@/components/add-to-cart-button";
 import { HowToOrder } from "@/components/how-to-order";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
+import { ProductGrid } from "./product-grid";
 
 const productsFaqs = [
   {
@@ -38,21 +36,6 @@ export const metadata: Metadata = {
   },
 };
 
-const catalogImages: Record<string, string> = {
-  "retail-sachets": "/products/catalog-white-nonindicating.webp",
-  "paper-sachets": "/products/catalog-kraft-indicating.webp",
-  "bulk-industrial": "/products/catalog-bulk-supply.webp",
-  "container-strips": "/products/catalog-cargo-strips.webp",
-  "calcium-chloride-container-strip": "/products/calcium-chloride-container-strip.webp",
-  "calcium-chloride-container-bulk": "/products/calcium-chloride-container-bulk.webp",
-  "dry-clay-desiccant": "/products/industrial-dry-clay-desiccant-packs.webp",
-  "humidity-indicator-cards": "/products/humidity-indicator-cards-photo.webp",
-  "powder-free-blue-nitrile-gloves": "/products/powder-free-nitrile-examination-gloves.webp",
-  "powdered-nitrile-examination-gloves": "/products/powdered-nitrile-examination-gloves.webp",
-  "hair-nets": "/products/simple-bouffant-hair-nets.webp",
-  "beard-covers": "/products/simple-disposable-beard-covers.webp",
-};
-
 export default function ProductsPage() {
   return (
     <main className={shared.page}>
@@ -70,80 +53,7 @@ export default function ProductsPage() {
 
       <HowToOrder />
 
-      <section className={styles.grid}>
-        {productCatalog.map((product) => {
-          const categoryLabel = product.categoryPath?.join(" > ");
-          const colorLabel = product.colorOptions?.join(" / ");
-          const sizeLabel = product.sizeOptions?.join(", ");
-          // Show the size RANGE, not just the first size — a lone "0.5 gm"
-          // badge read as if that were the only size available.
-          const sizeRange =
-            product.featuredSizes.length > 2
-              ? `${product.featuredSizes[0]} – ${product.featuredSizes[product.featuredSizes.length - 1]}`
-              : product.featuredSizes.join(" / ");
-          const powderType = product.attributes?.["Powder Type"];
-          const quoteMessage = [
-            "Hello, I want a quote from DryGelWorld.",
-            `Product: ${product.name}`,
-            categoryLabel ? `Category: ${categoryLabel}` : null,
-            colorLabel ? `Colors: ${colorLabel}` : null,
-            sizeLabel ? `Sizes: ${sizeLabel}` : `Sizes: ${product.featuredSizes.join(", ")}`,
-          ]
-            .filter(Boolean)
-            .join("\n");
-
-          return (
-            <article key={product.slug} className={styles.card}>
-              <div className={styles.imageWrap}>
-                <Image
-                  src={catalogImages[product.slug] ?? product.heroImage}
-                  alt={`${product.name}: ${product.summary}`}
-                  fill
-                  className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
-                  sizes="(max-width: 900px) 100vw, 45vw"
-                />
-                <div className={styles.imageScrim} />
-                <span className={styles.formatBadge}>{sizeRange}</span>
-                <span className={styles.globalBadge}>Worldwide dispatch</span>
-              </div>
-              <div className={styles.copy}>
-                <span className={styles.eyebrow}>{product.eyebrow}</span>
-                {categoryLabel ? <span className={styles.categoryTrail}>{categoryLabel}</span> : null}
-                <h2>{product.name}</h2>
-                <p>{product.summary}</p>
-                <div className={styles.meta}>
-                  {powderType ? <span>{powderType}</span> : null}
-                  {colorLabel ? <span>Colors: {colorLabel}</span> : null}
-                  {sizeLabel ? (
-                    <span>Sizes: {sizeLabel}</span>
-                  ) : (
-                    <span>Sizes: {product.featuredSizes.join(", ")}</span>
-                  )}
-                  <span>{product.leadTime}</span>
-                </div>
-                <div className={styles.actions}>
-                  <Link href={`/products/${product.slug}`} className={shared.ctaBtn}>
-                    View Product Page
-                  </Link>
-                  <AddToCartButton
-                    productFullName={product.name}
-                    productSlug={product.slug}
-                    className={styles.quoteBtn}
-                  />
-                  <a
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(quoteMessage)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.whatsappBtn}
-                  >
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </section>
+      <ProductGrid />
 
       <CobaltFreeBand />
 

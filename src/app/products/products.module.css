@@ -10,6 +10,126 @@
   gap: clamp(24px, 3vw, 32px);
 }
 
+/* Category filter — a premium segmented control above the grid. Separates
+   desiccants from safety PPE and lets buyers narrow by format. Client-side
+   only, so the JSON-LD ItemList still exposes every product to crawlers. */
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto clamp(22px, 3vw, 32px);
+  padding: 6px;
+  border-radius: var(--ds-radius-pill);
+  background: color-mix(in srgb, var(--ds-brand) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ds-brand) 12%, transparent);
+  box-shadow: inset 0 1px 2px color-mix(in srgb, var(--ds-brand) 9%, transparent);
+}
+
+.filterChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: var(--ds-radius-pill);
+  background: transparent;
+  color: var(--ds-text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--ds-dur-quick) var(--ds-ease),
+    color var(--ds-dur-quick) var(--ds-ease),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out),
+    transform var(--ds-dur-base) var(--ds-ease-spring);
+}
+
+.filterChip:focus-visible {
+  outline: none;
+  box-shadow: var(--ds-focus-ring);
+}
+
+.filterCount {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: var(--ds-radius-pill);
+  background: color-mix(in srgb, var(--ds-brand) 13%, transparent);
+  color: var(--ds-brand-deep);
+  font-size: 0.72rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.filterChipActive {
+  background: var(--ds-grad-brand);
+  color: #fff;
+  box-shadow:
+    0 8px 20px -8px color-mix(in srgb, var(--ds-brand) 60%, transparent),
+    var(--ds-ring-top);
+}
+
+.filterChipActive .filterCount {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filterChip:hover {
+    background: var(--ds-surface);
+    color: var(--ds-brand-deep);
+    transform: translateY(-1px);
+  }
+
+  .filterChipActive:hover {
+    background: var(--ds-grad-brand);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+}
+
+/* Mobile: let the control span the row so centered chips wrap evenly, and
+   tighten padding so 2–3 chips sit comfortably per line on small screens. */
+@media (max-width: 768px) {
+  .filterBar {
+    width: 100%;
+    gap: 5px;
+    padding: 5px;
+    border-radius: var(--ds-radius-card);
+  }
+
+  .filterChip {
+    padding: 9px 13px;
+    font-size: 0.82rem;
+    gap: 7px;
+  }
+
+  .filterCount {
+    min-width: 19px;
+    height: 18px;
+    font-size: 0.68rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filterChip {
+    transition: none;
+  }
+
+  .filterChip:hover,
+  .filterChipActive:hover {
+    transform: none;
+  }
+}
+
 .card {
   position: relative;
   display: grid;

@@ -85,7 +85,7 @@
 
 .secondary {
   background: #25d366;
-  color: #05270f;
+  color: #fff;
 }
 .secondary:hover {
   transform: translateY(-1px);
