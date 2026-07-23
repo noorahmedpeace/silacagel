@@ -27,6 +27,13 @@ const currencyOptions = [
 type CurrencyCode = (typeof currencyOptions)[number]["code"];
 
 function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
+  // The animation writes straight to the DOM via textContent each frame. That
+  // node MUST hold exactly one text child, otherwise React's recorded child
+  // count drifts from the real DOM and the next reconciliation (e.g. changing
+  // currency) throws "Failed to execute 'removeChild' on 'Node'", which tears
+  // the whole calculator out of the tree and crashes the page on every device.
+  // So the ref wraps ONLY the number; prefix/suffix stay as separate
+  // React-owned siblings the animation never touches.
   const nodeRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
@@ -43,7 +50,7 @@ function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value
       // flashed negative prices ("$-0.37") before the count started.
       const progress = Math.min(Math.max((now - start) / duration, 0), 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      node.textContent = `${prefix}${formatter.format(value * eased)}${suffix}`;
+      node.textContent = formatter.format(value * eased);
 
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
@@ -53,9 +60,15 @@ function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value
     frame = requestAnimationFrame(tick);
 
     return () => cancelAnimationFrame(frame);
-  }, [value, formatter, prefix, suffix]);
+  }, [value, formatter]);
 
-  return <strong ref={nodeRef}>{prefix}{formatter.format(value)}{suffix}</strong>;
+  return (
+    <strong>
+      {prefix}
+      <span ref={nodeRef}>{formatter.format(value)}</span>
+      {suffix}
+    </strong>
+  );
 }
 
 export function PriceCalculator() {
