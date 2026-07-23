@@ -128,7 +128,7 @@
   box-shadow: 0 16px 28px -24px rgba(15, 23, 42, 0.14);
 }
 
-.summaryCard span {
+.summaryCard > span {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -367,7 +367,7 @@
     padding: 14px;
   }
 
-  .summaryCard span {
+  .summaryCard > span {
     letter-spacing: 0.06em;
   }
 
