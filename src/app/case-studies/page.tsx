@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/lib/case-study-data";
+import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import styles from "./case-studies.module.css";
 
 export const metadata: Metadata = {
@@ -14,11 +15,12 @@ export const metadata: Metadata = {
 };
 
 const proofRules = [
-  "Client names stay anonymous until written permission is available.",
+  "Named customer references are shown only with permission.",
   "Claims describe workflow improvements, not audited performance metrics.",
   "Documents and certifications are only shown when valid proof exists.",
   "Photos should hide private labels, shipment references, invoice values, and buyer identities.",
 ];
+
 
 export default function CaseStudiesPage() {
   return (
@@ -79,6 +81,18 @@ export default function CaseStudiesPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className={styles.referenceSection} aria-labelledby="customer-references-title">
+        <div className={styles.referenceIntro}>
+          <span className={styles.kicker}>Selected Customer References</span>
+          <h2 id="customer-references-title">Silica gel supply across pharma, medical and textile operations.</h2>
+          <p>
+            DryGelWorld has supplied silica gel desiccant products for packaging and moisture-control requirements
+            across these customer relationships. Company websites are linked for independent verification.
+          </p>
+        </div>
+        <CustomerReferenceMarquee />
       </section>
 
       <section className={styles.rulesSection}>

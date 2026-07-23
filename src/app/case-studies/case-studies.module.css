@@ -111,6 +111,116 @@
   gap: 24px;
 }
 
+.referenceSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: 34px;
+  align-items: start;
+  padding: clamp(28px, 4vw, 52px);
+  border: 1px solid rgba(45, 91, 255, 0.14);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.referenceIntro h2 {
+  max-width: 16ch;
+  margin: 18px 0 14px;
+  color: var(--ds-text);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3.4rem);
+  line-height: 1.06;
+}
+
+.referenceIntro p {
+  max-width: 48ch;
+  color: var(--ds-text-muted);
+  line-height: 1.7;
+}
+
+.referenceViewport {
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.referenceTrack {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: referenceSlide 34s linear infinite;
+}
+
+.referenceViewport:hover .referenceTrack,
+.referenceViewport:focus-within .referenceTrack {
+  animation-play-state: paused;
+}
+
+.referenceCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto auto;
+  column-gap: 12px;
+  align-items: center;
+  width: 244px;
+  min-height: 112px;
+  padding: 16px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight);
+  background: var(--ds-surface-tint);
+  transition: border-color var(--ds-dur-base) var(--ds-ease-out), transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@keyframes referenceSlide {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.referenceCard:hover {
+  border-color: rgba(45, 91, 255, 0.42);
+  transform: translateY(-2px);
+}
+
+.referenceMark {
+  grid-row: 1 / span 3;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(45, 91, 255, 0.24);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.referenceMark img {
+  width: 38px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.referenceName {
+  color: var(--ds-text);
+  font-weight: 750;
+}
+
+.referenceIndustry,
+.referenceMeta {
+  color: var(--ds-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+}
+
+.referenceMeta {
+  margin-top: 4px;
+  color: var(--ds-brand-deep);
+  font-weight: 650;
+}
+
 .caseCard {
   display: grid;
   grid-template-columns: minmax(280px, 0.74fr) minmax(0, 1.26fr);
@@ -550,4 +660,29 @@
   font-weight: 700;
   color: var(--ds-text);
   font-size: clamp(1rem, 1.4vw, 1.12rem);
+}
+
+@media (max-width: 800px) {
+  .referenceSection {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .referenceIntro h2 {
+    max-width: 22ch;
+  }
+}
+
+@media (max-width: 520px) {
+  .referenceCard {
+    width: 224px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .referenceTrack {
+    animation: none;
+    transform: none;
+  }
 }

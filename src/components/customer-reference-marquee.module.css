@@ -1,0 +1,14 @@
+.viewport { overflow: hidden; padding: 6px 0; margin: -6px 0; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.track { display: flex; width: max-content; gap: 14px; animation: slide 36s linear infinite; }
+.viewport:hover .track, .viewport:focus-within .track { animation-play-state: paused; }
+.card { box-sizing: border-box; display: grid; grid-template-columns: 48px minmax(0, 1fr); grid-template-rows: minmax(1.2em, auto) minmax(2em, auto); align-content: center; gap: 3px 12px; width: 230px; min-height: 92px; padding: 15px; border: 1px solid rgba(45,91,255,.14); border-radius: 10px; background: rgba(255,255,255,.9); box-shadow: 0 12px 30px rgba(16,33,61,.07); transition: transform .2s ease, border-color .2s ease; }
+.card:hover { transform: translateY(-3px); border-color: rgba(45,91,255,.42); }
+.mark { grid-row: 1 / span 2; display: grid; width: 48px; height: 48px; place-items: center; border: 1px solid rgba(45,91,255,.16); border-radius: 8px; background: #fff; color: #16448e; font-family: var(--font-mono); font-size: .72rem; font-weight: 800; }
+.mark img { width: 38px; height: 30px; object-fit: contain; }
+.name { min-width: 0; align-self: end; color: #16243a; font-weight: 750; font-size: .88rem; line-height: 1.2; }
+.industry { min-width: 0; align-self: start; color: #64748b; font-size: .72rem; line-height: 1.3; }
+.compact .card { width: 205px; min-height: 78px; padding: 11px; }
+.compact .mark { width: 40px; height: 40px; }
+.compact .name { font-size: .8rem; }
+@keyframes slide { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+@media (prefers-reduced-motion: reduce) { .track { animation: none; transform: none; } }

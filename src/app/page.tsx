@@ -8,6 +8,7 @@ import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
+import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import {
   DeferredPriceCalculator,
   DeferredQuoteForm,
@@ -324,6 +325,20 @@ export default function Home() {
 
           <Reveal direction="up">
             <TrustBand />
+          </Reveal>
+
+          <Reveal direction="up">
+            <section className={styles.customerReferenceSection} aria-labelledby="customer-reference-title">
+              <div className={styles.customerReferenceIntro}>
+                <p className={styles.kicker}>Trusted Supply Relationships</p>
+                <h2 id="customer-reference-title">Trusted by global supply chains.</h2>
+                <p>
+                  Documented desiccant supply for pharmaceutical, textile, medical and industrial packaging.
+                </p>
+                <Link href="/case-studies" className={styles.secondaryCta}>View customer references</Link>
+              </div>
+              <CustomerReferenceMarquee compact />
+            </section>
           </Reveal>
 
           <Reveal direction="up">

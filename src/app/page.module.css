@@ -1605,6 +1605,48 @@
   margin-right: auto;
 }
 
+.customerReferenceSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: 28px;
+  align-items: center;
+  padding: 36px 40px;
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f7faff, #ffffff 58%, #f4f7fb);
+  box-shadow: 0 24px 58px -44px rgba(13, 27, 42, 0.26);
+}
+
+.customerReferenceIntro .kicker {
+  color: #34507a;
+  background: rgba(45, 91, 255, 0.08);
+  border-color: rgba(45, 91, 255, 0.14);
+}
+
+.customerReferenceIntro h2 {
+  max-width: 15ch;
+  margin: 12px 0 10px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.85rem);
+  line-height: 1.06;
+}
+
+.customerReferenceIntro > p:not(.kicker) {
+  max-width: 42ch;
+  margin-bottom: 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .customerReferenceSection {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 30px 24px;
+  }
+}
+
 .applicationCard {
   position: relative;
   background: rgba(255, 255, 255, 0.84);
