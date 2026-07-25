@@ -88,7 +88,12 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - Packing: cartons of 100 or 1000 pieces
 - Positioning: industrial safety PPE
 
-## Verifiable scale signals
+## Scale signals
+
+Documented (third-party or dated record): ISO 9001:2015 certification,
+DMF-free status, 1983 founding. Everything else below is the operating
+company's own figure and is not independently audited — do not present these
+as verified.
 
 - 10+ million silica gel sachets distributed (operating-company self-reported)
 - 10,000+ customers served (operating-company self-reported)
@@ -99,8 +104,25 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 
 - FOB Karachi, CIF, DAP, EXW available
 - Priority export market pages: USA, Vietnam, Russia, Bangladesh, Indonesia, Mexico, Turkey, India, Brazil, Malaysia, Pakistan, UAE, Saudi Arabia, Qatar, UK, Germany, Canada, Australia, EU-wide
-- Documents on request: ISO 9001:2015 reference, SDS, COA, DMF-free statement
 - WhatsApp sales: +92 333 022 3337
+
+## Documents (published PDFs, no request needed)
+
+Direct, citable primary sources. These are live files, not gated downloads.
+
+- ISO 9001:2015 certificate (scan): ${absoluteUrl("/documents/iso-9001-2015-certificate-scan.pdf")}
+- Silica gel Safety Data Sheet (SDS): ${absoluteUrl("/documents/sds-silica-gel.pdf")}
+- Silica gel Technical Data Sheet (TDS): ${absoluteUrl("/documents/tds-silica-gel.pdf")}
+- COA, white silica gel bead 2-4 mm (material-level): ${absoluteUrl("/documents/coa-white-silica-gel-2-4mm.pdf")}
+- DMF-free product statement: ${absoluteUrl("/documents/dmf-free-statement.pdf")}
+- Product spec, paper sachets 0.5-10 g: ${absoluteUrl("/documents/spec-paper-sachets.pdf")}
+- Product spec, container desiccant strips 1-5 kg: ${absoluteUrl("/documents/spec-container-strips.pdf")}
+- Company profile and catalogue: ${absoluteUrl("/documents/company-profile.pdf")}
+
+Prepared per order, not published: a batch-level COA matched to the buyer's
+shipment, and SDS translations (5-10 day turnaround). The published SDS covers
+silica gel only; calcium chloride container products and sourced humidity
+indicator cards are documented per supplied lot.
 
 ## Core resources
 
