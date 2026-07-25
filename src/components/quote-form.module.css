@@ -187,6 +187,74 @@
   text-decoration: underline;
 }
 
+/* ───────────────────── INSTANT WHATSAPP CTA ───────────────────── */
+
+.whatsappCta {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  text-align: center;
+  min-height: 56px;
+  justify-content: center;
+  padding: 10px 24px;
+  border-radius: var(--ds-radius-pill);
+  background: #25d366;
+  color: #06371f;
+  text-decoration: none;
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.26);
+  transition:
+    transform var(--ds-dur-quick) var(--ds-ease),
+    box-shadow var(--ds-dur-base) var(--ds-ease);
+}
+
+.whatsappCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(37, 211, 102, 0.34);
+}
+
+.whatsappCta:focus-visible {
+  outline: 2px solid #0f7a41;
+  outline-offset: 3px;
+}
+
+.whatsappCtaMain {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.whatsappCtaSub {
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.orDivider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 2px;
+  color: var(--ds-text-muted);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.orDivider span {
+  flex: 0 0 auto;
+}
+
+.orDivider::before,
+.orDivider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ds-hairline);
+}
+
 /* ───────────────────── SUBMIT + SUCCESS ───────────────────── */
 
 .submit {

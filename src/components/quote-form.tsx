@@ -8,6 +8,7 @@ import {
   displayPhone,
   getContactEmailChannel,
   productCatalog,
+  whatsappNumber,
   type ContactDepartment,
 } from "@/lib/product-data";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
@@ -112,6 +113,19 @@ export function QuoteForm({
   const [error, setError] = useState<string | null>(null);
   const [inquiryId, setInquiryId] = useState("");
   const routedChannel = getContactEmailChannel(state.department);
+  // Instant channel: buyers who won't fill a form still convert on WhatsApp,
+  // and all three review models flagged fast human reply as the #1 lever.
+  // Pre-fill whatever the buyer has already typed so the chat opens warm.
+  const waHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    [
+      "Hi DryGelWorld, I'd like a quote.",
+      state.product ? `Product: ${state.product}` : "",
+      state.quantity ? `Quantity: ${state.quantity}` : "",
+      state.country ? `Destination: ${state.country}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  )}`;
   const startedAt = useRef(Date.now());
   const website2 = useRef(""); // honeypot, bots fill it, humans never see it
 
@@ -224,6 +238,19 @@ export function QuoteForm({
           <h3>{title}</h3>
           <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
         </div>
+
+        {/* Instant path first: the fastest reply is a WhatsApp chat, not an
+            async form. Buyers who won't fill anything still tap this. */}
+        <a
+          className={styles.whatsappCta}
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.whatsappCtaMain}>Quote on WhatsApp — fastest reply</span>
+          <span className={styles.whatsappCtaSub}>Chat a real person now · {displayPhone}</span>
+        </a>
+        <div className={styles.orDivider}><span>or send the form</span></div>
 
         {/* Core fields - the four that let the export desk respond fast. */}
         <label className={styles.field}>
@@ -485,8 +512,12 @@ export function QuoteForm({
             <strong>RFQ received.</strong>
             <span>
               Your inquiry was logged{inquiryId && inquiryId !== "received" ? ` as ${inquiryId}` : ""} and
-              routed to our {routedChannel.label} export desk - expect a reply to {state.email}. WhatsApp
-              remains available for urgent follow-up.
+              routed to our {routedChannel.label} export desk - expect a reply to {state.email}. For a
+              faster reply,{" "}
+              <a href={waHref} target="_blank" rel="noopener noreferrer">
+                message us on WhatsApp
+              </a>
+              .
             </span>
           </div>
         ) : null}
