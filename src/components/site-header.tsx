@@ -82,18 +82,6 @@ const navGroups: NavGroup[] = [
     ],
   },
   {
-    label: "Services",
-    icon: Sparkles,
-    accent: "#b45309",
-    href: "/contract-packaging-services",
-    children: [
-      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
-      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
-      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack, published specs & limits" },
-      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
-    ],
-  },
-  {
     label: "Industries",
     icon: Factory,
     accent: "#0d9488",
@@ -125,6 +113,22 @@ const navGroups: NavGroup[] = [
       { label: "India", href: "/export/india", icon: MapPin },
       { label: "Canada", href: "/export/canada", icon: MapPin },
       { label: "Australia", href: "/export/australia", icon: MapPin },
+    ],
+  },
+  // Co-packing sits after the desiccant path, not second in the bar. Leading
+  // with soap wrapping and flow-wrap reads as a general packing trader, which
+  // undercuts the desiccant-manufacturer positioning the rest of the site is
+  // built on. The pages keep their URLs and stay one click away.
+  {
+    label: "Services",
+    icon: Sparkles,
+    accent: "#b45309",
+    href: "/contract-packaging-services",
+    children: [
+      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
+      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
+      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
+      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack, published specs & limits" },
     ],
   },
   {
