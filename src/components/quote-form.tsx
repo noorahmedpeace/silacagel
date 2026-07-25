@@ -13,9 +13,26 @@ import {
 } from "@/lib/product-data";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
+import { documents } from "@/lib/document-registry";
 import styles from "./quote-form.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Evidence pack handed over the moment an RFQ lands, instead of making the
+// buyer wait for a reply to get the paperwork. These are the documents a
+// procurement/QA reviewer asks for first. Sourced from the registry and
+// filtered on `available`, so a document whose file is not uploaded yet can
+// never render as a dead download link.
+const EVIDENCE_PACK_IDS = [
+  "sds-silica-gel",
+  "coa-white-bead-2-4mm",
+  "tds-silica-gel",
+  "iso-9001-scan",
+  "dmf-free-statement",
+];
+const evidencePack = EVIDENCE_PACK_IDS.map((id) =>
+  documents.find((doc) => doc.id === id && doc.available),
+).filter((doc): doc is NonNullable<typeof doc> => Boolean(doc));
 type SubmitStatus = "idle" | "sent" | "fallback";
 
 type QuoteFormProps = {
@@ -519,6 +536,25 @@ export function QuoteForm({
               </a>
               .
             </span>
+
+            {/* Don't make a buyer wait on a reply for paperwork they can have
+                now: QA and procurement reviewers screen on the SDS/COA/ISO
+                before they engage on price. */}
+            {evidencePack.length > 0 ? (
+              <div className={styles.evidencePack}>
+                <strong>Your document pack — download now</strong>
+                <ul>
+                  {evidencePack.map((doc) => (
+                    <li key={doc.id}>
+                      <a href={doc.fileHref} target="_blank" rel="noopener noreferrer">
+                        {doc.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                <Link href="/documentation">See all documents</Link>
+              </div>
+            ) : null}
           </div>
         ) : null}
 

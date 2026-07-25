@@ -562,3 +562,37 @@
     line-height: 1.22;
   }
 }
+
+/* ── Instant evidence pack (shown on RFQ success) ────────────────────────
+   Procurement/QA screen on the SDS, COA and ISO certificate before they
+   engage on price, so the pack is handed over immediately rather than
+   waiting on a reply. */
+.evidencePack {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(45, 91, 255, 0.16);
+}
+
+.evidencePack ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.evidencePack li a {
+  color: var(--ds-brand-deep);
+  font-size: 0.86rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.evidencePack > a {
+  justify-self: start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ds-brand-deep);
+}
