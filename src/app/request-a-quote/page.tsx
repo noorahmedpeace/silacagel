@@ -15,7 +15,7 @@ type PageProps = { searchParams: Promise<Record<string, string | string[] | unde
 const faqs = [
   {
     q: "How fast will I receive my quotation?",
-    a: "Our export team replies within 24 business hours with pricing, MOQ confirmation, lead time, and shipping options for your destination.",
+    a: "Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day otherwise, with pricing, lead time, and shipping options for your destination. There is no minimum order quantity, and samples are free.",
   },
   {
     q: "What information makes a quote faster?",

@@ -49,7 +49,11 @@ const SILICA_BASE: ProductSpec = {
   industries: "Electronics, pharma packaging, leather & footwear, food packaging, logistics",
   adsorptionCapacity: "Up to ~33% of own weight in water vapour (25 °C, 90% RH)",
   shelfLife: "24–36 months in the sealed factory pouch",
-  moq: "Negotiable, with trial orders supported and scaled pricing at volume on request",
+  // No minimum. This is a genuine advantage over the multinationals a buyer
+  // is comparing against, whose MOQs start high — and "what is your MOQ" is
+  // the first question most B2B buyers ask, so leaving it vague loses them
+  // before they ever send an RFQ.
+  moq: "No minimum order quantity — trial and sample quantities supplied; pricing scales with volume",
   certifications:
     "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, TDS and DMF-free statement are published for download; a batch-level COA is issued per order. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
   // The silica gel SDS is a published PDF, so "on request" invented a wait
@@ -60,7 +64,11 @@ const SILICA_BASE: ProductSpec = {
   coa: "Batch-level, issued per order",
   countryOfOrigin: "Pakistan (Karachi)",
   hsCode: "2811.22.10, silicon dioxide (confirm the suffix with your customs broker)",
-  leadTime: "~3–7 days from stock; +5–10 days for printed private label (confirmed at quote)",
+  // Stock dispatch is same/next day. Printed private label still needs artwork
+  // sign-off and a print run, and a bespoke production run is quoted per order
+  // (see the export market pages) — so the fast figure is stated for what it
+  // actually covers rather than blanket-applied.
+  leadTime: "Dispatched within 24 hours from stock; printed private label +5–10 days after artwork sign-off",
   incoterms: "EXW, FOB Karachi, CIF, DAP",
   privateLabel: "Yes, custom-printed sachets and buyer branding",
   exportMarkets: "Worldwide B2B export (see the Export hub)",

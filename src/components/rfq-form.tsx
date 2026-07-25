@@ -193,7 +193,10 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <h2>Thank you for your inquiry!</h2>
         <p>Our export team has received your request and will contact you shortly.</p>
         <p>
-          <strong>Estimated response time: within 24 business hours.</strong>
+          <strong>
+            Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day
+            otherwise.
+          </strong>
         </p>
         {inquiryId && inquiryId !== "received" ? (
           <p className={styles.successId}>Inquiry ID: {inquiryId}</p>

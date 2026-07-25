@@ -499,7 +499,7 @@ export function QuoteForm({
         />
 
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending…" : "Send my requirement, quote in 24h"}
+          {pending ? "Sending…" : "Send my requirement — reply usually within 1 hour"}
         </button>
 
         {error ? (

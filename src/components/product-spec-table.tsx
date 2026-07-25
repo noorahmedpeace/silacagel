@@ -49,7 +49,7 @@ export function ProductSpecTable({
         <h2 id="product-spec-heading">{productName}: full spec sheet</h2>
         <p className={styles.intro}>
           {intro ??
-            "Standard B2B attributes for importers and distributors. Commercial terms (MOQ, exact price, lead time) are confirmed on the quote; documents are issued on request."}
+            "Standard B2B attributes for importers and distributors. There is no minimum order quantity, stock dispatches within 24 hours, and the technical documents are published below — only the final price is quoted per order."}
         </p>
       </div>
 

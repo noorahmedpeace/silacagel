@@ -8,21 +8,24 @@ import Link from "next/link";
 import { whatsappNumber } from "@/lib/product-data";
 import styles from "./how-to-order.module.css";
 
+// The commercial terms buyers screen on — no MOQ, free samples, fast reply,
+// 24h stock dispatch — are stated here rather than left to "quoted per
+// requirement". A buyer who cannot find them assumes the worst and leaves.
 const steps = [
   {
     n: "1",
     title: "Tell us what you need",
-    text: "Add to Quote, WhatsApp us, or fill the quote form, email and quantity are enough.",
+    text: "Add to Quote, WhatsApp us, or fill the quote form, email and quantity are enough. There is no minimum order.",
   },
   {
     n: "2",
-    title: "Get your price in 24h",
-    text: "Our export team replies with exact pricing, MOQ, and delivery time for your country.",
+    title: "Reply usually within the hour",
+    text: "Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day otherwise, with pricing and delivery time for your country.",
   },
   {
     n: "3",
-    title: "Confirm & we ship",
-    text: "Pay by bank transfer (T/T), we produce and ship worldwide, documents included.",
+    title: "Free sample, then we ship",
+    text: "Samples are free and ready to go: same day inside Karachi, or worldwide on your own DHL/courier account. Stock orders dispatch within 24 hours.",
   },
 ];
 
