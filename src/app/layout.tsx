@@ -207,6 +207,31 @@ export default function RootLayout({
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
+        {/* Internal-traffic switch. The owner's own IP is by far the largest
+            source of sessions, which contaminates every rate this site
+            measures — baseline, conversion rate, CTA performance. Visiting
+            /?internal=1 once per browser marks that browser as internal and
+            stops GA4 and Clarity from loading at all; /?internal=0 clears it.
+            Runs before both loaders so nothing fires first.
+
+            This is per-browser (localStorage), so it must be set on each
+            device the team uses. It complements, and does not replace, the
+            IP-based internal-traffic filter in the GA4 admin UI. */}
+        <Script id="drygel-internal-flag" strategy="beforeInteractive">
+          {`
+            (function () {
+              try {
+                var KEY = 'dgw-internal';
+                var q = window.location.search;
+                if (q.indexOf('internal=1') !== -1) localStorage.setItem(KEY, '1');
+                else if (q.indexOf('internal=0') !== -1) localStorage.removeItem(KEY);
+                window.__drygelInternal = localStorage.getItem(KEY) === '1';
+              } catch (e) {
+                window.__drygelInternal = false;
+              }
+            })();
+          `}
+        </Script>
         <Script id="drygel-conversion-clicks" strategy="afterInteractive">
           {`
             (function () {
@@ -273,20 +298,25 @@ export default function RootLayout({
         {/* Clarity loads once the page is interactive to capture short buying sessions. */}
         <Script id="ms-clarity" strategy="afterInteractive">
           {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "xgf9cuhe4e");
-            (window.__drygelClarityQueue || []).forEach(function(args) {
-              window.clarity.apply(window, args);
-            });
-            window.__drygelClarityQueue = [];
+            if (!window.__drygelInternal) {
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "xgf9cuhe4e");
+              (window.__drygelClarityQueue || []).forEach(function(args) {
+                window.clarity.apply(window, args);
+              });
+              window.__drygelClarityQueue = [];
+            }
           `}
         </Script>
         <Script id="ga4-idle-loader" strategy="afterInteractive">
           {`
             (function () {
+              // Internal browser: never load GA4 at all, so owner/staff
+              // sessions cannot skew the rates the site is measured on.
+              if (window.__drygelInternal) return;
               var measurementId = ${JSON.stringify(GA_ID)};
               var loadAnalytics = function () {
                 if (window.__drygelGaLoaded) return;
