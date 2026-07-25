@@ -690,7 +690,7 @@ const highIntentSeoLandingPages = {
   }),
   "desiccant-manufacturer": keywordClusterPage({
     slug: "desiccant-manufacturer",
-    title: "Desiccant Manufacturer | Silica Gel Moisture Control Supplier",
+    title: "Desiccant Manufacturer | Silica Gel Moisture Control",
     metaDescription:
       "Desiccant manufacturer page for silica gel packets, bulk desiccants, packaging desiccants, cargo desiccants, OEM sachets, SDS, COA, and export RFQs.",
     kicker: "Desiccant manufacturer",
@@ -1203,7 +1203,7 @@ const highIntentSeoLandingPages = {
   }),
   "private-label-silica-gel-supplier": keywordClusterPage({
     slug: "private-label-silica-gel-supplier",
-    title: "Private Label Silica Gel Supplier | Printed Desiccant Packets",
+    title: "Private Label Silica Gel | Printed Desiccant Packets",
     metaDescription:
       "Private label silica gel supplier for printed desiccant packets, OEM sachets, carton labels, warning copy, bulk programs, SDS, COA, MOQ, and export RFQs.",
     kicker: "Private label silica gel supplier",
@@ -1512,7 +1512,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-for-transformer-breather": keywordClusterPage({
     slug: "silica-gel-for-transformer-breather",
-    title: "Silica Gel for Transformer Breathers | Cobalt-Free Orange Refill",
+    title: "Silica Gel for Transformer Breathers | Cobalt-Free",
     metaDescription:
       "Silica gel refill for transformer breathers. Cobalt-free orange indicating gel for REACH-sensitive and EU-bound utility and transformer OEM programs, in bulk kg with SDS, COA, and ISO 9001:2015 reference. We supply the desiccant gel, not the breather housing.",
     kicker: "Transformer breather silica gel",
@@ -1981,7 +1981,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier-uae": keywordClusterPage({
     slug: "hair-net-supplier-uae",
-    title: "Hair Net Supplier for UAE | Bouffant PPE Karachi-to-Jebel Ali",
+    title: "Hair Net Supplier UAE | Bouffant PPE Karachi-Jebel Ali",
     metaDescription:
       "Hair net supplier for UAE food processing, manufacturing, and healthcare PPE programs. Karachi-to-Jebel Ali shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier UAE",
@@ -2025,7 +2025,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-desiccant-supplier-saudi-arabia": keywordClusterPage({
     slug: "dry-clay-desiccant-supplier-saudi-arabia",
-    title: "Dry Clay Desiccant Supplier for Saudi Arabia | Karachi-to-Jeddah Industrial Supply",
+    title: "Dry Clay Desiccant Supplier Saudi Arabia | Karachi Export",
     metaDescription:
       "Dry clay desiccant supplier for Saudi industrial cargo, packaging, and warehouse moisture control. Karachi-to-Jeddah / Dammam shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier Saudi Arabia",
@@ -2069,7 +2069,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-usa": keywordClusterPage({
     slug: "beard-cover-supplier-usa",
-    title: "Beard Cover Supplier for USA | Disposable Beard Nets for Food & Manufacturing",
+    title: "Beard Cover Supplier USA | Disposable Beard Nets",
     metaDescription:
       "Beard cover supplier for US food processing, manufacturing, and healthcare PPE programs. Karachi-to-US-coast shipping, disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier USA",
@@ -2157,7 +2157,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-desiccant-supplier-uae": keywordClusterPage({
     slug: "dry-clay-desiccant-supplier-uae",
-    title: "Dry Clay Desiccant Supplier UAE | Karachi-to-Jebel Ali Industrial Supply",
+    title: "Dry Clay Desiccant Supplier UAE | Karachi to Jebel Ali",
     metaDescription:
       "Dry clay desiccant supplier for UAE industrial cargo, packaging, warehouse, and freight buyers. Karachi-to-Jebel Ali / Khalifa Port shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier UAE",
@@ -2201,7 +2201,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier-saudi-arabia": keywordClusterPage({
     slug: "hair-net-supplier-saudi-arabia",
-    title: "Hair Net Supplier Saudi Arabia | Bouffant PPE Karachi-to-Jeddah",
+    title: "Hair Net Supplier Saudi Arabia | Bouffant PPE Export",
     metaDescription:
       "Hair net supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier Saudi Arabia",
@@ -2685,7 +2685,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-saudi-arabia": keywordClusterPage({
     slug: "beard-cover-supplier-saudi-arabia",
-    title: "Beard Cover Supplier Saudi Arabia | Karachi-to-Jeddah PPE Supply",
+    title: "Beard Cover Supplier Saudi Arabia | PPE Export",
     metaDescription:
       "Beard cover supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier Saudi Arabia",
@@ -2729,7 +2729,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-exporter-europe": keywordClusterPage({
     slug: "dry-clay-exporter-europe",
-    title: "Dry Clay Desiccant Exporter Europe | Multi-Port EU Industrial Supply",
+    title: "Dry Clay Desiccant Exporter Europe | EU Industrial Supply",
     metaDescription:
       "Dry clay desiccant exporter for European importers, packaging companies, industrial buyers, and distributor networks. Karachi-to-Hamburg / Rotterdam / Antwerp / Le Havre routing with activated bentonite and montmorillonite clay packs.",
     kicker: "Dry Clay Exporter Europe",
@@ -2817,7 +2817,7 @@ const highIntentSeoLandingPages = {
   }),
   "desiccants-for-pharma-industry": keywordClusterPage({
     slug: "desiccants-for-pharma-industry",
-    title: "Desiccants for Pharma Industry | Pharmaceutical Packaging Silica Gel Supplier",
+    title: "Desiccants for Pharma | Pharmaceutical Packaging Supplier",
     metaDescription:
       "Desiccants for pharmaceutical packaging - silica gel sachets for pill bottles, blister packs, diagnostic kits, healthcare cartons, and regulated pharma export. Document support: ISO 9001:2015, SDS, COA, DMF-free statement.",
     kicker: "Pharma Industry Desiccants",
@@ -2861,7 +2861,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-nets-for-food-industry": keywordClusterPage({
     slug: "hair-nets-for-food-industry",
-    title: "Hair Nets for Food Industry | Bouffant PPE for Food Processing",
+    title: "Hair Nets for Food Industry | Bouffant PPE Supplier",
     metaDescription:
       "Hair nets for food industry - bouffant PPE for food processing, packaging, bakery, dairy, and meat operations. Non-woven polypropylene in 18-22 inch diameters, green and white color zoning, B2B export supply.",
     kicker: "Food Industry Hair Nets",
@@ -2905,7 +2905,7 @@ const highIntentSeoLandingPages = {
   }),
   "moisture-absorber-for-shipping": keywordClusterPage({
     slug: "moisture-absorber-for-shipping",
-    title: "Moisture Absorber for Shipping | B2B Container & Cargo Supply",
+    title: "Moisture Absorber for Shipping | Container & Cargo",
     metaDescription:
       "Moisture absorbers designed for B2B shipping - silica gel and dry clay desiccants for cartons, containers, and pallet-level cargo protection. Karachi-origin export supply across UAE, Saudi, USA, UK, EU markets.",
     kicker: "Moisture Absorber for Shipping",
@@ -2949,7 +2949,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-for-leather-export": keywordClusterPage({
     slug: "silica-gel-for-leather-export",
-    title: "Silica Gel for Leather Export | Footwear & Leather Goods Moisture Control",
+    title: "Silica Gel for Leather Export | Footwear Moisture Control",
     metaDescription:
       "Silica gel desiccants for leather export, footwear shipping, and leather goods packaging. Protect against mold, finish damage, and odor during long-haul ocean freight. DMF-free silica gel essential for EU-bound leather cargo.",
     kicker: "Silica Gel for Leather Export",
@@ -3255,7 +3255,7 @@ export const seoLandingPages = {
   },
   "bulk-silica-gel-desiccant": {
     slug: "bulk-silica-gel-desiccant",
-    title: "Bulk Silica Gel Desiccant Supplier | Industrial Moisture Control",
+    title: "Bulk Silica Gel Desiccant Supplier | Moisture Control",
     metaDescription:
       "Bulk silica gel desiccant factory-direct, loose beads by the kilogram, 25kg bags, and large packs for warehouses, distributors, and exporters. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Bulk silica gel desiccant",
@@ -4238,7 +4238,7 @@ export const seoLandingPages = {
   },
   "moisture-absorber-supplier": {
     slug: "moisture-absorber-supplier",
-    title: "Moisture Absorber Supplier | Industrial Desiccant Manufacturer",
+    title: "Moisture Absorber Supplier | Desiccant Manufacturer",
     metaDescription:
       "Moisture absorber supplier, silica gel packets, bulk desiccant, and container strips for packaging, warehouses, and cargo. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA and export RFQs.",
     kicker: "Moisture absorber supplier",
@@ -4323,7 +4323,11 @@ export const seoLandingPages = {
   },
   "shipping-container-desiccant-supplier": {
     slug: "shipping-container-desiccant-supplier",
-    title: "Shipping Container Desiccant System | Sea Freight | VoyaSorb",
+    // Search Console: this page ranks 7.5 for "best shipping container
+    // desiccant suppliers" and 12 for "container desiccant supplier", with
+    // zero clicks — and the title did not contain the word the searcher typed.
+    // Lead with the term that is actually winning impressions.
+    title: "Shipping Container Desiccant Supplier | Sea Freight",
     metaDescription:
       "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
     kicker: "VoyaSorb container system",
