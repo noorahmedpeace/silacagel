@@ -5935,127 +5935,174 @@
   margin: 0;
 }
 
+/* Editorial image-overlay bento: full-bleed cover photo, dark bottom scrim,
+   text set over the image. One tall flagship tile + two stacked tiles.
+   Real photography + depth = premium, not the flat three-equal-card AI look. */
 .formatGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: 1.4fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: clamp(14px, 1.6vw, 20px);
 }
 
 .formatCard {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--ds-hairline);
-  border-radius: 16px;
-  background: var(--ds-surface);
-  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  justify-content: flex-end;
+  min-height: 250px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+  box-shadow:
+    0 24px 50px -30px rgba(10, 14, 26, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   transition: transform var(--ds-dur-base) var(--ds-ease-out),
-    border-color var(--ds-dur-base) var(--ds-ease-out),
     box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
+/* Flagship spans both rows and reads larger. */
+.formatCard:first-child {
+  grid-row: span 2;
+  min-height: 100%;
+}
+
+/* Background image layer. */
 .formatMedia {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   display: block;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 24% 18%, rgba(45, 91, 255, 0.1), transparent 44%),
-    linear-gradient(180deg, #ffffff 0%, var(--ds-surface-tint) 100%);
+  background: #0a0e1a;
 }
 
 .formatImage {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: clamp(16px, 2vw, 24px);
-  transition: transform var(--ds-dur-slow) var(--ds-ease-out);
+  padding: 0;
+  transition: transform 900ms var(--ds-ease-out);
 }
 
-/* Soft foot scrim keeps the stat chip legible on bright photos. */
-.formatMedia::after {
+/* Dark bottom scrim so overlaid text always clears WCAG AA on any photo. */
+.formatCard::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
+  z-index: 1;
   pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(6, 9, 18, 0.9) 0%,
+    rgba(6, 9, 18, 0.55) 34%,
+    rgba(6, 9, 18, 0.12) 62%,
+    rgba(6, 9, 18, 0.02) 100%
+  );
+}
+
+/* The old light foot-scrim is not needed; the dark scrim handles legibility. */
+.formatMedia::after {
+  content: none;
 }
 
 .formatStat {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 1;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(10, 14, 26, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .formatBody {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  flex: 1;
   gap: 8px;
-  padding: 22px 22px 20px;
+  padding: 22px;
 }
 
 .formatLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ds-brand-deep);
-}
-
-.formatLabel::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--ds-brand);
-  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.14);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .formatCard h3 {
   margin: 0;
-  font-size: clamp(1.2rem, 1.5vw, 1.42rem);
+  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--ds-text);
+  color: #ffffff;
 }
 
 .formatCard p {
   margin: 0;
-  flex: 1;
-  color: var(--ds-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Flagship: larger display type and a touch more room. */
+.formatCard:first-child h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  line-height: 1.05;
+}
+
+.formatCard:first-child .formatBody {
+  gap: 10px;
+  padding: clamp(24px, 2.4vw, 34px);
+}
+
+.formatCard:first-child p {
+  font-size: 0.98rem;
+  max-width: 42ch;
+}
+
+/* Hover-reveal: on hover-capable devices the description + Explore link are
+   collapsed by default (image-first, minimal text) and expand on hover. The
+   grid 0fr->1fr trick animates height smoothly. On touch devices (no hover)
+   the block below stays open, so mobile always shows the full text. */
+.formatReveal {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.formatRevealInner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .formatLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
-  color: var(--ds-brand);
+  margin-top: 4px;
+  color: #ffffff;
   font-family: var(--font-display), var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  transition: color var(--ds-dur-quick) var(--ds-ease),
-    gap var(--ds-dur-quick) var(--ds-ease);
+  transition: gap var(--ds-dur-quick) var(--ds-ease);
 }
 
 .formatLink svg {
@@ -6065,18 +6112,39 @@
 @media (hover: hover) and (pointer: fine) {
   .formatCard:hover {
     transform: translateY(-6px);
-    border-color: rgba(45, 91, 255, 0.4);
-    box-shadow: var(--ds-shadow-card);
+    box-shadow:
+      0 34px 66px -30px rgba(10, 14, 26, 0.62),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16);
   }
 
-  .formatCard:hover .formatImage { transform: none; }
+  .formatCard:hover .formatImage { transform: scale(1.06); }
 
-  .formatCard:hover .formatLink {
-    color: var(--ds-brand-deep);
+  .formatCard:hover .formatLink { gap: 12px; }
+
+  .formatCard:hover .formatLink svg { transform: translateX(4px); }
+
+  /* Collapsed by default, revealed on hover. */
+  .formatReveal {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+      grid-template-rows 0.42s var(--ds-ease-out),
+      opacity 0.3s var(--ds-ease),
+      margin-top 0.42s var(--ds-ease-out);
   }
 
-  .formatCard:hover .formatLink svg {
-    transform: translateX(4px);
+  .formatCard:hover .formatReveal,
+  .formatCard:focus-within .formatReveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formatReveal {
+    transition: none;
   }
 }
 
@@ -6098,8 +6166,14 @@
     grid-template-columns: 1fr;
   }
 
-  .formatMedia {
-    aspect-ratio: 1 / 1;
+  /* Single column: every tile keeps the overlay treatment, flagship taller. */
+  .formatCard {
+    min-height: 240px;
+  }
+
+  .formatCard:first-child {
+    grid-row: auto;
+    min-height: 320px;
   }
 }
 

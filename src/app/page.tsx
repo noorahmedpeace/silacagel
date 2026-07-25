@@ -128,30 +128,33 @@ const categoryLanes = [
   { label: "Dispensers", href: "/dispensers" },
 ];
 
+// Three real formats that mirror the section sub-heading ("sachets for cartons,
+// bulk beads for volume, strips for containers"). First card is the flagship
+// tile in the asymmetric bento; the other two stack beside it.
 const industrialBentoCards = [
   {
-    title: "White Non-Indicating",
-    label: "Bulk Supply",
-    text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: seoImages.silicaGelSachets.src,
-    href: "/products/retail-sachets",
-    stat: "0.5g-20g",
+    title: "Silica gel sachets",
+    label: "Cartons & units",
+    text: "Silica gel sachets for cartons, unit packs, electronics, and leather, with printed private-label options.",
+    image: "/products/format-sachets.webp",
+    href: "/silica-gel-packets",
+    stat: "0.5g - 20g",
   },
   {
-    title: "Orange / Blue Indicating",
-    label: "RH Monitoring",
-    text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
-    image: seoImages.desiccantSizing.src,
-    href: "/orange-silica-gel-supplier",
-    stat: "RH signal",
+    title: "Bulk silica gel beads",
+    label: "By the kg",
+    text: "Loose silica gel by the kg in sacks, drums, and jumbo bags for repackers and volume buyers.",
+    image: "/products/format-bulk-beads.webp",
+    href: "/products/bulk-industrial",
+    stat: "1 - 25 kg",
   },
   {
-    title: "Global Logistics",
-    label: "190+ Countries",
-    text: "Cargo strips and high-capacity formats for long-haul shipments, warehouses, pallets, and container routes.",
-    image: seoImages.containerDesiccant.src,
+    title: "Container strips",
+    label: "Sea freight",
+    text: "High-capacity hanging strips that control container rain and condensation on long sea-freight routes.",
+    image: "/products/format-container-strips.webp",
     href: "/products/container-strips",
-    stat: "FOB / CIF",
+    stat: "1 - 5 kg",
   },
 ];
 
@@ -423,10 +426,14 @@ export default function Home() {
                     <span className={styles.formatBody}>
                       <span className={styles.formatLabel}>{card.label}</span>
                       <h3>{card.title}</h3>
-                      <p>{card.text}</p>
-                      <span className={styles.formatLink}>
-                        Explore
-                        <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+                      <span className={styles.formatReveal}>
+                        <span className={styles.formatRevealInner}>
+                          <p>{card.text}</p>
+                          <span className={styles.formatLink}>
+                            Explore
+                            <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+                          </span>
+                        </span>
                       </span>
                     </span>
                   </Link>
