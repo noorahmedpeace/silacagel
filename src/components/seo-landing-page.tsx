@@ -14,9 +14,30 @@ type SeoLandingPageProps = {
   page: SeoLandingPageData;
 };
 
+/*
+ * `searchIntent` was authored as an internal targeting note, but it renders as
+ * a hero paragraph — so 44 of the 59 landing pages were showing buyers lines
+ * like "High-intent buyer keyword: industrial desiccant supplier" and
+ * "Product keyword: container desiccant, cargo desiccant, moisture absorber"
+ * directly above the quote button. To a procurement reader that is the SEO
+ * machinery showing through, and a visible comma-separated keyword list is
+ * exactly what keyword stuffing looks like to a crawler.
+ *
+ * Rather than rewrite 59 strings (and risk churn on pages that are currently
+ * ranking), suppress the ones that are plainly internal notes and keep the
+ * ones written as real buyer sentences. Reversible by deleting this filter.
+ */
+const INTERNAL_NOTE = /^[A-Za-z0-9 /+-]*\b(keywords?|head term|transactional|product intent|pillar)\b\s*[:/]/i;
+
+function buyerFacingIntent(intent: string | undefined) {
+  if (!intent) return null;
+  return INTERNAL_NOTE.test(intent.trim()) ? null : intent;
+}
+
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
   const landingSpec = getLandingSpec(page.slug);
+  const intent = buyerFacingIntent(page.searchIntent);
   const isLocalBuyerPage = new Set([
     "silica-gel-packets",
     "silica-gel-manufacturer-pakistan",
@@ -33,7 +54,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           <span className={styles.kicker}>{page.kicker}</span>
           <h1>{page.h1}</h1>
           <p className={styles.lead}>{page.lead}</p>
-          <p className={styles.intent}>{page.searchIntent}</p>
+          {intent ? <p className={styles.intent}>{intent}</p> : null}
           <div className={styles.actions}>
             {/* Paid traffic lands here and bounces if the CTA sends it off-page.
                 When this page carries its own quote form, keep the buyer on it. */}
@@ -97,9 +118,13 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>{page.fitTitle}</h2>
+          {/* Was: "This page is structured for international procurement
+              intent: product fit, quote inputs, documents..." — describing the
+              page's own SEO construction to the buyer reading it. Say what
+              they get instead. */}
           <p>
-            This page is structured for international procurement intent: product fit, quote inputs,
-            documents, and the next action a buyer should take.
+            Product fit, the details we need to quote, the documents that ship with an order, and
+            how to place one.
           </p>
         </div>
         <div className={styles.cardGrid}>

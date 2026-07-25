@@ -160,7 +160,11 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     specsIntro:
       "Use these commercial inputs to compare formats, documentation, packing, and quote terms before contacting a supplier.",
     specs: [
-      { label: "Target keywords", value: input.targetKeywords },
+      // "Target keywords" was rendering as a row in the buyer-facing RFQ spec
+      // table, next to Formats and Documents — so a procurement reader saw
+      // "Target keywords: container desiccant supplier, cargo desiccant, ..."
+      // presented as a product attribute. The field stays on the input type as
+      // authoring documentation; it is simply no longer shown or emitted.
       { label: "Formats", value: input.formats },
       { label: "Buyer types", value: input.buyerTypes },
       { label: "Documents", value: input.documents },
@@ -3784,7 +3788,6 @@ export const seoLandingPages = {
     specsIntro:
       "A strong Pakistan supplier inquiry should separate local stock needs from export shipment needs.",
     specs: [
-      { label: "Target keywords", value: "Silica gel manufacturer in Pakistan, silica gel supplier Pakistan, silica gel company" },
       { label: "Product formats", value: "Silica gel packets, bulk silica gel, cargo strips, paper sachets, private-label packets" },
       { label: "Buyer types", value: "Importers, distributors, packagers, warehouses, exporters" },
       { label: "Documents", value: "SDS, COA, ISO support, labeling, and market-specific paperwork on request" },
@@ -3869,7 +3872,6 @@ export const seoLandingPages = {
     specsIntro:
       "Local supplier searches should still include proper RFQ data so pricing and stock planning are useful.",
     specs: [
-      { label: "Target keywords", value: "Silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi" },
       { label: "Formats", value: "0.5g-20g packets, bulk bags, cargo strips, private-label sachets" },
       { label: "Use cases", value: "Packaging, warehousing, electronics, leather, food cartons, export logistics" },
       { label: "Documents", value: "SDS, COA, ISO and buyer-specific paperwork on request" },
@@ -3954,7 +3956,6 @@ export const seoLandingPages = {
     specsIntro:
       "Use careful wording for food-grade searches. Claims should match the exact material, certificate, and destination requirements.",
     specs: [
-      { label: "Target keywords", value: "Food grade silica gel supplier, food grade desiccant, desiccant for food packaging" },
       { label: "Typical formats", value: "Small white packets, carton sachets, private-label packaging programs" },
       { label: "Documents", value: "SDS, COA, material statement, labeling and compliance proof where valid" },
       { label: "Buyer risk", value: "Making unsupported food-grade or food-contact claims without matching documents" },
@@ -4107,7 +4108,6 @@ export const seoLandingPages = {
     specsIntro:
       "Blue gel inquiries should not be treated like generic white silica gel because color chemistry and market rules can matter.",
     specs: [
-      { label: "Target keywords", value: "Blue silica gel manufacturer, blue silica gel supplier, indicating silica gel" },
       { label: "Use cases", value: "Lab storage, equipment cases, humidity signal packs, controlled storage" },
       { label: "Documents", value: "SDS, COA, composition notes, destination compliance review" },
       { label: "Buyer risk", value: "Ordering an indicating color that does not match buyer or market restrictions" },
@@ -4192,7 +4192,6 @@ export const seoLandingPages = {
     specsIntro:
       "Indicating gel buyers should specify color-change expectations and document needs early.",
     specs: [
-      { label: "Target keywords", value: "Orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier" },
       { label: "Formats", value: "Bulk beads, jars, packets, carton packs by buyer requirement" },
       { label: "Use cases", value: "Storage monitoring, lab supplies, packaging checks, moisture-state education" },
       { label: "Documents", value: "SDS, COA, composition notes and destination review on request" },
@@ -4278,7 +4277,6 @@ export const seoLandingPages = {
     specsIntro:
       "The term moisture absorber is broad, so the page routes buyers into the right desiccant format.",
     specs: [
-      { label: "Target keywords", value: "Moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container" },
       { label: "Formats", value: "Silica gel packets, bulk beads, cargo strips, carton packs, private-label sachets" },
       { label: "Use cases", value: "Packaging, warehousing, electronics, pharma, leather, food cartons, shipping containers" },
       { label: "Documents", value: "SDS, COA, ISO and buyer-specific statements on request" },
@@ -4367,7 +4365,6 @@ export const seoLandingPages = {
     specsIntro:
       "Container desiccant pricing should be tied to route risk, container size, cargo type, transit days, and planned strip count.",
     specs: [
-      { label: "Target keywords", value: "Shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers" },
       { label: "Container sizes", value: "20ft and 40ft route planning by commodity risk and humidity exposure" },
       { label: "Use cases", value: "Leather, textiles, machinery, cartons, warehouse-to-port cargo, food packaging exports" },
       { label: "Planning inputs", value: "Origin, destination, transit days, cargo type, pallet density, container loading style" },
