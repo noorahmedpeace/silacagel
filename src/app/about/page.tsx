@@ -119,12 +119,12 @@ const verifiableClaims = [
   {
     label: "Manufacturer certification",
     value: "ISO 9001:2015",
-    note: "Current certificate available on request; baseline for all export shipments.",
+    note: "Certificate published for download; baseline for all export shipments.",
   },
   {
     label: "Documentation per shipment",
     value: "SDS · COA · DMF-free statement",
-    note: "Standard across all silica gel and industrial PPE shipments. Translations available on request (5-10 day turnaround).",
+    note: "Published for download and standard across all silica gel and industrial PPE shipments. Translations available on request (5-10 day turnaround).",
   },
   {
     label: "Export markets",

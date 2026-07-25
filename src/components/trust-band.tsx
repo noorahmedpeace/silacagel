@@ -28,7 +28,9 @@ const metrics: Metric[] = [
   { value: "190+", label: "Export markets", sub: "FOB / CIF / EXW lanes worldwide", href: "/export", count: false, accent: true },
   { value: "10,000+", label: "Customers served", sub: "Domestic and export buyers", href: "/case-studies", count: true },
   { value: "ISO 9001:2015", label: "Certified QMS", sub: "View certificate & validity", href: "/documentation" },
-  { value: "DMF-free", label: "Verified product", sub: "SDS & COA on request", href: "/documentation" },
+  // "On request" was costing us: the SDS and COA are already published PDFs,
+  // so telling a buyer to ask for them invented a wait that does not exist.
+  { value: "DMF-free", label: "Verified product", sub: "SDS & COA — download now", href: "/documentation" },
 ];
 
 export function TrustBand() {

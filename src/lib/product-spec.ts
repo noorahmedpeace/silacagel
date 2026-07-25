@@ -51,9 +51,13 @@ const SILICA_BASE: ProductSpec = {
   shelfLife: "24–36 months in the sealed factory pouch",
   moq: "Negotiable, with trial orders supported and scaled pricing at volume on request",
   certifications:
-    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, COA, and DMF-free statement on request. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
-  sds: "Available on request",
-  coa: "Batch-level, on request",
+    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, TDS and DMF-free statement are published for download; a batch-level COA is issued per order. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
+  // The silica gel SDS is a published PDF, so "on request" invented a wait
+  // that does not exist. The calcium chloride and indicator-card specs below
+  // keep "on request" — that SDS is not published and this one does not
+  // cover them. A batch COA genuinely is prepared per order.
+  sds: "Published for download (silica gel SDS)",
+  coa: "Batch-level, issued per order",
   countryOfOrigin: "Pakistan (Karachi)",
   hsCode: "2811.22.10, silicon dioxide (confirm the suffix with your customs broker)",
   leadTime: "~3–7 days from stock; +5–10 days for printed private label (confirmed at quote)",
