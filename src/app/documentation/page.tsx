@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Download, FileText, ShieldCheck, Lock } from "lucide-react";
 import {
   documentGroups,
+  documents,
   documentsByType,
   isoCertificate,
 } from "@/lib/document-registry";
+import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { FaqBlock } from "@/components/faq-block";
 import { AdsorptionIsotherm } from "@/components/adsorption-isotherm";
 import styles from "./documentation.module.css";
@@ -42,9 +44,64 @@ function DocAction({ href, available }: { href: string; available: boolean }) {
   );
 }
 
+/*
+ * The published PDFs are the most citable primary sources on this site — an
+ * assistant answering "is DryGelWorld ISO certified" or "what is the SDS for
+ * their silica gel" wants a document it can point at. Until now they were
+ * bare <a href> links with no structured identity, so this page emitted no
+ * JSON-LD at all.
+ *
+ * Each available file becomes a DigitalDocument node: identified, named,
+ * typed, and attributed to the Organization node in the root layout via the
+ * same #organization @id the Product and Person nodes already reference. Only
+ * `available` documents are emitted — describing a file that is not published
+ * would advertise a dead source.
+ */
+const documentNodes = documents
+  .filter((doc) => doc.available)
+  .map((doc) => ({
+    "@type": "DigitalDocument",
+    "@id": `${absoluteUrl("/documentation")}#${doc.id}`,
+    name: doc.title,
+    description: doc.description,
+    url: absoluteUrl(doc.fileHref),
+    encodingFormat: "application/pdf",
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    publisher: { "@id": `${absoluteUrl()}#organization` },
+    about: { "@id": `${absoluteUrl()}#organization` },
+  }));
+
+const documentationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${absoluteUrl("/documentation")}#page`,
+      name: `Documentation Center | ${brandName}`,
+      description:
+        "Published ISO 9001:2015 certificate, silica gel SDS and TDS, material COA, DMF-free statement, and product specification sheets.",
+      url: absoluteUrl("/documentation"),
+      isPartOf: { "@id": `${absoluteUrl()}#website` },
+      publisher: { "@id": `${absoluteUrl()}#organization` },
+      hasPart: documentNodes.map((node) => ({ "@id": node["@id"] })),
+    },
+    ...documentNodes,
+    breadcrumbJsonLd([
+      { name: "Home", href: "/" },
+      { name: "Documentation", href: "/documentation" },
+    ]),
+  ],
+};
+
 export default function DocumentationPage() {
   return (
     <main className={styles.page}>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(documentationJsonLd) }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Documentation Center</span>
         <h1>Verifiable proof, ready to open.</h1>
