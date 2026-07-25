@@ -6,6 +6,7 @@ import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inqui
 import { fireLeadConversion } from "@/lib/lead-tracking";
 import { productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
 import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
+import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./rfq-form.module.css";
 
 const UNITS = ["kg", "cartons", "pallets", "containers"];
@@ -207,6 +208,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         >
           Prefer WhatsApp? Message us directly
         </a>
+        <EvidencePack />
       </div>
     );
   }
