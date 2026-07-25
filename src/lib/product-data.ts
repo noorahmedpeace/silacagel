@@ -243,15 +243,18 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "container-strips",
-    name: "CargoDry Container Strips",
-    shortName: "CargoDry Strips",
-    metaTitle: "CargoDry Container Strips | 1-5 kg Hanging Cargo Desiccant",
-    eyebrow: "CargoDry System",
+    name: "VoyaSorb Container Strips",
+    shortName: "VoyaSorb Strips",
+    // Keyword-first: the opening words of a title tag are the most valuable
+    // ranking real estate, and nobody searches the brand name. The brand
+    // carries in the H1 and body copy instead.
+    metaTitle: "Container Desiccant Strips | 1-5 kg Hanging Cargo Desiccant",
+    eyebrow: "VoyaSorb System",
     summary:
       "High-adsorption maritime hanging strips for international container loads, long-haul shipping, and extreme humidity transit.",
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
-      "CargoDry Container Strips are the hanging-strip format of our CargoDry container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes, pair them with CargoDry Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
+      "VoyaSorb Container Strips are the hanging-strip format of our VoyaSorb container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes, pair them with VoyaSorb Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
     heroImage: seoImages.containerDesiccant.src,
     useCases: [
       "International ocean freight containers",
@@ -270,15 +273,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-strip",
-    name: "CargoDry Calcium Chloride Container Strip",
-    shortName: "CargoDry CaCl₂ Strip",
-    metaTitle: "Calcium Chloride Container Strip | CargoDry High-Capacity Cargo Desiccant",
-    eyebrow: "CargoDry System",
+    name: "VoyaSorb Calcium Chloride Container Strip",
+    shortName: "VoyaSorb CaCl₂ Strip",
+    metaTitle: "Calcium Chloride Container Strip | High-Capacity Desiccant",
+    eyebrow: "VoyaSorb System",
     summary:
       "High-capacity calcium chloride hanging strips for sea-freight containers, humid routes, and container-rain risk.",
     useCaseLine: "High-uptake hanging strip format for long ocean freight and humid container lanes.",
     description:
-      "The high-uptake calcium chloride option in the CargoDry container desiccant system. These deliquescent cargo strips are built for high-humidity sea freight: the strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety. Choose the calcium chloride strip when the moisture load is heavy; choose CargoDry Container Strips (silica gel) for cleaner, dust-free cargo.",
+      "The high-uptake calcium chloride option in the VoyaSorb container desiccant system. These deliquescent cargo strips are built for high-humidity sea freight: the strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety. Choose the calcium chloride strip when the moisture load is heavy; choose VoyaSorb Container Strips (silica gel) for cleaner, dust-free cargo.",
     heroImage: "/products/calcium-chloride-container-strip.webp",
     useCases: [
       "Long-haul ocean freight containers",
@@ -308,15 +311,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-bulk",
-    name: "CargoDry Calcium Chloride Bulk Bags",
-    shortName: "CargoDry CaCl₂ Bags",
-    metaTitle: "Calcium Chloride Bulk Desiccant Bags | CargoDry Container Moisture Absorber",
-    eyebrow: "CargoDry System",
+    name: "VoyaSorb Calcium Chloride Bulk Bags",
+    shortName: "VoyaSorb CaCl₂ Bags",
+    metaTitle: "Calcium Chloride Bulk Bags | Container Moisture Absorber",
+    eyebrow: "VoyaSorb System",
     summary:
       "Bulk calcium chloride desiccant bags for container cargo, storage, pallets, and high-humidity export shipments.",
     useCaseLine: "Bulk bag format for cargo-level moisture absorption in containers and storage zones.",
     description:
-      "The floor- and pallet-level format of the CargoDry container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment, use them alongside CargoDry hanging strips for full-container coverage.",
+      "The floor- and pallet-level format of the VoyaSorb container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment, use them alongside VoyaSorb hanging strips for full-container coverage.",
     heroImage: "/products/calcium-chloride-container-bulk.webp",
     useCases: [
       "Container cargo moisture absorption",

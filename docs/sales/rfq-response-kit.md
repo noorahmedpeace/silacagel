@@ -82,7 +82,7 @@ the `[FILL: …]` fields, send.
 
 - Always quote the **Incoterm + named port** together (e.g. "CIF Jebel Ali").
 - Container-strip freight scales by **strip weight, route, container size,
-  dispatch schedule** — get these before quoting CargoDry.
+  dispatch schedule** — get these before quoting VoyaSorb.
 - First-order risk controls to offer proactively (builds trust): pre-shipment
   inspection option, [FILL: bank details matching the legal entity name],
   shipment insurance on CIF.
@@ -97,7 +97,7 @@ the `[FILL: …]` fields, send.
 | **Bulk silica gel beads** | Loose, by metric ton | [FILL: mesh/grade] | From 1 metric ton/shipment |
 | **Orange indicating gel** | Sachet / bulk | **Cobalt-free / DMF-free** colour change | The only cobalt-free line |
 | **Blue indicating gel** | Sachet / bulk | Contains **cobalt chloride** | ⚠ never market as cobalt-free |
-| **CargoDry container strips** | 1kg, 2–5kg | ~$3.80–5.50/kg indicative | Hang in container; needs air contact |
+| **VoyaSorb container strips** | 1kg, 2–5kg | ~$3.80–5.50/kg indicative | Hang in container; needs air contact |
 | **Calcium chloride strips/bags** | Strip / bulk bag | High-absorption cargo desiccant | Quoted by weight/route |
 | **Dry clay desiccant** | Sachet / bulk | Non-toxic, DO-NOT-EAT warning | [FILL: DIN 55473 unit if applicable] |
 | **Humidity indicator cards** | [FILL: spot layout] | [FILL: chemistry] | Cobalt-free HIC available |

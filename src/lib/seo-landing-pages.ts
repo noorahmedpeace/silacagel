@@ -4323,15 +4323,15 @@ export const seoLandingPages = {
   },
   "shipping-container-desiccant-supplier": {
     slug: "shipping-container-desiccant-supplier",
-    title: "CargoDry Shipping Container Desiccant System | Sea-Freight",
+    title: "Shipping Container Desiccant System | Sea Freight | VoyaSorb",
     metaDescription:
-      "CargoDry is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
-    kicker: "CargoDry container system",
-    h1: "CargoDry: the shipping container desiccant system for sea freight.",
+      "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
+    kicker: "VoyaSorb container system",
+    h1: "Shipping container desiccant system for sea freight: VoyaSorb.",
     lead:
-      "CargoDry is our container desiccant system for stopping container rain on long-haul sea freight. It comes in two formats you can mix per cargo, hanging strips (silica gel for clean, dust-free loads, or high-uptake calcium chloride for heavy moisture) and bulk floor bags. We plan the charge by container size, route humidity, transit time, and commodity, then quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct.",
+      "VoyaSorb is our container desiccant system for stopping container rain on long-haul sea freight. It comes in two formats you can mix per cargo, hanging strips (silica gel for clean, dust-free loads, or high-uptake calcium chloride for heavy moisture) and bulk floor bags. We plan the charge by container size, route humidity, transit time, and commodity, then quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant system, cargo desiccant, silica gel for shipping containers, calcium chloride container desiccant",
-    primaryCta: "Plan a CargoDry Charge",
+    primaryCta: "Plan a VoyaSorb Charge",
     secondaryCta: "Read Container Rain Guide",
     secondaryHref: "/blog/container-rain-prevention",
     proofPoints: ["Silica + calcium chloride formats", "20ft / 40ft planning", "Stops container rain", "FOB / CIF support"],
@@ -4341,21 +4341,21 @@ export const seoLandingPages = {
       caption: "Shipping container desiccant planning should start with route, container size, cargo type, humidity exposure, and transit days.",
       chips: ["Container desiccant", "Cargo", "20ft / 40ft", "Sea freight"],
     },
-    fitTitle: "The CargoDry system, three formats, one charge",
+    fitTitle: "The VoyaSorb system, three formats, one charge",
     fitItems: [
       {
         label: "Silica strips",
-        title: "CargoDry Container Strips",
+        title: "VoyaSorb Container Strips",
         text: "Hanging silica-gel strips for clean, dust-free cargo, electronics, machinery, packaged goods, where you want no liquid brine near the load.",
       },
       {
         label: "Calcium chloride",
-        title: "CargoDry CaCl₂ Strips",
+        title: "VoyaSorb CaCl₂ Strips",
         text: "High-uptake calcium chloride hanging strips for heavy moisture loads and long humid routes, leather, textiles, wood, paper, and general cargo.",
       },
       {
         label: "Bulk bags",
-        title: "CargoDry Bulk Bags",
+        title: "VoyaSorb Bulk Bags",
         text: "Floor- and pallet-level calcium chloride bags to pair with hanging strips for full-container coverage on high-humidity export lanes.",
       },
     ],
@@ -4446,7 +4446,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Container strips", href: "/container-desiccant-strips" },
-      { label: "CargoDry bulk bags (product)", href: "/products/calcium-chloride-container-bulk" },
+      { label: "VoyaSorb bulk bags (product)", href: "/products/calcium-chloride-container-bulk" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Export support", href: "/export" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
