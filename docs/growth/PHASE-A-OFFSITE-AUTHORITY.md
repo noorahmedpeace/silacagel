@@ -38,11 +38,17 @@ no references, no Wikipedia sitelink, and one incorrect value ("product or
 material produced: Environmental chemistry" — a field of study, not a product).
 Without independent sources it is also vulnerable to a notability challenge.
 
-**4. No Google Business Profile found.**
+**4. The Google Business Profile exists but is incomplete.**
 
-No Maps/GBP listing surfaced for the brand. (Absence from web search is not
-absolute proof a profile does not exist — confirm at business.google.com — but
-combined with points 1–3 it is very likely missing.)
+*Corrected 2026-07-26.* No Maps/GBP listing surfaced in web search, and this
+document originally inferred from that the profile was missing. It is not — the
+profile is live and verified, with 135 customer interactions and 81 profile
+views in the last month, but profile strength shows incomplete. Absence from
+web search was not proof of absence, as the original caveat allowed for.
+
+81 views a month for a verified manufacturer is still very low, so the
+substance of the finding stands — the profile is not doing any work. The task
+is completion, not creation. See `GBP-SETUP-SHEET.md`.
 
 ---
 

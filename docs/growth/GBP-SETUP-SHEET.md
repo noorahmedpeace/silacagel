@@ -1,7 +1,21 @@
-# Google Business Profile — paste-ready setup sheet
+# Google Business Profile — completion sheet
 
-Phase A, step 1. About 20 minutes. Go to **business.google.com** and work down
-this page.
+**The profile already exists and is verified.** An earlier draft of this sheet
+assumed it had to be created, because a web search for the brand did not
+surface it — that was wrong, and it is a reminder that absence from search
+results is not proof a profile is missing.
+
+Confirmed state as of 2026-07-26: verified profile, 135 customer interactions,
+**81 profile views in the last month**, and profile strength showing incomplete
+with a "Complete info" prompt.
+
+So the job is not setup. It is completion — and 81 views a month for a verified
+manufacturer in Karachi is the symptom of an incomplete profile, not of low
+demand.
+
+Work down this page at **business.google.com**. Everything below is already
+matched to the site's own data, so pasting it keeps the profile and the website
+saying the same thing.
 
 Every value below was read out of the live site's own data
 (`src/lib/product-data.ts`, the ISO certificate record in
@@ -139,9 +153,34 @@ identifying as a manufacturer or wholesaler that Google offers for the category.
 
 ## Verification
 
-Google will verify by postcard, phone or video. Postcard to a Karachi address
-can take 2–4 weeks — start it now rather than waiting, because nothing else in
-Phase A depends on it and the clock runs in the background.
+Already done — the profile carries the verified badge. Nothing to do here.
+
+---
+
+## Priority order for an existing, verified, incomplete profile
+
+Given 81 views/month and an incomplete strength ring, do these in order:
+
+1. **Click "Complete info" and clear every prompt Google lists.** Google is
+   telling you exactly what it wants; the ring is the fastest signal available
+   and completeness directly affects how often the profile is shown.
+2. **Photos** (section 9 below). Almost certainly the largest gap, and the one
+   with the biggest effect on both ranking in Maps and on buyer trust.
+3. **Products and Services** — the dashboard has "Edit products" and "Edit
+   services". Add the full list from section 8 with prices marked "quote" where
+   applicable. Most manufacturer profiles leave these empty; filling them is
+   free surface area in local results.
+4. **Reviews.** "Ask for reviews" being surfaced on the dashboard suggests
+   there are few or none. This is the single strongest trust signal on the
+   profile and the message is already written in `READY-TO-SEND.md` section A.
+   Send it to past buyers over WhatsApp today.
+5. **Posts** — publish the ISO certificate, then post whenever there is a real
+   shipment or new document. Keeps the profile active.
+
+Do **not** click "Turn on your ad" from the dashboard. Google Ads spend should
+not start until the conversion import is verified — that is still the open item
+from the plan, and it is the exact mistake that produced a PMax campaign with
+zero leads before.
 
 ---
 
