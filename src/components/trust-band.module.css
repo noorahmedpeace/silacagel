@@ -220,3 +220,18 @@
     transparent 4px 8px
   );
 }
+
+/* One qualifier for the whole band: which numbers are documented and which
+   are the operating company's own. Repeating a tag per stat reads defensive. */
+.footnote {
+  margin-top: 18px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--ds-text-faint);
+}
+
+.footnote a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

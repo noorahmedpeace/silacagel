@@ -323,10 +323,9 @@ export default function Home() {
             </div>
           </section>
 
-          <Reveal direction="up">
-            <TrustBand />
-          </Reveal>
-
+          {/* Named customers lead, self-reported totals follow. A buyer can
+              verify GSK or Lucky Textile; they cannot verify a round number,
+              so the checkable proof carries the first impression. */}
           <Reveal direction="up">
             <section className={styles.customerReferenceSection} aria-labelledby="customer-reference-title">
               <div className={styles.customerReferenceIntro}>
@@ -339,6 +338,10 @@ export default function Home() {
               </div>
               <CustomerReferenceMarquee compact />
             </section>
+          </Reveal>
+
+          <Reveal direction="up">
+            <TrustBand />
           </Reveal>
 
           <Reveal direction="up">

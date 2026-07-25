@@ -36,7 +36,12 @@ export function TrustBand() {
     <section className={styles.band} aria-label="Manufacturer trust signals">
       <div className={styles.intro}>
         <p className={styles.eyebrow}>Proof</p>
-        <h2 className={styles.heading}>Manufacturing scale buyers can verify.</h2>
+        {/* The certification and founding facts are documented; the volume
+            totals are the operating company's own figures. The heading no
+            longer promises every number here is externally verifiable, and
+            one footnote qualifies the totals instead of repeating a
+            "self-reported" tag on each stat, which reads as defensive. */}
+        <h2 className={styles.heading}>Manufacturing scale, documented.</h2>
       </div>
 
       <div className={styles.grid}>
@@ -61,6 +66,12 @@ export function TrustBand() {
           </Link>
         ))}
       </div>
+
+      <p className={styles.footnote}>
+        ISO 9001:2015, DMF-free status and the 1983 founding date are documented — see{" "}
+        <Link href="/certifications">certifications</Link>. Packet, customer and market totals are
+        operating-company figures across 40+ years.
+      </p>
     </section>
   );
 }
