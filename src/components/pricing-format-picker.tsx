@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import { priceGroups, priceOptions } from "@/lib/product-data";
 import { DeferredPriceCalculator } from "@/components/deferred-home-widgets";
 import styles from "./pricing-format-picker.module.css";
@@ -20,11 +20,18 @@ const optionKey = (groupTitle: string, label: string) => `${groupTitle}-${label}
 export function PricingFormatPicker({
   heading,
   description,
+  anchorId = "purchase-calculator",
 }: {
   heading?: string;
   description?: string;
+  /** Scroll anchor for links pointing at the calculator. Overridable so a
+   *  second instance on one page does not duplicate the id. */
+  anchorId?: string;
 }) {
   const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
+  // Scoped per instance: a hardcoded name would merge two pickers rendered on
+  // one page into a single radio group, so selecting in one would clear the other.
+  const groupName = useId();
 
   return (
     <div className={styles.layout}>
@@ -44,7 +51,7 @@ export function PricingFormatPicker({
                   <label key={key} className={styles.chip}>
                     <input
                       type="radio"
-                      name="pricing-format"
+                      name={groupName}
                       value={key}
                       checked={selectedKey === key}
                       onChange={() => setSelectedKey(key)}
@@ -58,7 +65,7 @@ export function PricingFormatPicker({
         ))}
       </fieldset>
 
-      <div id="purchase-calculator" className={styles.calculator}>
+      <div id={anchorId} className={styles.calculator}>
         <DeferredPriceCalculator
           heading={heading}
           description={description}

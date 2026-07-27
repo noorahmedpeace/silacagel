@@ -92,6 +92,11 @@ describe("per-1,000 rate formatting - the regression that printed $4.50 as $5", 
     expect(fmt.format(0.78)).toBe("0.78");
   });
 
+  it("keeps cents on small totals so they match the rate shown beside them", () => {
+    expect(totalFormatter("en-US", 3.5).format(3.5)).toBe("3.50");
+    expect(totalFormatter("en-US", 0.04).format(0.035)).toBe("0.04");
+  });
+
   it("is NOT the total formatter, which deliberately drops decimals past 100", () => {
     // The bug: this formatter was used for the per-1,000 rate too, so a large
     // order silently rounded a $4.50 rate up to $5.

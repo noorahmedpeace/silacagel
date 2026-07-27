@@ -135,13 +135,19 @@
 
 /* ── result ──────────────────────────────────────────────────────────────── */
 
+/* The one moment the section is built around, so it is given real material
+   rather than a flat tint: a faint cool wash, the layered blue-tinted elevation
+   from the token set, and --ds-ring-top's 1px inner highlight along the upper
+   edge. That highlight is the detail that makes a surface read as lit rather
+   than filled, and nothing in this component was using it. */
 .result {
   display: grid;
-  gap: 10px;
-  padding: 18px;
-  border: 1px solid var(--ds-brand);
+  gap: 12px;
+  padding: 20px;
+  border: 1px solid var(--ds-hairline);
   border-radius: var(--ds-radius-card);
-  background: var(--ds-brand-soft);
+  background: linear-gradient(180deg, var(--ds-surface) 0%, var(--ds-surface-tint) 100%);
+  box-shadow: var(--ds-shadow-card), var(--ds-ring-top);
 }
 
 .resultHead {
@@ -177,10 +183,13 @@
   /* Tabular figures: without them digit widths change as the buyer types and
      the headline number visibly jitters on every keystroke. */
   font-variant-numeric: tabular-nums;
-  font-size: clamp(1.9rem, 1.5rem + 1.8vw, 2.5rem);
-  line-height: 1.05;
-  letter-spacing: var(--ds-ls-tight);
-  color: var(--ds-brand-deep);
+  font-size: clamp(2.25rem, 1.7rem + 2.4vw, 3rem);
+  line-height: 1;
+  /* Ink, not brand blue. A figure in the accent colour reads as a highlighted
+     UI element; in near-black it reads as the number itself. Colour stays on
+     the label and the currency control, where it marks structure. */
+  letter-spacing: -0.03em;
+  color: var(--ds-text);
 }
 
 .resultEmpty {
@@ -188,28 +197,26 @@
 }
 
 .resultMeta {
-  margin: 6px 0 0;
+  margin: 7px 0 0;
   font-variant-numeric: tabular-nums;
   font-size: var(--ds-small);
-  color: var(--ds-brand-deep);
-  opacity: 0.86;
+  color: var(--ds-text-muted);
 }
 
 .basis {
   margin: 0;
-  padding-top: 10px;
-  border-top: 1px solid rgba(45, 91, 255, 0.16);
+  padding-top: 12px;
+  border-top: 1px solid var(--ds-hairline);
   font-size: var(--ds-meta);
   line-height: 1.5;
-  color: var(--ds-text-muted);
+  color: var(--ds-text-faint);
 }
 
 .bulkHint {
   margin: 0;
   padding: 10px 12px;
-  border: 1px solid rgba(45, 91, 255, 0.2);
   border-radius: var(--ds-radius-tight);
-  background: var(--ds-surface);
+  background: var(--ds-brand-soft);
   font-size: var(--ds-meta);
   line-height: 1.5;
   color: var(--ds-brand-deep);

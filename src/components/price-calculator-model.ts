@@ -143,11 +143,14 @@ export function unitFractionDigits(unitPrice: number): number {
 }
 
 /** Formatter for order totals. Precision drops on large totals because a buyer
- *  reading a five-figure number does not want cents. */
+ *  reading a five-figure number does not want cents. Below that the cents are
+ *  always shown: a total rendered as "$3.5" beside a rate rendered as
+ *  "$3.50 / 1,000" reads as a rounding fault rather than a price. */
 export function totalFormatter(locale: string, total: number): Intl.NumberFormat {
+  const wholeOnly = total >= 100;
   return new Intl.NumberFormat(locale, {
-    maximumFractionDigits: total >= 100 ? 0 : 2,
-    minimumFractionDigits: 0,
+    maximumFractionDigits: wholeOnly ? 0 : 2,
+    minimumFractionDigits: wholeOnly ? 0 : 2,
   });
 }
 

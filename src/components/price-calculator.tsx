@@ -23,6 +23,26 @@ import styles from "./price-calculator.module.css";
 // off priceGroups without flattening away the grouping the buyer navigates by.
 const optionKey = (groupTitle: string, label: string) => `${groupTitle}-${label}`;
 
+/** Format selection is either fully controlled or fully internal. Modelled as a
+ *  union so `formatKey` without `onFormatChange` cannot compile: that pairing
+ *  reads the prop but writes internal state, so the selection silently sticks. */
+type FormatControl =
+  | { formatKey: string; onFormatChange: (key: string) => void }
+  | { formatKey?: undefined; onFormatChange?: undefined };
+
+export type PriceCalculatorProps = FormatControl & {
+  heading?: string;
+  description?: string;
+  /** Hide the component's own heading when the page already supplies one.
+   *  Pair with `labelledBy` so the region keeps an accessible name. */
+  hideHeading?: boolean;
+  /** id of an external heading that names this region. */
+  labelledBy?: string;
+  /** Drop the built-in format select when an outside control already picks the
+   *  format. Prevents two controls competing over one value on the same screen. */
+  hideFormatField?: boolean;
+};
+
 export function PriceCalculator({
   heading = "Procurement calculator",
   description = "Choose a format and quantity to estimate order weight and value before requesting an export quote.",
@@ -31,21 +51,7 @@ export function PriceCalculator({
   formatKey,
   onFormatChange,
   hideFormatField = false,
-}: {
-  heading?: string;
-  description?: string;
-  /** Hide the component's own heading when the page already supplies one.
-   *  Pair with `labelledBy` so the region keeps an accessible name. */
-  hideHeading?: boolean;
-  /** id of an external heading that names this region. */
-  labelledBy?: string;
-  /** Controlled format selection. Omit both to let the component own it. */
-  formatKey?: string;
-  onFormatChange?: (key: string) => void;
-  /** Drop the built-in format select when an outside control already picks the
-   *  format. Prevents two controls competing over one value on the same screen. */
-  hideFormatField?: boolean;
-}) {
+}: PriceCalculatorProps) {
   const [internalKey, setInternalKey] = useState(priceOptions[0]?.key ?? "");
   const selectedKey = formatKey ?? internalKey;
   const setSelectedKey = onFormatChange ?? setInternalKey;
@@ -54,7 +60,6 @@ export function PriceCalculator({
 
   const headingId = useId();
   const quantityErrorId = useId();
-  const resultId = useId();
 
   const selectedOption = findOption(selectedKey) ?? priceOptions[0];
   const selectedCurrency = findCurrency(currencyCode);
@@ -172,7 +177,7 @@ export function PriceCalculator({
         </div>
       </div>
 
-      <div className={styles.result} id={resultId}>
+      <div className={styles.result}>
         <div className={styles.resultHead}>
           <span className={styles.resultLabel}>Estimated order value</span>
           <label className={styles.currency}>

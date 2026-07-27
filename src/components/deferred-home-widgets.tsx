@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
 import type { IndustryData } from "@/components/industry-slider";
+import type { PriceCalculatorProps } from "@/components/price-calculator";
 
 // Base fallback styling for deferred-widget placeholders. The min-height
 // is set per-widget by the caller so the placeholder matches the loaded
@@ -103,24 +104,15 @@ const WIDGET_MIN_HEIGHTS = {
   emblaCarousel: 360,
 } as const;
 
-export function DeferredPriceCalculator({
-  heading,
-  description,
-  formatKey,
-  onFormatChange,
-  hideFormatField,
-}: {
-  heading?: string;
-  description?: string;
-  formatKey?: string;
-  onFormatChange?: (key: string) => void;
-  hideFormatField?: boolean;
-} = {}) {
+// Forwarded whole rather than destructured and rebuilt: PriceCalculatorProps is
+// a union that requires formatKey and onFormatChange to travel together, and
+// splitting them into separate optional fields discards that guarantee.
+export function DeferredPriceCalculator(props: PriceCalculatorProps = {}) {
   return (
     <LoadWhenVisible
       label="Loading procurement calculator"
       loader={() => import("@/components/price-calculator").then((mod) => mod.PriceCalculator)}
-      props={{ heading, description, formatKey, onFormatChange, hideFormatField }}
+      props={props}
       minHeight={WIDGET_MIN_HEIGHTS.priceCalculator}
     />
   );
