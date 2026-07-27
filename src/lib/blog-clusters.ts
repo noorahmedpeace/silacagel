@@ -40,6 +40,13 @@ const IND_SHIPPING: ClusterLink = { label: "Container shipping", href: "/industr
 // topically-matched informational blogs that previously had no path to them.
 const COMMERCIAL_CONTAINER: ClusterLink = { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" };
 const COMMERCIAL_CLAY: ClusterLink = { label: "Activated clay desiccant supplier", href: "/clay-desiccant-supplier" };
+// Deliberately NOT a packet-specific slug. /silica-gel-packets is written for
+// the domestic market (Karachi pickup, PKR pricing) while these articles are
+// read worldwide, and every packet-named alternative - packets-wholesale,
+// packets-manufacturer - 301s straight to it (next.config.ts:185-192). This is
+// the nearest destination that both resolves directly and reads internationally.
+const COMMERCIAL_PACKETS: ClusterLink = { label: "Silica gel supplier", href: "/silica-gel-supplier" };
+const COMMERCIAL_EXPORT: ClusterLink = { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" };
 
 const guide = (slug: string, label: string): ClusterLink => ({ label, href: `/blog/${slug}` });
 
@@ -111,6 +118,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    // Highest-impression page on the site and the only one of its size with no
+    // commercial destination at all. The audience is mostly curiosity, so this
+    // is a quiet "if you actually buy these" path rather than a hard sell.
+    commercial: COMMERCIAL_PACKETS,
   },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": {
     guides: [
@@ -291,6 +302,9 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER, PRODUCT_CONTAINER],
+    // Anyone reading a customs and HS-code guide is importing for a business,
+    // which makes this the highest-intent informational audience on the site.
+    commercial: COMMERCIAL_EXPORT,
   },
   "how-silica-gel-is-made-manufacturing-process": {
     guides: [
