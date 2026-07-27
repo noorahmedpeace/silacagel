@@ -106,15 +106,21 @@ const WIDGET_MIN_HEIGHTS = {
 export function DeferredPriceCalculator({
   heading,
   description,
+  formatKey,
+  onFormatChange,
+  hideFormatField,
 }: {
   heading?: string;
   description?: string;
+  formatKey?: string;
+  onFormatChange?: (key: string) => void;
+  hideFormatField?: boolean;
 } = {}) {
   return (
     <LoadWhenVisible
       label="Loading procurement calculator"
       loader={() => import("@/components/price-calculator").then((mod) => mod.PriceCalculator)}
-      props={{ heading, description }}
+      props={{ heading, description, formatKey, onFormatChange, hideFormatField }}
       minHeight={WIDGET_MIN_HEIGHTS.priceCalculator}
     />
   );

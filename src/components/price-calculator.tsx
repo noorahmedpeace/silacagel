@@ -28,6 +28,9 @@ export function PriceCalculator({
   description = "Choose a format and quantity to estimate order weight and value before requesting an export quote.",
   hideHeading = false,
   labelledBy,
+  formatKey,
+  onFormatChange,
+  hideFormatField = false,
 }: {
   heading?: string;
   description?: string;
@@ -36,8 +39,16 @@ export function PriceCalculator({
   hideHeading?: boolean;
   /** id of an external heading that names this region. */
   labelledBy?: string;
+  /** Controlled format selection. Omit both to let the component own it. */
+  formatKey?: string;
+  onFormatChange?: (key: string) => void;
+  /** Drop the built-in format select when an outside control already picks the
+   *  format. Prevents two controls competing over one value on the same screen. */
+  hideFormatField?: boolean;
 }) {
-  const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
+  const [internalKey, setInternalKey] = useState(priceOptions[0]?.key ?? "");
+  const selectedKey = formatKey ?? internalKey;
+  const setSelectedKey = onFormatChange ?? setInternalKey;
   const [quantity, setQuantity] = useState("1000");
   const [currencyCode, setCurrencyCode] = useState<CurrencyCode>("USD");
 
@@ -107,28 +118,38 @@ export function PriceCalculator({
         </div>
       )}
 
-      <div className={styles.fields}>
-        <div className={styles.field}>
-          <label htmlFor={`${headingId}-format`}>Format</label>
-          <select
-            id={`${headingId}-format`}
-            value={selectedKey}
-            onChange={(event) => setSelectedKey(event.target.value)}
-          >
-            {priceGroups.map((group) => (
-              <optgroup key={group.title} label={group.title}>
-                {group.items.map((item) => (
-                  <option
-                    key={optionKey(group.title, item.label)}
-                    value={optionKey(group.title, item.label)}
-                  >
-                    {item.label}
-                  </option>
-                ))}
-              </optgroup>
-            ))}
-          </select>
-        </div>
+      <div className={`${styles.fields} ${hideFormatField ? styles.fieldsSingle : ""}`}>
+        {hideFormatField ? (
+          <p className={styles.selectedFormat}>
+            <span>Selected format</span>
+            <strong>
+              {selectedOption?.label}
+              {selectedOption ? ` · ${selectedOption.groupTitle}` : ""}
+            </strong>
+          </p>
+        ) : (
+          <div className={styles.field}>
+            <label htmlFor={`${headingId}-format`}>Format</label>
+            <select
+              id={`${headingId}-format`}
+              value={selectedKey}
+              onChange={(event) => setSelectedKey(event.target.value)}
+            >
+              {priceGroups.map((group) => (
+                <optgroup key={group.title} label={group.title}>
+                  {group.items.map((item) => (
+                    <option
+                      key={optionKey(group.title, item.label)}
+                      value={optionKey(group.title, item.label)}
+                    >
+                      {item.label}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </div>
+        )}
 
         <div className={styles.field}>
           <label htmlFor={`${headingId}-qty`}>Quantity (pieces)</label>

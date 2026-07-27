@@ -52,6 +52,29 @@
   gap: 6px;
 }
 
+/* Shown instead of the format select when an outside control owns the choice.
+   The buyer still needs to see WHICH format the estimate belongs to. */
+.selectedFormat {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  align-content: center;
+}
+
+.selectedFormat span {
+  font-size: var(--ds-meta);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ds-text-muted);
+}
+
+.selectedFormat strong {
+  font-size: var(--ds-body);
+  font-weight: 750;
+  color: var(--ds-text);
+}
+
 .field label {
   font-size: var(--ds-small);
   font-weight: 650;
@@ -273,6 +296,10 @@
   .fields {
     grid-template-columns: 1.35fr 1fr;
     gap: var(--ds-stack-md);
+  }
+
+  .fieldsSingle {
+    grid-template-columns: 1fr 1fr;
   }
 
   .result {

@@ -9,10 +9,8 @@ import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
-import {
-  DeferredPriceCalculator,
-  DeferredQuoteForm,
-} from "@/components/deferred-home-widgets";
+import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
+import { PricingFormatPicker } from "@/components/pricing-format-picker";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
@@ -35,7 +33,6 @@ import {
   PackageCheck,
   Truck,
 } from "lucide-react";
-import { priceGroups } from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
 import { defaultSeoImage } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -476,65 +473,27 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className={styles.pricingLayout}>
-                <div className={styles.priceGrid}>
-                  {priceGroups.map((group) => (
-                    <article key={group.title} className={styles.priceCard}>
-                      <span className={styles.priceNote}>{group.note}</span>
-                      <h3>{group.title}</h3>
-                      <div className={styles.priceList}>
-                        {/* Every size, not the first four. The truncated list hid
-                            11 of the 23 formats behind "available in the
-                            calculator", which asked a buyer hunting for a 5 kg
-                            strip to first guess that a dropdown held it. */}
-                        {group.items.map((item) => (
-                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
-                            <strong>{item.label}</strong>
-                            <span className={styles.priceRowActions}>
-                              {/* The group has to travel with the size: "1 gm",
-                                  "2 gm" and "3 gm" each exist in BOTH Small Sizes
-                                  and Paper Sachet at different prices, so a bare
-                                  "Silica Gel 1 gm" reaches the export desk without
-                                  saying which one. The WhatsApp link beside this
-                                  one already sends the category. */}
-                              <Link
-                                href={`/request-a-quote?product=${encodeURIComponent(`Silica Gel ${item.label} (${group.title})`)}`}
-                                className={styles.priceQuoteLink}
-                                aria-label={`Get quote for ${item.label}, ${group.title}`}
-                              >
-                                Quote
-                              </Link>
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </article>
-                  ))}
-                </div>
-
-                <div id="purchase-calculator" className={styles.calculatorAnchor}>
-                  <div className={styles.calculatorPanel}>
-                    {/* Heading and description are passed into the widget rather
-                        than stacked above it: the panel previously showed a styled
-                        <p> label, a sub-label, and then the component's own heading,
-                        so one section opened with three competing lines. */}
-                    <DeferredPriceCalculator
-                      heading="Volume & export quote estimator"
-                      description="Estimate total weight and share a cleaner procurement request with the export team."
-                    />
-                    <p className={styles.calculatorSubHint}>
-                      Need grams per carton instead? Enter length, width, and height in the{" "}
-                      <a
-                        href="/tools/moisture-load-calculator"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        moisture load calculator
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </div>
+              {/* One control, not two. The format list and the calculator used
+                  to render the same 23 options separately - 23 rows each with
+                  its own quote button on one side, a dropdown on the other -
+                  which ran past a thousand pixels and asked the same question
+                  twice. The chips now ARE the calculator's format field. */}
+              <div className={styles.calculatorPanel}>
+                <PricingFormatPicker
+                  heading="Volume & export quote estimator"
+                  description="Estimate total weight and share a cleaner procurement request with the export team."
+                />
+                <p className={styles.calculatorSubHint}>
+                  Need grams per carton instead? Enter length, width, and height in the{" "}
+                  <a
+                    href="/tools/moisture-load-calculator"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    moisture load calculator
+                  </a>
+                  .
+                </p>
               </div>
             </section>
           </Reveal>
