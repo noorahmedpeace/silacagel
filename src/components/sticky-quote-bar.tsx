@@ -6,6 +6,7 @@ import { createPortal } from "react-dom";
 
 import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { fireLeadConversion } from "@/lib/lead-tracking";
 import { createMailtoHref, salesEmail } from "@/lib/product-data";
 import styles from "./sticky-quote-bar.module.css";
 
@@ -121,6 +122,9 @@ export function StickyQuoteBar({
         addToCart({ name: productFullName!, slug: productSlug! });
         setJustAdded(true);
         setQuick("sent");
+        // Was missing here too: the bar submits a genuine inquiry but never
+        // reported the conversion, so this surface was invisible to Ads.
+        fireLeadConversion(result.id, "sticky_bar");
       } else if (result.fallback) {
         setFallbackHref(mailto);
         setQuick("fallback");

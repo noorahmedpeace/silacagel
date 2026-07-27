@@ -10,6 +10,7 @@ import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { addToCart } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { fireLeadConversion } from "@/lib/lead-tracking";
 import { createMailtoHref, salesEmail } from "@/lib/product-data";
 import styles from "./sticky-quote-bar.module.css";
 
@@ -100,6 +101,10 @@ export function AddToCartButton({
       if (result.ok) {
         addToCart({ name: productFullName, slug: productSlug });
         setQuick("sent");
+        // This path stores a real lead but never reported it, so GA4 / Google
+        // Ads optimised while blind to every buyer who converted here rather
+        // than on QuoteForm/RfqForm. Same call, same place, as those two.
+        fireLeadConversion(result.id, "add_to_cart");
       } else if (result.fallback) {
         // Neither stored nor emailed, open the mail client so the lead survives.
         setFallbackHref(mailto);

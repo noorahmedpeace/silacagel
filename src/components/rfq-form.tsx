@@ -275,7 +275,13 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <div className={styles.grid2}>
           <label className={styles.field}>
             <span>Product *</span>
-            <select name="productName" required defaultValue={knownProduct ? defaultProduct : defaultProduct ? "__custom" : ""}>
+            {/* Default straight to the incoming product. The old branch selected
+                "__custom" for an off-catalog product, but no option carries that
+                value - the injected option below uses the product string itself -
+                so the select fell back to the disabled placeholder and the whole
+                prefill was lost. That is the live path for the container
+                calculator, whose product is not in productCatalog. */}
+            <select name="productName" required defaultValue={defaultProduct || ""}>
               <option value="" disabled>Select a product</option>
               {productCatalog.map((p) => (
                 <option key={p.slug} value={p.name}>{p.name}</option>

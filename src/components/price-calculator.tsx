@@ -26,6 +26,11 @@ const currencyOptions = [
 
 type CurrencyCode = (typeof currencyOptions)[number]["code"];
 
+/** Per-piece price below which the reference is quoted per 1,000 pieces
+ *  instead. Named because the old inline 0.05 sat under a comment that said
+ *  "one cent", so the two disagreed about what the rule actually was. */
+const PER_THOUSAND_THRESHOLD = 0.05;
+
 function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
   // The animation writes straight to the DOM via textContent each frame. That
   // node MUST hold exactly one text child, otherwise React's recorded child
@@ -120,6 +125,19 @@ export function PriceCalculator() {
       }),
     [selectedCurrency.locale, unitFractionDigits],
   );
+  // The per-1,000 figure is a RATE, not an order total, so it must not inherit
+  // currencyFormatter's order-size-dependent precision: once referenceTotal
+  // reached 100 that formatter dropped to 0 decimals and printed a genuine
+  // $4.50 / 1,000 rate as "$5" - a 11% overstatement on the exact orders big
+  // enough to matter. Rate precision is fixed and independent of order size.
+  const perThousandFormatter = useMemo(
+    () =>
+      new Intl.NumberFormat(selectedCurrency.locale, {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 2,
+      }),
+    [selectedCurrency.locale],
+  );
 
   function handleWhatsAppQuote() {
     if (!selectedOption || quantityValue <= 0) {
@@ -197,14 +215,15 @@ export function PriceCalculator() {
 
       <div className={styles.summaryGrid}>
         <article className={styles.summaryCard}>
-          {/* Sub-cent per-piece prices (a 1gm sachet is ~$0.0045) read as a toy
+          {/* Very low per-piece prices (a 1gm sachet is ~$0.0045) read as a toy
               business to a bulk buyer, who thinks in price-per-thousand anyway.
-              Show "/ 1,000 pcs" below one cent, plain per-piece above it. */}
-          <span>{unitInSelectedCurrency > 0 && unitInSelectedCurrency < 0.05 ? "Reference (per 1,000 pcs)" : "Reference Unit"}</span>
-          {unitInSelectedCurrency > 0 && unitInSelectedCurrency < 0.05 ? (
+              Below PER_THOUSAND_THRESHOLD show "/ 1,000 pcs", plain per-piece
+              above it. */}
+          <span>{unitInSelectedCurrency > 0 && unitInSelectedCurrency < PER_THOUSAND_THRESHOLD ? "Reference (per 1,000 pcs)" : "Reference Unit"}</span>
+          {unitInSelectedCurrency > 0 && unitInSelectedCurrency < PER_THOUSAND_THRESHOLD ? (
             <AnimatedCounter
               value={unitInSelectedCurrency * 1000}
-              formatter={currencyFormatter}
+              formatter={perThousandFormatter}
               prefix={selectedCurrency.symbol}
               suffix=" / 1,000"
             />
