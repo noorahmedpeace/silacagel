@@ -31,15 +31,11 @@ import {
   ArrowRight,
   FileCheck2,
   Globe,
-  MessageCircle,
   ShieldCheck,
   PackageCheck,
   Truck,
 } from "lucide-react";
-import {
-  priceGroups,
-  whatsappNumber,
-} from "@/lib/product-data";
+import { priceGroups } from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
 import { defaultSeoImage } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -487,42 +483,31 @@ export default function Home() {
                       <span className={styles.priceNote}>{group.note}</span>
                       <h3>{group.title}</h3>
                       <div className={styles.priceList}>
-                        {group.items.slice(0, 4).map((item) => (
+                        {/* Every size, not the first four. The truncated list hid
+                            11 of the 23 formats behind "available in the
+                            calculator", which asked a buyer hunting for a 5 kg
+                            strip to first guess that a dropdown held it. */}
+                        {group.items.map((item) => (
                           <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
                             <strong>{item.label}</strong>
                             <span className={styles.priceRowActions}>
+                              {/* The group has to travel with the size: "1 gm",
+                                  "2 gm" and "3 gm" each exist in BOTH Small Sizes
+                                  and Paper Sachet at different prices, so a bare
+                                  "Silica Gel 1 gm" reaches the export desk without
+                                  saying which one. The WhatsApp link beside this
+                                  one already sends the category. */}
                               <Link
-                                href={`/request-a-quote?product=${encodeURIComponent(`Silica Gel ${item.label}`)}`}
+                                href={`/request-a-quote?product=${encodeURIComponent(`Silica Gel ${item.label} (${group.title})`)}`}
                                 className={styles.priceQuoteLink}
-                                aria-label={`Get quote for ${item.label}`}
+                                aria-label={`Get quote for ${item.label}, ${group.title}`}
                               >
                                 Quote
                               </Link>
-                              <a
-                                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                                  [
-                                    "Hello, I'm requesting a Dry Gel World export quote.",
-                                    `Category: ${group.title}`,
-                                    `Size: ${item.label}`,
-                                    "Please advise MOQ, lead time, documentation, and shipping terms.",
-                                  ].join("\n"),
-                                )}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.priceWaLink}
-                                aria-label={`WhatsApp quote for ${item.label}`}
-                              >
-                                <MessageCircle size={14} strokeWidth={2.2} aria-hidden="true" />
-                              </a>
                             </span>
                           </div>
                         ))}
                       </div>
-                      <p className={styles.priceCardFoot}>
-                        {group.items.length > 4
-                          ? `+${group.items.length - 4} more sizes available in the calculator`
-                          : "Ready for export quote confirmation"}
-                      </p>
                     </article>
                   ))}
                 </div>

@@ -2736,9 +2736,12 @@
 
 .priceGrid {
   grid-template-columns: 1fr;
-  grid-auto-rows: 1fr;
+  /* Cards size to their content. `grid-auto-rows: 1fr` + `height: 100%` forced
+     all three to the tallest one's height, which was invisible while every card
+     was truncated to four rows. Now that the full 7 / 6 / 10 formats render, it
+     padded the two shorter cards with a block of dead space. */
+  grid-auto-rows: min-content;
   gap: 12px;
-  height: 100%;
 }
 
 .priceCard {
