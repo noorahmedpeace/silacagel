@@ -10,7 +10,8 @@ Everything below is ready to paste. Keep the name, address, and phone (NAP) byte
 
 - **Business name:** DryGelWorld
 - **Legal entity:** Kamran Enterprises (trading as DryGelWorld)
-- **Address:** A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000, Pakistan
+- **Address:** A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan
+  <br>Exactly this, region included. `src/lib/product-data.ts:69-81` states the published NAP is `companyAddressFull` = "A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan", and that schema, footer, GBP and every directory citation must show it identically. An earlier version of this sheet dropped "Sindh", which would have put a second address variant into circulation. The North Karachi factory is a separate secondary location and never goes in a citation.
 - **Phone:** +92 333 022 3337
 - **WhatsApp:** +92 333 022 3337
 - **Email:** sales@drygelworld.com
