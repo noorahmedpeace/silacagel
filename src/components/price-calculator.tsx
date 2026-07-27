@@ -245,14 +245,14 @@ export function PriceCalculator({
           disabled={!estimate.isValid}
           aria-describedby={errorMessage ? quantityErrorId : undefined}
         >
-          Send estimate on WhatsApp
+          Send on WhatsApp
         </button>
 
         <AddToCartButton
           productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
           productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
           className={styles.submitSecondary}
-          label="Add to cart, get exact price by email"
+          label="Get price by email"
         />
       </div>
     </section>
