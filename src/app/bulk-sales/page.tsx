@@ -46,10 +46,12 @@ export default function BulkSalesPage() {
         <section className={styles.calculatorPanel}>
           <div className={styles.calculatorHead}>
             <span className={shared.kicker}>Estimator</span>
-            <h2>Procurement calculator</h2>
+            <h2 id="bulk-procurement-calculator">Procurement calculator</h2>
             <p>Use the same estimator here for a dedicated export planning view.</p>
           </div>
-          <PriceCalculator />
+          {/* This page already supplies the h2, so the widget hides its own and
+              borrows that heading for the region's accessible name. */}
+          <PriceCalculator hideHeading labelledBy="bulk-procurement-calculator" />
         </section>
       </section>
     </main>

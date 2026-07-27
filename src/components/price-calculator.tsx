@@ -1,156 +1,92 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { priceOptions, whatsappNumber } from "@/lib/product-data";
+import { useId, useMemo, useState } from "react";
+import { priceGroups, priceOptions, whatsappNumber } from "@/lib/product-data";
 import { AddToCartButton } from "@/components/add-to-cart-button";
+import {
+  computeEstimate,
+  countFormatter,
+  currencyOptions,
+  findCurrency,
+  findOption,
+  QUANTITY_MESSAGES,
+  rateFormatter,
+  totalFormatter,
+  unitPriceFormatter,
+  weightFormatter,
+  type CurrencyCode,
+} from "./price-calculator-model";
 import styles from "./price-calculator.module.css";
 
-const numberFormatter = new Intl.NumberFormat("en-US", {
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 0,
-});
+// Option keys are `${group.title}-${item.label}`, built in product-data's
+// priceOptions. Rebuilt here so the <optgroup> markup can be driven straight
+// off priceGroups without flattening away the grouping the buyer navigates by.
+const optionKey = (groupTitle: string, label: string) => `${groupTitle}-${label}`;
 
-const weightFormatter = new Intl.NumberFormat("en-US", {
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 0,
-});
-
-const currencyOptions = [
-  { code: "USD", label: "USD - US Dollar", symbol: "$", rateFromPkr: 0.0036, locale: "en-US" },
-  { code: "EUR", label: "EUR - Euro", symbol: "€", rateFromPkr: 0.0034, locale: "de-DE" },
-  { code: "GBP", label: "GBP - Pound", symbol: "£", rateFromPkr: 0.0029, locale: "en-GB" },
-  { code: "PKR", label: "PKR - Pakistani Rupee", symbol: "Rs. ", rateFromPkr: 1, locale: "en-PK" },
-  { code: "INR", label: "INR - Indian Rupee", symbol: "₹", rateFromPkr: 0.3, locale: "en-IN" },
-  { code: "CNY", label: "CNY - Chinese Yuan", symbol: "¥", rateFromPkr: 0.026, locale: "zh-CN" },
-] as const;
-
-type CurrencyCode = (typeof currencyOptions)[number]["code"];
-
-/** Per-piece price below which the reference is quoted per 1,000 pieces
- *  instead. Named because the old inline 0.05 sat under a comment that said
- *  "one cent", so the two disagreed about what the rule actually was. */
-const PER_THOUSAND_THRESHOLD = 0.05;
-
-function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
-  // The animation writes straight to the DOM via textContent each frame. That
-  // node MUST hold exactly one text child, otherwise React's recorded child
-  // count drifts from the real DOM and the next reconciliation (e.g. changing
-  // currency) throws "Failed to execute 'removeChild' on 'Node'", which tears
-  // the whole calculator out of the tree and crashes the page on every device.
-  // So the ref wraps ONLY the number; prefix/suffix stay as separate
-  // React-owned siblings the animation never touches.
-  const nodeRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const node = nodeRef.current;
-    if (!node) return;
-
-    const duration = 900;
-    const start = performance.now();
-    let frame = 0;
-
-    const tick = (now: number) => {
-      // Clamp at 0 too: the first rAF timestamp can precede performance.now()
-      // captured above; a negative progress drove the ease below zero and
-      // flashed negative prices ("$-0.37") before the count started.
-      const progress = Math.min(Math.max((now - start) / duration, 0), 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      node.textContent = formatter.format(value * eased);
-
-      if (progress < 1) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    frame = requestAnimationFrame(tick);
-
-    return () => cancelAnimationFrame(frame);
-  }, [value, formatter]);
-
-  return (
-    <strong>
-      {prefix}
-      <span ref={nodeRef}>{formatter.format(value)}</span>
-      {suffix}
-    </strong>
-  );
-}
-
-export function PriceCalculator() {
+export function PriceCalculator({
+  heading = "Procurement calculator",
+  description = "Choose a format and quantity to estimate order weight and value before requesting an export quote.",
+  hideHeading = false,
+  labelledBy,
+}: {
+  heading?: string;
+  description?: string;
+  /** Hide the component's own heading when the page already supplies one.
+   *  Pair with `labelledBy` so the region keeps an accessible name. */
+  hideHeading?: boolean;
+  /** id of an external heading that names this region. */
+  labelledBy?: string;
+}) {
   const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
   const [quantity, setQuantity] = useState("1000");
   const [currencyCode, setCurrencyCode] = useState<CurrencyCode>("USD");
 
-  const selectedOption =
-    priceOptions.find((option) => option.key === selectedKey) ?? priceOptions[0];
-  const selectedCurrency =
-    currencyOptions.find((currency) => currency.code === currencyCode) ?? currencyOptions[0];
-  const parsedQuantity = Number(quantity);
-  const quantityValue =
-    Number.isFinite(parsedQuantity) && parsedQuantity > 0 ? parsedQuantity : 0;
-  const totalGrams = selectedOption ? selectedOption.grams * quantityValue : 0;
-  const totalKilograms = totalGrams / 1000;
-  // PKR shows the domestic Pakistan rate; every other currency shows the fixed
-  // USD export rate converted across, so a falling rupee never discounts exports.
-  const usdRateFromPkr =
-    currencyOptions.find((currency) => currency.code === "USD")?.rateFromPkr ?? 0.0036;
-  const unitInSelectedCurrency = selectedOption
-    ? selectedCurrency.code === "PKR"
-      ? selectedOption.unitPrice
-      : selectedOption.exportUsd * (selectedCurrency.rateFromPkr / usdRateFromPkr)
-    : 0;
-  const referenceTotal = unitInSelectedCurrency * quantityValue;
-  const hasBulkSignal = totalKilograms >= 25 || quantityValue >= 50000;
-  const currencyFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat(selectedCurrency.locale, {
-        maximumFractionDigits: referenceTotal >= 100 ? 0 : 2,
-        minimumFractionDigits: 0,
-      }),
-    [referenceTotal, selectedCurrency.locale],
-  );
-  // Sub-cent unit prices (e.g. a 1 gm sachet at $0.0045) round to "$0" with the
-  // total formatter. Give the per-unit figure enough decimals to stay legible.
-  const unitFractionDigits =
-    unitInSelectedCurrency > 0 && unitInSelectedCurrency < 1
-      ? 4
-      : unitInSelectedCurrency < 100
-        ? 2
-        : 0;
-  const unitFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat(selectedCurrency.locale, {
-        maximumFractionDigits: unitFractionDigits,
-        minimumFractionDigits: 0,
-      }),
-    [selectedCurrency.locale, unitFractionDigits],
-  );
-  // The per-1,000 figure is a RATE, not an order total, so it must not inherit
-  // currencyFormatter's order-size-dependent precision: once referenceTotal
-  // reached 100 that formatter dropped to 0 decimals and printed a genuine
-  // $4.50 / 1,000 rate as "$5" - a 11% overstatement on the exact orders big
-  // enough to matter. Rate precision is fixed and independent of order size.
-  const perThousandFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat(selectedCurrency.locale, {
-        maximumFractionDigits: 2,
-        minimumFractionDigits: 2,
-      }),
-    [selectedCurrency.locale],
+  const headingId = useId();
+  const quantityErrorId = useId();
+  const resultId = useId();
+
+  const selectedOption = findOption(selectedKey) ?? priceOptions[0];
+  const selectedCurrency = findCurrency(currencyCode);
+
+  const estimate = useMemo(
+    () => computeEstimate({ option: selectedOption, quantity, currency: selectedCurrency }),
+    [selectedOption, quantity, selectedCurrency],
   );
 
+  const totalFmt = useMemo(
+    () => totalFormatter(selectedCurrency.locale, estimate.total),
+    [selectedCurrency.locale, estimate.total],
+  );
+  const rateFmt = useMemo(() => rateFormatter(selectedCurrency.locale), [selectedCurrency.locale]);
+  const unitFmt = useMemo(
+    () => unitPriceFormatter(selectedCurrency.locale, estimate.unitPrice),
+    [selectedCurrency.locale, estimate.unitPrice],
+  );
+
+  const { symbol } = selectedCurrency;
+  const errorMessage = estimate.issue ? QUANTITY_MESSAGES[estimate.issue] : null;
+
+  // Weight reads in kilograms once there is a kilogram to read. Below that,
+  // grams. The old layout showed both at once, which is the same fact twice.
+  const weightLabel =
+    estimate.kilograms >= 1
+      ? `${weightFormatter.format(estimate.kilograms)} kg`
+      : `${weightFormatter.format(estimate.grams)} g`;
+
+  const rateLabel = estimate.showPerThousand
+    ? `${symbol}${rateFmt.format(estimate.perThousand)} / 1,000 pcs`
+    : `${symbol}${unitFmt.format(estimate.unitPrice)} per piece`;
+
   function handleWhatsAppQuote() {
-    if (!selectedOption || quantityValue <= 0) {
-      return;
-    }
+    if (!estimate.isValid || !selectedOption) return;
 
     const message = [
       "Hello, I'm requesting an industrial Dry Gel World procurement quote.",
       `Technical Spec: ${selectedOption.label}`,
       `Industrial Category: ${selectedOption.groupTitle}`,
-      `Quantity Requirement: ${numberFormatter.format(quantityValue)} units`,
-      `Verified Net Weight: ${weightFormatter.format(totalGrams)}g (${weightFormatter.format(totalKilograms)}kg)`,
-      `Reference Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(referenceTotal)} ${selectedCurrency.code}`,
+      `Quantity Requirement: ${countFormatter.format(estimate.quantity)} units`,
+      `Verified Net Weight: ${weightFormatter.format(estimate.grams)}g (${weightFormatter.format(estimate.kilograms)}kg)`,
+      `Reference Estimate: ${symbol}${totalFmt.format(estimate.total)} ${selectedCurrency.code}`,
       "Please advise export quote, MOQ, lead time, documentation, and suitable shipping terms.",
     ].join("\n");
 
@@ -159,133 +95,140 @@ export function PriceCalculator() {
   }
 
   return (
-    <aside className={styles.calculator} aria-labelledby="price-calculator-title">
-      <div className={styles.head}>
-        <p>Industrial Estimator</p>
-        <h3 id="price-calculator-title">Procurement Calculator</h3>
-        <span>Select technical specifications and quantity to estimate industrial weight before requesting an export quote.</span>
-      </div>
+    <section
+      className={styles.calculator}
+      aria-labelledby={labelledBy ?? (hideHeading ? undefined : headingId)}
+      aria-label={hideHeading && !labelledBy ? heading : undefined}
+    >
+      {hideHeading ? null : (
+        <div className={styles.head}>
+          <h3 id={headingId}>{heading}</h3>
+          <p>{description}</p>
+        </div>
+      )}
 
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 01</span>
-          <strong>Product specification</strong>
-          <small>Choose the sachet size or desiccant format you want quoted.</small>
-        </span>
-        <select value={selectedKey} onChange={(event) => setSelectedKey(event.target.value)}>
-          {priceOptions.map((option) => (
-            <option key={option.key} value={option.key}>
-              {option.label} - {option.groupTitle}
-            </option>
-          ))}
-        </select>
-      </label>
+      <div className={styles.fields}>
+        <div className={styles.field}>
+          <label htmlFor={`${headingId}-format`}>Format</label>
+          <select
+            id={`${headingId}-format`}
+            value={selectedKey}
+            onChange={(event) => setSelectedKey(event.target.value)}
+          >
+            {priceGroups.map((group) => (
+              <optgroup key={group.title} label={group.title}>
+                {group.items.map((item) => (
+                  <option
+                    key={optionKey(group.title, item.label)}
+                    value={optionKey(group.title, item.label)}
+                  >
+                    {item.label}
+                  </option>
+                ))}
+              </optgroup>
+            ))}
+          </select>
+        </div>
 
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 02</span>
-          <strong>Quantity required</strong>
-          <small>Type the total pieces, sachets, or units needed for this quote.</small>
-        </span>
-        <input
-          inputMode="numeric"
-          min="1"
-          onChange={(event) => setQuantity(event.target.value)}
-          placeholder="e.g. 1000"
-          suppressHydrationWarning
-          type="number"
-          value={quantity}
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 03</span>
-          <strong>Reference currency</strong>
-          <small>Select the currency you want the estimate displayed in.</small>
-        </span>
-        <select value={currencyCode} onChange={(event) => setCurrencyCode(event.target.value as CurrencyCode)}>
-          {currencyOptions.map((currency) => (
-            <option key={currency.code} value={currency.code}>
-              {currency.label}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <div className={styles.summaryGrid}>
-        <article className={styles.summaryCard}>
-          {/* Very low per-piece prices (a 1gm sachet is ~$0.0045) read as a toy
-              business to a bulk buyer, who thinks in price-per-thousand anyway.
-              Below PER_THOUSAND_THRESHOLD show "/ 1,000 pcs", plain per-piece
-              above it. */}
-          <span>{unitInSelectedCurrency > 0 && unitInSelectedCurrency < PER_THOUSAND_THRESHOLD ? "Reference (per 1,000 pcs)" : "Reference Unit"}</span>
-          {unitInSelectedCurrency > 0 && unitInSelectedCurrency < PER_THOUSAND_THRESHOLD ? (
-            <AnimatedCounter
-              value={unitInSelectedCurrency * 1000}
-              formatter={perThousandFormatter}
-              prefix={selectedCurrency.symbol}
-              suffix=" / 1,000"
-            />
-          ) : (
-            <AnimatedCounter
-              value={unitInSelectedCurrency}
-              formatter={unitFormatter}
-              prefix={selectedCurrency.symbol}
-            />
-          )}
-        </article>
-        <article className={styles.summaryCard}>
-          <span>Net Weight (g)</span>
-          <AnimatedCounter value={totalGrams} formatter={weightFormatter} suffix=" gm" />
-        </article>
-        <article className={styles.summaryCard}>
-          <span>Total Mass (kg)</span>
-          <AnimatedCounter value={totalKilograms} formatter={weightFormatter} suffix=" kg" />
-        </article>
-        <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
-          <span>Reference Estimate</span>
-          <AnimatedCounter
-            value={referenceTotal}
-            formatter={currencyFormatter}
-            prefix={selectedCurrency.symbol}
+        <div className={styles.field}>
+          <label htmlFor={`${headingId}-qty`}>Quantity (pieces)</label>
+          <input
+            id={`${headingId}-qty`}
+            inputMode="numeric"
+            onChange={(event) => setQuantity(event.target.value)}
+            placeholder="e.g. 1000"
+            suppressHydrationWarning
+            type="text"
+            value={quantity}
+            aria-invalid={errorMessage ? true : undefined}
+            aria-describedby={errorMessage ? quantityErrorId : undefined}
           />
-        </article>
+          {errorMessage ? (
+            <p className={styles.error} id={quantityErrorId}>
+              {errorMessage}
+            </p>
+          ) : null}
+        </div>
       </div>
 
-      <div className={styles.meta}>
-        <p>
-          Technical Selection: <strong>{selectedOption?.label}</strong> | Group: <strong>{selectedOption?.groupTitle}</strong>.
-        </p>
-        <p>
-          Reference estimate shown in <strong>{selectedCurrency.code}</strong>.{" "}
+      <div className={styles.result} id={resultId}>
+        <div className={styles.resultHead}>
+          <span className={styles.resultLabel}>Estimated order value</span>
+          <label className={styles.currency}>
+            <span className={styles.srOnly}>Display currency</span>
+            <select
+              value={currencyCode}
+              onChange={(event) => setCurrencyCode(event.target.value as CurrencyCode)}
+            >
+              {currencyOptions.map((currency) => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.code}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        {/* The announcement is deliberately on a wrapper rather than the number
+            itself: a screen reader should hear the settled figure with its
+            supporting rate and weight as one sentence, not three fragments. */}
+        <div aria-live="polite" aria-atomic="true">
+          {estimate.isValid ? (
+            <>
+              <strong className={styles.resultValue}>
+                {symbol}
+                {totalFmt.format(estimate.total)}
+              </strong>
+              <p className={styles.resultMeta}>
+                {rateLabel} · {weightLabel} total · {selectedCurrency.code}
+              </p>
+            </>
+          ) : (
+            <>
+              <strong className={`${styles.resultValue} ${styles.resultEmpty}`}>&mdash;</strong>
+              <p className={styles.resultMeta}>
+                Enter a quantity to see the estimated value and shipping weight.
+              </p>
+            </>
+          )}
+        </div>
+
+        <p className={styles.basis}>
           {selectedCurrency.code === "PKR"
-            ? "PKR reflects the domestic Pakistan rate."
-            : "Non-PKR currencies reflect the fixed export rate."}{" "}
-          Final export pricing is quoted by format, quantity, destination, documents, and dispatch schedule.
+            ? "Domestic Pakistan price schedule."
+            : "Fixed export price schedule."}{" "}
+          Excludes freight, duties, and destination charges. Not an Incoterm-qualified
+          quote &mdash; final pricing depends on format, quantity, destination, documents,
+          and dispatch schedule.
         </p>
-        {hasBulkSignal ? (
+
+        {estimate.hasBulkSignal ? (
           <p className={styles.bulkHint}>
-            Enterprise-scale requirement detected. Elite pricing adjustments available through direct procurement flow.
+            This is a bulk-volume requirement. Ask the export desk for tiered pricing when
+            you send the request.
           </p>
         ) : null}
       </div>
 
-      <button
-        className={styles.submit}
-        data-intent="purchase calculator quote"
-        onClick={handleWhatsAppQuote}
-        type="button"
-      >
-        Send Estimate on WhatsApp
-      </button>
+      <div className={styles.actions}>
+        <button
+          className={styles.submit}
+          data-intent="purchase calculator quote"
+          onClick={handleWhatsAppQuote}
+          type="button"
+          disabled={!estimate.isValid}
+          aria-describedby={errorMessage ? quantityErrorId : undefined}
+        >
+          Send estimate on WhatsApp
+        </button>
 
-      <AddToCartButton
-        productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
-        productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-        className={styles.submitBlue}
-        label="Add to Cart, Get Exact Price by Email"
-      />
-    </aside>
+        <AddToCartButton
+          productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
+          productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+          className={styles.submitSecondary}
+          label="Add to cart, get exact price by email"
+        />
+      </div>
+    </section>
   );
 }

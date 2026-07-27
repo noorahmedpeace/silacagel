@@ -529,11 +529,14 @@ export default function Home() {
 
                 <div id="purchase-calculator" className={styles.calculatorAnchor}>
                   <div className={styles.calculatorPanel}>
-                    <p className={styles.calculatorHint}>Volume & Export Quote Estimator</p>
-                    <p className={styles.calculatorSubHint}>
-                      Estimate total weight and share a cleaner procurement request with the export team.
-                    </p>
-                    <DeferredPriceCalculator />
+                    {/* Heading and description are passed into the widget rather
+                        than stacked above it: the panel previously showed a styled
+                        <p> label, a sub-label, and then the component's own heading,
+                        so one section opened with three competing lines. */}
+                    <DeferredPriceCalculator
+                      heading="Volume & export quote estimator"
+                      description="Estimate total weight and share a cleaner procurement request with the export team."
+                    />
                     <p className={styles.calculatorSubHint}>
                       Need grams per carton instead? Enter length, width, and height in the{" "}
                       <a

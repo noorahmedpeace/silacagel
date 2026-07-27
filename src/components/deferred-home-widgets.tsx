@@ -103,12 +103,18 @@ const WIDGET_MIN_HEIGHTS = {
   emblaCarousel: 360,
 } as const;
 
-export function DeferredPriceCalculator() {
+export function DeferredPriceCalculator({
+  heading,
+  description,
+}: {
+  heading?: string;
+  description?: string;
+} = {}) {
   return (
     <LoadWhenVisible
       label="Loading procurement calculator"
       loader={() => import("@/components/price-calculator").then((mod) => mod.PriceCalculator)}
-      props={{}}
+      props={{ heading, description }}
       minHeight={WIDGET_MIN_HEIGHTS.priceCalculator}
     />
   );
