@@ -43,13 +43,26 @@ function LoadWhenVisible<P extends object>({
   const frameRef = useRef<HTMLDivElement>(null);
   const [Component, setComponent] = useState<ComponentType<P> | null>(null);
 
+  // Held in a ref and kept OUT of the effect deps. Callers pass an inline
+  // arrow, so `loader` is a new function on every render of the parent. With it
+  // in the deps, any unrelated re-render tore down the effect, the cleanup set
+  // cancelled = true, and an already in-flight dynamic import resolved into a
+  // discarded result - leaving the widget stuck on its placeholder forever.
+  // Harmless while every caller was a server component rendering once; the
+  // moment a client parent re-rendered (PricingFormatPicker holding the shared
+  // format state) the widget stopped loading on mobile entirely.
+  // Captured once and never reassigned: every caller passes the same import,
+  // only re-wrapped in a fresh arrow each render, so the first value is always
+  // the right one.
+  const loaderRef = useRef(loader);
+
   useEffect(() => {
     const node = frameRef.current;
     if (!node || Component) return;
 
     let cancelled = false;
     const load = () => {
-      loader().then((LoadedComponent) => {
+      loaderRef.current().then((LoadedComponent) => {
         if (!cancelled) {
           setComponent(() => LoadedComponent);
         }
@@ -80,7 +93,7 @@ function LoadWhenVisible<P extends object>({
       cancelled = true;
       observer.disconnect();
     };
-  }, [Component, loader]);
+  }, [Component]);
 
   // The wrapper holds the same min-height as the fallback so even before
   // the inner component renders, the slot in the layout is reserved.
