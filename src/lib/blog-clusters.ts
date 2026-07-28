@@ -57,6 +57,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
       guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
       guide("desiccant-for-electronics-packaging", "Desiccant for electronics packaging"),
+      // Both of these guides answer "how much gel" for a specific enclosure,
+      // which is the same question this page asks in the general case.
+      guide("silica-gel-for-3d-printer-filament-storage", "Silica gel for 3D printer filament"),
+      guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
   },
@@ -106,6 +110,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
       guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
       guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel (oven guide)"),
+      // The two applications where the same gel is dried out and used again on a
+      // cycle, which is exactly what this reader is asking about.
+      guide("how-to-dry-flowers-with-silica-gel", "Drying flowers with silica gel"),
+      guide("silica-gel-for-3d-printer-filament-storage", "Silica gel for 3D printer filament"),
     ],
     products: [PRODUCT_BULK],
   },
@@ -116,6 +124,11 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
       guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+      // Someone who searched "what is a silica gel packet" has just learned what
+      // the object is; the next question is what to do with it. Two everyday
+      // uses, not all four - this list is fundamentals first.
+      guide("how-to-dry-flowers-with-silica-gel", "Drying flowers with silica gel"),
+      guide("silica-gel-for-camera-gear-and-lenses", "Silica gel for camera gear and lenses"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
     // Highest-impression page on the site and the only one of its size with no
@@ -388,6 +401,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("can-you-reuse-silica-gel", "Can you reuse silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
       guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
+      // Long-term storage cases: the gel sits in place for months and gets baked
+      // when it saturates, which is why this reader is here.
+      guide("silica-gel-for-camera-gear-and-lenses", "Silica gel for camera gear and lenses"),
+      guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_BULK],
   },
