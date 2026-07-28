@@ -46,6 +46,12 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const localWhatsAppHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hello, I need a PKR quote for ${page.h1}`,
   )}`;
+  // Most h1s are full sentences ending in a period, so interpolating one
+  // mid-message produced "...export buyers.. Format / quantity" in the buyer's
+  // draft. The hero link gets away with it because nothing follows the h1 there.
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello, I need a quote for ${page.h1.replace(/\.$/, "")}. Format / quantity / destination:`,
+  )}`;
 
   return (
     <main className={styles.page}>
@@ -294,9 +300,22 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             requirements so the buying conversation starts with useful data.
           </p>
         </div>
-        <Link className={styles.primaryCta} href="/contact">
-          {page.primaryCta}
-        </Link>
+        <div className={styles.actions}>
+          <Link className={styles.primaryCta} href="/contact">
+            {page.primaryCta}
+          </Link>
+          <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
+            Call {displayPhone}
+          </a>
+          <a
+            className={styles.secondaryCta}
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp quote
+          </a>
+        </div>
       </section>
 
       <section className={styles.section}>
