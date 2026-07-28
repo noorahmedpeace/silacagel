@@ -271,6 +271,11 @@ export default function RootLayout({
                 }
                 if (href.indexOf('tel:') === 0) {
                   window.__drygelTrackEvent('phone_click', Object.assign({}, base, { contact_method: 'phone' }));
+                  // Email and WhatsApp both tag the Clarity session; phone did
+                  // not, so a buyer who tapped Call could not be found in
+                  // session replay at all - the one contact method where you
+                  // cannot read back what they wanted.
+                  window.__drygelTrackClarity('phone_call_click', 'Phone call intent');
                   return;
                 }
                 if (href.indexOf('https://wa.me/') === 0 || href.indexOf('https://api.whatsapp.com/') === 0) {
