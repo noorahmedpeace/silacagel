@@ -382,13 +382,24 @@ export default function RootLayout({
                   disambiguatingDescription:
                     "DryGelWorld manufactures silica gel and industrial desiccants (moisture absorbers). It is not a gel-pack, ice-pack, or cold-pack brand, and is unrelated to any similarly named cold-pack company. Its only phone is +92 333 022 3337 and it operates from Gulshan-e-Iqbal, Karachi.",
                   foundingDate: "1983",
-                  // `founder` used to declare a Person named "Kamran, Waseem &
-                  // Sons". That is a family firm name, not an individual, and no
-                  // real founder name is published anywhere on this site to put
-                  // in its place. A structurally invalid claim is worse than an
-                  // absent one - Google can discount an entire graph over a node
-                  // it cannot reconcile. Restore this only with a real person's
-                  // name, or as an Organization if the founding entity is meant.
+                  // No `founder` node. It previously named "Kamran, Waseem &
+                  // Sons" as a Person - a family firm name, not an individual -
+                  // and the real 1983 founder is not published anywhere on this
+                  // site, so there is nothing truthful to put in its place.
+                  //
+                  // The named human in the graph is the current owner instead,
+                  // which is both accurate and what a buyer or a crawler is
+                  // actually looking for: a real, reachable person accountable
+                  // for the business. The same Person is already published on
+                  // the site through authors.ts.
+                  employee: {
+                    "@type": "Person",
+                    name: "Noor Ahmed Khan",
+                    jobTitle: "Owner and Export Director",
+                    email: mainEmail,
+                    telephone: phoneHref,
+                    sameAs: ["https://www.linkedin.com/in/drygelworld/"],
+                  },
                   address: {
                     "@type": "PostalAddress",
                     streetAddress: companyStreet,
