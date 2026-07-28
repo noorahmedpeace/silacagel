@@ -179,6 +179,34 @@ function blogImage(slug: string, title: string, caption: string): SeoImage {
 }
 
 const blogSeoImages: Record<string, SeoImage> = {
+  "how-to-dry-flowers-with-silica-gel": {
+    src: "/blog-images/how-to-dry-flowers-with-silica-gel.webp",
+    alt: "Strawflowers and thistles buried face-up in fine white silica gel beads inside a glass container",
+    title: "How to dry flowers with silica gel",
+    caption: "Silica gel supports flowers while removing moisture to preserve their shape and colour.",
+    ...seoImageSize,
+  },
+  "silica-gel-for-3d-printer-filament-storage": {
+    src: "/blog-images/silica-gel-for-3d-printer-filament-storage.webp",
+    alt: "Five 3D printer filament spools in sealed clear boxes, each with a silica gel sachet beside it",
+    title: "Silica gel for 3D printer filament storage",
+    caption: "Airtight filament storage with silica gel helps control moisture before printing.",
+    ...seoImageSize,
+  },
+  "silica-gel-for-camera-gear-and-lenses": {
+    src: "/blog-images/silica-gel-for-camera-gear-and-lenses.webp",
+    alt: "Mirrorless camera body and lenses in a foam-lined hard case with a silica gel sachet in its own cutout",
+    title: "Silica gel for camera gear and lenses",
+    caption: "Silica gel helps protect camera equipment and lenses from storage humidity.",
+    ...seoImageSize,
+  },
+  "silica-gel-for-gun-safe-moisture-control": {
+    src: "/blog-images/silica-gel-for-gun-safe-moisture-control.webp",
+    alt: "Two silica gel desiccant packs on the lower shelf of a gun safe, below a rifle and beside magazines",
+    title: "Silica gel for gun safe moisture control",
+    caption: "Desiccant packs help manage humidity inside a secure metal storage cabinet.",
+    ...seoImageSize,
+  },
   "top-10-silica-gel-suppliers-world-pakistan": {
     ...seoImages.exportLogistics,
     title: "Global silica gel suppliers and Pakistan sourcing guide visual",
