@@ -382,10 +382,13 @@ export default function RootLayout({
                   disambiguatingDescription:
                     "DryGelWorld manufactures silica gel and industrial desiccants (moisture absorbers). It is not a gel-pack, ice-pack, or cold-pack brand, and is unrelated to any similarly named cold-pack company. Its only phone is +92 333 022 3337 and it operates from Gulshan-e-Iqbal, Karachi.",
                   foundingDate: "1983",
-                  founder: {
-                    "@type": "Person",
-                    name: "Kamran, Waseem & Sons",
-                  },
+                  // `founder` used to declare a Person named "Kamran, Waseem &
+                  // Sons". That is a family firm name, not an individual, and no
+                  // real founder name is published anywhere on this site to put
+                  // in its place. A structurally invalid claim is worse than an
+                  // absent one - Google can discount an entire graph over a node
+                  // it cannot reconcile. Restore this only with a real person's
+                  // name, or as an Organization if the founding entity is meant.
                   address: {
                     "@type": "PostalAddress",
                     streetAddress: companyStreet,
