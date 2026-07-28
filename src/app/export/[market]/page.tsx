@@ -5,39 +5,18 @@ import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd, compactMetaDescription } from "@/lib/seo";
 import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
-import { exportMarkets, getExportMarket } from "../markets";
+import {
+  exportHreflangAlternates,
+  exportMarketHreflang,
+  exportMarkets,
+  getExportMarket,
+  isExportHreflangMember,
+} from "../markets";
 
 type ExportMarketPageProps = {
   params: Promise<{ market: string }>;
 };
 
-// hreflang code per market slug. All content is in English so we use
-// region-specific en-XX variants (en-US, en-AE, en-DE) so Google can
-// route each regional Google index to the matching landing page. Slugs
-// that don't map to a single country (fob-karachi, europe) fall back
-// to "en" or a regional code.
-const MARKET_HREFLANG: Record<string, string> = {
-  uae: "en-AE",
-  "saudi-arabia": "en-SA",
-  qatar: "en-QA",
-  usa: "en-US",
-  vietnam: "en-VN",
-  russia: "en-RU",
-  bangladesh: "en-BD",
-  indonesia: "en-ID",
-  mexico: "en-MX",
-  turkey: "en-TR",
-  india: "en-IN",
-  brazil: "en-BR",
-  malaysia: "en-MY",
-  pakistan: "en-PK",
-  uk: "en-GB",
-  germany: "en-DE",
-  canada: "en-CA",
-  australia: "en-AU",
-  europe: "en-150", // Europe (UN M49 region code) - distinct & valid, avoids colliding on bare "en"
-  "fob-karachi": "en", // the single bare-"en" default for the whole cluster
-};
 
 export function generateStaticParams() {
   return exportMarkets.map((market) => ({ market: market.slug }));
@@ -51,22 +30,19 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     return {};
   }
 
-  const hreflang = MARKET_HREFLANG[market.slug] ?? "en";
+  const hreflang = exportMarketHreflang(market.slug);
   const heroImage = withPageImageContext(
     getExportMarketSeoImage(market.slug),
     `${market.country} silica gel export supply`,
   );
 
-  // Valid hreflang requires a COMPLETE, RECIPROCAL cluster: every member page
-  // must list every other member plus an x-default, and codes must be unique.
-  // Previously each market emitted only its own code + x-default → / (the home
-  // page, different content), so the set was non-reciprocal and Google
-  // discarded it. We now generate the full cluster from exportMarkets on every
-  // market page, with x-default pointing at the export hub (not the homepage).
-  const languages: Record<string, string> = Object.fromEntries(
-    exportMarkets.map((m) => [MARKET_HREFLANG[m.slug] ?? "en", `/export/${m.slug}`]),
-  );
-  languages["x-default"] = "/export";
+  // The cluster is built in one place and emitted identically by every member,
+  // including /export itself. See exportHreflangAlternates() for why /export
+  // had to be added and why Europe is no longer a member - and, being no
+  // longer a member, no longer annotates the set either.
+  const languages = isExportHreflangMember(market.slug)
+    ? exportHreflangAlternates()
+    : undefined;
   const metaDescription = compactMetaDescription(market.description);
 
   return {

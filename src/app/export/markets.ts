@@ -534,3 +534,71 @@ export const exportMarkets: ExportMarket[] = [
 export function getExportMarket(slug: string) {
   return exportMarkets.find((market) => market.slug === slug);
 }
+
+/**
+ * hreflang code per market slug.
+ *
+ * All content is English, so these are region-specific en-XX variants that let
+ * Google route each regional index to the matching landing page.
+ *
+ * The region part must be an ISO 3166-1 alpha-2 COUNTRY code. Google does not
+ * accept UN M49 numeric macroregions here. `europe` previously carried
+ * "en-150", which reads as valid to a human and is silently invalid to Google,
+ * and one bad entry can cost the whole cluster. There is no alpha-2 code for a
+ * continent, so /export/europe is simply not an hreflang member: it still
+ * exists, is still indexable, and still ranks - it just cannot claim a regional
+ * code it does not have. Germany and the UK carry the European signal.
+ */
+const MARKET_HREFLANG: Record<string, string> = {
+  uae: "en-AE",
+  "saudi-arabia": "en-SA",
+  qatar: "en-QA",
+  usa: "en-US",
+  vietnam: "en-VN",
+  russia: "en-RU",
+  bangladesh: "en-BD",
+  indonesia: "en-ID",
+  mexico: "en-MX",
+  turkey: "en-TR",
+  india: "en-IN",
+  brazil: "en-BR",
+  malaysia: "en-MY",
+  pakistan: "en-PK",
+  uk: "en-GB",
+  germany: "en-DE",
+  canada: "en-CA",
+  australia: "en-AU",
+  "fob-karachi": "en", // the single bare-"en" default for the cluster
+};
+
+/** The hreflang code for one market, or bare "en" where it has no country code
+ *  (Europe, and the FOB-Karachi hub). Used for og:locale as well. */
+export function exportMarketHreflang(slug: string): string {
+  return MARKET_HREFLANG[slug] ?? "en";
+}
+
+/** Whether this market belongs to the hreflang cluster at all. Only Europe does
+ *  not - and a page that annotates a set it is not part of is a one-way link
+ *  every audit tool reports as "no return tag", so Europe emits no alternates. */
+export function isExportHreflangMember(slug: string): boolean {
+  return slug in MARKET_HREFLANG;
+}
+
+/**
+ * The complete, reciprocal hreflang cluster.
+ *
+ * Every member must list every other member plus x-default, and EVERY member
+ * has to emit the identical set - including /export itself, which is the
+ * x-default target. /export previously published only a canonical, so the page
+ * the whole cluster pointed at never pointed back, leaving the set
+ * non-reciprocal for Google to discard.
+ */
+export function exportHreflangAlternates(): Record<string, string> {
+  const languages: Record<string, string> = {};
+  for (const market of exportMarkets) {
+    const code = MARKET_HREFLANG[market.slug];
+    if (code) languages[code] = `/export/${market.slug}`;
+  }
+  languages["x-default"] = "/export";
+  return languages;
+}
