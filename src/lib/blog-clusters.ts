@@ -123,6 +123,42 @@ export const blogClusters: Record<string, BlogCluster> = {
     // is a quiet "if you actually buy these" path rather than a hard sell.
     commercial: COMMERCIAL_PACKETS,
   },
+  // Consumer application guides. The reader arrived with a packet in a shoebox
+  // or a spool in a bag, not a purchase order, so these point at the retail and
+  // bulk product pages and at the reuse guide they will want next - not at an
+  // export supplier page, which would be a mismatch of intent.
+  "how-to-dry-flowers-with-silica-gel": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-for-3d-printer-filament-storage": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue indicating gel"),
+      guide("what-is-silica-gel-and-how-does-it-work", "What is a silica gel packet?"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-for-camera-gear-and-lenses": {
+    guides: [
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue indicating gel"),
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_BULK],
+  },
+  "silica-gel-for-gun-safe-moisture-control": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": {
     guides: [
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),

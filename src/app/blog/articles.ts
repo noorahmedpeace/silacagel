@@ -4757,6 +4757,303 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "how-to-dry-flowers-with-silica-gel",
+    label: "Application Guide",
+    title: "How to dry flowers with silica gel, and why the bead size matters",
+    metaTitle: "How to Dry Flowers With Silica Gel, Step by Step",
+    metaDescription:
+      "Drying flowers with silica gel keeps colour and shape that air drying loses. Bead size, burial method, timing by flower type, and how to reuse the gel.",
+    description:
+      "Air drying flattens petals and drains colour. Silica gel pulls moisture out while the flower is still supported on every side, so it keeps its shape. This is the method, the timings by flower type, and the one variable most guides get wrong: bead size.",
+    readTime: "8 min read",
+    sections: [
+      {
+        heading: "Why silica gel beats air drying, and what it is actually doing",
+        body:
+          "Hanging a flower upside down to air dry removes water slowly from the outside in, and gravity flattens the petals while it happens. The result is brittle, browned, and half the original size. Silica gel works differently: the flower is buried so every petal is supported, and the beads draw water vapour out of the surrounding air rather than off the petal surface directly. The petal loses moisture into that dry pocket while its shape is held. Colour survives because the drying is fast enough that pigments do not have time to oxidise. Silica gel adsorbs up to roughly 40 percent of its own weight in water, which is why a relatively small quantity can dry a flower that is mostly water.",
+        bullets: [
+          "The gel never touches the water as liquid - it lowers the humidity of the air immediately around the petal.",
+          "Support on all sides is the point. Remove it and you are just air drying in a box.",
+          "Speed preserves colour; a flower that takes two weeks to dry will brown regardless of method.",
+        ],
+      },
+      {
+        heading: "Bead size is the variable that decides the result",
+        body:
+          "Most guides say 'silica gel' and stop there, which is why results vary so much. Coarse industrial beads of 2 to 5 mm are the wrong tool: they cannot flow between petals, so they leave gaps where the petal is unsupported and they emboss dimples into soft tissue. Fine granular silica gel, under about 1 mm, pours like dry sand and finds its way into the throat of a bloom without deforming it. If the only gel available is coarse, it can still work for robust, flat-faced flowers, but delicate multi-petal flowers need the fine grade. This is a genuine material difference, not a preference.",
+        bullets: [
+          "Under 1 mm: correct for roses, peonies, ranunculus, anything with layered petals.",
+          "2 to 5 mm beads: acceptable only for flat, sturdy flowers such as daisies or pansies.",
+          "Orange indicating gel shows saturation by colour change and is cobalt-free. Blue indicating gel contains cobalt chloride and is not.",
+        ],
+      },
+      {
+        heading: "The method",
+        body:
+          "Use an airtight container, because gel that is busy adsorbing room humidity is not drying your flower. Pour a base layer about two centimetres deep, sit the bloom on it face up if it is a cup shape or face down if it is flat, then trickle gel around and between the petals rather than dumping it on top. The trickling matters: poured in bulk it pushes petals out of position and they set that way. Keep going until the flower is completely covered with a centimetre or two above it, seal the container, and leave it somewhere at room temperature.",
+        bullets: [
+          "Cut the stem short before burial. Long stems dry unevenly and snap at the join.",
+          "Never seal a container that is only half full of gel - the empty air space holds moisture.",
+          "Do not open it to check every day. Each opening lets room humidity in and resets progress.",
+        ],
+      },
+      {
+        heading: "How long, by flower type",
+        body:
+          "Drying time is a function of how much water the flower holds and how thick its tissue is, not of the gel. These are working ranges rather than guarantees, and a humid room extends all of them. The flower is done when the petals feel papery and make a faint rustle rather than bending softly. If it still feels cool to the touch it is still wet inside, whatever the surface says.",
+        bullets: [
+          "Thin single-layer flowers such as pansies and violets: two to three days.",
+          "Roses, carnations, and other layered blooms: four to seven days.",
+          "Thick, fleshy flowers such as peonies, lilies, and dahlias: seven to ten days, sometimes longer.",
+          "Foliage and ferns: one to two days, and they scorch easily if left too long.",
+        ],
+      },
+      {
+        heading: "Reusing the gel, and the one temperature that matters",
+        body:
+          "Silica gel is not consumed. Once it is saturated it can be regenerated by driving the adsorbed water back off with heat, and the same batch will serve for years. The temperature is the thing people get wrong: too low and the water does not leave, too high and the pore structure begins to collapse and the gel loses capacity permanently. Spread it in a single shallow layer rather than a heap, because a deep pile dries only at the surface.",
+        bullets: [
+          "150 degrees Celsius, or 300 Fahrenheit, is the working figure. See the full regeneration guide for times by quantity.",
+          "Indicating gel tells you when it is done by returning to its dry colour.",
+          "Let it cool in a sealed container. Cooling in open air simply reloads it with room humidity.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I use the small silica gel packets from shoeboxes to dry flowers?",
+        answer:
+          "Not effectively. Those packets hold one to five grams each, and drying a single rose needs a few hundred grams of gel in contact with the flower. The gel is also sealed inside a sachet, so it cannot support or surround the petals. Loose fine-grade gel is what the method requires.",
+      },
+      {
+        question: "Will silica gel keep the flower's original colour?",
+        answer:
+          "It preserves colour far better than air drying, but not perfectly. Reds and pinks hold up well, blues and purples usually darken slightly, and white flowers can take on a cream tone. The faster the dry, the closer the result to the original.",
+      },
+      {
+        question: "Is the silica gel used for flowers safe to handle?",
+        answer:
+          "Plain silica gel is amorphous silicon dioxide and is non-toxic, which is why it appears in food and pharmaceutical packaging as a sachet. It is a desiccant, not a poison, but it is still not food: keep it away from children and pets, and avoid breathing the dust from fine grades.",
+      },
+      {
+        question: "How many times can the same gel be reused?",
+        answer:
+          "Many times, if it is regenerated at the right temperature. Capacity falls gradually over many cycles as the pore structure ages. Gel that no longer changes colour when indicating, or that stays damp after a proper regeneration cycle, has reached the end of its useful life.",
+      },
+    ],
+  },
+  {
+    slug: "silica-gel-for-3d-printer-filament-storage",
+    label: "Application Guide",
+    title: "Silica gel for 3D printer filament: what actually keeps it dry",
+    metaTitle: "Silica Gel for 3D Printer Filament Storage",
+    metaDescription:
+      "Wet filament pops, strings, and prints weak. How much silica gel a spool needs, why indicating beads matter, and the humidity level to actually aim for.",
+    description:
+      "Filament absorbs water from the air, and the print quality drops long before anything looks wrong. This covers how much desiccant a sealed spool actually needs, which grade to use, and why a hygrometer matters more than the amount of gel.",
+    readTime: "7 min read",
+    sections: [
+      {
+        heading: "What moisture does to filament, and how early it starts",
+        body:
+          "Most printing polymers are hygroscopic: they pull water out of the air and hold it between the polymer chains. When that filament reaches the hot end, the trapped water flashes to steam inside the melt. The visible symptoms are popping and hissing during extrusion, stringing between travel moves, a rough or foamed surface, and poor layer adhesion that shows up as parts snapping along layer lines. The important part is that mechanical strength degrades well before the surface looks bad, so a print that appears acceptable can already be significantly weaker than it should be.",
+        bullets: [
+          "PLA is relatively tolerant but not immune, and degrades over weeks in humid storage.",
+          "PETG, nylon, TPU and PVA absorb water quickly - nylon can be measurably wet within a day of open exposure.",
+          "The damage is reversible by drying the filament, up to a point. Hydrolysis at high temperature is not.",
+        ],
+      },
+      {
+        heading: "How much silica gel a spool actually needs",
+        body:
+          "The usual mistake is a single small sachet dropped into a large bag. Silica gel adsorbs up to about 40 percent of its own weight in water, but the figure that matters is not the total capacity - it is whether there is enough gel to pull the enclosed air down to a low humidity and hold it there against the slow leakage every container has. For a standard one-kilogram spool in a sealed bag or box, a useful working quantity is 50 to 100 grams of gel, not the two-gram sachet that shipped with the filament. Multiple spools in one box need proportionally more, and a box opened daily needs more again.",
+        bullets: [
+          "50 to 100 g per spool in a sealed container is a sensible starting point.",
+          "The container matters as much as the gel. A zip bag that leaks defeats any quantity.",
+          "Filament that is already wet must be dried first - desiccant maintains dryness, it does not rescue a soaked spool quickly.",
+        ],
+      },
+      {
+        heading: "Use indicating gel, and buy a hygrometer",
+        body:
+          "Plain white silica gel gives no signal at all. It looks identical saturated and dry, so the common failure mode is a storage box that has been doing nothing for months. Orange indicating gel changes colour as it loads and is cobalt-free. Blue indicating gel also changes colour but contains cobalt chloride, which is restricted in the EU under REACH, and it should never be described as cobalt-free. Better still, put a cheap digital hygrometer in the box: it tells you the actual humidity rather than the state of the desiccant, which is the number you actually care about.",
+        bullets: [
+          "Target below about 20 percent relative humidity inside the container for hygroscopic filaments.",
+          "Orange indicating gel: cobalt-free, changes colour when saturated.",
+          "Blue indicating gel: contains cobalt chloride. Not cobalt-free, and restricted in the EU.",
+        ],
+      },
+      {
+        heading: "Regenerating the gel instead of replacing it",
+        body:
+          "Silica gel is reusable indefinitely in practical terms. Once saturated, heat drives the water back off and the beads return to full capacity. Spread them in a shallow single layer rather than a pile, because a heap dries only on the surface and you will put damp gel back in the box. Do not regenerate gel in a sealed sachet in a domestic oven if the sachet material is not rated for it - loose beads in a tray are the safe approach.",
+        bullets: [
+          "150 degrees Celsius, or 300 Fahrenheit, is the working regeneration temperature.",
+          "Cool the beads in a sealed container, not on the counter, or they simply reload with room air.",
+          "Indicating gel returning to its dry colour is the signal that the cycle is complete.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can silica gel dry out filament that is already wet?",
+        answer:
+          "Slowly and incompletely. Desiccant is designed to hold a dry environment, not to pull water out of a saturated spool. Filament that is already printing badly should be dried actively in a filament dryer or a low oven at the manufacturer's recommended temperature, then stored with desiccant to keep it that way.",
+      },
+      {
+        question: "How often should the silica gel be changed or regenerated?",
+        answer:
+          "There is no fixed interval - it depends on how humid the room is and how often the container is opened. This is exactly why indicating gel or a hygrometer is worth the small cost: they tell you when, instead of you guessing.",
+      },
+      {
+        question: "Is the desiccant that comes with a filament spool enough?",
+        answer:
+          "Usually not. Those sachets are sized to protect the filament during shipping in a sealed factory bag, not to maintain a dry environment through months of storage and repeated opening.",
+      },
+    ],
+  },
+  {
+    slug: "silica-gel-for-camera-gear-and-lenses",
+    label: "Application Guide",
+    title: "Silica gel for camera gear: preventing lens fungus and fogging",
+    metaTitle: "Silica Gel for Camera Gear, Lenses and Dry Boxes",
+    metaDescription:
+      "Lens fungus grows above roughly 60 percent humidity and cannot be undone. How much silica gel a camera bag or dry box needs, and the level to hold.",
+    description:
+      "Fungus inside a lens is permanent and expensive. It needs humidity and time, and controlling the first removes the risk. This covers how much desiccant a bag or cabinet actually needs and the humidity band to aim for.",
+    readTime: "6 min read",
+    sections: [
+      {
+        heading: "The risk is fungus, and it does not come out",
+        body:
+          "Condensation on a lens evaporates and is mostly harmless. Fungus is not. Fungal spores are already present on almost any equipment, and in warm, still, humid air they germinate and spread across internal glass surfaces as fine branching filaments. Once established, the growth etches the coating and, given long enough, the glass itself. Cleaning can remove the organism; it cannot restore an etched coating. The relevant threshold is around 60 percent relative humidity - below it growth effectively stops, above it the risk climbs with temperature and stillness.",
+        bullets: [
+          "Warm, humid, unventilated storage is the worst case - a closed bag in a monsoon climate.",
+          "Damage to coatings is permanent, and repair usually costs a significant fraction of the lens.",
+          "Electronics in the same bag suffer separately, through corrosion of contacts and connectors.",
+        ],
+      },
+      {
+        heading: "The humidity band to actually hold",
+        body:
+          "The instinct is to make storage as dry as possible, and that is wrong. Very low humidity, below about 30 percent, dries out the lubricants in focus and zoom helicoids and can shrink or crack rubber seals and grips over time. The target is a middle band: dry enough that fungus cannot establish, humid enough that the mechanical parts are not damaged. Somewhere between 35 and 50 percent relative humidity is the usual recommendation, and a cheap hygrometer in the bag is the only way to know where you are.",
+        bullets: [
+          "Above roughly 60 percent: fungus risk.",
+          "Below roughly 30 percent: lubricant and seal degradation over the long term.",
+          "35 to 50 percent is the practical target for stored equipment.",
+        ],
+      },
+      {
+        heading: "How much gel, and where to put it",
+        body:
+          "Quantity scales with the enclosed volume and how well it is sealed, not with the value of the equipment. A camera bag is a leaky container and will need refreshing often; a sealed dry box or cabinet holds its state far longer with the same amount of gel. Place sachets where air can circulate around them rather than compressed under equipment, and never let loose beads run free where they can enter a lens mount or a battery compartment.",
+        bullets: [
+          "A typical camera bag: 50 to 100 g of gel, refreshed frequently because the bag leaks.",
+          "A sealed dry box: the same quantity lasts much longer - the seal is doing the work.",
+          "Use sachets rather than loose beads around equipment. Loose gel and lens mounts do not mix.",
+        ],
+      },
+      {
+        heading: "Condensation when moving between temperatures",
+        body:
+          "Bringing cold equipment into warm humid air causes water to condense on and inside it, which is a separate problem from storage humidity and desiccant will not prevent it. The fix is thermal, not chemical: let the gear reach ambient temperature while still sealed inside its bag, so the condensation forms on the outside of the bag rather than on the glass. Only open it once it has warmed. Desiccant in the bag then handles the small amount of humidity that entered with it.",
+        bullets: [
+          "Seal the bag before moving from cold to warm, not after.",
+          "Allow time to equalise - a large lens takes longer than a body.",
+          "Never use a hair dryer or heat source on a fogged lens.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can silica gel remove fungus that is already growing?",
+        answer:
+          "No. Desiccant prevents the conditions fungus needs; it does not kill established growth or repair the damage. A lens with visible internal fungus needs professional service, and the etching it leaves behind is permanent.",
+      },
+      {
+        question: "Is an electric dry cabinet better than silica gel?",
+        answer:
+          "It is more convenient, because it holds a set humidity automatically and never needs regenerating. Silica gel achieves the same humidity control for a fraction of the cost, at the price of checking and regenerating it periodically. For a small kit, gel in a sealed box is entirely adequate.",
+      },
+      {
+        question: "How do I know when to regenerate the gel?",
+        answer:
+          "Use orange indicating gel, which changes colour as it saturates and is cobalt-free, or put a hygrometer in the container and watch the actual number. Plain white gel gives no indication at all and is the reason many storage boxes quietly stop working.",
+      },
+    ],
+  },
+  {
+    slug: "silica-gel-for-gun-safe-moisture-control",
+    label: "Application Guide",
+    title: "Silica gel for a gun safe: sizing the desiccant to the cabinet",
+    metaTitle: "Silica Gel for Gun Safes: Rust and Moisture Control",
+    metaDescription:
+      "A steel safe traps humidity against metal and holds it there. How much silica gel a cabinet needs by size, and why the safe itself makes rust worse.",
+    description:
+      "A sealed steel cabinet does not keep moisture out - it keeps it in, against bare metal, with no airflow. This covers desiccant quantities by safe size, why rechargeable units suit safes well, and the humidity level to hold.",
+    readTime: "6 min read",
+    sections: [
+      {
+        heading: "Why a safe makes the problem worse, not better",
+        body:
+          "A gun safe is a sealed steel box, usually standing on or against an exterior wall or a concrete floor. Those surfaces are colder than the room, so the interior of the safe runs slightly cool, and moisture in the trapped air condenses on the coldest surfaces inside it - which are the steel parts you are trying to protect. There is no ventilation to carry it away and no light to dry it. Surface rust on bare metal, corrosion at bluing wear points, and mildew on leather cases and stock finishes all follow from the same trapped humidity. The safe is not the cause, but it removes every mechanism that would otherwise dry things out.",
+        bullets: [
+          "Concrete floors and exterior walls wick moisture and hold temperature below room ambient.",
+          "Sealed means no air exchange - whatever humidity is inside stays inside.",
+          "Leather and wood in the safe act as reservoirs, releasing moisture slowly into the enclosed air.",
+        ],
+      },
+      {
+        heading: "Quantity by safe size",
+        body:
+          "Desiccant is sized to enclosed volume, and safes are commonly described by capacity rather than cubic feet, so a rough conversion is needed. The figures below are practical starting points for a reasonably well-sealed cabinet in a normal domestic environment; a damp basement or a humid coastal climate needs more, and a safe opened daily needs refreshing more often. The aim is to hold the interior below about 50 percent relative humidity - dry enough to stop corrosion without stripping the oil from moving parts.",
+        bullets: [
+          "Small cabinet, up to around 8 cubic feet: 200 to 300 g of silica gel.",
+          "Medium safe, 8 to 20 cubic feet: 400 to 700 g.",
+          "Large safe or a walk-in vault: 1 kg and upward, distributed rather than in one place.",
+          "Distribute it. One container in a corner leaves the far end of a tall safe unprotected.",
+        ],
+      },
+      {
+        heading: "Rechargeable units suit safes particularly well",
+        body:
+          "A gun safe is one of the few applications where a rechargeable desiccant canister is clearly the right format rather than a convenience. The safe is accessed rarely, the desiccant sits undisturbed for months, and the alternative - replacing disposable sachets on a schedule you will forget - fails in practice. A canister of indicating gel shows its state through a window, comes out once or twice a year for regeneration, and goes back. Silica gel is not consumed; it only becomes saturated, and heat resets it completely.",
+        bullets: [
+          "Indicating gel shows saturation through the window without opening anything.",
+          "Regenerate at 150 degrees Celsius, or 300 Fahrenheit, in a shallow layer.",
+          "Cool it sealed before returning it, or it reloads with room humidity on the way back.",
+        ],
+      },
+      {
+        heading: "What desiccant does not fix",
+        body:
+          "Desiccant manages the humidity of the air inside the cabinet. It does not compensate for a safe standing in standing water, a basement with an active damp problem, or firearms put away wet after use in rain. It also does not replace oiling. In a genuinely damp room, a low-wattage safe heater rod combined with desiccant works better than either alone - the rod keeps the interior slightly above ambient so condensation does not form, and the gel handles the residual humidity.",
+        bullets: [
+          "Never store equipment wet and expect the desiccant to deal with it.",
+          "Lift the safe off a concrete floor if you can - a pallet or feet break the thermal and moisture bridge.",
+          "In a persistently damp room, treat the room as well as the cabinet.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "How often does silica gel in a gun safe need regenerating?",
+        answer:
+          "Typically every few months, but it depends entirely on the room and how often the safe is opened. Indicating gel removes the guesswork by changing colour, which is why a canister with a window is the practical choice for a safe.",
+      },
+      {
+        question: "Is silica gel or a dehumidifier rod better?",
+        answer:
+          "They work on different principles and are complementary. A rod warms the interior slightly so condensation cannot form; silica gel adsorbs the moisture that is already in the air. In a mildly damp room gel alone is usually enough; in a genuinely wet basement, both together is the reliable answer.",
+      },
+      {
+        question: "Will silica gel damage bluing, stock finishes, or leather?",
+        answer:
+          "No. Silica gel is chemically inert amorphous silicon dioxide and does not off-gas or react with metal, wood, or leather. Keep it in sachets or a canister rather than loose so beads cannot work into an action, and avoid driving the interior extremely dry, which is hard on leather over the long term.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -4817,6 +5114,14 @@ const articlePublication: Record<string, ArticlePublication> = {
   "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "paper-vs-tyvek-vs-film-desiccant-sachet-materials": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "silica-gel-export-documentation-coo-coa-packing-list": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  // Consumer application guides. These target queries the site has never had a
+  // page for - Search Console returns zero impressions for flower/filament/
+  // camera/gun-safe terms, which reflects the absence of a page rather than the
+  // absence of demand.
+  "how-to-dry-flowers-with-silica-gel": { publishedAt: "2026-07-29", updatedAt: "2026-07-29" },
+  "silica-gel-for-3d-printer-filament-storage": { publishedAt: "2026-07-29", updatedAt: "2026-07-29" },
+  "silica-gel-for-camera-gear-and-lenses": { publishedAt: "2026-07-29", updatedAt: "2026-07-29" },
+  "silica-gel-for-gun-safe-moisture-control": { publishedAt: "2026-07-29", updatedAt: "2026-07-29" },
 };
 
 export function getArticlePublication(slug: string): ArticlePublication {
