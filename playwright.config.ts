@@ -14,6 +14,14 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: [["list"]],
 
+  // The default 30s is a production-server budget, and webServer below runs the
+  // DEV server, which compiles each route on first request. Two projects in
+  // parallel hitting a cold route made a different test fail on every run - the
+  // click landed before the chunk existed. Against `next start` the same suite
+  // is 13/13 in about a minute, so the code was never the problem; the budget
+  // was. A flaky suite is worse than no suite: it teaches you to ignore red.
+  timeout: 90_000,
+
   use: {
     baseURL: "http://localhost:3000",
     trace: "on-first-retry",

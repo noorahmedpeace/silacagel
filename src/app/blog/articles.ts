@@ -3974,8 +3974,12 @@ export const blogArticles: BlogArticle[] = [
       "A desiccant unit is a standard adsorption measure under DIN 55473. How units are defined, how many you need, and how unit counts convert to grams.",
     sources: [
       {
-        label: "DIN 55473, Packaging aids: desiccants in bags",
-        href: "https://www.dinmedia.de/en/standard/din-55473/153593544",
+        label: "DIN 55473:2021-07, Auxiliary means of packaging: desiccant in bag",
+        // The previous document id (153593544) 404s - DIN Media reissues an id
+        // per edition, so citing one pins the article to an edition that is
+        // eventually withdrawn. This is the current 2021-07 edition, which
+        // superseded 2015-12.
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
