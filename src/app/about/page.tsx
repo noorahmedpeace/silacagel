@@ -365,7 +365,7 @@ export default function AboutPage() {
                 <BrandIcon d={brandPaths.youtube} />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/drygelworld/"
+                href="https://www.linkedin.com/company/drygelworld"
                 className={`${styles.socialIcon} ${styles.socialLinkedin}`}
                 rel="me noopener noreferrer"
                 target="_blank"
@@ -428,7 +428,7 @@ export default function AboutPage() {
                     "https://www.facebook.com/drygelworld",
                     "https://www.instagram.com/drygelworld",
                     "https://www.youtube.com/@DryGelWorld",
-                    "https://www.linkedin.com/in/drygelworld/",
+                    "https://www.linkedin.com/company/drygelworld",
                     "https://www.daraz.pk/shop/6ttbbzu2/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",

@@ -457,7 +457,11 @@ export default function RootLayout({
                     "https://www.facebook.com/drygelworld",
                     "https://www.instagram.com/drygelworld",
                     "https://www.youtube.com/@DryGelWorld",
-                    "https://www.linkedin.com/in/drygelworld/",
+                    // The company Page, not /in/drygelworld. That slug is the
+                    // owner's personal profile and it stays on the employee
+                    // Person node above - listing a Person's profile as an
+                    // Organization's own tells Google the two are one entity.
+                    "https://www.linkedin.com/company/drygelworld",
                     "https://www.daraz.pk/shop/6ttbbzu2/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",

@@ -35,7 +35,7 @@ export async function GET() {
 - **Primary contact:** +92 333 022 3337 (phone & WhatsApp)
 - **Domain:** [${siteUrl}](${siteUrl})
 - **Site map:** [XML sitemap](${absoluteUrl("/sitemap.xml")})
-- **LinkedIn:** [DryGelWorld on LinkedIn](https://www.linkedin.com/in/drygelworld/)
+- **LinkedIn:** [DryGelWorld on LinkedIn](https://www.linkedin.com/company/drygelworld)
 - **Sister brand (Pakistan market):** [silicagelpk.com](https://silicagelpk.com)
 
 ## Official email routing

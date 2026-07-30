@@ -232,7 +232,7 @@ export default function DocumentationPage() {
             <strong>TradeKey</strong>
             <em>B2B supplier listing</em>
           </a>
-          <a href="https://www.linkedin.com/in/drygelworld/" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+          <a href="https://www.linkedin.com/company/drygelworld" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
             <strong>LinkedIn</strong>
             <em>Company profile</em>
           </a>
