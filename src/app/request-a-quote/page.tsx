@@ -101,7 +101,7 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
             style={{ borderRadius: "50%", objectFit: "cover" }}
           />
           <span>
-            Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Export
+            Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Managing
             Director, factory export desk, Karachi.
           </span>
         </p>

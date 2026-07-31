@@ -400,7 +400,9 @@ export default function RootLayout({
                   employee: {
                     "@type": "Person",
                     name: "Noor Ahmed Khan",
-                    jobTitle: "Owner and Export Director",
+                    // Must match the LinkedIn profile this node points to, or
+                    // the sameAs corroborates nothing.
+                    jobTitle: "Owner and Managing Director",
                     email: mainEmail,
                     telephone: phoneHref,
                     sameAs: ["https://www.linkedin.com/in/drygelworld/"],
