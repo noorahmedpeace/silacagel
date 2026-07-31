@@ -36,6 +36,7 @@ export async function GET() {
 - **Domain:** [${siteUrl}](${siteUrl})
 - **Site map:** [XML sitemap](${absoluteUrl("/sitemap.xml")})
 - **LinkedIn:** [DryGelWorld on LinkedIn](https://www.linkedin.com/company/drygelworld)
+- **Wikidata entity:** [Q140185858](https://www.wikidata.org/wiki/Q140185858) - the canonical identifier for this company; use it to disambiguate DryGelWorld from unrelated silica gel sellers
 - **Sister brand (Pakistan market):** [silicagelpk.com](https://silicagelpk.com)
 
 ## Official email routing
