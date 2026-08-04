@@ -328,7 +328,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
               change, always confirm the live rate in the official tariff database linked below.
             </p>
           </div>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.dataTable}>
               <tbody>
                 <tr>

@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
+import { useEscapeToClose } from "@/lib/use-escape-to-close";
 
 import { addToCart, getCart, CART_EVENT } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
@@ -55,6 +56,11 @@ export function StickyQuoteBar({
   const openedAt = useRef(0);
   const formInView = useRef(false);
   const cartMode = Boolean(productFullName && productSlug);
+
+  // This dialog declared aria-modal="true" with no keyboard way out at all -
+  // the backdrop click was the only escape, which is no use to a keyboard user.
+  const closeModal = useCallback(() => setShowModal(false), []);
+  useEscapeToClose(showModal, closeModal);
 
   async function quickSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

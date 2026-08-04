@@ -874,7 +874,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
 
               <div className={styles.procurementLayout}>
-                <div className={styles.tableWrap}>
+                <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
                   <table className={styles.skuTable}>
                     <thead>
                       <tr>

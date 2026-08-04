@@ -21,6 +21,11 @@ type SubmitStatus = "idle" | "sent" | "fallback";
 
 type QuoteFormProps = {
   title?: string;
+  /** Heading level for `title`. Defaults to 3, which is right where the form
+   *  sits under a section heading (product pages, landing pages). On /contact
+   *  the form is a top-level section directly under the h1, so h3 there skipped
+   *  a level and screen readers announced a gap in the outline. */
+  headingLevel?: 2 | 3;
   compact?: boolean;
   defaultProduct?: string;
   defaultDepartment?: ContactDepartment;
@@ -96,6 +101,7 @@ function initialState({
 
 export function QuoteForm({
   title = "Request Industrial Quote",
+  headingLevel = 3,
   compact = false,
   defaultProduct = "",
   defaultDepartment = "sales",
@@ -236,7 +242,7 @@ export function QuoteForm({
       <div className={styles.formMain}>
         <div className={styles.formHead}>
           <p>Get an export quote</p>
-          <h3>{title}</h3>
+          {headingLevel === 2 ? <h2>{title}</h2> : <h3>{title}</h3>}
           <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
         </div>
 

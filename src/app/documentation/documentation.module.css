@@ -295,7 +295,10 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ds-text-faint);
+  /* --ds-text-faint is 3.43:1 on white, and this label is set at 0.66rem - the
+   * smallest type on the page, carrying the field name for every certificate.
+   * Faint is a fine token for decoration; this is not decoration. */
+  color: var(--ds-text-muted);
 }
 
 .docApplies {

@@ -73,7 +73,11 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
         </p>
       </section>
 
-      <section className={styles.section} aria-label="Why buyers quote with DryGelWorld">
+      <section className={styles.section}>
+        {/* The section carried this as an aria-label, which names the landmark
+            but leaves the outline jumping h1 -> h3 at the first card. A real
+            heading, hidden visually, closes the gap without changing the design. */}
+        <h2 className={styles.srOnly}>Why buyers quote with DryGelWorld</h2>
         <div className={styles.grid}>
           {[
             { label: "Response", title: "Within 24 business hours", text: "Pricing, MOQ, lead time, and shipping options in the first reply." },

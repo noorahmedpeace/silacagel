@@ -810,7 +810,11 @@
   margin: 16px 6px 4px;
   padding: 13px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #ff6b3d, #b50922);
+  /* The gradient's light end was #ff6b3d, which is 2.83:1 under white - so the
+   * top-left third of the mobile menu's main CTA failed AA while the dark end
+   * passed. Starting at the on-light accent keeps the coral-to-crimson sweep
+   * and puts the whole button above 4.9:1. */
+  background: linear-gradient(135deg, var(--ds-accent-on-light), #b50922);
   color: #ffffff;
   font-size: 0.92rem;
   font-weight: 900;

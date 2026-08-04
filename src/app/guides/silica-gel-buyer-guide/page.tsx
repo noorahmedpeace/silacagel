@@ -176,7 +176,7 @@ export default function SilicaGelBuyerGuide() {
             closed-loop industrial systems, or supply downstream sachet makers.
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -249,7 +249,7 @@ export default function SilicaGelBuyerGuide() {
           </p>
 
           <h3>Working sizing table by carton volume</h3>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -319,7 +319,7 @@ export default function SilicaGelBuyerGuide() {
           </p>
 
           <h3>Loading reference per container size and route</h3>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -370,7 +370,7 @@ export default function SilicaGelBuyerGuide() {
             multipliers below scale base sachet and strip sizing by route severity:
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -476,7 +476,7 @@ export default function SilicaGelBuyerGuide() {
             cargo:
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>

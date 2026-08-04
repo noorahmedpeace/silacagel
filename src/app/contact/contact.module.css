@@ -20,7 +20,13 @@
  * removed entirely under prefers-reduced-motion further down. */
 .ambient {
   position: absolute;
-  inset: -80px -40px 0;
+  /* Horizontal inset must stay 0. It was -40px, which hung the element 40px
+   * past each edge of .page - and .page has no overflow clip, so the document
+   * itself grew and /contact scrolled sideways at every width measured
+   * (415/375 on iPhone SE, 1383/1366 on desktop). The blobs inside are already
+   * clipped by this element's own overflow:hidden, so the bleed bought nothing
+   * that was ever on screen. */
+  inset: -80px 0 0;
   pointer-events: none;
   overflow: hidden;
   z-index: -1;

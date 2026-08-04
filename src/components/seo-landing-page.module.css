@@ -128,7 +128,7 @@
 
 .primaryCta {
   padding: 15px 26px;
-  background: var(--ds-accent);
+  background: var(--ds-accent-on-light);
   color: #fff;
   border-radius: var(--ds-radius-pill);
   box-shadow: var(--ds-shadow-cta);

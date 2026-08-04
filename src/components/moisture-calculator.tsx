@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useId, useState } from "react";
 import Link from "next/link";
 import styles from "./moisture-calculator.module.css";
 import { LottiePlayer } from "./lottie-player";
 
 export const MoistureCalculator = () => {
+  const fieldId = useId();
   const [unit, setUnit] = useState<"cm" | "in">("cm");
   const [dimensions, setDimensions] = useState({ l: 0, w: 0, h: 0 });
 
@@ -52,14 +53,21 @@ export const MoistureCalculator = () => {
         </div>
 
         <div className={styles.controls}>
-          <div className={styles.unitToggle}>
+          {/* aria-pressed carries the selection. Without it the only signal that
+              Metric or Imperial is active was the background colour, which a
+              screen reader cannot see and a colour-blind user may not either. */}
+          <div className={styles.unitToggle} role="group" aria-label="Measurement units">
             <button
+              type="button"
+              aria-pressed={unit === "cm"}
               className={unit === "cm" ? styles.active : ""}
               onClick={() => setUnit("cm")}
             >
               Metric (cm)
             </button>
             <button
+              type="button"
+              aria-pressed={unit === "in"}
               className={unit === "in" ? styles.active : ""}
               onClick={() => setUnit("in")}
             >
@@ -67,18 +75,23 @@ export const MoistureCalculator = () => {
             </button>
           </div>
 
+          {/* The labels sat beside the inputs with no htmlFor and no wrapping, so
+              the visible text was never connected to the field. A screen reader
+              announced three unnamed number boxes; speech input had nothing to
+              address them by. useId keeps the ids unique if the calculator is
+              ever rendered twice on one page. */}
           <div className={styles.inputGrid}>
             <div className={styles.inputGroup}>
-              <label>Length ({unit})</label>
-              <input type="number" name="l" placeholder="0" onChange={handleInput} suppressHydrationWarning />
+              <label htmlFor={`${fieldId}-length`}>Length ({unit})</label>
+              <input id={`${fieldId}-length`} type="number" name="l" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
             <div className={styles.inputGroup}>
-              <label>Width ({unit})</label>
-              <input type="number" name="w" placeholder="0" onChange={handleInput} suppressHydrationWarning />
+              <label htmlFor={`${fieldId}-width`}>Width ({unit})</label>
+              <input id={`${fieldId}-width`} type="number" name="w" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
             <div className={styles.inputGroup}>
-              <label>Height ({unit})</label>
-              <input type="number" name="h" placeholder="0" onChange={handleInput} suppressHydrationWarning />
+              <label htmlFor={`${fieldId}-height`}>Height ({unit})</label>
+              <input id={`${fieldId}-height`} type="number" name="h" placeholder="0" onChange={handleInput} suppressHydrationWarning />
             </div>
           </div>
         </div>

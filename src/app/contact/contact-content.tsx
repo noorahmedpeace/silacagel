@@ -77,6 +77,7 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
         <article className={`${styles.tile} ${styles.tileForm}`} id="rfq-form">
           <QuoteForm
             title="Export Quote Request"
+            headingLevel={2}
             compact
             defaultDepartment="export"
             defaultProduct={prefill?.product ?? ""}

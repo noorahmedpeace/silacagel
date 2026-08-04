@@ -193,7 +193,7 @@ export default function ContainerDosageCalculatorPage() {
             and cargo risk, delivered as 1 kg or 2 kg strips hung at the ceiling line.
           </p>
         </div>
-        <div className={styles.tableWrap}>
+        <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
           <table className={styles.dataTable} aria-label="Assumptions used by the container desiccant calculator">
             <thead>
               <tr>

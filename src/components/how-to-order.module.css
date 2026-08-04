@@ -84,8 +84,12 @@
 }
 
 .secondary {
+  /* WhatsApp green is a light colour. White text on it measures 1.98:1 - the
+   * worst contrast on the site, on the button a ready buyer taps. Dark text on
+   * the same green is 9.73:1 and keeps the colour everyone recognises, which is
+   * the whole point of using WhatsApp green in the first place. */
   background: #25d366;
-  color: #fff;
+  color: var(--ds-text);
 }
 .secondary:hover {
   transform: translateY(-1px);

@@ -53,7 +53,7 @@ export function ProductSpecTable({
         </p>
       </div>
 
-      <div className={styles.tableWrap}>
+      <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
         <table className={styles.specTable}>
           <tbody>
             <tr>

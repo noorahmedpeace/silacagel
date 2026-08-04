@@ -101,7 +101,7 @@
   align-self: flex-start;
   display: inline-flex;
   padding: 7px 14px;
-  background: var(--ds-accent);
+  background: var(--ds-accent-on-light);
   color: #fff;
   font-size: 12px;
   font-weight: 700;

@@ -383,6 +383,14 @@
 }
 
 .bottomMeta a {
+  /* This is the phone number, on every page of the site. It measured 111x14 on
+   * a phone - a coin-flip to hit, and it is the single control a buyer who has
+   * decided reaches for. The box grows to the 44px minimum without the text
+   * moving: the extra height is padding around the same glyphs. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 2px;
   color: rgba(233, 238, 247, 0.62);
   text-decoration: none;
   transition: color var(--ds-dur-base) var(--ds-ease-out);

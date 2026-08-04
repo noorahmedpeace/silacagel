@@ -37,6 +37,12 @@
   --ds-accent: #ff6b3d;
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
+  /* The accent as a SURFACE UNDER WHITE TEXT. Not interchangeable with
+   * --ds-accent: white on #ff6b3d measures 2.83:1 and on #e5502a 3.81:1, both
+   * below the 4.5:1 WCAG AA needs for text at button sizes. This is 4.96:1.
+   * Every "Request a Quote" button on the site sat at 2.83:1 until this existed.
+   * Keep --ds-accent for borders, glows, tints and anything not carrying text. */
+  --ds-accent-on-light: #c9401f;
 
   /* Status - success / warning / danger, each with a soft tint surface */
   --ds-ok: #0e7a4d;

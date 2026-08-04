@@ -184,7 +184,7 @@ export function InquiriesTable({ initial }: { initial: Inquiry[] }) {
         <p role="alert" style={{ color: "#b91c1c", margin: "8px 0", fontSize: 13 }}>{actionError}</p>
       ) : null}
 
-      <div className={styles.tableWrap}>
+      <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
         <table className={styles.table}>
           <thead>
             <tr>

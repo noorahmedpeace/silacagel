@@ -51,7 +51,12 @@ export function AdsorptionIsotherm() {
         </span>
       </figcaption>
 
-      <div className={styles.chartScroll}>
+      <div
+        className={styles.chartScroll}
+        tabIndex={0}
+        role="group"
+        aria-label="Adsorption isotherm chart, scrollable"
+      >
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className={styles.chart}

@@ -123,7 +123,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
 
         <section className={styles.section}>
           <h2 className={styles.sectionHeading}>Specification comparison</h2>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>

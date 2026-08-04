@@ -6,8 +6,9 @@
 // into the quote cart. Used on catalog cards, product heroes, and anywhere
 // else a product can be added.
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useEscapeToClose } from "@/lib/use-escape-to-close";
 import { addToCart } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
 import { fireLeadConversion } from "@/lib/lead-tracking";
@@ -122,16 +123,10 @@ export function AddToCartButton({
   }
 
   // Escape closes the dialog. Clicking the backdrop already did, but a keyboard
-  // user had no way out at all: aria-modal="true" tells assistive tech this is
-  // a modal, and every modal is expected to answer Escape.
-  useEffect(() => {
-    if (!showModal) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setShowModal(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [showModal]);
+  // user had no way out at all. Shared with sticky-quote-bar, which carries the
+  // same aria-modal promise - see the hook for why it is not inlined here.
+  const closeModal = useCallback(() => setShowModal(false), []);
+  useEscapeToClose(showModal, closeModal);
 
   return (
     <>
