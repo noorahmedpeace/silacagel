@@ -27,22 +27,19 @@ const SECTORS = [
 ] as const;
 
 /**
- * Logo files too small to render as a logo. Measured intrinsic sizes:
- * utopia 16x16, intex 24x24, hinucon / hinutrition / neutro / pharmevo 32x32.
- * These are favicons, not marks. Upscaled into the 46px stage they come out
- * soft, and six blurry tiles next to nineteen sharp ones is exactly the thing
- * that reads as cheap. The initials mark is sharp at any size, so these use it
- * until better artwork exists. Remove a slug from this list the moment a
- * higher-resolution file replaces it.
+ * Logo files too small to render as a logo.
+ *
+ * Six entries started here as 16x16 to 32x32 favicons, which came out soft when
+ * upscaled into the 46px stage. Five have since been replaced with real marks
+ * pulled from each company's own site: utopia 16 to 157x64, hinucon 32 to
+ * 107x111, hinutrition 32 to 256x141, pharmevo 32 to 256x123, neutro 32 to
+ * 1026x540.
+ *
+ * Intex is the one that stayed. Its site serves no logo file at all, so 24x24
+ * is still the best available and the initials mark is sharper than it. Drop
+ * this entry the moment a real file exists.
  */
-const LOW_RES_LOGOS = new Set([
-  "/customer-logos/utopia.png",
-  "/customer-logos/intex.png",
-  "/customer-logos/hinucon.png",
-  "/customer-logos/hinutrition.png",
-  "/customer-logos/neutro.png",
-  "/customer-logos/pharmevo.png",
-]);
+const LOW_RES_LOGOS = new Set(["/customer-logos/intex.png"]);
 
 // Order matters. "Medical & pharma supply" contains both words, and the medical
 // test has to run first or JSK Medica lands in Pharmaceutical, where a medical

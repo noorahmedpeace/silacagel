@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
+import { customerReferences } from "@/lib/customer-references";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -333,7 +334,14 @@ export default function Home() {
                 <p>
                   Desiccant supply for pharmaceutical, textile, medical and industrial packaging operations.
                 </p>
-                <Link href="/case-studies" className={styles.secondaryCta}>View customer references</Link>
+                {/* Points at /reviews, not /case-studies. The label always said
+                    "customer references" while the destination was the anonymous
+                    case studies, which name nobody. /reviews is the page that
+                    actually lists them, and the count belongs in the label: a
+                    number is the reason to tap. */}
+                <Link href="/reviews" className={styles.secondaryCta}>
+                  See all {customerReferences.length} customers
+                </Link>
               </div>
               <CustomerReferenceMarquee compact />
             </section>
