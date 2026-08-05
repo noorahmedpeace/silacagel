@@ -76,35 +76,39 @@
 
 .groupHead {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
-  font-size: 1.02rem;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 20px;
+  font-size: 1.18rem;
   font-weight: 700;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
   color: var(--ds-text);
 }
 
+/* The rule runs from the heading to the right edge and the count sits at the
+   end of it. Gives each sector a real horizon line to stop the eye, which a
+   small pill beside a small heading never did. */
+.groupHead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--ds-hairline);
+}
+
 .count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 26px;
-  height: 22px;
-  padding: 0 8px;
-  border-radius: var(--ds-radius-pill);
-  background: var(--ds-brand-soft);
-  color: var(--ds-brand-deep);
+  order: 3;
+  color: var(--ds-text-muted);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
+  gap: 20px 24px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -117,13 +121,12 @@
 .cardPlain {
   display: grid;
   grid-template-rows: auto auto auto;
-  gap: 3px;
+  gap: 4px;
   height: 100%;
-  padding: 16px;
+  padding: 18px;
   border: 1px solid var(--ds-hairline);
   border-radius: var(--ds-radius-card);
   background: var(--ds-surface);
-  box-shadow: var(--ds-shadow-soft);
   text-decoration: none;
 }
 
@@ -177,7 +180,7 @@
 }
 
 .name {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.25;

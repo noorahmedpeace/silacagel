@@ -26,12 +26,33 @@ const SECTORS = [
   { id: "industrial", label: "Industrial and other" },
 ] as const;
 
+/**
+ * Logo files too small to render as a logo. Measured intrinsic sizes:
+ * utopia 16x16, intex 24x24, hinucon / hinutrition / neutro / pharmevo 32x32.
+ * These are favicons, not marks. Upscaled into the 46px stage they come out
+ * soft, and six blurry tiles next to nineteen sharp ones is exactly the thing
+ * that reads as cheap. The initials mark is sharp at any size, so these use it
+ * until better artwork exists. Remove a slug from this list the moment a
+ * higher-resolution file replaces it.
+ */
+const LOW_RES_LOGOS = new Set([
+  "/customer-logos/utopia.png",
+  "/customer-logos/intex.png",
+  "/customer-logos/hinucon.png",
+  "/customer-logos/hinutrition.png",
+  "/customer-logos/neutro.png",
+  "/customer-logos/pharmevo.png",
+]);
+
+// Order matters. "Medical & pharma supply" contains both words, and the medical
+// test has to run first or JSK Medica lands in Pharmaceutical, where a medical
+// buyer scanning the Medical section would never find it.
 function sectorFor(industry: string): (typeof SECTORS)[number]["id"] {
   const i = industry.toLowerCase();
+  if (i.includes("medical") || i.includes("healthcare")) return "medical";
   if (i.includes("pharma") || i.includes("nutraceutical") || i.includes("biopharma")) return "pharma";
   if (i.includes("textile") || i.includes("apparel") || i.includes("spinning") || i.includes("leather")) return "textile";
   if (i.includes("rice") || i.includes("food")) return "food";
-  if (i.includes("medical") || i.includes("healthcare")) return "medical";
   return "industrial";
 }
 
@@ -127,21 +148,23 @@ export default function ReviewsPage() {
             </h3>
             <ul className={local.grid}>
               {group.members.map((customer) => {
+                const showLogo = customer.logo && !LOW_RES_LOGOS.has(customer.logo);
                 const inner = (
                   <>
                     <span className={local.mark} aria-hidden="true">
-                      {customer.logo ? (
-                        <Image src={customer.logo} alt="" width={46} height={30} />
+                      {showLogo ? (
+                        <Image src={customer.logo as string} alt="" width={46} height={30} />
                       ) : (
                         customer.initials
                       )}
                     </span>
                     <strong className={local.name}>{customer.name}</strong>
-                    <span className={local.industry}>{customer.industry}</span>
-                    {/* The absence of a link is stated rather than left as a
-                        card that silently does nothing when clicked. */}
+                    {/* Stated, not shown on hover. A touch user has no hover, so
+                        a hover-only affordance would leave the five unlinked
+                        companies indistinguishable from the twenty-seven linked
+                        ones. */}
                     <span className={local.state}>
-                      {customer.href ? "Visit website" : "No public website"}
+                      {customer.href ? "Official site" : "No public website"}
                     </span>
                   </>
                 );
