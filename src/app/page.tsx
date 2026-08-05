@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
-import { customerReferences } from "@/lib/customer-references";
+import { totalCustomersSupplied } from "@/lib/customer-references";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -340,7 +340,7 @@ export default function Home() {
                     actually lists them, and the count belongs in the label: a
                     number is the reason to tap. */}
                 <Link href="/reviews" className={styles.secondaryCta}>
-                  See all {customerReferences.length} customers
+                  See all {totalCustomersSupplied}+ customers
                 </Link>
               </div>
               <CustomerReferenceMarquee compact />

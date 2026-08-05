@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
-import { customerReferences } from "@/lib/customer-references";
+import { customerReferences, totalCustomersSupplied } from "@/lib/customer-references";
 import { googleMapsUrl } from "@/lib/product-data";
 import styles from "../strategy-pages.module.css";
 import local from "./reviews.module.css";
@@ -93,10 +93,13 @@ export default function ReviewsPage() {
       <section className={styles.hero}>
         <span className={styles.kicker}>Customer Supply References</span>
         <h1>Who DryGelWorld supplies.</h1>
+        {/* The claim and the evidence are stated in the same breath. A grid of
+            32 cards under a bare claim of 50 gets counted in one glance; saying
+            which 32 are named turns that from a contradiction into a selection. */}
         <p>
-          Checking whether this supplier is real before you send an enquiry? Here are {total} companies
-          we have supplied, grouped by sector, with {linked} company websites linked so you can look
-          them up yourself.
+          Checking whether this supplier is real before you send an enquiry? We supply
+          {" "}{totalCustomersSupplied}+ companies. {total} of them are named below, grouped by
+          sector, with {linked} company websites linked so you can look them up yourself.
         </p>
         <Link className={styles.cta} href="/contact">Request a Quote</Link>
       </section>
@@ -132,8 +135,8 @@ export default function ReviewsPage() {
         <div className={styles.sectionHead}>
           <h2>Supplied by sector.</h2>
           <p>
-            Grouped so you can find your own industry first. Companies without a confirmed website are
-            listed by name only.
+            A selection of the {totalCustomersSupplied}+ companies we supply, grouped so you can find
+            your own industry first. Companies without a confirmed website are listed by name only.
           </p>
         </div>
 

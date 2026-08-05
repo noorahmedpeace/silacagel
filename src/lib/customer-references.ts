@@ -13,6 +13,20 @@
  * Nothing here asserts endorsement. These are supply references, not
  * testimonials, and no quantities, dates or quotes are published.
  */
+
+/**
+ * Total customers supplied, as stated by the owner. The named list below is a
+ * selection of it - the source buyer list itself ends "MUSTAQIM TEXTILE &
+ * OTHERS" - so this figure is deliberately kept separate from
+ * `customerReferences.length` rather than derived from it.
+ *
+ * Every surface that shows this number must also say how many are named, or the
+ * page contradicts itself in front of the reader: a grid of 32 cards under a
+ * claim of 50 is counted in one glance, and being caught on an arithmetic
+ * detail costs more than the larger number buys. Raise it when more names
+ * arrive, and add the names in the same change.
+ */
+export const totalCustomersSupplied = 50;
 export type CustomerReference = {
   name: string;
   initials: string;
