@@ -126,19 +126,71 @@ export const documents: DocEntry[] = [
     ],
     appliesTo: "All silica gel formats",
   },
+  // ── Material COAs ────────────────────────────────────────────────────────
+  // These are the SOURCE MILL's certificates, on the mill's letterhead, and the
+  // titles say so. That is the normal and correct document in this trade: the
+  // buyer wants the batch that was actually tested, not a re-typed copy. What
+  // would not be correct is letting a buyer download a Chinese mill's stamped
+  // certificate under a title implying we ran the tests ourselves. Bead stock is
+  // bought in and converted here; the About page already says so, and these
+  // titles keep the documentation page telling the same story.
   {
     id: "coa-white-bead-2-4mm",
     type: "coa",
-    title: "COA: White Silica Gel Bead, 2–4 mm",
-    description: "Material certificate of analysis against HG/T 2765.4-2005: SiO₂ ≥ 98%, bulk density, RH adsorption at 20/50/90%, loss on heating, pH, and specific resistance.",
+    title: "COA: White Silica Gel Bead, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill, against HG/T 2765.4-2005: SiO₂ ≥ 98%, bulk density, RH adsorption at 20/50/90%, loss on heating, pH, and specific resistance. Conversion, sachet filling, and packing are done at our Karachi facility.",
     fileHref: "/documents/coa-white-silica-gel-2-4mm.pdf",
     format: "PDF",
     available: true,
     meta: [
       { label: "Standard", value: "HG/T 2765.4-2005" },
       { label: "Size", value: "2–4 mm" },
+      { label: "Valid to", value: "Jul 2027" },
     ],
     appliesTo: "White non-indicating bead",
+  },
+  {
+    id: "coa-blue-bead-2-4mm",
+    type: "coa",
+    title: "COA: Blue Indicating Silica Gel Bead, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill, against HG/T 2765.4-2005: bulk density, RH adsorption at 20/35/50%, colour change point, and loss on heating. Blue indicating gel contains cobalt chloride and is not cobalt-free; the cobalt-free indicating option is the orange grade.",
+    fileHref: "/documents/coa-blue-indicating-silica-gel-2-4mm.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Standard", value: "HG/T 2765.4-2005" },
+      { label: "Size", value: "2–4 mm" },
+      { label: "Valid to", value: "Jan 2027" },
+    ],
+    appliesTo: "Blue indicating bead",
+  },
+  {
+    id: "coa-activated-clay-2-4mm",
+    type: "coa",
+    title: "COA: Activated Clay Desiccant, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill: qualified size ratio, bulk density, adsorption at 90% RH, loss on heating, and pH.",
+    fileHref: "/documents/coa-activated-clay-2-4mm.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Size", value: "2–4 mm" },
+      { label: "HS code", value: "3824.9999" },
+    ],
+    appliesTo: "Activated clay desiccant",
+  },
+  {
+    id: "sds-activated-clay",
+    type: "sds",
+    title: "Activated Clay Desiccant: Safety Data Sheet",
+    description: "Composition (attapulgite clay ≥ 90%, CAS 12174-11-7; calcium chloride ≤ 10%, CAS 10043-52-4), hazards, first-aid, handling, and transport. Not classified as dangerous cargo. Notes that the material may contain trace crystalline silica.",
+    fileHref: "/documents/sds-activated-clay.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "CAS", value: "12174-11-7" },
+      { label: "HS code", value: "3824.9999" },
+    ],
+    appliesTo: "Activated clay desiccant",
   },
   {
     id: "tds-silica-gel",
