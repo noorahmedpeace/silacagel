@@ -1,0 +1,232 @@
+/* Reviews / customer supply references.
+ *
+ * Everything here is the site's own --ds-* system: cobalt brand, the 14px card
+ * radius, the pill for anything that acts as a button. No new palette and no
+ * new shapes - this page has to read as part of the site a buyer is already on,
+ * not as a landing page bolted to the side of it.
+ *
+ * The list is 32 companies. That is too many for hairline rows (a border under
+ * every one of 32 names is a wall), so it is grouped into five sectors and each
+ * sector renders as a card grid. Grouping is the layout, not decoration: a
+ * buyer looks for their own industry before they read a single company name.
+ */
+
+.stance {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding: clamp(28px, 4vw, 44px);
+  margin-bottom: clamp(40px, 5vw, 64px);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-hero);
+  background:
+    radial-gradient(80% 120% at 0% 0%, rgba(45, 91, 255, 0.06), transparent 60%),
+    var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft);
+}
+
+.stanceLead h2 {
+  font-size: var(--ds-h2);
+  line-height: var(--ds-lh-tight);
+  letter-spacing: var(--ds-ls-snug);
+  color: var(--ds-text);
+}
+
+.stanceLead p {
+  margin-top: 12px;
+  max-width: 46ch;
+  color: var(--ds-text-muted);
+  font-size: var(--ds-body);
+  line-height: var(--ds-lh-body);
+}
+
+/* A ledger, not a card row. Each line is a thing we do not publish and the
+   reason - one hairline between entries, none above the first or below the
+   last, so it reads as a short list rather than a table. */
+.ledger {
+  display: grid;
+  gap: 18px;
+}
+
+.ledger > div + div {
+  padding-top: 18px;
+  border-top: 1px solid var(--ds-hairline);
+}
+
+.ledger dt {
+  font-size: var(--ds-small);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ds-text);
+}
+
+.ledger dd {
+  margin-top: 4px;
+  color: var(--ds-text-muted);
+  font-size: var(--ds-small);
+  line-height: var(--ds-lh-body);
+}
+
+/* ── Sector groups ─────────────────────────────────────────────────────── */
+
+.group + .group {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.groupHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ds-text);
+}
+
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* One shared shape for both states. The linked and unlinked cards must look
+   like the same kind of object, or the five companies without a website read
+   as second-class rather than simply unlisted. */
+.cardLink,
+.cardPlain {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 3px;
+  height: 100%;
+  padding: 16px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface);
+  box-shadow: var(--ds-shadow-soft);
+  text-decoration: none;
+}
+
+.cardLink {
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cardLink:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.28);
+    box-shadow: var(--ds-shadow-card);
+  }
+}
+
+.cardLink:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+.cardLink:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 38px;
+  margin-bottom: 10px;
+  border-radius: var(--ds-radius-tight);
+  background: var(--ds-surface-tint);
+  border: 1px solid var(--ds-hairline);
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.mark img {
+  width: auto;
+  height: auto;
+  max-width: 40px;
+  max-height: 26px;
+  object-fit: contain;
+}
+
+.name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ds-text);
+}
+
+.industry {
+  color: var(--ds-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.state {
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ds-text-muted);
+}
+
+.cardLink .state {
+  color: var(--ds-brand-deep);
+}
+
+/* ── Responsive ────────────────────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .stance {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .stance {
+    padding: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardLink {
+    transition: none;
+  }
+  .cardLink:hover,
+  .cardLink:active {
+    transform: none;
+  }
+}

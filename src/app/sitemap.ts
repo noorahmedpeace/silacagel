@@ -66,6 +66,7 @@ const STATIC_ROUTES = [
   "/faq",
   "/blog",
   "/case-studies",
+  "/reviews",
   "/documentation",
   "/certifications",
   "/dispensers",

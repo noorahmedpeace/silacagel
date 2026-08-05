@@ -397,6 +397,11 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  /* align-self stays flex-start for a .cta used inside a left-aligned block.
+     The hero is centred (align-items: center), so there it has to be centred
+     too - it was being flung to the far left under a centred headline on all
+     fifteen pages that use this stylesheet. Measured on the live /export page:
+     headline centre 720px, button centre 178px. */
   align-self: flex-start;
   padding: 15px 26px;
   background: var(--ds-accent-on-light);
@@ -661,4 +666,10 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* Centre the hero's own CTA under its centred headline. Scoped to .hero so a
+   .cta inside a left-aligned section keeps its flex-start alignment. */
+.hero .cta {
+  align-self: center;
 }
