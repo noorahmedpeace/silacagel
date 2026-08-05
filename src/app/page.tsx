@@ -325,10 +325,13 @@ export default function Home() {
           <Reveal direction="up">
             <section className={styles.customerReferenceSection} aria-labelledby="customer-reference-title">
               <div className={styles.customerReferenceIntro}>
-                <p className={styles.kicker}>Trusted Supply Relationships</p>
-                <h2 id="customer-reference-title">Trusted by global supply chains.</h2>
+                {/* "Trusted by" implies these companies vouch for us. They have
+                    bought from us; that is a supply record, not an endorsement,
+                    and the stronger claim is the one that is checkable. */}
+                <p className={styles.kicker}>Customer Supply References</p>
+                <h2 id="customer-reference-title">Supplying pharma, textile and export packaging.</h2>
                 <p>
-                  Documented desiccant supply for pharmaceutical, textile, medical and industrial packaging.
+                  Desiccant supply for pharmaceutical, textile, medical and industrial packaging operations.
                 </p>
                 <Link href="/case-studies" className={styles.secondaryCta}>View customer references</Link>
               </div>

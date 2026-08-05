@@ -85,11 +85,16 @@ export default function CaseStudiesPage() {
 
       <section className={styles.referenceSection} aria-labelledby="customer-references-title">
         <div className={styles.referenceIntro}>
-          <span className={styles.kicker}>Selected Customer References</span>
+          <span className={styles.kicker}>Customer Supply References</span>
           <h2 id="customer-references-title">Silica gel supply across pharma, medical and textile operations.</h2>
+          {/* States what was supplied and nothing more. No endorsement is
+              claimed, no quantities, dates or quotes are published, and the
+              verification line no longer promises a link for every company -
+              five have no confirmed website and are listed as names only. */}
           <p>
             DryGelWorld has supplied silica gel desiccant products for packaging and moisture-control requirements
-            across these customer relationships. Company websites are linked for independent verification.
+            to the companies below. These are supply references, not endorsements. Where an official company
+            website is confirmed, it is linked so the company can be checked independently.
           </p>
         </div>
         <CustomerReferenceMarquee />
