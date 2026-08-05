@@ -250,7 +250,7 @@
   overflow: hidden;
   padding: 0 13px;
   border: 1.5px solid rgba(45, 91, 255, 0.5);
-  border-radius: 10px;
+  border-radius: var(--ds-cta-radius);
   background: #ffffff;
   color: #1e3fcc;
   font-family: var(--font-display), var(--font-body);
@@ -312,12 +312,12 @@
   gap: 7px;
   padding: 0 13px;
   border: 1px solid rgba(255, 107, 61, 0.3);
-  border-radius: 10px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #ffffff;
   font-family: var(--font-display), var(--font-body);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: var(--ds-cta-weight);
   letter-spacing: -0.01em;
   box-shadow: 0 18px 34px -24px rgba(255, 107, 61, 0.76);
   white-space: nowrap;
@@ -809,7 +809,7 @@
   display: block;
   margin: 16px 6px 4px;
   padding: 13px;
-  border-radius: 10px;
+  border-radius: var(--ds-cta-radius);
   /* The gradient's light end was #ff6b3d, which is 2.83:1 under white - so the
    * top-left third of the mobile menu's main CTA failed AA while the dark end
    * passed. Starting at the on-light accent keeps the coral-to-crimson sweep
@@ -817,7 +817,7 @@
   background: linear-gradient(135deg, var(--ds-accent-on-light), #b50922);
   color: #ffffff;
   font-size: 0.92rem;
-  font-weight: 900;
+  font-weight: var(--ds-cta-weight);
   text-align: center;
   box-shadow: 0 18px 34px -24px rgba(255, 107, 61, 0.76);
 }

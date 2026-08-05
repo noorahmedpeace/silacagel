@@ -85,7 +85,7 @@
   gap: 8px;
   min-height: 46px;
   padding: 0 18px;
-  border-radius: 999px;
+  border-radius: var(--ds-cta-radius);
   color: var(--ink);
   background: linear-gradient(135deg, #ffffff 0%, #d8dadd 100%);
   border: 1px solid rgba(191, 193, 194, 0.72);
@@ -228,7 +228,7 @@
   background: var(--cta-gradient);
   color: white;
   padding: 18px 30px;
-  border-radius: 18px;
+  border-radius: var(--ds-cta-radius);
   font-weight: 700;
   font-size: 0.96rem;
   letter-spacing: -0.01em;
@@ -264,7 +264,7 @@
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 18px 24px;
-  border-radius: 18px;
+  border-radius: var(--ds-cta-radius);
   font-weight: 700;
   font-size: 0.95rem;
   color: white;
@@ -2363,10 +2363,18 @@
   color: rgba(255, 255, 255, 0.88);
 }
 
+/* This block was a later "sharp corners" pass that quietly overrode the rounded
+ * definitions above - which is why .secondaryCta shipped at 4px while the rest
+ * of the site shipped pills, and why the same class changed shape depending on
+ * which rule won. Both now point at the one CTA shape.
+ *
+ * --cta-gradient starts at #ff8154, which is 2.46:1 under white text. --ds-grad-cta
+ * is the same coral run darkened and already clears AA. .primaryCta is live on
+ * /contract-packaging-services and /flow-wrap-packing-services. */
 .primaryCta,
 .ctaBtn {
-  border-radius: 4px;
-  background: var(--cta-gradient);
+  border-radius: var(--ds-cta-radius);
+  background: var(--ds-grad-cta);
   color: #ffffff;
   box-shadow: 0 18px 38px -22px rgba(255, 107, 61, 0.68);
 }
@@ -2377,7 +2385,7 @@
 }
 
 .secondaryCta {
-  border-radius: 4px;
+  border-radius: var(--ds-cta-radius);
   background: rgba(255, 255, 255, 0.94);
   color: var(--ink);
   border-color: rgba(255, 255, 255, 0.72);
@@ -5005,11 +5013,11 @@
   align-items: center;
   gap: 9px;
   padding: 16px 26px;
-  border-radius: 12px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #fff;
   font-family: var(--font-display), var(--font-body);
-  font-weight: 600;
+  font-weight: var(--ds-cta-weight);
   font-size: 1rem;
   letter-spacing: -0.01em;
   box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);
@@ -5026,7 +5034,7 @@
   align-items: center;
   gap: 8px;
   padding: 16px 24px;
-  border-radius: 12px;
+  border-radius: var(--ds-cta-radius);
   background: rgba(20, 26, 44, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
@@ -5322,7 +5330,7 @@
   width: fit-content;
   margin-top: 18px;
   padding: 13px 22px;
-  border-radius: 11px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #fff;
   font-family: var(--font-display), var(--font-body);

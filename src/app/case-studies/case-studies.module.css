@@ -76,7 +76,7 @@
   align-items: center;
   justify-content: center;
   padding: 0 18px;
-  border-radius: 10px;
+  border-radius: var(--ds-cta-radius);
   font-size: 0.86rem;
   font-weight: 700;
   transition:
@@ -316,7 +316,7 @@
   margin-top: 22px;
   padding: 0 16px;
   border: 1px solid rgba(45, 91, 255, 0.28);
-  border-radius: 10px;
+  border-radius: var(--ds-cta-radius);
   background: #ffffff;
   color: var(--ds-brand-deep);
   font-size: 0.84rem;

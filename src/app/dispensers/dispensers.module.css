@@ -133,7 +133,7 @@
   font-size: 1rem;
   font-weight: 700;
   padding: 18px 36px;
-  border-radius: var(--ds-radius-card);
+  border-radius: var(--ds-cta-radius);
   box-shadow: var(--ds-shadow-cta);
   transition:
     transform var(--ds-dur-base) var(--ds-ease-out),

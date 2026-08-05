@@ -308,7 +308,7 @@
   min-height: 42px;
   padding: 12px 18px;
   border: 1.5px solid var(--ds-brand);
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   color: var(--ds-brand-deep);
   background: var(--ds-surface);
   font-size: 0.9rem;

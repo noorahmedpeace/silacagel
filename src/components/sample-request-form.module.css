@@ -32,9 +32,9 @@
 .submit {
   margin-top: 4px;
   padding: 13px 20px;
-  border-radius: 999px;
+  border-radius: var(--ds-cta-radius);
   border: none;
-  font-weight: 600;
+  font-weight: var(--ds-cta-weight);
   font-size: 1rem;
   cursor: pointer;
   min-height: 44px;

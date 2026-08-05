@@ -353,7 +353,7 @@
   justify-content: center;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   font-size: var(--ds-small);
   font-weight: 700;
   letter-spacing: 0.01em;

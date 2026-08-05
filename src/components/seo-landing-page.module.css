@@ -130,7 +130,7 @@
   padding: 15px 26px;
   background: var(--ds-accent-on-light);
   color: #fff;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   box-shadow: var(--ds-shadow-cta);
 }
 
@@ -147,7 +147,7 @@
   background: transparent;
   color: var(--ds-brand-deep);
   border: 1.5px solid var(--ds-brand);
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
 }
 
 .secondaryCta:hover { background: var(--ds-brand-soft); }

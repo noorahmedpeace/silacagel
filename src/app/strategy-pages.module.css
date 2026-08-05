@@ -403,7 +403,7 @@
   color: #fff;
   font-size: 15px;
   font-weight: 700;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   box-shadow: var(--ds-shadow-cta);
   text-decoration: none;
   margin-top: 8px;

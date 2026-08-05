@@ -177,7 +177,7 @@
   padding: 15px 26px;
   font-size: 15px;
   font-weight: 700;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   text-decoration: none;
   transition: transform var(--ds-dur-quick) var(--ds-ease),
     background-color var(--ds-dur-quick) var(--ds-ease),

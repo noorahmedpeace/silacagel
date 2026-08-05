@@ -241,7 +241,7 @@
   min-height: 46px;
   padding: 0 22px;
   border: 1px solid transparent;
-  border-radius: var(--ds-radius-tight);
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   /* Neutral elevation, not --ds-shadow-cta. That token is a wide coral glow,
      and a coloured halo under a saturated button is the single most dated

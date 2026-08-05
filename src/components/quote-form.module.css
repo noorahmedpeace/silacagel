@@ -199,7 +199,7 @@
   min-height: 56px;
   justify-content: center;
   padding: 10px 24px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   background: #25d366;
   color: #06371f;
   text-decoration: none;
@@ -265,7 +265,7 @@
   background: var(--ds-accent-on-light);
   color: #fff;
   border: none;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   font-size: 15px;
   font-weight: 700;
   letter-spacing: 0.04em;

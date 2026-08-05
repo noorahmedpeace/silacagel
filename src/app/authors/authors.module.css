@@ -96,7 +96,7 @@
   display: inline-flex;
   margin-top: 14px;
   padding: 14px 22px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #ffffff;
   font-weight: 700;

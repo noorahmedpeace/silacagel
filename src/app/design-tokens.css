@@ -104,6 +104,24 @@
   --ds-radius-hero: 22px;
   --ds-radius-pill: 999px;
 
+  /* ── The one button shape ──────────────────────────────────────────────
+   * An audit counted four different primary-CTA treatments shipping at once:
+   * 18px on the home hero, 12px lower down the same page, 4px from a stale
+   * override block, and pill everywhere else. A buyer moving home -> export ->
+   * planner met three shapes and read the site as assembled rather than
+   * designed - the whole gap against the Stripe/Linear references.
+   *
+   * Pill wins because it was already the majority (about 20 rules) and because
+   * every page that takes money - the RFQ form, the quote form, the export and
+   * landing CTAs - was already using it. The odd ones out were the leftovers.
+   *
+   * Height and padding are deliberately NOT tokenised. A header button should
+   * be smaller than a hero button; that is size, not shape, and flattening it
+   * would be uniformity for its own sake. Shape and weight are what the eye
+   * reads as "the same kind of thing". */
+  --ds-cta-radius: var(--ds-radius-pill);
+  --ds-cta-weight: 700;
+
   /* Container widths - single source of truth for horizontal alignment */
   --ds-container-max: 1320px;
   --ds-container-narrow: 1100px;

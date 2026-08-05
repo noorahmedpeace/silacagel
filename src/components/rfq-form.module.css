@@ -155,7 +155,7 @@
   color: #fff;
   background: var(--cta-gradient, linear-gradient(135deg, #1c4e80, #2e7dd1));
   border: none;
-  border-radius: 999px;
+  border-radius: var(--ds-cta-radius);
   padding: 14px 34px;
   min-height: 48px;
   cursor: pointer;

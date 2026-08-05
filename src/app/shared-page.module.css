@@ -117,9 +117,9 @@
   background: var(--ink);
   color: white;
   font-size: 0.95rem;
-  font-weight: 800;
+  font-weight: var(--ds-cta-weight);
   padding: 14px 28px;
-  border-radius: 999px;
+  border-radius: var(--ds-cta-radius);
   transition: background 0.2s ease, transform 0.2s ease;
   text-decoration: none;
   width: fit-content;

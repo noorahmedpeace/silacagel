@@ -364,7 +364,7 @@
   align-items: center;
   min-height: 44px;
   padding: 0 20px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   font-weight: 700;
   letter-spacing: -0.005em;
   font-size: 0.92rem;
