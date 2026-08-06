@@ -341,6 +341,7 @@ export default function Home() {
                     number is the reason to tap. */}
                 <Link href="/reviews" className={styles.secondaryCta}>
                   See all {totalCustomersSupplied}+ customers
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
               </div>
               <CustomerReferenceMarquee compact />
@@ -564,7 +565,10 @@ export default function Home() {
               </div>
 
               <div className={styles.caseStudyAction}>
-                <Link href="/case-studies" className={styles.secondaryCta}>Read the case studies</Link>
+                <Link href="/case-studies" className={styles.secondaryCta}>
+                  Read the case studies
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
               </div>
             </section>
           </Reveal>

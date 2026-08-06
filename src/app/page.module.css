@@ -259,23 +259,80 @@
   transform: translateX(280%) rotate(18deg);
 }
 
+/* Secondary CTA, light surface.
+ *
+ * This was white-on-white: a 0.94-alpha white fill with a 0.72-alpha white
+ * border, sitting on the near-white section gradient, with no shadow. Measured
+ * in the browser, nothing separated it from the page, which is why it read as a
+ * line of text rather than a control. Both places it is used - "See all 50+
+ * customers" and "Read the case studies" - are on light backgrounds, so the
+ * white-on-dark treatment it carried was simply wrong rather than misapplied.
+ *
+ * Definition now comes from a brand hairline and a brand-tinted lift, not from
+ * the fill. Text stays near-black for contrast; cobalt is the edge and the
+ * arrow, so the accent points without shouting. */
 .secondaryCta {
   position: relative;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 18px 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--ds-surface);
+  border: 1px solid rgba(45, 91, 255, 0.24);
+  padding: 16px 26px;
   border-radius: var(--ds-cta-radius);
-  font-weight: 700;
+  font-weight: var(--ds-cta-weight);
   font-size: 0.95rem;
-  color: white;
-  box-shadow: none;
-  transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  color: var(--ds-text);
+  box-shadow:
+    0 1px 2px rgba(16, 33, 61, 0.05),
+    0 10px 24px -16px rgba(45, 91, 255, 0.5);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.secondaryCta:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.28);
-  transform: translateY(-2px);
+/* The arrow is the whole micro-interaction: it travels on hover, which reads as
+   "this goes somewhere" rather than as decoration. */
+.secondaryCta svg {
+  color: var(--ds-brand);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .secondaryCta:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.55);
+    box-shadow:
+      0 2px 4px rgba(16, 33, 61, 0.06),
+      0 18px 34px -18px rgba(45, 91, 255, 0.62);
+  }
+  .secondaryCta:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+.secondaryCta:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 3px;
+}
+
+.secondaryCta:active {
+  transform: translateY(0) scale(0.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secondaryCta,
+  .secondaryCta svg {
+    transition: none;
+  }
+  .secondaryCta:hover,
+  .secondaryCta:active {
+    transform: none;
+  }
+  .secondaryCta:hover svg {
+    transform: none;
+  }
 }
 
 .heroLabVisual {
@@ -2384,17 +2441,9 @@
   box-shadow: 0 22px 42px -22px rgba(255, 107, 61, 0.78);
 }
 
-.secondaryCta {
-  border-radius: var(--ds-cta-radius);
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--ink);
-  border-color: rgba(255, 255, 255, 0.72);
-}
-
-.secondaryCta:hover {
-  background: #ffffff;
-  border-color: #ffffff;
-}
+/* The white-on-dark override that used to live here is gone. It was written for
+   a dark hero and then applied globally, which is what turned this control white
+   on a white section. The rule above is the single definition now. */
 
 .heroProofLine {
   border-radius: 4px;
