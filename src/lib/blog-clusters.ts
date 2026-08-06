@@ -15,6 +15,11 @@ export type BlogCluster = {
   // buyer-decision column so informational articles hand the reader a
   // converting page (RFQ/quote) without changing the article body.
   commercial?: ClusterLink;
+  // Region-specific supplier page, for the one article whose crawl weight is
+  // worth pointing at a country query. Kept separate from `commercial` on
+  // purpose: that slot was deliberately given a page that reads
+  // internationally, and this one deliberately does not.
+  regional?: ClusterLink;
 };
 
 const PRODUCT_RETAIL: ClusterLink = { label: "Retail silica gel sachets", href: "/products/retail-sachets" };
@@ -135,6 +140,11 @@ export const blogClusters: Record<string, BlogCluster> = {
     // commercial destination at all. The audience is mostly curiosity, so this
     // is a quiet "if you actually buy these" path rather than a hard sell.
     commercial: COMMERCIAL_PACKETS,
+    // This article carries roughly 72% of the site's impressions - the only
+    // page with real crawl weight to pass on. Until now the Pakistan supplier
+    // page's 211 inbound links were all the same footer entry, which Google
+    // discounts as boilerplate; this is its first link from inside content.
+    regional: { label: "Silica gel supplier in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
   },
   // Consumer application guides. The reader arrived with a packet in a shoebox
   // or a spool in a bag, not a purchase order, so these point at the retail and

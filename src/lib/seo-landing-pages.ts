@@ -3226,6 +3226,10 @@ export const seoLandingPages = {
       ],
     },
     relatedLinks: [
+      // First related link is the Pakistan supplier page with a keyword-bearing
+      // anchor - this page and that one used to compete for the same query with
+      // only footer boilerplate connecting them.
+      { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "Small sachet product page", href: "/products/retail-sachets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
@@ -3748,9 +3752,17 @@ export const seoLandingPages = {
   },
   "silica-gel-manufacturer-pakistan": {
     slug: "silica-gel-manufacturer-pakistan",
-    title: "Silica Gel in Pakistan | Packets & Bulk Supplier | DryGelWorld",
+    // 48 chars - the previous 62-char title was truncated by compactMetaTitle
+    // into "...Bulk Supplier |…", a dangling pipe and ellipsis in the SERP.
+    // Opens with the exact query and names Karachi, the word a local buyer
+    // adds when they want a supplier they can actually visit.
+    title: "Silica Gel Pakistan | Packets & Bulk from Karachi",
+    // 152 chars, under the 158 limit so nothing truncates. The old source was
+    // 183, so the compactor kept only its 84-char first sentence and half the
+    // SERP space went unused. City, year, currency, paperwork - the four
+    // things a Pakistani buyer scans for.
     metaDescription:
-      "Buy silica gel packets and bulk desiccants in Pakistan direct from the manufacturer. Sizes from 0.5g to bulk drums, quick PKR quotes on WhatsApp, based in Karachi with export support.",
+      "Silica gel packets and bulk desiccant from a Karachi manufacturer since 1983. PKR pricing, low MOQ, ISO 9001:2015, SDS and COA with every order.",
     kicker: "Silica gel in Pakistan",
     h1: "Silica gel packets and bulk desiccants in Pakistan, factory-direct.",
     lead:
@@ -3827,6 +3839,31 @@ export const seoLandingPages = {
       {
         question: "Is this page for export buyers too?",
         answer: "Yes. International buyers can use this page when searching for a silica gel manufacturer or exporter from Pakistan.",
+      },
+      // The five below target real local search behaviour, two of them in Roman
+      // Urdu on purpose: Pakistani buyers search that way and none of the
+      // competitors in this result set write it. No PKR figures are quoted -
+      // the owner has not supplied real price bands yet, and an invented number
+      // in an FAQ is worse than none. Add the bands here the day they exist.
+      {
+        question: "Silica gel ka rate kya hai in Pakistan?",
+        answer: "Rate size aur quantity par depend karta hai: 0.5g sachet ka per-piece rate bulk drum ke per-kg rate se bilkul alag hota hai. WhatsApp par size aur quantity bhejein, PKR quote usually same din mil jata hai.",
+      },
+      {
+        question: "Karachi mein silica gel kahan milta hai?",
+        answer: "DryGelWorld ki factory North Karachi Industrial Area mein hai aur sales office Gulshan-e-Iqbal mein. Factory pickup available hai, aur Karachi bhar mein delivery bhi hoti hai.",
+      },
+      {
+        question: "What is the minimum order for silica gel in Pakistan?",
+        answer: "Local MOQs are lower than export MOQs and depend on the format: retail sachets are supplied by the carton, bulk beads by the bag or drum. Share the format and use case and we will confirm the smallest practical order.",
+      },
+      {
+        question: "Do you deliver silica gel to Lahore, Faisalabad and Sialkot?",
+        answer: "Yes, we dispatch across Pakistan through courier and cargo services, including Lahore, Faisalabad, Sialkot, Islamabad, and Multan. Delivery time and cost depend on the order weight and are confirmed with the quote.",
+      },
+      {
+        question: "Is silica gel available in Pakistan for food packaging?",
+        answer: "We supply silica gel used in general packaging, but we do not hold food-contact certification such as FDA or FSSC 22000, and we say so plainly. For direct food-contact use, ask us about the application first and we will tell you honestly whether our product fits.",
       },
     ],
   },
@@ -4484,7 +4521,12 @@ export const seoLandingPages = {
     slug: "drygelworld",
     title: `${brandName} Official Website | Silica Gel Desiccant Supplier`,
     metaDescription:
-      "Official DryGelWorld.com brand page for industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS, COA, and worldwide buyer support.",
+      // 154 chars. The previous 176-char version began "Official
+      // DryGelWorld.com brand page..." - compactMetaDescription read the dot
+      // in the domain as a sentence end and shipped a description starting at
+      // "com". The helper is fixed too, but the safest description is one the
+      // compactor never touches.
+      "The official DryGelWorld brand page: industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS and COA support.",
     kicker: `Official ${brandName}.com`,
     h1: "DryGelWorld official silica gel export brand.",
     lead:

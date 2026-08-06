@@ -179,8 +179,10 @@ export default function AboutPage() {
             <span className={styles.kicker}>Industrial Profile</span>
             <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              DryGelWorld has manufactured silica gel in Karachi since 1983, helping buyers
-              protect stock, cartons, and container shipments worldwide.
+              DryGelWorld has manufactured{" "}
+              <Link href="/silica-gel-manufacturer-pakistan">silica gel in Pakistan</Link>{" "}
+              since 1983, from our Karachi factory, helping buyers protect stock, cartons, and
+              container shipments worldwide.
             </p>
           </div>
         </Reveal>

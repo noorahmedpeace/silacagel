@@ -89,8 +89,10 @@ export default function PricingPage() {
         <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>
           <p>
           Pakistan buyers can use the published PKR reference prices below for
-          budgeting. Export buyers can use the USD ranges, then request a firm
-          quote based on quantity, packaging, destination, and Incoterm.
+          budgeting, or start from the{" "}
+          <Link href="/silica-gel-manufacturer-pakistan">Pakistan silica gel manufacturer page</Link>{" "}
+          for local supply, pickup, and delivery detail. Export buyers can use the USD ranges, then
+          request a firm quote based on quantity, packaging, destination, and Incoterm.
         </p>
         <div className={styles.heroActions}>
           <Link href="/contact" className={styles.primaryBtn}>Request Export Quote</Link>

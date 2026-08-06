@@ -221,13 +221,18 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 ))}
               </ul>
             </div>
-            {cluster.compare || cluster.industry || cluster.commercial ? (
+            {cluster.compare || cluster.industry || cluster.commercial || cluster.regional ? (
               <div className={styles.relatedColumn}>
                 <h3>Buyer decision</h3>
                 <ul>
                   {cluster.commercial ? (
                     <li>
                       <Link href={cluster.commercial.href}>{cluster.commercial.label}</Link>
+                    </li>
+                  ) : null}
+                  {cluster.regional ? (
+                    <li>
+                      <Link href={cluster.regional.href}>{cluster.regional.label}</Link>
                     </li>
                   ) : null}
                   {cluster.compare ? (

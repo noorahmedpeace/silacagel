@@ -67,11 +67,18 @@ export function truncateAtWord(text: string, limit: number) {
 export function compactMetaDescription(description: string, limit = META_DESCRIPTION_LIMIT) {
   if (description.length <= limit) return description;
 
-  const sentences = description.match(/[^.!?]+[.!?]+(?=\s|$)/g);
-  if (sentences) {
+  // The sentence scan must start at character 0. When the first "sentence" the
+  // regex finds does not begin the string, something earlier failed to parse as
+  // a sentence - "Official DryGelWorld.com brand page..." is the shipped case:
+  // the dot inside the domain ended no sentence, the match resumed after it,
+  // and /drygelworld went to Google with a description starting at "com".
+  // A sentence assembled from the middle of the text is worse than a plain
+  // word-boundary truncation, so fall through to that instead.
+  const matches = [...description.matchAll(/[^.!?]+[.!?]+(?=\s|$)/g)];
+  if (matches.length && matches[0].index === 0) {
     let assembled = "";
-    for (const sentence of sentences) {
-      const candidate = assembled ? `${assembled} ${sentence.trim()}` : sentence.trim();
+    for (const match of matches) {
+      const candidate = assembled ? `${assembled} ${match[0].trim()}` : match[0].trim();
       if (candidate.length > limit) break;
       assembled = candidate;
     }
