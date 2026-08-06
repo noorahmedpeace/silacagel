@@ -3847,7 +3847,10 @@ export const seoLandingPages = {
       // in an FAQ is worse than none. Add the bands here the day they exist.
       {
         question: "Silica gel ka rate kya hai in Pakistan?",
-        answer: "Rate size aur quantity par depend karta hai: 0.5g sachet ka per-piece rate bulk drum ke per-kg rate se bilkul alag hota hai. WhatsApp par size aur quantity bhejein, PKR quote usually same din mil jata hai.",
+        // Real published reference prices (owner-supplied list, 2026-08-06) -
+        // the same numbers the /pricing table and calculator use, so this
+        // answer can never drift from the site's own published rates.
+        answer: "Reference rates: chhote PP bags Rs 0.84 (0.5g) se Rs 2.40 (3g) per piece, paper sachets Rs 2.16 (2g) se Rs 21.60 (20g), bulk packs Rs 30 (25g) se Rs 600 (500g), aur 1 kg container strip Rs 1,140. Quantity par rate behtar hota hai; exact quote ke liye WhatsApp par size aur quantity bhejein.",
       },
       {
         question: "Karachi mein silica gel kahan milta hai?",
