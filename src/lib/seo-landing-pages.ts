@@ -1853,7 +1853,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier": keywordClusterPage({
     slug: "hair-net-supplier",
-    title: "Hair Net Supplier | Bouffant PPE for Food, Manufacturing & Healthcare",
+    title: "Hair Net Supplier | Bouffant PPE for Food & Industry",
     metaDescription:
       "Hair net supplier for food processing, manufacturing, healthcare, and industrial PPE. Bouffant non-woven polypropylene nets in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier",
@@ -1897,7 +1897,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier": keywordClusterPage({
     slug: "beard-cover-supplier",
-    title: "Beard Cover Supplier | Disposable Beard Nets for Food & Manufacturing",
+    title: "Beard Cover Supplier | Disposable Beard Nets, Bulk",
     metaDescription:
       "Beard cover supplier (beard nets) for food handling, manufacturing, healthcare, and PPE programs. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier",
@@ -1941,7 +1941,7 @@ const highIntentSeoLandingPages = {
   }),
   "food-grade-hair-nets": keywordClusterPage({
     slug: "food-grade-hair-nets",
-    title: "Food-Grade Hair Nets | Bouffant PPE for Food Processing & Packaging",
+    title: "Food-Grade Hair Nets | Bouffant PPE for Processing",
     metaDescription:
       "Hair nets for food processing, food packaging, bakery, and dairy production. Bouffant non-woven polypropylene in 18-22 inch diameters, green and white color zoning.",
     kicker: "Food-Industry Hair Nets",
@@ -2117,7 +2117,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-supplier-uk": keywordClusterPage({
     slug: "silica-gel-supplier-uk",
-    title: "Silica Gel Supplier UK | Karachi-to-Felixstowe Desiccant Export",
+    title: "Silica Gel Supplier UK | Desiccant Export to Felixstowe",
     metaDescription:
       "Silica gel desiccant supplier for UK importers, electronics distributors, leather and footwear buyers, and pharma procurement. Karachi-to-Felixstowe / Southampton / London Gateway routing with SDS, COA, and ISO 9001:2015 documentation.",
     kicker: "Silica Gel Supplier UK",
@@ -2513,7 +2513,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-uk": keywordClusterPage({
     slug: "beard-cover-supplier-uk",
-    title: "Beard Cover Supplier UK | Disposable PPE Karachi-to-Felixstowe",
+    title: "Beard Cover Supplier UK | Disposable PPE Export",
     metaDescription:
       "Beard cover supplier for UK food processors, manufacturers, and healthcare PPE programs. Karachi-to-Felixstowe / Southampton / London Gateway shipping. Disposable non-woven polypropylene with elasticated edge.",
     kicker: "Beard Cover Supplier UK",
@@ -2997,7 +2997,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-beads": keywordClusterPage({
     slug: "silica-gel-beads",
-    title: "Silica Gel Beads | Bulk Bead Supplier for Industrial Re-Packers",
+    title: "Silica Gel Beads | Bulk Beads for Re-Packers",
     metaDescription:
       "Silica gel beads for industrial re-packers, distributors, and high-volume packaging operations. Bulk 25kg bags of loose amorphous silicon dioxide beads, 1-3mm uniform size, B2B export supply from Karachi.",
     kicker: "Silica Gel Beads",

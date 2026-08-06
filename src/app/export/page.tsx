@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -68,6 +69,19 @@ const exportFaqs: Faq[] = [
 export default function ExportPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Export", href: "/export" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Export Supply</span>
         <h1>Silica gel exporter for worldwide B2B supply.</h1>

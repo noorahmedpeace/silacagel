@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { priceGroups, whatsappNumber } from "@/lib/product-data";
 import { FaqBlock, type Faq } from "@/components/faq-block";
@@ -84,6 +85,19 @@ const whatsappMessage = encodeURIComponent(
 export default function PricingPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Pricing", href: "/pricing" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Indicative Export Pricing</span>
         <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>

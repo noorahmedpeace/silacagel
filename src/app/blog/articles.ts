@@ -1455,6 +1455,8 @@ export const blogArticles: BlogArticle[] = [
     slug: "why-hair-nets-matter-in-food-export",
     label: "PPE Buyer Guide",
     title: "Why hair nets and beard covers matter in food and manufacturing exports",
+    // 72-char editorial title truncated in the SERP; H1 keeps the long form.
+    metaTitle: "Why Hair Nets & Beard Covers Matter in Food Export",
     description:
       "A buyer guide to bouffant hair nets and beard covers for food processing, manufacturing, and healthcare PPE programs - sizing, color zoning, document expectations, and how to source PPE alongside moisture control programs.",
     readTime: "9 min read",
@@ -1806,6 +1808,8 @@ export const blogArticles: BlogArticle[] = [
     slug: "importance-of-beard-covers-in-manufacturing",
     label: "PPE Buyer Guide",
     title: "The importance of beard covers in manufacturing and food production",
+    // 68-char editorial title truncated in the SERP; H1 keeps the long form.
+    metaTitle: "Beard Covers in Manufacturing & Food Production",
     description:
       "Why facial-hair containment matters in B2B manufacturing, food handling, healthcare, and cleanroom operations - the contamination control logic, audit consequences of skipping beard covers, sizing and procurement math, and how to build a PPE program that actually gets used.",
     readTime: "9 min read",

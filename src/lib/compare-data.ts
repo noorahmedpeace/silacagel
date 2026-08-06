@@ -20,6 +20,9 @@ export type ComparePage = {
   slug: string;
   productA: string;
   productB: string;
+  /** Hand-written SERP title for pairs whose productA/productB names run past
+   *  60 chars combined - the auto-built title truncated to an ellipsis. */
+  metaTitle?: string;
   h1: string;
   description: string;
   introA: string;
@@ -339,6 +342,8 @@ export const comparePages: ComparePage[] = [
   },
   {
     slug: "silica-gel-vs-calcium-chloride-container-desiccant",
+    // 57 chars. The auto-built pair title was 78 and shipped with an ellipsis.
+    metaTitle: "Silica Gel vs Calcium Chloride Container Desiccant",
     productA: "Silica Gel / Clay Container Desiccant",
     productB: "Calcium Chloride Container Desiccant",
     h1: "Silica gel vs calcium chloride container desiccant",

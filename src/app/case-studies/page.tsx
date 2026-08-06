@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/lib/case-study-data";
@@ -25,6 +26,19 @@ const proofRules = [
 export default function CaseStudiesPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Case Studies", href: "/case-studies" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Buyer-Safe Proof</span>
         <h1>Anonymous case studies for real procurement confidence.</h1>

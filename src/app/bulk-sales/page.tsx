@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { PriceCalculator } from "@/components/price-calculator";
 import { priceGroups } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
@@ -16,6 +17,19 @@ export const metadata: Metadata = {
 export default function BulkSalesPage() {
   return (
     <main className={shared.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Bulk Sales", href: "/bulk-sales" },
+            ]),
+          ),
+        }}
+      />
       <section className={shared.hero}>
         <span className={shared.kicker}>Bulk Sales</span>
         <h1>Export quote planning and procurement context in one place.</h1>

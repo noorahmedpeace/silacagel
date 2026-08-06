@@ -120,6 +120,10 @@ const categoryLanes = [
   { label: "Container strips", href: "/container-desiccant-strips" },
   { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
   { label: "Dispensers", href: "/dispensers" },
+  // Added, not swapped: the six export-facing lanes above stay exactly as they
+  // were. This is the homepage's only in-content path to the domestic supplier
+  // page, whose inbound links were otherwise all footer boilerplate.
+  { label: "Pakistan supply", href: "/silica-gel-manufacturer-pakistan" },
 ];
 
 // Three real formats that mirror the section sub-heading ("sachets for cartons,

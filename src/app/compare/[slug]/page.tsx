@@ -34,9 +34,10 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
   // truncated in the SERP; only append the suffix when the whole title fits.
   const baseTitle = `${page.productA} vs ${page.productB}`;
   const metaTitle =
-    `${baseTitle} | Buyer Comparison`.length <= 60
+    page.metaTitle ??
+    (`${baseTitle} | Buyer Comparison`.length <= 60
       ? `${baseTitle} | Buyer Comparison`
-      : compactMetaTitle(baseTitle);
+      : compactMetaTitle(baseTitle));
   const metaDescription = compactMetaDescription(page.description);
 
   return {
