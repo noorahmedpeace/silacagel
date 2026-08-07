@@ -981,8 +981,11 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
-      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
+      // One exact-match anchor to the elected page for the "container desiccant
+      // supplier" query family, which GSC shows split across nine URLs. Two
+      // vague anchors to the same href said nothing; one that repeats the query
+      // says everything.
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Cargo strips", href: "/container-desiccant-strips" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Export support", href: "/export" },
@@ -1026,8 +1029,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Using packet-only protection when the whole container environment is the moisture risk",
     quoteBasis: "Container size, route, cargo type, transit days, humidity risk, strip count, documents",
     relatedLinks: [
-      { label: "Container supplier", href: "/shipping-container-desiccant-supplier" },
-      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Container strips", href: "/container-desiccant-strips" },
     ],
     faqs: [

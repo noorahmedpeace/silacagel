@@ -484,7 +484,10 @@ export const comparePages: ComparePage[] = [
       { q: "Which one is better for cartons?", a: "Silica gel is usually better for cartons and product-level packaging because it is available in small sachets and remains a dry solid." },
       { q: "Does DryGelWorld supply both?", a: "DryGelWorld supplies silica gel products and has added quote-only calcium chloride container strip and bulk bag pages for buyer inquiries." },
     ],
-    relatedBlog: "/blog/best-desiccant-for-shipping-containers",
+    // The blog article on this exact comparison ranks 9.8 while this page sits
+    // in the 20s-40s for the same queries - the loser links the winner, with
+    // the query as the anchor, instead of splitting the signal five ways.
+    relatedBlog: "/blog/calcium-chloride-vs-silica-gel-desiccant",
     relatedProduct: "/products/calcium-chloride-container-strip",
   },
   {
@@ -632,7 +635,7 @@ export const comparePages: ComparePage[] = [
       { q: "What should I ask a supplier?", a: "Ask for material, capacity, pouch type, SDS, COA, size, MOQ, and recommended dosage." },
       { q: "Can DryGelWorld quote both?", a: "Yes, DryGelWorld lists silica gel, clay, and quote-only calcium chloride formats." },
     ],
-    relatedBlog: "/blog/how-exporters-protect-cargo-from-humidity",
+    relatedBlog: "/blog/calcium-chloride-vs-silica-gel-desiccant",
     relatedProduct: "/products/calcium-chloride-container-bulk",
   },
   {
