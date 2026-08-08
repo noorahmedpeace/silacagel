@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { customerReferences, totalCustomersSupplied } from "@/lib/customer-references";
+import { SupplyWall } from "@/components/supply-wall";
 import { googleMapsUrl } from "@/lib/product-data";
 import styles from "../strategy-pages.module.css";
 import local from "./reviews.module.css";
@@ -183,6 +184,21 @@ export default function ReviewsPage() {
             </ul>
           </div>
         ))}
+      </section>
+
+      {/* The scrolling wall sits after the sector grid, not instead of it. The
+          grid is the reference a buyer scans for their own industry; the wall is
+          the impression. Replacing the grid with motion would have made 33
+          companies harder to find, not easier. */}
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>The supply wall.</h2>
+          <p>
+            The same {total} companies, moving. Hover or focus any card to stop the column and read
+            it; every card with a confirmed website links straight to it.
+          </p>
+        </div>
+        <SupplyWall />
       </section>
 
       <section className={styles.section}>

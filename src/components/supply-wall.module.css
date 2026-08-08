@@ -1,0 +1,206 @@
+/*
+ * Three vertically scrolling columns of customer cards.
+ *
+ * Motion is pure CSS, not a JS animation library: the track only translates on
+ * the Y axis, which the compositor handles on its own thread, so it stays
+ * smooth on the mid-range Android phones a lot of this traffic arrives on and
+ * costs nothing in JS. It also runs before hydration and without JS at all.
+ */
+
+.wall {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  max-height: 720px;
+  overflow: hidden;
+  /* Fades the cards in and out at the edges instead of clipping them on a hard
+     line, so the column reads as continuous rather than cut off. */
+  mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 9%, #000 91%, transparent);
+}
+
+@media (min-width: 700px) {
+  .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+}
+
+@media (min-width: 1040px) {
+  .wall { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+}
+
+/* Second and third columns only exist at their breakpoints. Hidden rather than
+   removed so the DOM stays identical across breakpoints and there is no shift
+   on resize; the clones inside are already aria-hidden. */
+.md { display: none; }
+.lg { display: none; }
+@media (min-width: 700px) { .md { display: block; } }
+@media (min-width: 1040px) { .lg { display: block; } }
+
+.column { min-width: 0; }
+
+.track {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation-name: scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@keyframes scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+/* Pausing on hover lets someone actually finish reading a card they stopped on,
+   which is the difference between a decorative marquee and a readable one. */
+.wall:hover .track,
+.wall:focus-within .track {
+  animation-play-state: paused;
+}
+
+/* ── Card ─────────────────────────────────────────────────────────────────── */
+
+.card {
+  box-sizing: border-box;
+  display: block;
+  border: 1px solid var(--ds-hairline, rgba(15, 40, 68, 0.12));
+  border-radius: 18px;
+  background: var(--ds-surface, #fff);
+  box-shadow: 0 14px 34px -26px rgba(13, 27, 42, 0.34);
+  transition:
+    transform 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.24s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.24s ease;
+}
+
+/* The lift is an affordance, so only the cards that actually go somewhere get
+   it. Five of the companies have no confirmed website and render as plain
+   cards; lifting those on hover would promise a click that never lands, which
+   is a dead click in the one place the page is asking to be trusted. */
+.card:has(.link):hover,
+.card:has(.link):focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(45, 91, 255, 0.34);
+  box-shadow: 0 26px 52px -30px rgba(13, 27, 42, 0.42);
+}
+
+/* The whole card is the link when a site is confirmed, so the target is the
+   full card rather than a small text link. */
+.link {
+  display: block;
+  padding: 22px;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Cards without a confirmed website are not links, so they carry their own
+   padding and must not look interactive. */
+.plain {
+  padding: 22px;
+  cursor: default;
+}
+
+.noSite {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--ds-text-faint, #6b7f99);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.mark {
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 40px;
+  margin-bottom: 14px;
+  border: 1px solid var(--ds-hairline, rgba(15, 40, 68, 0.1));
+  border-radius: 9px;
+  background: #fff;
+  color: #16448e;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.mark img {
+  width: 40px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.quote {
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.quote p {
+  margin: 0;
+  color: var(--ds-text, #16243a);
+  font-size: 0.95rem;
+  line-height: 1.62;
+}
+
+.quote p::before { content: "\201C"; }
+.quote p::after { content: "\201D"; }
+
+.supply {
+  margin: 0 0 16px;
+  color: var(--ds-text-muted, #48607e);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ds-hairline, rgba(15, 40, 68, 0.1));
+}
+
+.name {
+  color: var(--ds-text, #16243a);
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.industry {
+  color: var(--ds-text-faint, #6b7f99);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.visit {
+  display: inline-block;
+  margin-top: 12px;
+  color: #2d5bff;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.link:hover .visit { text-decoration: underline; }
+
+/* ── Reduced motion ───────────────────────────────────────────────────────── */
+/*
+ * Stopping the animation alone would strand most of the list: the track is
+ * taller than the masked window, so a parked column shows only its first two
+ * cards with no way to reach the rest. Drop the clones, release the height cap
+ * and the mask, and let the real cards lay out as a static grid.
+ */
+@media (prefers-reduced-motion: reduce) {
+  .wall {
+    max-height: none;
+    overflow: visible;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  .track { animation: none; }
+  .clone { display: none; }
+}
