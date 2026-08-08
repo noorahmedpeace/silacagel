@@ -148,11 +148,38 @@
     border-color var(--ds-dur-base) var(--ds-ease);
 }
 
-.card:hover,
+/* ── The one card rule (Clarity dead-click audit, 8 Aug) ──────────────────
+   A card that lifts on hover is announcing "click me". The calculator's twelve
+   dead clicks landed on .card explainers that answered nothing. So: .card is
+   INFORMATIONAL - hairline, flat, no hover promise. .articleCard always holds
+   a real destination (measured: 70 rendered articleCards across /export and
+   /blog, none with more than one .textLink), so the whole card IS the link:
+   the inner .textLink stretches over it, no nested anchors, keyboard path
+   unchanged. If it looks clickable it must be clickable; if it is not, it must
+   not look it. */
+.card {
+  box-shadow: none;
+}
+
+.articleCard {
+  position: relative;
+}
+
+.articleCard .textLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
 .articleCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--ds-shadow-card);
   border-color: var(--ds-brand);
+}
+
+.articleCard:focus-within {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
 }
 
 .card span,
@@ -673,3 +700,7 @@
 .hero .cta {
   align-self: center;
 }
+
+/* The mobile quote band is a hero child (mobile-quote-band.module.css hides
+   it above 760px). Nothing needed here: display:none removes it from the grid
+   entirely on desktop, so the hero's column count is unchanged. */

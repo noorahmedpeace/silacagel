@@ -7,6 +7,7 @@ import { getLandingSpec } from "@/lib/product-spec";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
 import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
+import { MobileQuoteBand } from "./mobile-quote-band";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
 
@@ -61,6 +62,17 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           <h1>{page.h1}</h1>
           <p className={styles.lead}>{page.lead}</p>
           {intent ? <p className={styles.intent}>{intent}</p> : null}
+        {/* Mobile only, and INSIDE the hero on purpose. Clarity: phones scroll
+            an average of 26% of the page - and the hero alone is ~1400px tall
+            on a 375px screen, so a band placed after it would have landed at
+            y=1406, twice below the fold. Sitting between the hero copy and the
+            proof panel puts the price and the WhatsApp channel in the first
+            screen, which was the whole point. Desktop never renders it. */}
+        <MobileQuoteBand
+          showPkrFrom={isLocalBuyerPage}
+          quoteHref={page.quoteChecklist ? "#quote-form" : "/contact"}
+          subject={page.h1}
+        />
           <div className={styles.actions}>
             {/* Paid traffic lands here and bounces if the CTA sends it off-page.
                 When this page carries its own quote form, keep the buyer on it. */}
@@ -75,8 +87,11 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
                 <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
                   Call {displayPhone}
                 </a>
+                {/* Hidden on phones: the mobile band above already carries
+                    WhatsApp, and six CTAs in one hero is decision fatigue, not
+                    conversion. Desktop keeps it - there is no band there. */}
                 <a
-                  className={styles.secondaryCta}
+                  className={`${styles.secondaryCta} ${styles.hideOnMobile}`}
                   href={localWhatsAppHref}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -87,6 +102,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             ) : null}
           </div>
         </div>
+
 
         <aside className={styles.proofPanel} aria-label="Procurement proof points">
           <div className={styles.visualCard}>
@@ -120,6 +136,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           </div>
         </aside>
       </section>
+
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>

@@ -227,6 +227,11 @@
 }
 
 .docCard {
+  /* position:relative is load-bearing: the Download anchor's ::after stretches
+     over the whole card, so the entire card is the download - Clarity logged
+     five dead clicks from people clicking the card body instead of the button.
+     One anchor, no nesting, same keyboard target as before. */
+  position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
@@ -241,8 +246,22 @@
     transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
+.docCard .download::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ds-radius-card);
+}
+
+.docCard:focus-within {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* Hover-lift only on cards that actually hold a download. The "awaiting"
+   cards have no anchor, so per the card rule they make no hover promise. */
 @media (hover: hover) and (pointer: fine) {
-  .docCard:hover {
+  .docCard:has(.download):hover {
     transform: translateY(-3px);
     border-color: rgba(45, 91, 255, 0.28);
     box-shadow: var(--ds-shadow-card);

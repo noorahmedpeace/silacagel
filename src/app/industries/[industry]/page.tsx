@@ -7,6 +7,7 @@ import { IsoBadge } from "@/components/iso-badge";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
+import { MobileQuoteBand } from "@/components/mobile-quote-band";
 
 type IndustryFormat = { label: string; text: string };
 type IndustryBody = {
@@ -603,7 +604,13 @@ export default async function IndustryPage({
             SDS · COA · TDS · ISO, open documents
           </Link>
         </div>
+
+        {/* Mobile only, inside the hero so it lands in the first screen. No
+            PKR anchor - this template serves local and export buyers alike. */}
+        <MobileQuoteBand quoteHref="/contact" subject={`${page.title} desiccant supply`} />
+
       </section>
+
 
       <figure className={styles.articleVisual}>
         <Image

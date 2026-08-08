@@ -4861,11 +4861,7 @@
       border-color var(--ds-dur-base) var(--ds-ease-out),
       box-shadow var(--ds-dur-base) var(--ds-ease-out);
   }
-  .procurementFlowCard:hover {
-    transform: translateY(-6px);
-    border-color: rgba(45, 91, 255, 0.35);
-    box-shadow: var(--ds-shadow-card);
-  }
+  /* procurement flow cards are informational steps - hover lift removed (card rule, 8 Aug) */
 
   /* Unify the remaining card families on the layered shadow + a slightly
    * more confident lift, without disturbing their per-card borders/accents. */

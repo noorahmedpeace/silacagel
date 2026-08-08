@@ -343,9 +343,9 @@
     border-color var(--ds-dur-base) var(--ds-ease);
 }
 
-.card:hover,
-.buyerGuideCard:hover,
-.step:hover,
+/* Info cards (.card, .buyerGuideCard, .step) no longer lift - they are not
+   links and the lift was a promise the click could not keep. .related is a
+   real Link and keeps its hover. */
 .related:hover {
   transform: translateY(-4px);
   box-shadow: var(--ds-shadow-card);
@@ -482,7 +482,7 @@
     box-shadow var(--ds-dur-base) var(--ds-ease);
 }
 
-.sizeGuideCard:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-card); }
+/* sizeGuideCard is informational - no hover lift (see the card rule note above) */
 
 .sizeGuideCard::after { content: none; }
 
@@ -820,5 +820,17 @@
 
   .ctaBand {
     padding-block: var(--ds-section-py-tight);
+  }
+}
+
+/* The mobile quote band is a hero child (mobile-quote-band.module.css hides
+   it above 760px). Nothing needed here: display:none removes it from the grid
+   entirely on desktop, so the hero's column count is unchanged. */
+
+/* Phones get the mobile quote band instead of this CTA - see the note at its
+   call site. Desktop and tablet are untouched. */
+@media (max-width: 760px) {
+  .hideOnMobile {
+    display: none;
   }
 }

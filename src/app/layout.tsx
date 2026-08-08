@@ -309,7 +309,13 @@ export default function RootLayout({
         {/* Clarity loads once the page is interactive to capture short buying sessions. */}
         <Script id="ms-clarity" strategy="afterInteractive">
           {`
-            if (!window.__drygelInternal) {
+            // The flag script above runs beforeInteractive, and Next drops
+            // beforeInteractive scripts outside the root layout tree - which is
+            // exactly what the built-in 404 page is. So on a 404 the flag was
+            // undefined and Clarity loaded even on localhost (verified 8 Aug).
+            // Each loader now re-derives the host check itself; the flag stays
+            // for the /?internal=1 per-browser switch.
+            if (!(window.__drygelInternal || location.hostname !== 'www.drygelworld.com')) {
               (function(c,l,a,r,i,t,y){
                   c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                   t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -326,8 +332,10 @@ export default function RootLayout({
           {`
             (function () {
               // Internal browser: never load GA4 at all, so owner/staff
-              // sessions cannot skew the rates the site is measured on.
-              if (window.__drygelInternal) return;
+              // sessions cannot skew the rates the site is measured on. The
+              // hostname check is repeated here rather than trusted from the
+              // flag - see the note on the Clarity loader above.
+              if (window.__drygelInternal || location.hostname !== 'www.drygelworld.com') return;
               var measurementId = ${JSON.stringify(GA_ID)};
               var loadAnalytics = function () {
                 if (window.__drygelGaLoaded) return;

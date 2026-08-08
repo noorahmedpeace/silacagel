@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd, compactMetaDescription } from "@/lib/seo";
 import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
+import { MobileQuoteBand } from "@/components/mobile-quote-band";
 import {
   exportHreflangAlternates,
   exportMarketHreflang,
@@ -209,7 +210,14 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <h1>{market.title}</h1>
         <p>{market.description}</p>
         <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+
+        {/* Mobile only, inside the hero so it lands in the first screen (see
+            the landing template for the measurement). No PKR figure: this
+            page's buyer pays in USD and a rupee anchor is not their price. */}
+        <MobileQuoteBand quoteHref="/contact" subject={`${market.country} silica gel supply`} />
+
       </section>
+
 
       <figure className={styles.articleVisual}>
         <Image
