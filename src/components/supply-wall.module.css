@@ -56,9 +56,12 @@
 }
 
 /* Pausing on hover lets someone actually finish reading a card they stopped on,
-   which is the difference between a decorative marquee and a readable one. */
-.wall:hover .track,
-.wall:focus-within .track {
+   which is the difference between a decorative marquee and a readable one.
+   Scoped to the hovered COLUMN, not the whole wall: freezing all three at once
+   made the other two stop for no reason the reader could see, and pointing at
+   one card should not halt the two columns they are not looking at. */
+.column:hover .track,
+.column:focus-within .track {
   animation-play-state: paused;
 }
 

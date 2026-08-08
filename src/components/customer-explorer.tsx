@@ -80,7 +80,9 @@ export function CustomerExplorer() {
       <div className={styles.controls}>
         {/* Tabs are filters, so they are buttons in a tablist, not links. A
             sector with no companies is not rendered at all rather than shown
-            as an empty tab a buyer can click into and find nothing. */}
+            as an empty tab a buyer can click into and find nothing — which is
+            what `counts` is still for, now that the number is no longer shown
+            on the pill itself. */}
         <div className={styles.tabs} role="tablist" aria-label="Filter customers by sector">
           {SECTORS.filter((s) => (counts[s.id] ?? 0) > 0).map((s) => (
             <button
@@ -95,7 +97,6 @@ export function CustomerExplorer() {
               }}
             >
               {s.label}
-              <span className={styles.count}>{counts[s.id] ?? 0}</span>
             </button>
           ))}
         </div>
@@ -136,7 +137,11 @@ export function CustomerExplorer() {
         </div>
       </div>
 
-      <p className={styles.resultCount} role="status">
+      {/* Visually hidden, not removed. A sighted user sees the grid shrink when
+          they filter, so the count is redundant to them — but a screen reader
+          user typing in the search box gets no feedback at all without a live
+          region, and would not know whether the query matched anything. */}
+      <p className={styles.srOnly} role="status">
         {visible.length === customerReferences.length
           ? `${visible.length} companies`
           : `${visible.length} of ${customerReferences.length} companies`}
