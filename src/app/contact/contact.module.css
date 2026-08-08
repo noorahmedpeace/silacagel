@@ -345,6 +345,12 @@
   gap: 6px;
   padding: 28px 30px;
   min-height: 110px;
+  /* Pointer only where the whole tile IS a link. Article tiles hold their own
+     inner links; a pointer over the whole card promised a click the card
+     could not answer - Clarity logged exactly those dead clicks. */
+}
+
+a.tileAction {
   cursor: pointer;
 }
 

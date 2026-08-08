@@ -422,3 +422,11 @@
     color: #fff;
   }
 }
+
+/* Wrapper that makes the catalogue image clickable. Display contract matches
+   the old bare imageWrap so the layout is untouched. */
+.imageLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}

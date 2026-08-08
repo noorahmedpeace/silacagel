@@ -225,7 +225,13 @@ export default function RootLayout({
                 var q = window.location.search;
                 if (q.indexOf('internal=1') !== -1) localStorage.setItem(KEY, '1');
                 else if (q.indexOf('internal=0') !== -1) localStorage.removeItem(KEY);
-                window.__drygelInternal = localStorage.getItem(KEY) === '1';
+                // localhost / preview hosts are always internal. Local audit
+                // runs (next start + Playwright) were reaching the production
+                // Clarity project and polluting the very dead-click data this
+                // week's UX audit was built on - localhost:3000 showed up as a
+                // tracked page in the dashboard.
+                window.__drygelInternal = localStorage.getItem(KEY) === '1'
+                  || location.hostname !== 'www.drygelworld.com';
               } catch (e) {
                 window.__drygelInternal = false;
               }

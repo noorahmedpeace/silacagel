@@ -112,6 +112,17 @@ export function ProductGrid() {
 
           return (
             <article key={product.slug} className={styles.card}>
+              {/* Clarity: 8 dead clicks on this page in 9 days, and the DOM
+                  scan found why - the product image, the most-clicked element
+                  on any catalogue card, was not a link. The wrapper anchor is
+                  removed from the tab order because "View Product Page" below
+                  is the accessible route; this is for the mouse and the thumb. */}
+              <Link
+                href={`/products/${product.slug}`}
+                tabIndex={-1}
+                aria-hidden="true"
+                className={styles.imageLink}
+              >
               <div className={styles.imageWrap}>
                 <Image
                   src={catalogImages[product.slug] ?? product.heroImage}
@@ -124,6 +135,7 @@ export function ProductGrid() {
                 <span className={styles.formatBadge}>{sizeRange}</span>
                 <span className={styles.globalBadge}>Worldwide dispatch</span>
               </div>
+              </Link>
               <div className={styles.copy}>
                 <span className={styles.eyebrow}>{product.eyebrow}</span>
                 {categoryLabel ? <span className={styles.categoryTrail}>{categoryLabel}</span> : null}

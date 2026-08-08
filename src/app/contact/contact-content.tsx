@@ -158,6 +158,17 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
         <article className={`${styles.tile} ${styles.tileAction}`}>
           <span className={styles.actionKicker}>Manufacturing Factory · ISO 9001:2015</span>
           <address style={{ fontStyle: "normal", lineHeight: 1.5 }}>{factoryAddressFull}</address>
+          {/* Clarity recorded dead clicks on this tile: it carried the
+              tileAction pointer cursor but, unlike the head-office tile above,
+              no maps link. The cursor promised; nothing answered. */}
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(factoryAddressFull)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ marginTop: 10, fontWeight: 700 }}
+          >
+            View on Google Maps →
+          </a>
         </article>
       </section>
 
