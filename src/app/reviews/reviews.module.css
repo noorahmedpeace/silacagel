@@ -125,8 +125,12 @@
   height: 100%;
   padding: 18px;
   border: 1px solid var(--ds-hairline);
-  border-radius: var(--ds-radius-card);
+  /* Matched to the supply wall above (18px + a soft resting shadow). The grid
+     previously used a flat outlined box, so scrolling from the wall into the
+     grid read as two different components rather than one page. */
+  border-radius: 18px;
   background: var(--ds-surface);
+  box-shadow: 0 14px 34px -26px rgba(13, 27, 42, 0.34);
   text-decoration: none;
 }
 
@@ -139,9 +143,9 @@
 
 @media (hover: hover) and (pointer: fine) {
   .cardLink:hover {
-    transform: translateY(-2px);
-    border-color: rgba(45, 91, 255, 0.28);
-    box-shadow: var(--ds-shadow-card);
+    transform: translateY(-4px);
+    border-color: rgba(45, 91, 255, 0.34);
+    box-shadow: 0 26px 52px -30px rgba(13, 27, 42, 0.42);
   }
 }
 
@@ -194,18 +198,17 @@
 }
 
 .state {
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
+  margin-top: 10px;
+  font-size: 0.76rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ds-text-muted);
+  color: var(--ds-text-faint);
 }
 
 .cardLink .state {
-  color: var(--ds-brand-deep);
+  color: #2d5bff;
 }
+
+.cardLink:hover .state { text-decoration: underline; }
 
 /* ── Responsive ────────────────────────────────────────────────────────── */
 
