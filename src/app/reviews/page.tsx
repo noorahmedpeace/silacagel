@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { customerReferences, totalCustomersSupplied } from "@/lib/customer-references";
 import { SupplyWall } from "@/components/supply-wall";
+import { CustomerExplorer } from "@/components/customer-explorer";
 import { googleMapsUrl } from "@/lib/product-data";
 import styles from "../strategy-pages.module.css";
 import local from "./reviews.module.css";
@@ -15,51 +15,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/reviews" },
 };
 
-// Sectors, not an alphabetical run of 32 names. A buyer arrives asking "do they
-// supply anyone like me", and the sector heading answers that before they read
-// a single company name. Pharma leads because it is both the largest group and
-// the hardest sector to be accepted into.
-const SECTORS = [
-  { id: "pharma", label: "Pharmaceutical and nutraceutical" },
-  { id: "textile", label: "Textile, apparel and leather" },
-  { id: "food", label: "Food and rice export" },
-  { id: "medical", label: "Medical and healthcare" },
-  { id: "industrial", label: "Industrial and other" },
-] as const;
-
-/**
- * Logo files too small to render as a logo.
- *
- * Six entries started here as 16x16 to 32x32 favicons, which came out soft when
- * upscaled into the 46px stage. Five have since been replaced with real marks
- * pulled from each company's own site: utopia 16 to 157x64, hinucon 32 to
- * 107x111, hinutrition 32 to 256x141, pharmevo 32 to 256x123, neutro 32 to
- * 1026x540.
- *
- * Intex is the one that stayed. Its site serves no logo file at all, so 24x24
- * is still the best available and the initials mark is sharper than it. Drop
- * this entry the moment a real file exists.
- */
-const LOW_RES_LOGOS = new Set(["/customer-logos/intex.png"]);
-
-// Order matters. "Medical & pharma supply" contains both words, and the medical
-// test has to run first or JSK Medica lands in Pharmaceutical, where a medical
-// buyer scanning the Medical section would never find it.
-function sectorFor(industry: string): (typeof SECTORS)[number]["id"] {
-  const i = industry.toLowerCase();
-  if (i.includes("medical") || i.includes("healthcare")) return "medical";
-  if (i.includes("pharma") || i.includes("nutraceutical") || i.includes("biopharma")) return "pharma";
-  if (i.includes("textile") || i.includes("apparel") || i.includes("spinning") || i.includes("leather")) return "textile";
-  if (i.includes("rice") || i.includes("food")) return "food";
-  return "industrial";
-}
-
 export default function ReviewsPage() {
-  const grouped = SECTORS.map((sector) => ({
-    ...sector,
-    members: customerReferences.filter((c) => sectorFor(c.industry) === sector.id),
-  })).filter((group) => group.members.length > 0);
-
   const total = customerReferences.length;
   const linked = customerReferences.filter((c) => c.href).length;
 
@@ -136,54 +92,12 @@ export default function ReviewsPage() {
         <div className={styles.sectionHead}>
           <h2>Supplied by sector.</h2>
           <p>
-            A selection of the {totalCustomersSupplied}+ companies we supply, grouped so you can find
-            your own industry first. Companies without a confirmed website are listed by name only.
+            A selection of the {totalCustomersSupplied}+ companies we supply. Filter by your own sector or
+            search a name, then open a card to see what we supply into that industry and to visit the
+            company&rsquo;s own site.
           </p>
         </div>
-
-        {grouped.map((group) => (
-          <div className={local.group} key={group.id}>
-            <h3 className={local.groupHead}>
-              {group.label}
-              <span className={local.count}>{group.members.length}</span>
-            </h3>
-            <ul className={local.grid}>
-              {group.members.map((customer) => {
-                const showLogo = customer.logo && !LOW_RES_LOGOS.has(customer.logo);
-                const inner = (
-                  <>
-                    <span className={local.mark} aria-hidden="true">
-                      {showLogo ? (
-                        <Image src={customer.logo as string} alt="" width={46} height={30} />
-                      ) : (
-                        customer.initials
-                      )}
-                    </span>
-                    <strong className={local.name}>{customer.name}</strong>
-                    {/* Stated, not shown on hover. A touch user has no hover, so
-                        a hover-only affordance would leave the five unlinked
-                        companies indistinguishable from the twenty-seven linked
-                        ones. */}
-                    <span className={local.state}>
-                      {customer.href ? "Official site" : "No public website"}
-                    </span>
-                  </>
-                );
-                return (
-                  <li key={customer.name}>
-                    {customer.href ? (
-                      <a className={local.cardLink} href={customer.href} target="_blank" rel="noopener noreferrer">
-                        {inner}
-                      </a>
-                    ) : (
-                      <div className={local.cardPlain}>{inner}</div>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+        <CustomerExplorer />
       </section>
 
       {/* The scrolling wall sits after the sector grid, not instead of it. The
