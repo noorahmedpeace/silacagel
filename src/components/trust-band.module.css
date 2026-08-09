@@ -1,237 +1,267 @@
 /*
- * Trust band - open metrics row (2026 redesign).
- * The old version was a hairline-divided grid that read like a spreadsheet.
- * This is the premium pattern: no boxes, no table - just huge gradient
- * numerals, strong labels, and air. Intro sits left, metrics flow right,
- * separated only by soft fading accent rules.
+ * The proof register.
+ *
+ * One continuous ruled register rather than six cards or two side-by-side
+ * mini-tables. Both earlier attempts had the same weakness: separate columns
+ * of unequal length end ragged, and the empty field under the shorter one
+ * reads as a mistake rather than as space.
+ *
+ * A single register running the full width fixes that structurally — every row
+ * is the same width, the rules are continuous, and the section ends on a line
+ * instead of on a gap. It also happens to be what a specification sheet or a
+ * certificate register actually looks like, which is the right reference for a
+ * manufacturer; a card grid is the reference for a SaaS product.
+ *
+ * Deliberately no per-item shadows, no lift on hover, no icons, no motion.
+ * Evidence should sit still.
  */
 
 .band {
-  position: relative;
+  container-type: inline-size;
   display: grid;
-  grid-template-columns: minmax(220px, 0.62fr) minmax(0, 2fr);
-  align-items: center;
-  gap: clamp(28px, 4vw, 64px);
-  padding: clamp(36px, 5vw, 64px) clamp(20px, 3vw, 44px);
+  gap: clamp(22px, 2.4vw, 30px);
+  max-width: var(--ds-container-max);
+  margin: 0 auto;
+  padding: clamp(26px, 3.4vw, 46px) clamp(20px, 3vw, 44px);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-hero, 24px);
+  background: var(--ds-surface);
 }
 
-/* Soft top/bottom edge rules ground the band without boxing it in. */
-.band::before,
-.band::after {
-  content: "";
-  position: absolute;
-  left: 4%;
-  right: 4%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--ds-hairline-strong), transparent);
-}
+/* ── Header ───────────────────────────────────────────────────────────────── */
 
-.band::before { top: 0; }
-.band::after { bottom: 0; }
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.head { display: grid; gap: 8px; }
 
 .eyebrow {
-  align-self: flex-start;
-  font-size: var(--ds-eyebrow);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: var(--ds-ls-eyebrow);
-  color: var(--ds-brand-deep);
-  background: var(--ds-brand-soft);
-  border: 1px solid rgba(45, 91, 255, 0.18);
-  border-radius: var(--ds-radius-pill);
-  padding: 6px 12px;
   margin: 0;
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: var(--ds-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow, 0.12em);
+  text-transform: uppercase;
 }
 
 .heading {
   margin: 0;
-  max-width: 12ch;
-  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  max-width: 24ch;
   color: var(--ds-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.1rem + 1.9vw, 2.5rem);
+  line-height: var(--ds-lh-tight, 1.08);
+  letter-spacing: var(--ds-ls-tight, -0.02em);
 }
 
-.grid {
-  margin: 0;
+/* ── Anchor ───────────────────────────────────────────────────────────────── */
+/*
+ * A full-width opening band rather than a tinted box in a column. The box read
+ * as a filled rectangle sitting beside a table; as a band it becomes the
+ * register's first line and gives the founding date the presence it earns —
+ * longevity is the one claim here a trading company cannot manufacture.
+ */
+
+.anchor {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(24px, 3vw, 40px) clamp(20px, 2.6vw, 44px);
-}
-
-.metric {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-left: clamp(14px, 1.6vw, 22px);
-  text-decoration: none;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px 28px;
+  padding: 0 0 clamp(20px, 2.2vw, 26px);
+  border-bottom: 2px solid var(--ds-text);
   color: inherit;
-  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+  text-decoration: none;
 }
 
-/* Fading vertical accent rule - the only "line" in the design. */
-.metric::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 2px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, rgba(45, 91, 255, 0.55), rgba(45, 91, 255, 0.06));
-  transition: background var(--ds-dur-base) var(--ds-ease-out);
+@container (min-width: 640px) {
+  .anchor {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+  }
 }
 
-.metricAccent::before {
-  background: linear-gradient(180deg, rgba(255, 107, 61, 0.7), rgba(255, 107, 61, 0.08));
-}
-
-.value {
-  margin: 0;
-}
-
-.valueNum {
-  display: block;
-  font-family: var(--font-display), var(--font-body);
-  font-size: clamp(1.9rem, 1.3rem + 2.2vw, 2.9rem);
+.anchorValue {
+  color: var(--ds-brand-deep);
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.4rem);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: -0.03em;
-  font-variant-numeric: tabular-nums;
-  color: var(--ds-brand);
-  /* Long stat strings ("ISO 9001:2015") wrap instead of clipping. */
-  overflow-wrap: anywhere;
+  letter-spacing: var(--ds-ls-tight, -0.025em);
+  white-space: nowrap;
 }
 
-.meta {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
+.anchorText { display: grid; gap: 2px; min-width: 0; }
 
-.label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+.anchorLabel {
   color: var(--ds-text);
-  transition: color var(--ds-dur-quick) var(--ds-ease);
+  font-size: 0.95rem;
+  font-weight: 750;
 }
 
-.sub {
+.anchorSub {
+  color: var(--ds-text-muted);
+  font-size: 0.84rem;
+  line-height: var(--ds-lh-snug, 1.45);
+}
+
+.anchorAction {
+  color: var(--ds-brand);
   font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.anchor:hover .anchorAction { text-decoration: underline; }
+
+.anchor:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 4px;
+  border-radius: var(--ds-radius-tight);
+}
+
+/* ── Zones ────────────────────────────────────────────────────────────────── */
+
+.zones { display: grid; gap: clamp(24px, 2.6vw, 34px); }
+
+.zone { display: grid; gap: 2px; }
+
+.zoneHead {
+  display: grid;
+  gap: 3px;
+  margin: 0 0 6px;
+  color: var(--ds-text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@container (min-width: 720px) {
+  .zoneHead {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    gap: 14px;
+  }
+}
+
+/* The distinction that used to live in a footnote nobody read, sitting beside
+   the numbers it qualifies instead of 400px below them. */
+.zoneNote {
   color: var(--ds-text-faint);
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1.4;
+  text-transform: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .metric:hover {
-    transform: translateY(-3px);
-  }
+.rows { display: grid; margin: 0; padding: 0; list-style: none; }
 
-  .metric:hover .label {
-    color: var(--ds-brand);
-  }
+.rows li { border-top: 1px solid var(--ds-hairline); }
+.rows li:last-child { border-bottom: 1px solid var(--ds-hairline); }
 
-  .metric:hover::before {
-    background: linear-gradient(180deg, var(--ds-brand), rgba(45, 91, 255, 0.2));
-  }
+/* ── Row ──────────────────────────────────────────────────────────────────── */
 
-  .metricAccent:hover::before {
-    background: linear-gradient(180deg, var(--ds-accent), rgba(255, 107, 61, 0.22));
-  }
-
-  .metricAccent:hover .label {
-    color: var(--ds-accent-deep);
-  }
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2px;
+  padding: clamp(12px, 1vw, 14px) 2px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color var(--ds-dur-quick) var(--ds-ease-out);
 }
 
-.metric:focus-visible {
-  outline: none;
-  box-shadow: var(--ds-focus-ring);
-  border-radius: 8px;
-}
-
-@media (max-width: 1080px) {
-  .band {
-    grid-template-columns: 1fr;
-    gap: 28px;
-  }
-
-  .heading {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 480px) {
-  .band {
-    padding: 36px 4px;
-  }
-
-  .grid {
-    gap: 22px 16px;
-  }
-
-  .valueNum {
-    /* Audited fix: "ISO 9001:2015" was truncating in the 390px two-up grid.
-     * 7.5vw ≈ 29px at 390px; 20px floor, 31px cap. */
-    font-size: clamp(20px, 7.5vw, 31px);
+/*
+ * Value | label | detail, in three aligned columns across the full width.
+ *
+ * The value column is a fixed fraction rather than `auto`, so every row starts
+ * its label at the same x. An earlier attempt sized it in ch on the parent: ch
+ * resolves against the parent's 16px body font while the value renders in a
+ * bold display face up to 1.6rem, so the column came out far too narrow and
+ * each value overlapped its own label. Because the labels were all still at
+ * the same x, a numeric alignment check reported that as passing — it was only
+ * catchable by looking at the rendered page.
+ */
+@container (min-width: 720px) {
+  .row {
+    /* min-content floor, not a px one: the column can never be narrower than
+       its longest value ("ISO 9001:2015"), so the overlap that a fixed width
+       caused cannot recur, while the fr cap stops it claiming 490px for a
+       four-character figure and stranding the detail column near the far
+       edge. */
+    grid-template-columns:
+      minmax(min-content, 0.55fr)
+      minmax(0, 1fr)
+      minmax(0, 1.45fr);
+    align-items: baseline;
+    gap: 6px 28px;
+    padding-inline: 4px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .metric,
-  .metric::before,
-  .label {
-    transition: none !important;
-  }
+.row:hover { background: var(--ds-surface-tint); }
 
-  .metric:hover {
-    transform: none !important;
-  }
+.row:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: -2px;
+  border-radius: var(--ds-radius-tight);
 }
 
-/* Unconfirmed placeholder tiles: muted + dashed rule so they clearly read as
- * "value to be filled in", never as an invented figure. */
-.metricPlaceholder .valueNum {
-  -webkit-text-fill-color: var(--ds-text-faint);
-  background: none;
-  color: var(--ds-text-faint);
-  font-weight: 600;
+.rowValue {
+  color: var(--ds-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 0.98rem + 0.75vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: var(--ds-ls-tight, -0.02em);
 }
 
-.metricPlaceholder::before {
-  background: repeating-linear-gradient(
-    180deg,
-    var(--ds-hairline-strong) 0 4px,
-    transparent 4px 8px
-  );
+/* Documented facts carry the brand colour; operating figures do not. The
+   colour difference is the hierarchy, so it needs no badge to explain it. */
+.rowDoc .rowValue { color: var(--ds-brand-deep); }
+
+.rowLabel {
+  color: var(--ds-text);
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
 }
 
-/* One qualifier for the whole band: which numbers are documented and which
-   are the operating company's own. Repeating a tag per stat reads defensive. */
+.rowSub {
+  color: var(--ds-text-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+/* Only the document rows carry an action — those two go to a file the reader
+   can open; the figures just go to a page. */
+.rowDoc .rowSub { color: var(--ds-brand); font-weight: 650; }
+.rowDoc:hover .rowSub { text-decoration: underline; }
+
+/* ── Footnote ─────────────────────────────────────────────────────────────── */
+
 .footnote {
-  margin-top: 18px;
-  font-size: 0.78rem;
-  line-height: 1.5;
+  margin: 0;
   color: var(--ds-text-faint);
+  font-size: 0.78rem;
+  line-height: var(--ds-lh-body, 1.6);
 }
 
 .footnote a {
-  color: inherit;
+  color: var(--ds-text-muted);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.footnote a:hover { color: var(--ds-brand); }
+
+/* ── Narrow ───────────────────────────────────────────────────────────────── */
+/*
+ * Not a collapsed desktop table. Each row becomes a small stacked block —
+ * value, then label, then detail — with more vertical padding than desktop,
+ * because a 13px hit target is fine with a mouse and not with a thumb.
+ */
+@container (max-width: 719px) {
+  .row { padding-block: 15px; }
+  .rowValue { margin-bottom: 2px; }
 }
