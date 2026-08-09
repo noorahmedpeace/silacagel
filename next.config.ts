@@ -85,6 +85,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The moisture load calculator is folded into the full silica gel
+      // calculator (9 Aug 2026). GSC showed four of this site's own pages
+      // splitting "silica gel calculator" - moisture-load at 15.6, the
+      // container calculator at 53.2, /tools at 44.7, a blog post at 61.5 -
+      // with zero clicks between them. The old tool's carton-volume function
+      // is the new page's "By carton size" tab, so this redirect points at a
+      // strict superset, never a downgrade.
+      {
+        source: "/tools/moisture-load-calculator",
+        destination: "/tools/silica-gel-calculator",
+        permanent: true,
+      },
       // Apex -> www consolidation (defense-in-depth; Vercel domain config should also enforce).
       {
         source: "/:path*",

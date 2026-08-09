@@ -148,7 +148,7 @@ const navGroups: NavGroup[] = [
       { label: "Customer references", href: "/case-studies", icon: Shield, desc: "Selected silica gel supply references" },
       { label: "All calculators & tools", href: "/tools", icon: Calculator, desc: "Every sizing tool in one place" },
       { label: "Requirement calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", icon: Calculator, desc: "Grams needed by carton L x W x H" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator", icon: Calculator, desc: "Sachet count, weight, and cost by pieces, carton, or kg" },
     ],
   },
 ];

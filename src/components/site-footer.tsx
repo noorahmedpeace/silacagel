@@ -80,7 +80,7 @@ const footerColumns = [
       { label: "All buyer resources", href: "/guides" },
       { label: "All calculators & tools", href: "/tools" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant comparisons", href: "/compare" },
       { label: "Documents (SDS, COA)", href: "/documentation" },

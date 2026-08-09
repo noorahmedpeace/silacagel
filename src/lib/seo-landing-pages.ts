@@ -3219,7 +3219,7 @@ export const seoLandingPages = {
       heading: "Validate packet dosage and documents before ordering",
       parts: [
         { text: "Use the " },
-        { href: "/tools/moisture-load-calculator", label: "carton moisture-load calculator" },
+        { href: "/tools/silica-gel-calculator", label: "silica gel calculator" },
         { text: " as a planning aid, compare packet specifications on the " },
         { href: "/products/retail-sachets", label: "silica gel sachet product page" },
         { text: ", and review available " },
@@ -3236,7 +3236,7 @@ export const seoLandingPages = {
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
       { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Technical documents", href: "/documentation" },
       { label: "Request export quote", href: "/contact" },
     ],

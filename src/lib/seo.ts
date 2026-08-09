@@ -29,7 +29,7 @@ export const googleSiteVerification =
 
 // Used by blog JSON-LD as a fallback datePublished/dateModified.
 // Per-article dates are preferable; tracked in the SEO action plan.
-export const sitemapLastModified = "2026-06-24";
+export const sitemapLastModified = "2026-08-09";
 
 // Rolling ~13-month validity for Product Offer JSON-LD. A hardcoded date
 // silently lapses and Google then flags the offer as expired; deriving it at

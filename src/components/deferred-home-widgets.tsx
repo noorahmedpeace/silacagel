@@ -142,16 +142,6 @@ export function DeferredIndustrySlider({ industries }: { industries: IndustryDat
   );
 }
 
-export function DeferredMoistureCalculator() {
-  return (
-    <LoadWhenVisible
-      label="Loading moisture calculator"
-      loader={() => import("@/components/moisture-calculator").then((mod) => mod.MoistureCalculator)}
-      props={{}}
-      minHeight={WIDGET_MIN_HEIGHTS.moistureCalculator}
-    />
-  );
-}
 
 export function DeferredQuoteForm({
   title,

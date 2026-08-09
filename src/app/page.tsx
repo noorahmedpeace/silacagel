@@ -499,15 +499,15 @@ export default function Home() {
                   heading="Volume & export quote estimator"
                   description="Estimate total weight and share a cleaner procurement request with the export team."
                 />
+                {/* The dedicated calculator is the deeper tool: carton
+                    dimensions, weight targets, the size guide, and the method
+                    written out. This block stays compact and conversion-first;
+                    the link is how a buyer who needs more gets there. */}
                 <p className={styles.calculatorSubHint}>
-                  Need grams per carton instead? Enter length, width, and height in the{" "}
-                  <a
-                    href="/tools/moisture-load-calculator"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    moisture load calculator
-                  </a>
+                  Need grams per carton, a weight target, or the full sachet size guide?{" "}
+                  <Link href="/tools/silica-gel-calculator">
+                    Open the full silica gel calculator
+                  </Link>
                   .
                 </p>
               </div>

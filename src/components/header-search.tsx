@@ -28,7 +28,7 @@ const SEARCH_INDEX: Entry[] = [
   { label: "Flow wrap packing services", href: "/flow-wrap-packing-services", group: "Service", keywords: "pillow pack hffs" },
   { label: "Private label desiccants", href: "/private-label", group: "Service", keywords: "oem branding" },
   { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator", group: "Tool", keywords: "dosage how much sizing" },
-  { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", group: "Tool", keywords: "grams carton" },
+  { label: "Silica gel calculator", href: "/tools/silica-gel-calculator", group: "Tool", keywords: "quantity grams carton sachet how much" },
   { label: "All calculators & tools", href: "/tools", group: "Tool" },
   { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", group: "Guide", keywords: "procurement reference" },
   { label: "Desiccant glossary", href: "/guides/desiccant-glossary", group: "Guide", keywords: "terms definitions" },

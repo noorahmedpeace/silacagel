@@ -14,10 +14,10 @@ const tools = [
       "Size silica gel or clay desiccant by container type, route humidity, and transit time - get a unit count and a prefilled RFQ.",
   },
   {
-    slug: "moisture-load-calculator",
-    title: "Moisture Load Calculator",
+    slug: "silica-gel-calculator",
+    title: "Silica Gel Calculator",
     blurb:
-      "Calculate grams of desiccant needed from carton length, width, and height for sachet-level packaging programs.",
+      "Sachet quantity, total desiccant weight, and indicative order value - from a piece count, a carton size, or a kilogram target.",
   },
 ] as const;
 

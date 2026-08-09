@@ -133,7 +133,7 @@ export default function DesiccantGlossaryPage() {
               <h3>Sizing tools</h3>
               <ul>
                 <li><Link href="/tools/container-desiccant-calculator">Container desiccant calculator</Link></li>
-                <li><Link href="/tools/moisture-load-calculator">Moisture load calculator</Link></li>
+                <li><Link href="/tools/silica-gel-calculator">Silica gel calculator</Link></li>
               </ul>
             </div>
           </div>
