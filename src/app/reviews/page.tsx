@@ -88,31 +88,31 @@ export default function ReviewsPage() {
         </dl>
       </section>
 
-      <section className={styles.section}>
-        <div className={styles.sectionHead}>
-          <h2>Supplied by sector.</h2>
-          <p>
-            A selection of the {totalCustomersSupplied}+ companies we supply. Filter by your own sector or
-            search a name, then open a card to see what we supply into that industry and to visit the
-            company&rsquo;s own site.
-          </p>
-        </div>
-        <CustomerExplorer />
-      </section>
-
-      {/* The scrolling wall sits after the sector grid, not instead of it. The
-          grid is the reference a buyer scans for their own industry; the wall is
-          the impression. Replacing the grid with motion would have made 33
-          companies harder to find, not easier. */}
+      {/* Wall first, then the searchable grid. The wall is the impression — it
+          shows scale in one glance without asking the reader to do anything.
+          The grid is the reference they work with once that lands, so it reads
+          as answer-then-detail rather than detail-then-decoration. Both exist
+          because motion alone would have made 32 companies harder to find. */}
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>The supply wall.</h2>
           <p>
-            The same {total} companies, moving. Hover or focus any card to stop the column and read
-            it; every card with a confirmed website links straight to it.
+            {total} of them, moving. Hover any column to stop it and read a card; every card with a
+            confirmed website links straight to it.
           </p>
         </div>
         <SupplyWall />
+      </section>
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Supplied by sector.</h2>
+          <p>
+            The same list, searchable. Filter by your own sector or search a name, then open a card
+            to see what we supply into that industry and to visit the company&rsquo;s own site.
+          </p>
+        </div>
+        <CustomerExplorer />
       </section>
 
       <section className={styles.section}>
