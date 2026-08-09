@@ -56,7 +56,14 @@
 .toolSection {
   /* Pulled up under the hero. The brief for this page is that the calculator
      is the point, not the prose above it - a negative top margin buys ~36px
-     without touching the shared .hero, which ~30 other strategy pages use. */
+     without touching the shared .hero, which ~30 other strategy pages use.
+     The stacking context is load-bearing and was missing: .hero is
+     position:relative with isolation:isolate, so it painted OVER this
+     statically-positioned section once the negative margin overlapped them,
+     and it clipped the top of the tab labels. Positioning this section puts
+     the tool back on top where it belongs. */
+  position: relative;
+  z-index: 1;
   margin: clamp(-40px, -3vw, -24px) 0 var(--ds-section-py-tight);
   display: grid;
   gap: 14px;
