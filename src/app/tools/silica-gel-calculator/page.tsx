@@ -131,37 +131,37 @@ const factors = [
 
 const applications = [
   {
-    title: "Electronics and PCBs",
+    title: "How much silica gel for electronics packaging?",
     text: "Boards, connectors, and assemblies corrode long before they look wet. Unit-level sachets inside the ESD bag plus a larger pack in the master carton is the usual arrangement.",
     href: "/industries/electronics-packaging",
     anchor: "silica gel for electronics packaging",
   },
   {
-    title: "Leather and footwear",
+    title: "How much silica gel for leather and footwear?",
     text: "Leather grows mould on humid ocean legs. Sachets go in the shoe box and larger packs in the export carton; this is one of Pakistan's highest-volume desiccant uses.",
     href: "/industries/leather-footwear-export",
     anchor: "desiccant for leather and footwear export",
   },
   {
-    title: "Garments and textiles",
+    title: "How much silica gel for garments and textiles?",
     text: "Mildew and musty odour are the failure modes, and both show up on arrival rather than at dispatch. Poly-bagged garments take small sachets; bales take bulk packs.",
     href: "/industries/textile-garment-export",
     anchor: "garment export desiccant",
   },
   {
-    title: "Pharmaceutical packaging",
+    title: "How much desiccant for pharmaceutical packaging?",
     text: "Dosage here is governed by the product's stability data, not by a rule of thumb. Use this calculator for procurement quantities and confirm the specification with your QA team.",
     href: "/industries/pharma-packaging",
     anchor: "pharmaceutical desiccant supply",
   },
   {
-    title: "Machinery and spare parts",
+    title: "How much silica gel for machinery and spare parts?",
     text: "Machined surfaces rust in transit. Larger 100 g to 500 g packs sit alongside the part inside a sealed liner.",
     href: "/industries/automotive-parts",
     anchor: "desiccant for automotive and machined parts",
   },
   {
-    title: "Export cartons and pallets",
+    title: "How much silica gel per export carton or pallet?",
     text: "Palletised freight is where per-carton sachets and container-level desiccants meet. Most exporters use both, sized separately.",
     href: "/bulk-silica-gel-desiccant",
     anchor: "bulk silica gel for export programs",
@@ -461,7 +461,11 @@ export default function SilicaGelCalculatorPage() {
         <div className={shell.grid}>
           {applications.map((a) => (
             <article className={shell.card} key={a.title}>
-              <span>{a.title}</span>
+              {/* A real h3, not a styled span. These are the long-tail
+                  questions buyers actually type - "how much silica gel for
+                  electronics" - so they belong in the heading outline where
+                  both a reader scanning and a crawler parsing will find them. */}
+              <h3 className={styles.appHeading}>{a.title}</h3>
               <p>{a.text}</p>
               <p className={styles.cardLink}>
                 <Link href={a.href}>{a.anchor}</Link>
