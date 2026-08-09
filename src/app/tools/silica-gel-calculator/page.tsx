@@ -22,8 +22,9 @@ import styles from "./calculator-page.module.css";
  * load tool at 15.6, the container calculator at 53.2, /tools at 44.7, and a
  * blog post at 61.5 - with zero clicks between them. "desiccant calculator"
  * split three ways. Adding a fifth page to that fight would have been the worst
- * available move, so this page instead ABSORBS the moisture load tool (301'd
- * here, its carton-volume function folded into the "By carton size" tab) and
+ * available move, so this page instead ABSORBS the moisture load tool (308
+ * redirected here, its carton-volume function folded into the "By carton size"
+ * tab) and
  * leaves the container calculator alone, because container dosage is a
  * genuinely different job with genuinely different physics and it is the site's
  * best-performing tool at position 8.4.

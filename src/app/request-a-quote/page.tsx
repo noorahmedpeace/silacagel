@@ -32,6 +32,9 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
   const product =
     typeof params.product === "string" ? params.product.trim().slice(0, 120) : "";
   const qty = typeof params.qty === "string" ? params.qty.trim().slice(0, 20) : "";
+  // Callers that deal in piece counts (the silica gel calculator) pass
+  // ?unit=pieces. Anything unrecognised falls back to the form default.
+  const unit = params.unit === "pieces" ? "pieces" : "kg";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -109,7 +112,7 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
             Director, factory export desk, Karachi.
           </span>
         </p>
-        <RfqForm defaultProduct={product} defaultQuantity={qty} />
+        <RfqForm defaultProduct={product} defaultQuantity={qty} defaultUnit={unit} />
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">

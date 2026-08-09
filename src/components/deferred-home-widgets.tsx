@@ -111,7 +111,6 @@ function LoadWhenVisible<P extends object>({
 const WIDGET_MIN_HEIGHTS = {
   priceCalculator: 600,
   industrySlider: 640,
-  moistureCalculator: 720,
   quoteForm: 760,
   quoteFormCompact: 520,
   emblaCarousel: 360,

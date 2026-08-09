@@ -35,8 +35,8 @@ import styles from "./silica-gel-calculator.module.css";
  *
  * Every number comes from a shared pure model - price-calculator-model.ts for
  * money and weight, carton-dosage-model.ts for volume - so this page and the
- * homepage calculator and the standalone moisture tool can never disagree.
- * There is no arithmetic in this file that is not a call into one of those.
+ * homepage calculator can never disagree. There is no arithmetic in this file
+ * that is not a call into one of those.
  */
 
 type Mode = "quantity" | "carton" | "weight";
@@ -49,6 +49,9 @@ const MODES: Array<{ id: Mode; label: string; hint: string }> = [
 
 const num = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 const gram = new Intl.NumberFormat("en-US", { maximumFractionDigits: 1 });
+/** For the working-out, where a rounded operand makes the arithmetic look
+ *  wrong. Headline figures keep the friendlier one-decimal form. */
+const exact = new Intl.NumberFormat("en-US", { maximumFractionDigits: 3 });
 
 export function SilicaGelCalculator() {
   const uid = useId();
@@ -124,7 +127,12 @@ export function SilicaGelCalculator() {
   );
 
   const quantityIssue = mode === "quantity" ? estimate.issue : null;
-  const hasResult = estimate.isValid && estimate.quantity > 0;
+  // The active mode's own validation gates the result. Previously a weight of
+  // 500,000 kg raised an alert AND still printed an order value and a live
+  // quote link underneath it - the page contradicting itself.
+  const modeIssue =
+    mode === "carton" ? cartonIssue : mode === "weight" ? weightIssue : quantityIssue;
+  const hasResult = estimate.isValid && estimate.quantity > 0 && !modeIssue;
 
   const unitFmt = unitPriceFormatter(currency.locale, estimate.unitPrice);
   const totalFmt = totalFormatter(currency.locale, estimate.total);
@@ -147,7 +155,9 @@ export function SilicaGelCalculator() {
   // dropped the buyer's whole calculation on the floor.
   const quoteHref =
     hasResult && option
-      ? `/request-a-quote?product=${encodeURIComponent(option.label)}&qty=${encodeURIComponent(`${estimate.quantity} pcs`)}`
+      ? `/request-a-quote?product=${encodeURIComponent(
+          `${option.groupTitle} ${option.label}`,
+        )}&qty=${estimate.quantity}&unit=pieces`
       : "/request-a-quote";
 
   return (
@@ -285,6 +295,7 @@ export function SilicaGelCalculator() {
                 type="number"
                 inputMode="decimal"
                 min="0.1"
+                max="100000"
                 step="any"
                 value={targetKg}
                 onChange={(e) => setTargetKg(e.target.value)}
@@ -402,26 +413,32 @@ export function SilicaGelCalculator() {
                       </li>
                       <li>
                         {cartonResult.cubicFeet.toFixed(3)} ft&sup3; x {GRAMS_PER_CUBIC_FOOT} g/ft&sup3; ={" "}
-                        {gram.format(cartonResult.grams)} g of silica gel
+                        {exact.format(cartonResult.grams)} g of silica gel
                       </li>
                       <li>
-                        {gram.format(cartonResult.grams)} g / {option.grams} g per piece, rounded up
-                        = {num.format(cartonResult.count)} pieces
+                        {/* Full precision on purpose. Rounding this operand for
+                            display made the division look wrong: "10.0 g / 5 g,
+                            rounded up = 3" when the real value was 10.04. */}
+                        {exact.format(cartonResult.grams)} g / {option.grams} g per piece,
+                        rounded up = {num.format(cartonResult.count)}{" "}
+                        {cartonResult.count === 1 ? "piece" : "pieces"}
                       </li>
                     </>
                   ) : null}
                   {mode === "weight" ? (
                     <li>
-                      {targetKg} kg = {num.format(weightResult.totalGrams)} g /{" "}
+                      {targetKg} kg = {exact.format(weightResult.totalGrams)} g /{" "}
                       {option.grams} g per piece, rounded up ={" "}
-                      {num.format(weightResult.count)} pieces
+                      {num.format(weightResult.count)}{" "}
+                      {weightResult.count === 1 ? "piece" : "pieces"}
                       {weightResult.suppliedGrams > weightResult.totalGrams
                         ? ` - which supplies ${gram.format(weightResult.suppliedGrams)} g, ${gram.format(weightResult.suppliedGrams - weightResult.totalGrams)} g above your target`
                         : " - an exact fit"}
                     </li>
                   ) : null}
                   <li>
-                    {num.format(estimate.quantity)} pieces x {option.grams} g ={" "}
+                    {num.format(estimate.quantity)}{" "}
+                    {estimate.quantity === 1 ? "piece" : "pieces"} x {option.grams} g ={" "}
                     {gram.format(estimate.grams)} g total desiccant
                   </li>
                   <li>

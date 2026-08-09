@@ -9,7 +9,10 @@ import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-c
 import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./rfq-form.module.css";
 
-const UNITS = ["kg", "cartons", "pallets", "containers"];
+// "pieces" exists because the calculator quotes sachet counts, not weight.
+// Without it a piece count had to be smuggled into the quantity field and
+// came out of the mailer as "5000 pcs kg".
+const UNITS = ["kg", "pieces", "cartons", "pallets", "containers"];
 const COUNTRIES = [
   "United States", "United Kingdom", "Germany", "UAE", "Saudi Arabia", "Qatar",
   "India", "Canada", "Australia", "Vietnam", "Bangladesh", "Indonesia",
@@ -70,7 +73,17 @@ function sessionId(): string {
   }
 }
 
-export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { defaultProduct?: string; defaultQuantity?: string }) {
+export function RfqForm({
+  defaultProduct = "",
+  defaultQuantity = "",
+  defaultUnit = "kg",
+}: {
+  defaultProduct?: string;
+  defaultQuantity?: string;
+  /** Preselects the unit so a caller sending a piece count is not
+   *  silently reinterpreted as kilograms. */
+  defaultUnit?: string;
+}) {
   const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
   const [error, setError] = useState("");
   const [inquiryId, setInquiryId] = useState("");
@@ -298,7 +311,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
           </label>
           <label className={styles.field}>
             <span>Unit</span>
-            <select name="unit" defaultValue="kg">
+            <select name="unit" defaultValue={defaultUnit}>
               {UNITS.map((u) => (
                 <option key={u} value={u}>{u}</option>
               ))}
