@@ -10,6 +10,7 @@ import {
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { FaqBlock } from "@/components/faq-block";
 import { AdsorptionIsotherm } from "@/components/adsorption-isotherm";
+import { whatsappNumber } from "@/lib/product-data";
 import styles from "./documentation.module.css";
 
 export const metadata: Metadata = {
@@ -27,20 +28,56 @@ function formatDate(iso: string) {
   });
 }
 
-function DocAction({ href, available }: { href: string; available: boolean }) {
-  if (available) {
-    return (
-      <a href={href} className={styles.download} target="_blank" rel="noopener noreferrer">
-        <Download size={16} strokeWidth={2.2} aria-hidden="true" />
-        Download PDF
-      </a>
-    );
-  }
+/**
+ * Actions for one document.
+ *
+ * The "ask" link exists because of a measured behaviour, not a hunch: Clarity
+ * recorded a UAE buyer spending 46 minutes on the site, downloading the SDS and
+ * the COA, and leaving without contacting anyone. Reading a specification IS
+ * the buying question - and until now this page answered it with a download and
+ * nothing else. The link carries the document's own title into WhatsApp, so the
+ * conversation starts with what they were actually reading.
+ *
+ * z-index is load-bearing: the whole card is the download (the Download
+ * anchor's ::after is stretched over it), so this second link has to sit above
+ * that overlay or it would be unclickable.
+ */
+function DocAction({
+  href,
+  available,
+  title,
+}: {
+  href: string;
+  available: boolean;
+  title: string;
+}) {
+  const askHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello DryGelWorld, I have a question about the ${title}.`,
+  )}`;
+
   return (
-    <span className={styles.awaiting}>
-      <Lock size={14} strokeWidth={2.2} aria-hidden="true" />
-      PDF on request
-    </span>
+    <div className={styles.docActions}>
+      {available ? (
+        <a href={href} className={styles.download} target="_blank" rel="noopener noreferrer">
+          <Download size={16} strokeWidth={2.2} aria-hidden="true" />
+          Download PDF
+        </a>
+      ) : (
+        <span className={styles.awaiting}>
+          <Lock size={14} strokeWidth={2.2} aria-hidden="true" />
+          PDF on request
+        </span>
+      )}
+      <a
+        className={styles.docAsk}
+        href={askHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics="whatsapp_click"
+      >
+        Ask about this document
+      </a>
+    </div>
   );
 }
 
@@ -163,7 +200,11 @@ export default function DocumentationPage() {
               </div>
             </dl>
             <div className={styles.certActions}>
-              <DocAction href={isoCertificate.fileHref} available={isoCertificate.fileAvailable} />
+              <DocAction
+                href={isoCertificate.fileHref}
+                available={isoCertificate.fileAvailable}
+                title={`${isoCertificate.standard} certificate`}
+              />
               <Link href="/contact" className={styles.certSecondary}>
                 Request a signed copy
               </Link>
@@ -204,7 +245,7 @@ export default function DocumentationPage() {
                       <span className={styles.docApplies}>Applies to: {doc.appliesTo}</span>
                     ) : null}
                   </div>
-                  <DocAction href={doc.fileHref} available={doc.available} />
+                  <DocAction href={doc.fileHref} available={doc.available} title={doc.title} />
                 </article>
               ))}
             </div>

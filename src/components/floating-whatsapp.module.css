@@ -1,0 +1,115 @@
+/* Site-wide WhatsApp float. Bottom-left, below DryBot (61) and the sticky
+   quote bar (58) so it can never sit on top of either. */
+
+.button {
+  position: fixed;
+  left: max(18px, env(safe-area-inset-left));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 57;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  /* 52px: comfortably past the 44px tap floor, thumb-reachable on a phone. */
+  min-height: 52px;
+  padding: 0 20px 0 16px;
+  border-radius: var(--ds-radius-pill, 999px);
+
+  /* WhatsApp green, darkened until white text clears 4.5:1 - the brand green
+     at full strength does not. */
+  background: #0f7a4f;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: var(--font-display), var(--font-body), system-ui, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+
+  box-shadow:
+    0 14px 32px -12px rgba(15, 122, 79, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition:
+    transform var(--ds-dur-base, 0.22s) var(--ds-ease-out, ease),
+    box-shadow var(--ds-dur-base, 0.22s) var(--ds-ease-out, ease);
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 20px 40px -12px rgba(15, 122, 79, 0.58),
+      inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  }
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.button:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(15, 122, 79, 0.55);
+}
+
+/* Narrow phones: drop to a circle. The label costs ~86px of width, and at
+   320px that is a quarter of the viewport permanently obscured. The
+   aria-label carries the name for anyone who cannot see the icon. */
+@media (max-width: 420px) {
+  .button {
+    left: max(14px, env(safe-area-inset-left));
+    /* Lifted clear of the sticky quote bar's lane. That bar is 44px tall,
+       sits 18px off the bottom and starts at left:12 - the same corner - so at
+       phone widths the two collided on the homepage and product pages
+       (measured, not assumed). Raised on every page rather than only where the
+       bar exists, so the button never moves between pages and a page that
+       gains a sticky bar later cannot reintroduce the collision. */
+    bottom: calc(78px + env(safe-area-inset-bottom));
+    gap: 0;
+    padding: 0;
+    width: 54px;
+    min-height: 54px;
+    justify-content: center;
+  }
+
+  .label {
+    /* Visually gone, still announced. */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .button:hover,
+  .button:active {
+    transform: none;
+  }
+}
+
+/* Nothing floating belongs on paper. */
+@media print {
+  .button {
+    display: none;
+  }
+}
