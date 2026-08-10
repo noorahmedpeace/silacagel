@@ -760,6 +760,11 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Undersizing desiccant quantity or using a retail packet for an industrial moisture problem",
     quoteBasis: "Use case, format, kg or unit count, pallet plan, destination, Incoterms, documents",
     relatedLinks: [
+      // Elected page for the generic "desiccant supplier /
+      // manufacturer" family. GSC showed six of our own pages splitting
+      // that query across positions 3 to 63 for zero clicks; the losers
+      // now hand it their intent with the query as the anchor.
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Moisture absorber manufacturer", href: "/moisture-absorber-supplier" },
@@ -772,7 +777,7 @@ const highIntentSeoLandingPages = {
   }),
   "industrial-desiccant": keywordClusterPage({
     slug: "industrial-desiccant",
-    title: "Industrial Desiccant | Silica Gel for Moisture Control",
+    title: "Industrial Desiccant Types, Grades & Selection Guide",
     metaDescription:
       "Industrial desiccant page for silica gel moisture control in packaging, warehousing, export cartons, bulk supply, cargo containers, SDS, COA, and RFQs.",
     kicker: "Industrial desiccant",
@@ -799,6 +804,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Using the wrong format for the actual moisture location: product pack, carton, warehouse, or container",
     quoteBasis: "Moisture risk, format, quantity, destination, storage time, route, and documents",
     relatedLinks: [
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial supplier", href: "/industrial-desiccant-supplier" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
@@ -4279,7 +4285,7 @@ export const seoLandingPages = {
   },
   "moisture-absorber-supplier": {
     slug: "moisture-absorber-supplier",
-    title: "Moisture Absorber Supplier | Desiccant Manufacturer",
+    title: "Moisture Absorber Supplier | Silica Gel & Clay Packs",
     metaDescription:
       "Moisture absorber supplier, silica gel packets, bulk desiccant, and container strips for packaging, warehouses, and cargo. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA and export RFQs.",
     kicker: "Moisture absorber supplier",
@@ -4342,6 +4348,7 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Container desiccants", href: "/shipping-container-desiccant-supplier" },

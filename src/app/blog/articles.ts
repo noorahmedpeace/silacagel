@@ -1584,9 +1584,15 @@ export const blogArticles: BlogArticle[] = [
     slug: "best-desiccant-for-shipping-containers",
     label: "Container Shipping",
     title: "Best desiccant for shipping containers: a buyer's selection guide",
-    metaTitle: "Best Desiccant for Shipping Containers: How to Choose",
+    // GSC, 13 Jul - 9 Aug: this page sits at position 6.6 for "best shipping
+    // container desiccant suppliers" and took 0 clicks from 20 impressions.
+    // That query wants to know what to buy AND what to demand from a supplier;
+    // "How to Choose" promised only half of it, so buyers scrolled past to a
+    // listicle. The article does carry a procurement checklist section, so
+    // saying "source" is a claim it can keep.
+    metaTitle: "Best Desiccant for Shipping Containers: Choose & Source",
     metaDescription:
-      "Which desiccant protects a shipping container best, silica gel, clay, or calcium chloride? Selection criteria by route, cargo, and transit time.",
+      "Which desiccant protects a shipping container best - silica gel, clay, or calcium chloride? Sizing by route and cargo, plus the checklist to send a supplier.",
     description:
       "How export buyers pick the right desiccant program for 20-foot and 40-foot container shipments. Container-level strips vs carton-level sachets, silica gel vs clay, route-by-route sizing math, and the procurement checklist that prevents moisture-damage claims.",
     readTime: "11 min read",
