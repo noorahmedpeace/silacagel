@@ -166,8 +166,13 @@
 }
 
 .currency select {
-  min-height: 34px;
-  padding: 0 10px;
+  /* 44px, not 34. This is a real control a buyer taps to switch between the
+     PKR and export rates, and it sits inside the block the homepage now leads
+     with - a 34px target is below the tap-size floor the rest of the site
+     holds to. The mono/uppercase treatment is unchanged, so it still reads as
+     a small utility control rather than a primary field. */
+  min-height: 44px;
+  padding: 0 12px;
   border: 1px solid rgba(45, 91, 255, 0.28);
   border-radius: var(--ds-radius-tight);
   background: var(--ds-surface);

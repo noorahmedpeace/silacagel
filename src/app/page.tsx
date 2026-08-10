@@ -11,7 +11,7 @@ import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
-import { PricingFormatPicker } from "@/components/pricing-format-picker";
+import { HomeQuoteEstimator } from "@/components/home-quote-estimator";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
@@ -489,27 +489,16 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* One control, not two. The format list and the calculator used
-                  to render the same 23 options separately - 23 rows each with
-                  its own quote button on one side, a dropdown on the other -
-                  which ran past a thousand pixels and asked the same question
-                  twice. The chips now ARE the calculator's format field. */}
+              {/* Compact by design. The 23-format chip grid that used to live
+                  here ran 600px on desktop and 1,380px on a phone; every one of
+                  those formats is still selectable in the estimator's own
+                  grouped select, and anyone who needs carton or weight-target
+                  maths now has a real route to the full tool. */}
               <div className={styles.calculatorPanel}>
-                <PricingFormatPicker
+                <HomeQuoteEstimator
                   heading="Volume & export quote estimator"
                   description="Estimate total weight and share a cleaner procurement request with the export team."
                 />
-                {/* The dedicated calculator is the deeper tool: carton
-                    dimensions, weight targets, the size guide, and the method
-                    written out. This block stays compact and conversion-first;
-                    the link is how a buyer who needs more gets there. */}
-                <p className={styles.calculatorSubHint}>
-                  Need grams per carton, a weight target, or the full sachet size guide?{" "}
-                  <Link href="/tools/silica-gel-calculator">
-                    Open the full silica gel calculator
-                  </Link>
-                  .
-                </p>
               </div>
             </section>
           </Reveal>
