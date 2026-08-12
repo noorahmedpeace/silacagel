@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Fragment } from "react";
 import Link from "next/link";
 import { comparePages } from "@/lib/compare-data";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
@@ -77,10 +78,10 @@ export default function CompareHub() {
               >
                 <h3 className={styles.matchup}>
                   {products.map((name, i) => (
-                    <span key={name} className={styles.matchupRow}>
+                    <Fragment key={name}>
                       {i > 0 ? <span className={styles.vsGlyph}>vs</span> : null}
-                      <span className={styles.matchupName}>{name}</span>
-                    </span>
+                      {name}
+                    </Fragment>
                   ))}
                 </h3>
                 <p className={styles.cardMeta}>

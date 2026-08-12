@@ -161,6 +161,7 @@ indicator cards are documented per supplied lot.
 ## Long-form authority content
 
 - [Industrial Silica Gel Buyer Guide](${absoluteUrl("/guides/silica-gel-buyer-guide")}): definitive 6000-word reference
+- [Desiccant Quantity Guide](${absoluteUrl("/guides/desiccant-quantity-guide")}): how much desiccant a shipment needs - factors, formats, placement, RFQ checklist
 - [Silica gel vs clay desiccant](${absoluteUrl("/blog/silica-gel-vs-clay-desiccant")}): full comparison
 - [Container rain prevention guide](${absoluteUrl("/blog/container-rain-prevention")}): cargo sweat causes and countermeasures
 - [How to prevent moisture in export cartons](${absoluteUrl("/blog/how-to-prevent-moisture-in-export-cartons")}): carton-level packing method
@@ -190,6 +191,8 @@ indicator cards are documented per supplied lot.
 - [Silica gel vs calcium chloride container desiccant](${absoluteUrl("/compare/silica-gel-vs-calcium-chloride-container-desiccant")}): decision matrix
 - [Desiccant vs VCI for corrosion protection](${absoluteUrl("/compare/desiccant-vs-vci-corrosion-protection")}): decision matrix
 - [Silica gel vs activated carbon](${absoluteUrl("/compare/silica-gel-vs-activated-carbon")}): decision matrix
+- [Silica gel vs clay vs molecular sieve](${absoluteUrl("/compare/silica-gel-vs-clay-vs-molecular-sieve")}): three-way decision matrix
+- [Supplier comparison hub](${absoluteUrl("/compare/suppliers")}): evidence-led DryGelWorld-vs-supplier comparisons
 - [Comparison hub](${absoluteUrl("/compare")}): all desiccant material comparisons
 
 ## Press & media

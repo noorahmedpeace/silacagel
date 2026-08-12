@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, authorJsonLd, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { seoImages } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
@@ -111,7 +111,7 @@ const rfqChecklist: string[] = [
   "Container type and count - 20ft, 40ft, or 40ft high-cube, and how many per month",
   "Cargo description - what it is, and whether it is hygroscopic (textiles, leather, paper, food, wood)",
   "Packaging - cartons on pallets, shrink-wrapped, or loose; carton count if sachets are in scope",
-  "Pallets and dunnage - plastic, kiln-dried (ISPM 15 HT) wood, or air-dried/unknown wood",
+  "Pallets and dunnage - plastic, verified kiln-dried wood, or air-dried/HT-only/unknown wood (an ISPM 15 HT stamp certifies pest treatment, not dryness)",
   "Route and season - origin port, destination port, and sailing months",
   "Expected transit duration door-to-door, including inland legs and port dwell",
   "Any buyer specification - DIN 55473 units, a named desiccant type, or a documentation requirement (SDS, COA, DMF-free statement)",
@@ -127,7 +127,7 @@ const mistakes: { title: string; detail: string }[] = [
   {
     title: "Ignoring the pallets",
     detail:
-      "The cargo was dry, the container still rained - because the air-dried pallets carried litres of water in with them. Specify kiln-dried (ISPM 15 HT) wood or dose for the wood you actually use.",
+      "The cargo was dry, the container still rained - because the air-dried pallets carried litres of water in with them. Specify verified kiln-dried wood (an ISPM 15 HT stamp alone certifies pest treatment, not dryness) or dose for the wood you actually use.",
   },
   {
     title: "Placing all desiccant in one spot",
@@ -158,7 +158,7 @@ const faqs = [
   },
   {
     q: "How much desiccant does a 20ft or 40ft container need as a starting point?",
-    a: "As a planning band - not a guarantee - DryGelWorld's published guidance runs roughly 1.5-3 kg for a 20ft container and 3-6 kg for a 40ft, with the low end for short, dry routes and inert cargo and the high end for long tropical routes and hygroscopic cargo. The container desiccant calculator adjusts within these bands for your specific inputs.",
+    a: "As a planning band - not a guarantee - DryGelWorld's published guidance runs roughly 1.5-3 kg for a 20ft container and 3-6 kg for a 40ft, with the low end for short, dry routes and inert cargo and the high end for long tropical routes and hygroscopic cargo. Undried pallet wood or voyages near the 50-day mark can push the estimate past the top of the band; when the calculator says more, order more.",
   },
   {
     q: "What is the difference between hanging strips, bags, and sachets?",
@@ -212,14 +212,10 @@ export default function DesiccantQuantityGuidePage() {
         inLanguage: "en",
         articleSection: "Buyer Guide",
         image: absoluteUrl(GUIDE_IMAGE.src),
-        author: author
-          ? {
-              "@type": "Organization",
-              "@id": `${absoluteUrl(`/authors/${author.slug}`)}#author`,
-              name: author.name,
-              url: absoluteUrl(`/authors/${author.slug}`),
-            }
-          : undefined,
+        // authorJsonLd emits the canonical Person node for noor-ahmed-khan
+        // (isPerson: true) - a hand-rolled Organization here would contradict
+        // the same #author @id emitted by /authors, /blog, and /compare.
+        author: author ? authorJsonLd(author) : undefined,
         publisher: {
           "@type": "Organization",
           name: siteName,
@@ -336,7 +332,8 @@ export default function DesiccantQuantityGuidePage() {
             working capacity (~300 g of water per kg for container-grade silica gel) and round up.
             As planning bands, that lands at roughly 1.5-3 kg for a 20ft container and 3-6 kg for a
             40ft - low end for short dry routes with inert cargo, high end for long tropical routes
-            with hygroscopic cargo. The{" "}
+            with hygroscopic cargo, and above the band when undried wood or a near-50-day voyage
+            stacks the load. The{" "}
             <Link className={styles.textLink} href="/tools/container-desiccant-calculator">
               container desiccant calculator
             </Link>{" "}
@@ -542,7 +539,7 @@ export default function DesiccantQuantityGuidePage() {
       <script
         type="application/ld+json"
         suppressHydrationWarning
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
     </main>
   );

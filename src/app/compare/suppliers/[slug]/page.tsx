@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { absoluteUrl, breadcrumbJsonLd, compactMetaDescription, siteName } from "@/lib/seo";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  compactMetaDescription,
+  compactMetaTitle,
+} from "@/lib/seo";
 import { getSupplierComparison, supplierComparisons } from "@/lib/supplier-compare-data";
+import { seoImages } from "@/lib/seo-images";
 import styles from "../supplier-compare.module.css";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -15,12 +21,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const comparison = getSupplierComparison(slug);
   if (!comparison) return {};
-  const title = `DryGelWorld vs ${comparison.name} | Supplier Comparison`;
+  // Long supplier names ("Trade Link / Silica Gel Manufacturer") push the
+  // suffixed title past the 60-char SERP limit - append it only when it fits,
+  // same guard as /compare/[slug].
+  const baseTitle = `DryGelWorld vs ${comparison.name}`;
+  const title =
+    `${baseTitle} | Supplier Comparison`.length <= 60
+      ? `${baseTitle} | Supplier Comparison`
+      : compactMetaTitle(baseTitle);
+  const description = compactMetaDescription(comparison.summary);
   return {
     title,
-    description: compactMetaDescription(comparison.summary),
+    description,
     alternates: { canonical: `/compare/suppliers/${slug}` },
-    openGraph: { title, description: comparison.summary, url: `/compare/suppliers/${slug}`, type: "article" },
+    // openGraph replaces the layout's block wholesale (shallow merge), so
+    // images must be re-declared here or the page ships with no og:image.
+    openGraph: {
+      title,
+      description,
+      url: `/compare/suppliers/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: seoImages.defaultOg.src,
+          width: seoImages.defaultOg.width,
+          height: seoImages.defaultOg.height,
+          alt: seoImages.defaultOg.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [seoImages.defaultOg.src],
+    },
   };
 }
 
@@ -52,7 +87,7 @@ export default async function SupplierComparePage({ params }: Props) {
         </header>
 
         <section className={styles.section}>
-          <h2>Side-by-side buyer comparison</h2>
+          <h2 className={styles.sectionTitle}>Side-by-side buyer comparison</h2>
           <div className={styles.matrixWrap} tabIndex={0} role="group" aria-label="Supplier comparison table, scrollable">
             <table className={styles.matrix}>
               <thead>
@@ -109,7 +144,9 @@ export default async function SupplierComparePage({ params }: Props) {
             description: comparison.summary,
             url: absoluteUrl(`/compare/suppliers/${slug}`),
             articleSection: "Supplier comparison",
-            publisher: { "@type": "Organization", name: siteName, url: absoluteUrl() },
+            // Reference the canonical Organization node from the root layout
+            // (it carries the logo Google requires for Article rich results).
+            publisher: { "@id": `${absoluteUrl()}#organization` },
             mainEntityOfPage: absoluteUrl(`/compare/suppliers/${slug}`),
             citation: comparison.url,
             breadcrumb: breadcrumbJsonLd([
@@ -118,7 +155,9 @@ export default async function SupplierComparePage({ params }: Props) {
               { name: "Supplier comparisons", href: "/compare/suppliers" },
               { name: comparison.name, href: `/compare/suppliers/${slug}` },
             ]),
-          }),
+            // The scrub prevents a "</script>" inside any data string from
+            // terminating the inline JSON-LD block (json-ld guide + repo precedent).
+          }).replace(/</g, "\\u003c"),
         }}
       />
     </main>

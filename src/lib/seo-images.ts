@@ -410,6 +410,9 @@ export function getIndustrySeoImage(slug: string) {
 }
 
 export function getCompareSeoImage(slug: string) {
+  // The three-way page must not inherit the two-way silica-vs-clay artwork -
+  // its caption names only two materials, contradicting a three-product page.
+  if (slug === "silica-gel-vs-clay-vs-molecular-sieve") return seoImages.desiccantSizing;
   if (slug.includes("clay")) return seoImages.silicaGelVsClay;
   if (slug.includes("molecular-sieve")) return seoImages.silicaGelVsMolecularSieve;
   if (slug.includes("oxygen-absorber")) return seoImages.silicaGelVsOxygenAbsorber;

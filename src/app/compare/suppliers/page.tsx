@@ -1,14 +1,40 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { seoImages } from "@/lib/seo-images";
 import { supplierComparisons } from "@/lib/supplier-compare-data";
 import styles from "./supplier-compare.module.css";
 
+const pageTitle = `Silica Gel Supplier Comparisons | ${siteName}`;
+const pageDescription =
+  "Evidence-led comparisons of DryGelWorld with major silica gel, desiccant, specialty chemical, and container moisture-control suppliers.";
+
 export const metadata: Metadata = {
-  title: `Silica Gel Supplier Comparisons | ${siteName}`,
-  description:
-    "Evidence-led comparisons of DryGelWorld with major silica gel, desiccant, specialty chemical, and container moisture-control suppliers.",
+  title: pageTitle,
+  description: pageDescription,
   alternates: { canonical: "/compare/suppliers" },
+  // Without an openGraph block this page inherits the homepage og:title -
+  // shared links would tell a different story than the <title>.
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: "/compare/suppliers",
+    type: "website",
+    images: [
+      {
+        url: seoImages.defaultOg.src,
+        width: seoImages.defaultOg.width,
+        height: seoImages.defaultOg.height,
+        alt: seoImages.defaultOg.alt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: [seoImages.defaultOg.src],
+  },
 };
 
 export default function SupplierCompareHub() {
@@ -62,7 +88,7 @@ export default function SupplierCompareHub() {
       </section>
 
       <section className={styles.section}>
-        <h2>What this comparison is designed to answer</h2>
+        <h2 className={styles.sectionTitle}>What this comparison is designed to answer</h2>
         <p className={styles.intro}>
           Which supplier is a better fit for your format, quantity, destination, documentation,
           and moisture-risk profile? Use the detailed pages to separate direct competitors from
@@ -110,7 +136,7 @@ export default function SupplierCompareHub() {
                 { name: "Supplier comparisons", href: "/compare/suppliers" },
               ]),
             ],
-          }),
+          }).replace(/</g, "\\u003c"),
         }}
       />
     </main>

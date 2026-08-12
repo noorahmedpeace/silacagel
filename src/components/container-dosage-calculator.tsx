@@ -22,15 +22,24 @@ import {
 
 const PRINT_CLASS = "dosage-plan-printing";
 
+// Hoisted formatters: constructing Intl.NumberFormat is expensive, and
+// formatNumber runs ~12 times per render - once per pixel while the transit
+// slider is being dragged.
+const NUMBER_FORMATTERS = [0, 1, 2].map(
+  (digits) => new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }),
+);
+
 function formatNumber(value: number, digits = 1): string {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }).format(value);
+  return (NUMBER_FORMATTERS[digits] ?? NUMBER_FORMATTERS[1]).format(value);
 }
 
 export function ContainerDosageCalculator() {
   const [container, setContainer] = useState<ContainerId>("40ft");
   const [cargo, setCargo] = useState<CargoId>("mixed");
   const [packaging, setPackaging] = useState<PackagingId>("cartons");
-  const [wood, setWood] = useState<WoodId>("dry-wood");
+  // Defaults to "none" so the out-of-the-box output matches the model's own
+  // default and the published planning bands; wood is an explicit selection.
+  const [wood, setWood] = useState<WoodId>("none");
   const [days, setDays] = useState(25);
   const [climate, setClimate] = useState<ClimateId>("mixed-seasonal");
   const defaultClimate = CLIMATES.find((c) => c.id === "mixed-seasonal")!;
@@ -60,24 +69,27 @@ export function ContainerDosageCalculator() {
   // contact directory.
   const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
 
-  const planLines = [
-    `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,
-    `Cargo: ${cargoOption.label}`,
-    `Packaging: ${packagingOption.label}`,
-    `Pallets / wood: ${woodOption.label}`,
-    `Transit: ${days} days, ${climateOption.shortLabel} route (${rh}% RH, ${tempC} C at loading)`,
-    `Estimated moisture load: ~${formatNumber(result.litres, 2)} litres of water`,
-    `Recommended dosage: ${result.recommendedKg} kg (${result.stripCount} x ${result.stripUnitKg} kg - ${result.stripFormat})`,
-    `Risk level: ${result.risk.label} - ${result.risk.explanation}`,
-  ];
-
-  const mailtoHref = `mailto:${exportEmail}?subject=${encodeURIComponent(
-    `Container desiccant dosage plan - ${result.containerLabel}`,
-  )}&body=${encodeURIComponent(
-    `Hello DryGelWorld,\n\nPlease quote the following container desiccant plan:\n\n${planLines.join(
-      "\n",
-    )}\n\nGenerated with the DryGelWorld container desiccant calculator:\nhttps://www.drygelworld.com/tools/container-desiccant-calculator\n`,
-  )}`;
+  // Memoized: the ~1KB URL-encoded plan is only read on an "Email this plan"
+  // click, so rebuilding it on every slider tick was pure waste.
+  const mailtoHref = useMemo(() => {
+    const planLines = [
+      `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,
+      `Cargo: ${cargoOption.label}`,
+      `Packaging: ${packagingOption.label}`,
+      `Pallets / wood: ${woodOption.label}`,
+      `Transit: ${days} days, ${climateOption.shortLabel} route (${rh}% RH, ${tempC} C at loading)`,
+      `Estimated moisture load: ~${formatNumber(result.litres, 2)} litres of water`,
+      `Recommended dosage: ${result.recommendedKg} kg (${result.stripCount} x ${result.stripUnitKg} kg - ${result.stripFormat})`,
+      `Risk level: ${result.risk.label} - ${result.risk.explanation}`,
+    ];
+    return `mailto:${exportEmail}?subject=${encodeURIComponent(
+      `Container desiccant dosage plan - ${result.containerLabel}`,
+    )}&body=${encodeURIComponent(
+      `Hello DryGelWorld,\n\nPlease quote the following container desiccant plan:\n\n${planLines.join(
+        "\n",
+      )}\n\nGenerated with the DryGelWorld container desiccant calculator:\nhttps://www.drygelworld.com/tools/container-desiccant-calculator\n`,
+    )}`;
+  }, [result, cargoOption, packagingOption, woodOption, climateOption, days, rh, tempC]);
 
   const handlePrint = useCallback(() => {
     document.body.classList.add(PRINT_CLASS);
@@ -316,7 +328,9 @@ export function ContainerDosageCalculator() {
               </ol>
               <p className={styles.mathNote}>
                 Calibrated to DryGelWorld&apos;s published loading guidance: ~1.5-3 kg per 20ft and
-                ~3-6 kg per 40ft depending on route length, humidity, and cargo risk.
+                ~3-6 kg per 40ft depending on route length, humidity, and cargo risk. Undried
+                pallet wood and very long tropical voyages can push past the top of the band -
+                when they do, trust the per-shipment estimate, not the band.
               </p>
             </div>
           </details>

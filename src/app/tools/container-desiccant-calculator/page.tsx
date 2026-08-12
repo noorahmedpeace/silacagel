@@ -55,11 +55,11 @@ const faqs = [
   },
   {
     q: "How does this calculator estimate the moisture load?",
-    a: "It computes the water vapor sealed into the container's free air at loading (volume x packaging air factor x absolute humidity from temperature and RH), adds daily humid-air leakage through the door seals over the voyage (~0.6% of container volume per day), applies a cargo factor for moisture-releasing goods, and divides the total grams of water by silica gel's ~300 g/kg working capacity to get desiccant kg.",
+    a: "It computes the water vapor sealed into the container's free air at loading (volume x packaging air factor x absolute humidity from temperature and RH), adds daily humid-air leakage through the door seals over the voyage (~0.6% of container volume per day), applies factors for moisture-releasing cargo and for pallet/dunnage wood, and divides the total grams of water by silica gel's ~300 g/kg working capacity to get desiccant kg.",
   },
   {
     q: "Do wooden pallets change how much desiccant I need?",
-    a: "Yes. Wood carries its own moisture into the sealed container and releases it as the box heats - undried pallets and dunnage are the classic cause of container rain on loads that were otherwise dry. The calculator applies a planning surcharge for kiln-dried (ISPM 15 heat-treated) pallets and a larger one for air-dried or unknown-moisture wood; plastic pallets or floor-loaded cargo add nothing.",
+    a: "Yes. Wood carries its own moisture into the sealed container and releases it as the box heats - undried pallets and dunnage are the classic cause of container rain on loads that were otherwise dry. The calculator applies a planning surcharge for verified kiln-dried pallets and a larger one for air-dried, HT-only, or unknown-moisture wood; plastic pallets or floor-loaded cargo add nothing. Note that an ISPM 15 'HT' stamp certifies heat treatment against pests, not dryness.",
   },
   {
     q: "Which format should I use - hanging strips, bags, or sachets?",
@@ -151,12 +151,12 @@ export default function ContainerDosageCalculatorPage() {
         "@type": "HowTo",
         name: "How to calculate container desiccant dosage",
         description:
-          "Estimate the desiccant kg for a shipping container from its size, cargo type, packaging, transit duration, and route humidity.",
+          "Estimate the desiccant kg for a shipping container from its size, cargo type, packaging, pallet wood, transit duration, and route humidity.",
         step: [
           { "@type": "HowToStep", name: "Select container type", text: "Choose 20ft standard, 40ft standard, or 40ft high-cube." },
           { "@type": "HowToStep", name: "Set cargo type", text: "Non-hygroscopic (metal, plastic, glass), mixed, or hygroscopic (textiles, leather, paper, wood, food)." },
           { "@type": "HowToStep", name: "Set packaging", text: "Cartons on pallets, shrink-wrapped, or loose - this sets the exposed air volume." },
-          { "@type": "HowToStep", name: "Set pallet / wood presence", text: "No wood, kiln-dried (ISPM 15 HT) pallets, or air-dried/unknown wood - wood moisture raises the load." },
+          { "@type": "HowToStep", name: "Set pallet / wood presence", text: "No wood, verified kiln-dried pallets, or air-dried/HT-only/unknown wood - wood moisture raises the load." },
           { "@type": "HowToStep", name: "Set transit duration", text: "Slide between 7 and 90 days for your route." },
           { "@type": "HowToStep", name: "Set route climate", text: "Dry/temperate, mixed/seasonal, or tropical/humid - then fine-tune the loading RH and temperature." },
           { "@type": "HowToStep", name: "Read the dosage", text: "Use the recommended kg, strip count, moisture load in litres, and risk level to plan your RFQ - and expand 'Show the math' to see every step." },

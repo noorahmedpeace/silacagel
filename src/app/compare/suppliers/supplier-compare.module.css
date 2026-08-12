@@ -10,9 +10,7 @@
   margin-bottom: 48px;
 }
 
-.kicker,
-.meta,
-.confidence {
+.kicker {
   color: var(--ds-brand-deep);
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -41,7 +39,10 @@
  * inherited transparent text fill so the word reads in accent ink on its
  * own highlighter stroke. */
 .hl {
-  padding: 0 0.18em;
+  padding: 0 0.14em;
+  /* Tuck the sentence period back against the highlighted word - the
+   * marker's own side padding otherwise reads as "RFQ ." */
+  margin-right: -0.1em;
   border-radius: 0.16em;
   background: linear-gradient(115deg, rgba(255, 107, 61, 0.3), rgba(255, 107, 61, 0.14));
   -webkit-background-clip: border-box;
@@ -72,8 +73,7 @@
 }
 
 .hero p,
-.intro,
-.note {
+.intro {
   color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.7;
@@ -85,9 +85,11 @@
   color: var(--muted);
 }
 
-.sourceNote a,
-.card a,
-.footer a {
+/* Scoped to the source note only. The old `.card a, .footer a` grouping
+ * outranked `.button` (element selector adds specificity) and painted the
+ * gradient CTA's text brand-blue with an underline - and neither container
+ * has any other anchor to style. */
+.sourceNote a {
   color: var(--ds-brand-deep);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -177,8 +179,16 @@
   text-transform: uppercase;
 }
 
-.card:hover .evidenceTag {
+.card:hover .evidenceTag,
+.card:focus-visible .evidenceTag {
   transform: rotate(0deg);
+}
+
+/* "high" is the blue base treatment - declared explicitly so the
+ * styles[`evidence_${confidence}`] lookup never interpolates undefined
+ * into the class attribute. */
+.evidence_high {
+  border-color: var(--ds-brand);
 }
 
 .evidence_medium {
@@ -274,21 +284,22 @@
   .card:focus-visible {
     transform: none;
   }
+
+  .card:hover .ctaArrow,
+  .card:focus-visible .ctaArrow {
+    transform: none;
+  }
 }
 
 .section {
   margin-top: 56px;
 }
 
+/* One heading mechanism: the class, applied to every section h2 - the
+ * parallel `.section h2` descendant rule differed only by 2px of margin
+ * and guaranteed the two would drift apart. */
 .sectionTitle {
   margin: 0 0 16px;
-  font-family: var(--font-display);
-  font-size: 2rem;
-  letter-spacing: -0.02em;
-}
-
-.section h2 {
-  margin: 0 0 14px;
   font-family: var(--font-display);
   font-size: 2rem;
   letter-spacing: -0.02em;
@@ -417,10 +428,6 @@
   .grid,
   .calloutGrid {
     grid-template-columns: 1fr;
-  }
-
-  .card {
-    min-height: 0;
   }
 
   .footer {

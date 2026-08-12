@@ -100,13 +100,13 @@ export const WOOD_TYPES = [
   },
   {
     id: "dry-wood",
-    label: "Kiln-dried / heat-treated pallets (ISPM 15 HT)",
+    label: "Kiln-dried pallets (verified dry wood)",
     factor: 1.05,
-    note: "Dried wood still re-absorbs ambient humidity before loading and releases part of it in transit.",
+    note: "Even kiln-dried wood re-absorbs ambient humidity before loading and releases part of it in transit. Note: an ISPM 15 'HT' stamp certifies heat treatment against pests, not low moisture content - HT-only wood belongs in the next option.",
   },
   {
     id: "wet-wood",
-    label: "Air-dried or unknown-moisture wood",
+    label: "Air-dried, HT-only, or unknown-moisture wood",
     factor: 1.15,
     note: "Undried pallets and dunnage are a major hidden moisture source - the classic cause of 'container rain' on loads that were otherwise dry.",
   },

@@ -177,7 +177,9 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                       ? page.productB
                       : decision.recommended === "c"
                         ? page.productC
-                        : "Both"}
+                        : page.productC
+                          ? `${page.productA} + ${page.productB}`
+                          : "Both"}
                 </div>
                 <div className={styles.decisionNote}>{decision.note}</div>
               </article>

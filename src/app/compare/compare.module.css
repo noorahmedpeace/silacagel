@@ -180,7 +180,6 @@
   background: #f3efff;
   color: #5b21b6;
   box-shadow: 3px 3px 0 rgba(124, 58, 237, 0.2);
-  transform: rotate(-2deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -459,11 +458,13 @@
   .decisionNote,
   .faqItem p,
   .ctaSection p,
-  .hubCard p,
   .howList {
     font-size: var(--ds-body);
     line-height: var(--ds-lh-body);
   }
+  /* .hubCard p deliberately NOT in the group above: the card's meta line
+   * (.cardMeta, mono 0.74rem) and clamped blurb set their own scale, and
+   * the element selector would outrank both single-class rules. */
   .heroVisual {
     margin-bottom: 30px;
     border-radius: var(--ds-radius-card);
@@ -477,8 +478,7 @@
   }
   .kicker,
   .label,
-  .decisionPick,
-  .cardLabel {
+  .decisionPick {
     letter-spacing: 0.08em;
   }
   .introCard,
@@ -580,10 +580,6 @@
   line-height: 1.35;
   letter-spacing: -0.015em;
   color: var(--ink);
-}
-
-.matchupRow {
-  display: inline;
 }
 
 .vsGlyph {
@@ -693,11 +689,9 @@
     color: var(--ds-brand-deep);
   }
 
-  .hubCard:hover {
-    transform: translateY(-4px);
-    border-color: var(--ds-brand);
-    box-shadow: var(--ds-shadow-card);
-  }
+  /* .hubCard's hover lives with its base rule higher up; the old override
+   * here (later in source, equal specificity) was silently replacing it
+   * and dropping the --ds-ring-top inset the resting card carries. */
 
   .introCard:hover {
     transform: translateY(-4px);
