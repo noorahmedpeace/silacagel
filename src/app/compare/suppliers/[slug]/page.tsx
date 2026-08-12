@@ -41,7 +41,9 @@ export default async function SupplierComparePage({ params }: Props) {
               {comparison.confidence} evidence
             </span>
           </div>
-          <h1>DryGelWorld vs {comparison.name}</h1>
+          <h1>
+            DryGelWorld <span className={styles.vsBig}>vs</span> {comparison.name}
+          </h1>
           <p>{comparison.summary}</p>
           <p className={styles.sourceNote}>
             Public source: <a href={comparison.url} target="_blank" rel="noreferrer">{comparison.url}</a>

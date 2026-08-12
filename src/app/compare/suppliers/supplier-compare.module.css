@@ -25,8 +25,50 @@
   margin: 12px 0 16px;
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4.6rem);
-  line-height: 0.98;
+  line-height: 1.05;
   letter-spacing: -0.03em;
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* background-clip:text paints only inside the padding box; reserve room
+   * so g/p/y descenders don't render cut off. */
+  padding-bottom: 0.12em;
+  margin-bottom: calc(16px - 0.12em);
+}
+
+/* Marker-highlight for the one word the page is really about. Resets the
+ * inherited transparent text fill so the word reads in accent ink on its
+ * own highlighter stroke. */
+.hl {
+  padding: 0 0.18em;
+  border-radius: 0.16em;
+  background: linear-gradient(115deg, rgba(255, 107, 61, 0.3), rgba(255, 107, 61, 0.14));
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: var(--ds-accent-on-light);
+  color: var(--ds-accent-on-light);
+}
+
+/* The "vs" badge inside the matchup headline - a die-cut sticker sized to
+ * the display type, the same language as the card and evidence stickers. */
+.vsBig {
+  display: inline-block;
+  margin: 0 0.14em;
+  padding: 0.22em 0.5em;
+  border: 2px solid var(--ds-brand);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  box-shadow: 3px 3px 0 rgba(45, 91, 255, 0.2);
+  transform: rotate(-3deg);
+  vertical-align: 0.32em;
+  font-family: var(--font-mono);
+  font-size: 0.26em;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: var(--ds-brand-deep);
+  color: var(--ds-brand-deep);
 }
 
 .hero p,

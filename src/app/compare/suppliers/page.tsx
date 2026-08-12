@@ -16,7 +16,9 @@ export default function SupplierCompareHub() {
     <main className={styles.page}>
       <header className={styles.hero}>
         <span className={styles.kicker}>Supplier comparison hub</span>
-        <h1>Compare silica gel suppliers before you place the RFQ.</h1>
+        <h1>
+          Compare silica gel suppliers before you place the <mark className={styles.hl}>RFQ</mark>.
+        </h1>
         <p>
           A practical comparison of product scope, documentation, export workflow, container
           expertise, and public evidence. No supplier is best for every application; use the
