@@ -54,29 +54,60 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 20px;
+}
+
+.heroTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
 }
 
 .card {
+  position: relative;
   display: flex;
-  min-height: 280px;
   flex-direction: column;
   gap: 12px;
-  padding: 24px;
+  padding: 24px 26px;
   border: 1px solid var(--ds-hairline);
   border-radius: var(--ds-radius-card);
-  background: #fff;
-  box-shadow: var(--ds-shadow-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  overflow: hidden;
   color: inherit;
   text-decoration: none;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+/* Top accent hairline that draws in on hover - same move as the product
+ * comparison hub, so the two hubs read as one family. */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ds-brand) 0%, var(--ds-brand-deep) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .card:hover,
 .card:focus-visible {
   transform: translateY(-3px);
-  border-color: rgba(45, 91, 255, 0.45);
-  box-shadow: var(--ds-shadow-card);
+  border-color: rgba(45, 91, 255, 0.35);
+  box-shadow: var(--ds-shadow-card), var(--ds-ring-top);
+}
+
+.card:hover::before,
+.card:focus-visible::before {
+  transform: scaleX(1);
 }
 
 .card:focus-visible {
@@ -84,18 +115,85 @@
   outline-offset: 3px;
 }
 
-.card h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.22rem;
-  line-height: 1.2;
+/* Die-cut evidence sticker - carries the real per-supplier audit state
+ * (high / medium / limited) from the data, straightens on hover. */
+.evidenceTag {
+  align-self: flex-start;
+  display: inline-flex;
+  padding: 4px 11px;
+  border: 2px solid var(--ds-brand);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  box-shadow: 2.5px 2.5px 0 rgba(45, 91, 255, 0.2);
+  transform: rotate(-2deg);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
-.card p {
+.card:hover .evidenceTag {
+  transform: rotate(0deg);
+}
+
+.evidence_medium {
+  border-color: #d97706;
+  background: #fdf1e0;
+  color: #92400e;
+  box-shadow: 2.5px 2.5px 0 rgba(217, 119, 6, 0.2);
+  transform: rotate(1.6deg);
+}
+
+.evidence_limited {
+  border-color: var(--ds-accent);
+  background: #fff4ef;
+  color: var(--ds-accent-on-light);
+  box-shadow: 2.5px 2.5px 0 rgba(255, 107, 61, 0.22);
+  transform: rotate(1.6deg);
+}
+
+.matchup {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.vsGlyph {
+  margin: 0 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ds-brand);
+}
+
+.cardMeta {
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ds-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.blurb {
   margin: 0;
   color: var(--muted);
   font-size: 0.93rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .card strong {
@@ -104,9 +202,36 @@
 
 .cardCta {
   margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   color: var(--ds-brand-deep);
   font-size: 0.9rem;
   font-weight: 700;
+}
+
+.ctaArrow {
+  display: inline-block;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.card:hover .ctaArrow,
+.card:focus-visible .ctaArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .evidenceTag,
+  .ctaArrow {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    transform: none;
+  }
 }
 
 .section {

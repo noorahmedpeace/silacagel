@@ -34,11 +34,26 @@ export default function SupplierCompareHub() {
         <div className={styles.grid}>
           {supplierComparisons.map((comparison) => (
             <Link key={comparison.slug} href={`/compare/suppliers/${comparison.slug}`} className={styles.card}>
-              <span className={styles.meta}>{comparison.region} | {comparison.category}</span>
-              <h2>DryGelWorld vs {comparison.name}</h2>
-              <p><strong>Best for:</strong> {comparison.bestFor}</p>
-              <p>{comparison.summary}</p>
-              <span className={styles.cardCta}>Open comparison -&gt;</span>
+              <span
+                className={`${styles.evidenceTag} ${styles[`evidence_${comparison.confidence}`]}`}
+              >
+                {comparison.confidence} evidence
+              </span>
+              <h3 className={styles.matchup}>
+                DryGelWorld <span className={styles.vsGlyph}>vs</span> {comparison.name}
+              </h3>
+              <p className={styles.cardMeta}>
+                {comparison.region} · {comparison.category}
+              </p>
+              <p className={styles.blurb}>
+                <strong>Best for:</strong> {comparison.bestFor}
+              </p>
+              <span className={styles.cardCta}>
+                Open comparison
+                <span className={styles.ctaArrow} aria-hidden="true">
+                  →
+                </span>
+              </span>
             </Link>
           ))}
         </div>

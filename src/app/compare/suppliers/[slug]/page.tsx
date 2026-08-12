@@ -33,7 +33,14 @@ export default async function SupplierComparePage({ params }: Props) {
     <main className={styles.page}>
       <article>
         <header className={styles.hero}>
-          <span className={styles.kicker}>Supplier comparison | {comparison.confidence} evidence</span>
+          <div className={styles.heroTags}>
+            <span className={styles.kicker}>Supplier comparison</span>
+            <span
+              className={`${styles.evidenceTag} ${styles[`evidence_${comparison.confidence}`]}`}
+            >
+              {comparison.confidence} evidence
+            </span>
+          </div>
           <h1>DryGelWorld vs {comparison.name}</h1>
           <p>{comparison.summary}</p>
           <p className={styles.sourceNote}>
