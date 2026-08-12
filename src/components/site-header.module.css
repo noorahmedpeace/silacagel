@@ -706,6 +706,20 @@
   transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
 }
 
+/* Scrolls the panel content when a tall menu (Resources has 15 entries)
+ * would run past the viewport. The scroll lives on this inner wrapper, not
+ * on .dropdown itself, so the ::before hover-bridge below is never clipped
+ * by the overflow. 180px ≈ utility bar + header + panel offset + margin. */
+.dropdownScroll {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-height: calc(100vh - 180px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
 /* invisible bridge so the cursor can travel from trigger to panel */
 .dropdown::before {
   content: "";

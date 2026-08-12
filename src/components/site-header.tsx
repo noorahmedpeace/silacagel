@@ -293,6 +293,7 @@ export function SiteHeader() {
                     aria-label={group.label}
                     style={{ borderTopColor: group.accent }}
                   >
+                    <div className={styles.dropdownScroll}>
                     <div className={styles.dropdownHead}>
                       <span
                         className={styles.dropdownHeadIcon}
@@ -354,6 +355,7 @@ export function SiteHeader() {
                         </div>
                       </div>
                     ) : null}
+                    </div>
                   </div>
                 </div>
               );
