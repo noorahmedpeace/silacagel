@@ -228,15 +228,21 @@
   line-height: var(--ds-lh-body);
 }
 
+/* Rubber-stamp treatment: the risk verdict should feel like an inspector
+ * stamped the plan, not like another pill in the UI. Color per level comes
+ * from the risk_* classes below. */
 .riskBadge {
   display: inline-block;
   margin-top: 14px;
-  padding: 6px 16px;
-  border-radius: var(--ds-radius-pill);
+  padding: 7px 16px;
+  border: 2px dashed currentColor;
+  border-radius: 10px;
+  font-family: var(--font-mono);
   font-size: var(--ds-small);
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  transform: rotate(-1.6deg);
 }
 
 .risk_low {

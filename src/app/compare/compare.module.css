@@ -32,13 +32,17 @@
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 4vw, 3.2rem);
   font-weight: 700;
-  line-height: 1.05;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--ink);
   background: var(--ds-grad-heading);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* background-clip:text only paints inside the padding box; without this
+   * reserve the descenders of g/p/y fall outside it and render cut off. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
 }
 
 .description {
@@ -120,6 +124,13 @@
   }
 }
 
+/* Three-way pages: third intro card gets its own column on wide screens. */
+@media (min-width: 960px) {
+  .introGridThree {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
 .introCard {
   padding: 24px 26px;
   border: 1px solid var(--ds-hairline);
@@ -132,19 +143,50 @@
     box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
+/* Option tags as die-cut stickers - color-matched to the decision-matrix
+ * pick chips so "Option B" and a B recommendation read as the same thing. */
 .label {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 5px 12px;
   margin-bottom: 12px;
-  border: 1px solid rgba(45, 91, 255, 0.18);
+  border: 2px solid var(--ds-brand);
   border-radius: var(--ds-radius-pill);
   background: var(--ds-brand-soft);
   color: var(--ds-brand-deep);
+  box-shadow: 3px 3px 0 rgba(45, 91, 255, 0.2);
+  transform: rotate(-2deg);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+.introCard:hover .label {
+  transform: rotate(0deg);
+}
+
+.labelB {
+  border-color: #d97706;
+  background: #fdf1e0;
+  color: #92400e;
+  box-shadow: 3px 3px 0 rgba(217, 119, 6, 0.2);
+  transform: rotate(1.6deg);
+}
+
+.labelC {
+  border-color: #7c3aed;
+  background: #f3efff;
+  color: #5b21b6;
+  box-shadow: 3px 3px 0 rgba(124, 58, 237, 0.2);
+  transform: rotate(-2deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .label {
+    transition: none;
+  }
 }
 
 .introCard h2 {
@@ -236,8 +278,10 @@
 .decisionPick {
   align-self: start;
   display: inline-flex;
-  padding: 6px 12px;
+  padding: 5px 12px;
+  border: 2px solid currentColor;
   border-radius: var(--ds-radius-pill);
+  box-shadow: 2px 2px 0 rgba(10, 14, 23, 0.1);
   font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
@@ -253,6 +297,11 @@
 .pick_b {
   background: rgba(217, 119, 6, 0.12);
   color: #92400e;
+}
+
+.pick_c {
+  background: rgba(124, 58, 237, 0.12);
+  color: #5b21b6;
 }
 
 .pick_both {
@@ -461,25 +510,27 @@
 .hubGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 20px;
   margin-top: 8px;
 }
 
 @media (min-width: 760px) {
   .hubGrid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
 }
 
 .hubCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 26px 28px;
+  padding: 24px 26px;
   border: 1px solid var(--ds-hairline);
   border-radius: var(--ds-radius-card);
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: var(--ds-shadow-soft);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  overflow: hidden;
   transition:
     transform var(--ds-dur-base) var(--ds-ease-out),
     border-color var(--ds-dur-base) var(--ds-ease-out),
@@ -487,40 +538,134 @@
   color: inherit;
 }
 
-.cardLabel {
-  align-self: flex-start;
-  padding: 4px 10px;
-  border: 1px solid rgba(45, 91, 255, 0.18);
-  border-radius: var(--ds-radius-pill);
-  background: var(--ds-brand-soft);
-  color: var(--ds-brand-deep);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+/* Top accent hairline that draws in on hover - the only moving flourish. */
+.hubCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ds-brand) 0%, var(--ds-brand-deep) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.hubCard h3 {
+.hubCard:hover,
+.hubCard:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(45, 91, 255, 0.35);
+  box-shadow: var(--ds-shadow-card), var(--ds-ring-top);
+}
+
+.hubCard:hover::before,
+.hubCard:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.hubCard:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* The matchup lockup IS the headline - product names stacked, a small
+ * mono "vs" marking each opponent. Replaces the old pill + h3 pair that
+ * said the same thing twice. */
+.matchup {
+  display: block;
   font-family: var(--font-display);
-  font-size: 1.1rem;
   font-weight: 700;
-  line-height: 1.25;
-  color: var(--ink);
+  font-size: 1.15rem;
+  line-height: 1.35;
   letter-spacing: -0.015em;
+  color: var(--ink);
 }
 
-.hubCard p {
+.matchupRow {
+  display: inline;
+}
+
+.vsGlyph {
+  display: inline;
+  margin: 0 8px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ds-brand);
+}
+
+.cardMeta {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.cardBlurb {
   color: var(--muted);
   font-size: 0.92rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .cardCta {
   margin-top: auto;
-  color: var(--ds-brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ds-brand-deep);
   font-weight: 700;
   font-size: 0.9rem;
+}
+
+.ctaArrow {
+  display: inline-block;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.hubCard:hover .ctaArrow,
+.hubCard:focus-visible .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* Three-way comparisons get a wider, tinted card - real hierarchy for the
+ * page that compares more, and the one background variation in the grid. */
+@media (min-width: 1024px) {
+  .hubCardWide {
+    grid-column: span 2;
+  }
+}
+
+.hubCardWide {
+  background: linear-gradient(180deg, #ffffff 0%, var(--ds-surface-tint) 100%);
+  border-color: rgba(45, 91, 255, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hubCard,
+  .hubCard::before,
+  .ctaArrow {
+    transition: none;
+  }
+
+  .hubCard:hover,
+  .hubCard:focus-visible {
+    transform: none;
+  }
+
+  .hubCard:hover .ctaArrow,
+  .hubCard:focus-visible .ctaArrow {
+    transform: none;
+  }
 }
 
 .howList {

@@ -63,16 +63,51 @@ export default function CompareHub() {
           not the long-form educational angle the blog covers.
         </p>
         <div className={styles.hubGrid}>
-          {comparePages.map((page) => (
-            <Link key={page.slug} href={`/compare/${page.slug}`} className={styles.hubCard}>
-              <span className={styles.cardLabel}>
-                {page.productA} vs {page.productB}
-              </span>
-              <h3>{page.h1}</h3>
-              <p>{page.description}</p>
-              <span className={styles.cardCta}>Open comparison →</span>
-            </Link>
-          ))}
+          {comparePages.map((page) => {
+            const products = [
+              page.productA,
+              page.productB,
+              ...(page.productC ? [page.productC] : []),
+            ];
+            return (
+              <Link
+                key={page.slug}
+                href={`/compare/${page.slug}`}
+                className={`${styles.hubCard} ${page.productC ? styles.hubCardWide : ""}`}
+              >
+                <h3 className={styles.matchup}>
+                  {products.map((name, i) => (
+                    <span key={name} className={styles.matchupRow}>
+                      {i > 0 ? <span className={styles.vsGlyph}>vs</span> : null}
+                      <span className={styles.matchupName}>{name}</span>
+                    </span>
+                  ))}
+                </h3>
+                <p className={styles.cardMeta}>
+                  {page.criteria.length} criteria · {page.decisions.length} buyer scenarios
+                </p>
+                <p className={styles.cardBlurb}>{page.description}</p>
+                <span className={styles.cardCta}>
+                  Open comparison
+                  <span className={styles.ctaArrow} aria-hidden="true">
+                    →
+                  </span>
+                </span>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className={styles.ctaSection}>
+        <h2>Compare suppliers, not just materials</h2>
+        <p>
+          See how DryGelWorld compares with major silica gel, specialty chemical, and container
+          moisture-control suppliers on format range, documents, export workflow, and public
+          technical evidence.
+        </p>
+        <div className={styles.ctaRow}>
+          <Link href="/compare/suppliers" className={styles.primaryCta}>Compare suppliers</Link>
         </div>
       </section>
 
@@ -154,7 +189,7 @@ export default function CompareHub() {
                 itemListElement: comparePages.map((page, index) => ({
                   "@type": "ListItem",
                   position: index + 1,
-                  name: `${page.productA} vs ${page.productB}`,
+                  name: `${page.productA} vs ${page.productB}${page.productC ? ` vs ${page.productC}` : ""}`,
                   url: absoluteUrl(`/compare/${page.slug}`),
                 })),
               },

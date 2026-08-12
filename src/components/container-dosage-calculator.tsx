@@ -11,11 +11,13 @@ import {
   MAX_DAYS,
   MIN_DAYS,
   PACKAGING_TYPES,
+  WOOD_TYPES,
   computeDosage,
   type CargoId,
   type ClimateId,
   type ContainerId,
   type PackagingId,
+  type WoodId,
 } from "./container-dosage-model";
 
 const PRINT_CLASS = "dosage-plan-printing";
@@ -28,6 +30,7 @@ export function ContainerDosageCalculator() {
   const [container, setContainer] = useState<ContainerId>("40ft");
   const [cargo, setCargo] = useState<CargoId>("mixed");
   const [packaging, setPackaging] = useState<PackagingId>("cartons");
+  const [wood, setWood] = useState<WoodId>("dry-wood");
   const [days, setDays] = useState(25);
   const [climate, setClimate] = useState<ClimateId>("mixed-seasonal");
   const defaultClimate = CLIMATES.find((c) => c.id === "mixed-seasonal")!;
@@ -44,13 +47,14 @@ export function ContainerDosageCalculator() {
   };
 
   const result = useMemo(
-    () => computeDosage({ container, cargo, packaging, days, rhPercent: rh, tempC }),
-    [container, cargo, packaging, days, rh, tempC],
+    () => computeDosage({ container, cargo, packaging, wood, days, rhPercent: rh, tempC }),
+    [container, cargo, packaging, wood, days, rh, tempC],
   );
 
   const climateOption = CLIMATES.find((c) => c.id === climate)!;
   const cargoOption = CARGO_TYPES.find((c) => c.id === cargo)!;
   const packagingOption = PACKAGING_TYPES.find((p) => p.id === packaging)!;
+  const woodOption = WOOD_TYPES.find((w) => w.id === wood)!;
 
   // Highest-intent click on the site → the RFQ engine (prefilled), not the
   // contact directory.
@@ -60,6 +64,7 @@ export function ContainerDosageCalculator() {
     `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,
     `Cargo: ${cargoOption.label}`,
     `Packaging: ${packagingOption.label}`,
+    `Pallets / wood: ${woodOption.label}`,
     `Transit: ${days} days, ${climateOption.shortLabel} route (${rh}% RH, ${tempC} C at loading)`,
     `Estimated moisture load: ~${formatNumber(result.litres, 2)} litres of water`,
     `Recommended dosage: ${result.recommendedKg} kg (${result.stripCount} x ${result.stripUnitKg} kg - ${result.stripFormat})`,
@@ -91,8 +96,8 @@ export function ContainerDosageCalculator() {
           <p className={styles.kicker}>Free buyer tool</p>
           <h2>Container Desiccant Calculator</h2>
           <p className={styles.sub}>
-            Estimate the desiccant kg your container needs from its size, cargo, packaging, transit
-            time, and route climate - with the full formula shown, not a black box.
+            Estimate the desiccant kg your container needs from its size, cargo, packaging, pallets,
+            transit time, and route climate - with the full formula shown, not a black box.
           </p>
         </div>
 
@@ -140,6 +145,22 @@ export function ContainerDosageCalculator() {
               {PACKAGING_TYPES.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="cdc-wood">Pallets / wood dunnage</label>
+            <select
+              id="cdc-wood"
+              className={styles.select}
+              value={wood}
+              onChange={(e) => setWood(e.target.value as WoodId)}
+            >
+              {WOOD_TYPES.map((w) => (
+                <option key={w.id} value={w.id}>
+                  {w.label}
                 </option>
               ))}
             </select>
@@ -258,7 +279,7 @@ export function ContainerDosageCalculator() {
             <div className={styles.mathBody}>
               <p>
                 <strong>Formula:</strong> desiccant kg = [ (V<sub>air</sub> × AH) + (0.6% × V × AH ×
-                days) ] × cargo factor ÷ 300 g/kg
+                days) ] × cargo factor × wood factor ÷ 300 g/kg
               </p>
               <ol>
                 <li>
@@ -275,8 +296,12 @@ export function ContainerDosageCalculator() {
                   <strong>{formatNumber(result.ingressWaterG, 0)} g</strong>.
                 </li>
                 <li>
-                  <strong>Cargo moisture.</strong> {cargoOption.note} Factor: ×{result.cargoFactor} →
-                  total load <strong>{formatNumber(result.totalWaterG, 0)} g</strong> (~
+                  <strong>Cargo moisture.</strong> {cargoOption.note} Factor: ×{result.cargoFactor}.
+                </li>
+                <li>
+                  <strong>Pallet / wood moisture.</strong> {woodOption.note} Factor: ×
+                  {result.woodFactor} → total load{" "}
+                  <strong>{formatNumber(result.totalWaterG, 0)} g</strong> (~
                   {formatNumber(result.litres, 2)} litres).
                 </li>
                 <li>
@@ -339,6 +364,10 @@ export function ContainerDosageCalculator() {
               <td>{packagingOption.label}</td>
             </tr>
             <tr>
+              <th scope="row">Pallets / wood</th>
+              <td>{woodOption.label}</td>
+            </tr>
+            <tr>
               <th scope="row">Transit</th>
               <td>
                 {days} days, {climateOption.shortLabel} route ({rh}% RH, {tempC}°C at loading)
@@ -369,7 +398,8 @@ export function ContainerDosageCalculator() {
         </table>
         <p className={styles.printMeta}>
           Formula: [(container volume × packaging air factor × absolute humidity) + (0.6% air exchange
-          × volume × absolute humidity × days)] × cargo factor ÷ 300 g/kg silica gel working capacity.
+          × volume × absolute humidity × days)] × cargo factor × wood factor ÷ 300 g/kg silica gel
+          working capacity.
           Planning estimate only - confirm final dosage with the DryGelWorld export desk ({exportEmail}).
         </p>
       </div>

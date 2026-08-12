@@ -13,6 +13,7 @@ import {
 import { exportMarkets } from "./export/markets";
 import { blogArticles, getArticlePublication } from "./blog/articles";
 import { comparePages } from "@/lib/compare-data";
+import { supplierComparisons } from "@/lib/supplier-compare-data";
 import { caseStudies } from "@/lib/case-study-data";
 
 // Industry slugs are mirrored from src/app/industries/[industry]/page.tsx - keep both in sync.
@@ -79,9 +80,11 @@ const STATIC_ROUTES = [
   "/export",
   "/drygelworld",
   "/compare",
+  "/compare/suppliers",
   "/guides",
   "/guides/silica-gel-buyer-guide",
   "/guides/desiccant-glossary",
+  "/guides/desiccant-quantity-guide",
   "/media-kit",
   "/industries",
   "/tools",
@@ -103,6 +106,7 @@ const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]
     seoImages.silicaGelVsOxygenAbsorber.src,
   ],
   "/guides/silica-gel-buyer-guide": [seoImages.buyerGuideProcess.src],
+  "/guides/desiccant-quantity-guide": [seoImages.containerHumidityDamage.src],
   "/case-studies": [seoImages.moistureProtection.src],
   "/bulk-sales": [seoImages.industrialBulk.src],
   "/private-label": [seoImages.privateLabelPackaging.src],
@@ -211,6 +215,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
       images: sitemapImages([image.src]),
+    });
+  }
+
+  for (const comparison of supplierComparisons) {
+    entries.push({
+      url: absoluteUrl(`/compare/suppliers/${comparison.slug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+      images: sitemapImages([seoImages.defaultOg.src]),
     });
   }
 

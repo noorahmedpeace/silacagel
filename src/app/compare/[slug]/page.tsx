@@ -29,10 +29,13 @@ export async function generateMetadata({ params }: ComparePageProps): Promise<Me
   const { slug } = await params;
   const page = getComparePage(slug);
   if (!page) return {};
-  const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
+  const pairName = page.productC
+    ? `${page.productA} vs ${page.productB} vs ${page.productC}`
+    : `${page.productA} vs ${page.productB}`;
+  const heroImage = withPageImageContext(getCompareSeoImage(slug), pairName);
   // Long product-pair names previously produced titles up to ~96 chars that
   // truncated in the SERP; only append the suffix when the whole title fits.
-  const baseTitle = `${page.productA} vs ${page.productB}`;
+  const baseTitle = pairName;
   const metaTitle =
     page.metaTitle ??
     (`${baseTitle} | Buyer Comparison`.length <= 60
@@ -75,7 +78,10 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
   if (!page) notFound();
 
   const author = getAuthor(defaultAuthorSlug);
-  const heroImage = withPageImageContext(getCompareSeoImage(slug), `${page.productA} vs ${page.productB}`);
+  const pairName = page.productC
+    ? `${page.productA} vs ${page.productB} vs ${page.productC}`
+    : `${page.productA} vs ${page.productB}`;
+  const heroImage = withPageImageContext(getCompareSeoImage(slug), pairName);
 
   return (
     <main className={styles.page}>
@@ -108,17 +114,24 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
         </figure>
 
         <section className={styles.section}>
-          <div className={styles.introGrid}>
+          <div className={`${styles.introGrid} ${page.productC ? styles.introGridThree : ""}`}>
             <article className={styles.introCard}>
               <span className={styles.label}>Option A</span>
               <h2>{page.productA}</h2>
               <p>{page.introA}</p>
             </article>
             <article className={styles.introCard}>
-              <span className={styles.label}>Option B</span>
+              <span className={`${styles.label} ${styles.labelB}`}>Option B</span>
               <h2>{page.productB}</h2>
               <p>{page.introB}</p>
             </article>
+            {page.productC ? (
+              <article className={styles.introCard}>
+                <span className={`${styles.label} ${styles.labelC}`}>Option C</span>
+                <h2>{page.productC}</h2>
+                <p>{page.introC}</p>
+              </article>
+            ) : null}
           </div>
         </section>
 
@@ -131,6 +144,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                   <th>Criterion</th>
                   <th>{page.productA}</th>
                   <th>{page.productB}</th>
+                  {page.productC ? <th>{page.productC}</th> : null}
                 </tr>
               </thead>
               <tbody>
@@ -139,6 +153,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                     <td className={styles.rowLabel}>{row.label}</td>
                     <td>{row.a}</td>
                     <td>{row.b}</td>
+                    {page.productC ? <td>{row.c}</td> : null}
                   </tr>
                 ))}
               </tbody>
@@ -160,7 +175,9 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                     ? page.productA
                     : decision.recommended === "b"
                       ? page.productB
-                      : "Both"}
+                      : decision.recommended === "c"
+                        ? page.productC
+                        : "Both"}
                 </div>
                 <div className={styles.decisionNote}>{decision.note}</div>
               </article>
@@ -250,7 +267,7 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
               breadcrumbJsonLd([
                 { name: "Home", href: "/" },
                 { name: "Compare", href: "/compare" },
-                { name: `${page.productA} vs ${page.productB}`, href: `/compare/${slug}` },
+                { name: pairName, href: `/compare/${slug}` },
               ]),
             ],
           }),

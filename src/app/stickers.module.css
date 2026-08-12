@@ -1,0 +1,114 @@
+/* Die-cut "sticker" chips for the buyer-tool pages (quantity guide,
+ * calculator). The look: bold 2px border, soft fill from the token
+ * palette, a hard offset shadow like a sticker lifted off the page, and
+ * a light tilt that straightens on hover. Playful, but every sticker
+ * carries a true, load-bearing claim - never decoration-only text. */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-top: 18px;
+}
+
+.sticker {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border: 2px solid var(--ink);
+  border-radius: var(--ds-radius-pill);
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  box-shadow: 3px 3px 0 rgba(10, 14, 23, 0.14);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.tiltL {
+  transform: rotate(-2deg);
+}
+
+.tiltR {
+  transform: rotate(1.6deg);
+}
+
+.sticker:hover {
+  transform: rotate(0deg);
+}
+
+.brand {
+  border-color: var(--ds-brand);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  box-shadow: 3px 3px 0 rgba(45, 91, 255, 0.22);
+}
+
+.accent {
+  border-color: var(--ds-accent);
+  background: #fff4ef;
+  color: var(--ds-accent-on-light);
+  box-shadow: 3px 3px 0 rgba(255, 107, 61, 0.24);
+}
+
+/* Rubber-stamp: dashed border, tilted, for the one honesty caveat a page
+ * must not let the reader scroll past. Max one per page. */
+.stamp {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 8px 16px;
+  border: 2px dashed var(--ds-accent);
+  border-radius: 10px;
+  background: #fff4ef;
+  color: var(--ds-accent-on-light);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transform: rotate(-1.6deg);
+}
+
+/* Checklist with die-cut tick chips instead of default bullets. */
+.checkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.checkList li {
+  position: relative;
+  padding-left: 36px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.checkList li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 23px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--ds-brand);
+  border-radius: 7px;
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-size: 0.78rem;
+  font-weight: 800;
+  transform: rotate(-4deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker {
+    transition: none;
+  }
+}

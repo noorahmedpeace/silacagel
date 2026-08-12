@@ -86,10 +86,37 @@ export const CLIMATES = [
   },
 ] as const;
 
+// Wood carries its own moisture into the box: freshly sawn pallets and dunnage
+// can hold well above 20% moisture content and release it as the container
+// heats, which is why fumigated/kiln-dried (ISPM 15 "HT") wood is the exporter
+// default. Factors are planning multipliers in the same calibrated spirit as
+// CARGO_TYPES - not laboratory measurements.
+export const WOOD_TYPES = [
+  {
+    id: "none",
+    label: "No pallets or wood dunnage",
+    factor: 1.0,
+    note: "Plastic pallets, slip sheets, or floor-loaded cargo add no wood moisture.",
+  },
+  {
+    id: "dry-wood",
+    label: "Kiln-dried / heat-treated pallets (ISPM 15 HT)",
+    factor: 1.05,
+    note: "Dried wood still re-absorbs ambient humidity before loading and releases part of it in transit.",
+  },
+  {
+    id: "wet-wood",
+    label: "Air-dried or unknown-moisture wood",
+    factor: 1.15,
+    note: "Undried pallets and dunnage are a major hidden moisture source - the classic cause of 'container rain' on loads that were otherwise dry.",
+  },
+] as const;
+
 export type ContainerId = (typeof CONTAINERS)[number]["id"];
 export type CargoId = (typeof CARGO_TYPES)[number]["id"];
 export type PackagingId = (typeof PACKAGING_TYPES)[number]["id"];
 export type ClimateId = (typeof CLIMATES)[number]["id"];
+export type WoodId = (typeof WOOD_TYPES)[number]["id"];
 
 /** Effective daily air exchange of a sound, sealed dry box (fraction of container volume per day). */
 export const AIR_EXCHANGE_PER_DAY = 0.006;
@@ -115,6 +142,8 @@ export interface DosageInput {
   container: ContainerId;
   cargo: CargoId;
   packaging: PackagingId;
+  /** Pallet / wood dunnage presence. Optional so existing callers keep the old behavior (no wood surcharge). */
+  wood?: WoodId;
   days: number;
   rhPercent: number;
   tempC: number;
@@ -130,6 +159,7 @@ export interface DosageResult {
   airWaterG: number;
   ingressWaterG: number;
   cargoFactor: number;
+  woodFactor: number;
   totalWaterG: number;
   litres: number;
   exactKg: number;
@@ -170,6 +200,7 @@ export function computeDosage(input: DosageInput): DosageResult {
   const container = CONTAINERS.find((c) => c.id === input.container) ?? CONTAINERS[1];
   const cargo = CARGO_TYPES.find((c) => c.id === input.cargo) ?? CARGO_TYPES[1];
   const packaging = PACKAGING_TYPES.find((p) => p.id === input.packaging) ?? PACKAGING_TYPES[0];
+  const wood = WOOD_TYPES.find((w) => w.id === input.wood) ?? WOOD_TYPES[0];
 
   const days = Math.min(Math.max(input.days, MIN_DAYS), MAX_DAYS);
   const rh = Math.min(Math.max(input.rhPercent, 30), 100);
@@ -178,7 +209,7 @@ export function computeDosage(input: DosageInput): DosageResult {
   const absoluteHumidityGm3 = saturationVaporDensity(tempC) * (rh / 100);
   const airWaterG = container.volumeM3 * packaging.airFraction * absoluteHumidityGm3;
   const ingressWaterG = AIR_EXCHANGE_PER_DAY * container.volumeM3 * absoluteHumidityGm3 * days;
-  const totalWaterG = (airWaterG + ingressWaterG) * cargo.factor;
+  const totalWaterG = (airWaterG + ingressWaterG) * cargo.factor * wood.factor;
 
   const exactKg = totalWaterG / WORKING_CAPACITY_G_PER_KG;
   const recommendedKg = Math.max(1, Math.ceil(exactKg * 2) / 2);
@@ -211,6 +242,7 @@ export function computeDosage(input: DosageInput): DosageResult {
     airWaterG,
     ingressWaterG,
     cargoFactor: cargo.factor,
+    woodFactor: wood.factor,
     totalWaterG,
     litres: totalWaterG / 1000,
     exactKg,

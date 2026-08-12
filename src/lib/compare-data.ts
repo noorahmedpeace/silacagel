@@ -8,11 +8,13 @@ export type CompareCriterion = {
   label: string;
   a: string;
   b: string;
+  /** Third column value - only for three-way pages (productC set). */
+  c?: string;
 };
 
 export type CompareDecision = {
   scenario: string;
-  recommended: "a" | "b" | "both";
+  recommended: "a" | "b" | "c" | "both";
   note: string;
 };
 
@@ -20,6 +22,9 @@ export type ComparePage = {
   slug: string;
   productA: string;
   productB: string;
+  /** Optional third product - turns the page into a three-way comparison.
+   *  When set, every criterion must carry a `c` value. */
+  productC?: string;
   /** Hand-written SERP title for pairs whose productA/productB names run past
    *  60 chars combined - the auto-built title truncated to an ellipsis. */
   metaTitle?: string;
@@ -27,6 +32,7 @@ export type ComparePage = {
   description: string;
   introA: string;
   introB: string;
+  introC?: string;
   criteria: CompareCriterion[];
   decisions: CompareDecision[];
   faqs: { q: string; a: string }[];
@@ -764,6 +770,73 @@ export const comparePages: ComparePage[] = [
     ],
     relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
     relatedProduct: "/products/bulk-industrial",
+  },
+  {
+    slug: "silica-gel-vs-clay-vs-molecular-sieve",
+    productA: "Silica Gel",
+    productB: "Dry Clay Desiccant",
+    productC: "Molecular Sieve",
+    metaTitle: "Silica Gel vs Clay vs Molecular Sieve: Comparison",
+    h1: "Silica gel vs clay vs molecular sieve: three-way buyer comparison",
+    description:
+      "Three-way procurement comparison of silica gel, dry clay desiccant, and molecular sieve - adsorption behavior, RH suitability, formats, dust and handling, packaging compatibility, documentation, and cost factors. Which desiccant fits which application, and why no single material is always best.",
+    introA:
+      "Silica gel (silicon dioxide) is the general-purpose standard: ~30-35% adsorption capacity by weight, effective across the broad 30-90% RH range packaging actually sees, regenerable at 120-150°C, low-dust bead formats, and the widest sachet/strip format range. Default choice for pharma, electronics, leather, and container shipping.",
+    introB:
+      "Dry clay desiccant (montmorillonite/bentonite) is the cost-tier mineral option: up to ~25% capacity, working ceiling around 50°C, typically single-use, and 20-35% cheaper per kg than silica gel. Strongest where volume is high and the cargo is not moisture-critical - bulk container loadings and warehouse stock.",
+    introC:
+      "Molecular sieve is a synthetic zeolite (3A/4A/5A/13X) with engineered pore sizes that adsorbs water even at very low partial pressures, reaching below 1% RH where silica gel equilibrates around 30% RH. It costs 2-4× silica gel and regenerates only at 200-300°C. Specified where a process demands deep dryness - not for general cargo protection.",
+    criteria: [
+      { label: "Water adsorption capacity (by weight)", a: "30-35%", b: "Up to 25%", c: "Up to 22%" },
+      { label: "Lowest achievable humidity", a: "~30% RH equilibrium", b: "~40% RH equilibrium", c: "<1% RH" },
+      { label: "Best working RH range", a: "Broad 30-90% RH", b: "Moderate RH, ambient temperature", c: "Very low RH / deep-drying duty" },
+      { label: "Working temperature ceiling", a: "Up to 150°C", b: "~50°C", c: "Stable well above 200°C" },
+      { label: "Regenerable", a: "Yes (120-150°C, 2-4h)", b: "Limited - single-use is standard", c: "Yes (200-300°C - industrial ovens)" },
+      { label: "Particle / format options", a: "Beads 0.5-1 mm and 2-4 mm; sachets, strips, bulk", b: "Granules; sachets, strips, bulk paper bags", c: "Beads or pellets 1.6-3.2 mm typical; bulk or cartridge" },
+      { label: "Dust and handling", a: "Low-dust beads; standard handling", b: "Higher fines/dust than beaded gel; fine for industrial stows", c: "Low-dust beads; avoid moisture exposure before use - it loads instantly" },
+      { label: "Packaging compatibility", a: "Paper, Tyvek, and film sachets; carton and container use", b: "Breathable sachets and bags; container and warehouse use", c: "Sealed systems, cartridges, IG spacer frames - rarely open packaging" },
+      { label: "Cost per kg of material", a: "Reference", b: "20-35% lower than silica gel", c: "2-4× silica gel" },
+      { label: "Typical buyer documentation", a: "SDS + COA per shipment; DMF-free statement", b: "SDS + COA per shipment", c: "SDS + COA; grade certificates from specialist producers" },
+      { label: "In the DryGelWorld catalog", a: "Yes - ISO 9001:2015 manufacture", b: "Yes - ISO 9001:2015 manufacture", c: "No - sourced from specialist zeolite producers" },
+    ],
+    decisions: [
+      { scenario: "Container shipping (general export cargo)", recommended: "a", note: "Silica gel strips - capacity and RH range match voyage conditions; sieve's deep-dry endpoint adds cost without benefit here." },
+      { scenario: "Bulk container loadings, cost-sensitive industrial cargo", recommended: "b", note: "Clay - the 20-35% material saving matters at container scale and ambient temperatures stay inside clay's working range." },
+      { scenario: "Pharmaceutical secondary packaging", recommended: "a", note: "Silica gel - sachet format flexibility and DMF-free documentation align with pharma buyer audits. Validate against the product specification." },
+      { scenario: "Electronics packaging (standard storage/transit)", recommended: "a", note: "Silica gel - protection range matches storage conditions; indicating-gel option supports QC verification." },
+      { scenario: "Textile and garment export", recommended: "a", note: "Silica gel at container level plus carton sachets for high-risk lanes; clay can substitute at container level when cost pressure dominates." },
+      { scenario: "Insulated glass, refrigerant loops, deep gas drying", recommended: "c", note: "Molecular sieve - the process requires an RH endpoint silica gel and clay physically cannot reach." },
+      { scenario: "Warehouse stock protection", recommended: "b", note: "Clay - high volume, moderate risk, cost differential outweighs peak capacity." },
+      { scenario: "Combined program on long humid routes", recommended: "both", note: "Clay or silica strips at container level with silica gel sachets at carton level is a common cost/protection balance. Sieve is not part of cargo programs." },
+    ],
+    faqs: [
+      {
+        q: "Which desiccant is best overall - silica gel, clay, or molecular sieve?",
+        a: "None of them is always best; the right choice depends on the application and its test conditions. Silica gel wins most packaging and cargo applications on capacity and format range, clay wins high-volume cost-driven loadings, and molecular sieve wins only where the process needs humidity below what silica gel can reach. A supplier who names one material as universally superior is selling, not specifying.",
+      },
+      {
+        q: "Why does molecular sieve cost more, and when is it worth it?",
+        a: "It is a synthesized crystalline zeolite with engineered pore sizes, so production costs more than gel or mined clay - typically 2-4× silica gel per kg. It is worth it only when the application needs very low humidity (below ~10% RH, down to under 1%) - insulated glass, refrigerant drying, deep gas drying. For cartons and containers the extra cost buys nothing.",
+      },
+      {
+        q: "Can clay desiccant replace silica gel in a container program?",
+        a: "Often yes at the container level, where ambient temperatures stay under clay's ~50°C ceiling and the goal is bulk moisture removal at the lowest cost. It is not a like-for-like swap for moisture-critical cargo - clay's lower capacity and higher equilibrium RH mean sizing must be rechecked, and carton-level protection for pharma, electronics, or leather stays with silica gel.",
+      },
+      {
+        q: "How do the three compare on dust and handling?",
+        a: "Beaded silica gel and molecular sieve are low-dust; clay granules shed more fines, which is acceptable in industrial stows but a consideration near clean assemblies. Molecular sieve additionally loads moisture the moment it is exposed to open air, so it ships in sealed packaging and is opened only at the point of use.",
+      },
+      {
+        q: "What documentation should a buyer request for each material?",
+        a: "For any of the three: an SDS and a per-shipment COA. For silica gel from DryGelWorld, a DMF-free statement is standard and manufacture is ISO 9001:2015 certified; the same ISO scope covers its clay desiccant. Molecular sieve is not in the DryGelWorld catalog - request grade certificates (3A/4A/5A/13X) directly from the zeolite producer.",
+      },
+      {
+        q: "Does DryGelWorld supply all three?",
+        a: "Silica gel and dry clay desiccant: yes, both manufactured under ISO 9001:2015 with SDS and COA per shipment. Molecular sieve: no - buyers needing sieve should source from specialist producers, and DryGelWorld can advise where silica gel covers a borderline application instead.",
+      },
+    ],
+    relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
+    relatedProduct: "/products/dry-clay-desiccant",
   },
 ];
 

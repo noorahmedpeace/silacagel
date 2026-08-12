@@ -33,6 +33,10 @@ const PRODUCT_BEARD: ClusterLink = { label: "Beard covers", href: "/products/bea
 const COMPARE_CLAY: ClusterLink = { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" };
 const COMPARE_SIEVE: ClusterLink = { label: "Silica gel vs molecular sieve", href: "/compare/silica-gel-vs-molecular-sieve" };
 const COMPARE_O2: ClusterLink = { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" };
+const COMPARE_3WAY: ClusterLink = { label: "Silica gel vs clay vs molecular sieve", href: "/compare/silica-gel-vs-clay-vs-molecular-sieve" };
+
+// Standalone guide (not a /blog/ slug): the container/carton quantity walkthrough.
+const GUIDE_QUANTITY: ClusterLink = { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" };
 
 const IND_PHARMA: ClusterLink = { label: "Pharma packaging", href: "/industries/pharma-packaging" };
 const IND_ELECTRONICS: ClusterLink = { label: "Electronics packaging", href: "/industries/electronics-packaging" };
@@ -93,6 +97,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "container-rain-prevention": {
     guides: [
+      GUIDE_QUANTITY,
       guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
       guide("moisture-protection-for-international-shipping", "Moisture protection for international shipping"),
@@ -188,7 +193,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("oxygen-absorber-vs-silica-gel-when-to-use-each", "Oxygen absorber vs silica gel"),
     ],
     products: [PRODUCT_BULK],
-    compare: COMPARE_SIEVE,
+    // The three-way compare page is the exact commercial twin of this
+    // three-way article; the two-way sieve page keeps its inlink from
+    // the clay/calcium clusters.
+    compare: COMPARE_3WAY,
   },
   "how-to-prevent-moisture-in-export-cartons": {
     guides: [
@@ -229,6 +237,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "best-desiccant-for-shipping-containers": {
     guides: [
+      GUIDE_QUANTITY,
       guide("container-rain-prevention", "Container rain prevention"),
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
     ],
@@ -253,6 +262,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "moisture-protection-for-international-shipping": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
       guide("container-rain-prevention", "Container rain prevention"),
     ],
@@ -269,6 +279,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "container-desiccant-vs-silica-gel": {
     guides: [
+      GUIDE_QUANTITY,
       guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
     ],
@@ -291,6 +302,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "how-exporters-protect-cargo-from-humidity": {
     guides: [
+      GUIDE_QUANTITY,
       guide("moisture-protection-for-international-shipping", "Moisture protection for international shipping"),
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
@@ -380,9 +392,14 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_BULK],
+    // Equilibrium-RH endpoints are exactly what this article explains, and
+    // exactly what separates sieve from gel - the natural home for the
+    // two-way sieve inlink the alumina cluster handed to the three-way page.
+    compare: COMPARE_SIEVE,
   },
   "desiccant-units-explained-din-55473-and-unit-sizing": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
@@ -391,6 +408,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "how-many-desiccant-packets-per-box-calculation-guide": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("desiccant-placement-best-practices-in-packaging", "Desiccant placement best practices"),
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
