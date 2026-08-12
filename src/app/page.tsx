@@ -9,6 +9,7 @@ import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
+import { FormatShowcase } from "@/components/format-showcase";
 import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
 import { HomeQuoteEstimator } from "@/components/home-quote-estimator";
@@ -113,48 +114,7 @@ const procurementFlow = [
   },
 ];
 
-const categoryLanes = [
-  { label: "Silica gel packets", href: "/silica-gel-packets" },
-  { label: "Paper sachets", href: "/products/paper-sachets" },
-  { label: "Indicating gel", href: "/orange-silica-gel-supplier" },
-  { label: "Container strips", href: "/container-desiccant-strips" },
-  { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
-  { label: "Dispensers", href: "/dispensers" },
-  // Added, not swapped: the six export-facing lanes above stay exactly as they
-  // were. This is the homepage's only in-content path to the domestic supplier
-  // page, whose inbound links were otherwise all footer boilerplate.
-  { label: "Pakistan supply", href: "/silica-gel-manufacturer-pakistan" },
-];
 
-// Three real formats that mirror the section sub-heading ("sachets for cartons,
-// bulk beads for volume, strips for containers"). First card is the flagship
-// tile in the asymmetric bento; the other two stack beside it.
-const industrialBentoCards = [
-  {
-    title: "Silica gel sachets",
-    label: "Cartons & units",
-    text: "Silica gel sachets for cartons, unit packs, electronics, and leather, with printed private-label options.",
-    image: "/products/format-sachets.webp",
-    href: "/silica-gel-packets",
-    stat: "0.5g - 20g",
-  },
-  {
-    title: "Bulk silica gel beads",
-    label: "By the kg",
-    text: "Loose silica gel by the kg in sacks, drums, and jumbo bags for repackers and volume buyers.",
-    image: "/products/format-bulk-beads.webp",
-    href: "/products/bulk-industrial",
-    stat: "1 - 25 kg",
-  },
-  {
-    title: "Container strips",
-    label: "Sea freight",
-    text: "High-capacity hanging strips that control container rain and condensation on long sea-freight routes.",
-    image: "/products/format-container-strips.webp",
-    href: "/products/container-strips",
-    stat: "1 - 5 kg",
-  },
-];
 
 const pricingHighlights = [
   "MOQ and volume guidance",
@@ -418,44 +378,18 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.formatGrid}>
-                {industrialBentoCards.map((card) => (
-                  <Link href={card.href} className={styles.formatCard} key={card.title}>
-                    <span className={styles.formatMedia}>
-                      <Image
-                        src={card.image}
-                        alt={`${card.title} silica gel desiccant product format for export buyers`}
-                        title={`${card.title} visual`}
-                        fill
-                        className={styles.formatImage}
-                        sizes="(max-width: 900px) 100vw, 30vw"
-                      />
-                      <span className={styles.formatStat}>{card.stat}</span>
-                    </span>
-                    <span className={styles.formatBody}>
-                      <span className={styles.formatLabel}>{card.label}</span>
-                      <h3>{card.title}</h3>
-                      <span className={styles.formatReveal}>
-                        <span className={styles.formatRevealInner}>
-                          <p>{card.text}</p>
-                          <span className={styles.formatLink}>
-                            Explore
-                            <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
-                          </span>
-                        </span>
-                      </span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
+              {/* The six category links used to leave the page on tap. They are
+                  now a tab strip that re-composes the bento in place; the SEO
+                  destinations are still reached, by the card CTAs. */}
+              <FormatShowcase />
 
-              <div className={styles.categoryRail} aria-label="Core product category landing pages">
-                {categoryLanes.map((item) => (
-                  <Link key={item.label} href={item.href}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+              {/* Kept as a real link, outside the tab strip. This is the
+                  homepage's only in-content path to the domestic supplier page
+                  and it is not one of the six export formats. */}
+              <p className={styles.categoryAside}>
+                Buying inside Pakistan?{" "}
+                <Link href="/silica-gel-manufacturer-pakistan">Silica gel supply in Pakistan</Link>
+              </p>
             </section>
           </Reveal>
 

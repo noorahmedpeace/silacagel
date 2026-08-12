@@ -1,0 +1,138 @@
+/* Additions to the homepage format cards. Everything structural - grid, card
+   shape, shadows, badge, typography - still comes from page.module.css; this
+   file only adds the selection behaviour the cards did not previously have. */
+
+/* ── Enter transition ──────────────────────────────────────────────────────
+   Plays when a card's contents are swapped, because the React key changes on
+   selection. Deliberately short and small: this is a product selector, not a
+   carousel, and a big move would read as the page reloading - the exact thing
+   the tabs exist to avoid. */
+.card {
+  animation: cardIn 280ms var(--ds-ease-out) both;
+}
+
+.media {
+  animation: mediaIn 320ms var(--ds-ease-out) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes mediaIn {
+  from {
+    opacity: 0.55;
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Tab strip ───────────────────────────────────────────────────────────── */
+
+.tab {
+  /* Matches the anchors this replaced: same padding, radius, hairline and
+     centring, so the rail looks identical until one is selected. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px floor - these are the primary way into six product pages on a phone. */
+  min-height: 44px;
+  padding: 12px 10px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight, 12px);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    border-color: rgba(45, 91, 255, 0.34);
+    background: var(--ds-surface-tint);
+  }
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* The active state has to survive being read at a glance, so it carries three
+   independent signals - fill, border, and weight - not colour alone. */
+.tabActive {
+  background: var(--ds-brand-soft);
+  border-color: var(--ds-brand);
+  color: var(--ds-brand-deep);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px var(--ds-brand);
+}
+
+@media (forced-colors: active) {
+  /* Background and shadow are stripped in forced-colours, so selection has to
+     be carried by something that survives. */
+  .tabActive {
+    border-width: 3px;
+  }
+}
+
+/* ── Mobile: one scrolling row, never a ragged wrap ──────────────────────── */
+
+@media (max-width: 900px) {
+  .rail {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Padding rather than margin so the first and last chips clear the page
+       edge while the scroll container still spans it. */
+    padding: 2px 2px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* Contains its own overflow: without this the row widens the document and
+       the whole page scrolls sideways. */
+    max-width: 100%;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 12px 16px;
+    scroll-snap-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .media {
+    animation: none;
+  }
+
+  .tab {
+    transition: none;
+  }
+}

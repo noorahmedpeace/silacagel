@@ -6784,3 +6784,24 @@
     transform: none;
   }
 }
+
+/* Sits under the format tab strip. The domestic-supply link used to be a
+   seventh chip in the category rail, which made it look like a product format
+   it is not - and once the rail became a six-tab control it had nowhere to
+   live. A sentence is more honest about what it is. */
+.categoryAside {
+  margin: 14px 0 0;
+  font-size: 0.9rem;
+  color: var(--ds-text-muted);
+}
+
+.categoryAside a {
+  color: var(--ds-brand-deep);
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(45, 91, 255, 0.3);
+}
+
+.categoryAside a:hover {
+  border-bottom-color: currentColor;
+}
