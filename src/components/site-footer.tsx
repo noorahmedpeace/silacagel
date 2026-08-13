@@ -122,6 +122,13 @@ const footerColumns: FooterColumn[] = [
     title: "Company",
     links: [
       { label: "About us", href: "/about" },
+      // GSC, 13 Aug: /reviews came back "Crawled - currently not indexed".
+      // robots allowed, fetch successful, in the sitemap - but the whole site
+      // pointed one single link at it, from the homepage. Google looked and
+      // judged it peripheral. It belongs here on merit anyway: it is the
+      // named-customer page, which is what a buyer checking credentials wants
+      // next to About and Certifications.
+      { label: "Customers we supply", href: "/reviews" },
       { label: "Contact", href: "/contact" },
       { label: "Certifications", href: "/certifications" },
       { label: "DryGelWorld official site", href: "/drygelworld" },
