@@ -9,10 +9,35 @@ import {
   phoneHref,
   whatsappNumber,
 } from "@/lib/product-data";
+import { supplierComparisons } from "@/lib/supplier-compare-data";
 import styles from "./site-footer.module.css";
 import { SocialLinks } from "./social-links";
 
-const footerColumns = [
+type FooterLink = { label: string; href: string };
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+  viewAll?: { label: string; href: string };
+};
+
+// Footer-length supplier names: prefer the parenthetical abbreviation when the
+// data provides one ("(ISG)"), otherwise drop any "/ alias" tail.
+function supplierShortName(name: string): string {
+  const abbrev = name.match(/\(([^)]+)\)/);
+  if (abbrev) return abbrev[1];
+  return name.split(" / ")[0].trim();
+}
+
+// The supplier matchups render as a full-width strip under the link grid,
+// not as a seventh column - "DryGelWorld vs Name" needs a horizontal line to
+// breathe. Built from the same data as /compare/suppliers, so a supplier
+// added there appears here without a second edit.
+const supplierMatchups = supplierComparisons.map((comparison) => ({
+  label: supplierShortName(comparison.name),
+  href: `/compare/suppliers/${comparison.slug}`,
+}));
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Products",
     links: [
@@ -84,7 +109,6 @@ const footerColumns = [
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" },
       { label: "Desiccant comparisons", href: "/compare" },
-      { label: "Supplier comparisons", href: "/compare/suppliers" },
       { label: "Documents (SDS, COA)", href: "/documentation" },
       { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
       { label: "Export carton moisture guide", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
@@ -194,6 +218,26 @@ export function SiteFooter() {
           </nav>
         ))}
       </div>
+
+      <nav className={styles.vsStrip} aria-label="Supplier comparison links">
+        <h3 className={styles.vsStripHead}>Compare Suppliers</h3>
+        <ul className={styles.vsList}>
+          {supplierMatchups.map((matchup) => (
+            <li key={matchup.href}>
+              <Link href={matchup.href}>
+                <span className={styles.brandMark}>DryGelWorld</span>
+                <span className={styles.vsMark}>vs</span>
+                {matchup.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link className={styles.viewAll} href="/compare/suppliers">
+              All supplier comparisons <span aria-hidden="true">→</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
       <div className={styles.trustRow}>
         {trustBadges.map((badge) => (
