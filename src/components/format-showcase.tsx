@@ -15,21 +15,37 @@ import styles from "./format-showcase.module.css";
  * The bento composition is unchanged - one tall flagship card beside two
  * stacked cards - because that layout is the design, not an accident of having
  * exactly three formats. Selecting a tab promotes that category into the
- * flagship slot and rotates the next two into the column beside it. Every
- * category can therefore be the flagship, nothing is ever shown twice, and the
- * grid never changes shape, so there is no layout shift on selection.
+ * flagship slot and rotates the next two into the column beside it.
+ *
+ * ALL SIX cards are rendered, not the three on screen, and the switch is a pure
+ * opacity cross-fade between them. The first version mounted three cards and
+ * swapped their contents, which looked abrupt for two compounding reasons: the
+ * outgoing card vanished in a single frame because an unmount cannot animate,
+ * and the incoming image had to be FETCHED at the moment of the click, so the
+ * card sat on its own dark background until the download finished. Keeping
+ * every card mounted removes both - nothing unmounts, and no image is ever
+ * requested on selection because all six are already decoded.
+ *
+ * Hidden cards are stacked into the flagship's grid area rather than left to
+ * flow, so they never create extra rows, and they are removed from the tab
+ * order and the accessibility tree while hidden.
  *
  * The tabs are buttons; the cards remain links. That split is deliberate: the
- * SEO destinations the old tabs pointed at are still reached by a real anchor
- * (the flagship CTA and both side cards), so no internal link is lost.
+ * SEO destinations the old tabs pointed at are still reached by a real anchor,
+ * so no internal link is lost.
  */
 
-// Only the flagship's image is worth prioritising - the other two are below it
-// on mobile and beside it on desktop, and all three are small product shots.
-const VISIBLE = 3;
+const COUNT = formatCategories.length;
 
 export function FormatShowcase() {
   const [active, setActive] = useState(0);
+  // The slot each card held BEFORE this selection. A card that is leaving stays
+  // in its old cell while it fades, instead of jumping to the parking cell the
+  // instant it stops being visible. Without this the two small cards had
+  // nothing to cross-fade against - the outgoing one left in a single frame and
+  // the incoming one faded up from the page background, which is a flash, not a
+  // cross-fade.
+  const [leaving, setLeaving] = useState<number | null>(null);
   const railRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   // Set once the user actually picks a tab. Without it the rail would scroll
@@ -42,7 +58,7 @@ export function FormatShowcase() {
 
   const select = useCallback((i: number) => {
     interacted.current = true;
-    setActive(((i % formatCategories.length) + formatCategories.length) % formatCategories.length);
+    setActive(((i % COUNT) + COUNT) % COUNT);
   }, []);
 
   // WAI-ARIA tabs pattern: arrows move AND activate, Home/End jump to the ends.
@@ -51,7 +67,6 @@ export function FormatShowcase() {
       const keys = ["ArrowRight", "ArrowLeft", "Home", "End"];
       if (!keys.includes(event.key)) return;
       event.preventDefault();
-      const last = formatCategories.length - 1;
       const next =
         event.key === "ArrowRight"
           ? active + 1
@@ -59,8 +74,9 @@ export function FormatShowcase() {
             ? active - 1
             : event.key === "Home"
               ? 0
-              : last;
-      const clamped = ((next % formatCategories.length) + formatCategories.length) % formatCategories.length;
+              : COUNT - 1;
+      const clamped = ((next % COUNT) + COUNT) % COUNT;
+      setLeaving(active);
       select(clamped);
       tabRefs.current[clamped]?.focus();
     },
@@ -81,56 +97,90 @@ export function FormatShowcase() {
     });
   }, [active]);
 
-  // Flagship first, then the next two in order, wrapping. Same three slots
-  // every time, so the grid geometry never moves.
-  const shown = Array.from(
-    { length: VISIBLE },
-    (_, offset) => formatCategories[(active + offset) % formatCategories.length],
+  // Park the leaver once its fade has run, so it stops holding a visible cell.
+  useEffect(() => {
+    if (leaving === null) return;
+    const timer = window.setTimeout(() => setLeaving(null), 460);
+    return () => window.clearTimeout(timer);
+  }, [leaving, active]);
+
+  /** 0 = flagship, 1 = top right, 2 = bottom right, -1 = held offstage. */
+  const slotOf = (index: number, from: number) => {
+    const offset = (index - from + COUNT) % COUNT;
+    return offset < 3 ? offset : -1;
+  };
+
+  const onSelect = useCallback(
+    (next: number) => {
+      setLeaving(active);
+      select(next);
+    },
+    [active, select],
   );
+
+  const SLOT_CLASS = [styles.slotFlagship, styles.slotA, styles.slotB];
 
   return (
     <>
       <div
-        className={page.formatGrid}
+        className={`${page.formatGrid} ${styles.grid}`}
         id={panelId}
         role="tabpanel"
         aria-labelledby={tabId(active)}
       >
-        {shown.map((item, slot) => (
-          <Link
-            // Keyed by slug AND slot so React swaps the contents rather than
-            // reusing a node, which is what lets the enter animation replay.
-            key={`${item.href}-${slot}`}
-            href={item.href}
-            className={`${page.formatCard} ${styles.card}`}
-          >
-            <span className={page.formatMedia}>
-              <Image
-                src={item.image}
-                alt={item.imageAlt}
-                title={`${item.title} visual`}
-                fill
-                className={`${page.formatImage} ${styles.media}`}
-                sizes="(max-width: 900px) 100vw, 30vw"
-                priority={slot === 0 && active === 0}
-              />
-              <span className={page.formatStat}>{item.badge}</span>
-            </span>
-            <span className={page.formatBody}>
-              <span className={page.formatLabel}>{item.eyebrow}</span>
-              <h3>{item.title}</h3>
-              <span className={page.formatReveal}>
-                <span className={page.formatRevealInner}>
-                  <p>{item.description}</p>
-                  <span className={page.formatLink}>
-                    {slot === 0 ? item.cta : "Explore"}
-                    <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+        {formatCategories.map((item, index) => {
+          const slot = slotOf(index, active);
+          const hidden = slot === -1;
+          // A leaving card keeps its old cell for the length of the fade.
+          const exitSlot = hidden && leaving !== null ? slotOf(index, leaving) : -1;
+          const parkClass = exitSlot >= 0 ? SLOT_CLASS[exitSlot] : styles.slotPark;
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${page.formatCard} ${styles.card} ${
+                hidden ? `${styles.slotHidden} ${parkClass}` : SLOT_CLASS[slot]
+              }`}
+              // Offstage cards are not reachable by keyboard and are not
+              // announced - they are a rendering device, not content.
+              aria-hidden={hidden || undefined}
+              tabIndex={hidden ? -1 : undefined}
+            >
+              <span className={page.formatMedia}>
+                <Image
+                  src={item.image}
+                  alt={item.imageAlt}
+                  title={`${item.title} visual`}
+                  fill
+                  className={page.formatImage}
+                  sizes="(max-width: 900px) 100vw, 30vw"
+                  // The first card is the LCP candidate and gets priority. The
+                  // other five are eager rather than lazy on purpose: left
+                  // lazy, the browser deferred the offstage ones and then
+                  // fetched them at the moment of the click - which is exactly
+                  // the pop this design removes. Six optimised webps is a
+                  // cheap price for every switch being instant.
+                  priority={index === 0}
+                  loading={index === 0 ? undefined : "eager"}
+                />
+                <span className={page.formatStat}>{item.badge}</span>
+              </span>
+              <span className={page.formatBody}>
+                <span className={page.formatLabel}>{item.eyebrow}</span>
+                <h3>{item.title}</h3>
+                <span className={page.formatReveal}>
+                  <span className={page.formatRevealInner}>
+                    <p>{item.description}</p>
+                    <span className={page.formatLink}>
+                      {slot === 0 ? item.cta : "Explore"}
+                      <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
                   </span>
                 </span>
               </span>
-            </span>
-          </Link>
-        ))}
+            </Link>
+          );
+        })}
       </div>
 
       <div
@@ -155,7 +205,7 @@ export function FormatShowcase() {
             // Roving tabindex: one stop for the whole strip, arrows move within.
             tabIndex={i === active ? 0 : -1}
             className={`${styles.tab} ${i === active ? styles.tabActive : ""}`}
-            onClick={() => select(i)}
+            onClick={() => onSelect(i)}
           >
             {item.category}
           </button>
