@@ -24,14 +24,6 @@ const ClarityBridge = dynamic(
 // DryBot: the AI sales assistant. Deferred so its JS never competes with LCP.
 const DryBot = dynamic(() => import("./drybot").then((m) => m.DryBot), { ssr: false });
 
-// Site-wide WhatsApp float. Deferred with the rest of the chrome so it costs
-// nothing at LCP; it exists because measurement showed nine of ten top landing
-// pages had no contact affordance in the first screen while mobile scroll
-// depth averages 26%.
-const FloatingWhatsApp = dynamic(
-  () => import("./floating-whatsapp").then((m) => m.FloatingWhatsApp),
-  { ssr: false },
-);
 
 export function DeferredChrome() {
   const [ready, setReady] = useState(false);
@@ -73,7 +65,6 @@ export function DeferredChrome() {
   return (
     <>
       <ClarityBridge />
-      <FloatingWhatsApp />
       <DryBot />
     </>
   );
