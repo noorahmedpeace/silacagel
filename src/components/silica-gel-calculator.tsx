@@ -150,15 +150,22 @@ export function SilicaGelCalculator() {
     }
   }, [pieces, targetKg, carton, mode]);
 
+  // Debounced, because a buyer types. Firing on every keystroke sent four
+  // `complete` events for "2500" - one each for 2, 25, 250 and 2500 - and three
+  // of those carry a quantity nobody ever asked for, which would poison any
+  // read of what volumes buyers actually calculate. Measured, then fixed.
   useEffect(() => {
     if (!hasResult || !option) return;
     const key = `${mode}|${option.key}|${estimate.quantity}`;
     if (lastComplete.current === key) return;
-    lastComplete.current = key;
-    trackCalculatorComplete("silica_gel_calculator", mode, {
-      format: `${option.groupTitle} ${option.label}`,
-      quantity: estimate.quantity,
-    });
+    const timer = window.setTimeout(() => {
+      lastComplete.current = key;
+      trackCalculatorComplete("silica_gel_calculator", mode, {
+        format: `${option.groupTitle} ${option.label}`,
+        quantity: estimate.quantity,
+      });
+    }, 700);
+    return () => window.clearTimeout(timer);
   }, [hasResult, option, mode, estimate.quantity]);
 
   const unitFmt = unitPriceFormatter(currency.locale, estimate.unitPrice);

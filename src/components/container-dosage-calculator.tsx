@@ -82,15 +82,21 @@ export function ContainerDosageCalculator() {
     }
   }, [container, cargo, packaging, days, climate, wood]);
 
+  // Debounced for the same reason as the silica gel calculator: the transit-day
+  // control is a slider, and an undebounced effect would emit one event per
+  // intermediate value while the buyer is still dragging.
   useEffect(() => {
     const key = `${container}|${cargo}|${climate}|${days}|${result.suppliedKg}`;
     if (lastComplete.current === key) return;
-    lastComplete.current = key;
-    trackCalculatorComplete("container_desiccant_calculator", container, {
-      supplied_kg: result.suppliedKg,
-      route: climate,
-      transit_days: days,
-    });
+    const timer = window.setTimeout(() => {
+      lastComplete.current = key;
+      trackCalculatorComplete("container_desiccant_calculator", container, {
+        supplied_kg: result.suppliedKg,
+        route: climate,
+        transit_days: days,
+      });
+    }, 700);
+    return () => window.clearTimeout(timer);
   }, [container, cargo, climate, days, result.suppliedKg]);
 
   const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
