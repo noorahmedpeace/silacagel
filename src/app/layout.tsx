@@ -289,7 +289,19 @@ export default function RootLayout({
                   window.__drygelTrackClarity('whatsapp_quote_click', 'WhatsApp quote intent');
                   return;
                 }
-                if (href === '/contact' || href.indexOf('/contact') === 0 || /quote|rfq/i.test(label)) {
+                // /request-a-quote is matched by href, not by label. It used to
+                // rely on the label regex below, and /quote|rfq/ does NOT match
+                // "quotation" - so the silica gel calculator's main CTA, the one
+                // carrying the buyer's calculated quantity, was the single
+                // untracked link on the site. The container calculator's
+                // equivalent only tracked because its label happened to read
+                // "Request a quote for 4 kg". Verified in the browser, both
+                // viewports, before and after.
+                if (
+                  href === '/contact' || href.indexOf('/contact') === 0 ||
+                  href.indexOf('/request-a-quote') === 0 || href.indexOf('/samples') === 0 ||
+                  /quote|rfq|quotation/i.test(label)
+                ) {
                   window.__drygelTrackEvent('quote_cta_click', base);
                   window.__drygelTrackClarity('request_quote_click', 'Request quote intent');
                   return;

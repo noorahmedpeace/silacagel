@@ -1,6 +1,7 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
+import { trackCalculatorStart, trackCalculatorComplete } from "@/lib/calculator-tracking";
 import Link from "next/link";
 import { priceGroups, priceOptions, whatsappNumber } from "@/lib/product-data";
 import {
@@ -133,6 +134,32 @@ export function SilicaGelCalculator() {
   const modeIssue =
     mode === "carton" ? cartonIssue : mode === "weight" ? weightIssue : quantityIssue;
   const hasResult = estimate.isValid && estimate.quantity > 0 && !modeIssue;
+
+  // Funnel measurement. Neither of these existed: interacting with this
+  // calculator emitted nothing at all, so GA4 could show the page's traffic but
+  // never how many people actually used the tool or reached an answer.
+  // `start` fires once per mount on the first real input change; `complete`
+  // fires when a valid result first appears, and again if the buyer changes
+  // format or mode to a different answer.
+  const started = useRef(false);
+  const lastComplete = useRef("");
+  useEffect(() => {
+    if (!started.current && (pieces !== "1000" || targetKg !== "25" || carton.l || carton.w || carton.h)) {
+      started.current = true;
+      trackCalculatorStart("silica_gel_calculator", mode);
+    }
+  }, [pieces, targetKg, carton, mode]);
+
+  useEffect(() => {
+    if (!hasResult || !option) return;
+    const key = `${mode}|${option.key}|${estimate.quantity}`;
+    if (lastComplete.current === key) return;
+    lastComplete.current = key;
+    trackCalculatorComplete("silica_gel_calculator", mode, {
+      format: `${option.groupTitle} ${option.label}`,
+      quantity: estimate.quantity,
+    });
+  }, [hasResult, option, mode, estimate.quantity]);
 
   const unitFmt = unitPriceFormatter(currency.locale, estimate.unitPrice);
   const totalFmt = totalFormatter(currency.locale, estimate.total);

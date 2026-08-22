@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { trackCalculatorStart, trackCalculatorComplete } from "@/lib/calculator-tracking";
 import Link from "next/link";
 import styles from "./container-dosage-calculator.module.css";
 import { exportEmail } from "@/lib/product-data";
@@ -67,6 +68,31 @@ export function ContainerDosageCalculator() {
 
   // Highest-intent click on the site → the RFQ engine (prefilled), not the
   // contact directory.
+
+  // Same measurement gap as the silica gel calculator: this tool produced a
+  // dosage every buyer acts on and reported nothing to GA4. Start fires on the
+  // first change away from the defaults; complete fires per distinct result.
+  const started = useRef(false);
+  const lastComplete = useRef("");
+  useEffect(() => {
+    if (started.current) return;
+    if (container !== "40ft" || cargo !== "mixed" || packaging !== "cartons" || days !== 25 || climate !== "mixed-seasonal" || wood !== "none") {
+      started.current = true;
+      trackCalculatorStart("container_desiccant_calculator", container);
+    }
+  }, [container, cargo, packaging, days, climate, wood]);
+
+  useEffect(() => {
+    const key = `${container}|${cargo}|${climate}|${days}|${result.suppliedKg}`;
+    if (lastComplete.current === key) return;
+    lastComplete.current = key;
+    trackCalculatorComplete("container_desiccant_calculator", container, {
+      supplied_kg: result.suppliedKg,
+      route: climate,
+      transit_days: days,
+    });
+  }, [container, cargo, climate, days, result.suppliedKg]);
+
   const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
 
   // Memoized: the ~1KB URL-encoded plan is only read on an "Email this plan"
