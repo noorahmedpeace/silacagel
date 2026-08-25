@@ -1114,6 +1114,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Choosing a bag size without considering carton volume, exposure time, and humidity route",
     quoteBasis: "Bag size, material, fill, quantity, carton packing, destination, documents",
     relatedLinks: [
+      { label: "Half-kilo silica gel bags", href: "/silica-gel-bags-0-5kg" },
       { label: "Desiccant bags", href: "/desiccant-bags" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
@@ -1863,7 +1864,7 @@ const highIntentSeoLandingPages = {
     slug: "hair-net-supplier",
     title: "Hair Net Supplier | Bouffant PPE for Food & Industry",
     metaDescription:
-      "Hair net supplier for food processing, manufacturing, healthcare, and industrial PPE. Bouffant non-woven polypropylene nets in 18-22 inch diameters, green and white.",
+      "Hair net supplier for food processing, healthcare, and industrial PPE. Bouffant non-woven polypropylene, 18-22 inch, green and white, carton-packed.",
     kicker: "Hair Net Supplier",
     h1: "Hair net supplier for food, manufacturing, and healthcare PPE programs.",
     lead:
@@ -1951,7 +1952,7 @@ const highIntentSeoLandingPages = {
     slug: "food-grade-hair-nets",
     title: "Food-Grade Hair Nets | Bouffant PPE for Processing",
     metaDescription:
-      "Hair nets for food processing, food packaging, bakery, and dairy production. Bouffant non-woven polypropylene in 18-22 inch diameters, green and white color zoning.",
+      "Hair nets for food processing, packaging, bakery, and dairy lines. Bouffant non-woven polypropylene, 18-22 inch, green and white for zone coding.",
     kicker: "Food-Industry Hair Nets",
     h1: "Hair nets for food processing, packaging, and production-line PPE.",
     lead:
@@ -2963,7 +2964,7 @@ const highIntentSeoLandingPages = {
     slug: "silica-gel-for-leather-export",
     title: "Silica Gel for Leather Export | Footwear Moisture Control",
     metaDescription:
-      "Silica gel desiccants for leather export, footwear shipping, and leather goods packaging. Protect against mold, finish damage, and odor during long-haul ocean freight. DMF-free silica gel essential for EU-bound leather cargo.",
+      "Silica gel for leather and footwear export. Stop mould, finish damage, and odour on long ocean routes, with DMF-free material for EU-bound cargo.",
     kicker: "Silica Gel for Leather Export",
     h1: "Silica gel for leather, footwear, and leather goods export programs.",
     lead:
@@ -3234,6 +3235,7 @@ export const seoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "Sizing up from packets to 0.5kg bags", href: "/silica-gel-bags-0-5kg" },
       // First related link is the Pakistan supplier page with a keyword-bearing
       // anchor - this page and that one used to compete for the same query with
       // only footer boilerplate connecting them.
@@ -3452,6 +3454,7 @@ export const seoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "0.5kg bags instead of loose gel", href: "/silica-gel-bags-0-5kg" },
       { label: "Bulk product page", href: "/products/bulk-industrial" },
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
       { label: "Bulk sales calculator", href: "/bulk-sales" },
@@ -4365,6 +4368,231 @@ export const seoLandingPages = {
       {
         question: "What details are needed for moisture absorber pricing?",
         answer: "Send use case, product sensitivity, package size, quantity, destination, and required documents.",
+      },
+    ],
+  },
+  "silica-gel-bags-0-5kg": {
+    // Built for a real inbound inquiry - "Silica Bags 0.5kg, Qty required 100
+    // bags" - not for search volume. GSC shows zero impressions for
+    // "0.5kg silica gel bags" or "500g silica gel bags" across Jun-Aug 2026, so
+    // this is a page to SEND a buyer who asks, and a long-tail net if the query
+    // ever appears. It targets the SIZE, not the category, so it does not
+    // compete with /desiccant-bags-supplier or /bulk-silica-gel-desiccant -
+    // both of which it links to by role rather than by keyword.
+    slug: "silica-gel-bags-0-5kg",
+    title: "0.5kg Silica Gel Bags | 500g Desiccant Supplier",
+    metaDescription:
+      "0.5kg silica gel bags factory-direct from Karachi. White or indicating gel, non-woven or paper bags, no minimum order, SDS and batch COA with every order.",
+    kicker: "0.5kg silica gel bags",
+    h1: "0.5 kg silica gel bags, quoted by the bag and shipped by the carton.",
+    lead:
+      "Half-kilo silica gel bags for warehouse, crate, and heavy-carton moisture control. Choose white non-indicating gel or colour-changing indicating gel, in a breathable non-woven or paper bag, and take 100 bags or a pallet - there is no minimum order.",
+    searchIntent:
+      "For buyers searching 0.5kg silica gel bags, 500g silica gel bags, or a bulk industrial silica gel bag supplier who need a unit price, a bag material, and the documents before they can raise a purchase order.",
+    primaryCta: "Get a 0.5kg bag quote",
+    secondaryCta: "See published rates",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "No minimum order - 100 bags is a normal first order",
+      "White non-indicating or orange indicating gel",
+      "SDS, TDS and DMF-free statement published for download",
+      "Batch COA issued with every order",
+    ],
+    fitTitle: "Who buys silica gel by the 0.5kg bag",
+    fitItems: [
+      {
+        label: "Warehouses",
+        title: "Stock-room and rack protection",
+        text: "One 0.5kg bag covers a far larger air volume than a sachet, which is why store rooms and spare-parts racks buy this size rather than packets.",
+      },
+      {
+        label: "Exporters",
+        title: "Heavy cartons and crates",
+        text: "Machinery, spares, and dense export crates need a bag rather than a packet. The bag sits loose in the crate and is removed on arrival.",
+      },
+      {
+        label: "Repackers",
+        title: "Distributors and resellers",
+        text: "Buyers who resell into their own market take 0.5kg bags in carton quantities and quote their own customers from there.",
+      },
+    ],
+    specsTitle: "0.5kg silica gel bag specification",
+    specsIntro:
+      "The figures below are the published product specification. Anything application-specific - bag material, print, or a tighter humidity target - is confirmed in writing before an order is accepted.",
+    specs: [
+      { label: "Material", value: "Amorphous silicon dioxide (SiO₂), CAS 7631-86-9" },
+      { label: "Unit weight", value: "500 g (0.5 kg) per bag; 1 kg and 2 kg also supplied" },
+      { label: "Gel options", value: "White non-indicating, or orange indicating that changes colour as it saturates" },
+      { label: "Bag material", value: "Breathable non-woven or paper, selected for the application" },
+      { label: "Adsorption capacity", value: "Up to ~33% of own weight in water vapour (25 °C, 90% RH)" },
+      { label: "Shelf life", value: "24-36 months in the sealed factory pouch" },
+      { label: "Minimum order", value: "None. Trial and sample quantities are supplied; price scales with volume" },
+      { label: "Documents", value: "SDS, TDS and DMF-free statement published; batch COA issued per order" },
+      { label: "Certification", value: "ISO 9001:2015 (QMEC/IAS-CB, certificate 9101225)" },
+    ],
+    buyerGuide: {
+      title: "What to settle before you raise the PO",
+      intro:
+        "Four decisions change the quote. Sending them together is the difference between a price in a day and three rounds of email.",
+      sections: [
+        {
+          label: "Gel type",
+          title: "White or indicating",
+          text: "White non-indicating is the default and the cheaper option. Indicating gel changes colour as it saturates, so a warehouse team can read moisture state without instruments - worth it when bags are inspected rather than replaced on a schedule.",
+        },
+        {
+          label: "Bag material",
+          title: "Non-woven or paper",
+          text: "Non-woven is tougher and handles rough crates and repeated handling. Paper is cheaper and adequate inside a sealed carton. State which, or describe the packing and we will recommend one.",
+        },
+        {
+          label: "Quantity",
+          title: "Bags per order, and repeat interval",
+          text: "There is no minimum, so 100 bags is a normal first order. Tell us whether it repeats monthly, quarterly, or is one-off - a repeat schedule changes the rate.",
+        },
+        {
+          label: "Documents",
+          title: "What your QA needs on file",
+          text: "SDS, TDS and the DMF-free statement are published and can be downloaded now. A batch COA is issued with the shipment. Food-grade and pharmaceutical certifications are not held, and any such application must be confirmed against your own compliance requirement first.",
+        },
+      ],
+    },
+    sizeGuide: {
+      title: "0.5kg against the sizes around it",
+      intro:
+        "The 0.5kg bag sits between sachets and sacks. If your air volume is larger or smaller, one of these is the better unit.",
+      rows: [
+        {
+          size: "25 g - 250 g",
+          bestFor: "Cartons, instrument cases, single product packs",
+          buyerNote: "Sachet territory. Below roughly 250 g a packet is easier to place and cheaper to ship.",
+        },
+        {
+          size: "0.5 kg bag",
+          bestFor: "Heavy cartons, crates, racks, small store rooms",
+          buyerNote: "The unit this page quotes. Loose bag, removed on arrival, no hanging hardware.",
+        },
+        {
+          size: "1 kg - 5 kg strips",
+          bestFor: "Shipping containers on ocean freight",
+          buyerNote: "For a full container use hanging strips, not loose bags - they attach to the wall and stay clear of cargo.",
+        },
+        {
+          size: "25 kg sacks and jumbo bags",
+          bestFor: "Repackers and facility-scale programmes",
+          buyerNote: "Buying loose gel by the sack is cheaper per kilo if you pack your own bags.",
+        },
+      ],
+    },
+    comparison: {
+      title: "Which gel goes in the bag",
+      intro:
+        "All three are silica gel. The difference is whether the bag tells you when it is spent, and what the indicator is made of - which matters for where you are shipping.",
+      columns: ["White non-indicating", "Orange indicating", "Blue indicating"],
+      rows: [
+        {
+          label: "How you know it is spent",
+          values: [
+            "Replace on a schedule, or weigh the bag",
+            "Turns from orange to green as it saturates",
+            "Turns from blue to pink as it saturates",
+          ],
+        },
+        {
+          label: "Cobalt chloride",
+          values: [
+            "Not applicable",
+            "Cobalt-free",
+            "Contains cobalt chloride - check it against your destination's rules before ordering",
+          ],
+        },
+        {
+          label: "Typical use",
+          values: [
+            "Routine carton and warehouse protection",
+            "Stores inspected visually, and destinations that restrict cobalt",
+            "Legacy specifications that name blue gel explicitly",
+          ],
+        },
+        {
+          label: "Relative cost",
+          values: ["Lowest", "Higher - you are paying for the visual check", "Higher"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      title: "Quote needs these details",
+      formTitle: "0.5kg silica gel bag quotation",
+      intro:
+        "Send these five and the quote comes back in one pass rather than three.",
+      items: [
+        "Number of bags for the first order, and whether it repeats",
+        "White non-indicating or orange indicating gel",
+        "Non-woven or paper bag",
+        "Destination city and port, or factory pickup in Karachi",
+        "Documents your QA needs on file - SDS, TDS, DMF-free statement, batch COA",
+      ],
+      defaultProduct: "0.5kg silica gel bags",
+    },
+    buyingTitle: "How a 0.5kg bag order runs",
+    buyingIntro:
+      "Three steps from enquiry to dispatch. Most of the delay in a first order is deciding the bag material, which is why it is asked first.",
+    buyingSteps: [
+      {
+        title: "01 Send quantity and gel type",
+        text: "Bags for the first order, white or indicating, and whether it repeats. There is no minimum, so a 100-bag trial is a normal starting point.",
+      },
+      {
+        title: "02 Confirm bag material and documents",
+        text: "Non-woven or paper, and which documents your QA files. SDS, TDS and the DMF-free statement can be downloaded while you decide.",
+      },
+      {
+        title: "03 Approve terms and dispatch",
+        text: "Destination and Incoterms for export, or a pickup slot for Karachi. The batch COA is issued with the shipment.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Bulk silica gel by the kilogram", href: "/bulk-silica-gel-desiccant" },
+      { label: "Silica gel packets and sachets", href: "/silica-gel-packets" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Published rates", href: "/pricing" },
+      { label: "SDS, COA and certificates", href: "/documentation" },
+    ],
+    faqs: [
+      {
+        question: "What is the minimum order for 0.5kg silica gel bags?",
+        answer:
+          "There is no minimum. A 100-bag first order is normal, and trial and sample quantities are supplied. The rate improves with volume and with a repeat schedule.",
+      },
+      {
+        question: "How much moisture does a 0.5kg silica gel bag absorb?",
+        answer:
+          "Silica gel adsorbs up to about 33% of its own weight in water vapour at 25 °C and 90% relative humidity, so a 500 g bag holds roughly 165 g of water at saturation. Real capacity depends on the humidity and temperature the bag actually sees.",
+      },
+      {
+        question: "Are the bags white gel or indicating gel?",
+        answer:
+          "Either. White non-indicating is the default. Orange indicating gel changes colour as it saturates so the bag can be read on inspection, and the orange grade supplied is cobalt-free.",
+      },
+      {
+        question: "Non-woven or paper bags - which should I order?",
+        answer:
+          "Non-woven is tougher for crates and repeated handling. Paper is cheaper and adequate inside a sealed carton. Describe the packing and we will recommend one rather than guessing.",
+      },
+      {
+        question: "Do you supply SDS and COA with 0.5kg bags?",
+        answer:
+          "Yes. The SDS, TDS and DMF-free statement are published for download, and a batch-level COA is issued with each order. Food-grade and pharmaceutical certifications are not held and must be confirmed against your application before commercial terms.",
+      },
+      {
+        question: "Can 0.5kg bags be used inside a shipping container?",
+        answer:
+          "They can sit in crates inside a container, but for the container itself hanging strips are the right unit - they attach to the wall and stay clear of the cargo. Size that separately with the container desiccant calculator.",
+      },
+      {
+        question: "Do you print our brand on the bag?",
+        answer:
+          "Printed bags are quoted separately from stock bags. Send the artwork and the annual volume with the enquiry and the print cost is included in the quotation.",
       },
     ],
   },

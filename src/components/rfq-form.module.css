@@ -242,3 +242,9 @@
   letter-spacing: 0.02em;
   color: var(--muted, #5b6572);
 }
+
+/* Document pack above the RFQ fields. The component carries its own card
+   styling; this only separates it from the first fieldset. */
+.introDocs {
+  margin-bottom: 22px;
+}

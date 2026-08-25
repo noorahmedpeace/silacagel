@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { EvidencePack } from "@/components/evidence-pack";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
@@ -290,6 +291,17 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+
+            {/* The document pack sits BESIDE the checklist, not behind the
+                submit button. EvidencePack already existed but rendered only in
+                QuoteForm's success state, so a buyer got the SDS, COA, TDS, ISO
+                certificate and DMF-free statement only after converting. These
+                pages name those documents 28-52 times each and carried zero
+                download links; QA screens a supplier on the paperwork before it
+                engages on price, which is the order this now follows.
+                EvidencePack filters on `available`, so nothing renders as a
+                dead link, and it makes no food-grade or pharma claim. */}
+            <EvidencePack className={styles.checklistDocs} />
           </div>
           <div className={styles.quoteFormShell}>
             <QuoteForm

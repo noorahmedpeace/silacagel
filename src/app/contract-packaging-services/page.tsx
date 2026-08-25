@@ -14,9 +14,9 @@ import styles from "./page.module.css";
 // added only when the owner supplies real figures from the installed line.
 
 export const metadata: Metadata = {
-  title: "Contract Packaging & Sachet Filling Services in Pakistan | DryGelWorld",
+  title: "Contract Packaging & Sachet Filling Services, Karachi",
   description:
-    "Contract packaging and sachet filling in Karachi, Pakistan: automatic flow-wrap (pillow pack) and sachet lines, toll packing or turnkey with printed film, bulk-to-retail repacking, and export packing by an ISO 9001:2015 manufacturer since 1983.",
+    "Contract packaging and sachet filling in Karachi: flow-wrap and sachet lines, toll or turnkey with printed film, bulk-to-retail repacking, ISO 9001:2015.",
   alternates: { canonical: "/contract-packaging-services" },
   keywords: [
     "contract packaging services",
