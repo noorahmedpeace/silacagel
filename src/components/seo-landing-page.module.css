@@ -834,3 +834,9 @@
     display: none;
   }
 }
+
+/* Document pack inside the quote checklist column. The component brings its own
+   card styling; this only gives it separation from the checklist above it. */
+.checklistDocs {
+  margin-top: 18px;
+}

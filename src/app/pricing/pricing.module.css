@@ -273,3 +273,10 @@
     transform: none !important;
   }
 }
+
+/* Document pack under the pricing disclaimer. The component carries its own
+   card styling; this only separates it from the CTA above. */
+.evidence {
+  margin-top: 20px;
+  text-align: left;
+}

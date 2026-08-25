@@ -215,7 +215,7 @@ export const supplierComparisons: SupplierComparison[] = [
     region: "China",
     category: "Silica gel and desiccant products",
     bestFor: "Buyers seeking a China-based silica-gel supplier; exact scope needs product-level verification",
-    summary: "The supplied public page was not reliably retrievable during this audit. The comparison therefore avoids claims about capacity, certificates, pricing, or product breadth until a buyer verifies them directly.",
+    summary: "Compare Bouling Desiccants with DryGelWorld on origin, formats, documentation, and RFQ terms before shortlisting a China-based silica gel supplier. Bouling's public page was not reliably retrievable when this comparison was written, so nothing here states their capacity, certificates, pricing, or product breadth - verify those with them directly.",
     dryGelWorldStrengths: [
       "Publicly accessible product and RFQ paths for sachets, beads, and container moisture control",
       "Pakistan-origin export coordination and direct documentation discussion",
@@ -245,7 +245,7 @@ export const supplierComparisons: SupplierComparison[] = [
     region: "India",
     category: "Silica gel and desiccant supply",
     bestFor: "India-origin silica-gel sourcing; exact formats and documentation should be confirmed",
-    summary: "The supplied public page was not reliably retrievable during this audit. This page is intentionally conservative and does not invent Aquablue pricing, capacity, certifications, or product specifications.",
+    summary: "Compare Aquablue with DryGelWorld on origin, formats, documentation, and RFQ terms before shortlisting an India-based silica gel supplier. Aquablue's public page was not reliably retrievable when this comparison was written, so nothing here states their pricing, capacity, certifications, or specifications - confirm those with them directly.",
     dryGelWorldStrengths: [
       "Pakistan-origin supply for buyers comparing Karachi and India freight lanes",
       "Finished sachet, bead, and container-strip formats with a direct quote workflow",

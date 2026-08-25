@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { priceGroups, whatsappNumber } from "@/lib/product-data";
+import { EvidencePack } from "@/components/evidence-pack";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
 export const metadata: Metadata = {
   title: "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export",
   description:
-    "Indicative silica gel prices, wholesale rates and MOQ tiers for packets, bulk beads and container strips. Buyers in Pakistan can request a PKR quote; export buyers get USD terms, request a firm quotation.",
+    "Indicative silica gel prices and MOQ tiers for packets, bulk beads, and container strips. PKR rates for Pakistan, USD terms for export, firm quote on request.",
   alternates: {
     canonical: "/pricing",
   },
@@ -206,6 +207,13 @@ export default function PricingPage() {
           the validity window stated on the quote.
         </p>
         <Link href="/contact" className={styles.primaryBtn}>Request exact pricing</Link>
+
+        {/* This page names SDS, COA and the ISO certificate but carried no way
+            to open them. Procurement screens a supplier on the paperwork before
+            it argues about price, so the pack is published here rather than
+            promised. EvidencePack filters on `available`, so a document without
+            an uploaded file can never render as a dead link. */}
+        <EvidencePack className={styles.evidence} />
       </section>
 
       <FaqBlock

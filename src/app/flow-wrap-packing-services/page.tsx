@@ -16,9 +16,9 @@ import styles from "../contract-packaging-services/page.module.css";
 // piece-work/job intent, not B2B).
 
 export const metadata: Metadata = {
-  title: "Flow Wrap Packing Services in Pakistan | Pillow Pack Co-Packing, Karachi",
+  title: "Flow Wrap Packing Services, Karachi | Pillow Pack Co-Packing",
   description:
-    "Flow wrap (pillow pack) contract packing in Karachi for manufacturers and brands: published spec envelope 60–200 mm packs, OPP/BOPP/metalized/printed film, realistic 30–60 packs/min, seal and weight QC under ISO 9001:2015. B2B only, MOQ applies.",
+    "Flow wrap and pillow pack contract packing in Karachi: 60-200 mm packs, OPP/BOPP/metalized/printed film, seal and weight QC under ISO 9001:2015.",
   alternates: { canonical: "/flow-wrap-packing-services" },
   keywords: [
     "flow wrap packing services Pakistan",
