@@ -318,7 +318,7 @@ export default function ContainerDosageCalculatorPage() {
             <h3>Desiccant pricing</h3>
             <p>Format-by-format price guidance for sachets, strips, and bulk supply.</p>
           </Link>
-          <Link className={styles.card} href="/contact?product=container-strips">
+          <Link className={styles.card} href="/request-a-quote?product=Silica%20Gel%20Container%20Desiccant%20Strips">
             <span>RFQ</span>
             <h3>Request an export quote</h3>
             <p>Send your container size, route, and cargo for a confirmed dosage and price.</p>

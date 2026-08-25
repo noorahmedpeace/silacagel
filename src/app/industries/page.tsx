@@ -119,7 +119,7 @@ export default function IndustriesHubPage() {
           manufacturers worldwide. Choose your application to see the moisture risks, recommended
           formats, and documentation each sector needs before an RFQ.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>

@@ -195,8 +195,8 @@ const procurementDetails = {
     packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
     related: [
       { label: "Powdered nitrile gloves", href: "/products/powdered-nitrile-examination-gloves" },
-      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
-      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+      { label: "Latex gloves (on request)", href: "/request-a-quote?product=Latex%20gloves" },
+      { label: "Vinyl gloves (on request)", href: "/request-a-quote?product=Vinyl%20gloves" },
     ],
   },
   "powdered-nitrile-examination-gloves": {
@@ -211,8 +211,8 @@ const procurementDetails = {
     packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
     related: [
       { label: "Powder-free nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves" },
-      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
-      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+      { label: "Latex gloves (on request)", href: "/request-a-quote?product=Latex%20gloves" },
+      { label: "Vinyl gloves (on request)", href: "/request-a-quote?product=Vinyl%20gloves" },
     ],
   },
   "beard-covers": {

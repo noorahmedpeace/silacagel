@@ -367,7 +367,7 @@ export function SiteHeader() {
               <HeaderSearch />
             </div>
 
-            <Link href="/contact" className={styles.navCta}>
+            <Link href="/request-a-quote" className={styles.navCta}>
               Request Quote
             </Link>
 
@@ -495,7 +495,7 @@ export function SiteHeader() {
             </div>
 
             <Link
-              href="/contact"
+              href="/request-a-quote"
               className={styles.mobileDrawerCta}
               onClick={() => setMobileOpen(false)}
             >

@@ -87,7 +87,7 @@ export default function DispensersPage() {
                   </div>
                 ))}
               </div>
-              <Link href="/contact" className={styles.ctaBtn}>Request Machinery Quote →</Link>
+              <Link href="/request-a-quote" className={styles.ctaBtn}>Request Machinery Quote →</Link>
             </div>
           </article>
         ))}

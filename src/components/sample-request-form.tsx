@@ -207,7 +207,7 @@ export function SampleRequestForm() {
       </button>
       <p className={styles.note}>
         For bulk pricing and full documentation, use the{" "}
-        <Link href="/contact">full export quote form</Link> instead.
+        <Link href="/request-a-quote">full export quote form</Link> instead.
       </p>
     </form>
   );

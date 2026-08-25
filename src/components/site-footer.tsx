@@ -168,7 +168,7 @@ export function SiteFooter() {
             documentation, or go straight to the industry guide that matches your business.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.primary} href="/contact">Request Export Quote</Link>
+            <Link className={styles.primary} href="/request-a-quote">Request Export Quote</Link>
             <Link className={styles.secondary} href="/products">View Products</Link>
             <a className={styles.whatsapp} href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
               WhatsApp

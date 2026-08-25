@@ -205,7 +205,7 @@ export default function DocumentationPage() {
                 available={isoCertificate.fileAvailable}
                 title={`${isoCertificate.standard} certificate`}
               />
-              <Link href="/contact" className={styles.certSecondary}>
+              <Link href="/request-a-quote" className={styles.certSecondary}>
                 Request a signed copy
               </Link>
             </div>
@@ -300,7 +300,7 @@ export default function DocumentationPage() {
             approval packs are prepared per order. Tell us the product and market.
           </p>
         </div>
-        <Link href="/contact" className={styles.ctaBtn}>Request documents</Link>
+        <Link href="/request-a-quote" className={styles.ctaBtn}>Request documents</Link>
       </section>
 
       <FaqBlock

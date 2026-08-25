@@ -148,7 +148,7 @@ export default function CompareHub() {
           manufacturer certification and per-shipment SDS + COA are standard.
         </p>
         <div className={styles.ctaRow}>
-          <Link href="/contact" className={styles.primaryCta}>
+          <Link href="/request-a-quote" className={styles.primaryCta}>
             Request a recommendation
           </Link>
           <Link href="/products" className={styles.secondaryCta}>

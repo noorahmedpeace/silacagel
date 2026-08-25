@@ -62,7 +62,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
           <h1>{study.title}</h1>
           <p>{study.context}</p>
           <div className={styles.heroActions}>
-            <Link href="/contact" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
+            <Link href="/request-a-quote" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
             <Link href="/case-studies" className={styles.secondaryBtn}>All Case Studies</Link>
           </div>
         </div>

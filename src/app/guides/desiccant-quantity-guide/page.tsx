@@ -512,7 +512,7 @@ export default function DesiccantQuantityGuidePage() {
             <h3>Silica gel packets</h3>
             <p>Carton-level sachet sizes for the goods inside each box.</p>
           </Link>
-          <Link className={styles.card} href="/contact">
+          <Link className={styles.card} href="/request-a-quote">
             <span>RFQ</span>
             <h3>Request a quote</h3>
             <p>Send the checklist above for a confirmed dosage and price - samples are free.</p>

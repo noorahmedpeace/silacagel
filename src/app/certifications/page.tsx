@@ -447,7 +447,7 @@ export default function CertificationsPage() {
           </p>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center" }}>
-          <Link href="/contact" className={styles.cta}>
+          <Link href="/request-a-quote" className={styles.cta}>
             Request Document Set
           </Link>
           <a

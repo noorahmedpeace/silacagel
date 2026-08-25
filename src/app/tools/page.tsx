@@ -96,7 +96,7 @@ export default function ToolsHubPage() {
           Free sizing tools for export and packaging teams. Enter your container, cargo, or carton
           details to get a unit count, then send the result straight into an RFQ.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>

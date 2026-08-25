@@ -103,7 +103,7 @@ export default function SupplierCompareHub() {
           quantity, packing, destination, Incoterm, and required documents to the DryGelWorld
           export desk.
         </p>
-        <Link href="/contact" className={styles.button}>Request a quote</Link>
+        <Link href="/request-a-quote" className={styles.button}>Request a quote</Link>
       </footer>
 
       <script

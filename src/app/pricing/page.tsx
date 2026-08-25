@@ -110,7 +110,7 @@ export default function PricingPage() {
           request a firm quote based on quantity, packaging, destination, and Incoterm.
         </p>
         <div className={styles.heroActions}>
-          <Link href="/contact" className={styles.primaryBtn}>Request Export Quote</Link>
+          <Link href="/request-a-quote" className={styles.primaryBtn}>Request Export Quote</Link>
           <a
             href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
             target="_blank"
@@ -169,7 +169,7 @@ export default function PricingPage() {
                       <td>25 kg bags, drums, jumbo bags</td>
                       <td colSpan={3}>
                         Quoted by tonnage, typically 1 to 5 metric tons per shipment,
-                        below packed format per kg rates. <Link href="/contact">Request a bulk quote</Link>.
+                        below packed format per kg rates. <Link href="/request-a-quote">Request a bulk quote</Link>.
                       </td>
                     </tr>
                   ) : null}
@@ -206,7 +206,7 @@ export default function PricingPage() {
           format, quantity, packaging, documentation, and Incoterm, and holds for
           the validity window stated on the quote.
         </p>
-        <Link href="/contact" className={styles.primaryBtn}>Request exact pricing</Link>
+        <Link href="/request-a-quote" className={styles.primaryBtn}>Request exact pricing</Link>
 
         {/* This page names SDS, COA and the ISO certificate but carried no way
             to open them. Procurement screens a supplier on the paperwork before

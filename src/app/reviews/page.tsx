@@ -58,7 +58,7 @@ export default function ReviewsPage() {
           {" "}{totalCustomersSupplied}+ companies. {total} of them are named below, grouped by
           sector, with {linked} company websites linked so you can look them up yourself.
         </p>
-        <Link className={styles.cta} href="/contact">Request a Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
       </section>
 
       {/* Statement plus a short ledger. Deliberately not another three-card row:

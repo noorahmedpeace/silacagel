@@ -1273,7 +1273,7 @@ const highIntentSeoLandingPages = {
         { text: ", verify the supplier " },
         { href: "/documentation", label: "document set" },
         { text: ", and use the " },
-        { href: "/contact", label: "commercial RFQ form" },
+        { href: "/request-a-quote", label: "commercial RFQ form" },
         { text: " to attach artwork, packing, destination, and repeat-volume requirements." },
       ],
     },
@@ -1351,7 +1351,7 @@ const highIntentSeoLandingPages = {
         { text: ", review available " },
         { href: "/documentation", label: "quality documents" },
         { text: ", then send artwork and commercial requirements through the " },
-        { href: "/contact", label: "private-label RFQ" },
+        { href: "/request-a-quote", label: "private-label RFQ" },
         { text: "." },
       ],
     },
@@ -1430,7 +1430,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
       { label: "Silica gel vs clay", href: "/compare/silica-gel-vs-clay-desiccant" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What is white silica gel used for?", answer: "White silica gel is used for non-indicating moisture control inside product packs, cartons, bulk bags, warehouse stock, electronics packaging, pharma packaging review, leather goods, and export shipments." },
@@ -1508,7 +1508,7 @@ const highIntentSeoLandingPages = {
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What is indicating silica gel?", answer: "Indicating silica gel is a moisture-adsorbing desiccant with a visible color signal that helps users identify moisture exposure or saturation status." },
@@ -1611,7 +1611,7 @@ const highIntentSeoLandingPages = {
       { label: "Cobalt-free vs blue gel (safety)", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Documents hub", href: "/documentation" },
-      { label: "Request breather gel quote", href: "/contact" },
+      { label: "Request breather gel quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What silica gel is used in a transformer breather?", answer: "An indicating silica gel that shows a colour change as it saturates. Modern practice favours cobalt-free orange gel (dark orange when dry, green when saturated) over traditional cobalt-blue gel, because cobalt chloride is a substance of concern under EU REACH." },
@@ -1684,7 +1684,7 @@ const highIntentSeoLandingPages = {
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What does non-indicating silica gel mean?", answer: "Non-indicating silica gel adsorbs moisture without changing color. It is normally selected where buyers need clean adsorption rather than a visual humidity signal." },
@@ -1896,7 +1896,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Beard cover supplier", href: "/beard-cover-supplier" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What sizes of hair nets are supplied?", answer: "Standard bouffant nets are available in 18, 20, 21, and 22 inch diameters. Custom sizing can be discussed for high-volume programs." },
@@ -1940,7 +1940,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Hair net supplier", href: "/hair-net-supplier" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "Are beard covers and hair nets the same product?", answer: "No. Hair nets cover the head and contain scalp hair; beard covers contain facial hair. PPE programs in food and manufacturing typically order both." },
@@ -3246,7 +3246,7 @@ export const seoLandingPages = {
       { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
       { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Technical documents", href: "/documentation" },
-      { label: "Request export quote", href: "/contact" },
+      { label: "Request export quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -3607,7 +3607,7 @@ export const seoLandingPages = {
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Container strip documents", href: "/documentation" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -3836,7 +3836,7 @@ export const seoLandingPages = {
     relatedLinks: [
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -4066,7 +4066,7 @@ export const seoLandingPages = {
         { text: ", compare " },
         { href: "/silica-gel-packets", label: "packet formats" },
         { text: ", then send the exact contact scenario through the " },
-        { href: "/contact", label: "application review form" },
+        { href: "/request-a-quote", label: "application review form" },
         { text: "." },
       ],
     },
@@ -4269,7 +4269,7 @@ export const seoLandingPages = {
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Silica gel for transformer breathers", href: "/silica-gel-for-transformer-breather" },
       { label: "Documents hub", href: "/documentation" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -4701,7 +4701,7 @@ export const seoLandingPages = {
         { text: ", review " },
         { href: "/blog/container-rain-prevention", label: "container rain controls" },
         { text: ", then submit route and cargo data for an " },
-        { href: "/contact", label: "export quotation" },
+        { href: "/request-a-quote", label: "export quotation" },
         { text: "." },
       ],
     },
@@ -4833,7 +4833,7 @@ export const seoLandingPages = {
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {

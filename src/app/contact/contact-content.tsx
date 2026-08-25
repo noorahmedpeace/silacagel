@@ -1,6 +1,6 @@
 "use client";
 
-import { QuoteForm } from "@/components/quote-form";
+import Link from "next/link";
 import {
   companyAddressFull,
   contactEmailChannels,
@@ -27,13 +27,7 @@ const orderedEmailChannels = [...contactEmailChannels].sort(
   (a, b) => (channelPriority[a.id] ?? 9) - (channelPriority[b.id] ?? 9),
 );
 
-export type ContactPrefill = {
-  product?: string;
-  quantity?: string;
-  message?: string;
-};
-
-export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
+export function ContactContent({ rfqHref }: { rfqHref: string }) {
   return (
     <main className={styles.page}>
       <div className={styles.ambient} aria-hidden="true">
@@ -45,13 +39,13 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
       <section className={styles.bento}>
         <article className={`${styles.tile} ${styles.tileHero}`}>
           <span className={styles.heroOrb} aria-hidden="true" />
-          <span className={styles.kicker}>Export Desk</span>
-          <h1>Quote requests, answered in 24 hours.</h1>
+          <span className={styles.kicker}>Karachi Export Desk</span>
+          <h1>Talk to the factory directly.</h1>
           <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 190+ countries.</p>
           <div className={styles.heroActions}>
-            <a href="#rfq-form" className={styles.primaryAction}>
-              Start RFQ
-            </a>
+            <Link href={rfqHref} className={styles.primaryAction}>
+              Request a quote
+            </Link>
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I need SDS / COA support for a silica gel procurement inquiry.")}`}
               target="_blank"
@@ -74,16 +68,24 @@ export function ContactContent({ prefill }: { prefill?: ContactPrefill }) {
           <span className={styles.trustLabel}>9001:2015</span>
         </article>
 
-        <article className={`${styles.tile} ${styles.tileForm}`} id="rfq-form">
-          <QuoteForm
-            title="Export Quote Request"
-            headingLevel={2}
-            compact
-            defaultDepartment="export"
-            defaultProduct={prefill?.product ?? ""}
-            defaultQuantity={prefill?.quantity ?? ""}
-            defaultMessage={prefill?.message ?? ""}
-          />
+        <article className={`${styles.tile} ${styles.tileRfq}`} id="rfq">
+          <span className={styles.actionKicker}>Quotations</span>
+          <h2>Pricing is quoted, not listed.</h2>
+          <p>
+            Rates depend on format, quantity, destination port, and trade term, so
+            there is one form that asks for exactly those and nothing else. Send it
+            and the factory export desk replies within 24 business hours with
+            pricing, MOQ, lead time, and shipping options.
+          </p>
+          <ul>
+            <li>Product format and gram size</li>
+            <li>Quantity, and whether the order repeats</li>
+            <li>Destination country and port</li>
+            <li>Any documents you need with the shipment - SDS, COA, DMF-free</li>
+          </ul>
+          <Link href={rfqHref} className={styles.primaryAction}>
+            Open the quotation form
+          </Link>
         </article>
 
         <a

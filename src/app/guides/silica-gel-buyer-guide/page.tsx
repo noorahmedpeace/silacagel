@@ -88,7 +88,7 @@ export default function SilicaGelBuyerGuide() {
             >
               Save as PDF
             </button>
-            <Link href="/contact" className={styles.ctaAction}>
+            <Link href="/request-a-quote" className={styles.ctaAction}>
               Request Buyer Consultation
             </Link>
           </div>
@@ -699,7 +699,7 @@ export default function SilicaGelBuyerGuide() {
             per-shipment SDS + COA are standard.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className={styles.primaryCta}>
+            <Link href="/request-a-quote" className={styles.primaryCta}>
               Request Buyer Consultation
             </Link>
             <Link href="/compare" className={styles.secondaryCta}>

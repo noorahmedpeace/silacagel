@@ -99,7 +99,9 @@ export function ContainerDosageCalculator() {
     return () => window.clearTimeout(timer);
   }, [container, cargo, climate, days, result.suppliedKg]);
 
-  const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
+  const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&application=${encodeURIComponent(
+    `${result.containerLabel} container, ${climateOption.shortLabel} route, ~${days} day transit`,
+  )}`;
 
   // Memoized: the ~1KB URL-encoded plan is only read on an "Email this plan"
   // click, so rebuilding it on every slider tick was pure waste.

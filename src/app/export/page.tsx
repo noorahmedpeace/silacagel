@@ -90,7 +90,7 @@ export default function ExportPage() {
           manufacturers sourcing bulk desiccant packets, cargo strips, and documentation-backed
           moisture control products on EXW, FOB, CIF, or DAP terms.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>

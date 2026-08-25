@@ -47,7 +47,7 @@ export default function CaseStudiesPage() {
           buyer-safe stories that explain the problem, sizing logic, document path, and RFQ outcome.
         </p>
         <div className={styles.heroActions}>
-          <Link href="/contact" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
+          <Link href="/request-a-quote" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
           <Link href="/documentation" className={styles.secondaryBtn}>View Document Hub</Link>
         </div>
       </section>

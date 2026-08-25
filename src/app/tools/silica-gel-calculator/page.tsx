@@ -291,7 +291,7 @@ export default function SilicaGelCalculatorPage() {
           <a className={styles.heroPrimary} href="#calculator">
             Use the calculator
           </a>
-          <Link className={styles.heroSecondary} href="/contact">
+          <Link className={styles.heroSecondary} href="/request-a-quote">
             Request a quotation
           </Link>
         </div>
@@ -553,7 +553,7 @@ export default function SilicaGelCalculatorPage() {
         </ol>
         <p className={styles.prose}>
           Ready to send it? The{" "}
-          <Link href="/contact">export quote request form</Link> asks for exactly these
+          <Link href="/request-a-quote">export quote request form</Link> asks for exactly these
           fields, or compare formats first on the{" "}
           <Link href="/pricing">silica gel price list</Link>. For volumes above a tonne, the{" "}
           <Link href="/bulk-silica-gel-desiccant">bulk silica gel desiccant</Link> page covers

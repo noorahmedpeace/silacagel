@@ -137,7 +137,7 @@ export default function DesiccantGlossaryPage() {
               </ul>
             </div>
           </div>
-          <Link className={styles.cta} href="/contact">
+          <Link className={styles.cta} href="/request-a-quote">
             Request export quote
           </Link>
         </section>

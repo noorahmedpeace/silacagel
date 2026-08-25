@@ -129,7 +129,7 @@ export default async function SupplierComparePage({ params }: Props) {
             packet or strip weight, packing, MOQ, lead time, destination basis, SDS, COA, and
             certificate scope.
           </p>
-          <Link href="/contact" className={styles.button}>Send DryGelWorld RFQ</Link>
+          <Link href="/request-a-quote" className={styles.button}>Send DryGelWorld RFQ</Link>
         </footer>
       </article>
 
