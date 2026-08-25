@@ -67,7 +67,7 @@ export default function DesiccantUnitCalculatorPage() {
         <span className={styles.kicker}>Technical Sizing Tool</span>
         <h1>DIN 55473 Desiccant Unit Sizing Calculator</h1>
         <p>
-          Size standard DIN / Mil-Spec desiccant units (U) for sealed barrier packaging. Enter your enclosure surface area, barrier film transmission rate (WVTR), and ocean transit duration to determine certified pouch quantities.
+          Size standard DIN / Mil-Spec desiccant units (U) for sealed barrier packaging. Enter your enclosure surface area, barrier film transmission rate (WVTR), and ocean transit duration to determine the pouch quantity you need.
         </p>
       </section>
 
@@ -101,7 +101,7 @@ export default function DesiccantUnitCalculatorPage() {
           <div style={{ padding: "24px", background: "var(--ds-surface)", border: "1px solid var(--ds-hairline)", borderRadius: "14px" }}>
             <h3 style={{ fontSize: "1.1rem", fontWeight: 700, margin: "0 0 10px" }}>3. Unit Capacity Standard (a = 6.0g)</h3>
             <p style={{ fontSize: "0.9rem", color: "var(--muted)", margin: 0 }}>
-              Per DIN 55473, 1 Desiccant Unit (1 U) is certified to hold a minimum of 6.0g water vapor at 40% RH. DryGelWorld produces Type A silica gel sachets and bentonite clay pouches certified to meet DIN adsorption benchmarks.
+              DIN 55473 defines 1 Desiccant Unit (1 U) as the quantity of desiccant that adsorbs at least 6.0 g of water vapour at 40% RH. DryGelWorld manufactures Type A silica gel sachets and bentonite clay pouches sized against that benchmark. This tool applies the arithmetic set out in that standard; it is not a certification, and DryGelWorld does not hold a DIN 55473 certification.
             </p>
           </div>
         </div>
