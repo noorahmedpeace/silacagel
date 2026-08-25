@@ -92,6 +92,8 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
     notFound();
   }
 
+  const rfqHref = `/request-a-quote?destination=${encodeURIComponent(market.country)}`;
+
   // Deterministic rotation (not random - keeps static generation stable):
   // 5 siblings starting right after this market's position in the list,
   // wrapping around, so every market page cross-links to a varied set
@@ -179,9 +181,9 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
             // warning - the exact issue the product pages were fixed to avoid.
             itemOffered: {
               "@type": "Service",
-              name: product,
-              serviceType: "Industrial desiccant export supply",
-              provider: { "@id": `${absoluteUrl()}#organization` },
+              name: `${product} for ${market.country}`,
+              serviceType: "Industrial desiccant procurement",
+              category: "Industrial desiccants",
               areaServed: market.country,
             },
           })),
@@ -209,12 +211,12 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <span className={styles.kicker}>Export Market / {market.country}</span>
         <h1>{market.title}</h1>
         <p>{market.description}</p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href={rfqHref}>Request Export Quote</Link>
 
         {/* Mobile only, inside the hero so it lands in the first screen (see
             the landing template for the measurement). No PKR figure: this
             page's buyer pays in USD and a rupee anchor is not their price. */}
-        <MobileQuoteBand quoteHref="/contact" subject={`${market.country} silica gel supply`} />
+        <MobileQuoteBand quoteHref={rfqHref} subject={`${market.country} silica gel supply`} />
 
       </section>
 
@@ -450,11 +452,22 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <div className={styles.sectionHead}>
           <h2>Request a {market.country} export quote.</h2>
           <p>
-            Send your format, quantity, destination port or city, and Incoterms - and the export
+            Send your format, quantity, destination port or city, and Incoterms - and the factory export
             desk returns a documented quote with MOQ, lead time, and shipping options.
           </p>
         </div>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+          <Link className={styles.cta} href={rfqHref}>
+            Request {market.country} Export Quote
+          </Link>
+          <Link
+            className={styles.secondaryCta}
+            href="/samples"
+            style={{ display: "inline-flex", alignItems: "center", padding: "12px 20px", borderRadius: "10px" }}
+          >
+            Order Free Evaluation Samples
+          </Link>
+        </div>
       </section>
 
       <script

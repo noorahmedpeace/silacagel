@@ -39,10 +39,11 @@ export type MobileQuoteBandProps = {
 };
 
 export function MobileQuoteBand({ showPkrFrom = false, quoteHref, subject }: MobileQuoteBandProps) {
+  const cleanSubject = subject.replace(/\.$/, "");
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     showPkrFrom
-      ? `Hello, I need a PKR price for ${subject}. Size and quantity:`
-      : `Hello, I need a quotation for ${subject}. Quantity and destination:`,
+      ? `Hello, I need a PKR price for ${cleanSubject}. Size and quantity:`
+      : `Hello, I need a quotation for ${cleanSubject}. Quantity and destination:`,
   )}`;
 
   return (

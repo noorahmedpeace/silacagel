@@ -68,6 +68,18 @@ export function HomeQuoteEstimator({
             →
           </span>
         </Link>
+
+        <Link className={styles.fullTool} href="/tools/desiccant-unit-calculator" style={{ marginTop: "12px" }}>
+          <span className={styles.fullToolBody}>
+            <strong>DIN 55473 & Mil-Spec Unit Calculator</strong>
+            <span>
+              Calculate DIN Units (U), barrier WVTR penetration, and sachet counts for export cargo.
+            </span>
+          </span>
+          <span className={styles.fullToolArrow} aria-hidden="true">
+            →
+          </span>
+        </Link>
       </div>
 
       <div className={styles.calculator}>

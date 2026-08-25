@@ -1,4 +1,4 @@
-﻿/**
+/**
  * /llms.txt - AI agent discovery file.
  *
  * Format spec: https://llmstxt.org (proposed by Answer.AI; adopted as a
@@ -88,6 +88,13 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - Material: non-woven polypropylene with elasticated edge
 - Packing: cartons of 100 or 1000 pieces
 - Positioning: industrial safety PPE
+
+## Interactive Sizing Calculators & Tools
+
+- **DIN 55473 & MIL-D-3464E Desiccant Unit Calculator:** [${absoluteUrl("/tools/desiccant-unit-calculator")}](${absoluteUrl("/tools/desiccant-unit-calculator")}) - Sizes desiccant units (U) per the DIN 55474 method for barrier foil packaging and export cartons.
+- **Shipping Container Desiccant Calculator:** [${absoluteUrl("/tools/container-desiccant-calculator")}](${absoluteUrl("/tools/container-desiccant-calculator")}) - Calculates 20ft & 40ft ocean container strip requirements based on route humidity, voyage duration, and cargo moisture sensitivity.
+- **Silica Gel Sachet & Bulk Calculator:** [${absoluteUrl("/tools/silica-gel-calculator")}](${absoluteUrl("/tools/silica-gel-calculator")}) - Sizes sachet counts, master cartons, and kilogram targets for export packaging.
+- **Free Evaluation Sample Pack Program:** [${absoluteUrl("/samples")}](${absoluteUrl("/samples")}) - Free evaluation sample requests for international procurement and QA teams.
 
 ## Scale signals
 

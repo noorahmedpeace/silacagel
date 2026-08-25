@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Factory, Globe2, ShieldCheck } from "lucide-react";
 import {
   companyAddressFull,
@@ -106,6 +106,7 @@ const footerColumns: FooterColumn[] = [
       { label: "All calculators & tools", href: "/tools" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
+      { label: "DIN 55473 unit calculator", href: "/tools/desiccant-unit-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" },
       { label: "Desiccant comparisons", href: "/compare" },

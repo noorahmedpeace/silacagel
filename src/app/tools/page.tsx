@@ -19,11 +19,17 @@ const tools = [
     blurb:
       "Sachet quantity, total desiccant weight, and indicative order value - from a piece count, a carton size, or a kilogram target.",
   },
+  {
+    slug: "desiccant-unit-calculator",
+    title: "DIN 55473 Desiccant Unit Calculator",
+    blurb:
+      "Calculate standard DIN 55473 / MIL-D-3464E desiccant units (U) and total sachet weight for sealed barrier packaging and ocean export.",
+  },
 ] as const;
 
 const pageTitle = "Desiccant Calculators & Sizing Tools";
 const pageDescription =
-  "Free silica gel and desiccant sizing tools: container desiccant calculator and moisture load calculator, both routing to a prefilled export quote.";
+  "Free silica gel and desiccant sizing tools: container desiccant calculator, DIN 55473 unit calculator, and silica gel sachet calculator routing to prefilled export quotes.";
 
 export const metadata: Metadata = {
   title: pageTitle,

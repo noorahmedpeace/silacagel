@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { createMailtoHref, salesEmail } from "@/lib/product-data";
+import { createMailtoHref, salesEmail, whatsappNumber } from "@/lib/product-data";
 import { submitRfq } from "@/app/actions/submit-rfq";
 import styles from "./sample-request-form.module.css";
 
@@ -21,6 +21,11 @@ export function SampleRequestForm() {
   const [destination, setDestination] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
+  const [fallbackHref, setFallbackHref] = useState<string>("");
+
+  const sampleWaHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello DryGelWorld, I just requested a sample of ${product || "silica gel"} for destination: ${destination || "export market"}. My email is: ${email}`,
+  )}`;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -59,6 +64,7 @@ export function SampleRequestForm() {
       if (result.ok) {
         setStatus("sent");
       } else if (result.fallback) {
+        setFallbackHref(mailtoUrl);
         setStatus("fallback");
         window.location.href = mailtoUrl;
       } else {
@@ -66,16 +72,93 @@ export function SampleRequestForm() {
         setError(result.error || "Please review the form and try again.");
       }
     } catch {
+      setFallbackHref(mailtoUrl);
       setStatus("fallback");
       window.location.href = mailtoUrl;
     }
   }
 
   if (status === "sent") {
-    return <p className={`${styles.status} ${styles.statusOk}`}>Sample request sent - the export desk will follow up by email.</p>;
+    return (
+      <div style={{ background: "rgba(20, 108, 67, 0.08)", border: "1px solid rgba(20, 108, 67, 0.2)", borderRadius: "12px", padding: "18px" }}>
+        <p className={`${styles.status} ${styles.statusOk}`} style={{ fontWeight: 600, fontSize: "1rem" }}>
+          ✓ Sample request received — dispatch desk notified.
+        </p>
+        <p style={{ margin: "8px 0 12px", fontSize: "0.88rem", color: "var(--muted, #4d5b78)" }}>
+          Our export team will confirm sample availability and shipping arrangements to <strong>{email}</strong> within 24 hours.
+        </p>
+        <a
+          href={sampleWaHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            padding: "8px 14px",
+            background: "#25d366",
+            color: "#fff",
+            borderRadius: "6px",
+            fontWeight: 600,
+            fontSize: "0.86rem",
+            textDecoration: "none",
+          }}
+        >
+          Expedite on WhatsApp
+        </a>
+      </div>
+    );
   }
   if (status === "fallback") {
-    return <p className={`${styles.status} ${styles.statusOk}`}>Opening your email client to send the sample request directly.</p>;
+    return (
+      <div style={{ background: "rgba(15, 23, 42, 0.04)", border: "1px solid rgba(15, 23, 42, 0.12)", borderRadius: "12px", padding: "18px" }}>
+        <p className={`${styles.status} ${styles.statusOk}`} style={{ fontWeight: 600, fontSize: "1rem" }}>
+          Sample request draft ready.
+        </p>
+        <p style={{ margin: "8px 0 12px", fontSize: "0.88rem", color: "var(--muted, #4d5b78)" }}>
+          If your email client did not open automatically, message our export desk directly via WhatsApp or email:
+        </p>
+        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
+          <a
+            href={sampleWaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 14px",
+              background: "#25d366",
+              color: "#fff",
+              borderRadius: "6px",
+              fontWeight: 600,
+              fontSize: "0.86rem",
+              textDecoration: "none",
+            }}
+          >
+            Send via WhatsApp
+          </a>
+          <a
+            href={fallbackHref || createMailtoHref(salesEmail, "Sample request", "Sample request")}
+            rel="nofollow"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              padding: "8px 14px",
+              background: "var(--ds-surface-elevated, #0f172a)",
+              color: "#fff",
+              borderRadius: "6px",
+              fontWeight: 600,
+              fontSize: "0.86rem",
+              textDecoration: "none",
+            }}
+          >
+            Email Export Desk ({salesEmail})
+          </a>
+        </div>
+      </div>
+    );
   }
 
   return (

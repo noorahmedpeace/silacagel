@@ -54,6 +54,9 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hello, I need a quote for ${page.h1.replace(/\.$/, "")}. Format / quantity / destination:`,
   )}`;
+  const rfqHref = page.quoteChecklist
+    ? "#quote-form"
+    : `/request-a-quote?product=${encodeURIComponent(page.kicker || page.title)}`;
 
   return (
     <main className={styles.page}>
@@ -71,13 +74,13 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             screen, which was the whole point. Desktop never renders it. */}
         <MobileQuoteBand
           showPkrFrom={isLocalBuyerPage}
-          quoteHref={page.quoteChecklist ? "#quote-form" : "/contact"}
+          quoteHref={rfqHref}
           subject={page.h1}
         />
           <div className={styles.actions}>
             {/* Paid traffic lands here and bounces if the CTA sends it off-page.
                 When this page carries its own quote form, keep the buyer on it. */}
-            <Link className={styles.primaryCta} href={page.quoteChecklist ? "#quote-form" : "/contact"}>
+            <Link className={styles.primaryCta} href={rfqHref}>
               {page.primaryCta}
             </Link>
             <Link className={styles.secondaryCta} href={page.secondaryHref}>
@@ -330,7 +333,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           </p>
         </div>
         <div className={styles.actions}>
-          <Link className={styles.primaryCta} href="/contact">
+          <Link className={styles.primaryCta} href={rfqHref}>
             {page.primaryCta}
           </Link>
           <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
@@ -395,7 +398,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         }}
       />
       <StickyQuoteBar
-        href={page.quoteChecklist ? "#quote-form" : "/contact"}
+        href={rfqHref}
         productName={page.kicker}
       />
     </main>

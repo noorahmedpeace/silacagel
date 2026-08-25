@@ -11,6 +11,8 @@ export type BlogCluster = {
   products: ClusterLink[];
   compare?: ClusterLink;
   industry?: ClusterLink;
+  // Sizing tool or calculator matching the article's topic
+  tool?: ClusterLink;
   // Commercial "supplier" landing page for the blog's topic. Renders in the
   // buyer-decision column so informational articles hand the reader a
   // converting page (RFQ/quote) without changing the article body.
@@ -37,6 +39,11 @@ const COMPARE_3WAY: ClusterLink = { label: "Silica gel vs clay vs molecular siev
 
 // Standalone guide (not a /blog/ slug): the container/carton quantity walkthrough.
 const GUIDE_QUANTITY: ClusterLink = { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" };
+
+// Interactive sizing calculators
+const TOOL_CONTAINER: ClusterLink = { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" };
+const TOOL_SACHET: ClusterLink = { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" };
+const TOOL_DIN: ClusterLink = { label: "DIN 55473 unit calculator", href: "/tools/desiccant-unit-calculator" };
 
 const IND_PHARMA: ClusterLink = { label: "Pharma packaging", href: "/industries/pharma-packaging" };
 const IND_ELECTRONICS: ClusterLink = { label: "Electronics packaging", href: "/industries/electronics-packaging" };
@@ -73,6 +80,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    tool: TOOL_SACHET,
     commercial: COMMERCIAL_BUY,
   },
   "silica-gel-vs-clay-desiccant": {
@@ -84,6 +92,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
+    tool: TOOL_DIN,
     commercial: COMMERCIAL_CLAY,
   },
   "calcium-chloride-vs-silica-gel-desiccant": {
@@ -95,6 +104,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     compare: COMPARE_CLAY,
     industry: IND_SHIPPING,
+    tool: TOOL_CONTAINER,
     commercial: COMMERCIAL_CONTAINER,
   },
   "container-rain-prevention": {
@@ -106,6 +116,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     industry: IND_SHIPPING,
+    tool: TOOL_CONTAINER,
     commercial: COMMERCIAL_CONTAINER,
   },
   "desiccant-for-electronics-packaging": {
@@ -116,6 +127,7 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
     industry: IND_ELECTRONICS,
+    tool: TOOL_DIN,
   },
   "can-you-reuse-silica-gel": {
     guides: [

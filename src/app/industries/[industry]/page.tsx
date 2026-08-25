@@ -590,13 +590,15 @@ export default async function IndustryPage({
     ],
   };
 
+  const rfqHref = `/request-a-quote?application=${encodeURIComponent(page.title)}`;
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <span className={styles.kicker}>Industry Solution</span>
         <h1>{page.h1}</h1>
         <p>{page.description}</p>
-        <Link href="/contact" className={styles.cta}>Request Industry Quote</Link>
+        <Link href={rfqHref} className={styles.cta}>Request Industry Quote</Link>
         <div className={styles.heroProof}>
           <IsoBadge />
           <Link href="/documentation" className={styles.docLink}>
@@ -607,7 +609,7 @@ export default async function IndustryPage({
 
         {/* Mobile only, inside the hero so it lands in the first screen. No
             PKR anchor - this template serves local and export buyers alike. */}
-        <MobileQuoteBand quoteHref="/contact" subject={`${page.title} desiccant supply`} />
+        <MobileQuoteBand quoteHref={rfqHref} subject={`${page.title} desiccant supply`} />
 
       </section>
 
@@ -679,6 +681,28 @@ export default async function IndustryPage({
           </div>
         </section>
       ) : null}
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Request a quote for {page.title}.</h2>
+          <p>
+            Tell us your packaging specifications, required quantity, and destination - the factory
+            export desk returns a documented quote with MOQ, lead time, and shipping options.
+          </p>
+        </div>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+          <Link className={styles.cta} href={rfqHref}>
+            Request Quote for {page.title}
+          </Link>
+          <Link
+            className={styles.secondaryCta}
+            href="/samples"
+            style={{ display: "inline-flex", alignItems: "center", padding: "12px 20px", borderRadius: "10px" }}
+          >
+            Order Free Evaluation Samples
+          </Link>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"

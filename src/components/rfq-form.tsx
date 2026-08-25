@@ -77,12 +77,16 @@ export function RfqForm({
   defaultProduct = "",
   defaultQuantity = "",
   defaultUnit = "kg",
+  defaultApplication = "",
+  defaultDestinationCountry = "",
 }: {
   defaultProduct?: string;
   defaultQuantity?: string;
   /** Preselects the unit so a caller sending a piece count is not
    *  silently reinterpreted as kilograms. */
   defaultUnit?: string;
+  defaultApplication?: string;
+  defaultDestinationCountry?: string;
 }) {
   const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
   const [error, setError] = useState("");
@@ -330,7 +334,7 @@ export function RfqForm({
           </label>
           <label className={styles.field}>
             <span>Application / industry</span>
-            <input name="application" placeholder="e.g. leather export, electronics" />
+            <input name="application" placeholder="e.g. leather export, electronics" defaultValue={defaultApplication} />
           </label>
           <label className={styles.field}>
             <span>Required delivery date</span>
@@ -344,7 +348,7 @@ export function RfqForm({
         <div className={styles.grid2}>
           <label className={styles.field}>
             <span>Destination country</span>
-            <input name="destinationCountry" list="rfq-countries" />
+            <input name="destinationCountry" list="rfq-countries" defaultValue={defaultDestinationCountry} />
           </label>
           <label className={styles.field}>
             <span>Destination port</span>

@@ -54,6 +54,8 @@ const REDIRECTED_SLUGS = new Set<string>([
   "shipping-container-moisture-control",
   "container-desiccant",
   "container-desiccant-supplier",
+  "bentonite-clay",
+  "documents",
 ]);
 
 const STATIC_ROUTES = [
@@ -90,12 +92,12 @@ const STATIC_ROUTES = [
   "/tools",
   "/tools/container-desiccant-calculator",
   "/tools/silica-gel-calculator",
+  "/tools/desiccant-unit-calculator",
 ] as const;
 
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {
-  // Matches the page's own OG image; without an entry here the sitemap
-  // would advertise the generic default instead.
   "/tools/silica-gel-calculator": [seoImages.desiccantSizing.src],
+  "/tools/desiccant-unit-calculator": [seoImages.desiccantSizing.src],
   "": [seoImages.defaultOg.src, seoImages.silicaGelSachets.src],
   "/products": [seoImages.silicaGelSachets.src, seoImages.industrialBulk.src, seoImages.containerDesiccant.src],
   "/blog": [seoImages.buyerGuideProcess.src, seoImages.desiccantSizing.src],

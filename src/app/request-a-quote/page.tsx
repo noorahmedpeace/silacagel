@@ -31,10 +31,19 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
   const params = await searchParams;
   const product =
     typeof params.product === "string" ? params.product.trim().slice(0, 120) : "";
-  const qty = typeof params.qty === "string" ? params.qty.trim().slice(0, 20) : "";
+  const qty =
+    typeof params.qty === "string"
+      ? params.qty.trim().slice(0, 50)
+      : typeof params.quantity === "string"
+      ? params.quantity.trim().slice(0, 50)
+      : "";
   // Callers that deal in piece counts (the silica gel calculator) pass
   // ?unit=pieces. Anything unrecognised falls back to the form default.
-  const unit = params.unit === "pieces" ? "pieces" : "kg";
+  const unit = params.unit === "pieces" || params.unit === "cartons" || params.unit === "pallets" || params.unit === "containers" ? params.unit : "kg";
+  const application =
+    typeof params.application === "string" ? params.application.trim().slice(0, 120) : "";
+  const destination =
+    typeof params.destination === "string" ? params.destination.trim().slice(0, 100) : "";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -112,7 +121,13 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
             Director, factory export desk, Karachi.
           </span>
         </p>
-        <RfqForm defaultProduct={product} defaultQuantity={qty} defaultUnit={unit} />
+        <RfqForm
+          defaultProduct={product}
+          defaultQuantity={qty}
+          defaultUnit={unit}
+          defaultApplication={application}
+          defaultDestinationCountry={destination}
+        />
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">

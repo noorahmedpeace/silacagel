@@ -457,6 +457,8 @@ export default function RootLayout({
                   ],
                   knowsAbout: [
                     "Silica gel desiccant manufacturing",
+                    "DIN 55473 and DIN 55474 desiccant unit sizing",
+                    "MIL-D-3464E military desiccant standard",
                     "Industrial moisture control",
                     "Container desiccant for ocean freight",
                     "Dry clay desiccant",

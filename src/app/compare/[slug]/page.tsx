@@ -207,8 +207,11 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
             DMF-free statement) ships with every quote.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className={styles.primaryCta}>
-              Request Quote
+            <Link href={`/request-a-quote?product=${encodeURIComponent(page.h1)}`} className={styles.primaryCta}>
+              Request Export Quote
+            </Link>
+            <Link href="/samples" className={styles.secondaryCta}>
+              Free Samples
             </Link>
             <Link href={page.relatedProduct} className={styles.secondaryCta}>
               Product detail

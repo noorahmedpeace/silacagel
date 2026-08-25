@@ -3,9 +3,9 @@ import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { SampleRequestForm } from "@/components/sample-request-form";
 import styles from "../strategy-pages.module.css";
 
-const pageTitle = "Request a Silica Gel Sample";
+const pageTitle = "Free Silica Gel & Desiccant Samples | DryGelWorld Export Desk";
 const pageDescription =
-  "Request a silica gel or desiccant sample before a bulk order. Three fields, routed straight to the export desk.";
+  "Request free silica gel sachets, bulk beads, or container desiccant samples for industrial evaluation before bulk order. Direct factory dispatch from Karachi.";
 
 export const metadata: Metadata = {
   title: pageTitle,

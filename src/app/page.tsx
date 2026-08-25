@@ -66,21 +66,21 @@ export const metadata: Metadata = {
 const trustSignalsArray = [
   {
     icon: PackageCheck,
-    title: "0.5g to 1kg supply range",
-    label: "Formats",
-    href: "/guides/silica-gel-buyer-guide",
+    title: "0.5g to 1kg sachet formats",
+    label: "Full Range",
+    href: "/products",
   },
   {
     icon: Globe,
-    title: "Export quotes for global buyers",
-    label: "Quoting",
-    href: "/blog/silica-gel-bulk-pricing-factors-for-exporters",
+    title: "Direct FOB / CIF export desk",
+    label: "Global Supply",
+    href: "/export",
   },
   {
     icon: ShieldCheck,
-    title: "Technical docs on request",
-    label: "Documents",
-    href: "/documentation",
+    title: "ISO 9001:2015 & DMF-free",
+    label: "Certified",
+    href: "/certifications",
   },
 ];
 
@@ -255,12 +255,12 @@ export default function Home() {
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
-                <Link href="/buy-silica-gel" className={styles.heroXPrimary}>
-                  Get bulk pricing
+                <Link href="/request-a-quote" className={styles.heroXPrimary}>
+                  Request Export Quote
                   <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
-                <Link href="/products" className={styles.heroXGhost}>
-                  Explore products
+                <Link href="/samples" className={styles.heroXGhost}>
+                  Request Free Samples
                 </Link>
               </div>
 

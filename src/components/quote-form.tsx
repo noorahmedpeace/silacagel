@@ -119,6 +119,7 @@ export function QuoteForm({
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState<string | null>(null);
   const [inquiryId, setInquiryId] = useState("");
+  const [fallbackHref, setFallbackHref] = useState<string>("");
   const routedChannel = getContactEmailChannel(state.department);
   // Instant channel: buyers who won't fill a form still convert on WhatsApp,
   // and all three review models flagged fast human reply as the #1 lever.
@@ -216,6 +217,7 @@ export function QuoteForm({
       } else if (result.fallback) {
         // Neither stored nor emailed: open the mail client as a genuine
         // fallback so the lead is not silently dropped.
+        setFallbackHref(url);
         setStatus("fallback");
         dispatch({ type: "submit" });
         window.location.href = url;
@@ -225,6 +227,7 @@ export function QuoteForm({
       }
     } catch {
       // Network/runtime failure: fall back to mailto rather than lose the lead.
+      setFallbackHref(url);
       setStatus("fallback");
       dispatch({ type: "submit" });
       window.location.href = url;
@@ -533,15 +536,49 @@ export function QuoteForm({
 
         {state.submitted && status === "fallback" ? (
           <div className={styles.successNote} role="status">
-            <strong>Almost there - please hit send.</strong>
+            <strong>RFQ summary prepared — please connect to dispatch:</strong>
             <span>
-              We opened your email client with the full RFQ pre-filled to {routedChannel.email}. If
-              nothing opened, email us directly at{" "}
-              <a href={createMailtoHref(routedChannel.email, routedChannel.defaultSubject)} rel="nofollow">
-                {routedChannel.email}
-              </a>{" "}
-              or reach us on WhatsApp.
+              If your email client did not launch automatically, tap below to send your inquiry directly via WhatsApp or email:
             </span>
+            <div style={{ display: "flex", gap: "10px", marginTop: "12px", flexWrap: "wrap" }}>
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "10px 16px",
+                  background: "#25d366",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                }}
+              >
+                Send via WhatsApp (Fastest)
+              </a>
+              <a
+                href={fallbackHref || createMailtoHref(routedChannel.email, routedChannel.defaultSubject)}
+                rel="nofollow"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "10px 16px",
+                  background: "var(--ds-surface-elevated, #0f172a)",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                }}
+              >
+                Email Export Desk ({routedChannel.email})
+              </a>
+            </div>
           </div>
         ) : null}
       </div>
