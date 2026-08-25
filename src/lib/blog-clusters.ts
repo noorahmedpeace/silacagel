@@ -54,6 +54,7 @@ const COMMERCIAL_CLAY: ClusterLink = { label: "Activated clay desiccant supplier
 // read worldwide, and every packet-named alternative - packets-wholesale,
 // packets-manufacturer - 301s straight to it (next.config.ts:185-192). This is
 // the nearest destination that both resolves directly and reads internationally.
+const COMMERCIAL_BUY: ClusterLink = { label: "Buy silica gel", href: "/buy-silica-gel" };
 const COMMERCIAL_PACKETS: ClusterLink = { label: "Silica gel supplier", href: "/silica-gel-supplier" };
 const COMMERCIAL_EXPORT: ClusterLink = { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" };
 
@@ -72,6 +73,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    commercial: COMMERCIAL_BUY,
   },
   "silica-gel-vs-clay-desiccant": {
     guides: [
@@ -126,6 +128,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-for-3d-printer-filament-storage", "Silica gel for 3D printer filament"),
     ],
     products: [PRODUCT_BULK],
+    commercial: COMMERCIAL_BUY,
   },
   "what-is-silica-gel-and-how-does-it-work": {
     guides: [
@@ -349,6 +352,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+    commercial: COMMERCIAL_BUY,
     industry: IND_FOOD,
   },
   "silica-gel-bulk-pricing-factors-for-exporters": {
@@ -414,6 +418,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+    commercial: COMMERCIAL_BUY,
   },
   "desiccant-placement-best-practices-in-packaging": {
     guides: [
@@ -435,6 +440,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_BULK],
+    commercial: COMMERCIAL_BUY,
   },
   "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": {
     guides: [

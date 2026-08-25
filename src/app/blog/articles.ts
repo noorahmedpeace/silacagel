@@ -152,7 +152,7 @@ export const blogArticles: BlogArticle[] = [
     sections: [
       {
         heading: "Packet sizing is math, not habit",
-        body: "The single most common B2B sizing mistake is picking a packet size by what 'looks right' instead of by calculation. The math is not difficult: DryGelWorld silica gel adsorbs up to one-third (33%) of its own weight in water vapor. A sealed carton of internal volume V (in cubic meters) at average export humidity holds approximately V × 20 grams of water vapor. To control that, you need silica gel weighing at least 3× the vapor mass (i.e., V × 60 grams). Adjust upward for high-humidity destinations, long voyages, and weak packaging barriers; adjust downward for short routes and tight packaging. Once you have the calculation, sizing becomes mechanical.",
+        body: "Pick the packet size from the sealed air volume and the moisture in it, not from what looks right on the product. The maths is short: DryGelWorld silica gel adsorbs up to one-third (33%) of its own weight in water vapour, so the packet has to carry at least three times the water you expect it to hold. A sealed carton of internal volume V (in cubic meters) at average export humidity holds approximately V × 20 grams of water vapor. To control that, you need silica gel weighing at least 3× the vapor mass (i.e., V × 60 grams). Adjust upward for high-humidity destinations, long voyages, and weak packaging barriers; adjust downward for short routes and tight packaging. Once you have the calculation, sizing becomes mechanical.",
         bullets: [
           "Silica gel adsorbs ~33% of its weight in water vapor.",
           "Sealed carton vapor load: ~V × 20g where V is carton volume in cubic meters.",
@@ -4103,7 +4103,7 @@ export const blogArticles: BlogArticle[] = [
     sections: [
       {
         heading: "Start with box volume, not guesswork",
-        body: "The number of desiccant packets per box is a calculation, not a habit. Begin with the box's internal volume in cubic meters (length × width × height in meters). Most product cartons fall between 0.01 and 0.1 m³. The baseline rule DryGelWorld uses: a sealed carton at average export humidity holds roughly its volume × 20 g of water vapor, and you provide silica gel at about 3× that - volume × 60 g - as the starting dose. Once you have the gram target, the packet count is simply the gram target divided by your chosen packet size, rounded up. Everything else (route, barrier, storage) adjusts that baseline up or down.",
+        body: "For a typical product carton of 0.01-0.1 m³, one to three standard packets is the usual answer - but the number follows from the box, not from habit. Work it out from the box's internal volume in cubic meters (length × width × height in meters). Most product cartons fall between 0.01 and 0.1 m³. The baseline rule DryGelWorld uses: a sealed carton at average export humidity holds roughly its volume × 20 g of water vapor, and you provide silica gel at about 3× that - volume × 60 g - as the starting dose. Once you have the gram target, the packet count is simply the gram target divided by your chosen packet size, rounded up. Everything else (route, barrier, storage) adjusts that baseline up or down.",
         bullets: [
           "Internal volume V (m³) = length × width × height in meters.",
           "Baseline water load ≈ V × 20 g; baseline silica gel ≈ V × 60 g.",
@@ -4289,7 +4289,7 @@ export const blogArticles: BlogArticle[] = [
     sections: [
       {
         heading: "What regeneration actually does",
-        body: "Silica gel adsorbs water by physical adsorption, and that process is reversible: heat the saturated gel and the water is driven back out of the pores, restoring most of the original capacity. This is regeneration (or reactivation). It is one of silica gel's structural advantages over single-use deliquescent desiccants - the same beads can cycle many times in a closed-loop industrial system. The key is using enough heat to drive off the water without so much heat that you damage the pore structure or scorch any indicator dye. Done correctly, regenerated silica gel returns to near its original adsorption capacity; done with excess heat, capacity is permanently reduced.",
+        body: "Regenerate silica gel at 120-150 °C for about two to three hours, in a shallow single layer, until the beads stop losing weight. Indicating gel is done when the colour returns. That works because adsorption is physical and reversible: heat drives the water back out of the pores and restores most of the original capacity. This is regeneration (or reactivation). It is one of silica gel's structural advantages over single-use deliquescent desiccants - the same beads can cycle many times in a closed-loop industrial system. The key is using enough heat to drive off the water without so much heat that you damage the pore structure or scorch any indicator dye. Done correctly, regenerated silica gel returns to near its original adsorption capacity; done with excess heat, capacity is permanently reduced.",
         bullets: [
           "Adsorption is reversible - heat drives the water back out of the pores.",
           "Restores most of the original capacity; beads can cycle many times.",
