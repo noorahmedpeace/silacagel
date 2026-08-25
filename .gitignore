@@ -47,3 +47,12 @@ next-env.d.ts
 # Playwright
 test-results/
 playwright-report/
+
+# Private commercial data - real buyers' names, emails and phone numbers.
+# This repository is public; these must never be committed.
+/outreach-buyer-list*.csv
+/outreach-emails-*.md
+/outreach-messages.md
+/outreach-top20-international.md
+/rfq-*-reply.md
+/docs/growth/OUTREACH-TRACKER.csv
