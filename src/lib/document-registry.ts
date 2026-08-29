@@ -12,7 +12,14 @@
  * `available` to true.
  */
 
-export type DocumentType = "certificate" | "sds" | "coa" | "tds" | "spec" | "profile";
+export type DocumentType =
+  | "certificate"
+  | "declaration"
+  | "sds"
+  | "coa"
+  | "tds"
+  | "spec"
+  | "profile";
 
 export type DocEntry = {
   id: string;
@@ -40,6 +47,11 @@ export type DocGroup = {
 
 export const documentGroups: DocGroup[] = [
   { key: "certificate", label: "Certificates", blurb: "Third-party quality-management certification." },
+  {
+    key: "declaration",
+    label: "Supplier Declarations",
+    blurb: "Statements issued and signed by the manufacturer. Not third-party certification.",
+  },
   { key: "sds", label: "Safety Data Sheets (SDS)", blurb: "Handling, storage, and transport safety data." },
   { key: "coa", label: "Certificates of Analysis (COA)", blurb: "Batch/material test results against a published standard." },
   { key: "tds", label: "Technical Data Sheets (TDS)", blurb: "Adsorption performance and physical properties." },
@@ -111,6 +123,22 @@ export const documents: DocEntry[] = [
       { label: "Standard", value: "ISO 9001:2015" },
       { label: "Certificate no.", value: "9101225" },
     ],
+  },
+  {
+    id: "packaging-materials-declaration",
+    type: "declaration",
+    title: "Packaging & Materials Declaration",
+    description:
+      "Signed supplier declaration: sachet substrates supplied, desiccant material identities, the test reports held on file, and - stated plainly - the certifications this company does not hold.",
+    fileHref: "/documents/packaging-materials-declaration.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Reference", value: "DGW-PMD-2026-01" },
+      { label: "Issued", value: "29 Aug 2026" },
+      { label: "Issued by", value: "DryGelWorld (self-declared)" },
+    ],
+    appliesTo: "Silica gel and clay desiccant",
   },
   {
     id: "sds-silica-gel",
