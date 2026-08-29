@@ -160,7 +160,7 @@ Supporting (8–15):
 4. `/compare/silica-gel-vs-calcium-chloride-container-desiccant` **[N]** — the #1 container-desiccant buyer decision
 5. `/compare/desiccant-vs-vci-corrosion-protection` **[N]** — metals/electronics buyers
 6. `/compare/silica-gel-vs-activated-carbon` **[N]**
-7. Supporting blogs: `/blog/silica-gel-vs-clay-desiccant`, `/blog/container-desiccant-vs-silica-gel`, `/blog/oxygen-absorber-vs-silica-gel-when-to-use-each`, `/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina` **[all E]**
+7. Supporting blogs: `/blog/what-is-clay-desiccant-and-how-does-it-work`, `/blog/silica-gel-vs-clay-desiccant`, `/blog/container-desiccant-vs-silica-gel`, `/blog/oxygen-absorber-vs-silica-gel-when-to-use-each`, `/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina` **[all E]**
 
 ### Cluster A4 — Desiccants by application (industries)
 **Pillar:** `/industries` **[N — audit M29]**

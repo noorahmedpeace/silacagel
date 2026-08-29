@@ -5,6 +5,12 @@ export type SeoImage = {
   caption: string;
   width: number;
   height: number;
+  secondary?: {
+    src: string;
+    alt: string;
+    title: string;
+    label: string;
+  };
 };
 
 const seoImageSize = {
@@ -165,6 +171,13 @@ export function withPageImageContext(image: SeoImage, context: string): SeoImage
     ...image,
     alt: `${context}: ${image.alt}`,
     title: `${context} | ${image.title}`,
+    secondary: image.secondary
+      ? {
+          ...image.secondary,
+          alt: `${context}: ${image.secondary.alt}`,
+          title: `${context} | ${image.secondary.title}`,
+        }
+      : undefined,
   };
 }
 
@@ -238,10 +251,23 @@ const blogSeoImages: Record<string, SeoImage> = {
     "Reusable silica gel reactivation visual",
     "Dedicated thumbnail for silica gel reuse, saturation, heating, and regeneration guidance.",
   ),
-  "what-is-silica-gel-and-how-does-it-work": blogImage(
-    "what-is-silica-gel-and-how-does-it-work",
-    "Silica gel adsorption science visual",
-    "Educational thumbnail for explaining how silica gel adsorbs moisture in industrial packaging.",
+  "what-is-silica-gel-and-how-does-it-work": {
+    src: "/blog-images/what-is-silica-gel-adsorption-clean.webp",
+    alt: "Silica gel adsorption science visual for DryGelWorld industrial desiccant buyers",
+    title: "Silica gel adsorption science visual",
+    caption: "Educational thumbnail for explaining how silica gel adsorbs moisture in industrial packaging.",
+    secondary: {
+      src: "/blog-images/what-is-silica-gel-and-how-does-it-work.webp",
+      alt: "How silica gel works technical diagram and adsorption mechanism",
+      title: "How silica gel works technical diagram",
+      label: "Technical Diagram",
+    },
+    ...seoImageSize,
+  },
+  "what-is-clay-desiccant-and-how-does-it-work": blogImage(
+    "what-is-clay-desiccant-and-how-does-it-work",
+    "Clay desiccant bentonite adsorption visual",
+    "Educational thumbnail explaining how natural bentonite clay desiccant adsorbs moisture in export packaging.",
   ),
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": blogImage(
     "silica-gel-vs-molecular-sieve-vs-activated-alumina",

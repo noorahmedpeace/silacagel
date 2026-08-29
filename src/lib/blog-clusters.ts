@@ -89,11 +89,22 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
       guide("calcium-chloride-vs-silica-gel-desiccant", "Calcium chloride vs silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
+      guide("what-is-clay-desiccant-and-how-does-it-work", "What is clay desiccant and how it works"),
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
     tool: TOOL_DIN,
     commercial: COMMERCIAL_CLAY,
+  },
+  "what-is-clay-desiccant-and-how-does-it-work": {
+    guides: [
+      guide("what-is-silica-gel-and-how-does-it-work", "What is silica gel and how it works"),
+      guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant"),
+      guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose packet size"),
+    ],
+    products: [PRODUCT_CLAY, PRODUCT_PAPER, PRODUCT_BULK],
+    compare: COMPARE_CLAY,
   },
   "calcium-chloride-vs-silica-gel-desiccant": {
     guides: [
@@ -144,6 +155,7 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "what-is-silica-gel-and-how-does-it-work": {
     guides: [
+      guide("what-is-clay-desiccant-and-how-does-it-work", "What is clay desiccant and how it works"),
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),

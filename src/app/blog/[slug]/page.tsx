@@ -16,6 +16,7 @@ import { whatsappNumber } from "@/lib/product-data";
 import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
+import { BlogHeroSlider } from "@/components/blog-hero-slider";
 
 type BlogArticlePageProps = {
   params: Promise<{
@@ -109,18 +110,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           </div>
         </section>
 
-        <figure className={styles.articleVisual}>
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            title={heroImage.title}
-            fill
-            className={styles.articleVisualImage}
-            sizes="(max-width: 900px) 100vw, 820px"
-            priority
-          />
-          <figcaption>{heroImage.caption}</figcaption>
-        </figure>
+        <BlogHeroSlider heroImage={heroImage} />
 
         {/* Early conversion path. Clarity shows average scroll depth of ~32%,
             so two-thirds of readers never reach the end-of-article CTA. This
@@ -272,7 +262,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 dateModified: updatedAt,
                 inLanguage: "en",
                 articleSection: article.label,
-                image: absoluteUrl(heroImage.src),
+                image: heroImage.secondary
+                  ? [absoluteUrl(heroImage.src), absoluteUrl(heroImage.secondary.src)]
+                  : absoluteUrl(heroImage.src),
                 author: author
                   ? authorJsonLd(author)
                   : {
