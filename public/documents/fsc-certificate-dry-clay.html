@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSC™ Chain of Custody Certificate — Dry Clay Desiccant | DryGelWorld</title>
+  <style>
+    :root {
+      --forest-dark: #0f4d2a;
+      --forest-mid: #166534;
+      --forest-light: #22c55e;
+      --navy-dark: #004d8c;
+      --gold-primary: #c89d3c;
+      --gold-deep: #b38128;
+      --ink: #0f172a;
+      --slate-muted: #475569;
+      --border-soft: #cbd5e1;
+      --bg-soft: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: #eceff3;
+      line-height: 1.4;
+      padding: 20px 0;
+    }
+
+    /* Top Action Bar (Hidden in Print) */
+    .action-bar {
+      max-width: 210mm;
+      margin: 0 auto 16px;
+      padding: 12px 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .action-bar .info {
+      font-size: 13px;
+      color: var(--slate-muted);
+    }
+    .action-bar .info b {
+      color: var(--forest-dark);
+    }
+    .action-bar .buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--forest-dark);
+      color: #ffffff;
+      border: 1px solid var(--forest-mid);
+    }
+    .btn-primary:hover {
+      background: var(--forest-mid);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: #ffffff;
+      color: var(--navy-dark);
+      border: 1px solid #cbd5e1;
+    }
+    .btn-secondary:hover {
+      background: #f1f5f9;
+    }
+
+    /* Certificate A4 Canvas */
+    .certificate-sheet {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 14mm 14mm 12mm;
+      position: relative;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+      border-radius: 4px;
+    }
+
+    /* Certificate Security Border */
+    .cert-frame {
+      border: 3px solid var(--forest-dark);
+      padding: 4px;
+      position: relative;
+      background: #ffffff;
+      min-height: calc(297mm - 26mm);
+    }
+    .cert-frame-inner {
+      border: 1.2px solid var(--gold-primary);
+      padding: 12px 16px;
+      position: relative;
+      min-height: calc(297mm - 36mm);
+    }
+
+    /* Corner Ornaments */
+    .corner {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--forest-dark);
+      z-index: 2;
+    }
+    .corner::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: var(--gold-primary);
+      top: 4px;
+      left: 4px;
+      border-radius: 50%;
+    }
+    .corner-tl { top: -2px; left: -2px; }
+    .corner-tr { top: -2px; right: -2px; }
+    .corner-bl { bottom: -2px; left: -2px; }
+    .corner-br { bottom: -2px; right: -2px; }
+
+    /* Security Watermark */
+    .watermark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-40deg);
+      font-size: 46px;
+      font-weight: 900;
+      color: rgba(15, 77, 42, 0.035);
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      pointer-events: none;
+      white-space: nowrap;
+      z-index: 1;
+      line-height: 1.3;
+    }
+
+    .cert-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Header */
+    .cert-header {
+      text-align: center;
+      padding-bottom: 6px;
+    }
+    .brand-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--navy-dark);
+      letter-spacing: 1px;
+    }
+    .brand-sub {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--slate-muted);
+      letter-spacing: 0.8px;
+      margin-top: 1px;
+    }
+    .brand-extra {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    .gold-divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-deep), var(--gold-primary), transparent);
+      margin: 8px 0;
+    }
+
+    /* Title Block */
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .title-text {
+      flex: 1;
+      text-align: center;
+    }
+    .title-main {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--forest-dark);
+      letter-spacing: 0.5px;
+    }
+    .title-sub {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-deep);
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    /* FSC Badge Vector */
+    .fsc-emblem {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #f0fdf4;
+      border: 1.5px solid var(--forest-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .fsc-emblem svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--forest-dark);
+    }
+    .fsc-emblem span {
+      font-size: 8px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    /* Metadata Grid */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: 100px 1fr 100px 1fr;
+      border: 1px solid var(--border-soft);
+      background: var(--bg-soft);
+      border-radius: 4px;
+      font-size: 11px;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .meta-cell {
+      padding: 5px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+    }
+    .meta-cell:nth-child(4n) {
+      border-right: none;
+    }
+    .meta-cell:nth-last-child(-n+4) {
+      border-bottom: none;
+    }
+    .meta-label {
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .meta-value {
+      color: #334155;
+    }
+
+    /* Official Statement */
+    .statement-box {
+      font-size: 10.8px;
+      color: #1e293b;
+      line-height: 1.45;
+      text-align: justify;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      background: #fafcfb;
+      border-left: 3px solid var(--forest-dark);
+      border-radius: 0 4px 4px 0;
+    }
+    .statement-box b {
+      color: var(--forest-dark);
+    }
+
+    /* Tables */
+    .section-bar {
+      background: var(--forest-dark);
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      letter-spacing: 0.5px;
+      border-radius: 3px 3px 0 0;
+    }
+    .section-bar.blue {
+      background: var(--navy-dark);
+    }
+
+    table.cert-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-bottom: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border-soft);
+    }
+    table.cert-table th {
+      background: #e2e8f0;
+      color: var(--ink);
+      font-weight: 700;
+      text-align: left;
+      padding: 4px 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    table.cert-table td {
+      padding: 4px 8px;
+      border: 1px solid #e2e8f0;
+      vertical-align: top;
+      color: #1e293b;
+    }
+    table.cert-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+    table.cert-table td.bold {
+      font-weight: 600;
+      color: var(--ink);
+      width: 25%;
+    }
+    table.cert-table td.spec {
+      width: 48%;
+    }
+    table.cert-table td.standard {
+      width: 27%;
+      color: #475569;
+      font-size: 10px;
+    }
+
+    /* Signatures & Seal Section */
+    .sign-section {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1.6fr;
+      border: 1px solid var(--forest-dark);
+      border-radius: 4px;
+      background: #ffffff;
+      padding: 8px 10px;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+    .sign-box-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .sign-meta {
+      font-size: 10px;
+      color: #334155;
+      line-height: 1.35;
+    }
+
+    /* Official Seal graphic */
+    .seal-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .seal-graphic {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      border: 2px dashed var(--forest-dark);
+      padding: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transform: rotate(-6deg);
+      background: #fdfefe;
+      box-shadow: 0 0 0 1px #0f4d2a;
+    }
+    .seal-text-top {
+      font-size: 6px;
+      font-weight: 800;
+      color: var(--forest-dark);
+      line-height: 1;
+    }
+    .seal-brand {
+      font-size: 8px;
+      font-weight: 900;
+      color: var(--forest-dark);
+      margin: 1px 0;
+      letter-spacing: 0.2px;
+    }
+    .seal-status {
+      font-size: 6.5px;
+      font-weight: 800;
+      color: var(--gold-deep);
+      background: #fef9c3;
+      padding: 1px 4px;
+      border-radius: 2px;
+    }
+    .seal-text-bot {
+      font-size: 5.5px;
+      font-weight: 700;
+      color: var(--forest-dark);
+      margin-top: 1px;
+    }
+
+    /* Signatures */
+    .sig-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .sig-row svg {
+      width: 100px;
+      height: 20px;
+    }
+    .sig-text {
+      font-size: 10px;
+      color: #1e293b;
+    }
+    .sig-text b {
+      color: var(--ink);
+    }
+
+    /* Footnote */
+    .cert-footer-note {
+      font-size: 9.5px;
+      color: #64748b;
+      text-align: center;
+      line-height: 1.35;
+      margin-top: 6px;
+      border-top: 1px dashed #cbd5e1;
+      padding-top: 5px;
+    }
+    .cert-footer-bar {
+      margin-top: 8px;
+      font-size: 9px;
+      color: #475569;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      .certificate-sheet {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      .cert-frame {
+        border-width: 2.5px;
+        min-height: 285mm;
+      }
+      .cert-frame-inner {
+        min-height: 280mm;
+      }
+      @page {
+        size: A4;
+        margin: 8mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar (for browser viewing and 1-click printing) -->
+  <div class="action-bar">
+    <div class="info">
+      <b>DryGelWorld Official Documentation:</b> FSC™ Chain of Custody (CoC) Certificate for Dry Clay Desiccant
+    </div>
+    <div class="buttons">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save as PDF</button>
+      <a class="btn btn-secondary" href="/documents/fsc-certificate-dry-clay.pdf" download="fsc-certificate-dry-clay.pdf">📥 Download PDF File</a>
+    </div>
+  </div>
+
+  <!-- A4 Certificate Container -->
+  <div class="certificate-sheet">
+    <div class="cert-frame">
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <div class="cert-frame-inner">
+        <!-- Security Watermark -->
+        <div class="watermark">
+          FSC™ CHAIN OF CUSTODY<br>
+          DRYGELWORLD · CERTIFIED
+        </div>
+
+        <div class="cert-content">
+          <!-- 1. Header -->
+          <div class="cert-header">
+            <div class="brand-title">DRYGELWORLD</div>
+            <div class="brand-sub">KAMRAN ENTERPRISES · DESICCANT MANUFACTURER &amp; EXPORTER · ESTABLISHED 1983</div>
+            <div class="brand-extra">ISO 9001:2015 Certified (#9101225) · Factory Direct Supply · Karachi, Pakistan</div>
+          </div>
+
+          <div class="gold-divider"></div>
+
+          <!-- 2. Certificate Title -->
+          <div class="title-row">
+            <div class="title-text">
+              <div class="title-main">CERTIFICATE OF CONFORMITY &amp; DECLARATION</div>
+              <div class="title-sub">FOREST STEWARDSHIP COUNCIL (FSC™) CHAIN OF CUSTODY (CoC) COMPLIANCE</div>
+            </div>
+            <div class="fsc-emblem">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 2L4 14h5l-4 8h14l-4-8h5L12 2z"/>
+              </svg>
+              <span>FSC™</span>
+            </div>
+          </div>
+
+          <!-- 3. Metadata Table -->
+          <div class="meta-grid">
+            <div class="meta-cell meta-label">Certificate No:</div>
+            <div class="meta-cell meta-value"><b>DGW-FSC-COC-2026-DC91</b></div>
+            <div class="meta-cell meta-label">Issue Date:</div>
+            <div class="meta-cell meta-value">15 January 2026</div>
+
+            <div class="meta-cell meta-label">Standard Ref:</div>
+            <div class="meta-cell meta-value">FSC-STD-40-004 V3-1 (CoC)</div>
+            <div class="meta-cell meta-label">Valid Until:</div>
+            <div class="meta-cell meta-value">14 January 2029 (Surveillance Audited)</div>
+
+            <div class="meta-cell meta-label">Certified Entity:</div>
+            <div class="meta-cell meta-value"><b>DryGelWorld (Kamran Enterprises)</b></div>
+            <div class="meta-cell meta-label">FSC Claim:</div>
+            <div class="meta-cell meta-value">FSC Mix (Credit / ≥ 70%) &amp; Recycled</div>
+
+            <div class="meta-cell meta-label">Facility Address:</div>
+            <div class="meta-cell meta-value">A-488, Block 1, Gulshan-e-Iqbal, Karachi</div>
+            <div class="meta-cell meta-label">Product Group:</div>
+            <div class="meta-cell meta-value">P5.1 Kraft Packaging &amp; P5.2 Cartons</div>
+          </div>
+
+          <!-- 4. Official Compliance Declaration -->
+          <div class="statement-box">
+            <b>OFFICIAL DECLARATION:</b> DryGelWorld (Kamran Enterprises) hereby certifies that the breathable 
+            Kraft Paper packaging sachets, pouches, and corrugated master shipping cartons used for its <b>Industrial 
+            Dry Clay Desiccant (Activated Bentonite / Montmorillonite)</b> are manufactured exclusively from FSC-certified 
+            raw wood-pulp substrates originating from responsibly managed, sustainable forests in full compliance with 
+            <b>FSC-STD-40-004 V3-1 (Chain of Custody)</b>. The production, conversion, and dispatch workflows operate 
+            under DryGelWorld's certified ISO 9001:2015 Quality Management System (Cert #9101225) with complete batch lot traceability.
+          </div>
+
+          <!-- 5. Technical Specifications -->
+          <div class="section-bar">1. PRODUCT &amp; SUSTAINABLE PACKAGING SPECIFICATIONS</div>
+          <table class="cert-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Technical Specification / Compliance Level</th>
+                <th>Standard / Test Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bold">Active Desiccant Core</td>
+                <td class="spec">100% Natural Activated Bentonite / Montmorillonite Clay (CAS 1302-78-9)</td>
+                <td class="standard">DIN 55473 / MIL-D-3464E</td>
+              </tr>
+              <tr>
+                <td class="bold">Primary Sachet Substrate</td>
+                <td class="spec">Unbleached Micro-porous Natural Kraft Paper (Substance 45–60 g/m²)</td>
+                <td class="standard">ISO 536 / FSC Chain of Custody</td>
+              </tr>
+              <tr>
+                <td class="bold">FSC Paper Certification</td>
+                <td class="spec">FSC Mix / FSC Recycled (Certified sustainable wood pulp, plastic-free)</td>
+                <td class="standard">FSC-STD-40-004 / FSC-STD-50-001</td>
+              </tr>
+              <tr>
+                <td class="bold">Air Permeability (Porosity)</td>
+                <td class="spec">18 – 32 s / 100 ml (Guarantees vapor adsorption with ZERO dust leakage)</td>
+                <td class="standard">ISO 5636-5 (Gurley Method)</td>
+              </tr>
+              <tr>
+                <td class="bold">Tensile Strength (MD / CD)</td>
+                <td class="spec">Machine Dir: ≥ 3.2 kN/m | Cross Dir: ≥ 1.8 kN/m (High burst resistance)</td>
+                <td class="standard">ISO 1924-2</td>
+              </tr>
+              <tr>
+                <td class="bold">Sealing &amp; Seam Integrity</td>
+                <td class="spec">Solvent-free thermal ultrasonic seal; continuous hermetic bond, non-toxic</td>
+                <td class="standard">ASTM F88 / EN 868-5</td>
+              </tr>
+              <tr>
+                <td class="bold">Outer Shipping Cartons</td>
+                <td class="spec">Double-wall heavy-duty corrugated cartons (FSC Recycled fiberboard)</td>
+                <td class="standard">FEFCO Code 0201 / FSC P5.2</td>
+              </tr>
+              <tr>
+                <td class="bold">Available Formats &amp; Sizes</td>
+                <td class="spec">0.5g, 1g, 2g, 5g, 10g, 25g, 50g, 100g, 250g, 500g, 1000g / 1/6 to 16 Units</td>
+                <td class="standard">MIL-D-3464E &amp; DIN 55473</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 6. Environmental & Chemical Verification -->
+          <div class="section-bar blue">2. ENVIRONMENTAL, SAFETY &amp; CHEMICAL VERIFICATION</div>
+          <table class="cert-table">
+            <thead>
+              <tr>
+                <th>Regulatory Requirement</th>
+                <th>Compliance Status / Verified Level</th>
+                <th>Governing Regulation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="bold">Dimethyl Fumarate (DMF)</td>
+                <td class="spec">100% DMF-Free (Not detected, limit &lt; 0.1 mg/kg)</td>
+                <td class="standard">EU Decision 2009/251/EC</td>
+              </tr>
+              <tr>
+                <td class="bold">Heavy Metals &amp; RoHS</td>
+                <td class="spec">Zero Lead, Cadmium, Mercury, Cr-VI (&lt; RoHS limits)</td>
+                <td class="standard">RoHS 2011/65/EU &amp; 2015/863</td>
+              </tr>
+              <tr>
+                <td class="bold">REACH SVHC Compliance</td>
+                <td class="spec">Contains zero Substances of Very High Concern (&gt; 0.1% w/w)</td>
+                <td class="standard">EC 1907/2006 (ECHA SVHC list)</td>
+              </tr>
+              <tr>
+                <td class="bold">Ecological Footprint</td>
+                <td class="spec">100% Natural biodegradable mineral + compostable FSC Kraft paper</td>
+                <td class="standard">Sustainable Circular Packaging</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- 7. Signatures & Seal Section -->
+          <div class="sign-section">
+            <div>
+              <div class="sign-box-title">ISSUED BY &amp; ENDORSEMENT</div>
+              <div class="sign-meta">
+                <b>DryGelWorld Technical Dept.</b><br>
+                Kamran Enterprises, Karachi, PK<br>
+                WhatsApp: +92 333 022 3337<br>
+                Email: export@drygelworld.com<br>
+                Website: drygelworld.com
+              </div>
+            </div>
+
+            <div class="seal-wrap">
+              <div class="seal-graphic">
+                <div class="seal-text-top">★ QUALITY &amp; COMPLIANCE ★</div>
+                <div class="seal-brand">DRYGELWORLD</div>
+                <div class="seal-status">QA APPROVED</div>
+                <div class="seal-text-bot">FSC-CoC · 2026</div>
+              </div>
+            </div>
+
+            <div>
+              <div class="sign-box-title">AUTHORIZED SIGNATORIES</div>
+              <div class="sig-row">
+                <svg viewBox="0 0 160 26">
+                  <path d="M8,8 C12,18 15,3 18,14 C23,7 28,11 34,5 C40,15 48,7 55,11 C62,6 70,13 82,9 C102,15 118,7 138,10" stroke="#003366" stroke-width="1.8" fill="none"/>
+                  <path d="M6,6 C35,3 85,5 142,4" stroke="#003366" stroke-width="1.1" fill="none"/>
+                </svg>
+                <div class="sig-text"><u>Engr. Tariq Kamran</u><br><small>Head of QA &amp; Compliance</small></div>
+              </div>
+              <div class="sig-row">
+                <svg viewBox="0 0 160 26">
+                  <path d="M8,6 C14,18 20,4 26,14 C32,9 42,13 52,7 C64,15 76,8 90,12 C110,6 130,11" stroke="#0f4d2a" stroke-width="1.8" fill="none"/>
+                  <path d="M10,4 C45,2 105,5 135,3" stroke="#0f4d2a" stroke-width="1.1" fill="none"/>
+                </svg>
+                <div class="sig-text"><u>Kamran Ahmed</u><br><small>Managing Director</small></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Verification Footnote -->
+          <div class="cert-footer-note">
+            <b>Verification &amp; Commercial Endorsement:</b> This certificate confirms FSC Chain of Custody compliance 
+            of raw paper reels, pouches, and converting workflows for export supply. Specific production lot numbers, 
+            paper mill reel tracking barcodes, and third-party laboratory test reports (SGS / Intertek / BV) can be endorsed 
+            onto specific shipment packing lists upon commercial agreement. Authenticity verification: <b>export@drygelworld.com</b>.
+          </div>
+
+          <div class="cert-footer-bar">
+            DryGelWorld (Kamran Enterprises) · ISO 9001:2015 Cert #9101225 · FSC-STD-40-004 CoC Verified · drygelworld.com
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

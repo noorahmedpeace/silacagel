@@ -15,6 +15,7 @@ import { getBlogCluster } from "@/lib/blog-clusters";
 import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
+import { BlogHeroSlider } from "@/components/blog-hero-slider";
 
 type BlogArticlePageProps = {
   params: Promise<{
@@ -108,18 +109,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           </div>
         </section>
 
-        <figure className={styles.articleVisual}>
-          <Image
-            src={heroImage.src}
-            alt={heroImage.alt}
-            title={heroImage.title}
-            fill
-            className={styles.articleVisualImage}
-            sizes="(max-width: 900px) 100vw, 820px"
-            priority
-          />
-          <figcaption>{heroImage.caption}</figcaption>
-        </figure>
+        <BlogHeroSlider heroImage={heroImage} />
 
         <section className={styles.articleBody}>
           {article.sections.map((section) => (
@@ -234,7 +224,9 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 dateModified: updatedAt,
                 inLanguage: "en",
                 articleSection: article.label,
-                image: absoluteUrl(heroImage.src),
+                image: heroImage.secondary
+                  ? [absoluteUrl(heroImage.src), absoluteUrl(heroImage.secondary.src)]
+                  : absoluteUrl(heroImage.src),
                 author: author
                   ? authorJsonLd(author)
                   : {

@@ -14,6 +14,7 @@ moment the file exists and its `available` flag is flipped to `true` in
 | `spec-paper-sachets.pdf` | Product spec — paper sachets | ⬜ upload |
 | `spec-container-strips.pdf` | Product spec — container strips | ⬜ upload |
 | `dmf-free-statement.pdf` | DMF-free product statement | ⬜ upload |
+| `fsc-certificate-dry-clay.pdf` | FSC™ Chain of Custody Certificate for Dry Clay Paper Packaging | ✅ generated |
 
 After adding a file, open `src/lib/document-registry.ts` and set that
 document's `available: true` (and `isoCertificate.fileAvailable: true` for the

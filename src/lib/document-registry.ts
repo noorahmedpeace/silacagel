@@ -113,6 +113,21 @@ export const documents: DocEntry[] = [
     ],
   },
   {
+    id: "fsc-certificate-dry-clay",
+    type: "certificate",
+    title: "FSC™ Chain of Custody Certificate: Dry Clay",
+    description: "Certificate of conformity verifying FSC-certified sustainable Kraft paper packaging and corrugated cartons for industrial dry clay desiccant.",
+    fileHref: "/documents/fsc-certificate-dry-clay.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Standard", value: "FSC-STD-40-004 V3-1" },
+      { label: "Certificate no.", value: "DGW-FSC-COC-2026-DC91" },
+      { label: "Valid to", value: "14 Jan 2029" },
+    ],
+    appliesTo: "Industrial Dry Clay Desiccant",
+  },
+  {
     id: "sds-silica-gel",
     type: "sds",
     title: "Silica Gel: Safety Data Sheet",
