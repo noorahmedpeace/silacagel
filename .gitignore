@@ -56,3 +56,7 @@ playwright-report/
 /outreach-top20-international.md
 /rfq-*-reply.md
 /docs/growth/OUTREACH-TRACKER.csv
+
+# Outreach run artifacts - contain buyer addresses.
+/outreach-sent.log
+/outreach-preview.txt
