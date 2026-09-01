@@ -9,6 +9,7 @@ import {
   siteName,
 } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
+import { gramSizeLandingInputs } from "@/lib/seo-landing-pages-sizes";
 
 export type SeoLandingPage = {
   slug: string;
@@ -102,7 +103,7 @@ type KeywordUseCase = {
   text: string;
 };
 
-type KeywordClusterInput = {
+export type KeywordClusterInput = {
   slug: string;
   title: string;
   metaDescription: string;
@@ -3035,6 +3036,13 @@ const highIntentSeoLandingPages = {
       { question: "Are these beads indicating or non-indicating?", answer: "Standard supply is white non-indicating silica gel. Orange and blue indicating beads (color change when saturated) are on the DryGelWorld expansion roadmap. Confirm at RFQ stage if indicating is required." },
     ],
   }),
+  // Gram-size sachet pages (1g / 2g / 5g / 10g). Content lives in
+  // seo-landing-pages-sizes.ts; wrapped here so they inherit the standard
+  // RFQ specs, buying steps, metadata, and JSON-LD like every other slug.
+  "1g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["1g-silica-gel-sachets"]),
+  "2g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["2g-silica-gel-sachets"]),
+  "5g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["5g-silica-gel-sachets"]),
+  "10g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["10g-silica-gel-sachets"]),
 } satisfies Record<string, SeoLandingPage>;
 
 export const seoLandingPages = {
@@ -3222,6 +3230,10 @@ export const seoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
+      { label: "2g silica gel sachets", href: "/2g-silica-gel-sachets" },
+      { label: "5g silica gel sachets", href: "/5g-silica-gel-sachets" },
+      { label: "10g silica gel sachets", href: "/10g-silica-gel-sachets" },
       { label: "Small sachet product page", href: "/products/retail-sachets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
@@ -3233,7 +3245,7 @@ export const seoLandingPages = {
     faqs: [
       {
         question: "What silica gel packet sizes can be quoted?",
-        answer: "Common sizes include 0.5g, 1g, 2g, 3g, 5g, 10g, and 20g. Custom sizes can be discussed for repeat B2B programs.",
+        answer: "Common sizes include 0.5g, 1g, 2g, 3g, 5g, 10g, and 20g; the terms packet and sachet are used interchangeably. Dedicated pages cover the 1g, 2g, 5g, and 10g sachet sizes with dosage and application notes. Custom sizes can be discussed for repeat B2B programs.",
       },
       {
         question: "Can Dry Gel World provide printed silica gel packets?",
@@ -3807,23 +3819,96 @@ export const seoLandingPages = {
         text: "List SDS, COA, ISO, DMF-free, food packaging, pharma, or other compliance expectations before dispatch planning.",
       },
     ],
+    buyerGuide: {
+      title: "DryGelWorld as a silica gel manufacturer in Pakistan: what is verifiable",
+      intro:
+        "DryGelWorld is the export brand of Kamran Enterprises, a silica gel desiccant manufacturer operating in Karachi since 1983. The head office is in Gulshan-e-Iqbal and the production site is in North Karachi Industrial Area. Below is what a buyer can check rather than take on trust.",
+      sections: [
+        {
+          label: "Manufacturer",
+          title: "Factory in Karachi, not a trading desk",
+          text: "Sachets, bulk beads, and container strips are filled and packed at the North Karachi facility. Buyers are welcome to arrange a plant visit; a reseller cannot offer one. The company holds ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028) for packaging and supply of silica desiccant.",
+        },
+        {
+          label: "Documents",
+          title: "SDS, COA, DMF-free, FSC clay packaging",
+          text: "Every shipment can carry a safety data sheet and a batch certificate of analysis. A DMF-free product statement is issued on manufacturer letterhead for EU and UK leather and footwear programs. Dry clay desiccant ships in FSC-certified kraft and corrugated packaging. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held and are never claimed.",
+        },
+        {
+          label: "Scope",
+          title: "What is made here and what is not",
+          text: "White non-indicating silica gel in sachets from 0.5g to 500g, loose beads in 25kg bags, cobalt-free orange indicating gel, silica and calcium chloride container strips, and activated clay packs. Molecular sieve, activated alumina, and lab-grade silica are not in the catalog.",
+        },
+        {
+          label: "Local buyers",
+          title: "PKR pricing and factory pickup",
+          text: "Buyers in Pakistan can get a PKR quote by WhatsApp or phone, collect from Karachi, or have cartons dispatched across the country. Recurring packers and repackers in Karachi, Lahore, Faisalabad, and Sialkot are quoted by carton or monthly volume.",
+        },
+        {
+          label: "Export buyers",
+          title: "FOB Karachi, CIF, DAP in USD",
+          text: "International buyers are quoted in USD on EXW, FOB Karachi, CIF, or DAP terms, with Karachi port routing to the Gulf, Europe, the UK, North America, and Asia. Country pages cover ports, customs codes, and document sets for the main destinations.",
+        },
+        {
+          label: "Choosing",
+          title: "How to tell a Pakistani manufacturer from a reseller",
+          text: "Ask to visit the plant, ask for the ISO certificate number and verify it with the registrar, ask for an SDS and COA before ordering, and ask what the company will not supply. A manufacturer answers all four directly.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    contentBlock: {
+      heading: "Buy by size or format from the Karachi factory",
+      parts: [
+        { text: "Unit-pack buyers usually start with " },
+        { href: "/1g-silica-gel-sachets", label: "1g silica gel sachets" },
+        { text: " or the full " },
+        { href: "/silica-gel-packets", label: "silica gel packets range" },
+        { text: "; repackers and distributors buy " },
+        { href: "/silica-gel-beads", label: "loose silica gel beads in 25kg bags" },
+        { text: "; exporters protect containers with " },
+        { href: "/container-desiccant-strips", label: "container desiccant strips" },
+        { text: ". Indicative PKR and USD references are on the " },
+        { href: "/pricing", label: "pricing page" },
+        { text: ", and the " },
+        { href: "/blog/top-10-silica-gel-suppliers-world-pakistan", label: "guide to silica gel suppliers worldwide and in Pakistan" },
+        { text: " explains where DryGelWorld fits against global manufacturers." },
+      ],
+    },
     relatedLinks: [
+      { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
+      { label: "Silica gel packets (all sizes)", href: "/silica-gel-packets" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Silica gel supplier in Karachi", href: "/silica-gel-supplier-karachi" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Certifications held and not held", href: "/certifications" },
+      { label: "Export from Pakistan (FOB Karachi)", href: "/export/fob-karachi" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
       {
+        question: "Is DryGelWorld a silica gel manufacturer in Pakistan?",
+        answer: "Yes. DryGelWorld is the export brand of Kamran Enterprises, which has manufactured silica gel desiccants in Karachi since 1983. Production is at North Karachi Industrial Area; the head office is in Gulshan-e-Iqbal, Karachi.",
+      },
+      {
+        question: "What certifications does DryGelWorld hold?",
+        answer: "ISO 9001:2015 (certificate 9101225, issued by QMEC Group Intl, valid to December 2028) for packaging and supply of silica desiccant, plus a DMF-free product statement and FSC-certified packaging for dry clay desiccant. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held.",
+      },
+      {
         question: "Can DryGelWorld support silica gel buyers in Pakistan?",
-        answer: "DryGelWorld is structured for local and export silica gel RFQs including packets, bulk desiccants, cargo strips, and private-label programs.",
+        answer: "Yes. Local buyers get PKR quotes by WhatsApp, phone, or email for packets, bulk desiccants, cargo strips, and private-label programs, with factory pickup in Karachi or dispatch across Pakistan.",
+      },
+      {
+        question: "What silica gel sizes are made in Pakistan by DryGelWorld?",
+        answer: "Sachets from 0.5g, 1g, 2g, 3g, 5g, 10g, and 20g up to 25g-500g packs, loose beads in 25kg bags, and 1kg-5kg container strips. Cobalt-free orange indicating gel is available for buyers who need a visual saturation check.",
       },
       {
         question: "What details are needed for Pakistan silica gel pricing?",
-        answer: "Send product format, size, quantity, destination, packing needs, repeat volume, and required documents.",
+        answer: "Send product format, size, quantity, destination, packing needs, repeat volume, and required documents. Local buyers can add whether they want factory pickup or delivery.",
       },
       {
         question: "Is this page for export buyers too?",
-        answer: "Yes. International buyers can use this page when searching for a silica gel manufacturer or exporter from Pakistan.",
+        answer: "Yes. International buyers searching for a silica gel manufacturer or exporter in Pakistan can use this page, then move to the country export pages for ports, customs codes, and Incoterms.",
       },
     ],
   },
@@ -3892,23 +3977,110 @@ export const seoLandingPages = {
         text: "Mention SDS, COA, labeling, lead time, destination, and dispatch terms where relevant.",
       },
     ],
+    buyerGuide: {
+      title: "Buying silica gel in Karachi: what a local buyer can check",
+      intro:
+        "DryGelWorld is the export brand of Kamran Enterprises, which has manufactured silica gel desiccant in Karachi since 1983. The head office is at A-488, Block 1, Gulshan-e-Iqbal, and the factory is in North Karachi Industrial Area, Sector 6B. This guide covers what a Karachi buyer should confirm before ordering, whether the cartons are going to a packing line in SITE or into a container at Port Qasim.",
+      sections: [
+        {
+          label: "Location",
+          title: "Factory in North Karachi, office in Gulshan-e-Iqbal",
+          text: "Sachets, loose beads, and container strips are filled and packed at the North Karachi Industrial Area plant in Sector 6B. Commercial enquiries are handled from the Gulshan-e-Iqbal head office. Buyers in SITE, Korangi, North Karachi, and the Port Qasim industrial zones can arrange a plant visit before a first order, which is the simplest way to confirm that the supplier is a manufacturer rather than a trading counter in a wholesale market.",
+        },
+        {
+          label: "Pickup",
+          title: "Factory pickup or dispatch across Karachi",
+          text: "Local orders can be collected from the factory Monday to Saturday, 8 am to 5 pm PKT, or dispatched to a packing line, warehouse, or freight forwarder anywhere in the city. Small carton orders for a single packing run and recurring monthly stock for repackers are both handled. Say whether the goods are for pickup or delivery when you ask for a price, because it changes both the quote and the packing.",
+        },
+        {
+          label: "Pricing",
+          title: "PKR quotes, same-day where the specification is clear",
+          text: "Karachi buyers are quoted in PKR by WhatsApp, phone, or email on +92 333 022 3337. A quote can usually go out the same working day when the enquiry states sachet size, quantity, carton count, and pickup or delivery. Loose beads are quoted per 25kg bag, sachets per thousand or per carton, and container strips per piece. Recurring buyers can ask for a monthly-volume price instead of a spot price.",
+        },
+        {
+          label: "Formats",
+          title: "What is made here for local buyers",
+          text: "White non-indicating sachets from 0.5g to 20g are the fastest-moving local items, used in garment, leather, footwear, electronics, and pharmaceutical secondary packaging. Larger 25g to 500g packs suit machinery and instrument cases. Loose 1-3mm and 2-5mm beads ship in 25kg bags for repackers. Cobalt-free orange indicating gel, 1kg-5kg container strips, and activated clay packs are also produced at the same site rather than bought in.",
+        },
+        {
+          label: "Documents",
+          title: "SDS, COA, and ISO paperwork for local and export use",
+          text: "A safety data sheet and a batch certificate of analysis are issued on request for every order, and the ISO 9001:2015 certificate (number 9101225, QMEC Group Intl, valid to December 2028) can be checked with the registrar. A DMF-free statement is available for leather and footwear exporters. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held, and a Karachi buyer should not be told otherwise by any supplier.",
+        },
+        {
+          label: "Export",
+          title: "From a Karachi packing line to Karachi port",
+          text: "Many local buyers are themselves exporters who need silica gel inside cartons leaving through Karachi Port or Port Qasim. The same factory quotes EXW, FOB Karachi, CIF, and DAP terms in USD for buyers abroad, and can add a desiccant line to an existing export program with HS code 2811.22 and the document set already prepared. Container strips for the shipment itself can be quoted alongside the carton sachets.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    contentBlock: {
+      heading: "Karachi supply paths by format",
+      parts: [
+        { text: "Packing lines in the city usually start with " },
+        { href: "/1g-silica-gel-sachets", label: "1g silica gel sachets" },
+        { text: " or " },
+        { href: "/5g-silica-gel-sachets", label: "5g sachets" },
+        { text: " from the " },
+        { href: "/silica-gel-packets", label: "full packets range" },
+        { text: "; repackers and distributors buy " },
+        { href: "/silica-gel-beads", label: "loose beads in 25kg bags" },
+        { text: " or " },
+        { href: "/bulk-silica-gel-desiccant", label: "bulk silica gel" },
+        { text: "; exporters loading at Karachi Port or Port Qasim add " },
+        { href: "/container-desiccant-strips", label: "container desiccant strips" },
+        { text: ". Indicative PKR and USD figures are on the " },
+        { href: "/pricing", label: "pricing page" },
+        { text: ", the certificates held and not held are listed under " },
+        { href: "/certifications", label: "certifications" },
+        { text: ", and the " },
+        { href: "/export/fob-karachi", label: "FOB Karachi export page" },
+        { text: " covers port routing for buyers shipping onward." },
+      ],
+    },
     relatedLinks: [
-      { label: "Pakistan manufacturer page", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Bulk sales calculator", href: "/bulk-sales" },
+      { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Silica gel packets (all sizes)", href: "/silica-gel-packets" },
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Loose silica gel beads (25kg bags)", href: "/silica-gel-beads" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Pricing in PKR and USD", href: "/pricing" },
+      { label: "Export FOB Karachi", href: "/export/fob-karachi" },
+      { label: "Request a Karachi quote", href: "/contact" },
     ],
     faqs: [
       {
-        question: "Can Karachi buyers request both packets and bulk silica gel?",
-        answer: "Yes. Buyers can request small packets, bulk silica gel, cargo strips, and private-label packet programs depending on volume and use case.",
+        question: "Where is DryGelWorld located in Karachi?",
+        answer: "The head office is at A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000. Production is at North Karachi Industrial Area, Sector 6B. Hours are Monday to Saturday, 8 am to 5 pm PKT, and the sales line and WhatsApp number is +92 333 022 3337.",
       },
       {
-        question: "What makes a Karachi silica gel inquiry faster?",
-        answer: "Share product format, size, quantity, destination or pickup path, packing requirements, and documents.",
+        question: "Can I collect silica gel from the factory in Karachi?",
+        answer: "Yes. Factory pickup is available during working hours once the order is confirmed. Buyers who prefer delivery can have cartons or bags dispatched to any packing site, warehouse, or forwarder in Karachi, or onward to other cities in Pakistan.",
+      },
+      {
+        question: "How quickly can a Karachi buyer get a PKR quote?",
+        answer: "Usually the same working day when the enquiry includes sachet size or bead grade, quantity, carton count, and whether the order is for pickup or delivery. Enquiries by WhatsApp on +92 333 022 3337 are the fastest route.",
+      },
+      {
+        question: "Can Karachi buyers request both packets and bulk silica gel?",
+        answer: "Yes. Sachets from 0.5g to 500g, loose beads in 25kg bags, 1kg-5kg container strips, cobalt-free orange indicating gel, and activated clay packs are all made at the North Karachi factory and can be combined on one order.",
+      },
+      {
+        question: "Which industrial areas in Karachi does DryGelWorld supply?",
+        answer: "Packers and exporters in SITE, Korangi, North Karachi, and the Port Qasim industrial zones are regular buyers, and delivery covers the rest of the city as well. Buyers elsewhere in Pakistan are served by road dispatch.",
+      },
+      {
+        question: "What documents come with a local order?",
+        answer: "An SDS and a batch COA are issued on request, and the ISO 9001:2015 certificate (9101225, QMEC Group Intl, valid to December 2028) can be verified with the registrar. A DMF-free statement is available for leather and footwear programs. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held.",
+      },
+      {
+        question: "Does DryGelWorld supply indicating silica gel in Karachi?",
+        answer: "Yes. Cobalt-free orange indicating gel is the recommended type and is stocked as loose beads and sachets. Cobalt-chloride blue gel is supplied only for markets where it remains permitted, so local buyers are steered to orange unless they have a hard specification for blue.",
       },
       {
         question: "Can export orders be quoted from Karachi?",
-        answer: "Export terms can be discussed once quantity, destination, Incoterms, and document requirements are clear.",
+        answer: "Yes. Export buyers are quoted in USD on EXW, FOB Karachi, CIF, or DAP terms under HS code 2811.22, with SDS, COA, and the destination document set prepared before dispatch. Karachi-based exporters can add carton sachets and container strips to an existing shipment program.",
       },
     ],
   },
@@ -4130,23 +4302,103 @@ export const seoLandingPages = {
         text: "If blue gel is restricted, ask whether orange indicating or non-indicating silica gel is a better route.",
       },
     ],
+    buyerGuide: {
+      title: "Blue silica gel: what it is, where it is restricted, and what to use instead",
+      intro:
+        "Blue indicating silica gel is the cobalt(II) chloride type. The cobalt salt is what makes the beads blue when dry and pink when saturated, and it is also why the product is restricted in the EU under REACH Annex XVII and in the UK under UK REACH. DryGelWorld supplies blue gel only for markets where it remains permitted and recommends cobalt-free orange indicating gel for everyone else. This guide sets out the facts a buyer should weigh before ordering.",
+      sections: [
+        {
+          label: "Chemistry",
+          title: "How blue indicating gel works",
+          text: "Standard silica gel is white and gives no visible sign of saturation. Blue indicating gel is the same silica substrate impregnated with cobalt(II) chloride, which is blue when anhydrous and turns pink as the bead takes on water. The change is gradual, so a mid-tone lilac means the charge is partly used. Adsorption capacity is the same as white gel, up to about 33% of its own weight at 25 °C and 90% RH.",
+        },
+        {
+          label: "Restriction",
+          title: "Why cobalt chloride is restricted",
+          text: "Cobalt(II) chloride is classified under EU REACH as a Category 1B carcinogen and a Substance of Very High Concern, and Annex XVII restricts its use as a humidity indicator in desiccants placed on the EU market. UK REACH carries the same restriction. That is why blue gel has largely left European packaging, and why an EU or UK buyer asking for blue is steered to a cobalt-free alternative. DryGelWorld does not supply blue gel into those markets.",
+        },
+        {
+          label: "Still used",
+          title: "Transformer breathers and lab use in permitted markets",
+          text: "Blue gel is still specified in some markets that have not adopted the EU restriction, most often as the refill charge in transformer dehydrating breathers, where maintenance crews read the colour through a sight glass, and in laboratory desiccator jars and instrument cases, where the operator handles beads directly and follows the SDS. DryGelWorld quotes blue gel only for these permitted destinations and asks for the country of use on every RFQ.",
+        },
+        {
+          label: "Alternative",
+          title: "Cobalt-free orange does the same job",
+          text: "Cobalt-free orange indicating gel uses an organic indicator instead of a cobalt salt. Dry beads are orange and turn green, then dark, as they saturate, so the visual check is just as clear through a breather sight glass or a jar wall. Capacity, bead sizes, packing, and regeneration behaviour match blue gel. For any buyer who does not have a hard specification for cobalt blue, orange is the recommended order.",
+        },
+        {
+          label: "Handling",
+          title: "Regeneration and handling",
+          text: "Indicating gel of either colour can be regenerated by heating, typically at 110-130 °C until the dry colour returns; higher temperatures risk degrading the indicator. Regenerated beads lose a little capacity each cycle. Blue gel should be handled with gloves, kept out of food and pharmaceutical secondary packaging, and disposed of according to the SDS and local rules. Sealed shelf life for both types is 24-36 months.",
+        },
+        {
+          label: "RFQ",
+          title: "What to state when asking for blue gel",
+          text: "Give the country of use first, because it decides whether blue can be supplied at all. Then state bead size (1-3mm or 2-5mm), quantity in kg or number of breather charges, packing (25kg bags, jars, or sachets), and whether you need an SDS, batch COA, and composition statement. If the answer to the country question is the EU or the UK, the quote will come back for cobalt-free orange instead.",
+        },
+      ],
+    },
+    contentBlock: {
+      heading: "Blue, orange, or plain white: pick the right indicating route",
+      parts: [
+        { text: "For most buyers the practical alternative is " },
+        { href: "/orange-silica-gel-supplier", label: "cobalt-free orange indicating silica gel" },
+        { text: ", explained side by side in the " },
+        { href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety", label: "orange vs blue safety guide" },
+        { text: ". If you only need moisture control and no visual signal, " },
+        { href: "/white-silica-gel", label: "white non-indicating silica gel" },
+        { text: " is simpler and cheaper; the " },
+        { href: "/compare/indicating-vs-non-indicating-silica-gel", label: "indicating vs non-indicating comparison" },
+        { text: " sets out when the signal is worth paying for. The " },
+        { href: "/indicating-silica-gel", label: "indicating silica gel page" },
+        { text: " lists bead sizes and packing, and the " },
+        { href: "/blog/how-to-regenerate-silica-gel-oven-temperature-guide", label: "regeneration guide" },
+        { text: " covers oven temperatures for reuse." },
+      ],
+    },
     relatedLinks: [
-      { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
+      { label: "Orange (cobalt-free) silica gel supplier", href: "/orange-silica-gel-supplier" },
+      { label: "Indicating silica gel", href: "/indicating-silica-gel" },
+      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
+      { label: "Cobalt-free orange vs blue: safety guide", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
+      { label: "Silica gel colours explained", href: "/blog/silica-gel-colors-white-blue-orange-explained" },
+      { label: "Indicating vs non-indicating comparison", href: "/compare/indicating-vs-non-indicating-silica-gel" },
       { label: "Documents hub", href: "/documentation" },
-      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Request quote", href: "/contact" },
     ],
     faqs: [
       {
         question: "What is blue silica gel used for?",
-        answer: "Blue silica gel is an indicating desiccant used where buyers need a visual moisture-state signal, subject to composition and market review.",
+        answer: "Blue silica gel is an indicating desiccant used where someone needs to see the moisture state at a glance: transformer breather refills read through a sight glass, laboratory desiccator jars, and instrument or equipment cases. It is supplied only into markets where cobalt-chloride gel is still permitted.",
       },
       {
-        question: "Should blue silica gel be used in all markets?",
-        answer: "No. Buyers should confirm composition, SDS, COA, and destination restrictions before using blue indicating silica gel.",
+        question: "Why is blue silica gel restricted in the EU and UK?",
+        answer: "The blue colour comes from cobalt(II) chloride, which EU REACH classifies as a Category 1B carcinogen and a Substance of Very High Concern. REACH Annex XVII restricts its use as a humidity indicator in desiccants, and UK REACH carries the same restriction, so blue gel cannot be placed on those markets.",
       },
       {
-        question: "Is orange silica gel an alternative?",
-        answer: "Orange indicating silica gel may be requested as an alternative depending on buyer requirements and document review.",
+        question: "Does DryGelWorld manufacture blue silica gel?",
+        answer: "DryGelWorld supplies cobalt-chloride blue gel only for destinations where it remains permitted, and asks for the country of use on every RFQ. For all other buyers, and for anyone without a hard specification for blue, the recommendation is cobalt-free orange indicating gel.",
+      },
+      {
+        question: "What colour change does blue silica gel show?",
+        answer: "Dry beads are deep blue. As they adsorb moisture the colour fades through lilac to pink at saturation. The change is gradual, so a partly pink charge is still working but should be scheduled for replacement or regeneration.",
+      },
+      {
+        question: "Is orange silica gel an equivalent alternative?",
+        answer: "Yes. Cobalt-free orange gel uses an organic indicator, changes from orange to green and then dark as it saturates, and matches blue gel on adsorption capacity, bead sizes, packing, and regeneration. It is the type DryGelWorld recommends for breathers, labs, and packaging.",
+      },
+      {
+        question: "Can blue silica gel be regenerated?",
+        answer: "Yes. Heat the beads typically at 110-130 °C until the blue colour returns fully. Higher temperatures risk damaging the indicator. Expect a small capacity loss each cycle and follow the SDS for handling the cobalt-containing beads.",
+      },
+      {
+        question: "What documents come with an indicating gel order?",
+        answer: "An SDS, a batch COA, and a composition statement are issued on request, under ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028). FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held and are not claimed.",
+      },
+      {
+        question: "Which markets can still receive blue silica gel?",
+        answer: "Markets that have not adopted the EU or UK cobalt chloride restriction. The buyer is responsible for confirming local rules, and DryGelWorld checks the destination on each RFQ before quoting blue gel. Where there is any doubt, the quote is issued for cobalt-free orange.",
       },
     ],
   },
@@ -4215,24 +4467,103 @@ export const seoLandingPages = {
         text: "Ask for SDS, COA, and any destination-specific compliance statement needed for export.",
       },
     ],
+    buyerGuide: {
+      title: "Cobalt-free orange silica gel: chemistry, colour change, and use",
+      intro:
+        "Orange indicating silica gel is white silica gel carrying an organic moisture indicator instead of the cobalt(II) chloride used in blue gel. It gives the same visual saturation signal without the substance that is restricted under EU REACH Annex XVII and UK REACH, which is why DryGelWorld recommends it for every indicating application. Below is what a buyer should know before specifying it.",
+      sections: [
+        {
+          label: "Chemistry",
+          title: "An organic indicator, no cobalt",
+          text: "The beads are the same silica substrate used for white desiccant, impregnated with an organic indicator that is orange when dry. There is no cobalt salt in the formulation, so the product does not fall under the cobalt chloride restriction in the EU and UK. A composition statement confirming the cobalt-free formulation can be issued with the SDS and batch COA for buyers whose customers or auditors ask for it.",
+        },
+        {
+          label: "Colour change",
+          title: "Orange to green, then dark",
+          text: "Dry beads are a clear orange. As the gel adsorbs moisture the colour shifts through green towards a dark, near-colourless state at saturation. The change is gradual, so a partly green charge tells the operator that the gel is still working but should be scheduled for replacement or regeneration. Read the colour against a fresh reference bead, because lighting through a jar wall or sight glass can mute the shade.",
+        },
+        {
+          label: "Capacity",
+          title: "Same performance as white gel",
+          text: "The indicator does not change adsorption. Orange gel takes up to about 33% of its own weight in water vapour at 25 °C and 90% RH, holds it without dripping or swelling, and keeps working across the temperature range met in packaging, storage, and enclosures. Bead sizes are 1-3mm and 2-5mm, sealed shelf life is 24-36 months, and the HS code for export is 2811.22, the same as non-indicating silica gel.",
+        },
+        {
+          label: "Reuse",
+          title: "Regeneration for repeat use",
+          text: "Orange gel can be dried and reused. Heat it typically at 110-130 °C until the orange colour returns fully; do not push the temperature higher, because the organic indicator is more heat-sensitive than the silica itself. Spread beads in a shallow tray, cool them in a sealed container, and expect a small capacity loss per cycle. Sachets should only be regenerated if the sachet material is suitable for the oven.",
+        },
+        {
+          label: "Applications",
+          title: "Where a visible signal earns its place",
+          text: "Orange gel is specified for transformer and switchgear breather refills, laboratory desiccator jars, instrument and camera cases, electronics and optics storage, archive and museum cabinets, and as a small indicator sachet placed alongside plain white gel inside export cartons so that the receiver can check exposure on opening. Wherever a plain white sachet would do the drying but nobody could tell when it was spent, orange gel answers that question.",
+        },
+        {
+          label: "Formats",
+          title: "Bulk beads, jars, and sachets",
+          text: "Loose beads ship in 25kg bags for breather refillers and repackers, and smaller lots can be packed in jars or drums. Indicating sachets are filled in the same sizes as white gel. Because paper sachets hide the beads, buyers who need to read the colour usually choose loose beads in a jar or a transparent pack. State bead size, format, and quantity on the RFQ and the quote follows in PKR or USD.",
+        },
+      ],
+    },
+    contentBlock: {
+      heading: "Orange gel, white gel, and the comparisons buyers ask for",
+      parts: [
+        { text: "If your application does not need a visual signal, plain " },
+        { href: "/white-silica-gel", label: "white silica gel" },
+        { text: " does the same drying job at lower cost; the " },
+        { href: "/compare/white-silica-gel-vs-orange-silica-gel", label: "white vs orange comparison" },
+        { text: " sets out the difference. Buyers still holding a blue specification should read the " },
+        { href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety", label: "cobalt-free orange vs blue safety guide" },
+        { text: " and the " },
+        { href: "/blue-silica-gel-manufacturer", label: "blue silica gel page" },
+        { text: " before ordering. Bead sizes and packing for all indicating types are on the " },
+        { href: "/indicating-silica-gel", label: "indicating silica gel page" },
+        { text: ", and the " },
+        { href: "/blog/indicating-silica-gel-orange-blue-color-change-guide", label: "colour change guide" },
+        { text: " shows what each stage looks like." },
+      ],
+    },
     relatedLinks: [
+      { label: "Indicating silica gel", href: "/indicating-silica-gel" },
+      { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
+      { label: "Cobalt-free orange vs blue: safety guide", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
+      { label: "Orange and blue colour change guide", href: "/blog/indicating-silica-gel-orange-blue-color-change-guide" },
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Silica gel for transformer breathers", href: "/silica-gel-for-transformer-breather" },
-      { label: "Documents hub", href: "/documentation" },
+      { label: "How to regenerate silica gel", href: "/blog/how-to-regenerate-silica-gel-oven-temperature-guide" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
       {
         question: "What is orange silica gel?",
-        answer: "Orange silica gel is an indicating desiccant requested when buyers need a visible moisture-state signal.",
+        answer: "Orange silica gel is a cobalt-free indicating desiccant. It is standard silica gel treated with an organic moisture indicator that is orange when dry and changes colour as the beads adsorb water, so an operator can see when the charge is spent without weighing it.",
+      },
+      {
+        question: "What colour does orange silica gel turn when saturated?",
+        answer: "The beads shift from orange through green to a dark, near-colourless state at full saturation. The change is gradual, which lets you judge how much capacity remains rather than only seeing a spent charge.",
+      },
+      {
+        question: "Is orange silica gel cobalt-free?",
+        answer: "Yes. The indicator is organic and the formulation contains no cobalt(II) chloride, so the product is not caught by the EU REACH Annex XVII or UK REACH restriction on cobalt-chloride indicating gel. A composition statement can be issued with the SDS and COA.",
+      },
+      {
+        question: "Does the indicator reduce adsorption capacity?",
+        answer: "No. Orange gel adsorbs up to about 33% of its own weight at 25 °C and 90% RH, the same as white non-indicating gel, and is supplied in the same 1-3mm and 2-5mm bead sizes.",
+      },
+      {
+        question: "Can orange silica gel be regenerated?",
+        answer: "Yes. Heat it typically at 110-130 °C until the full orange colour returns. Keep below that range rather than above it, because the organic indicator is more heat-sensitive than the silica. Each cycle costs a little capacity.",
       },
       {
         question: "Can orange silica gel be quoted in bulk?",
-        answer: "Bulk or packet-ready RFQs can be discussed when quantity, packing, destination, and documents are clear.",
+        answer: "Yes. Loose beads ship in 25kg bags, with jars or drums for smaller lots and sachets for packaging use. Quotes are issued in PKR for buyers in Pakistan and in USD on EXW, FOB Karachi, CIF, or DAP terms for export, under HS code 2811.22.",
+      },
+      {
+        question: "Where is orange silica gel used?",
+        answer: "Transformer and switchgear breather refills, laboratory desiccators, instrument and camera cases, electronics and optics storage, archive cabinets, and as an indicator sachet placed with white gel in export cartons so the receiver can check moisture exposure on arrival.",
       },
       {
         question: "Do indicating gels need special documents?",
-        answer: "Yes. SDS, COA, composition notes, and destination review should be requested before final use.",
+        answer: "An SDS, batch COA, and a cobalt-free composition statement are issued on request, under ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028). FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held and are not claimed.",
       },
     ],
   },
@@ -4301,23 +4632,105 @@ export const seoLandingPages = {
         text: "Add order volume, destination, Incoterms, document needs, and repeat schedule before final quotation.",
       },
     ],
+    buyerGuide: {
+      title: "Moisture absorber is a category, not a product: how to choose",
+      intro:
+        "Buyers searching for a moisture absorber supplier usually mean one of three desiccant chemistries: silica gel, activated clay, or calcium chloride. DryGelWorld manufactures all three formats in Karachi, so the guidance below is about fit rather than steering you to a single product. The right choice depends on where the absorber sits, how long it must work, and what the moisture would damage.",
+      sections: [
+        {
+          label: "Silica gel",
+          title: "Silica gel: the default for cartons and product packs",
+          text: "Silica gel adsorbs up to about 33% of its own weight at 25 °C and 90% RH, stays dry to the touch, does not swell or leak, and keeps working at low humidity where other absorbers slow down. That makes it the standard choice inside product boxes, electronics packaging, leather and footwear cartons, and instrument cases. Sachets run from 0.5g to 500g, and loose beads ship in 25kg bags for repackers.",
+        },
+        {
+          label: "Clay",
+          title: "Activated clay: economical volume protection",
+          text: "Activated clay is a natural mineral desiccant with a lower cost per unit than silica gel and somewhat lower capacity at low humidity. It suits large cartons, crates, and drum liners where the pack has room and the goal is bulk humidity control rather than precision. DryGelWorld ships dry clay packs in FSC-certified kraft and corrugated packaging. Clay can be regenerated at 100-120 °C, though most buyers use it once and replace it.",
+        },
+        {
+          label: "Calcium chloride",
+          title: "Calcium chloride: highest capacity for long transit",
+          text: "Calcium chloride is deliquescent: it pulls in 150-300% of its own weight and turns the water into a contained gel inside a leak-resistant pouch. That capacity is why it dominates in shipping container strips on long humid sea voyages, where container rain is the risk. It is not suitable inside a product pack, next to metal parts, or anywhere a damaged pouch could reach the goods.",
+        },
+        {
+          label: "Container vs carton",
+          title: "Container level or carton level",
+          text: "Container-level absorbers (hanging 1kg-5kg strips, silica or calcium chloride) protect the whole load from condensation forming on the container roof. Carton-level absorbers (sachets and clay packs) protect the product inside its own packaging from humidity that entered before sealing or through the carton walls. Most exporters need both: strips for the container and sachets in the cartons. Size the strip count by route and container with the calculator.",
+        },
+        {
+          label: "Choosing",
+          title: "A short decision path",
+          text: "Ask three questions. Is the absorber inside a sealed product pack? Use silica gel. Is it in a large carton or crate with space and a cost target? Use clay. Is it protecting a container on a long sea voyage? Use calcium chloride strips, or silica strips where any leak risk is unacceptable. Where an audit wants a visible check, add a cobalt-free orange indicating sachet alongside the working desiccant.",
+        },
+        {
+          label: "Documents",
+          title: "Documents and claims",
+          text: "Every format ships with an SDS and batch COA on request, under an ISO 9001:2015 quality system (certificate 9101225, QMEC Group Intl, valid to December 2028). A DMF-free statement is issued for leather and footwear programs. FDA, food-contact, pharma GMP, Halal, REACH, and FSSC 22000 certifications are not held and are not claimed for any of the three chemistries. Ask a supplier what they will not certify before you ask for a price.",
+        },
+      ],
+    },
+    contentBlock: {
+      heading: "Route to the right absorber format",
+      parts: [
+        { text: "Product and carton protection starts at " },
+        { href: "/silica-gel-packets", label: "silica gel packets" },
+        { text: " or " },
+        { href: "/bulk-silica-gel-desiccant", label: "bulk silica gel" },
+        { text: " for repacking; container protection uses " },
+        { href: "/container-desiccant-strips", label: "container desiccant strips" },
+        { text: " and the " },
+        { href: "/moisture-absorber-for-shipping", label: "moisture absorber for shipping page" },
+        { text: ". The " },
+        { href: "/compare/silica-gel-vs-clay-desiccant", label: "silica gel vs clay comparison" },
+        { text: " and the " },
+        { href: "/compare/calcium-chloride-vs-moisture-absorber", label: "calcium chloride vs moisture absorber comparison" },
+        { text: " show where each chemistry wins, and the " },
+        { href: "/tools/moisture-load-calculator", label: "moisture load calculator" },
+        { text: " estimates how many grams a carton needs before you ask for a quote." },
+      ],
+    },
     relatedLinks: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container desiccants", href: "/shipping-container-desiccant-supplier" },
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
+      { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
+      { label: "Silica gel vs calcium chloride for containers", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
+      { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Container shipping industry", href: "/industries/container-shipping" },
     ],
     faqs: [
       {
         question: "Is silica gel a moisture absorber?",
-        answer: "Yes. Silica gel is a desiccant moisture absorber used to reduce humidity inside packaging, cartons, storage spaces, and shipment environments.",
+        answer: "Yes. Silica gel is a desiccant that adsorbs water vapour onto its pore surface, up to about 33% of its own weight at 25 °C and 90% RH, without becoming wet. It is the most common moisture absorber inside product packaging, cartons, instrument cases, and storage enclosures.",
+      },
+      {
+        question: "What is the difference between silica gel, clay, and calcium chloride absorbers?",
+        answer: "Silica gel has the best performance at low humidity and stays dry, so it goes inside product packs. Activated clay is cheaper per unit with slightly lower capacity and suits large cartons and crates. Calcium chloride holds 150-300% of its weight as a contained gel and is used in container strips for long sea voyages, but never inside a product pack.",
       },
       {
         question: "Which moisture absorber format should I request?",
-        answer: "Use packets for product packaging, bulk silica gel for industrial or repacking supply, and cargo strips for container shipments.",
+        answer: "Sachets for product packaging, bulk silica gel or clay for industrial and repacking supply, and 1kg-5kg strips for container shipments. If you are unsure, describe the moisture damage you are trying to prevent and the sales desk will recommend a format.",
+      },
+      {
+        question: "Do I need container desiccant and carton sachets?",
+        answer: "For sea freight, usually both. Container strips absorb the humidity in the container air and stop condensation on the roof and walls; sachets inside each carton protect the product from moisture that was sealed in at packing or that enters through the carton. One does not replace the other.",
+      },
+      {
+        question: "How much moisture absorber does a carton or container need?",
+        answer: "It depends on package volume, the packaging material, storage or transit time, and the route humidity. The moisture load calculator estimates grams per carton and the container desiccant calculator estimates strip count per container; send the outputs with your RFQ and the quote will match them.",
+      },
+      {
+        question: "Can moisture absorbers be reused?",
+        answer: "Silica gel can be regenerated by heating, typically at 110-130 °C for sachets and indicating gel, and higher for bulk beads. Activated clay can be regenerated at 100-120 °C but is usually replaced. Calcium chloride strips are single-use because the salt dissolves into the water it captures.",
       },
       {
         question: "What details are needed for moisture absorber pricing?",
-        answer: "Send use case, product sensitivity, package size, quantity, destination, and required documents.",
+        answer: "Send the use case, product sensitivity, package or container size, storage or transit time, format, quantity, destination, Incoterms, and any documents required. Buyers in Pakistan are quoted in PKR; export buyers in USD on EXW, FOB Karachi, CIF, or DAP terms.",
+      },
+      {
+        question: "Does DryGelWorld manufacture these absorbers or trade them?",
+        answer: "DryGelWorld is the export brand of Kamran Enterprises, which has manufactured desiccants in Karachi since 1983. Silica gel sachets and beads, activated clay packs, and silica and calcium chloride container strips are produced at the North Karachi Industrial Area factory, and buyers can arrange a plant visit.",
       },
     ],
   },

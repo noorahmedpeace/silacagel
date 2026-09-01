@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
@@ -16,11 +17,16 @@ type SeoLandingPageProps = {
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
   const landingSpec = getLandingSpec(page.slug);
+  const breadcrumbItems = [
+    { name: "Home", href: "/" },
+    { name: page.kicker, href: `/${page.slug}` },
+  ];
 
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroCopy}>
+          <Breadcrumbs items={breadcrumbItems} />
           <span className={styles.kicker}>{page.kicker}</span>
           <h1>{page.h1}</h1>
           <p className={styles.lead}>{page.lead}</p>
@@ -287,10 +293,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             "@context": "https://schema.org",
             "@graph": [
               ...landingPageJsonLd(page)["@graph"],
-              breadcrumbJsonLd([
-                { name: "Home", href: "/" },
-                { name: page.kicker, href: `/${page.slug}` },
-              ]),
+              breadcrumbJsonLd(breadcrumbItems),
             ],
           }),
         }}

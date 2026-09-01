@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteName, brandName } from "@/lib/seo";
 import {
   companyAddressFull,
   companyAddressLocality,
@@ -407,7 +407,7 @@ export default function AboutPage() {
                 mainEntity: {
                   "@type": "Organization",
                   "@id": `${absoluteUrl()}#organization`,
-                  name: siteName,
+                  name: brandName,
                   legalName: "Kamran Enterprises",
                   foundingDate: "1983",
                   url: absoluteUrl(),

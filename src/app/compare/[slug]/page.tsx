@@ -14,6 +14,8 @@ import {
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getCompareSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../compare.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { sitemapLastModified } from "@/lib/seo";
 
 type ComparePageProps = {
   params: Promise<{
@@ -80,6 +82,13 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
     <main className={styles.page}>
       <article>
         <header className={styles.hero}>
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Compare", href: "/compare" },
+              { name: `${page.productA} vs ${page.productB}`, href: `/compare/${slug}` },
+            ]}
+          />
           <span className={styles.kicker}>Buyer Comparison</span>
           <h1>{page.h1}</h1>
           <p className={styles.description}>{page.description}</p>
@@ -214,6 +223,10 @@ export default async function ComparePageRoute({ params }: ComparePageProps) {
                 description: page.description,
                 inLanguage: "en",
                 articleSection: "Product Comparison",
+                // Comparison pages carry no per-page dates; the site-wide
+                // content date is the honest value for both fields.
+                datePublished: "2026-06-24",
+                dateModified: sitemapLastModified,
                 image: absoluteUrl(heroImage.src),
                 author: author
                   ? authorJsonLd(author)

@@ -5,6 +5,7 @@ import {
   brandDomain,
   breadcrumbJsonLd,
   siteName,
+  brandName,
 } from "@/lib/seo";
 import {
   companyAddressFull,
@@ -284,7 +285,7 @@ export default function MediaKitPage() {
                 about: {
                   "@type": "Organization",
                   "@id": `${absoluteUrl()}#organization`,
-                  name: siteName,
+                  name: brandName,
                   legalName: "Kamran Enterprises",
                   foundingDate: "1983",
                   url: absoluteUrl(),

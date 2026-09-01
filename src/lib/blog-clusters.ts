@@ -365,6 +365,16 @@ export const blogClusters: Record<string, BlogCluster> = {
   // PRIORITY.md #44: these 4 articles had no cluster entry and fell through
   // to the generic two-link fallback regardless of topic. Added below with
   // topically-matched cross-links (verified against existing blog slugs).
+  "silica-gel-sachet-manufacturers-how-to-evaluate": {
+    guides: [
+      guide("top-10-silica-gel-suppliers-world-pakistan", "Top 10 silica gel suppliers worldwide and in Pakistan"),
+      guide("paper-vs-tyvek-vs-film-desiccant-sachet-materials", "Paper vs Tyvek vs film sachet materials"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+      guide("private-label-silica-gel-packets-guide", "Private-label silica gel packets guide"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+    industry: IND_LEATHER,
+  },
   "top-10-silica-gel-suppliers-world-pakistan": {
     guides: [
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),

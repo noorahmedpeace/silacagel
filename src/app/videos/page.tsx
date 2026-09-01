@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, brandName } from "@/lib/seo";
 import styles from "./videos.module.css";
 
 export const metadata: Metadata = {
@@ -130,7 +130,7 @@ export default function VideosPage() {
                 publisher: {
                   "@type": "Organization",
                   "@id": `${absoluteUrl()}#organization`,
-                  name: siteName,
+                  name: brandName,
                   url: absoluteUrl(),
                 },
               })),

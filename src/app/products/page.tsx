@@ -165,8 +165,11 @@ export default function ProductsPage() {
                   url: absoluteUrl(),
                   name: siteName,
                 },
+                // WebPage, not Product: a Product node without offers triggers a
+                // persistent GSC "invalid item" warning. Offers live on the
+                // product pages themselves.
                 hasPart: productCatalog.map((product) => ({
-                  "@type": "Product",
+                  "@type": "WebPage",
                   name: product.name,
                   url: absoluteUrl(`/products/${product.slug}`),
                   description: product.summary,

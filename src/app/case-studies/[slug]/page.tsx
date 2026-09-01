@@ -4,8 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
 import { caseStudies, getCaseStudy } from "@/lib/case-study-data";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, siteName, brandName, sitemapLastModified } from "@/lib/seo";
 import styles from "../case-studies.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -58,6 +59,13 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
     <main className={styles.page}>
       <section className={`${styles.hero} ${styles.detailHero}`}>
         <div>
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Case Studies", href: "/case-studies" },
+              { name: study.title, href: `/case-studies/${study.slug}` },
+            ]}
+          />
           <span className={styles.kicker}>{study.label} / {study.industry}</span>
           <h1>{study.title}</h1>
           <p>{study.context}</p>
@@ -192,10 +200,17 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
                 image: absoluteUrl(study.image),
                 articleSection: "Case Studies",
                 inLanguage: "en",
+                datePublished: "2026-06-24",
+                dateModified: sitemapLastModified,
+                author: {
+                  "@type": "Organization",
+                  "@id": `${absoluteUrl()}#organization`,
+                  name: brandName,
+                },
                 publisher: {
                   "@type": "Organization",
                   "@id": `${absoluteUrl()}#organization`,
-                  name: siteName,
+                  name: brandName,
                   url: absoluteUrl(),
                 },
                 mainEntityOfPage: absoluteUrl(`/case-studies/${study.slug}`),

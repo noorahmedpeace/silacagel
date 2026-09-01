@@ -347,7 +347,7 @@ export const comparePages: ComparePage[] = [
     introA:
       "Silica gel and clay container strips are adsorbing desiccants: they hold water vapor inside a porous structure (silica gel up to ~33% of its weight, clay up to ~25%) without changing into a liquid. They are the standard for protecting moisture-sensitive cargo (leather, electronics, textiles, packaged goods) where any free liquid near the cargo is unacceptable. DryGelWorld supplies both as 1-5 kg hanging cargo strips and bulk.",
     introB:
-      "Calcium chloride container desiccants (the AbsorbKing / Container Dri II style product) are deliquescent: the salt pulls in far more than its own weight in water - often 150-300% - and converts it into a thick gel held inside a leak-resistant pouch. They are engineered specifically for high-volume container rain on long tropical voyages. Calcium chloride desiccants are NOT in the DryGelWorld catalog; this comparison is published so buyers can specify the right tool honestly.",
+      "Calcium chloride container desiccants (the AbsorbKing / Container Dri II style product) are deliquescent: the salt pulls in far more than its own weight in water - often 150-300% - and converts it into a thick gel held inside a leak-resistant pouch. They are engineered specifically for high-volume container rain on long tropical voyages. DryGelWorld supplies calcium chloride container strips and bulk bags alongside its silica gel and clay strips, so this comparison is about picking the right tool for the cargo, not about steering buyers to one format. Where silica gel wins is stated first: zero free liquid, regenerable, and the safer choice for anything that cannot tolerate brine.",
     criteria: [
       { label: "Mechanism", a: "Adsorption (vapor held in solid pore structure)", b: "Deliquescence (vapor converted to liquid/gel)" },
       { label: "Water capacity (by own weight)", a: "Silica gel ~33%, clay up to ~25%", b: "150-300% - far higher per gram" },
@@ -356,7 +356,7 @@ export const comparePages: ComparePage[] = [
       { label: "Best voyage length", a: "Short to medium hauls; carton + container layering", b: "Long tropical-to-temperate hauls (25-40+ days)" },
       { label: "Regenerable", a: "Silica gel yes (120-150°C); clay typically single-use", b: "No - single-use consumable" },
       { label: "Cost per unit", a: "Lower per strip", b: "Higher per pouch, but fewer units per container" },
-      { label: "In DryGelWorld catalog", a: "Yes (silica gel + clay strips, ISO 9001:2015 + DMF-free)", b: "No - source from a calcium chloride specialist" },
+      { label: "In DryGelWorld catalog", a: "Yes (silica gel + clay strips, ISO 9001:2015 + DMF-free)", b: "Yes (1-5 kg calcium chloride strips and bulk bags)" },
     ],
     decisions: [
       { scenario: "Leather / footwear on a long tropical route", recommended: "both", note: "Calcium chloride poles for raw container-air capacity, plus silica gel sachets inside cartons - but only if the cargo tolerates any remote brine risk; for premium leather many exporters stay all-silica-gel to eliminate liquid entirely." },
@@ -373,7 +373,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply calcium chloride container desiccants?",
-        a: "No. DryGelWorld supplies silica gel and dry clay container strips and bulk desiccant under ISO 9001:2015. Calcium chloride (Container Dri / AbsorbKing style) deliquescent poles are a separate product category not in our catalog - buyers needing them should source from a calcium chloride specialist, and we are happy to advise on where adsorbing strips fit alongside them.",
+        a: "Yes. DryGelWorld supplies calcium chloride container strips (1-5 kg hanging strips) and calcium chloride bulk bags, alongside silica gel and dry clay container strips, under ISO 9001:2015. The export desk will recommend silica gel where the cargo cannot tolerate any liquid risk, and calcium chloride where raw container-air capacity on a long humid voyage matters more.",
       },
       {
         q: "Which is better for container rain on a long ocean voyage?",
@@ -385,7 +385,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "How do I quote container desiccant from DryGelWorld?",
-        a: "Send container size (20ft/40ft/HC), route and transit days, cargo type and sensitivity, target strip count, destination, Incoterms (FOB/CIF/DAP/EXW), and required documents (SDS, COA, ISO 9001:2015 reference, DMF-free statement).",
+        a: "Send container size (20ft/40ft/HC), route and transit days, cargo type and sensitivity, whether you want silica gel, clay, or calcium chloride strips (or a layered mix), target strip count, destination, Incoterms (FOB/CIF/DAP/EXW), and required documents (SDS, COA, ISO 9001:2015 reference, DMF-free statement). The container desiccant calculator gives a starting strip count.",
       },
     ],
     relatedBlog: "/blog/best-desiccant-for-shipping-containers",

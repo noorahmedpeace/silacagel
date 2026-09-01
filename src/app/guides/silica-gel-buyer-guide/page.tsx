@@ -5,6 +5,7 @@ import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { seoImages } from "@/lib/seo-images";
 import styles from "./guide.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 const GUIDE_PATH = "/guides/silica-gel-buyer-guide";
 const GUIDE_TITLE =
@@ -60,6 +61,13 @@ export default function SilicaGelBuyerGuide() {
     <main className={styles.page}>
       <article className={styles.article}>
         <header className={styles.hero}>
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Guides", href: "/guides" },
+              { name: "Silica Gel Buyer Guide", href: "/guides/silica-gel-buyer-guide" },
+            ]}
+          />
           <span className={styles.kicker}>Authority Guide · 30 min read</span>
           <h1>The Industrial Silica Gel Buyer Guide</h1>
           <p className={styles.subtitle}>

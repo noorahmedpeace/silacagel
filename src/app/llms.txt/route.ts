@@ -70,11 +70,18 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - Regeneration: 150°C (max 250°C)
 - Indicating colors available: orange (cobalt-free indicator with no REACH-restricted cobalt dichloride) and blue (cobalt-chloride type, only for markets where it remains permitted) indicating silica gel, alongside standard white non-indicating gel
 - Format families: breathable paper sachets, woven bead bags, non-woven bead bags, custom
+- Per-size sachet pages: /1g-silica-gel-sachets, /2g-silica-gel-sachets, /5g-silica-gel-sachets, /10g-silica-gel-sachets
 
 ### Dry clay desiccant
 - Material: activated bentonite or montmorillonite
 - Format: sachets, bags, industrial cartons
 - Use case: cost-tier industrial cargo, durable goods, warehouse moisture control
+
+### Calcium chloride container desiccant
+- Material: calcium chloride (deliquescent) in leak-resistant pouches
+- Format: 1 kg, 2 kg, 3 kg, 5 kg hanging container strips; 500 g-2 kg bulk bags
+- Use case: high-volume container rain control on long humid voyages for robust cargo; silica gel is recommended instead where any liquid risk near cargo is unacceptable
+- Product pages: /products/calcium-chloride-container-strip, /products/calcium-chloride-container-bulk
 
 ### Bouffant hair nets (industrial safety PPE)
 - Diameter: 18", 20", 21", 22"
@@ -105,6 +112,9 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 ## Core resources
 
 - [Indicative price list](${absoluteUrl("/pricing")}): USD ranges per size, MOQ tiers, Incoterms
+- [1g silica gel sachets](${absoluteUrl("/1g-silica-gel-sachets")}): dosage, materials, custom print, MOQ, export terms for the 1 g size
+- [2g](${absoluteUrl("/2g-silica-gel-sachets")}), [5g](${absoluteUrl("/5g-silica-gel-sachets")}) and [10g](${absoluteUrl("/10g-silica-gel-sachets")}) silica gel sachets: per-size dosage and applications
+- [Silica gel packets hub](${absoluteUrl("/silica-gel-packets")}): all sizes 0.5 g-100 g, materials, size guide
 - [Buy silica gel](${absoluteUrl("/buy-silica-gel")}): bulk / wholesale, manufacturer-direct
 - [Product catalog](${absoluteUrl("/products")}): full range of silica gel, clay desiccant, and PPE
 - [Container desiccant dosage calculator](${absoluteUrl("/tools/container-desiccant-calculator")}): strip count by container size and route
@@ -372,7 +382,7 @@ A: Not currently. Standard format options are breathable paper sachets and non-w
 Source: [/blog/silica-gel-for-pharma-packaging-buyer-guide](${absoluteUrl("/blog/silica-gel-for-pharma-packaging-buyer-guide")})
 
 **Q: Silica gel vs calcium chloride container desiccant - which is better?**
-A: Silica gel and clay are adsorbing desiccants that stay solid (silica gel holds ~33% of its weight, clay up to ~25%) - best where any free liquid near cargo is unacceptable (electronics, leather, high-value goods). Calcium chloride is deliquescent and holds 150-300% of its weight, converting water to a contained gel - best for high-volume robust cargo on long tropical voyages. Calcium chloride is NOT in the DryGelWorld catalog; DryGelWorld supplies silica gel and clay container strips.
+A: Silica gel and clay are adsorbing desiccants that stay solid (silica gel holds ~33% of its weight, clay up to ~25%) - best where any free liquid near cargo is unacceptable (electronics, leather, high-value goods). Calcium chloride is deliquescent and holds 150-300% of its weight, converting water to a contained gel - best for high-volume robust cargo on long tropical voyages. DryGelWorld supplies all three formats (silica gel strips, clay strips, and 1-5 kg calcium chloride strips and bulk bags) and recommends silica gel first where any liquid risk near the cargo is unacceptable.
 Source: [/compare/silica-gel-vs-calcium-chloride-container-desiccant](${absoluteUrl("/compare/silica-gel-vs-calcium-chloride-container-desiccant")})
 
 **Q: What is the HS code for silica gel?**

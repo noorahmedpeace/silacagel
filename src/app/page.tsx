@@ -121,6 +121,7 @@ const procurementFlow = [
 
 const categoryLanes = [
   { label: "Silica gel packets", href: "/silica-gel-packets" },
+  { label: "1g sachets", href: "/1g-silica-gel-sachets" },
   { label: "Paper sachets", href: "/products/paper-sachets" },
   { label: "Indicating gel", href: "/orange-silica-gel-supplier" },
   { label: "Container strips", href: "/container-desiccant-strips" },

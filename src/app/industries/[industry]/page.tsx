@@ -7,6 +7,7 @@ import { IsoBadge } from "@/components/iso-badge";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 type IndustryFormat = { label: string; text: string };
 type IndustryBody = {
@@ -592,6 +593,13 @@ export default async function IndustryPage({
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <Breadcrumbs
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Industries", href: "/industries" },
+            { name: page.title, href: `/industries/${industry}` },
+          ]}
+        />
         <span className={styles.kicker}>Industry Solution</span>
         <h1>{page.h1}</h1>
         <p>{page.description}</p>

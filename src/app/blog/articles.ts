@@ -46,7 +46,7 @@ export const blogArticles: BlogArticle[] = [
       "The 10 leading global silica gel manufacturers, what each is best for, and how to evaluate a supplier in Pakistan. Published by a Karachi manufacturer.",
     description:
       "The global silica gel manufacturers that B2B buyers actually compare, what each one is best suited to, and the questions that separate a real manufacturer from a reseller. Published by DryGelWorld, a Karachi manufacturer that competes in part of this market and says plainly where it does not.",
-    readTime: "9 min read",
+    readTime: "11 min read",
     sections: [
       {
         heading: "Who publishes this list, and what it is not",
@@ -90,6 +90,29 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
+        heading: "Silica gel sachet manufacturers vs raw silica producers: which half of the list you need",
+        body:
+          "The ten names above split into two different businesses, and buyers waste weeks emailing the wrong half. Raw silica producers (Grace, Evonik, BASF, Fuji Silysia) make the amorphous silicon dioxide beads themselves at chemical-plant scale and sell by the tonne, mostly to converters, catalyst makers, and large packagers. Sachet manufacturers and converters (Clariant's desiccant unit, Multisorb, Desiccare, WiseSorbent, Sorbchem, DryGelWorld) buy or make bead and turn it into finished desiccant formats: 1g to 500g sachets, printed private-label packets, canisters, and container strips. If your RFQ is in pieces, cartons, or 'per 1,000 sachets', you need a converter. If it is in tonnes of bead by grade and particle size, you need a producer or a distributor of one.",
+        bullets: [
+          "Ask for finished sachets (1g, 2g, 5g, 10g), printed packets, or container strips: contact a sachet manufacturer or converter.",
+          "Ask for loose beads by the tonne with a particle-size and moisture spec: contact a silica producer or its regional distributor.",
+          "Many converters, including DryGelWorld, also sell loose beads in 25kg bags to repackers; the difference is scale and grade range, not willingness.",
+          "Worldwide, converters cluster near packaging demand (USA, Germany, China, India, Pakistan); producers cluster near chemical feedstock and energy.",
+        ],
+      },
+      {
+        heading: "Five checks that work for any silica gel supplier worldwide",
+        body:
+          "Whether the supplier is in Ohio, Osaka, or Karachi, the same five checks separate a manufacturer with a real quality system from a trading company with a website. None of them require a plant visit, though a manufacturer will offer one.",
+        bullets: [
+          "Certificate number, not certificate logo: ask for the ISO 9001 certificate number and the registrar, then verify it on the registrar's site. DryGelWorld's is 9101225 with QMEC Group Intl; every supplier on the list above can produce an equivalent.",
+          "SDS and COA before the order: a manufacturer sends both from its own system within a day. A reseller has to request them from someone else.",
+          "A stated 'not held' list: a supplier that says what it does not have (FDA DMF, REACH registration, food-contact) is telling you it knows what those documents mean.",
+          "Per-size pricing basis: finished sachets should be quoted per piece or per 1,000 with the sachet material and print stated; beads per kg with grade. A quote that mixes these is not comparable.",
+          "Named production address and Incoterm: 'FOB Karachi' or 'EXW Buffalo NY' ties a price to a place. 'Ex-warehouse' with no location usually means a trader.",
+        ],
+      },
+      {
         heading: "How to choose a silica gel supplier in Pakistan",
         body:
           "There is no meaningful published ranking of Pakistani silica gel suppliers, and any list claiming one is invented. Pakistan's market is a small number of manufacturers alongside a much larger number of importers, repackers, and packaging vendors who resell. The distinction that matters to a buyer is not who ranks where. It is whether the company actually makes the product or buys it in. That is testable in a single phone call.",
@@ -125,10 +148,32 @@ export const blogArticles: BlogArticle[] = [
           "Ask to visit the plant and ask what they will not supply. A manufacturer names an address and a day, and states its limits. A reseller deflects the visit and says yes to everything. Also ask for the ISO certificate number, an SDS, and a COA before ordering; a supplier who has to source those from a third party is reselling.",
       },
       {
+        question: "Who are the top silica gel sachet manufacturers?",
+        answer:
+          "For finished sachets and packets rather than raw bead, the converters buyers most often compare are Clariant (Desi Pak), Multisorb, Desiccare, WiseSorbent, and Sorbchem India, with regional manufacturers such as DryGelWorld in Pakistan serving mid-size and private-label programs. Raw silica producers like Grace, Evonik, BASF, and Fuji Silysia generally sell bead by the tonne, not sachets by the thousand.",
+      },
+      {
         question: "What should buyers ask before choosing a silica gel supplier?",
         answer:
           "Ask for product format, sachet size, bead grade, adsorption capacity, MOQ, packaging material, lead time, destination support, SDS, COA, and any buyer-specific compliance requirement before confirming an order. Compare quotes in the same format and Incoterm. A lower per-kg price in a different format is not a lower price.",
       },
+    ],
+    sources: [
+      { label: "W. R. Grace - silica products", href: "https://grace.com/", publisher: "W. R. Grace & Co." },
+      { label: "Evonik - silica business line", href: "https://www.evonik.com/", publisher: "Evonik Industries" },
+      { label: "BASF Catalysts and adsorbents", href: "https://catalysts.basf.com/", publisher: "BASF" },
+      { label: "Clariant Cargo and Device Protection (Desi Pak, Container Dri)", href: "https://www.clariant.com/", publisher: "Clariant" },
+      { label: "Fuji Silysia Chemical", href: "https://www.fujisilysia.com/", publisher: "Fuji Silysia Chemical Ltd." },
+      { label: "Multisorb Technologies", href: "https://www.multisorb.com/", publisher: "Multisorb (Filtration Group)" },
+      { label: "Desiccare Inc.", href: "https://www.desiccare.com/", publisher: "Desiccare Inc." },
+      { label: "Interra Global", href: "https://www.interraglobal.com/", publisher: "Interra Global" },
+      { label: "Sorbchem India", href: "https://www.sorbchemindia.com/", publisher: "Sorbchem India Pvt. Ltd." },
+      { label: "WiseSorbent Technology", href: "https://www.wisesorbent.com/", publisher: "WiseSorbent Technology" },
+      { label: "GeeJay Chemicals", href: "https://www.geejaychemicals.co.uk/", publisher: "GeeJay Chemicals Ltd." },
+      { label: "Silica gel market report", href: "https://www.mordorintelligence.com/industry-reports/silica-gel-market", publisher: "Mordor Intelligence" },
+      { label: "Silica gel market analysis", href: "https://www.grandviewresearch.com/industry-analysis/silica-gel-market", publisher: "Grand View Research" },
+      { label: "QMEC Group Intl - ISO 9001:2015 registrar for DryGelWorld certificate 9101225", href: "https://www.qmecgroup.org", publisher: "QMEC Group Intl" },
+      { label: "DryGelWorld certifications held and not held", href: "https://www.drygelworld.com/certifications", publisher: "DryGelWorld" },
     ],
   },
   {
@@ -251,6 +296,33 @@ export const blogArticles: BlogArticle[] = [
         question: "Can I test silica gel sizing before bulk commit?",
         answer:
           "Yes - and you should. Order sample sachets in the calculated size range, run a 14-30 day humidity test against representative packaging, and measure indicating-gel color change or carton humidity directly. This validation adds 2-4 weeks but prevents under-sized or over-sized bulk orders.",
+      },
+    ],
+    sources: [
+      {
+        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "Silica Gel Calculator | How Much Desiccant Do You Need?",
+        href: "https://www.drygelworld.com/tools/moisture-load-calculator",
+        publisher: "DryGelWorld",
+      },
+      {
+        label: "Dew Point vs Humidity",
+        href: "https://www.weather.gov/arx/why_dewpoint_vs_humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Test Procedures",
+        href: "https://ista.org/test_procedures.php",
+        publisher: "International Safe Transit Association (ISTA)",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
       },
     ],
   },
@@ -386,6 +458,33 @@ export const blogArticles: BlogArticle[] = [
           "Silica gel regenerates at 150°C (max 250°C); activated clay regenerates at 100-120°C. Clay's lower regen temperature is sometimes cited as an advantage, but for most B2B buyers - especially those running container-grade single-voyage strips - regeneration is not the primary economic factor. It matters more for laboratory and small-industrial reuse contexts.",
       },
     ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Bentonite — compound summary, CID 71586775",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Bentonite",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "MIL-D-3464 — Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
+        href: "https://quicksearch.dla.mil/",
+        publisher: "U.S. Defense Logistics Agency",
+      },
+      {
+        label: "2.3: BET Surface Area Analysis of Nanoparticles",
+        href: "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Physical_Methods_in_Chemistry_and_Nano_Science_(Barron)/02:_Physical_and_Thermal_Analysis/2.03:_BET_Surface_Area_Analysis_of_Nanoparticles",
+        publisher: "Chemistry LibreTexts",
+      },
+    ],
   },
   {
     slug: "container-rain-prevention",
@@ -509,6 +608,38 @@ export const blogArticles: BlogArticle[] = [
           "Silica gel adsorbs roughly 35% more vapor per gram than typical clay, regenerates at 150°C, and is DMF-free - a stronger choice for precision, leather, electronics, and pharma-style cargo. Dry clay desiccant is a cost-effective fit for industrial durable goods and bulk cartons where the primary risk is oxidation rather than mold or finish damage. Many programs use both: clay at the cost-tier carton level, silica gel at the precision and container level.",
       },
     ],
+    sources: [
+      {
+        label: "IMO/ILO/UNECE Code of Practice for Packing of Cargo Transport Units (CTU Code)",
+        href: "https://www.imo.org/en/OurWork/Safety/Pages/CTU-Code.aspx",
+        publisher: "International Maritime Organization",
+      },
+      {
+        label: "Cargo Ventilation and Precautions to Minimise Sweat",
+        href: "https://www.westpandi.com/news-and-resources/loss-prevention-bulletins/cargo-ventilation-and-precautions-to-minimise-swea/",
+        publisher: "West of England P&I Club",
+      },
+      {
+        label: "Don't work up a sweat! (cargo sweat and ship's sweat)",
+        href: "https://gard.no/en/insights/dont-work-up-a-sweat/",
+        publisher: "Gard",
+      },
+      {
+        label: "Cargo Incident Notification System (CINS)",
+        href: "https://www.cinsnet.com/",
+        publisher: "CINS",
+      },
+      {
+        label: "Dew Point vs Humidity",
+        href: "https://www.weather.gov/arx/why_dewpoint_vs_humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Container Desiccant Calculator | kg per 20ft & 40ft",
+        href: "https://www.drygelworld.com/tools/container-desiccant-calculator",
+        publisher: "DryGelWorld",
+      },
+    ],
   },
   {
     slug: "desiccant-for-electronics-packaging",
@@ -630,6 +761,38 @@ export const blogArticles: BlogArticle[] = [
           "VCI (volatile corrosion inhibitor) paper complements desiccant rather than replacing it - desiccant manages bulk humidity, VCI specifically protects exposed metal contacts and connector pins from corrosion. For connector-heavy electronics cargo on long-haul routes, both are often used together.",
       },
     ],
+    sources: [
+      {
+        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
+        publisher: "IPC (Global Electronics Association) / JEDEC",
+      },
+      {
+        label: "IPC/JEDEC J-STD-020F — Moisture/Reflow Sensitivity Classification for Non-Hermetic Surface Mount Devices (table of contents)",
+        href: "https://www.electronics.org/TOC/J-STD-020F_TOC.pdf",
+        publisher: "IPC (Global Electronics Association) / JEDEC",
+      },
+      {
+        label: "Directive 2011/65/EU (RoHS 2) — restriction of hazardous substances in electrical and electronic equipment",
+        href: "https://eur-lex.europa.eu/eli/dir/2011/65/oj/eng",
+        publisher: "EUR-Lex, Publications Office of the European Union",
+      },
+      {
+        label: "MIL-D-3464 — Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
+        href: "https://quicksearch.dla.mil/",
+        publisher: "U.S. Defense Logistics Agency",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+    ],
   },
   {
     slug: "can-you-reuse-silica-gel",
@@ -747,6 +910,33 @@ export const blogArticles: BlogArticle[] = [
           "For home use (dry electronics, document storage, hobby projects): technically yes, regenerate at 150°C. For commercial B2B use (insertion into shipments you sell): not recommended - the regenerated material has no documented batch trail, which fails customer QC and audit review for any regulated end-customer.",
       },
     ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Water vapor desorption from silica gel in a combined drying and double-condenser compression refrigeration system (Heliyon, 2022)",
+        href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9249840/",
+        publisher: "PubMed Central, U.S. National Library of Medicine",
+      },
+      {
+        label: "Drying and Preserving Plant Materials for Decorative Uses (CIR495/EP004)",
+        href: "https://ask.ifas.ufl.edu/publication/EP004",
+        publisher: "UF/IFAS Extension, University of Florida",
+      },
+      {
+        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+    ],
   },
   {
     slug: "what-is-silica-gel-and-how-does-it-work",
@@ -831,6 +1021,33 @@ export const blogArticles: BlogArticle[] = [
         question: "What are the orange and blue silica gel beads?",
         answer:
           "Those are indicating silica gels - the bead is dyed with a moisture-sensitive indicator that changes color as it saturates. Blue silica gel turns pink when saturated; orange silica gel turns green or colorless. The chemistry is the same as standard white non-indicating silica gel; the indicator just gives a visual signal of saturation. Useful for laboratories, electronics packaging with humidity-monitoring requirements, and re-pack programs.",
+      },
+    ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Silica — ToxFAQs",
+        href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
+        publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
+      },
+      {
+        label: "3: The Langmuir Isotherm",
+        href: "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Surface_Science_(Nix)/03:_The_Langmuir_Isotherm",
+        publisher: "Chemistry LibreTexts",
+      },
+      {
+        label: "NWS Glossary — Relative humidity",
+        href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
       },
     ],
   },
@@ -963,6 +1180,33 @@ export const blogArticles: BlogArticle[] = [
         question: "For B2B export packaging, which one should I order?",
         answer:
           "Silica gel. It covers ~80% of B2B export packaging applications, costs less than the alternatives, and has the best per-gram capacity in the humidity range your shipments actually operate in. Use molecular sieve or activated alumina only if you have a specific low-RH or gas-drying application that justifies the cost premium.",
+      },
+    ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Zeolites — substance summary",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Zeolite",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Database of Zeolite Structures",
+        href: "https://www.iza-structure.org/databases/",
+        publisher: "International Zeolite Association, Structure Commission",
+      },
+      {
+        label: "Alumina (aluminium oxide, Al2O3) — compound summary, CID 9989226",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Aluminum-oxide",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "2.3: BET Surface Area Analysis of Nanoparticles",
+        href: "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Physical_Methods_in_Chemistry_and_Nano_Science_(Barron)/02:_Physical_and_Thermal_Analysis/2.03:_BET_Surface_Area_Analysis_of_Nanoparticles",
+        publisher: "Chemistry LibreTexts",
       },
     ],
   },
@@ -1099,6 +1343,38 @@ export const blogArticles: BlogArticle[] = [
         question: "What documents do underwriters expect when there's a moisture damage claim?",
         answer:
           "An SDS for the desiccant used, a COA tying the batch to the shipment, an ISO 9001:2015 quality reference for the manufacturer, dated photos of the loading workflow, and a packing list that names the desiccant format and quantity per carton. DryGelWorld supports the SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request - the photo log and packing list are the shipper's responsibility.",
+      },
+    ],
+    sources: [
+      {
+        label: "IMO/ILO/UNECE Code of Practice for Packing of Cargo Transport Units (CTU Code)",
+        href: "https://www.imo.org/en/OurWork/Safety/Pages/CTU-Code.aspx",
+        publisher: "International Maritime Organization",
+      },
+      {
+        label: "Cargo Ventilation and Precautions to Minimise Sweat",
+        href: "https://www.westpandi.com/news-and-resources/loss-prevention-bulletins/cargo-ventilation-and-precautions-to-minimise-swea/",
+        publisher: "West of England P&I Club",
+      },
+      {
+        label: "TT Talk — Protecting cargo from wet damage",
+        href: "https://www.ttclub.com/news-and-resources/news/article/tt-talk-protecting-cargo-from-wet-damage/",
+        publisher: "TT Club",
+      },
+      {
+        label: "Dew Point vs Humidity",
+        href: "https://www.weather.gov/arx/why_dewpoint_vs_humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Test Procedures",
+        href: "https://ista.org/test_procedures.php",
+        publisher: "International Safe Transit Association (ISTA)",
+      },
+      {
+        label: "Silica Gel Calculator | How Much Desiccant Do You Need?",
+        href: "https://www.drygelworld.com/tools/moisture-load-calculator",
+        publisher: "DryGelWorld",
       },
     ],
   },
@@ -1339,6 +1615,28 @@ export const blogArticles: BlogArticle[] = [
           "Send packet size, artwork or required text, material preference, quantity, destination, carton label needs, and document requirements.",
       },
     ],
+    sources: [
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "Silica — ToxFAQs",
+        href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
+        publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
+      },
+      {
+        label: "Regulation (EC) No 1907/2006 (REACH)",
+        href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006R1907",
+        publisher: "EUR-Lex, Publications Office of the European Union",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+    ],
   },
   {
     slug: "bulk-silica-gel-supplier-checklist",
@@ -1447,6 +1745,33 @@ export const blogArticles: BlogArticle[] = [
         question: "How do I compare bulk silica gel suppliers?",
         answer:
           "Compare product format, bead quality, bag strength, carton packing, documents, destination support, MOQ, lead time, and repeat supply reliability.",
+      },
+    ],
+    sources: [
+      {
+        label: "Incoterms® 2020",
+        href: "https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/",
+        publisher: "International Chamber of Commerce",
+      },
+      {
+        label: "Harmonized Tariff Schedule (heading 2811)",
+        href: "https://hts.usitc.gov/",
+        publisher: "United States International Trade Commission",
+      },
+      {
+        label: "HS Nomenclature 2022 Edition",
+        href: "https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition.aspx",
+        publisher: "World Customs Organization",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
       },
     ],
   },
@@ -2254,6 +2579,33 @@ export const blogArticles: BlogArticle[] = [
           "'Moisture absorber' is sometimes used as a generic term that includes container desiccants, sachets, and other moisture control products. In strict B2B terminology, container desiccants are a specific format (the 1-5kg strips); moisture absorbers is broader.",
       },
     ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Bentonite — compound summary, CID 71586775",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Bentonite",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Calcium chloride — compound summary, CID 5284359",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Calcium-chloride",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "IMO/ILO/UNECE Code of Practice for Packing of Cargo Transport Units (CTU Code)",
+        href: "https://www.imo.org/en/OurWork/Safety/Pages/CTU-Code.aspx",
+        publisher: "International Maritime Organization",
+      },
+      {
+        label: "Container Desiccant Calculator | kg per 20ft & 40ft",
+        href: "https://www.drygelworld.com/tools/container-desiccant-calculator",
+        publisher: "DryGelWorld",
+      },
+    ],
   },
   {
     slug: "reusable-vs-disposable-desiccants",
@@ -2432,6 +2784,33 @@ export const blogArticles: BlogArticle[] = [
         question: "How many times can silica gel be regenerated?",
         answer:
           "Standard silica gel: 3-10 regeneration cycles before adsorption capacity drops noticeably. Industrial-grade regenerable beds can handle 50+ cycles but are specialty products. For most B2B reuse contexts, budget for replacement after 3-5 cycles.",
+      },
+    ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "NWS Glossary — Relative humidity",
+        href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Water vapor desorption from silica gel in a combined drying and double-condenser compression refrigeration system (Heliyon, 2022)",
+        href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9249840/",
+        publisher: "PubMed Central, U.S. National Library of Medicine",
+      },
+      {
+        label: "Drying and Preserving Plant Materials for Decorative Uses (CIR495/EP004)",
+        href: "https://ask.ifas.ufl.edu/publication/EP004",
+        publisher: "UF/IFAS Extension, University of Florida",
       },
     ],
   },
@@ -2643,6 +3022,33 @@ export const blogArticles: BlogArticle[] = [
         question: "Can I get translated SDS for non-English regulatory submissions?",
         answer:
           "Yes - DryGelWorld can provide SDS translations on request for destination markets that require local-language documentation. Translation turnaround is typically 5-10 business days. Pharma buyers should request SDS translation at quote stage so the documentation is in place before customs clearance.",
+      },
+    ],
+    sources: [
+      {
+        label: "Q1A(R2) — Stability Testing of New Drug Substances and Products",
+        href: "https://database.ich.org/sites/default/files/Q1A%28R2%29%20Guideline.pdf",
+        publisher: "International Council for Harmonisation (ICH)",
+      },
+      {
+        label: "ICH Q1A (R2) Stability testing of new drug substances and drug products — Scientific guideline",
+        href: "https://www.ema.europa.eu/en/ich-q1a-r2-stability-testing-new-drug-substances-drug-products-scientific-guideline",
+        publisher: "European Medicines Agency",
+      },
+      {
+        label: "〈671〉 Containers—Performance Testing",
+        href: "https://doi.usp.org/USPNF/USPNF_M99430_03_01.html",
+        publisher: "United States Pharmacopeia (USP-NF)",
+      },
+      {
+        label: "Regulation (EC) No 1907/2006 (REACH)",
+        href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006R1907",
+        publisher: "EUR-Lex, Publications Office of the European Union",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
       },
     ],
   },
@@ -3086,6 +3492,33 @@ export const blogArticles: BlogArticle[] = [
         question: "How does DryGelWorld price compare to Chinese manufacturers?",
         answer:
           "Per-kg material cost is similar across reputable Pakistani and Chinese manufacturers. The differentiators are typically supply consistency, documentation quality, MOQ flexibility, lead time, and freight from origin. DryGelWorld competes on documentation quality, MOQ flexibility for export buyers, and short Karachi-to-Middle-East / Karachi-to-EU freight times.",
+      },
+    ],
+    sources: [
+      {
+        label: "Incoterms® 2020",
+        href: "https://iccwbo.org/business-solutions/incoterms-rules/incoterms-2020/",
+        publisher: "International Chamber of Commerce",
+      },
+      {
+        label: "World Container Index",
+        href: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry",
+        publisher: "Drewry Supply Chain Advisors",
+      },
+      {
+        label: "Harmonized Tariff Schedule (heading 2811)",
+        href: "https://hts.usitc.gov/",
+        publisher: "United States International Trade Commission",
+      },
+      {
+        label: "HS Nomenclature 2022 Edition",
+        href: "https://www.wcoomd.org/en/topics/nomenclature/instrument-and-tools/hs-nomenclature-2022-edition.aspx",
+        publisher: "World Customs Organization",
+      },
+      {
+        label: "Regulation (EC) No 1907/2006 (REACH)",
+        href: "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32006R1907",
+        publisher: "EUR-Lex, Publications Office of the European Union",
       },
     ],
   },
@@ -3538,6 +3971,28 @@ export const blogArticles: BlogArticle[] = [
           "Sealed bulk stock stores well, so ordering ahead is fine if you keep bags airtight and rotate FIFO. For high-volume programmes in humid climates, ordering fresh sealed stock closer to when you pack avoids any storage capacity loss. DryGelWorld can align shipment timing and packaging format to your usage - specify volume and lead time in your RFQ.",
       },
     ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "NWS Glossary — Relative humidity",
+        href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Drying and Preserving Plant Materials for Decorative Uses (CIR495/EP004)",
+        href: "https://ask.ifas.ufl.edu/publication/EP004",
+        publisher: "UF/IFAS Extension, University of Florida",
+      },
+    ],
   },
   {
     slug: "silica-gel-for-rice-grain-spice-export",
@@ -3871,6 +4326,38 @@ export const blogArticles: BlogArticle[] = [
           "The base beads are made the same way; indicating gel adds a dye-impregnation step. Orange indicating gel uses a modern non-cobalt dye that is REACH-compliant, while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. Non-indicating gel skips this step and stays clear/white.",
       },
     ],
+    sources: [
+      {
+        label: "US1297724A — Silica gel and process of making same (W. A. Patrick, 1919)",
+        href: "https://patents.google.com/patent/US1297724A/en",
+        publisher: "Google Patents (U.S. Patent and Trademark Office)",
+      },
+      {
+        label: "Sodium silicate — compound summary, CID 23266",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-metasilicate",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Sulfuric acid — compound summary, CID 1118",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Sulfuric-acid",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "2.3: BET Surface Area Analysis of Nanoparticles",
+        href: "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Physical_Methods_in_Chemistry_and_Nano_Science_(Barron)/02:_Physical_and_Thermal_Analysis/2.03:_BET_Surface_Area_Analysis_of_Nanoparticles",
+        publisher: "Chemistry LibreTexts",
+      },
+      {
+        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+    ],
   },
   {
     slug: "relative-humidity-and-adsorption-isotherms-explained",
@@ -3961,6 +4448,38 @@ export const blogArticles: BlogArticle[] = [
         question: "How do I use this to size silica gel for my shipment?",
         answer:
           "Pick the RH you want to hold, read the gel's capacity at that RH from its isotherm, estimate the water entering the package over the voyage, and provide enough gel to hold that water at the target RH with margin. The container dosage calculator automates this; understanding the isotherm lets you sanity-check the result.",
+      },
+    ],
+    sources: [
+      {
+        label: "NWS Glossary — Relative humidity",
+        href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Dew Point vs Humidity",
+        href: "https://www.weather.gov/arx/why_dewpoint_vs_humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Dewpoint and Wet-bulb from Relative Humidity (weather calculator)",
+        href: "https://www.weather.gov/epz/wxcalc_rh",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "3: The Langmuir Isotherm",
+        href: "https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Surface_Science_(Nix)/03:_The_Langmuir_Isotherm",
+        publisher: "Chemistry LibreTexts",
+      },
+      {
+        label: "2.3: BET Surface Area Analysis of Nanoparticles",
+        href: "https://chem.libretexts.org/Bookshelves/Analytical_Chemistry/Physical_Methods_in_Chemistry_and_Nano_Science_(Barron)/02:_Physical_and_Thermal_Analysis/2.03:_BET_Surface_Area_Analysis_of_Nanoparticles",
+        publisher: "Chemistry LibreTexts",
+      },
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
       },
     ],
   },
@@ -4158,6 +4677,33 @@ export const blogArticles: BlogArticle[] = [
           "Yes - the packaging barrier is one of the biggest factors. A near-hermetic foil bag or moisture-barrier bag admits little new water, so you stay near baseline; a breathable or vented box admits humidity throughout the voyage and can need double the desiccant. Decide the barrier first, then calculate the packet count.",
       },
     ],
+    sources: [
+      {
+        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "Silica Gel Calculator | How Much Desiccant Do You Need?",
+        href: "https://www.drygelworld.com/tools/moisture-load-calculator",
+        publisher: "DryGelWorld",
+      },
+      {
+        label: "NWS Glossary — Relative humidity",
+        href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
+        publisher: "NOAA National Weather Service",
+      },
+      {
+        label: "Test Procedures",
+        href: "https://ista.org/test_procedures.php",
+        publisher: "International Safe Transit Association (ISTA)",
+      },
+      {
+        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
+        publisher: "IPC (Global Electronics Association) / JEDEC",
+      },
+    ],
   },
   {
     slug: "desiccant-placement-best-practices-in-packaging",
@@ -4253,6 +4799,33 @@ export const blogArticles: BlogArticle[] = [
           "For many industrial goods, yes, provided the sachet won't mark or scratch the surface. For food, pharma, or finished goods where the spec requires separation, keep the desiccant separated by packaging and confirm the requirement with your buyer. Always pack with 'DO NOT EAT' printed sachets and follow the SDS handling guidance.",
       },
     ],
+    sources: [
+      {
+        label: "IMO/ILO/UNECE Code of Practice for Packing of Cargo Transport Units (CTU Code)",
+        href: "https://www.imo.org/en/OurWork/Safety/Pages/CTU-Code.aspx",
+        publisher: "International Maritime Organization",
+      },
+      {
+        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
+        publisher: "IPC (Global Electronics Association) / JEDEC",
+      },
+      {
+        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
+        publisher: "DIN Media (German Institute for Standardization)",
+      },
+      {
+        label: "Don't work up a sweat! (cargo sweat and ship's sweat)",
+        href: "https://gard.no/en/insights/dont-work-up-a-sweat/",
+        publisher: "Gard",
+      },
+      {
+        label: "Cargo Ventilation and Precautions to Minimise Sweat",
+        href: "https://www.westpandi.com/news-and-resources/loss-prevention-bulletins/cargo-ventilation-and-precautions-to-minimise-swea/",
+        publisher: "West of England P&I Club",
+      },
+    ],
   },
   {
     slug: "how-to-regenerate-silica-gel-oven-temperature-guide",
@@ -4344,6 +4917,33 @@ export const blogArticles: BlogArticle[] = [
         question: "Is it safe to regenerate silica gel at home or in a factory?",
         answer:
           "Silica gel is non-toxic and non-flammable, so regeneration is low-risk if you use oven mitts (beads retain heat), keep it away from open flame, and vent the released moisture in a ventilated area. Avoid microwave regeneration beyond tiny quantities due to uneven heating and dye/container hazards; use a vented convection oven or a dedicated reactivation unit for any real volume.",
+      },
+    ],
+    sources: [
+      {
+        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Water vapor desorption from silica gel in a combined drying and double-condenser compression refrigeration system (Heliyon, 2022)",
+        href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9249840/",
+        publisher: "PubMed Central, U.S. National Library of Medicine",
+      },
+      {
+        label: "Drying and Preserving Plant Materials for Decorative Uses (CIR495/EP004)",
+        href: "https://ask.ifas.ufl.edu/publication/EP004",
+        publisher: "UF/IFAS Extension, University of Florida",
+      },
+      {
+        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
+        publisher: "National Institutes of Health (PubChem)",
+      },
+      {
+        label: "Silica — ToxFAQs",
+        href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
+        publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
       },
     ],
   },
@@ -4899,6 +5499,110 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "silica-gel-sachet-manufacturers-how-to-evaluate",
+    label: "Supplier Guide",
+    title: "Silica gel sachet manufacturers: how to evaluate a converter before you order",
+    metaTitle: "Silica Gel Sachet Manufacturers: How to Evaluate (2026)",
+    metaDescription:
+      "How to compare silica gel sachet manufacturers: materials, fill weights, print, MOQ, documents, and the checks that expose a reseller. By a Karachi sachet manufacturer.",
+    description:
+      "A desiccant sachet manufacturer is a converter, not a chemical plant. This guide explains what to check when comparing sachet manufacturers worldwide: sachet materials, fill-weight accuracy, print and private label, MOQ structure, documents, and the questions that separate a factory from a trading desk. Written by DryGelWorld, which manufactures sachets in Karachi and competes in this market.",
+    readTime: "8 min read",
+    sections: [
+      {
+        heading: "What a silica gel sachet manufacturer actually does",
+        body:
+          "Silica gel sachet manufacturers, also called converters, take silica gel beads and fill them into breathable outers: paper, technical fibre, non-woven, or film-laminate. The value they add is in the sachet, not the chemistry: consistent fill weight, a dust-free outer that survives automated insertion, legible warning print, carton packing that keeps the sachets dry until the packing line opens them, and the documents an importer needs. Some converters make their own bead; most, including regional manufacturers, buy bead to a specification and convert it. Neither model is better; what matters is whether the converter controls fill weight, sachet integrity, and moisture content at the point of packing.",
+        bullets: [
+          "Inputs: silica gel beads (white non-indicating as standard; cobalt-free orange indicating where a colour check is needed).",
+          "Outputs: 0.5g to 500g sachets, printed private-label packets, container strips, and sometimes loose bead in 25kg bags for repackers.",
+          "The converter's quality system covers fill accuracy, seal strength, dust, moisture content at packing, and lot traceability.",
+        ],
+      },
+      {
+        heading: "The seven things to compare between sachet manufacturers",
+        body:
+          "Price per thousand is the last thing to compare, because it means nothing until the six items before it are the same. Compare these first.",
+        bullets: [
+          "Fill weights offered: a full range (0.5g, 1g, 2g, 3g, 5g, 10g, 20g and up) shows a real line; a converter that only lists three sizes is often reselling.",
+          "Outer materials: breathable paper for general packs; technical fibre or non-woven for low-dust electronics and precision parts; film-laminate where the sachet must not shed at all.",
+          "Print and private label: warning text languages, logo, lot codes, and whether the converter prints in-house (shorter lead time) or subcontracts.",
+          "MOQ structure: per size, per material, and per print run. Trial quantities before bulk are a sign the converter expects to keep the account.",
+          "Packing: sealed inner liners or pouches inside the carton, so opened cartons do not spoil the whole batch on a humid packing floor.",
+          "Documents: ISO 9001 certificate number and registrar, SDS, batch COA, DMF-free statement for leather programs; and an honest list of what is not held.",
+          "Lead time and Incoterm: stock sizes in days, printed runs in one to two weeks, quoted on a named Incoterm at a named port.",
+        ],
+      },
+      {
+        heading: "Sachet size is a dosage decision, not a catalogue choice",
+        body:
+          "A 1g sachet protects a sealed pack of roughly 0.001 to 0.01 cubic metres; a 2g sachet covers 0.01 to 0.02; a 5g packet a shoe box or similar carton; a 10g packet a master carton. Those are starting points at average export humidity with a reasonable barrier. Hygroscopic products, porous card-only packaging, and sea routes over three weeks push the size up or the count to two. A sachet manufacturer that asks about pack volume and route before quoting is doing its job; one that quotes 1g for everything is selling sachets, not protection.",
+        bullets: [
+          "1g: pill bottles, electronics accessory packs, small retail and shoe boxes.",
+          "2g: medium retail boxes, accessories, small leather goods, tool and parts packs.",
+          "5g: shoe boxes, garment cartons, boxed instruments and devices.",
+          "10g: master cartons, equipment cases, textile cartons; above that, 25g to 500g packs and container strips.",
+        ],
+      },
+      {
+        heading: "Where the sachet manufacturers are, and what that changes",
+        body:
+          "Converters cluster near packaging demand. The USA (Multisorb, Desiccare, WiseSorbent's US arm) serves domestic pharma, electronics, and food packagers with short lead times and FDA-oriented documentation. Germany and Switzerland (Clariant's desiccant business) serve EU automotive and pharma with DIN 55473 units and REACH-aligned paperwork. China supplies the highest volume at the lowest unit price, typically through trading companies. India (Sorbchem and others) and Pakistan (DryGelWorld and a small number of other manufacturers) serve South Asian exporters of leather, textiles, and garments directly, and export finished sachets to the Gulf, Europe, and the UK on FOB and CIF terms. Location changes documentation defaults, lead time, and freight, not the silica gel.",
+        bullets: [
+          "Buying for a regulated US or EU program: a domestic converter with the right registrations is usually the right call, even at a higher unit price.",
+          "Buying for export cartons, footwear, textiles, or private label: a South Asian manufacturer with ISO 9001, SDS, COA, and DMF-free documents is often the most direct route.",
+          "Buying raw bead by the tonne: go to a silica producer or its distributor, not a sachet converter.",
+        ],
+      },
+      {
+        heading: "Where DryGelWorld fits, honestly",
+        body:
+          "DryGelWorld is a sachet manufacturer in Karachi, Pakistan, operating since 1983 and ISO 9001:2015 certified (certificate 9101225). It fills 0.5g to 500g sachets in paper, technical fibre, and non-woven outers, prints private-label packets, and makes container strips. It issues an SDS, batch COA, and DMF-free statement, and its dry clay ships in FSC-certified packaging. It does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration, so direct-contact pharma and food programs should go to a converter that does. Where it fits is finished sachets for packaging, footwear, leather, textile, and electronics exporters, and mid-size private-label programs quoted in USD on FOB Karachi, CIF, or DAP terms.",
+        bullets: [
+          "Dedicated size pages: 1g, 2g, 5g, and 10g silica gel sachets, each with dosage, materials, MOQ, and export notes.",
+          "Indicative per-size USD references are published on the pricing page; firm prices are quoted per order.",
+          "Buyers who need FDA DMF, food-contact, or REACH-registered material should read the top-10 supplier guide for the right alternatives.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "What is a silica gel sachet manufacturer?",
+        answer:
+          "A converter that fills silica gel beads into breathable sachets (paper, technical fibre, non-woven, or film-laminate), prints them, and packs them for packaging lines. Some make their own bead; most buy bead to a specification. The manufacturer's quality system covers fill weight, seal integrity, dust, moisture content at packing, and lot traceability.",
+      },
+      {
+        question: "How do I tell a sachet manufacturer from a reseller?",
+        answer:
+          "Ask for the ISO certificate number and registrar and verify it; ask for an SDS and batch COA before ordering; ask to visit the plant; ask what they will not supply. A manufacturer answers all four directly. A reseller deflects the visit, sources documents from a third party, and says yes to everything.",
+      },
+      {
+        question: "Which silica gel sachet size should I order?",
+        answer:
+          "Size by pack volume and route: 1g for sealed packs up to about 0.01 cubic metres, 2g to 0.02, 5g for shoe-box-sized cartons, 10g for master cartons. Increase the size or count for hygroscopic products, card-only packaging, or sea routes over three weeks. A moisture-load calculator gives a per-pack figure.",
+      },
+      {
+        question: "What documents should a sachet manufacturer provide?",
+        answer:
+          "An ISO 9001 certificate number with the registrar, a safety data sheet, a batch certificate of analysis, and, for EU or UK leather and footwear programs, a DMF-free statement on manufacturer letterhead. A credible manufacturer also states which certifications it does not hold, such as FDA DMF or REACH registration.",
+      },
+      {
+        question: "Does DryGelWorld manufacture silica gel sachets?",
+        answer:
+          "Yes. DryGelWorld manufactures silica gel sachets from 0.5g to 500g at its Karachi, Pakistan facility, in paper, technical fibre, and non-woven outers, plain or custom printed, and exports them worldwide with SDS, COA, and a DMF-free statement. It holds ISO 9001:2015 (certificate 9101225) and does not hold FDA, food-contact, pharma GMP, Halal, or REACH certifications.",
+      },
+    ],
+    sources: [
+      { label: "DIN 55473 desiccant units explained", href: "https://www.drygelworld.com/blog/desiccant-units-explained-din-55473-and-unit-sizing", publisher: "DryGelWorld" },
+      { label: "Paper vs Tyvek vs film desiccant sachet materials", href: "https://www.drygelworld.com/blog/paper-vs-tyvek-vs-film-desiccant-sachet-materials", publisher: "DryGelWorld" },
+      { label: "Top 10 silica gel suppliers in the world, and how to choose one in Pakistan", href: "https://www.drygelworld.com/blog/top-10-silica-gel-suppliers-world-pakistan", publisher: "DryGelWorld" },
+      { label: "Clariant Cargo and Device Protection", href: "https://www.clariant.com/", publisher: "Clariant" },
+      { label: "Multisorb Technologies", href: "https://www.multisorb.com/", publisher: "Multisorb (Filtration Group)" },
+      { label: "Sorbchem India", href: "https://www.sorbchemindia.com/", publisher: "Sorbchem India Pvt. Ltd." },
+      { label: "QMEC Group Intl - ISO 9001:2015 registrar", href: "https://www.qmecgroup.org", publisher: "QMEC Group Intl" },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -4917,46 +5621,47 @@ export type ArticlePublication = {
 const articlePublication: Record<string, ArticlePublication> = {
   "what-is-clay-desiccant-and-how-does-it-work": { publishedAt: "2026-08-29", updatedAt: "2026-08-29" },
   "calcium-chloride-vs-silica-gel-desiccant": { publishedAt: "2026-07-11", updatedAt: "2026-07-11" },
-  "top-10-silica-gel-suppliers-world-pakistan": { publishedAt: "2026-07-03", updatedAt: "2026-07-03" },
-  "how-to-choose-silica-gel-packet-size": { publishedAt: "2025-08-20", updatedAt: "2026-05-01" },
-  "silica-gel-vs-clay-desiccant": { publishedAt: "2025-09-10", updatedAt: "2026-05-01" },
-  "container-rain-prevention": { publishedAt: "2025-10-01", updatedAt: "2026-05-01" },
+  "top-10-silica-gel-suppliers-world-pakistan": { publishedAt: "2026-07-03", updatedAt: "2026-09-02" },
+  "silica-gel-sachet-manufacturers-how-to-evaluate": { publishedAt: "2026-09-02", updatedAt: "2026-09-02" },
+  "how-to-choose-silica-gel-packet-size": { publishedAt: "2025-08-20", updatedAt: "2026-09-02" },
+  "silica-gel-vs-clay-desiccant": { publishedAt: "2025-09-10", updatedAt: "2026-09-02" },
+  "container-rain-prevention": { publishedAt: "2025-10-01", updatedAt: "2026-09-02" },
   // (electronics entry now lives below with bumped updatedAt)
-  "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-05-11" },
-  "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-05-01" },
-  "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-05-10" },
+  "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-09-02" },
+  "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-09-02" },
+  "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-09-02" },
   "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-11" },
-  "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-05-11" },
-  "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-05-01" },
+  "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-09-02" },
+  "bulk-silica-gel-supplier-checklist": { publishedAt: "2026-02-25", updatedAt: "2026-09-02" },
   "why-hair-nets-matter-in-food-export": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
-  "silica-gel-vs-molecular-sieve-vs-activated-alumina": { publishedAt: "2026-05-10", updatedAt: "2026-05-10" },
-  "desiccant-for-electronics-packaging": { publishedAt: "2025-10-22", updatedAt: "2026-05-11" },
+  "silica-gel-vs-molecular-sieve-vs-activated-alumina": { publishedAt: "2026-05-10", updatedAt: "2026-09-02" },
+  "desiccant-for-electronics-packaging": { publishedAt: "2025-10-22", updatedAt: "2026-09-02" },
   "best-desiccant-for-shipping-containers": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "ppe-products-for-factories": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "importance-of-beard-covers-in-manufacturing": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "moisture-protection-for-international-shipping": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
   "industrial-packaging-protection-solutions": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
-  "container-desiccant-vs-silica-gel": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
+  "container-desiccant-vs-silica-gel": { publishedAt: "2026-05-11", updatedAt: "2026-09-02" },
   "reusable-vs-disposable-desiccants": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
-  "how-long-does-silica-gel-last": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
+  "how-long-does-silica-gel-last": { publishedAt: "2026-05-11", updatedAt: "2026-09-02" },
   "how-exporters-protect-cargo-from-humidity": { publishedAt: "2026-05-11", updatedAt: "2026-05-11" },
-  "silica-gel-for-pharma-packaging-buyer-guide": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
+  "silica-gel-for-pharma-packaging-buyer-guide": { publishedAt: "2026-05-13", updatedAt: "2026-09-02" },
   "indicating-silica-gel-orange-blue-color-change-guide": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "oxygen-absorber-vs-silica-gel-when-to-use-each": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "food-grade-silica-gel-procurement-guide": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
-  "silica-gel-bulk-pricing-factors-for-exporters": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
+  "silica-gel-bulk-pricing-factors-for-exporters": { publishedAt: "2026-05-13", updatedAt: "2026-09-02" },
   "silica-gel-for-leather-and-footwear-export": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
   "silica-gel-colors-white-blue-orange-explained": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
-  "silica-gel-shelf-life-and-storage-guide": { publishedAt: "2026-06-23", updatedAt: "2026-07-03" },
+  "silica-gel-shelf-life-and-storage-guide": { publishedAt: "2026-06-23", updatedAt: "2026-09-02" },
   "silica-gel-for-rice-grain-spice-export": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "silica-gel-import-customs-hs-code-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
-  "how-silica-gel-is-made-manufacturing-process": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
-  "relative-humidity-and-adsorption-isotherms-explained": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "how-silica-gel-is-made-manufacturing-process": { publishedAt: "2026-06-24", updatedAt: "2026-09-02" },
+  "relative-humidity-and-adsorption-isotherms-explained": { publishedAt: "2026-06-24", updatedAt: "2026-09-02" },
   "desiccant-units-explained-din-55473-and-unit-sizing": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
-  "how-many-desiccant-packets-per-box-calculation-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
-  "desiccant-placement-best-practices-in-packaging": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
-  "how-to-regenerate-silica-gel-oven-temperature-guide": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
+  "how-many-desiccant-packets-per-box-calculation-guide": { publishedAt: "2026-06-24", updatedAt: "2026-09-02" },
+  "desiccant-placement-best-practices-in-packaging": { publishedAt: "2026-06-24", updatedAt: "2026-09-02" },
+  "how-to-regenerate-silica-gel-oven-temperature-guide": { publishedAt: "2026-06-24", updatedAt: "2026-09-02" },
   "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "paper-vs-tyvek-vs-film-desiccant-sachet-materials": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
   "silica-gel-export-documentation-coo-coa-packing-list": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },

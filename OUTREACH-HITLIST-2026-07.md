@@ -4,6 +4,8 @@
 
 **Verification method:** every site below was fetched and confirmed live during the week of 2026-07-13. Publish/update dates noted per target. No emails are guessed — where no address was published, the contact-form URL is given instead.
 
+**Companion list (2026-09-02):** `COMPETITOR-LINK-INTERSECT-2026-09-02.md` — 35 pages that already link to or name desiccant competitors, tiered by confirmed-dofollow status. Work that list first on Mondays; this list on Wednesdays.
+
 **Already covered elsewhere — do NOT re-pitch from this list:** Packaging Digest, Inbound Logistics, Pharmaceutical Online, Packaging Strategies, ManufacturingTomorrow, AllThingsSupplyChain (full pitches live in `OUTREACH-KIT.md`), and every directory in `BACKLINKS-PLAYBOOK.md` (TDAP, KCCI, FPCCI, ThomasNet, Kompass, etc.).
 
 **Assets to pitch (pick per target):**

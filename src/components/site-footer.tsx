@@ -18,6 +18,7 @@ const footerColumns = [
     links: [
       { label: "Silica gel (overview)", href: "/silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
       { label: "White silica gel", href: "/white-silica-gel" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
