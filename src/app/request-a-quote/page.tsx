@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { RfqForm } from "@/components/rfq-form";
+import { RfqFormFromQuery } from "@/components/rfq-form-prefill";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../strategy-pages.module.css";
 
@@ -9,8 +11,6 @@ export const metadata: Metadata = {
     "Request an export quotation for silica gel sachets, bulk beads, container desiccants, and clay desiccant. Our export team replies within 24 business hours.",
   alternates: { canonical: "/request-a-quote" },
 };
-
-type PageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 const faqs = [
   {
@@ -27,24 +27,11 @@ const faqs = [
   },
 ];
 
-export default async function RequestQuotePage({ searchParams }: PageProps) {
-  const params = await searchParams;
-  const product =
-    typeof params.product === "string" ? params.product.trim().slice(0, 120) : "";
-  const qty =
-    typeof params.qty === "string"
-      ? params.qty.trim().slice(0, 50)
-      : typeof params.quantity === "string"
-      ? params.quantity.trim().slice(0, 50)
-      : "";
-  // Callers that deal in piece counts (the silica gel calculator) pass
-  // ?unit=pieces. Anything unrecognised falls back to the form default.
-  const unit = params.unit === "pieces" || params.unit === "cartons" || params.unit === "pallets" || params.unit === "containers" ? params.unit : "kg";
-  const application =
-    typeof params.application === "string" ? params.application.trim().slice(0, 120) : "";
-  const destination =
-    typeof params.destination === "string" ? params.destination.trim().slice(0, 100) : "";
-
+export default function RequestQuotePage() {
+  // Prefill from the calculator's query string happens inside
+  // RfqFormFromQuery on the client - reading searchParams here made the
+  // whole route dynamic and put a serverless round-trip in front of the
+  // conversion page (see rfq-form-prefill.tsx).
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -121,13 +108,9 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
             Director, factory export desk, Karachi.
           </span>
         </p>
-        <RfqForm
-          defaultProduct={product}
-          defaultQuantity={qty}
-          defaultUnit={unit}
-          defaultApplication={application}
-          defaultDestinationCountry={destination}
-        />
+        <Suspense fallback={<RfqForm />}>
+          <RfqFormFromQuery />
+        </Suspense>
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">
