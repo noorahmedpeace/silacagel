@@ -50,7 +50,7 @@ export const documentGroups: DocGroup[] = [
   {
     key: "declaration",
     label: "Supplier Declarations",
-    blurb: "Statements issued and signed by the manufacturer. Not third-party certification.",
+    blurb: "Statements issued by the manufacturer in its own name. Not third-party certification.",
   },
   { key: "sds", label: "Safety Data Sheets (SDS)", blurb: "Handling, storage, and transport safety data." },
   { key: "coa", label: "Certificates of Analysis (COA)", blurb: "Batch/material test results against a published standard." },
@@ -85,7 +85,7 @@ export const isoCertificate = {
   tradingAs: "DryGelWorld",
   awardedTo: "Kamran Enterprises (trading as DryGelWorld)",
   tradingBrandNote: "DryGelWorld is the trading brand of Kamran Enterprises.",
-  registeredAddress: "A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000, Pakistan",
+  registeredAddress: "Plot 59, ST 13/1, Sector 6B, North Karachi Industrial Area, Karachi, Pakistan",
   /** Real certificate PDF, committed to /public/documents/. */
   fileHref: "/documents/iso-9001-2015-drygelworld.pdf",
   fileAvailable: true,
@@ -129,7 +129,7 @@ export const documents: DocEntry[] = [
     type: "declaration",
     title: "Packaging & Materials Declaration",
     description:
-      "Signed supplier declaration: sachet substrates supplied, desiccant material identities, the test reports held on file, and - stated plainly - the certifications this company does not hold.",
+      "Supplier declaration: sachet substrates supplied, desiccant material identities, the test reports held on file, and - stated plainly - the certifications this company does not hold.",
     fileHref: "/documents/packaging-materials-declaration.pdf",
     format: "PDF",
     available: true,
