@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { FileText } from "lucide-react";
+import { Download, FileText } from "lucide-react";
 import { notFound } from "next/navigation";
+import { documents as documentRegistry } from "@/lib/document-registry";
 import { IsoBadge } from "@/components/iso-badge";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
@@ -17,6 +18,7 @@ import {
   brandName,
   breadcrumbJsonLd,
   compactMetaDescription,
+  priceValidFrom,
   priceValidUntil,
   siteName,
 } from "@/lib/seo";
@@ -151,6 +153,23 @@ const procurementDetails = {
       { label: "Document hub", href: "/documentation" },
     ],
   },
+  "humidity-indicator-cards": {
+    moq: "Quoted by spot layout, chemistry, pack count, and dispatch program",
+    sample: "Sample cards can be discussed after confirming spot layout, chemistry, and any standard",
+    documents: ["SDS", "COA (per lot)", "Standard / REACH test report if specified, per lot"],
+    skuRows: [
+      { size: "Single-spot", material: "Cobalt or cobalt-free indicator card", fit: "One critical RH threshold (e.g. 60%)", pack: "Sealed can / foil bag" },
+      { size: "3-spot / 4-spot", material: "Reversible indicator card", fit: "MSD electronics dry-pack and QC checks", pack: "Sealed can / foil bag" },
+      { size: "6-spot", material: "Reversible card, 10-60% RH", fit: "Full-range humidity read for precision goods", pack: "Sealed can / foil bag" },
+      { size: "Custom layout", material: "Cobalt-free (REACH-friendly) on request", fit: "Buyer-specific thresholds and print", pack: "Custom pack count" },
+    ],
+    packaging: ["Sealed moisture-barrier can", "Foil / MBB bag", "Count per pack by requirement", "Private-label print discussion"],
+    related: [
+      { label: "Cobalt-free vs blue indicating gel", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
+      { label: "Desiccant for electronics packaging", href: "/blog/desiccant-for-electronics-packaging" },
+      { label: "Document hub", href: "/documentation" },
+    ],
+  },
   "hair-nets": {
     moq: "Discuss MOQ by carton size and monthly volume",
     sample: "Sample packs available; confirm size, color, and material on request",
@@ -179,8 +198,8 @@ const procurementDetails = {
     packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
     related: [
       { label: "Powdered nitrile gloves", href: "/products/powdered-nitrile-examination-gloves" },
-      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
-      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+      { label: "Latex gloves (on request)", href: "/request-a-quote?product=Latex%20gloves" },
+      { label: "Vinyl gloves (on request)", href: "/request-a-quote?product=Vinyl%20gloves" },
     ],
   },
   "powdered-nitrile-examination-gloves": {
@@ -195,8 +214,8 @@ const procurementDetails = {
     packaging: ["Blue / black color options", "100 gloves per box", "Ambidextrous single-use gloves", "Carton-packed for B2B supply", "Private-label box/carton discussion"],
     related: [
       { label: "Powder-free nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves" },
-      { label: "Latex gloves (on request)", href: "/contact?product=latex-gloves" },
-      { label: "Vinyl gloves (on request)", href: "/contact?product=vinyl-gloves" },
+      { label: "Latex gloves (on request)", href: "/request-a-quote?product=Latex%20gloves" },
+      { label: "Vinyl gloves (on request)", href: "/request-a-quote?product=Vinyl%20gloves" },
     ],
   },
   "beard-covers": {
@@ -536,6 +555,22 @@ const productOfferPricing: Record<string, { lowPrice: number; highPrice: number;
   "container-strips": { lowPrice: 4.2, highPrice: 19.4, offerCount: 4 },
 };
 
+// Un-gated technical documents per product, by document-registry id. ONLY real,
+// applicable files are listed: these are all silica gel products, so the silica
+// SDS/TDS/material-COA/DMF-free plus the company ISO genuinely apply, and the
+// product-specific spec sheet is added where one exists. Calcium chloride, clay,
+// PPE and indicator cards are intentionally absent (no chemistry-specific file
+// exists for them), so their pages keep the "documents on request" hub routing
+// rather than surfacing an unrelated silica document. Batch COAs stay per-order.
+const productDocuments: Record<string, string[]> = {
+  "retail-sachets": ["sds-silica-gel", "tds-silica-gel", "coa-white-bead-2-4mm", "dmf-free-statement", "iso-9001"],
+  "paper-sachets": ["sds-silica-gel", "tds-silica-gel", "spec-paper-sachets", "coa-white-bead-2-4mm", "dmf-free-statement", "iso-9001"],
+  "bulk-industrial": ["sds-silica-gel", "tds-silica-gel", "coa-white-bead-2-4mm", "dmf-free-statement", "iso-9001"],
+  "container-strips": ["sds-silica-gel", "tds-silica-gel", "spec-container-strips", "dmf-free-statement", "iso-9001"],
+};
+
+const docById = new Map(documentRegistry.map((doc) => [doc.id, doc]));
+
 export async function generateStaticParams() {
   return productCatalog.map((product) => ({
     slug: product.slug,
@@ -608,6 +643,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const cluster = productClusters[product.slug];
   const offerPricing = productOfferPricing[product.slug];
   const productSpec = getProductSpec(product.slug);
+  // Real, downloadable documents that apply to this exact product (may be empty).
+  const productDocs = (productDocuments[product.slug] ?? [])
+    .map((id) => docById.get(id))
+    .filter((doc): doc is NonNullable<typeof doc> => Boolean(doc?.available));
 
   const purchaseMessage = [
     "Hello, I want to purchase Dry Gel World.",
@@ -675,7 +714,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <IsoBadge />
                   <Link href="/documentation" className={styles.docProofLink}>
                     <FileText size={15} strokeWidth={2} aria-hidden="true" />
-                    SDS · COA · TDS · ISO — open documents
+                    SDS · COA · TDS · ISO, open documents
                   </Link>
                 </div>
 
@@ -747,14 +786,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               </div>
 
-              <div className={styles.visual}>
-                <div className={styles.imageWrap}>
+              <div className={`${styles.visual} ${product.heroLandscape ? styles.visualTop : ""}`}>
+                <div className={`${styles.imageWrap} ${product.heroLandscape ? styles.imageWrapWide : ""}`}>
                   <Image
                     src={product.heroImage}
                     alt={`${product.name} - ${product.summary}`}
                     title={`${product.name} | ${siteName} product supply`}
                     fill
-                    className={`${styles.image} ${product.colorOptions?.length ? styles.imageContain : ""}`}
+                    className={`${styles.image} ${product.heroLandscape ? styles.imageCover : product.colorOptions?.length ? styles.imageContain : ""}`}
                     sizes="(max-width: 960px) 100vw, 70vw"
                     priority
                   />
@@ -763,16 +802,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </section>
           </Reveal>
 
-          <HowToOrder />
-
           {product.galleryImages?.length ? (
             <Reveal>
               <section className={styles.gallerySection} aria-labelledby="product-gallery-heading">
                 <div className={styles.sectionHead}>
-                  <p className={styles.eyebrow}>Product gallery</p>
-                  <h2 id="product-gallery-heading">{product.shortName} in use: formats and packing.</h2>
+                  <p className={styles.eyebrow}>Product Gallery</p>
+                  <h2 id="product-gallery-heading">How it ships.</h2>
                   <p>
-                    Reference visuals for the formats, packing, and applications this product is quoted for.
+                    Reversible indicator cards packed alongside desiccant and moisture-barrier
+                    bags: the components of a complete dry pack.
                   </p>
                 </div>
                 <div className={styles.galleryGrid}>
@@ -794,6 +832,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </section>
             </Reveal>
           ) : null}
+
+          <HowToOrder />
 
           <section className={styles.gridSection}>
             <Reveal>
@@ -855,7 +895,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
 
               <div className={styles.procurementLayout}>
-                <div className={styles.tableWrap}>
+                <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
                   <table className={styles.skuTable}>
                     <thead>
                       <tr>
@@ -895,14 +935,46 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Reveal>
             <section className={styles.supportSection}>
               <article className={styles.supportCard}>
-                <p className={styles.eyebrow}>Document Status</p>
-                <h2>Request documents early.</h2>
-                <ul className={styles.badgeList}>
-                  {procurement.documents.map((doc) => (
-                    <li key={doc}>{doc}</li>
-                  ))}
-                </ul>
-                <Link href="/documentation" className={styles.textAction}>Open document hub</Link>
+                <p className={styles.eyebrow}>Technical Documents</p>
+                {productDocs.length > 0 ? (
+                  <>
+                    <h2>Open and download freely.</h2>
+                    <ul className={styles.docDownloadList}>
+                      {productDocs.map((doc) => (
+                        <li key={doc.id}>
+                          <a
+                            href={doc.fileHref}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.docDownloadLink}
+                          >
+                            <FileText size={15} strokeWidth={2} aria-hidden="true" />
+                            <span>{doc.title}</span>
+                            <Download size={15} strokeWidth={2} aria-hidden="true" />
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/documentation" className={styles.textAction}>
+                      All documents and ISO details
+                    </Link>
+                    <p className={styles.docNote}>
+                      Batch-specific COAs are matched to your order at the RFQ stage.
+                    </p>
+                  </>
+                ) : (
+                  <>
+                    <h2>Request documents early.</h2>
+                    <ul className={styles.badgeList}>
+                      {procurement.documents.map((doc) => (
+                        <li key={doc}>
+                          <Link href="/documentation" className={styles.badgeLink}>{doc}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                    <Link href="/documentation" className={styles.textAction}>Open document hub</Link>
+                  </>
+                )}
               </article>
 
               <article className={styles.supportCard}>
@@ -910,7 +982,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <h2>Match supply format to the buyer.</h2>
                 <ul className={styles.badgeList}>
                   {procurement.packaging.map((item) => (
-                    <li key={item}>{item}</li>
+                    <li key={item}>
+                      <Link href="/private-label" className={styles.badgeLink}>{item}</Link>
+                    </li>
                   ))}
                 </ul>
                 <Link href="/private-label" className={styles.textAction}>Plan private label</Link>
@@ -1049,6 +1123,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                           "@type": "Offer",
                           price: offerPricing.lowPrice,
                           priceCurrency: "USD",
+                          validFrom: priceValidFrom(),
                           priceValidUntil: priceValidUntil(),
                           availability: "https://schema.org/InStock",
                           seller: { "@id": `${absoluteUrl()}#organization` },

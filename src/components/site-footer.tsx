@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { Factory, Globe2, ShieldCheck } from "lucide-react";
 import {
   companyAddressFull,
@@ -9,10 +9,35 @@ import {
   phoneHref,
   whatsappNumber,
 } from "@/lib/product-data";
+import { supplierComparisons } from "@/lib/supplier-compare-data";
 import styles from "./site-footer.module.css";
 import { SocialLinks } from "./social-links";
 
-const footerColumns = [
+type FooterLink = { label: string; href: string };
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+  viewAll?: { label: string; href: string };
+};
+
+// Footer-length supplier names: prefer the parenthetical abbreviation when the
+// data provides one ("(ISG)"), otherwise drop any "/ alias" tail.
+function supplierShortName(name: string): string {
+  const abbrev = name.match(/\(([^)]+)\)/);
+  if (abbrev) return abbrev[1];
+  return name.split(" / ")[0].trim();
+}
+
+// The supplier matchups render as a full-width strip under the link grid,
+// not as a seventh column - "DryGelWorld vs Name" needs a horizontal line to
+// breathe. Built from the same data as /compare/suppliers, so a supplier
+// added there appears here without a second edit.
+const supplierMatchups = supplierComparisons.map((comparison) => ({
+  label: supplierShortName(comparison.name),
+  href: `/compare/suppliers/${comparison.slug}`,
+}));
+
+const footerColumns: FooterColumn[] = [
   {
     title: "Products",
     links: [
@@ -82,8 +107,10 @@ const footerColumns = [
       { label: "All buyer resources", href: "/guides" },
       { label: "All calculators & tools", href: "/tools" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
+      { label: "DIN 55473 unit calculator", href: "/tools/desiccant-unit-calculator" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
+      { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" },
       { label: "Desiccant comparisons", href: "/compare" },
       { label: "Documents (SDS, COA)", href: "/documentation" },
       { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
@@ -98,6 +125,13 @@ const footerColumns = [
     title: "Company",
     links: [
       { label: "About us", href: "/about" },
+      // GSC, 13 Aug: /reviews came back "Crawled - currently not indexed".
+      // robots allowed, fetch successful, in the sitemap - but the whole site
+      // pointed one single link at it, from the homepage. Google looked and
+      // judged it peripheral. It belongs here on merit anyway: it is the
+      // named-customer page, which is what a buyer checking credentials wants
+      // next to About and Certifications.
+      { label: "Customers we supply", href: "/reviews" },
       { label: "Contact", href: "/contact" },
       { label: "Certifications", href: "/certifications" },
       { label: "DryGelWorld official site", href: "/drygelworld" },
@@ -136,7 +170,7 @@ export function SiteFooter() {
             documentation, or go straight to the industry guide that matches your business.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.primary} href="/contact">Request Export Quote</Link>
+            <Link className={styles.primary} href="/request-a-quote">Request Export Quote</Link>
             <Link className={styles.secondary} href="/products">View Products</Link>
             <a className={styles.whatsapp} href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
               WhatsApp
@@ -194,6 +228,26 @@ export function SiteFooter() {
           </nav>
         ))}
       </div>
+
+      <nav className={styles.vsStrip} aria-label="Supplier comparison links">
+        <h3 className={styles.vsStripHead}>Compare Suppliers</h3>
+        <ul className={styles.vsList}>
+          {supplierMatchups.map((matchup) => (
+            <li key={matchup.href}>
+              <Link href={matchup.href}>
+                <span className={styles.brandMark}>DryGelWorld</span>
+                <span className={styles.vsMark}>vs</span>
+                {matchup.label}
+              </Link>
+            </li>
+          ))}
+          <li>
+            <Link className={styles.viewAll} href="/compare/suppliers">
+              All supplier comparisons <span aria-hidden="true">→</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
 
       <div className={styles.trustRow}>
         {trustBadges.map((badge) => (

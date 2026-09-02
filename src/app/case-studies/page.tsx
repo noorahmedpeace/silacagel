@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { caseStudies } from "@/lib/case-study-data";
+import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import styles from "./case-studies.module.css";
 
 export const metadata: Metadata = {
@@ -14,15 +16,29 @@ export const metadata: Metadata = {
 };
 
 const proofRules = [
-  "Client names stay anonymous until written permission is available.",
+  "Named customer references are shown only with permission.",
   "Claims describe workflow improvements, not audited performance metrics.",
   "Documents and certifications are only shown when valid proof exists.",
   "Photos should hide private labels, shipment references, invoice values, and buyer identities.",
 ];
 
+
 export default function CaseStudiesPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Case Studies", href: "/case-studies" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Buyer-Safe Proof</span>
         <h1>Anonymous case studies for real procurement confidence.</h1>
@@ -31,7 +47,7 @@ export default function CaseStudiesPage() {
           buyer-safe stories that explain the problem, sizing logic, document path, and RFQ outcome.
         </p>
         <div className={styles.heroActions}>
-          <Link href="/contact" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
+          <Link href="/request-a-quote" className={styles.primaryBtn}>Discuss Similar Requirement</Link>
           <Link href="/documentation" className={styles.secondaryBtn}>View Document Hub</Link>
         </div>
       </section>
@@ -79,6 +95,23 @@ export default function CaseStudiesPage() {
             </div>
           </article>
         ))}
+      </section>
+
+      <section className={styles.referenceSection} aria-labelledby="customer-references-title">
+        <div className={styles.referenceIntro}>
+          <span className={styles.kicker}>Customer Supply References</span>
+          <h2 id="customer-references-title">Silica gel supply across pharma, medical and textile operations.</h2>
+          {/* States what was supplied and nothing more. No endorsement is
+              claimed, no quantities, dates or quotes are published, and the
+              verification line no longer promises a link for every company -
+              five have no confirmed website and are listed as names only. */}
+          <p>
+            DryGelWorld has supplied silica gel desiccant products for packaging and moisture-control requirements
+            to the companies below. These are supply references, not endorsements. Where an official company
+            website is confirmed, it is linked so the company can be checked independently.
+          </p>
+        </div>
+        <CustomerReferenceMarquee />
       </section>
 
       <section className={styles.rulesSection}>

@@ -16,6 +16,13 @@ const resources = [
       "The definitive procurement reference: sizing, formats, documentation, and how to specify silica gel for an export or industrial program.",
   },
   {
+    href: "/guides/desiccant-quantity-guide",
+    label: "Quantity Guide",
+    title: "Desiccant Quantity Guide",
+    blurb:
+      "How much desiccant a shipment actually needs - container rain causes, the seven sizing factors, strip vs bag vs sachet formats, placement, and the pre-quote checklist.",
+  },
+  {
     href: "/guides/desiccant-glossary",
     label: "Glossary",
     title: "Desiccant Glossary A-Z",
@@ -107,7 +114,7 @@ export default function GuidesHubPage() {
           Buyer guides, defined terms, side-by-side comparisons, and sizing calculators in one
           place - written for procurement, packaging, and QA teams evaluating desiccant options.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>

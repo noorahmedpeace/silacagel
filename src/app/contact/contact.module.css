@@ -20,7 +20,13 @@
  * removed entirely under prefers-reduced-motion further down. */
 .ambient {
   position: absolute;
-  inset: -80px -40px 0;
+  /* Horizontal inset must stay 0. It was -40px, which hung the element 40px
+   * past each edge of .page - and .page has no overflow clip, so the document
+   * itself grew and /contact scrolled sideways at every width measured
+   * (415/375 on iPhone SE, 1383/1366 on desktop). The blobs inside are already
+   * clipped by this element's own overflow:hidden, so the bleed bought nothing
+   * that was ever on screen. */
+  inset: -80px 0 0;
   pointer-events: none;
   overflow: hidden;
   z-index: -1;
@@ -316,18 +322,42 @@
   background: linear-gradient(90deg, transparent, rgba(45, 91, 255, 0.28), transparent);
 }
 
-/* Form tile */
-.tileForm {
+/* Quotation hand-off tile.
+   This was .tileForm, an embedded second copy of the quote form. The form now
+   lives only on /request-a-quote, so the tile holds the same grid width but
+   sizes to its own content instead of reserving four rows for a form. */
+.tileRfq {
   grid-column: span 8;
-  grid-row: span 4;
   padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 
-.tileForm :global(form) {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
+.tileRfq h2 {
+  margin: 0;
+  font-size: clamp(1.4rem, 1.1rem + 1.1vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.tileRfq p {
+  margin: 0;
+  max-width: 62ch;
+  line-height: 1.6;
+}
+
+.tileRfq ul {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 6px;
+  line-height: 1.5;
+}
+
+.tileRfq .primaryAction {
+  margin-top: 4px;
 }
 
 /* Right-rail action tiles */
@@ -339,6 +369,12 @@
   gap: 6px;
   padding: 28px 30px;
   min-height: 110px;
+  /* Pointer only where the whole tile IS a link. Article tiles hold their own
+     inner links; a pointer over the whole card promised a click the card
+     could not answer - Clarity logged exactly those dead clicks. */
+}
+
+a.tileAction {
   cursor: pointer;
 }
 
@@ -576,9 +612,9 @@ a.tileAction:active {
     margin-bottom: 0;
   }
 
-  .tileForm {
+  .tileRfq {
     grid-column: span 12;
-    grid-row: auto;
+    padding: 24px;
   }
 
   .tileAction {
@@ -648,8 +684,8 @@ a.tileAction:active {
     background: linear-gradient(90deg, transparent, rgba(45, 91, 255, 0.18), transparent);
   }
 
-  .tileForm {
-    padding: 16px;
+  .tileRfq {
+    padding: 18px;
   }
 
   .tileAction {

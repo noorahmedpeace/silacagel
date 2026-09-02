@@ -10,10 +10,10 @@
   approach: string;
   proof: string;
   outcome: string;
-  /** One measurable, quantified result — the headline number a buyer trusts.
+  /** One measurable, quantified result, the headline number a buyer trusts.
    *  Optional so anonymous cases still render; fill with a real figure. */
   metric?: { value: string; label: string };
-  /** Anonymized buyer descriptor — industry (+ region only where the case
+  /** Anonymized buyer descriptor, industry (+ region only where the case
    *  actually states it), never a real name. This is the current default until
    *  written permission lets us swap in a named `attribution`. */
   anonymizedRef?: string;
@@ -55,7 +55,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Container shipping industry", href: "/industries/container-shipping" },
       { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
-      { label: "Request UAE container quote", href: "/contact" },
+      { label: "Request UAE container quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "How was the UAE container dosage estimated?", a: "From container size, voyage and dwell time, Gulf route humidity, and electronics sensitivity - the same factors in the container desiccant dosage calculator - then confirmed by the export desk." },
@@ -90,7 +90,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel SDS & COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
-      { label: "Request Saudi bulk quote", href: "/contact" },
+      { label: "Request Saudi bulk quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "What is the bulk silica gel MOQ for Saudi Arabia?", a: "Bulk silica gel beads typically start from around 500 kg, with sachet formats from about 100 kg or 100,000 pieces. Trial quantities are available before a recurring commitment." },
@@ -125,7 +125,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Pharma packaging industry page", href: "/industries/pharma-packaging" },
       { label: "White silica gel", href: "/white-silica-gel" },
-      { label: "Request pharma quote", href: "/contact" },
+      { label: "Request pharma quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "What documents did the pharma buyer request?", a: "The RFQ focused on SDS, COA, ISO 9001:2015 support, product specifications, warning text, and buyer-specific document requirements." },
@@ -154,13 +154,13 @@ export const caseStudies: CaseStudy[] = [
     anonymizedRef: "Container cargo exporter",
     products: [
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Shipping moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Container vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
     ],
     nextLinks: [
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Container shipping industry", href: "/industries/container-shipping" },
-      { label: "Request cargo quote", href: "/contact" },
+      { label: "Request cargo quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "What details are needed before quoting container strips?", a: "Container size, route, transit days, cargo type, loading density, destination, strip count target, Incoterms, and document requirements." },
@@ -195,7 +195,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Leather industry page", href: "/industries/leather-footwear-export" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
-      { label: "Request leather export quote", href: "/contact" },
+      { label: "Request leather export quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "Why do leather exports need desiccants?", a: "Leather and footwear shipments can face mold, odor, carton softening, and adhesive risk when humidity rises during storage or sea freight." },
@@ -230,7 +230,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Electronics industry page", href: "/industries/electronics-packaging" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
-      { label: "Request electronics quote", href: "/contact" },
+      { label: "Request electronics quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "Which silica gel is common for electronics?", a: "White non-indicating silica gel packets are common, but the final format depends on product sensitivity, carton size, storage time, and destination." },
@@ -265,7 +265,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Food packaging industry", href: "/industries/food-packaging" },
       { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
-      { label: "Request food packaging quote", href: "/contact" },
+      { label: "Request food packaging quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "Can silica gel be used in food packaging?", a: "Food packaging RFQs can be discussed, but claims must match exact product documents, packet material, contact layer, and destination requirements." },
@@ -300,7 +300,7 @@ export const caseStudies: CaseStudy[] = [
     nextLinks: [
       { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
       { label: "Best desiccant for containers", href: "/blog/best-desiccant-for-shipping-containers" },
-      { label: "Request repeat shipment quote", href: "/contact" },
+      { label: "Request repeat shipment quote", href: "/request-a-quote" },
     ],
     faqs: [
       { q: "What makes a repeat container RFQ faster?", a: "A stable template for container size, route, cargo type, strip count, Incoterms, destination, schedule, SDS, and COA makes repeat quotes faster." },

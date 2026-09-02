@@ -11,6 +11,7 @@ import {
 } from "@/lib/seo";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { getBlogCluster } from "@/lib/blog-clusters";
+import { whatsappNumber } from "@/lib/product-data";
 import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
@@ -118,6 +119,28 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
         <BlogHeroSlider heroImage={heroImage} />
 
+        {/* Early conversion path. Clarity shows average scroll depth of ~32%,
+            so two-thirds of readers never reach the end-of-article CTA. This
+            compact card puts a tracked quote path (RfqForm fires generate_lead)
+            and WhatsApp above the fold of the body, where readers actually are. */}
+        <aside className={styles.inlineQuote} aria-label="Get a quote">
+          <div>
+            <strong>Need this for a real order?</strong>
+            <span>Tell us the format, quantity, and destination, export quote in 24 business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
+          </div>
+          <div className={styles.inlineQuoteActions}>
+            <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
+            <a
+              className={styles.inlineQuoteWa}
+              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I'd like a quote for silica gel / desiccants.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              WhatsApp
+            </a>
+          </div>
+        </aside>
+
         <section className={styles.articleBody}>
           {article.sections.map((section) => (
             <div className={styles.articleBlock} key={section.heading}>
@@ -139,7 +162,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                     <a href={source.href} target="_blank" rel="noopener noreferrer">
                       {source.label}
                     </a>{" "}
-                    — {source.publisher}
+, {source.publisher}
                   </li>
                 ))}
               </ul>
@@ -164,7 +187,7 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
               </div>
             ))}
           </div>
-          <Link className={styles.cta} href="/contact">
+          <Link className={styles.cta} href="/request-a-quote">
             Request export quote
           </Link>
         </section>
@@ -195,10 +218,25 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
                 ))}
               </ul>
             </div>
-            {cluster.compare || cluster.industry ? (
+            {cluster.compare || cluster.industry || cluster.commercial || cluster.regional || cluster.tool ? (
               <div className={styles.relatedColumn}>
                 <h3>Buyer decision</h3>
                 <ul>
+                  {cluster.tool ? (
+                    <li>
+                      <Link href={cluster.tool.href}>{cluster.tool.label}</Link>
+                    </li>
+                  ) : null}
+                  {cluster.commercial ? (
+                    <li>
+                      <Link href={cluster.commercial.href}>{cluster.commercial.label}</Link>
+                    </li>
+                  ) : null}
+                  {cluster.regional ? (
+                    <li>
+                      <Link href={cluster.regional.href}>{cluster.regional.label}</Link>
+                    </li>
+                  ) : null}
                   {cluster.compare ? (
                     <li>
                       <Link href={cluster.compare.href}>{cluster.compare.label}</Link>

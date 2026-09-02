@@ -63,7 +63,7 @@ const facilityPhotos = [
   {
     src: "/facility/finished-sachet-inventory.webp",
     alt: "Shelves of bagged and labelled finished silica gel sachets in the DryGelWorld store room",
-    caption: "Finished sachets — bagged, labelled, and shelved by size.",
+    caption: "Finished sachets, bagged, labelled, and shelved by size.",
   },
   {
     src: "/facility/warehouse-bulk-bags.webp",
@@ -83,7 +83,7 @@ const facilityPhotos = [
   {
     src: "/facility/warehouse-aisle-rolls-bags.webp",
     alt: "Warehouse aisle lined with blue fabric rolls and white bagged stock",
-    caption: "Warehouse aisle — fabric rolls alongside bagged stock.",
+    caption: "Warehouse aisle, fabric rolls alongside bagged stock.",
   },
 ];
 
@@ -119,12 +119,12 @@ const verifiableClaims = [
   {
     label: "Manufacturer certification",
     value: "ISO 9001:2015",
-    note: "Current certificate available on request; baseline for all export shipments.",
+    note: "Certificate published for download; baseline for all export shipments.",
   },
   {
     label: "Documentation per shipment",
     value: "SDS · COA · DMF-free statement",
-    note: "Standard across all silica gel and industrial PPE shipments. Translations available on request (5-10 day turnaround).",
+    note: "Published for download and standard across all silica gel and industrial PPE shipments. Translations available on request (5-10 day turnaround).",
   },
   {
     label: "Export markets",
@@ -179,8 +179,10 @@ export default function AboutPage() {
             <span className={styles.kicker}>Industrial Profile</span>
             <h1>Built for global buyers who cannot risk moisture damage.</h1>
             <p>
-              DryGelWorld has manufactured silica gel in Karachi since 1983, helping buyers
-              protect stock, cartons, and container shipments worldwide.
+              DryGelWorld has manufactured{" "}
+              <Link href="/silica-gel-manufacturer-pakistan">silica gel in Pakistan</Link>{" "}
+              since 1983, from our Karachi factory, helping buyers protect stock, cartons, and
+              container shipments worldwide.
             </p>
           </div>
         </Reveal>
@@ -240,7 +242,7 @@ export default function AboutPage() {
             <h2>Real photos from our Karachi factory and warehouse.</h2>
             <p>
               Unstaged photographs of our own production floor, sachet lines, and
-              stock rooms — genuine facility imagery, never stock photos or AI renders.
+              stock rooms, genuine facility imagery, never stock photos or AI renders.
             </p>
           </div>
         </Reveal>
@@ -365,7 +367,7 @@ export default function AboutPage() {
                 <BrandIcon d={brandPaths.youtube} />
               </Link>
               <Link
-                href="https://www.linkedin.com/in/drygelworld/"
+                href="https://www.linkedin.com/company/drygelworld"
                 className={`${styles.socialIcon} ${styles.socialLinkedin}`}
                 rel="me noopener noreferrer"
                 target="_blank"
@@ -385,7 +387,7 @@ export default function AboutPage() {
             Share your product format, quantity, destination, and documents needed so the
             procurement response is clearer from the first message.
           </p>
-          <Link href="/contact" className={styles.ctaBtn}>Start Procurement Request</Link>
+          <Link href="/request-a-quote" className={styles.ctaBtn}>Start Procurement Request</Link>
         </section>
       </Reveal>
 
@@ -428,7 +430,8 @@ export default function AboutPage() {
                     "https://www.facebook.com/drygelworld",
                     "https://www.instagram.com/drygelworld",
                     "https://www.youtube.com/@DryGelWorld",
-                    "https://www.linkedin.com/in/drygelworld/",
+                    "https://www.linkedin.com/company/drygelworld",
+                    "https://www.daraz.pk/shop/6ttbbzu2/",
                     "https://silicagelpk.com",
                     "https://www.wikidata.org/wiki/Q140185858",
                   ],

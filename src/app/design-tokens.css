@@ -37,6 +37,12 @@
   --ds-accent: #ff6b3d;
   --ds-accent-deep: #e5502a;
   --ds-accent-soft: rgba(255, 107, 61, 0.1);
+  /* The accent as a SURFACE UNDER WHITE TEXT. Not interchangeable with
+   * --ds-accent: white on #ff6b3d measures 2.83:1 and on #e5502a 3.81:1, both
+   * below the 4.5:1 WCAG AA needs for text at button sizes. This is 4.96:1.
+   * Every "Request a Quote" button on the site sat at 2.83:1 until this existed.
+   * Keep --ds-accent for borders, glows, tints and anything not carrying text. */
+  --ds-accent-on-light: #c9401f;
 
   /* Status - success / warning / danger, each with a soft tint surface */
   --ds-ok: #0e7a4d;
@@ -97,6 +103,24 @@
   --ds-radius-card: 14px;
   --ds-radius-hero: 22px;
   --ds-radius-pill: 999px;
+
+  /* ── The one button shape ──────────────────────────────────────────────
+   * An audit counted four different primary-CTA treatments shipping at once:
+   * 18px on the home hero, 12px lower down the same page, 4px from a stale
+   * override block, and pill everywhere else. A buyer moving home -> export ->
+   * planner met three shapes and read the site as assembled rather than
+   * designed - the whole gap against the Stripe/Linear references.
+   *
+   * Pill wins because it was already the majority (about 20 rules) and because
+   * every page that takes money - the RFQ form, the quote form, the export and
+   * landing CTAs - was already using it. The odd ones out were the leftovers.
+   *
+   * Height and padding are deliberately NOT tokenised. A header button should
+   * be smaller than a hero button; that is size, not shape, and flattening it
+   * would be uniformity for its own sake. Shape and weight are what the eye
+   * reads as "the same kind of thing". */
+  --ds-cta-radius: var(--ds-radius-pill);
+  --ds-cta-weight: 700;
 
   /* Container widths - single source of truth for horizontal alignment */
   --ds-container-max: 1320px;

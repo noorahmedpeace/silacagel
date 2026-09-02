@@ -129,7 +129,7 @@ export const globalSupplierLandingInput = {
       { text: ", check your destination on the " },
       { href: "/export", label: "export hub" },
       { text: ", size the order with the " },
-      { href: "/tools/moisture-load-calculator", label: "moisture load calculator" },
+      { href: "/tools/silica-gel-calculator", label: "silica gel calculator" },
       { text: " or " },
       { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
       { text: ", and pull documents from the " },
@@ -233,7 +233,7 @@ export const globalSupplierLandingInput = {
     {
       question: "How do I calculate the silica gel quantity I need?",
       answer:
-        "Use the Moisture Load Calculator for cartons (volume, target humidity, transit days) and the Container Desiccant Calculator for 20ft/40ft containers (route, season, cargo). Both are free, ungated, and based on the DIN 55474 method; the export desk checks the result before quoting.",
+        "Use the Silica Gel Calculator for cartons (volume, target humidity, transit days) and the Container Desiccant Calculator for 20ft/40ft containers (route, season, cargo). Both are free, ungated, and based on the DIN 55474 method; the export desk checks the result before quoting.",
     },
     {
       question: "Does DryGelWorld hold FDA, REACH, or food-contact certification?",

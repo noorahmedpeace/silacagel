@@ -1,0 +1,184 @@
+/* Homepage quick estimator. Compact by design - the full tool lives at
+   /tools/silica-gel-calculator and this block's job is a fast price plus a
+   clear way through to it. Site tokens only: one radius scale, tinted
+   shadows, no hover lift on anything that is not a link. */
+
+.layout {
+  display: grid;
+  gap: 14px;
+  scroll-margin-top: 90px;
+}
+
+.side {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+/* Two columns from 900px, exactly as the chip panel used to be. Side content
+   beside the tool costs no height; underneath it costs all of it. */
+@media (min-width: 900px) {
+  .layout {
+    grid-template-columns: minmax(260px, 0.72fr) minmax(420px, 1.28fr);
+    align-items: start;
+    gap: 20px;
+  }
+}
+
+/* ── Range line: what 1,380px of chips used to say ─────────────────────── */
+
+.range {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 14px;
+  margin: 0;
+  padding: 12px 18px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-surface-tint);
+}
+
+.rangeCount {
+  font-family: var(--font-mono);
+  font-size: var(--ds-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--ds-ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--ds-brand-deep);
+}
+
+.rangeSpan {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ds-text);
+}
+
+.rangeGroups {
+  font-size: 0.85rem;
+  color: var(--ds-text-muted);
+  margin-left: auto;
+}
+
+/* ── The estimator itself ─────────────────────────────────────────────── */
+
+.calculator {
+  min-width: 0;
+}
+
+/* ── The way through to the full tool ─────────────────────────────────── */
+
+.fullTool {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 22px;
+  border: 1px solid rgba(45, 91, 255, 0.28);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(135deg, var(--ds-surface) 0%, var(--ds-brand-soft) 180%);
+  box-shadow: var(--ds-ring-top), 0 24px 44px -38px rgba(8, 30, 80, 0.4);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.fullToolBody {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.fullToolBody strong {
+  font-family: var(--font-display), var(--font-body);
+  font-size: 1.06rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  color: var(--ds-text);
+}
+
+.fullToolBody span {
+  font-size: 0.89rem;
+  line-height: 1.5;
+  color: var(--ds-text-muted);
+}
+
+.fullToolArrow {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  font-size: 1.15rem;
+  line-height: 1;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fullTool:hover {
+    transform: translateY(-2px);
+    border-color: var(--ds-brand);
+    box-shadow: var(--ds-ring-top), 0 30px 52px -34px rgba(8, 30, 80, 0.46);
+  }
+
+  .fullTool:hover .fullToolArrow {
+    transform: translateX(4px);
+  }
+}
+
+.fullTool:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 3px;
+}
+
+.fullTool:active {
+  transform: scale(0.995);
+}
+
+@media (max-width: 720px) {
+  .range {
+    /* Stacked, tight, and one thing per line. Left as a wrapping flex row it
+       broke into three ragged lines and took 149px - a "one line instead of
+       1,380px of chips" claim it was not living up to. */
+    display: grid;
+    gap: 2px;
+    border-radius: var(--ds-radius-card);
+    padding: 11px 15px;
+  }
+
+  .rangeSpan {
+    font-size: 0.9rem;
+  }
+
+  .rangeGroups {
+    margin-left: 0;
+    font-size: 0.8rem;
+  }
+
+  .fullTool {
+    padding: 16px 18px;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fullTool,
+  .fullToolArrow {
+    transition: none;
+  }
+
+  .fullTool:hover,
+  .fullTool:active {
+    transform: none;
+  }
+
+  .fullTool:hover .fullToolArrow {
+    transform: none;
+  }
+}

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { RfqForm } from "@/components/rfq-form";
+import { RfqFormFromQuery } from "@/components/rfq-form-prefill";
 import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import styles from "../strategy-pages.module.css";
 
@@ -10,12 +12,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/request-a-quote" },
 };
 
-type PageProps = { searchParams: Promise<Record<string, string | string[] | undefined>> };
-
 const faqs = [
   {
     q: "How fast will I receive my quotation?",
-    a: "Our export team replies within 24 business hours with pricing, MOQ confirmation, lead time, and shipping options for your destination.",
+    a: "Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day otherwise, with pricing, lead time, and shipping options for your destination. There is no minimum order quantity, and samples are free.",
   },
   {
     q: "What information makes a quote faster?",
@@ -27,12 +27,11 @@ const faqs = [
   },
 ];
 
-export default async function RequestQuotePage({ searchParams }: PageProps) {
-  const params = await searchParams;
-  const product =
-    typeof params.product === "string" ? params.product.trim().slice(0, 120) : "";
-  const qty = typeof params.qty === "string" ? params.qty.trim().slice(0, 20) : "";
-
+export default function RequestQuotePage() {
+  // Prefill from the calculator's query string happens inside
+  // RfqFormFromQuery on the client - reading searchParams here made the
+  // whole route dynamic and put a serverless round-trip in front of the
+  // conversion page (see rfq-form-prefill.tsx).
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -67,13 +66,17 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
         <span className={styles.kicker}>Request a Quote</span>
         <h1>Request an export quotation.</h1>
         <p>
-          Tell us the product, quantity, and destination — our export specialists reply
+          Tell us the product, quantity, and destination, our export specialists reply
           within 24 business hours with pricing, lead time, and shipping details. Every
           inquiry is handled by the factory team in Karachi, not a call center.
         </p>
       </section>
 
-      <section className={styles.section} aria-label="Why buyers quote with DryGelWorld">
+      <section className={styles.section}>
+        {/* The section carried this as an aria-label, which names the landmark
+            but leaves the outline jumping h1 -> h3 at the first card. A real
+            heading, hidden visually, closes the gap without changing the design. */}
+        <h2 className={styles.srOnly}>Why buyers quote with DryGelWorld</h2>
         <div className={styles.grid}>
           {[
             { label: "Response", title: "Within 24 business hours", text: "Pricing, MOQ, lead time, and shipping options in the first reply." },
@@ -101,11 +104,13 @@ export default async function RequestQuotePage({ searchParams }: PageProps) {
             style={{ borderRadius: "50%", objectFit: "cover" }}
           />
           <span>
-            Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Export
-            Director — factory export desk, Karachi.
+            Your quote is prepared by <strong>Noor Ahmed Khan</strong>, Owner &amp; Managing
+            Director, factory export desk, Karachi.
           </span>
         </p>
-        <RfqForm defaultProduct={product} defaultQuantity={qty} />
+        <Suspense fallback={<RfqForm />}>
+          <RfqFormFromQuery />
+        </Suspense>
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">

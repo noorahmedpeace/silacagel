@@ -1,169 +1,108 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Check, Clock3, Tag } from "lucide-react";
-import { priceOptions, whatsappNumber } from "@/lib/product-data";
+import { useId, useMemo, useState } from "react";
+import { priceGroups, priceOptions, whatsappNumber } from "@/lib/product-data";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import {
-  FLASH10_CODE,
-  FLASH10_RATE,
-  formatFlash10Remaining,
-  getFlash10Remaining,
-} from "@/lib/flash10";
+  computeEstimate,
+  countFormatter,
+  currencyOptions,
+  findCurrency,
+  findOption,
+  QUANTITY_MESSAGES,
+  rateFormatter,
+  totalFormatter,
+  unitPriceFormatter,
+  weightFormatter,
+  type CurrencyCode,
+} from "./price-calculator-model";
 import styles from "./price-calculator.module.css";
 
-const numberFormatter = new Intl.NumberFormat("en-US", {
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 0,
-});
+// Option keys are `${group.title}-${item.label}`, built in product-data's
+// priceOptions. Rebuilt here so the <optgroup> markup can be driven straight
+// off priceGroups without flattening away the grouping the buyer navigates by.
+const optionKey = (groupTitle: string, label: string) => `${groupTitle}-${label}`;
 
-const weightFormatter = new Intl.NumberFormat("en-US", {
-  maximumFractionDigits: 2,
-  minimumFractionDigits: 0,
-});
+/** Format selection is either fully controlled or fully internal. Modelled as a
+ *  union so `formatKey` without `onFormatChange` cannot compile: that pairing
+ *  reads the prop but writes internal state, so the selection silently sticks. */
+type FormatControl =
+  | { formatKey: string; onFormatChange: (key: string) => void }
+  | { formatKey?: undefined; onFormatChange?: undefined };
 
-const currencyOptions = [
-  { code: "USD", label: "USD - US Dollar", symbol: "$", rateFromPkr: 0.0036, locale: "en-US" },
-  { code: "EUR", label: "EUR - Euro", symbol: "€", rateFromPkr: 0.0034, locale: "de-DE" },
-  { code: "GBP", label: "GBP - Pound", symbol: "£", rateFromPkr: 0.0029, locale: "en-GB" },
-  { code: "PKR", label: "PKR - Pakistani Rupee", symbol: "Rs. ", rateFromPkr: 1, locale: "en-PK" },
-  { code: "INR", label: "INR - Indian Rupee", symbol: "₹", rateFromPkr: 0.3, locale: "en-IN" },
-  { code: "CNY", label: "CNY - Chinese Yuan", symbol: "¥", rateFromPkr: 0.026, locale: "zh-CN" },
-] as const;
+export type PriceCalculatorProps = FormatControl & {
+  heading?: string;
+  description?: string;
+  /** Hide the component's own heading when the page already supplies one.
+   *  Pair with `labelledBy` so the region keeps an accessible name. */
+  hideHeading?: boolean;
+  /** id of an external heading that names this region. */
+  labelledBy?: string;
+  /** Drop the built-in format select when an outside control already picks the
+   *  format. Prevents two controls competing over one value on the same screen. */
+  hideFormatField?: boolean;
+};
 
-type CurrencyCode = (typeof currencyOptions)[number]["code"];
-
-function AnimatedCounter({ value, formatter, prefix = "", suffix = "" }: { value: number, formatter: Intl.NumberFormat, prefix?: string, suffix?: string }) {
-  const nodeRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const node = nodeRef.current;
-    if (!node) return;
-
-    const duration = 900;
-    const start = performance.now();
-    let frame = 0;
-
-    const tick = (now: number) => {
-      // Clamp at 0 too: the first rAF timestamp can precede performance.now()
-      // captured above; a negative progress drove the ease below zero and
-      // flashed negative prices ("$-0.37") before the count started.
-      const progress = Math.min(Math.max((now - start) / duration, 0), 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      node.textContent = `${prefix}${formatter.format(value * eased)}${suffix}`;
-
-      if (progress < 1) {
-        frame = requestAnimationFrame(tick);
-      }
-    };
-
-    frame = requestAnimationFrame(tick);
-
-    return () => cancelAnimationFrame(frame);
-  }, [value, formatter, prefix, suffix]);
-
-  return <strong ref={nodeRef}>{prefix}{formatter.format(value)}{suffix}</strong>;
-}
-
-export function PriceCalculator() {
-  const [selectedKey, setSelectedKey] = useState(priceOptions[0]?.key ?? "");
+export function PriceCalculator({
+  heading = "Procurement calculator",
+  description = "Choose a format and quantity to estimate order weight and value before requesting an export quote.",
+  hideHeading = false,
+  labelledBy,
+  formatKey,
+  onFormatChange,
+  hideFormatField = false,
+}: PriceCalculatorProps) {
+  const [internalKey, setInternalKey] = useState(priceOptions[0]?.key ?? "");
+  const selectedKey = formatKey ?? internalKey;
+  const setSelectedKey = onFormatChange ?? setInternalKey;
   const [quantity, setQuantity] = useState("1000");
   const [currencyCode, setCurrencyCode] = useState<CurrencyCode>("USD");
-  const [promoRemaining, setPromoRemaining] = useState(0);
 
-  useEffect(() => {
-    const syncPromo = () => setPromoRemaining(getFlash10Remaining());
-    const initialFrame = window.requestAnimationFrame(syncPromo);
-    const timer = window.setInterval(syncPromo, 1000);
-    window.addEventListener("drygel:promo-activated", syncPromo);
-    window.addEventListener("storage", syncPromo);
+  const headingId = useId();
+  const quantityErrorId = useId();
 
-    return () => {
-      window.cancelAnimationFrame(initialFrame);
-      window.clearInterval(timer);
-      window.removeEventListener("drygel:promo-activated", syncPromo);
-      window.removeEventListener("storage", syncPromo);
-    };
-  }, []);
+  const selectedOption = findOption(selectedKey) ?? priceOptions[0];
+  const selectedCurrency = findCurrency(currencyCode);
 
-  const selectedOption =
-    priceOptions.find((option) => option.key === selectedKey) ?? priceOptions[0];
-  const selectedCurrency =
-    currencyOptions.find((currency) => currency.code === currencyCode) ?? currencyOptions[0];
-  const parsedQuantity = Number(quantity);
-  const quantityValue =
-    Number.isFinite(parsedQuantity) && parsedQuantity > 0 ? parsedQuantity : 0;
-  const totalGrams = selectedOption ? selectedOption.grams * quantityValue : 0;
-  const totalKilograms = totalGrams / 1000;
-  // PKR shows the domestic Pakistan rate; every other currency shows the fixed
-  // USD export rate converted across, so a falling rupee never discounts exports.
-  const usdRateFromPkr =
-    currencyOptions.find((currency) => currency.code === "USD")?.rateFromPkr ?? 0.0036;
-  const unitInSelectedCurrency = selectedOption
-    ? selectedCurrency.code === "PKR"
-      ? selectedOption.unitPrice
-      : selectedOption.exportUsd * (selectedCurrency.rateFromPkr / usdRateFromPkr)
-    : 0;
-  const referenceTotal = unitInSelectedCurrency * quantityValue;
-  const promoActive = promoRemaining > 0;
-  const discountAmount = promoActive ? referenceTotal * FLASH10_RATE : 0;
-  const discountedTotal = referenceTotal - discountAmount;
-  const hasBulkSignal = totalKilograms >= 25 || quantityValue >= 50000;
-  const currencyFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat(selectedCurrency.locale, {
-        maximumFractionDigits: referenceTotal >= 100 ? 0 : 2,
-        minimumFractionDigits: 0,
-      }),
-    [referenceTotal, selectedCurrency.locale],
+  const estimate = useMemo(
+    () => computeEstimate({ option: selectedOption, quantity, currency: selectedCurrency }),
+    [selectedOption, quantity, selectedCurrency],
   );
-  // Sub-cent unit prices (e.g. a 1 gm sachet at $0.0045) round to "$0" with the
-  // total formatter. Give the per-unit figure enough decimals to stay legible.
-  const unitFractionDigits =
-    unitInSelectedCurrency > 0 && unitInSelectedCurrency < 1
-      ? 4
-      : unitInSelectedCurrency < 100
-        ? 2
-        : 0;
-  const unitFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat(selectedCurrency.locale, {
-        maximumFractionDigits: unitFractionDigits,
-        minimumFractionDigits: 0,
-      }),
-    [selectedCurrency.locale, unitFractionDigits],
+
+  const totalFmt = useMemo(
+    () => totalFormatter(selectedCurrency.locale, estimate.total),
+    [selectedCurrency.locale, estimate.total],
   );
+  const rateFmt = useMemo(() => rateFormatter(selectedCurrency.locale), [selectedCurrency.locale]);
+  const unitFmt = useMemo(
+    () => unitPriceFormatter(selectedCurrency.locale, estimate.unitPrice),
+    [selectedCurrency.locale, estimate.unitPrice],
+  );
+
+  const { symbol } = selectedCurrency;
+  const errorMessage = estimate.issue ? QUANTITY_MESSAGES[estimate.issue] : null;
+
+  // Weight reads in kilograms once there is a kilogram to read. Below that,
+  // grams. The old layout showed both at once, which is the same fact twice.
+  const weightLabel =
+    estimate.kilograms >= 1
+      ? `${weightFormatter.format(estimate.kilograms)} kg`
+      : `${weightFormatter.format(estimate.grams)} g`;
+
+  const rateLabel = estimate.showPerThousand
+    ? `${symbol}${rateFmt.format(estimate.perThousand)} / 1,000 pcs`
+    : `${symbol}${unitFmt.format(estimate.unitPrice)} per piece`;
 
   function handleWhatsAppQuote() {
-    if (!selectedOption || quantityValue <= 0) {
-      return;
-    }
-
-    const activeRemaining = getFlash10Remaining();
-    const activeDiscount = activeRemaining > 0;
-    const activeSavings = activeDiscount ? referenceTotal * FLASH10_RATE : 0;
-    const activeTotal = referenceTotal - activeSavings;
-    const promoWindow = window as typeof window & { __drygelPromoJustTriggered?: boolean };
-    const justUnlocked = promoWindow.__drygelPromoJustTriggered === true;
-
-    if (justUnlocked) {
-      setPromoRemaining(activeRemaining);
-      return;
-    }
+    if (!estimate.isValid || !selectedOption) return;
 
     const message = [
       "Hello, I'm requesting an industrial Dry Gel World procurement quote.",
       `Technical Spec: ${selectedOption.label}`,
       `Industrial Category: ${selectedOption.groupTitle}`,
-      `Quantity Requirement: ${numberFormatter.format(quantityValue)} units`,
-      `Verified Net Weight: ${weightFormatter.format(totalGrams)}g (${weightFormatter.format(totalKilograms)}kg)`,
-      `Regular Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(referenceTotal)} ${selectedCurrency.code}`,
-      ...(activeDiscount
-        ? [
-            `${FLASH10_CODE} Savings (10%): -${selectedCurrency.symbol}${currencyFormatter.format(activeSavings)} ${selectedCurrency.code}`,
-            `Discounted Estimate: ${selectedCurrency.symbol}${currencyFormatter.format(activeTotal)} ${selectedCurrency.code}`,
-          ]
-        : []),
+      `Quantity Requirement: ${countFormatter.format(estimate.quantity)} units`,
+      `Verified Net Weight: ${weightFormatter.format(estimate.grams)}g (${weightFormatter.format(estimate.kilograms)}kg)`,
+      `Reference Estimate: ${symbol}${totalFmt.format(estimate.total)} ${selectedCurrency.code}`,
       "Please advise export quote, MOQ, lead time, documentation, and suitable shipping terms.",
     ].join("\n");
 
@@ -172,160 +111,150 @@ export function PriceCalculator() {
   }
 
   return (
-    <aside className={styles.calculator} aria-labelledby="price-calculator-title">
-      <div className={styles.head}>
-        <p>Industrial Estimator</p>
-        <h3 id="price-calculator-title">Procurement Calculator</h3>
-        <span>Select technical specifications and quantity to estimate industrial weight before requesting an export quote.</span>
-      </div>
+    <section
+      className={styles.calculator}
+      aria-labelledby={labelledBy ?? (hideHeading ? undefined : headingId)}
+      aria-label={hideHeading && !labelledBy ? heading : undefined}
+    >
+      {hideHeading ? null : (
+        <div className={styles.head}>
+          <h3 id={headingId}>{heading}</h3>
+          <p>{description}</p>
+        </div>
+      )}
 
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 01</span>
-          <strong>Product specification</strong>
-          <small>Choose the sachet size or desiccant format you want quoted.</small>
-        </span>
-        <select value={selectedKey} onChange={(event) => setSelectedKey(event.target.value)}>
-          {priceOptions.map((option) => (
-            <option key={option.key} value={option.key}>
-              {option.label} - {option.groupTitle}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 02</span>
-          <strong>Quantity required</strong>
-          <small>Type the total pieces, sachets, or units needed for this quote.</small>
-        </span>
-        <input
-          inputMode="numeric"
-          min="1"
-          onChange={(event) => setQuantity(event.target.value)}
-          placeholder="e.g. 1000"
-          suppressHydrationWarning
-          type="number"
-          value={quantity}
-        />
-      </label>
-
-      <label className={styles.field}>
-        <span className={styles.fieldLabel}>
-          <span className={styles.fieldStep}>Step 03</span>
-          <strong>Reference currency</strong>
-          <small>Select the currency you want the estimate displayed in.</small>
-        </span>
-        <select value={currencyCode} onChange={(event) => setCurrencyCode(event.target.value as CurrencyCode)}>
-          {currencyOptions.map((currency) => (
-            <option key={currency.code} value={currency.code}>
-              {currency.label}
-            </option>
-          ))}
-        </select>
-      </label>
-
-      <div className={styles.summaryGrid}>
-        <article className={styles.summaryCard}>
-          <span>Reference Unit</span>
-          <AnimatedCounter
-            value={unitInSelectedCurrency}
-            formatter={unitFormatter}
-            prefix={selectedCurrency.symbol}
-          />
-        </article>
-        <article className={styles.summaryCard}>
-          <span>Net Weight (g)</span>
-          <AnimatedCounter value={totalGrams} formatter={weightFormatter} suffix=" gm" />
-        </article>
-        <article className={styles.summaryCard}>
-          <span>Total Mass (kg)</span>
-          <AnimatedCounter value={totalKilograms} formatter={weightFormatter} suffix=" kg" />
-        </article>
-        <article className={`${styles.summaryCard} ${styles.highlightCard}`}>
-          <span>{promoActive ? "Discounted Estimate" : "Reference Estimate"}</span>
-          {promoActive ? (
-            <span className={styles.regularPrice}>
-              {selectedCurrency.symbol}{currencyFormatter.format(referenceTotal)}
-            </span>
-          ) : null}
-          <AnimatedCounter
-            value={promoActive ? discountedTotal : referenceTotal}
-            formatter={currencyFormatter}
-            prefix={selectedCurrency.symbol}
-          />
-        </article>
-      </div>
-
-      {promoActive ? (
-        <section className={styles.discountBreakdown} aria-label="FLASH10 discount applied">
-          <div className={styles.discountHead}>
-            <span className={styles.discountIcon}><Tag size={18} /></span>
-            <div>
-              <strong><Check size={15} /> 10% Discount Applied</strong>
-              <span>Promo code {FLASH10_CODE}</span>
-            </div>
-          </div>
-          <dl className={styles.discountRows}>
-            <div>
-              <dt>Regular estimate</dt>
-              <dd>{selectedCurrency.symbol}{currencyFormatter.format(referenceTotal)}</dd>
-            </div>
-            <div className={styles.savingsRow}>
-              <dt>{FLASH10_CODE} savings</dt>
-              <dd>-{selectedCurrency.symbol}{currencyFormatter.format(discountAmount)}</dd>
-            </div>
-            <div className={styles.discountTotal}>
-              <dt>Discounted estimate</dt>
-              <dd>
-                <AnimatedCounter
-                  value={discountedTotal}
-                  formatter={currencyFormatter}
-                  prefix={selectedCurrency.symbol}
-                />
-              </dd>
-            </div>
-          </dl>
-          <p className={styles.discountExpiry}>
-            <Clock3 size={15} /> Trial-order pricing available — ask for a first-order quote
+      <div className={`${styles.fields} ${hideFormatField ? styles.fieldsSingle : ""}`}>
+        {hideFormatField ? (
+          <p className={styles.selectedFormat}>
+            <span>Selected format</span>
+            <strong>
+              {selectedOption?.label}
+              {selectedOption ? ` · ${selectedOption.groupTitle}` : ""}
+            </strong>
           </p>
-        </section>
-      ) : null}
+        ) : (
+          <div className={styles.field}>
+            <label htmlFor={`${headingId}-format`}>Format</label>
+            <select
+              id={`${headingId}-format`}
+              value={selectedKey}
+              onChange={(event) => setSelectedKey(event.target.value)}
+            >
+              {priceGroups.map((group) => (
+                <optgroup key={group.title} label={group.title}>
+                  {group.items.map((item) => (
+                    <option
+                      key={optionKey(group.title, item.label)}
+                      value={optionKey(group.title, item.label)}
+                    >
+                      {item.label}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+            </select>
+          </div>
+        )}
 
-      <div className={styles.meta}>
-        <p>
-          Technical Selection: <strong>{selectedOption?.label}</strong> | Group: <strong>{selectedOption?.groupTitle}</strong>.
-        </p>
-        <p>
-          Reference estimate shown in <strong>{selectedCurrency.code}</strong>.{" "}
+        <div className={styles.field}>
+          <label htmlFor={`${headingId}-qty`}>Quantity (pieces)</label>
+          <input
+            id={`${headingId}-qty`}
+            inputMode="numeric"
+            onChange={(event) => setQuantity(event.target.value)}
+            placeholder="e.g. 1000"
+            suppressHydrationWarning
+            type="text"
+            value={quantity}
+            aria-invalid={errorMessage ? true : undefined}
+            aria-describedby={errorMessage ? quantityErrorId : undefined}
+          />
+          {errorMessage ? (
+            <p className={styles.error} id={quantityErrorId}>
+              {errorMessage}
+            </p>
+          ) : null}
+        </div>
+      </div>
+
+      <div className={styles.result}>
+        <div className={styles.resultHead}>
+          <span className={styles.resultLabel}>Estimated order value</span>
+          <label className={styles.currency}>
+            <span className={styles.srOnly}>Display currency</span>
+            <select
+              value={currencyCode}
+              onChange={(event) => setCurrencyCode(event.target.value as CurrencyCode)}
+            >
+              {currencyOptions.map((currency) => (
+                <option key={currency.code} value={currency.code}>
+                  {currency.code}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+
+        {/* The announcement is deliberately on a wrapper rather than the number
+            itself: a screen reader should hear the settled figure with its
+            supporting rate and weight as one sentence, not three fragments. */}
+        <div aria-live="polite" aria-atomic="true">
+          {estimate.isValid ? (
+            <>
+              <strong className={styles.resultValue}>
+                {symbol}
+                {totalFmt.format(estimate.total)}
+              </strong>
+              <p className={styles.resultMeta}>
+                {rateLabel} · {weightLabel} total · {selectedCurrency.code}
+              </p>
+            </>
+          ) : (
+            <>
+              <strong className={`${styles.resultValue} ${styles.resultEmpty}`}>&mdash;</strong>
+              <p className={styles.resultMeta}>
+                Enter a quantity to see the estimated value and shipping weight.
+              </p>
+            </>
+          )}
+        </div>
+
+        <p className={styles.basis}>
           {selectedCurrency.code === "PKR"
-            ? "PKR reflects the domestic Pakistan rate."
-            : "Non-PKR currencies reflect the fixed export rate."}{" "}
-          Final export pricing is quoted by format, quantity, destination, documents, and dispatch schedule.
+            ? "Domestic Pakistan price schedule."
+            : "Fixed export price schedule."}{" "}
+          Excludes freight, duties, and destination charges. Not an Incoterm-qualified
+          quote &mdash; final pricing depends on format, quantity, destination, documents,
+          and dispatch schedule.
         </p>
-        {hasBulkSignal ? (
+
+        {estimate.hasBulkSignal ? (
           <p className={styles.bulkHint}>
-            Enterprise-scale requirement detected. Elite pricing adjustments available through direct procurement flow.
+            This is a bulk-volume requirement. Ask the export desk for tiered pricing when
+            you send the request.
           </p>
         ) : null}
       </div>
 
-      <button
-        className={styles.submit}
-        data-intent="purchase calculator quote"
-        onClick={handleWhatsAppQuote}
-        type="button"
-      >
-        {promoActive ? "Send Estimate on WhatsApp" : "Send Estimate on WhatsApp"}
-      </button>
+      <div className={styles.actions}>
+        <button
+          className={styles.submit}
+          data-intent="purchase calculator quote"
+          onClick={handleWhatsAppQuote}
+          type="button"
+          disabled={!estimate.isValid}
+          aria-describedby={errorMessage ? quantityErrorId : undefined}
+        >
+          Send on WhatsApp
+        </button>
 
-      <AddToCartButton
-        productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
-        productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-        className={styles.submitBlue}
-        label="Add to Cart — Get Exact Price by Email"
-      />
-    </aside>
+        <AddToCartButton
+          productFullName={`Silica Gel ${selectedOption?.label ?? "sachets"} (${selectedOption?.groupTitle ?? "custom size"})`}
+          productSlug={`calculator-${(selectedOption?.key ?? "custom").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+          className={styles.submitSecondary}
+          label="Get price by email"
+        />
+      </div>
+    </section>
   );
 }

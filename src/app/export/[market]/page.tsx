@@ -6,41 +6,19 @@ import { absoluteUrl, brandName, breadcrumbJsonLd, compactMetaDescription } from
 import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { exportMarkets, getExportMarket } from "../markets";
+import { MobileQuoteBand } from "@/components/mobile-quote-band";
+import {
+  exportHreflangAlternates,
+  exportMarketHreflang,
+  exportMarkets,
+  getExportMarket,
+  isExportHreflangMember,
+} from "../markets";
 
 type ExportMarketPageProps = {
   params: Promise<{ market: string }>;
 };
 
-// hreflang code per market slug. All content is in English so we use
-// region-specific en-XX variants (en-US, en-AE, en-DE) so Google can
-// route each regional Google index to the matching landing page. Slugs
-// that don't map to a single country (fob-karachi, europe) fall back
-// to "en" or a regional code.
-const MARKET_HREFLANG: Record<string, string> = {
-  uae: "en-AE",
-  "saudi-arabia": "en-SA",
-  qatar: "en-QA",
-  usa: "en-US",
-  vietnam: "en-VN",
-  russia: "en-RU",
-  bangladesh: "en-BD",
-  indonesia: "en-ID",
-  mexico: "en-MX",
-  turkey: "en-TR",
-  india: "en-IN",
-  brazil: "en-BR",
-  malaysia: "en-MY",
-  pakistan: "en-PK",
-  uk: "en-GB",
-  germany: "en-DE",
-  france: "en-FR",
-  canada: "en-CA",
-  australia: "en-AU",
-  europe: "en-150", // Europe (UN M49 region code) - distinct & valid, avoids colliding on bare "en"
-  africa: "en-002", // Africa (UN M49 region code), same pattern as Europe
-  "fob-karachi": "en", // the single bare-"en" default for the whole cluster
-};
 
 export function generateStaticParams() {
   return exportMarkets.map((market) => ({ market: market.slug }));
@@ -54,22 +32,19 @@ export async function generateMetadata({ params }: ExportMarketPageProps): Promi
     return {};
   }
 
-  const hreflang = MARKET_HREFLANG[market.slug] ?? "en";
+  const hreflang = exportMarketHreflang(market.slug);
   const heroImage = withPageImageContext(
     getExportMarketSeoImage(market.slug),
     `${market.country} silica gel export supply`,
   );
 
-  // Valid hreflang requires a COMPLETE, RECIPROCAL cluster: every member page
-  // must list every other member plus an x-default, and codes must be unique.
-  // Previously each market emitted only its own code + x-default → / (the home
-  // page, different content), so the set was non-reciprocal and Google
-  // discarded it. We now generate the full cluster from exportMarkets on every
-  // market page, with x-default pointing at the export hub (not the homepage).
-  const languages: Record<string, string> = Object.fromEntries(
-    exportMarkets.map((m) => [MARKET_HREFLANG[m.slug] ?? "en", `/export/${m.slug}`]),
-  );
-  languages["x-default"] = "/export";
+  // The cluster is built in one place and emitted identically by every member,
+  // including /export itself. See exportHreflangAlternates() for why /export
+  // had to be added and why Europe is no longer a member - and, being no
+  // longer a member, no longer annotates the set either.
+  const languages = isExportHreflangMember(market.slug)
+    ? exportHreflangAlternates()
+    : undefined;
   const metaDescription = compactMetaDescription(market.description);
 
   return {
@@ -117,6 +92,8 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
   if (!market) {
     notFound();
   }
+
+  const rfqHref = `/request-a-quote?destination=${encodeURIComponent(market.country)}`;
 
   // Deterministic rotation (not random - keeps static generation stable):
   // 5 siblings starting right after this market's position in the list,
@@ -205,9 +182,9 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
             // warning - the exact issue the product pages were fixed to avoid.
             itemOffered: {
               "@type": "Service",
-              name: product,
-              serviceType: "Industrial desiccant export supply",
-              provider: { "@id": `${absoluteUrl()}#organization` },
+              name: `${product} for ${market.country}`,
+              serviceType: "Industrial desiccant procurement",
+              category: "Industrial desiccants",
               areaServed: market.country,
             },
           })),
@@ -242,8 +219,15 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <span className={styles.kicker}>Export Market / {market.country}</span>
         <h1>{market.title}</h1>
         <p>{market.description}</p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href={rfqHref}>Request Export Quote</Link>
+
+        {/* Mobile only, inside the hero so it lands in the first screen (see
+            the landing template for the measurement). No PKR figure: this
+            page's buyer pays in USD and a rupee anchor is not their price. */}
+        <MobileQuoteBand quoteHref={rfqHref} subject={`${market.country} silica gel supply`} />
+
       </section>
+
 
       <figure className={styles.articleVisual}>
         <Image
@@ -359,10 +343,10 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
             <h2>{market.country} customs &amp; import essentials.</h2>
             <p>
               The classification and document set customs brokers ask about first. Duty rates
-              change — always confirm the live rate in the official tariff database linked below.
+              change, always confirm the live rate in the official tariff database linked below.
             </p>
           </div>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.dataTable}>
               <tbody>
                 <tr>
@@ -476,11 +460,22 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
         <div className={styles.sectionHead}>
           <h2>Request a {market.country} export quote.</h2>
           <p>
-            Send your format, quantity, destination port or city, and Incoterms - and the export
+            Send your format, quantity, destination port or city, and Incoterms - and the factory export
             desk returns a documented quote with MOQ, lead time, and shipping options.
           </p>
         </div>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+          <Link className={styles.cta} href={rfqHref}>
+            Request {market.country} Export Quote
+          </Link>
+          <Link
+            className={styles.secondaryCta}
+            href="/samples"
+            style={{ display: "inline-flex", alignItems: "center", padding: "12px 20px", borderRadius: "10px" }}
+          >
+            Order Free Evaluation Samples
+          </Link>
+        </div>
       </section>
 
       <script

@@ -6,9 +6,13 @@ import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inqui
 import { fireLeadConversion } from "@/lib/lead-tracking";
 import { productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
 import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
+import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./rfq-form.module.css";
 
-const UNITS = ["kg", "cartons", "pallets", "containers"];
+// "pieces" exists because the calculator quotes sachet counts, not weight.
+// Without it a piece count had to be smuggled into the quantity field and
+// came out of the mailer as "5000 pcs kg".
+const UNITS = ["kg", "pieces", "cartons", "pallets", "containers"];
 const COUNTRIES = [
   "United States", "United Kingdom", "Germany", "UAE", "Saudi Arabia", "Qatar",
   "India", "Canada", "Australia", "Vietnam", "Bangladesh", "Indonesia",
@@ -69,7 +73,21 @@ function sessionId(): string {
   }
 }
 
-export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { defaultProduct?: string; defaultQuantity?: string }) {
+export function RfqForm({
+  defaultProduct = "",
+  defaultQuantity = "",
+  defaultUnit = "kg",
+  defaultApplication = "",
+  defaultDestinationCountry = "",
+}: {
+  defaultProduct?: string;
+  defaultQuantity?: string;
+  /** Preselects the unit so a caller sending a piece count is not
+   *  silently reinterpreted as kilograms. */
+  defaultUnit?: string;
+  defaultApplication?: string;
+  defaultDestinationCountry?: string;
+}) {
   const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
   const [error, setError] = useState("");
   const [inquiryId, setInquiryId] = useState("");
@@ -153,6 +171,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
       utm: ft.utm,
       gclid: ft.gclid,
       sessionId: sessionId(),
+      source: "rfq_form",
       website2: v("website2"),
       formElapsedMs: Date.now() - startedAt.current,
     };
@@ -168,7 +187,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         return;
       }
       if (result.fallback) {
-        const subject = encodeURIComponent(`RFQ: ${payload.productName} — ${payload.companyName}`);
+        const subject = encodeURIComponent(`RFQ: ${payload.productName}, ${payload.companyName}`);
         const body = encodeURIComponent(
           `Company: ${payload.companyName}\nContact: ${payload.contactPerson}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nCountry: ${payload.country}\nProduct: ${payload.productName}\nQuantity: ${payload.quantity} ${payload.unit}\nDestination: ${payload.destinationCountry}\n\n${payload.message}`,
         );
@@ -191,7 +210,10 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <h2>Thank you for your inquiry!</h2>
         <p>Our export team has received your request and will contact you shortly.</p>
         <p>
-          <strong>Estimated response time: within 24 business hours.</strong>
+          <strong>
+            Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day
+            otherwise.
+          </strong>
         </p>
         {inquiryId && inquiryId !== "received" ? (
           <p className={styles.successId}>Inquiry ID: {inquiryId}</p>
@@ -206,12 +228,20 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         >
           Prefer WhatsApp? Message us directly
         </a>
+        <EvidencePack />
       </div>
     );
   }
 
   return (
     <form ref={formRef} className={styles.form} onSubmit={onSubmit} noValidate={false}>
+      {/* The pack was only rendered in the success state below, so a buyer got
+          the SDS, COA, TDS, ISO certificate and DMF-free statement only after
+          submitting. QA screens a supplier on the paperwork BEFORE it sends an
+          RFQ - this is the page where that happens, so the pack is published
+          above the form as well. EvidencePack filters on `available`, so a
+          document without an uploaded file can never render as a dead link. */}
+      <EvidencePack className={styles.introDocs} />
       <section className={styles.section} aria-labelledby="rfq-company">
         <h2 className={styles.sectionTitle} id="rfq-company">Company information</h2>
         <div className={styles.grid2}>
@@ -251,7 +281,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <h2 className={styles.sectionTitle} id="rfq-product">Product information</h2>
         {cart.length ? (
           <div className={styles.uploadBox} aria-label="Products in your quote cart">
-            <span><strong>In your quote list ({cart.length})</strong> — all included in this request:</span>
+            <span><strong>In your quote list ({cart.length})</strong>, all included in this request:</span>
             {cart.map((c) => (
               <span className={styles.fileRow} key={c.slug}>
                 <span aria-hidden="true">▸</span> {c.name}
@@ -269,7 +299,13 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <div className={styles.grid2}>
           <label className={styles.field}>
             <span>Product *</span>
-            <select name="productName" required defaultValue={knownProduct ? defaultProduct : defaultProduct ? "__custom" : ""}>
+            {/* Default straight to the incoming product. The old branch selected
+                "__custom" for an off-catalog product, but no option carries that
+                value - the injected option below uses the product string itself -
+                so the select fell back to the disabled placeholder and the whole
+                prefill was lost. That is the live path for the container
+                calculator, whose product is not in productCatalog. */}
+            <select name="productName" required defaultValue={defaultProduct || ""}>
               <option value="" disabled>Select a product</option>
               {productCatalog.map((p) => (
                 <option key={p.slug} value={p.name}>{p.name}</option>
@@ -286,7 +322,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
           </label>
           <label className={styles.field}>
             <span>Unit</span>
-            <select name="unit" defaultValue="kg">
+            <select name="unit" defaultValue={defaultUnit}>
               {UNITS.map((u) => (
                 <option key={u} value={u}>{u}</option>
               ))}
@@ -298,7 +334,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
           </label>
           <label className={styles.field}>
             <span>Application / industry</span>
-            <input name="application" placeholder="e.g. leather export, electronics" />
+            <input name="application" placeholder="e.g. leather export, electronics" defaultValue={defaultApplication} />
           </label>
           <label className={styles.field}>
             <span>Required delivery date</span>
@@ -312,7 +348,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         <div className={styles.grid2}>
           <label className={styles.field}>
             <span>Destination country</span>
-            <input name="destinationCountry" list="rfq-countries" />
+            <input name="destinationCountry" list="rfq-countries" defaultValue={defaultDestinationCountry} />
           </label>
           <label className={styles.field}>
             <span>Destination port</span>
@@ -328,7 +364,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
           <textarea name="message" placeholder="Specs, compliance needs, target price, repeat volume…" />
         </label>
         <div className={styles.uploadBox}>
-          <span>Attach specs or documents (PDF, DOCX, XLSX, images — max 20 MB, up to {MAX_FILES} files)</span>
+          <span>Attach specs or documents (PDF, DOCX, XLSX, images, max 20 MB, up to {MAX_FILES} files)</span>
           <input
             type="file"
             accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg,.webp"
@@ -349,7 +385,7 @@ export function RfqForm({ defaultProduct = "", defaultQuantity = "" }: { default
         </div>
       </section>
 
-      {/* Honeypot — humans never see or fill this. */}
+      {/* Honeypot, humans never see or fill this. */}
       <label className={styles.hp} aria-hidden="true">
         Website
         <input name="website2" type="text" tabIndex={-1} autoComplete="off" />

@@ -75,7 +75,7 @@
   padding: 16px 30px;
   background: var(--cta-gradient);
   color: white;
-  border-radius: 6px;
+  border-radius: var(--ds-cta-radius);
   font-weight: 800;
   font-size: 0.95rem;
   letter-spacing: -0.01em;

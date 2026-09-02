@@ -18,7 +18,7 @@ type MachineShowcaseProps = {
 };
 
 /**
- * Premium facility showcase — real machine footage + photos in a gold-framed
+ * Premium facility showcase, real machine footage + photos in a gold-framed
  * feature with a supporting gallery. Server component: native <video controls>
  * and next/image, no client JS. Only genuine imagery is passed in.
  */

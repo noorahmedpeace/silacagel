@@ -95,7 +95,7 @@
   align-items: center;
   justify-content: center;
   min-height: 46px;
-  border-radius: 11px;
+  border-radius: var(--ds-cta-radius);
   padding: 0 20px;
   font-family: var(--font-display), var(--font-body);
   font-size: 0.9rem;
@@ -277,12 +277,84 @@
 
 .column h3 {
   margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(122, 156, 255, 0.16);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
+}
+
+/* ---- Supplier versus strip: a full-width band under the link grid.
+ * "DryGelWorld vs Name" needs a horizontal line, not a 150px column - the
+ * brand sits quiet, the blue mono "vs" (same glyph the compare pages carry)
+ * marks the bout, and each matchup wraps as one whole unit. ---- */
+
+.vsStrip {
+  margin-top: clamp(30px, 4vw, 44px);
+  padding-top: 22px;
+  border-top: 1px solid rgba(122, 156, 255, 0.14);
+}
+
+.vsStripHead {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.vsList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vsList a {
+  display: inline-block;
+  white-space: nowrap;
+  color: rgba(233, 238, 247, 0.6);
+  font-size: 0.84rem;
+  font-weight: 500;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.vsList a:hover {
+  color: #ffffff;
+}
+
+.vsList a.viewAll {
+  color: var(--ds-accent);
+  font-weight: 600;
+}
+
+.vsList a.viewAll:hover {
+  color: #ff8a63;
+}
+
+.brandMark {
+  margin-right: 7px;
+  color: rgba(233, 238, 247, 0.42);
+  font-weight: 600;
+}
+
+.vsMark {
+  margin-right: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(122, 156, 255, 0.85);
 }
 
 .linkList {
@@ -383,6 +455,14 @@
 }
 
 .bottomMeta a {
+  /* This is the phone number, on every page of the site. It measured 111x14 on
+   * a phone - a coin-flip to hit, and it is the single control a buyer who has
+   * decided reaches for. The box grows to the 44px minimum without the text
+   * moving: the extra height is padding around the same glyphs. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 2px;
   color: rgba(233, 238, 247, 0.62);
   text-decoration: none;
   transition: color var(--ds-dur-base) var(--ds-ease-out);
@@ -461,6 +541,10 @@
   .linkGrid {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+
+  .vsList {
+    gap: 8px 20px;
   }
 }
 

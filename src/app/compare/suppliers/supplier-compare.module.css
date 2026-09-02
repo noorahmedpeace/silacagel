@@ -1,0 +1,441 @@
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 72px 28px 110px;
+  color: var(--ink);
+}
+
+.hero {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+
+.kicker {
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 12px 0 16px;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  background: var(--ds-grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* background-clip:text paints only inside the padding box; reserve room
+   * so g/p/y descenders don't render cut off. */
+  padding-bottom: 0.12em;
+  margin-bottom: calc(16px - 0.12em);
+}
+
+/* Marker-highlight for the one word the page is really about. Resets the
+ * inherited transparent text fill so the word reads in accent ink on its
+ * own highlighter stroke. */
+.hl {
+  padding: 0 0.14em;
+  /* Tuck the sentence period back against the highlighted word - the
+   * marker's own side padding otherwise reads as "RFQ ." */
+  margin-right: -0.1em;
+  border-radius: 0.16em;
+  background: linear-gradient(115deg, rgba(255, 107, 61, 0.3), rgba(255, 107, 61, 0.14));
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: var(--ds-accent-on-light);
+  color: var(--ds-accent-on-light);
+}
+
+/* The "vs" badge inside the matchup headline - a die-cut sticker sized to
+ * the display type, the same language as the card and evidence stickers. */
+.vsBig {
+  display: inline-block;
+  margin: 0 0.14em;
+  padding: 0.22em 0.5em;
+  border: 2px solid var(--ds-brand);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  box-shadow: 3px 3px 0 rgba(45, 91, 255, 0.2);
+  transform: rotate(-3deg);
+  vertical-align: 0.32em;
+  font-family: var(--font-mono);
+  font-size: 0.26em;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  -webkit-text-fill-color: var(--ds-brand-deep);
+  color: var(--ds-brand-deep);
+}
+
+.hero p,
+.intro {
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.7;
+}
+
+.sourceNote {
+  margin-top: 18px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+/* Scoped to the source note only. The old `.card a, .footer a` grouping
+ * outranked `.button` (element selector adds specificity) and painted the
+ * gradient CTA's text brand-blue with an underline - and neither container
+ * has any other anchor to style. */
+.sourceNote a {
+  color: var(--ds-brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.heroTags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 26px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+/* Top accent hairline that draws in on hover - same move as the product
+ * comparison hub, so the two hubs read as one family. */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ds-brand) 0%, var(--ds-brand-deep) 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-3px);
+  border-color: rgba(45, 91, 255, 0.35);
+  box-shadow: var(--ds-shadow-card), var(--ds-ring-top);
+}
+
+.card:hover::before,
+.card:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 3px;
+}
+
+/* Die-cut evidence sticker - carries the real per-supplier audit state
+ * (high / medium / limited) from the data, straightens on hover. */
+.evidenceTag {
+  align-self: flex-start;
+  display: inline-flex;
+  padding: 4px 11px;
+  border: 2px solid var(--ds-brand);
+  border-radius: var(--ds-radius-pill);
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  box-shadow: 2.5px 2.5px 0 rgba(45, 91, 255, 0.2);
+  transform: rotate(-2deg);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card:hover .evidenceTag,
+.card:focus-visible .evidenceTag {
+  transform: rotate(0deg);
+}
+
+/* "high" is the blue base treatment - declared explicitly so the
+ * styles[`evidence_${confidence}`] lookup never interpolates undefined
+ * into the class attribute. */
+.evidence_high {
+  border-color: var(--ds-brand);
+}
+
+.evidence_medium {
+  border-color: #d97706;
+  background: #fdf1e0;
+  color: #92400e;
+  box-shadow: 2.5px 2.5px 0 rgba(217, 119, 6, 0.2);
+  transform: rotate(1.6deg);
+}
+
+.evidence_limited {
+  border-color: var(--ds-accent);
+  background: #fff4ef;
+  color: var(--ds-accent-on-light);
+  box-shadow: 2.5px 2.5px 0 rgba(255, 107, 61, 0.22);
+  transform: rotate(1.6deg);
+}
+
+.matchup {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.vsGlyph {
+  margin: 0 4px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ds-brand);
+}
+
+.cardMeta {
+  margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--ds-hairline);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.blurb {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card strong {
+  color: var(--ink);
+}
+
+.cardCta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ds-brand-deep);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.ctaArrow {
+  display: inline-block;
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.card:hover .ctaArrow,
+.card:focus-visible .ctaArrow {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .evidenceTag,
+  .ctaArrow {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:focus-visible {
+    transform: none;
+  }
+
+  .card:hover .ctaArrow,
+  .card:focus-visible .ctaArrow {
+    transform: none;
+  }
+}
+
+.section {
+  margin-top: 56px;
+}
+
+/* One heading mechanism: the class, applied to every section h2 - the
+ * parallel `.section h2` descendant rule differed only by 2px of margin
+ * and guaranteed the two would drift apart. */
+.sectionTitle {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.matrixWrap {
+  overflow-x: auto;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-card);
+  background: #fff;
+}
+
+.matrix {
+  width: 100%;
+  min-width: 780px;
+  border-collapse: collapse;
+}
+
+.matrix th,
+.matrix td {
+  padding: 16px;
+  border-bottom: 1px solid var(--ds-hairline);
+  text-align: left;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.matrix th {
+  background: rgba(45, 91, 255, 0.06);
+  color: var(--ds-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.matrix tr:last-child td {
+  border-bottom: 0;
+}
+
+.matrix td:first-child {
+  width: 23%;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.calloutGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.callout {
+  padding: 22px;
+  border-top: 3px solid var(--ds-brand);
+  border-radius: var(--ds-radius-card);
+  background: var(--ds-surface-tint);
+}
+
+.callout h3 {
+  margin: 0 0 12px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+}
+
+.callout ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.callout li + li {
+  margin-top: 9px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 56px;
+  padding: 24px;
+  border: 1px solid rgba(45, 91, 255, 0.2);
+  border-radius: var(--ds-radius-card);
+  background: rgba(45, 91, 255, 0.05);
+}
+
+.footer p {
+  max-width: 660px;
+  margin: 0;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  border-radius: var(--ds-cta-radius);
+  padding: 0 18px;
+  background: var(--ds-grad-cta);
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .grid,
+  .calloutGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 48px 18px 80px;
+  }
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .grid,
+  .calloutGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button {
+    justify-content: center;
+  }
+}

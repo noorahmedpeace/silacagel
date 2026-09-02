@@ -71,6 +71,7 @@ const navGroups: NavGroup[] = [
       { label: "Calcium chloride strips", href: "/products/calcium-chloride-container-strip", icon: Container, desc: "High-uptake hanging strips" },
       { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", icon: Layers, desc: "Bulk bags for cargo moisture" },
       { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", icon: Shield, desc: "Cost-tier container moisture control" },
+      { label: "Humidity indicator cards", href: "/products/humidity-indicator-cards", icon: Target, desc: "Visual RH check for dry packs" },
     ],
     trailingLabel: "Other supplies (PPE)",
     trailing: [
@@ -78,18 +79,6 @@ const navGroups: NavGroup[] = [
       { label: "Powdered nitrile gloves", href: "/products/powdered-nitrile-examination-gloves", icon: HandHelping, desc: "Examination gloves, powdered" },
       { label: "Bouffant hair nets", href: "/products/hair-nets", icon: HardHat, desc: "Food & factory hair nets" },
       { label: "Beard covers", href: "/products/beard-covers", icon: HardHat, desc: "Disposable PPE beard covers" },
-    ],
-  },
-  {
-    label: "Services",
-    icon: Sparkles,
-    accent: "#b45309",
-    href: "/contract-packaging-services",
-    children: [
-      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
-      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
-      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack — published specs & limits" },
-      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
     ],
   },
   {
@@ -128,6 +117,22 @@ const navGroups: NavGroup[] = [
       { label: "Africa", href: "/export/africa", icon: MapPin },
     ],
   },
+  // Co-packing sits after the desiccant path, not second in the bar. Leading
+  // with soap wrapping and flow-wrap reads as a general packing trader, which
+  // undercuts the desiccant-manufacturer positioning the rest of the site is
+  // built on. The pages keep their URLs and stay one click away.
+  {
+    label: "Services",
+    icon: Sparkles,
+    accent: "#b45309",
+    href: "/contract-packaging-services",
+    children: [
+      { label: "Private label desiccants", href: "/private-label", icon: Tag, desc: "OEM sachet branding on our products" },
+      { label: "Contract packaging", href: "/contract-packaging-services", icon: Package, desc: "We pack your product on our lines" },
+      { label: "Soap packing & wrapping", href: "/soap-packing-services", icon: Sparkles, desc: "Flow-wrap soap bars in pearlized BOPP" },
+      { label: "Flow wrap co-packing", href: "/flow-wrap-packing-services", icon: Layers, desc: "Pillow-pack, published specs & limits" },
+    ],
+  },
   {
     label: "Resources",
     icon: BookOpen,
@@ -137,14 +142,17 @@ const navGroups: NavGroup[] = [
       { label: "Indicative pricing", href: "/pricing", icon: CircleDollarSign, desc: "USD ranges, MOQ & Incoterms" },
       { label: "All buyer resources", href: "/guides", icon: BookOpen, desc: "Guides, glossary, comparisons & tools" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", icon: BookOpen, desc: "Definitive procurement reference" },
+      { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide", icon: BookOpen, desc: "How much desiccant per container" },
       { label: "Desiccant glossary", href: "/guides/desiccant-glossary", icon: Library, desc: "Desiccant terms A-Z" },
       { label: "Compare desiccants", href: "/compare", icon: Scale, desc: "Silica gel vs other desiccants" },
+      { label: "Compare suppliers", href: "/compare/suppliers", icon: Scale, desc: "DryGelWorld vs other suppliers" },
       { label: "Blog", href: "/blog", icon: Newspaper, desc: "Buyer guides & how-tos" },
       { label: "Videos", href: "/videos", icon: Video, desc: "Product & manufacturer footage" },
       { label: "Documents", href: "/documentation", icon: FileText, desc: "SDS, COA, DMF-free statement" },
+      { label: "Customer references", href: "/case-studies", icon: Shield, desc: "Selected silica gel supply references" },
       { label: "All calculators & tools", href: "/tools", icon: Calculator, desc: "Every sizing tool in one place" },
       { label: "Requirement calculator", href: "/tools/container-desiccant-calculator", icon: Calculator, desc: "Size desiccant per container" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", icon: Calculator, desc: "Grams needed by carton L x W x H" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator", icon: Calculator, desc: "Sachet count, weight, and cost by pieces, carton, or kg" },
     ],
   },
 ];
@@ -226,7 +234,7 @@ export function SiteHeader() {
         <div className={styles.header}>
           <Link className={styles.brand} href="/" aria-label="Dry Gel World home">
             <span className={styles.brandMark} aria-hidden="true">
-              {/* The company's actual mark — the blue/silver sphere. */}
+              {/* The company's actual mark, the blue/silver sphere. */}
               <Image
                 src="/images/brand/logo-ball.png"
                 alt=""
@@ -245,7 +253,7 @@ export function SiteHeader() {
           </Link>
 
           <nav className={styles.nav} aria-label="Primary">
-            {/* No desktop "Home" link — the logo is the home link. Dropping it
+            {/* No desktop "Home" link, the logo is the home link. Dropping it
                 keeps the six mega-menu groups from overflowing the nav column. */}
             {navGroups.map((group, index) => {
               const open = openMenu === group.label;
@@ -287,6 +295,7 @@ export function SiteHeader() {
                     aria-label={group.label}
                     style={{ borderTopColor: group.accent }}
                   >
+                    <div className={styles.dropdownScroll}>
                     <div className={styles.dropdownHead}>
                       <span
                         className={styles.dropdownHeadIcon}
@@ -348,6 +357,7 @@ export function SiteHeader() {
                         </div>
                       </div>
                     ) : null}
+                    </div>
                   </div>
                 </div>
               );
@@ -359,7 +369,7 @@ export function SiteHeader() {
               <HeaderSearch />
             </div>
 
-            <Link href="/contact" className={styles.navCta}>
+            <Link href="/request-a-quote" className={styles.navCta}>
               Request Quote
             </Link>
 
@@ -487,7 +497,7 @@ export function SiteHeader() {
             </div>
 
             <Link
-              href="/contact"
+              href="/request-a-quote"
               className={styles.mobileDrawerCta}
               onClick={() => setMobileOpen(false)}
             >

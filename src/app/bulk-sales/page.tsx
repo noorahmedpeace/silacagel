@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { PriceCalculator } from "@/components/price-calculator";
 import { priceGroups } from "@/lib/product-data";
 import shared from "../shared-page.module.css";
@@ -16,6 +17,19 @@ export const metadata: Metadata = {
 export default function BulkSalesPage() {
   return (
     <main className={shared.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Bulk Sales", href: "/bulk-sales" },
+            ]),
+          ),
+        }}
+      />
       <section className={shared.hero}>
         <span className={shared.kicker}>Bulk Sales</span>
         <h1>Export quote planning and procurement context in one place.</h1>
@@ -46,10 +60,12 @@ export default function BulkSalesPage() {
         <section className={styles.calculatorPanel}>
           <div className={styles.calculatorHead}>
             <span className={shared.kicker}>Estimator</span>
-            <h2>Procurement calculator</h2>
+            <h2 id="bulk-procurement-calculator">Procurement calculator</h2>
             <p>Use the same estimator here for a dedicated export planning view.</p>
           </div>
-          <PriceCalculator />
+          {/* This page already supplies the h2, so the widget hides its own and
+              borrows that heading for the region's accessible name. */}
+          <PriceCalculator hideHeading labelledBy="bulk-procurement-calculator" />
         </section>
       </section>
     </main>

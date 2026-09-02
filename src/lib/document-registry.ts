@@ -1,5 +1,5 @@
 /*
- * Document registry — single source of truth for the downloadable
+ * Document registry, single source of truth for the downloadable
  * documentation center (/documentation) modelled on how industrial suppliers
  * (e.g. Trelleborg) publish verifiable proof: real, openable PDFs grouped by
  * type, each with concrete metadata.
@@ -12,7 +12,14 @@
  * `available` to true.
  */
 
-export type DocumentType = "certificate" | "sds" | "coa" | "tds" | "spec" | "profile";
+export type DocumentType =
+  | "certificate"
+  | "declaration"
+  | "sds"
+  | "coa"
+  | "tds"
+  | "spec"
+  | "profile";
 
 export type DocEntry = {
   id: string;
@@ -40,6 +47,11 @@ export type DocGroup = {
 
 export const documentGroups: DocGroup[] = [
   { key: "certificate", label: "Certificates", blurb: "Third-party quality-management certification." },
+  {
+    key: "declaration",
+    label: "Supplier Declarations",
+    blurb: "Statements issued by the manufacturer in its own name. Not third-party certification.",
+  },
   { key: "sds", label: "Safety Data Sheets (SDS)", blurb: "Handling, storage, and transport safety data." },
   { key: "coa", label: "Certificates of Analysis (COA)", blurb: "Batch/material test results against a published standard." },
   { key: "tds", label: "Technical Data Sheets (TDS)", blurb: "Adsorption performance and physical properties." },
@@ -73,7 +85,7 @@ export const isoCertificate = {
   tradingAs: "DryGelWorld",
   awardedTo: "Kamran Enterprises (trading as DryGelWorld)",
   tradingBrandNote: "DryGelWorld is the trading brand of Kamran Enterprises.",
-  registeredAddress: "A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000, Pakistan",
+  registeredAddress: "Plot 59, ST 13/1, Sector 6B, North Karachi Industrial Area, Karachi, Pakistan",
   /** Real certificate PDF, committed to /public/documents/. */
   fileHref: "/documents/iso-9001-2015-drygelworld.pdf",
   fileAvailable: true,
@@ -128,6 +140,22 @@ export const documents: DocEntry[] = [
     appliesTo: "Industrial Dry Clay Desiccant",
   },
   {
+    id: "packaging-materials-declaration",
+    type: "declaration",
+    title: "Packaging & Materials Declaration",
+    description:
+      "Supplier declaration: sachet substrates supplied, desiccant material identities, the test reports held on file, and - stated plainly - the certifications this company does not hold.",
+    fileHref: "/documents/packaging-materials-declaration.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Reference", value: "DGW-PMD-2026-01" },
+      { label: "Issued", value: "29 Aug 2026" },
+      { label: "Issued by", value: "DryGelWorld (self-declared)" },
+    ],
+    appliesTo: "Silica gel and clay desiccant",
+  },
+  {
     id: "sds-silica-gel",
     type: "sds",
     title: "Silica Gel: Safety Data Sheet",
@@ -141,19 +169,71 @@ export const documents: DocEntry[] = [
     ],
     appliesTo: "All silica gel formats",
   },
+  // ── Material COAs ────────────────────────────────────────────────────────
+  // These are the SOURCE MILL's certificates, on the mill's letterhead, and the
+  // titles say so. That is the normal and correct document in this trade: the
+  // buyer wants the batch that was actually tested, not a re-typed copy. What
+  // would not be correct is letting a buyer download a Chinese mill's stamped
+  // certificate under a title implying we ran the tests ourselves. Bead stock is
+  // bought in and converted here; the About page already says so, and these
+  // titles keep the documentation page telling the same story.
   {
     id: "coa-white-bead-2-4mm",
     type: "coa",
-    title: "COA: White Silica Gel Bead, 2–4 mm",
-    description: "Material certificate of analysis against HG/T 2765.4-2005: SiO₂ ≥ 98%, bulk density, RH adsorption at 20/50/90%, loss on heating, pH, and specific resistance.",
+    title: "COA: White Silica Gel Bead, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill, against HG/T 2765.4-2005: SiO₂ ≥ 98%, bulk density, RH adsorption at 20/50/90%, loss on heating, pH, and specific resistance. Conversion, sachet filling, and packing are done at our Karachi facility.",
     fileHref: "/documents/coa-white-silica-gel-2-4mm.pdf",
     format: "PDF",
     available: true,
     meta: [
       { label: "Standard", value: "HG/T 2765.4-2005" },
       { label: "Size", value: "2–4 mm" },
+      { label: "Valid to", value: "Jul 2027" },
     ],
     appliesTo: "White non-indicating bead",
+  },
+  {
+    id: "coa-blue-bead-2-4mm",
+    type: "coa",
+    title: "COA: Blue Indicating Silica Gel Bead, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill, against HG/T 2765.4-2005: bulk density, RH adsorption at 20/35/50%, colour change point, and loss on heating. Blue indicating gel contains cobalt chloride and is not cobalt-free; the cobalt-free indicating option is the orange grade.",
+    fileHref: "/documents/coa-blue-indicating-silica-gel-2-4mm.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Standard", value: "HG/T 2765.4-2005" },
+      { label: "Size", value: "2–4 mm" },
+      { label: "Valid to", value: "Jan 2027" },
+    ],
+    appliesTo: "Blue indicating bead",
+  },
+  {
+    id: "coa-activated-clay-2-4mm",
+    type: "coa",
+    title: "COA: Activated Clay Desiccant, 2–4 mm (origin mill certificate)",
+    description: "Batch certificate of analysis from the source mill: qualified size ratio, bulk density, adsorption at 90% RH, loss on heating, and pH.",
+    fileHref: "/documents/coa-activated-clay-2-4mm.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "Size", value: "2–4 mm" },
+      { label: "HS code", value: "3824.9999" },
+    ],
+    appliesTo: "Activated clay desiccant",
+  },
+  {
+    id: "sds-activated-clay",
+    type: "sds",
+    title: "Activated Clay Desiccant: Safety Data Sheet",
+    description: "Composition (attapulgite clay ≥ 90%, CAS 12174-11-7; calcium chloride ≤ 10%, CAS 10043-52-4), hazards, first-aid, handling, and transport. Not classified as dangerous cargo. Notes that the material may contain trace crystalline silica.",
+    fileHref: "/documents/sds-activated-clay.pdf",
+    format: "PDF",
+    available: true,
+    meta: [
+      { label: "CAS", value: "12174-11-7" },
+      { label: "HS code", value: "3824.9999" },
+    ],
+    appliesTo: "Activated clay desiccant",
   },
   {
     id: "tds-silica-gel",
@@ -199,7 +279,7 @@ export const documents: DocEntry[] = [
     id: "company-profile",
     type: "profile",
     title: "DryGelWorld Company Profile & Product Catalogue",
-    description: "Company overview, manufacturing background since 1983, product range, and the industries served — with ISO 9001:2015, SDS, COA, and DMF-free documentation referenced throughout.",
+    description: "Company overview, manufacturing background since 1983, product range, and the industries served, with ISO 9001:2015, SDS, COA, and DMF-free documentation referenced throughout.",
     fileHref: "/documents/company-profile.pdf",
     format: "PDF",
     available: true,

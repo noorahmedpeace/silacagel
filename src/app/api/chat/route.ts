@@ -1,4 +1,4 @@
-// POST /api/chat — grounded, streamed answer from the DryGelWorld knowledge base.
+// POST /api/chat, grounded, streamed answer from the DryGelWorld knowledge base.
 // Same-origin with the site, so no CORS needed.
 import { after } from "next/server";
 import { SYSTEM_PROMPT, businessInfo } from "@/lib/drybot/prompt";
@@ -10,9 +10,33 @@ export const maxDuration = 60;
 
 type Msg = { role: string; content: string };
 
-// Cerebras — OpenAI-compatible (same request/stream shape), much higher free limits than Groq.
-const MODEL = process.env.CEREBRAS_MODEL || "gpt-oss-120b";
-const LLM_URL = "https://api.cerebras.ai/v1/chat/completions";
+// Two OpenAI-compatible providers, tried in order: Cerebras first (higher free
+// limits, stronger model), Groq second. Both keys are set in production.
+//
+// Why a list and not one URL: on 2026-09-02 Cerebras began answering every call
+// with 402 payment_required (free quota exhausted). With a single provider and
+// no fallback, every visitor who opened DryBot read "I'm having a brief
+// technical hiccup" - behind an HTTP 200, so nothing alerted. The chatbot is
+// the only floating element on every page; one vendor's quota must not take it
+// down. A provider that fails hands off to the next; only when all fail does
+// the visitor see the fallback line.
+type Provider = { name: string; url: string; model: string; key: string };
+const PROVIDERS: Provider[] = (
+  [
+    {
+      name: "cerebras",
+      url: "https://api.cerebras.ai/v1/chat/completions",
+      model: process.env.CEREBRAS_MODEL || "gpt-oss-120b",
+      key: process.env.CEREBRAS_API_KEY || "",
+    },
+    {
+      name: "groq",
+      url: "https://api.groq.com/openai/v1/chat/completions",
+      model: process.env.GROQ_MODEL || "llama-3.1-8b-instant",
+      key: process.env.GROQ_API_KEY || "",
+    },
+  ] as Provider[]
+).filter((p) => p.key.length > 0);
 
 // Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
 // and time-bounded so it never slows the chat. No-op if the env var is unset.
@@ -55,25 +79,25 @@ export async function POST(req: Request) {
   const sources = [...new Set(chunks.map((c) => c.url))];
   const context = [
     businessInfo(),
-    ...chunks.map((c, i) => `[Source ${i + 1} — ${c.url}]\n${c.text}`),
+    ...chunks.map((c, i) => `[Source ${i + 1}, ${c.url}]\n${c.text}`),
   ].join("\n\n");
   const userText =
-    "SOURCE DOCUMENTS FROM drygelworld.com — answer factual questions using ONLY these, and name the page(s) you used:\n\n" +
+    "SOURCE DOCUMENTS FROM drygelworld.com, answer factual questions using ONLY these, and name the page(s) you used:\n\n" +
     `${context}\n\n---\nVisitor question: ${last.content}`;
   const priorTurns = messages.slice(0, messages.length - 1).map((m) => ({
     role: m.role === "assistant" ? "assistant" : "user",
     content: typeof m.content === "string" ? m.content : "",
   }));
 
+  // `model` is added per provider at call time - each vendor names its own.
   const payload = {
-    model: MODEL,
     stream: true,
     temperature: 0.2,
     max_tokens: 2048,
     messages: [{ role: "system", content: SYSTEM_PROMPT }, ...priorTurns, { role: "user", content: userText }],
   };
 
-  // Log the conversation AFTER the response is sent — never block the chat on it.
+  // Log the conversation AFTER the response is sent, never block the chat on it.
   let logData: Parameters<typeof logConversation>[0] | null = null;
   let signalLogReady: () => void = () => {};
   const logReady = new Promise<void>((resolve) => {
@@ -87,36 +111,55 @@ export async function POST(req: Request) {
       const send = (o: unknown) => controller.enqueue(encoder.encode(`data: ${JSON.stringify(o)}\n\n`));
       try {
         let gres: Response | null = null;
-        for (let attempt = 0; ; attempt++) {
-          gres = await fetch(LLM_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${process.env.CEREBRAS_API_KEY || process.env.GROQ_API_KEY || ""}`,
-            },
-            body: JSON.stringify(payload),
-          });
-          if (gres.ok && gres.body) break;
-          const errText = await gres.text().catch(() => "");
-          // Label follows LLM_URL, not the legacy provider: the stale "Groq"
-          // prefix sent a debugging session hunting the wrong API key.
-          console.error("LLM error:", gres.status, errText);
-          if (gres.status === 429 && attempt < 2) {
-            const m = errText.match(/try again in ([0-9.]+)s/);
-            await new Promise((r) => setTimeout(r, m ? Math.min(6000, Math.ceil(parseFloat(m[1]) * 1000) + 300) : 3000));
-            continue;
+        let lastStatus = 0;
+        let served: Provider | null = null;
+        // Each provider gets the 429 back-off it always had; any other failure
+        // (402 quota, 401 key, 404 model, 5xx) hands straight to the next one.
+        outer: for (const p of PROVIDERS) {
+          for (let attempt = 0; ; attempt++) {
+            gres = await fetch(p.url, {
+              method: "POST",
+              headers: { "Content-Type": "application/json", Authorization: `Bearer ${p.key}` },
+              body: JSON.stringify({ ...payload, model: p.model }),
+            });
+            if (gres.ok && gres.body) {
+              served = p;
+              break outer;
+            }
+            lastStatus = gres.status;
+            const errText = await gres.text().catch(() => "");
+            // Provider name in the log line: a stale "Groq" prefix once sent a
+            // debugging session hunting the wrong API key.
+            console.error(`LLM error [${p.name} ${p.model}]:`, gres.status, errText);
+            if (gres.status === 429 && attempt < 2) {
+              const m = errText.match(/try again in ([0-9.]+)s/);
+              await new Promise((r) => setTimeout(r, m ? Math.min(6000, Math.ceil(parseFloat(m[1]) * 1000) + 300) : 3000));
+              continue;
+            }
+            break; // this provider is out for this request; try the next
           }
+        }
+        if (!served || !gres || !gres.body) {
           send({
             text:
-              gres.status === 429
-                ? "We're getting a lot of requests right now — please try again in a few seconds. Meanwhile you can reach our sales team on WhatsApp/phone +92 333 022 3337 or email sales@drygelworld.com."
+              lastStatus === 429
+                ? "We're getting a lot of requests right now, please try again in a few seconds. Meanwhile you can reach our sales team on WhatsApp/phone +92 333 022 3337 or email sales@drygelworld.com."
                 : "I'm having a brief technical hiccup. Please try again shortly, or contact sales@drygelworld.com / WhatsApp +92 333 022 3337.",
           });
           send({ done: true });
           controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-          // Log the question even when rate-limited, so tracking still works.
-          logData = { session, question: last.content, answer: gres.status === 429 ? "(rate-limited — fallback shown)" : "(error — fallback shown)", sources: [], fellBack: true };
+          // Log the question even when every provider failed, so tracking still works.
+          logData = {
+            session,
+            question: last.content,
+            answer: lastStatus === 429 ? "(rate-limited, fallback shown)" : `(error ${lastStatus || "no-provider"}, all providers failed)`,
+            sources: [],
+            fellBack: true,
+          };
           return; // finally closes the stream
+        }
+        if (served.name !== PROVIDERS[0]?.name) {
+          console.warn(`LLM served by fallback provider [${served.name}]`);
         }
 
         let answer = "";

@@ -1,0 +1,214 @@
+/* Additions to the homepage format cards. Everything structural - card shape,
+   shadows, badge, typography - still comes from page.module.css; this file only
+   adds the selection behaviour the cards did not previously have. */
+
+/* Explicit placement for all six cards. page.module.css positions the flagship
+   with `.formatCard:first-child`, which only works when exactly three cards are
+   rendered in showing order - with six in fixed source order it would pin the
+   wrong one. Every slot is therefore assigned by class instead. */
+.grid {
+  /* Exactly two rows on desktop, three on mobile. Without pinning them,
+     page.module.css's `grid-auto-rows: 1fr` invented a fourth row whenever a
+     card landed outside the template. */
+  grid-template-rows: 1fr 1fr;
+  grid-auto-rows: 0;
+}
+
+.card {
+  /* The cards carry a scroll-driven entry animation (`stgCard` on
+     .formatCard, via animation-timeline: view()) that is staggered by
+     nth-child. With six cards that stagger no longer maps to what is on
+     screen, and a second animation on the same property would fight the
+     cross-fade below. Selection is the interaction that matters here, so the
+     scroll-entry flourish gives way to it. */
+  animation: none !important;
+
+  /* The whole switch. Opacity carries it; the sub-pixel lift and the scale
+     stop it reading as a hard on/off, and 300ms is long enough to be seen as
+     motion without delaying the answer. */
+  opacity: 1;
+  transform: none;
+  /* NOT --ds-ease-out. That token is an expo curve, cubic-bezier(0.16, 1, 0.3,
+     1), which finishes ~85% of its travel in the first fifth of the duration -
+     ideal for a control answering a press, wrong for a cross-fade, where it
+     reads as a hard cut with a tail. Measured: opacity went 1 -> 0.14 in 55ms
+     of a 300ms transition. A symmetric ease spends the time where the eye can
+     see it. */
+  transition:
+    opacity 420ms cubic-bezier(0.42, 0, 0.58, 1),
+    transform 420ms cubic-bezier(0.42, 0, 0.58, 1);
+  will-change: opacity;
+}
+
+/* Desktop bento: tall flagship left, two stacked right.
+   Selectors are `.grid .card.slotX` (0,3,0) on purpose. page.module.css pins
+   the flagship with `.formatCard:first-child` (0,2,0), which outranks a lone
+   class - so with six cards in fixed source order, card 0 kept `grid-row: span
+   2` even when it had rotated into a small right-hand cell. That forced extra
+   rows and the panel height jumped between 790px and 1060px depending on which
+   tab was open. Measured, then fixed by out-ranking it rather than hoping
+   stylesheet order would decide. */
+.grid .card.slotFlagship {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.grid .card.slotA {
+  grid-column: 2;
+  grid-row: 1 / span 1;
+}
+
+.grid .card.slotB {
+  grid-column: 2;
+  grid-row: 2 / span 1;
+}
+
+/* Held offstage: stacked into the flagship's cell so they never add rows, fully
+   transparent, and inert to the pointer. They stay in the DOM on purpose -
+   that is what makes the switch instant, because their images are already
+   decoded and nothing has to be fetched when a tab is pressed. */
+.slotHidden {
+  opacity: 0;
+  transform: scale(0.985);
+  pointer-events: none;
+  /* Not visibility:hidden - that would let the browser skip decoding the image
+     and reintroduce the pop this whole approach exists to remove. */
+}
+
+/* Where a card waits when it is neither showing nor just-left: stacked into the
+   flagship cell so it never adds a row. Cards that ARE just-left keep their old
+   slot class instead, so they fade out where the eye last saw them. */
+.grid .card.slotPark {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-rows: auto auto auto;
+    grid-auto-rows: 0;
+  }
+
+  .grid .card.slotFlagship {
+    grid-column: 1;
+    grid-row: 1 / span 1;
+  }
+
+  .grid .card.slotA {
+    grid-column: 1;
+    grid-row: 2 / span 1;
+  }
+
+  .grid .card.slotB {
+    grid-column: 1;
+    grid-row: 3 / span 1;
+  }
+
+  .grid .card.slotPark {
+    grid-column: 1;
+    grid-row: 1 / span 1;
+  }
+}
+
+/* ── Tab strip ───────────────────────────────────────────────────────────── */
+
+.tab {
+  /* Matches the anchors this replaced: same padding, radius, hairline and
+     centring, so the rail looks identical until one is selected. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 44px floor - these are the primary way into six product pages on a phone. */
+  min-height: 44px;
+  padding: 12px 10px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight, 12px);
+  background: var(--ds-surface);
+  color: var(--ds-text);
+  font-family: var(--font-display), var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  text-align: center;
+  cursor: pointer;
+  transition:
+    background var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tab:hover {
+    border-color: rgba(45, 91, 255, 0.34);
+    background: var(--ds-surface-tint);
+  }
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* The active state has to survive being read at a glance, so it carries three
+   independent signals - fill, border, and weight - not colour alone. */
+.tabActive {
+  background: var(--ds-brand-soft);
+  border-color: var(--ds-brand);
+  color: var(--ds-brand-deep);
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px var(--ds-brand);
+}
+
+@media (forced-colors: active) {
+  /* Background and shadow are stripped in forced-colours, so selection has to
+     be carried by something that survives. */
+  .tabActive {
+    border-width: 3px;
+  }
+}
+
+/* ── Mobile: one scrolling row, never a ragged wrap ──────────────────────── */
+
+@media (max-width: 900px) {
+  .rail {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Padding rather than margin so the first and last chips clear the page
+       edge while the scroll container still spans it. */
+    padding: 2px 2px 8px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* Contains its own overflow: without this the row widens the document and
+       the whole page scrolls sideways. */
+    max-width: 100%;
+  }
+
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 auto;
+    padding: 12px 16px;
+    scroll-snap-align: center;
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .slotHidden {
+    transform: none;
+  }
+
+  .tab {
+    transition: none;
+  }
+}

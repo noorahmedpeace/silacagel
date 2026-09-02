@@ -85,7 +85,7 @@
   gap: 8px;
   min-height: 46px;
   padding: 0 18px;
-  border-radius: 999px;
+  border-radius: var(--ds-cta-radius);
   color: var(--ink);
   background: linear-gradient(135deg, #ffffff 0%, #d8dadd 100%);
   border: 1px solid rgba(191, 193, 194, 0.72);
@@ -228,7 +228,7 @@
   background: var(--cta-gradient);
   color: white;
   padding: 18px 30px;
-  border-radius: 18px;
+  border-radius: var(--ds-cta-radius);
   font-weight: 700;
   font-size: 0.96rem;
   letter-spacing: -0.01em;
@@ -259,23 +259,80 @@
   transform: translateX(280%) rotate(18deg);
 }
 
+/* Secondary CTA, light surface.
+ *
+ * This was white-on-white: a 0.94-alpha white fill with a 0.72-alpha white
+ * border, sitting on the near-white section gradient, with no shadow. Measured
+ * in the browser, nothing separated it from the page, which is why it read as a
+ * line of text rather than a control. Both places it is used - "See all 50+
+ * customers" and "Read the case studies" - are on light backgrounds, so the
+ * white-on-dark treatment it carried was simply wrong rather than misapplied.
+ *
+ * Definition now comes from a brand hairline and a brand-tinted lift, not from
+ * the fill. Text stays near-black for contrast; cobalt is the edge and the
+ * arrow, so the accent points without shouting. */
 .secondaryCta {
   position: relative;
-  background: rgba(255, 255, 255, 0.14);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 18px 24px;
-  border-radius: 18px;
-  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--ds-surface);
+  border: 1px solid rgba(45, 91, 255, 0.24);
+  padding: 16px 26px;
+  border-radius: var(--ds-cta-radius);
+  font-weight: var(--ds-cta-weight);
   font-size: 0.95rem;
-  color: white;
-  box-shadow: none;
-  transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+  color: var(--ds-text);
+  box-shadow:
+    0 1px 2px rgba(16, 33, 61, 0.05),
+    0 10px 24px -16px rgba(45, 91, 255, 0.5);
+  transition:
+    transform var(--ds-dur-base) var(--ds-ease-out),
+    border-color var(--ds-dur-base) var(--ds-ease-out),
+    box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
-.secondaryCta:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.28);
-  transform: translateY(-2px);
+/* The arrow is the whole micro-interaction: it travels on hover, which reads as
+   "this goes somewhere" rather than as decoration. */
+.secondaryCta svg {
+  color: var(--ds-brand);
+  transition: transform var(--ds-dur-base) var(--ds-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .secondaryCta:hover {
+    transform: translateY(-2px);
+    border-color: rgba(45, 91, 255, 0.55);
+    box-shadow:
+      0 2px 4px rgba(16, 33, 61, 0.06),
+      0 18px 34px -18px rgba(45, 91, 255, 0.62);
+  }
+  .secondaryCta:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+.secondaryCta:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 3px;
+}
+
+.secondaryCta:active {
+  transform: translateY(0) scale(0.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secondaryCta,
+  .secondaryCta svg {
+    transition: none;
+  }
+  .secondaryCta:hover,
+  .secondaryCta:active {
+    transform: none;
+  }
+  .secondaryCta:hover svg {
+    transform: none;
+  }
 }
 
 .heroLabVisual {
@@ -1605,6 +1662,48 @@
   margin-right: auto;
 }
 
+.customerReferenceSection {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  gap: 28px;
+  align-items: center;
+  padding: 36px 40px;
+  border: 1px solid rgba(37, 52, 77, 0.08);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #f7faff, #ffffff 58%, #f4f7fb);
+  box-shadow: 0 24px 58px -44px rgba(13, 27, 42, 0.26);
+}
+
+.customerReferenceIntro .kicker {
+  color: #34507a;
+  background: rgba(45, 91, 255, 0.08);
+  border-color: rgba(45, 91, 255, 0.14);
+}
+
+.customerReferenceIntro h2 {
+  max-width: 15ch;
+  margin: 12px 0 10px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.85rem);
+  line-height: 1.06;
+}
+
+.customerReferenceIntro > p:not(.kicker) {
+  max-width: 42ch;
+  margin-bottom: 22px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .customerReferenceSection {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding: 30px 24px;
+  }
+}
+
 .applicationCard {
   position: relative;
   background: rgba(255, 255, 255, 0.84);
@@ -2321,10 +2420,18 @@
   color: rgba(255, 255, 255, 0.88);
 }
 
+/* This block was a later "sharp corners" pass that quietly overrode the rounded
+ * definitions above - which is why .secondaryCta shipped at 4px while the rest
+ * of the site shipped pills, and why the same class changed shape depending on
+ * which rule won. Both now point at the one CTA shape.
+ *
+ * --cta-gradient starts at #ff8154, which is 2.46:1 under white text. --ds-grad-cta
+ * is the same coral run darkened and already clears AA. .primaryCta is live on
+ * /contract-packaging-services and /flow-wrap-packing-services. */
 .primaryCta,
 .ctaBtn {
-  border-radius: 4px;
-  background: var(--cta-gradient);
+  border-radius: var(--ds-cta-radius);
+  background: var(--ds-grad-cta);
   color: #ffffff;
   box-shadow: 0 18px 38px -22px rgba(255, 107, 61, 0.68);
 }
@@ -2334,17 +2441,9 @@
   box-shadow: 0 22px 42px -22px rgba(255, 107, 61, 0.78);
 }
 
-.secondaryCta {
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--ink);
-  border-color: rgba(255, 255, 255, 0.72);
-}
-
-.secondaryCta:hover {
-  background: #ffffff;
-  border-color: #ffffff;
-}
+/* The white-on-dark override that used to live here is gone. It was written for
+   a dark hero and then applied globally, which is what turned this control white
+   on a white section. The rule above is the single definition now. */
 
 .heroProofLine {
   border-radius: 4px;
@@ -2694,9 +2793,12 @@
 
 .priceGrid {
   grid-template-columns: 1fr;
-  grid-auto-rows: 1fr;
+  /* Cards size to their content. `grid-auto-rows: 1fr` + `height: 100%` forced
+     all three to the tallest one's height, which was invisible while every card
+     was truncated to four rows. Now that the full 7 / 6 / 10 formats render, it
+     padded the two shorter cards with a block of dead space. */
+  grid-auto-rows: min-content;
   gap: 12px;
-  height: 100%;
 }
 
 .priceCard {
@@ -4759,11 +4861,7 @@
       border-color var(--ds-dur-base) var(--ds-ease-out),
       box-shadow var(--ds-dur-base) var(--ds-ease-out);
   }
-  .procurementFlowCard:hover {
-    transform: translateY(-6px);
-    border-color: rgba(45, 91, 255, 0.35);
-    box-shadow: var(--ds-shadow-card);
-  }
+  /* procurement flow cards are informational steps - hover lift removed (card rule, 8 Aug) */
 
   /* Unify the remaining card families on the layered shadow + a slightly
    * more confident lift, without disturbing their per-card borders/accents. */
@@ -4960,11 +5058,11 @@
   align-items: center;
   gap: 9px;
   padding: 16px 26px;
-  border-radius: 12px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #fff;
   font-family: var(--font-display), var(--font-body);
-  font-weight: 600;
+  font-weight: var(--ds-cta-weight);
   font-size: 1rem;
   letter-spacing: -0.01em;
   box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);
@@ -4981,7 +5079,7 @@
   align-items: center;
   gap: 8px;
   padding: 16px 24px;
-  border-radius: 12px;
+  border-radius: var(--ds-cta-radius);
   background: rgba(20, 26, 44, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #fff;
@@ -5277,7 +5375,7 @@
   width: fit-content;
   margin-top: 18px;
   padding: 13px 22px;
-  border-radius: 11px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #fff;
   font-family: var(--font-display), var(--font-body);
@@ -5893,127 +5991,174 @@
   margin: 0;
 }
 
+/* Editorial image-overlay bento: full-bleed cover photo, dark bottom scrim,
+   text set over the image. One tall flagship tile + two stacked tiles.
+   Real photography + depth = premium, not the flat three-equal-card AI look. */
 .formatGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2vw, 24px);
+  grid-template-columns: 1.4fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: clamp(14px, 1.6vw, 20px);
 }
 
 .formatCard {
+  position: relative;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--ds-hairline);
-  border-radius: 16px;
-  background: var(--ds-surface);
-  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
+  justify-content: flex-end;
+  min-height: 250px;
+  border-radius: 20px;
   overflow: hidden;
   text-decoration: none;
-  color: inherit;
+  color: #fff;
+  box-shadow:
+    0 24px 50px -30px rgba(10, 14, 26, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
   transition: transform var(--ds-dur-base) var(--ds-ease-out),
-    border-color var(--ds-dur-base) var(--ds-ease-out),
     box-shadow var(--ds-dur-base) var(--ds-ease-out);
 }
 
+/* Flagship spans both rows and reads larger. */
+.formatCard:first-child {
+  grid-row: span 2;
+  min-height: 100%;
+}
+
+/* Background image layer. */
 .formatMedia {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   display: block;
-  aspect-ratio: 1 / 1;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 24% 18%, rgba(45, 91, 255, 0.1), transparent 44%),
-    linear-gradient(180deg, #ffffff 0%, var(--ds-surface-tint) 100%);
+  background: #0a0e1a;
 }
 
 .formatImage {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: clamp(16px, 2vw, 24px);
-  transition: transform var(--ds-dur-slow) var(--ds-ease-out);
+  padding: 0;
+  transition: transform 900ms var(--ds-ease-out);
 }
 
-/* Soft foot scrim keeps the stat chip legible on bright photos. */
-.formatMedia::after {
+/* Dark bottom scrim so overlaid text always clears WCAG AA on any photo. */
+.formatCard::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 42%);
+  z-index: 1;
   pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(6, 9, 18, 0.9) 0%,
+    rgba(6, 9, 18, 0.55) 34%,
+    rgba(6, 9, 18, 0.12) 62%,
+    rgba(6, 9, 18, 0.02) 100%
+  );
+}
+
+/* The old light foot-scrim is not needed; the dark scrim handles legibility. */
+.formatMedia::after {
+  content: none;
 }
 
 .formatStat {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  z-index: 1;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
   padding: 7px 12px;
   border-radius: 999px;
-  background: rgba(10, 14, 26, 0.62);
-  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   color: #ffffff;
   font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .formatBody {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  flex: 1;
   gap: 8px;
-  padding: 22px 22px 20px;
+  padding: 22px;
 }
 
 .formatLabel {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
   font-family: var(--font-mono);
   font-size: 0.66rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--ds-brand-deep);
-}
-
-.formatLabel::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--ds-brand);
-  box-shadow: 0 0 0 3px rgba(45, 91, 255, 0.14);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .formatCard h3 {
   margin: 0;
-  font-size: clamp(1.2rem, 1.5vw, 1.42rem);
+  font-size: clamp(1.15rem, 1.4vw, 1.4rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--ds-text);
+  color: #ffffff;
 }
 
 .formatCard p {
   margin: 0;
-  flex: 1;
-  color: var(--ds-text-muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Flagship: larger display type and a touch more room. */
+.formatCard:first-child h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2.25rem);
+  line-height: 1.05;
+}
+
+.formatCard:first-child .formatBody {
+  gap: 10px;
+  padding: clamp(24px, 2.4vw, 34px);
+}
+
+.formatCard:first-child p {
+  font-size: 0.98rem;
+  max-width: 42ch;
+}
+
+/* Hover-reveal: on hover-capable devices the description + Explore link are
+   collapsed by default (image-first, minimal text) and expand on hover. The
+   grid 0fr->1fr trick animates height smoothly. On touch devices (no hover)
+   the block below stays open, so mobile always shows the full text. */
+.formatReveal {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.formatRevealInner {
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .formatLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  margin-top: 10px;
-  color: var(--ds-brand);
+  margin-top: 4px;
+  color: #ffffff;
   font-family: var(--font-display), var(--font-body);
   font-size: 0.9rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  transition: color var(--ds-dur-quick) var(--ds-ease),
-    gap var(--ds-dur-quick) var(--ds-ease);
+  transition: gap var(--ds-dur-quick) var(--ds-ease);
 }
 
 .formatLink svg {
@@ -6023,18 +6168,39 @@
 @media (hover: hover) and (pointer: fine) {
   .formatCard:hover {
     transform: translateY(-6px);
-    border-color: rgba(45, 91, 255, 0.4);
-    box-shadow: var(--ds-shadow-card);
+    box-shadow:
+      0 34px 66px -30px rgba(10, 14, 26, 0.62),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.16);
   }
 
-  .formatCard:hover .formatImage { transform: none; }
+  .formatCard:hover .formatImage { transform: scale(1.06); }
 
-  .formatCard:hover .formatLink {
-    color: var(--ds-brand-deep);
+  .formatCard:hover .formatLink { gap: 12px; }
+
+  .formatCard:hover .formatLink svg { transform: translateX(4px); }
+
+  /* Collapsed by default, revealed on hover. */
+  .formatReveal {
+    grid-template-rows: 0fr;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+      grid-template-rows 0.42s var(--ds-ease-out),
+      opacity 0.3s var(--ds-ease),
+      margin-top 0.42s var(--ds-ease-out);
   }
 
-  .formatCard:hover .formatLink svg {
-    transform: translateX(4px);
+  .formatCard:hover .formatReveal,
+  .formatCard:focus-within .formatReveal {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formatReveal {
+    transition: none;
   }
 }
 
@@ -6056,8 +6222,14 @@
     grid-template-columns: 1fr;
   }
 
-  .formatMedia {
-    aspect-ratio: 1 / 1;
+  /* Single column: every tile keeps the overlay treatment, flagship taller. */
+  .formatCard {
+    min-height: 240px;
+  }
+
+  .formatCard:first-child {
+    grid-row: auto;
+    min-height: 320px;
   }
 }
 
@@ -6611,4 +6783,25 @@
   .trackCard:hover .trackProof svg {
     transform: none;
   }
+}
+
+/* Sits under the format tab strip. The domestic-supply link used to be a
+   seventh chip in the category rail, which made it look like a product format
+   it is not - and once the rail became a six-tab control it had nowhere to
+   live. A sentence is more honest about what it is. */
+.categoryAside {
+  margin: 14px 0 0;
+  font-size: 0.9rem;
+  color: var(--ds-text-muted);
+}
+
+.categoryAside a {
+  color: var(--ds-brand-deep);
+  font-weight: 650;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(45, 91, 255, 0.3);
+}
+
+.categoryAside a:hover {
+  border-bottom-color: currentColor;
 }

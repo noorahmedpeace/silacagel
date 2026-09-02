@@ -101,7 +101,7 @@
   align-self: flex-start;
   display: inline-flex;
   padding: 7px 14px;
-  background: var(--ds-accent);
+  background: var(--ds-accent-on-light);
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -177,7 +177,7 @@
   padding: 15px 26px;
   font-size: 15px;
   font-weight: 700;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   text-decoration: none;
   transition: transform var(--ds-dur-quick) var(--ds-ease),
     background-color var(--ds-dur-quick) var(--ds-ease),
@@ -346,6 +346,14 @@
   position: relative;
 }
 
+/* A short landscape hero photo would float to the vertical middle against the
+   tall text column (align-items: center). Pin it to the top so it sits beside
+   the heading. (Sticky is not usable here: the hero uses overflow:hidden for
+   its rounded background, which disables position:sticky on descendants.) */
+.visualTop {
+  align-self: start;
+}
+
 .imageWrap {
   position: relative;
   aspect-ratio: 1 / 1;
@@ -367,6 +375,16 @@
 .imageContain {
   object-fit: contain;
   background: #fff;
+}
+
+/* Wide hero for real lifestyle photography: fill the frame edge-to-edge. */
+.imageWrapWide {
+  aspect-ratio: 1080 / 629;
+}
+.imageCover {
+  object-fit: cover;
+  object-position: center;
+  padding: 0;
 }
 
 .gallerySection {
@@ -395,6 +413,17 @@
   position: relative;
   aspect-ratio: 1 / 1;
   background: var(--ds-surface-tint);
+}
+
+/* A lone gallery photo shouldn't read as a small stray thumbnail: give it a
+   centred, landscape card instead of one narrow 1/5 grid cell. */
+.galleryCard:only-child {
+  grid-column: 1 / -1;
+  max-width: 640px;
+  margin-inline: auto;
+}
+.galleryCard:only-child .galleryImageWrap {
+  aspect-ratio: 16 / 10;
 }
 
 .galleryCard figcaption {
@@ -647,6 +676,22 @@
   font-weight: 700;
   letter-spacing: 0.04em;
   border-radius: var(--ds-radius-pill);
+  transition: background 0.15s ease;
+}
+
+/* The pill is a real link: make its whole area clickable (fill the li's padding
+   box) and give it a hover so the affordance matches the behaviour. */
+.badgeLink {
+  display: inline-flex;
+  align-items: center;
+  margin: -6px -12px;
+  padding: 6px 12px;
+  border-radius: var(--ds-radius-pill);
+  color: inherit;
+  text-decoration: none;
+}
+.badgeList li:hover {
+  background: color-mix(in srgb, var(--ds-brand) 22%, transparent);
 }
 
 .linkList {
@@ -674,6 +719,71 @@
   .textAction:hover {
     color: var(--ds-brand-deep);
     gap: 10px;
+  }
+}
+
+/* Un-gated technical-document downloads on the product page. Full-width rows
+   so the document title is legible and the download affordance is obvious. */
+.docDownloadList {
+  list-style: none;
+  margin: 4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.docDownloadLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-tight);
+  background: var(--ds-surface-tint);
+  color: var(--ds-text);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  transition:
+    border-color var(--ds-dur-quick) var(--ds-ease),
+    background var(--ds-dur-quick) var(--ds-ease),
+    transform var(--ds-dur-base) var(--ds-ease);
+}
+
+/* The first icon (file) sits at the start; the title flexes; the download
+   icon is pushed to the trailing edge. */
+.docDownloadLink span {
+  flex: 1;
+}
+
+.docDownloadLink svg {
+  flex: 0 0 auto;
+  color: var(--ds-brand);
+}
+
+.docNote {
+  margin: 8px 0 0;
+  color: var(--ds-text-muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .docDownloadLink:hover {
+    border-color: var(--ds-brand);
+    background: var(--ds-brand-soft);
+    transform: translateY(-1px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .docDownloadLink {
+    transition: none;
+  }
+  .docDownloadLink:hover {
+    transform: none;
   }
 }
 

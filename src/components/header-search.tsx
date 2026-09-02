@@ -3,7 +3,7 @@
 // Normal, always-visible header search. Tapping it opens a frosted-glass
 // suggestions dropdown (popular pages first, then live-filtered results as you
 // type). Press "/" anywhere to focus it. Backed by a small curated index of the
-// site's real pages — a fast finder, not a full search engine.
+// site's real pages, a fast finder, not a full search engine.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search, ArrowRight } from "lucide-react";
@@ -19,6 +19,7 @@ const SEARCH_INDEX: Entry[] = [
   { label: "Calcium chloride container strips", href: "/products/calcium-chloride-container-strip", group: "Product", keywords: "high uptake cargo" },
   { label: "Calcium chloride bulk", href: "/products/calcium-chloride-container-bulk", group: "Product", keywords: "bags cargo moisture" },
   { label: "Dry clay desiccant", href: "/products/dry-clay-desiccant", group: "Product", keywords: "bentonite cost tier" },
+  { label: "Humidity indicator cards", href: "/products/humidity-indicator-cards", group: "Product", keywords: "hic rh reversible cobalt free msd jedec mil dry pack" },
   { label: "Nitrile gloves", href: "/products/powder-free-blue-nitrile-gloves", group: "Product", keywords: "ppe examination" },
   { label: "Hair nets & beard covers", href: "/products/hair-nets", group: "Product", keywords: "ppe bouffant" },
   { label: "All products", href: "/products", group: "Product", keywords: "range catalogue" },
@@ -27,11 +28,13 @@ const SEARCH_INDEX: Entry[] = [
   { label: "Flow wrap packing services", href: "/flow-wrap-packing-services", group: "Service", keywords: "pillow pack hffs" },
   { label: "Private label desiccants", href: "/private-label", group: "Service", keywords: "oem branding" },
   { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator", group: "Tool", keywords: "dosage how much sizing" },
-  { label: "Moisture load calculator", href: "/tools/moisture-load-calculator", group: "Tool", keywords: "grams carton" },
+  { label: "Silica gel calculator", href: "/tools/silica-gel-calculator", group: "Tool", keywords: "quantity grams carton sachet how much" },
   { label: "All calculators & tools", href: "/tools", group: "Tool" },
   { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide", group: "Guide", keywords: "procurement reference" },
+  { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide", group: "Guide", keywords: "how much desiccant container quantity dosage strips bags sachets" },
   { label: "Desiccant glossary", href: "/guides/desiccant-glossary", group: "Guide", keywords: "terms definitions" },
-  { label: "Compare desiccants", href: "/compare", group: "Guide", keywords: "silica gel vs clay calcium chloride" },
+  { label: "Compare desiccants", href: "/compare", group: "Guide", keywords: "silica gel vs clay calcium chloride molecular sieve" },
+  { label: "Compare suppliers", href: "/compare/suppliers", group: "Guide", keywords: "drygelworld vs clariant grace absortech supplier comparison" },
   { label: "Blog", href: "/blog", group: "Guide" },
   { label: "Documentation (SDS, COA, ISO)", href: "/documentation", group: "Doc", keywords: "sds coa certificate dmf-free" },
   { label: "Certifications", href: "/certifications", group: "Doc", keywords: "iso 9001" },
@@ -177,7 +180,7 @@ export function HeaderSearch({ variant = "bar" }: { variant?: "bar" | "block" })
         </ul>
       ) : null}
       {open && term && !results.length ? (
-        <div className={styles.noResults}>No matches — try “sachet”, “soap”, “calculator”, or “SDS”.</div>
+        <div className={styles.noResults}>No matches, try “sachet”, “soap”, “calculator”, or “SDS”.</div>
       ) : null}
     </div>
   );

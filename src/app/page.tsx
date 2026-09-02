@@ -2,15 +2,17 @@ import type { Metadata } from "next";
 import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
+import { totalCustomersSupplied } from "@/lib/customer-references";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
+import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
-import {
-  DeferredPriceCalculator,
-  DeferredQuoteForm,
-} from "@/components/deferred-home-widgets";
+import { FormatShowcase } from "@/components/format-showcase";
+import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
+import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
+import { HomeQuoteEstimator } from "@/components/home-quote-estimator";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
@@ -29,17 +31,10 @@ import {
   ArrowRight,
   FileCheck2,
   Globe,
-  MessageCircle,
   ShieldCheck,
   PackageCheck,
   Truck,
-  Cpu,
-  Warehouse,
 } from "lucide-react";
-import {
-  priceGroups,
-  whatsappNumber,
-} from "@/lib/product-data";
 import { seoImages } from "@/lib/seo-images";
 import { defaultSeoImage } from "@/lib/seo";
 import styles from "./page.module.css";
@@ -71,21 +66,21 @@ export const metadata: Metadata = {
 const trustSignalsArray = [
   {
     icon: PackageCheck,
-    title: "0.5g to 1kg supply range",
-    label: "Formats",
-    href: "/guides/silica-gel-buyer-guide",
+    title: "0.5g to 1kg sachet formats",
+    label: "Full Range",
+    href: "/products",
   },
   {
     icon: Globe,
-    title: "Export quotes for global buyers",
-    label: "Quoting",
-    href: "/blog/silica-gel-bulk-pricing-factors-for-exporters",
+    title: "Direct FOB / CIF export desk",
+    label: "Global Supply",
+    href: "/export",
   },
   {
     icon: ShieldCheck,
-    title: "Technical docs on request",
-    label: "Documents",
-    href: "/documentation",
+    title: "ISO 9001:2015 & DMF-free",
+    label: "Certified",
+    href: "/certifications",
   },
 ];
 
@@ -119,42 +114,7 @@ const procurementFlow = [
   },
 ];
 
-const categoryLanes = [
-  { label: "Silica gel packets", href: "/silica-gel-packets" },
-  { label: "1g sachets", href: "/1g-silica-gel-sachets" },
-  { label: "Paper sachets", href: "/products/paper-sachets" },
-  { label: "Indicating gel", href: "/orange-silica-gel-supplier" },
-  { label: "Container strips", href: "/container-desiccant-strips" },
-  { label: "Bulk beads", href: "/bulk-silica-gel-desiccant" },
-  { label: "Dispensers", href: "/dispensers" },
-];
 
-const industrialBentoCards = [
-  {
-    title: "White Non-Indicating",
-    label: "Bulk Supply",
-    text: "Clean white silica gel sachets for cartons, electronics, leather, and repeat export packaging programs.",
-    image: seoImages.silicaGelSachets.src,
-    href: "/products/retail-sachets",
-    stat: "0.5g-20g",
-  },
-  {
-    title: "Orange / Blue Indicating",
-    label: "RH Monitoring",
-    text: "Visual moisture-state support for teams that need faster humidity checks across storage and lab workflows.",
-    image: seoImages.desiccantSizing.src,
-    href: "/orange-silica-gel-supplier",
-    stat: "RH signal",
-  },
-  {
-    title: "Global Logistics",
-    label: "190+ Countries",
-    text: "Cargo strips and high-capacity formats for long-haul shipments, warehouses, pallets, and container routes.",
-    image: seoImages.containerDesiccant.src,
-    href: "/products/container-strips",
-    stat: "FOB / CIF",
-  },
-];
 
 const pricingHighlights = [
   "MOQ and volume guidance",
@@ -200,7 +160,7 @@ const scrollyIndustries = [
   },
 ];
 
-// Honest track record: only verified, provable facts — each card links to the
+// Honest track record: only verified, provable facts, each card links to the
 // page that documents the claim. No invented customers or persona quotes.
 const trackRecord = [
   {
@@ -231,7 +191,7 @@ const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
 // emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
 // downloads the desktop crop (and vice-versa), starving the real LCP resources
 // (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
-// our own media-scoped preloads below — exactly one hero image per viewport.
+// our own media-scoped preloads below, exactly one hero image per viewport.
 const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
 const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
 const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
@@ -247,7 +207,7 @@ export default function Home() {
                 near-black cobalt field with a drifting aurora and a fine
                 perspective grid - moody, engineered, premium. */}
             {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
-                desktop only the desktop crop — React 19 hoists these to <head>. */}
+                desktop only the desktop crop, React 19 hoists these to <head>. */}
             <link
               rel="preload"
               as="image"
@@ -295,12 +255,12 @@ export default function Home() {
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
-                <Link href="/buy-silica-gel" className={styles.heroXPrimary}>
-                  Get bulk pricing
+                <Link href="/request-a-quote" className={styles.heroXPrimary}>
+                  Request Export Quote
                   <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
-                <Link href="/products" className={styles.heroXGhost}>
-                  Explore products
+                <Link href="/samples" className={styles.heroXGhost}>
+                  Request Free Samples
                 </Link>
               </div>
 
@@ -324,8 +284,40 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Named customers lead, self-reported totals follow. A buyer can
+              verify GSK or Lucky Textile; they cannot verify a round number,
+              so the checkable proof carries the first impression. */}
+          <Reveal direction="up">
+            <section className={styles.customerReferenceSection} aria-labelledby="customer-reference-title">
+              <div className={styles.customerReferenceIntro}>
+                {/* "Trusted by" implies these companies vouch for us. They have
+                    bought from us; that is a supply record, not an endorsement,
+                    and the stronger claim is the one that is checkable. */}
+                <p className={styles.kicker}>Customer Supply References</p>
+                <h2 id="customer-reference-title">Supplying pharma, textile and export packaging.</h2>
+                <p>
+                  Desiccant supply for pharmaceutical, textile, medical and industrial packaging operations.
+                </p>
+                {/* Points at /reviews, not /case-studies. The label always said
+                    "customer references" while the destination was the anonymous
+                    case studies, which name nobody. /reviews is the page that
+                    actually lists them, and the count belongs in the label: a
+                    number is the reason to tap. */}
+                <Link href="/reviews" className={styles.secondaryCta}>
+                  See all {totalCustomersSupplied}+ customers
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
+              </div>
+              <CustomerReferenceMarquee compact />
+            </section>
+          </Reveal>
+
           <Reveal direction="up">
             <TrustBand />
+          </Reveal>
+
+          <Reveal direction="up">
+            <CobaltFreeBand />
           </Reveal>
 
           <Reveal direction="up">
@@ -386,40 +378,18 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className={styles.formatGrid}>
-                {industrialBentoCards.map((card) => (
-                  <Link href={card.href} className={styles.formatCard} key={card.title}>
-                    <span className={styles.formatMedia}>
-                      <Image
-                        src={card.image}
-                        alt={`${card.title} silica gel desiccant product format for export buyers`}
-                        title={`${card.title} visual`}
-                        fill
-                        className={styles.formatImage}
-                        sizes="(max-width: 900px) 100vw, 30vw"
-                      />
-                      <span className={styles.formatStat}>{card.stat}</span>
-                    </span>
-                    <span className={styles.formatBody}>
-                      <span className={styles.formatLabel}>{card.label}</span>
-                      <h3>{card.title}</h3>
-                      <p>{card.text}</p>
-                      <span className={styles.formatLink}>
-                        Explore
-                        <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
-                      </span>
-                    </span>
-                  </Link>
-                ))}
-              </div>
+              {/* The six category links used to leave the page on tap. They are
+                  now a tab strip that re-composes the bento in place; the SEO
+                  destinations are still reached, by the card CTAs. */}
+              <FormatShowcase />
 
-              <div className={styles.categoryRail} aria-label="Core product category landing pages">
-                {categoryLanes.map((item) => (
-                  <Link key={item.label} href={item.href}>
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
+              {/* Kept as a real link, outside the tab strip. This is the
+                  homepage's only in-content path to the domestic supplier page
+                  and it is not one of the six export formats. */}
+              <p className={styles.categoryAside}>
+                Buying inside Pakistan?{" "}
+                <Link href="/silica-gel-manufacturer-pakistan">Silica gel supply in Pakistan</Link>
+              </p>
             </section>
           </Reveal>
 
@@ -453,73 +423,16 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className={styles.pricingLayout}>
-                <div className={styles.priceGrid}>
-                  {priceGroups.map((group) => (
-                    <article key={group.title} className={styles.priceCard}>
-                      <span className={styles.priceNote}>{group.note}</span>
-                      <h3>{group.title}</h3>
-                      <div className={styles.priceList}>
-                        {group.items.slice(0, 4).map((item) => (
-                          <div key={`${group.title}-${item.label}`} className={styles.priceRow}>
-                            <strong>{item.label}</strong>
-                            <span className={styles.priceRowActions}>
-                              <Link
-                                href={`/request-a-quote?product=${encodeURIComponent(`Silica Gel ${item.label}`)}`}
-                                className={styles.priceQuoteLink}
-                                aria-label={`Get quote for ${item.label}`}
-                              >
-                                Quote
-                              </Link>
-                              <a
-                                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                                  [
-                                    "Hello, I'm requesting a Dry Gel World export quote.",
-                                    `Category: ${group.title}`,
-                                    `Size: ${item.label}`,
-                                    "Please advise MOQ, lead time, documentation, and shipping terms.",
-                                  ].join("\n"),
-                                )}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={styles.priceWaLink}
-                                aria-label={`WhatsApp quote for ${item.label}`}
-                              >
-                                <MessageCircle size={14} strokeWidth={2.2} aria-hidden="true" />
-                              </a>
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <p className={styles.priceCardFoot}>
-                        {group.items.length > 4
-                          ? `+${group.items.length - 4} more sizes available in the calculator`
-                          : "Ready for export quote confirmation"}
-                      </p>
-                    </article>
-                  ))}
-                </div>
-
-                <div id="purchase-calculator" className={styles.calculatorAnchor}>
-                  <div className={styles.calculatorPanel}>
-                    <p className={styles.calculatorHint}>Volume & Export Quote Estimator</p>
-                    <p className={styles.calculatorSubHint}>
-                      Estimate total weight and share a cleaner procurement request with the export team.
-                    </p>
-                    <DeferredPriceCalculator />
-                    <p className={styles.calculatorSubHint}>
-                      Need grams per carton instead? Enter length, width, and height in the{" "}
-                      <a
-                        href="/tools/moisture-load-calculator"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        moisture load calculator
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </div>
+              {/* Compact by design. The 23-format chip grid that used to live
+                  here ran 600px on desktop and 1,380px on a phone; every one of
+                  those formats is still selectable in the estimator's own
+                  grouped select, and anyone who needs carton or weight-target
+                  maths now has a real route to the full tool. */}
+              <div className={styles.calculatorPanel}>
+                <HomeQuoteEstimator
+                  heading="Volume & export quote estimator"
+                  description="Estimate total weight and share a cleaner procurement request with the export team."
+                />
               </div>
             </section>
           </Reveal>
@@ -579,7 +492,10 @@ export default function Home() {
               </div>
 
               <div className={styles.caseStudyAction}>
-                <Link href="/case-studies" className={styles.secondaryCta}>Read the case studies</Link>
+                <Link href="/case-studies" className={styles.secondaryCta}>
+                  Read the case studies
+                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
+                </Link>
               </div>
             </section>
           </Reveal>

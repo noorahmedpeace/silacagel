@@ -1,6 +1,7 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { trackCalculatorStart, trackCalculatorComplete } from "@/lib/calculator-tracking";
 import Link from "next/link";
 import styles from "./container-dosage-calculator.module.css";
 import { exportEmail } from "@/lib/product-data";
@@ -11,23 +12,35 @@ import {
   MAX_DAYS,
   MIN_DAYS,
   PACKAGING_TYPES,
+  WOOD_TYPES,
   computeDosage,
   type CargoId,
   type ClimateId,
   type ContainerId,
   type PackagingId,
+  type WoodId,
 } from "./container-dosage-model";
 
 const PRINT_CLASS = "dosage-plan-printing";
 
+// Hoisted formatters: constructing Intl.NumberFormat is expensive, and
+// formatNumber runs ~12 times per render - once per pixel while the transit
+// slider is being dragged.
+const NUMBER_FORMATTERS = [0, 1, 2].map(
+  (digits) => new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }),
+);
+
 function formatNumber(value: number, digits = 1): string {
-  return new Intl.NumberFormat("en-US", { maximumFractionDigits: digits }).format(value);
+  return (NUMBER_FORMATTERS[digits] ?? NUMBER_FORMATTERS[1]).format(value);
 }
 
 export function ContainerDosageCalculator() {
   const [container, setContainer] = useState<ContainerId>("40ft");
   const [cargo, setCargo] = useState<CargoId>("mixed");
   const [packaging, setPackaging] = useState<PackagingId>("cartons");
+  // Defaults to "none" so the out-of-the-box output matches the model's own
+  // default and the published planning bands; wood is an explicit selection.
+  const [wood, setWood] = useState<WoodId>("none");
   const [days, setDays] = useState(25);
   const [climate, setClimate] = useState<ClimateId>("mixed-seasonal");
   const defaultClimate = CLIMATES.find((c) => c.id === "mixed-seasonal")!;
@@ -44,35 +57,73 @@ export function ContainerDosageCalculator() {
   };
 
   const result = useMemo(
-    () => computeDosage({ container, cargo, packaging, days, rhPercent: rh, tempC }),
-    [container, cargo, packaging, days, rh, tempC],
+    () => computeDosage({ container, cargo, packaging, wood, days, rhPercent: rh, tempC }),
+    [container, cargo, packaging, wood, days, rh, tempC],
   );
 
   const climateOption = CLIMATES.find((c) => c.id === climate)!;
   const cargoOption = CARGO_TYPES.find((c) => c.id === cargo)!;
   const packagingOption = PACKAGING_TYPES.find((p) => p.id === packaging)!;
+  const woodOption = WOOD_TYPES.find((w) => w.id === wood)!;
 
   // Highest-intent click on the site → the RFQ engine (prefilled), not the
   // contact directory.
-  const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&container=${container}&route=${climate}&days=${days}`;
 
-  const planLines = [
-    `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,
-    `Cargo: ${cargoOption.label}`,
-    `Packaging: ${packagingOption.label}`,
-    `Transit: ${days} days, ${climateOption.shortLabel} route (${rh}% RH, ${tempC} C at loading)`,
-    `Estimated moisture load: ~${formatNumber(result.litres, 2)} litres of water`,
-    `Recommended dosage: ${result.recommendedKg} kg (${result.stripCount} x ${result.stripUnitKg} kg - ${result.stripFormat})`,
-    `Risk level: ${result.risk.label} - ${result.risk.explanation}`,
-  ];
+  // Same measurement gap as the silica gel calculator: this tool produced a
+  // dosage every buyer acts on and reported nothing to GA4. Start fires on the
+  // first change away from the defaults; complete fires per distinct result.
+  const started = useRef(false);
+  const lastComplete = useRef("");
+  useEffect(() => {
+    if (started.current) return;
+    if (container !== "40ft" || cargo !== "mixed" || packaging !== "cartons" || days !== 25 || climate !== "mixed-seasonal" || wood !== "none") {
+      started.current = true;
+      trackCalculatorStart("container_desiccant_calculator", container);
+    }
+  }, [container, cargo, packaging, days, climate, wood]);
 
-  const mailtoHref = `mailto:${exportEmail}?subject=${encodeURIComponent(
-    `Container desiccant dosage plan - ${result.containerLabel}`,
-  )}&body=${encodeURIComponent(
-    `Hello DryGelWorld,\n\nPlease quote the following container desiccant plan:\n\n${planLines.join(
-      "\n",
-    )}\n\nGenerated with the DryGelWorld container desiccant calculator:\nhttps://www.drygelworld.com/tools/container-desiccant-calculator\n`,
+  // Debounced for the same reason as the silica gel calculator: the transit-day
+  // control is a slider, and an undebounced effect would emit one event per
+  // intermediate value while the buyer is still dragging.
+  useEffect(() => {
+    const key = `${container}|${cargo}|${climate}|${days}|${result.suppliedKg}`;
+    if (lastComplete.current === key) return;
+    const timer = window.setTimeout(() => {
+      lastComplete.current = key;
+      trackCalculatorComplete("container_desiccant_calculator", container, {
+        supplied_kg: result.suppliedKg,
+        route: climate,
+        transit_days: days,
+      });
+    }, 700);
+    return () => window.clearTimeout(timer);
+  }, [container, cargo, climate, days, result.suppliedKg]);
+
+  const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&application=${encodeURIComponent(
+    `${result.containerLabel} container, ${climateOption.shortLabel} route, ~${days} day transit`,
   )}`;
+
+  // Memoized: the ~1KB URL-encoded plan is only read on an "Email this plan"
+  // click, so rebuilding it on every slider tick was pure waste.
+  const mailtoHref = useMemo(() => {
+    const planLines = [
+      `Container: ${result.containerLabel} (~${result.volumeM3} m3)`,
+      `Cargo: ${cargoOption.label}`,
+      `Packaging: ${packagingOption.label}`,
+      `Pallets / wood: ${woodOption.label}`,
+      `Transit: ${days} days, ${climateOption.shortLabel} route (${rh}% RH, ${tempC} C at loading)`,
+      `Estimated moisture load: ~${formatNumber(result.litres, 2)} litres of water`,
+      `Recommended dosage: ${result.recommendedKg} kg (${result.stripCount} x ${result.stripUnitKg} kg - ${result.stripFormat})`,
+      `Risk level: ${result.risk.label} - ${result.risk.explanation}`,
+    ];
+    return `mailto:${exportEmail}?subject=${encodeURIComponent(
+      `Container desiccant dosage plan - ${result.containerLabel}`,
+    )}&body=${encodeURIComponent(
+      `Hello DryGelWorld,\n\nPlease quote the following container desiccant plan:\n\n${planLines.join(
+        "\n",
+      )}\n\nGenerated with the DryGelWorld container desiccant calculator:\nhttps://www.drygelworld.com/tools/container-desiccant-calculator\n`,
+    )}`;
+  }, [result, cargoOption, packagingOption, woodOption, climateOption, days, rh, tempC]);
 
   const handlePrint = useCallback(() => {
     document.body.classList.add(PRINT_CLASS);
@@ -91,8 +142,8 @@ export function ContainerDosageCalculator() {
           <p className={styles.kicker}>Free buyer tool</p>
           <h2>Container Desiccant Calculator</h2>
           <p className={styles.sub}>
-            Estimate the desiccant kg your container needs from its size, cargo, packaging, transit
-            time, and route climate - with the full formula shown, not a black box.
+            Estimate the desiccant kg your container needs from its size, cargo, packaging, pallets,
+            transit time, and route climate - with the full formula shown, not a black box.
           </p>
         </div>
 
@@ -140,6 +191,22 @@ export function ContainerDosageCalculator() {
               {PACKAGING_TYPES.map((p) => (
                 <option key={p.id} value={p.id}>
                   {p.label}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className={styles.field}>
+            <label htmlFor="cdc-wood">Pallets / wood dunnage</label>
+            <select
+              id="cdc-wood"
+              className={styles.select}
+              value={wood}
+              onChange={(e) => setWood(e.target.value as WoodId)}
+            >
+              {WOOD_TYPES.map((w) => (
+                <option key={w.id} value={w.id}>
+                  {w.label}
                 </option>
               ))}
             </select>
@@ -258,7 +325,7 @@ export function ContainerDosageCalculator() {
             <div className={styles.mathBody}>
               <p>
                 <strong>Formula:</strong> desiccant kg = [ (V<sub>air</sub> × AH) + (0.6% × V × AH ×
-                days) ] × cargo factor ÷ 300 g/kg
+                days) ] × cargo factor × wood factor ÷ 300 g/kg
               </p>
               <ol>
                 <li>
@@ -275,8 +342,12 @@ export function ContainerDosageCalculator() {
                   <strong>{formatNumber(result.ingressWaterG, 0)} g</strong>.
                 </li>
                 <li>
-                  <strong>Cargo moisture.</strong> {cargoOption.note} Factor: ×{result.cargoFactor} →
-                  total load <strong>{formatNumber(result.totalWaterG, 0)} g</strong> (~
+                  <strong>Cargo moisture.</strong> {cargoOption.note} Factor: ×{result.cargoFactor}.
+                </li>
+                <li>
+                  <strong>Pallet / wood moisture.</strong> {woodOption.note} Factor: ×
+                  {result.woodFactor} → total load{" "}
+                  <strong>{formatNumber(result.totalWaterG, 0)} g</strong> (~
                   {formatNumber(result.litres, 2)} litres).
                 </li>
                 <li>
@@ -291,7 +362,9 @@ export function ContainerDosageCalculator() {
               </ol>
               <p className={styles.mathNote}>
                 Calibrated to DryGelWorld&apos;s published loading guidance: ~1.5-3 kg per 20ft and
-                ~3-6 kg per 40ft depending on route length, humidity, and cargo risk.
+                ~3-6 kg per 40ft depending on route length, humidity, and cargo risk. Undried
+                pallet wood and very long tropical voyages can push past the top of the band -
+                when they do, trust the per-shipment estimate, not the band.
               </p>
             </div>
           </details>
@@ -339,6 +412,10 @@ export function ContainerDosageCalculator() {
               <td>{packagingOption.label}</td>
             </tr>
             <tr>
+              <th scope="row">Pallets / wood</th>
+              <td>{woodOption.label}</td>
+            </tr>
+            <tr>
               <th scope="row">Transit</th>
               <td>
                 {days} days, {climateOption.shortLabel} route ({rh}% RH, {tempC}°C at loading)
@@ -369,7 +446,8 @@ export function ContainerDosageCalculator() {
         </table>
         <p className={styles.printMeta}>
           Formula: [(container volume × packaging air factor × absolute humidity) + (0.6% air exchange
-          × volume × absolute humidity × days)] × cargo factor ÷ 300 g/kg silica gel working capacity.
+          × volume × absolute humidity × days)] × cargo factor × wood factor ÷ 300 g/kg silica gel
+          working capacity.
           Planning estimate only - confirm final dosage with the DryGelWorld export desk ({exportEmail}).
         </p>
       </div>

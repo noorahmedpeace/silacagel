@@ -1,5 +1,5 @@
 /*
- * Standardised B2B product spec sheet — the ~25 attributes every product page
+ * Standardised B2B product spec sheet, the ~25 attributes every product page
  * exposes for importers/distributors, rendered by <ProductSpecTable> and mirrored
  * into non-Product specifications JSON-LD.
  *
@@ -49,14 +49,26 @@ const SILICA_BASE: ProductSpec = {
   industries: "Electronics, pharma packaging, leather & footwear, food packaging, logistics",
   adsorptionCapacity: "Up to ~33% of own weight in water vapour (25 °C, 90% RH)",
   shelfLife: "24–36 months in the sealed factory pouch",
-  moq: "Negotiable, with trial orders supported and scaled pricing at volume on request",
+  // No minimum. This is a genuine advantage over the multinationals a buyer
+  // is comparing against, whose MOQs start high — and "what is your MOQ" is
+  // the first question most B2B buyers ask, so leaving it vague loses them
+  // before they ever send an RFQ.
+  moq: "No minimum order quantity — trial and sample quantities supplied; pricing scales with volume",
   certifications:
-    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, COA, and DMF-free statement on request. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
-  sds: "Available on request",
-  coa: "Batch-level, on request",
+    "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, TDS and DMF-free statement are published for download; a batch-level COA is issued per order. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
+  // The silica gel SDS is a published PDF, so "on request" invented a wait
+  // that does not exist. The calcium chloride and indicator-card specs below
+  // keep "on request" — that SDS is not published and this one does not
+  // cover them. A batch COA genuinely is prepared per order.
+  sds: "Published for download (silica gel SDS)",
+  coa: "Batch-level, issued per order",
   countryOfOrigin: "Pakistan (Karachi)",
   hsCode: "2811.22.10, silicon dioxide (confirm the suffix with your customs broker)",
-  leadTime: "~3–7 days from stock; +5–10 days for printed private label (confirmed at quote)",
+  // Stock dispatch is same/next day. Printed private label still needs artwork
+  // sign-off and a print run, and a bespoke production run is quoted per order
+  // (see the export market pages) — so the fast figure is stated for what it
+  // actually covers rather than blanket-applied.
+  leadTime: "Dispatched within 24 hours from stock; printed private label +5–10 days after artwork sign-off",
   incoterms: "EXW, FOB Karachi, CIF, DAP",
   privateLabel: "Yes, custom-printed sachets and buyer branding",
   exportMarkets: "Worldwide B2B export (see the Export hub)",
@@ -142,6 +154,30 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     leadTime: "Quoted by bag size, carton volume, and dispatch schedule",
     incoterms: "EXW, FOB Karachi, CIF, DAP",
     privateLabel: "Yes, carton and bag-label discussion for volume buyers",
+    exportMarkets: "Worldwide B2B export, subject to destination documentation requirements",
+  },
+  "humidity-indicator-cards": {
+    productType: "Humidity indicator card (reversible spot card)",
+    material: "Printed card stock with humidity-reactive spots (cobalt-dichloride or cobalt-free chemistry)",
+    color: "Cobalt: blue (dry) to pink (humid). Cobalt-free: reversible colour shift, REACH-friendly",
+    indicating: "Yes, reversible; spots change colour as relative humidity crosses marked thresholds",
+    sizes: "Single-spot, 3-spot, 4-spot, 6-spot, and custom layouts",
+    weight: "Per card, light; quoted by pack count",
+    packaging: "Sealed moisture-barrier can or foil bag; count per pack by requirement",
+    application: "Visual humidity check inside sealed dry-pack (electronics, pharma, optics, export QC)",
+    industries: "Electronics/PCB, pharma, optics, precision goods, export logistics",
+    adsorptionCapacity: "Not applicable; an indicator, not a desiccant; pair with silica gel or clay",
+    shelfLife: "Typically 12-24 months in sealed factory packaging; confirm by supplied lot",
+    moq: "Quoted by spot layout, chemistry, pack count, and dispatch program",
+    certifications:
+      "Sourced / private-label item. MIL-STD-3464, JEDEC J-STD-033, or REACH-related test reports must be confirmed against the selected lot before commercial claims. Not held by DryGelWorld.",
+    sds: "Available on request",
+    coa: "Batch-level, on request",
+    countryOfOrigin: "Confirmed per supplied lot",
+    hsCode: "3822.90 / 4823.90, confirm classification with your customs broker",
+    leadTime: "Quoted by spot layout, chemistry, pack count, and dispatch schedule",
+    incoterms: "EXW, FOB Karachi, CIF, DAP",
+    privateLabel: "Yes, card print and pack-label discussion for volume buyers",
     exportMarkets: "Worldwide B2B export, subject to destination documentation requirements",
   },
   "dry-clay-desiccant": {
@@ -276,7 +312,7 @@ export function getProductSpec(slug: string): ProductSpec | null {
   return { ...SILICA_BASE, ...override };
 }
 
-/** Build a silica-gel spec from partial overrides — for category landing pages. */
+/** Build a silica-gel spec from partial overrides, for category landing pages. */
 export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
   return { ...SILICA_BASE, ...override };
 }
@@ -402,7 +438,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "Orange indicating silica gel (cobalt-free)",
       color: "Orange (dry) → colourless / pale green (saturated)",
-      indicating: "Indicating, cobalt-free — no REACH-restricted cobalt dichloride (the modern default)",
+      indicating: "Indicating, cobalt-free, no REACH-restricted cobalt dichloride (the modern default)",
       application: "Visual moisture monitoring without REACH-restricted cobalt dichloride",
     },
   },

@@ -3,11 +3,14 @@ import Link from "next/link";
 import { Download, FileText, ShieldCheck, Lock } from "lucide-react";
 import {
   documentGroups,
+  documents,
   documentsByType,
   isoCertificate,
 } from "@/lib/document-registry";
+import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { FaqBlock } from "@/components/faq-block";
 import { AdsorptionIsotherm } from "@/components/adsorption-isotherm";
+import { whatsappNumber } from "@/lib/product-data";
 import styles from "./documentation.module.css";
 
 export const metadata: Metadata = {
@@ -25,26 +28,117 @@ function formatDate(iso: string) {
   });
 }
 
-function DocAction({ href, available }: { href: string; available: boolean }) {
-  if (available) {
-    return (
-      <a href={href} className={styles.download} target="_blank" rel="noopener noreferrer">
-        <Download size={16} strokeWidth={2.2} aria-hidden="true" />
-        Download PDF
-      </a>
-    );
-  }
+/**
+ * Actions for one document.
+ *
+ * The "ask" link exists because of a measured behaviour, not a hunch: Clarity
+ * recorded a UAE buyer spending 46 minutes on the site, downloading the SDS and
+ * the COA, and leaving without contacting anyone. Reading a specification IS
+ * the buying question - and until now this page answered it with a download and
+ * nothing else. The link carries the document's own title into WhatsApp, so the
+ * conversation starts with what they were actually reading.
+ *
+ * z-index is load-bearing: the whole card is the download (the Download
+ * anchor's ::after is stretched over it), so this second link has to sit above
+ * that overlay or it would be unclickable.
+ */
+function DocAction({
+  href,
+  available,
+  title,
+}: {
+  href: string;
+  available: boolean;
+  title: string;
+}) {
+  const askHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello DryGelWorld, I have a question about the ${title}.`,
+  )}`;
+
   return (
-    <span className={styles.awaiting}>
-      <Lock size={14} strokeWidth={2.2} aria-hidden="true" />
-      PDF on request
-    </span>
+    <div className={styles.docActions}>
+      {available ? (
+        <a href={href} className={styles.download} target="_blank" rel="noopener noreferrer">
+          <Download size={16} strokeWidth={2.2} aria-hidden="true" />
+          Download PDF
+        </a>
+      ) : (
+        <span className={styles.awaiting}>
+          <Lock size={14} strokeWidth={2.2} aria-hidden="true" />
+          PDF on request
+        </span>
+      )}
+      <a
+        className={styles.docAsk}
+        href={askHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        data-analytics="whatsapp_click"
+      >
+        Ask about this document
+      </a>
+    </div>
   );
 }
+
+/*
+ * The published PDFs are the most citable primary sources on this site — an
+ * assistant answering "is DryGelWorld ISO certified" or "what is the SDS for
+ * their silica gel" wants a document it can point at. Until now they were
+ * bare <a href> links with no structured identity, so this page emitted no
+ * JSON-LD at all.
+ *
+ * Each available file becomes a DigitalDocument node: identified, named,
+ * typed, and attributed to the Organization node in the root layout via the
+ * same #organization @id the Product and Person nodes already reference. Only
+ * `available` documents are emitted — describing a file that is not published
+ * would advertise a dead source.
+ */
+const documentNodes = documents
+  .filter((doc) => doc.available)
+  .map((doc) => ({
+    "@type": "DigitalDocument",
+    "@id": `${absoluteUrl("/documentation")}#${doc.id}`,
+    name: doc.title,
+    description: doc.description,
+    url: absoluteUrl(doc.fileHref),
+    encodingFormat: "application/pdf",
+    inLanguage: "en",
+    isAccessibleForFree: true,
+    publisher: { "@id": `${absoluteUrl()}#organization` },
+    about: { "@id": `${absoluteUrl()}#organization` },
+  }));
+
+const documentationJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${absoluteUrl("/documentation")}#page`,
+      name: `Documentation Center | ${brandName}`,
+      description:
+        "Published ISO 9001:2015 certificate, silica gel SDS and TDS, material COA, DMF-free statement, and product specification sheets.",
+      url: absoluteUrl("/documentation"),
+      isPartOf: { "@id": `${absoluteUrl()}#website` },
+      publisher: { "@id": `${absoluteUrl()}#organization` },
+      hasPart: documentNodes.map((node) => ({ "@id": node["@id"] })),
+    },
+    ...documentNodes,
+    breadcrumbJsonLd([
+      { name: "Home", href: "/" },
+      { name: "Documentation", href: "/documentation" },
+    ]),
+  ],
+};
 
 export default function DocumentationPage() {
   return (
     <main className={styles.page}>
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(documentationJsonLd) }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Documentation Center</span>
         <h1>Verifiable proof, ready to open.</h1>
@@ -55,7 +149,7 @@ export default function DocumentationPage() {
         </p>
       </section>
 
-      {/* ── ISO 9001:2015 certificate — the headline proof ── */}
+      {/* ── ISO 9001:2015 certificate, the headline proof ── */}
       <section className={styles.certSection} aria-label="ISO 9001:2015 certificate">
         <article className={styles.certCard}>
           <div className={styles.certBadge} aria-hidden="true">
@@ -106,8 +200,12 @@ export default function DocumentationPage() {
               </div>
             </dl>
             <div className={styles.certActions}>
-              <DocAction href={isoCertificate.fileHref} available={isoCertificate.fileAvailable} />
-              <Link href="/contact" className={styles.certSecondary}>
+              <DocAction
+                href={isoCertificate.fileHref}
+                available={isoCertificate.fileAvailable}
+                title={`${isoCertificate.standard} certificate`}
+              />
+              <Link href="/request-a-quote" className={styles.certSecondary}>
                 Request a signed copy
               </Link>
             </div>
@@ -147,7 +245,7 @@ export default function DocumentationPage() {
                       <span className={styles.docApplies}>Applies to: {doc.appliesTo}</span>
                     ) : null}
                   </div>
-                  <DocAction href={doc.fileHref} available={doc.available} />
+                  <DocAction href={doc.fileHref} available={doc.available} title={doc.title} />
                 </article>
               ))}
             </div>
@@ -155,7 +253,7 @@ export default function DocumentationPage() {
         );
       })}
 
-      {/* Technical figure — the RH-vs-capacity data procurement engineers expect. */}
+      {/* Technical figure, the RH-vs-capacity data procurement engineers expect. */}
       <section className={styles.docSection} aria-label="Adsorption performance">
         <div className={styles.docHead}>
           <h2>Adsorption performance</h2>
@@ -164,7 +262,7 @@ export default function DocumentationPage() {
         <AdsorptionIsotherm />
       </section>
 
-      {/* P2.3 — connection to the rest of the web: verifiable external presence. */}
+      {/* P2.3, connection to the rest of the web: verifiable external presence. */}
       <section className={styles.verifySection} aria-label="Verify us elsewhere">
         <div className={styles.docHead}>
           <h2>Verify us elsewhere</h2>
@@ -175,7 +273,7 @@ export default function DocumentationPage() {
             <strong>TradeKey</strong>
             <em>B2B supplier listing</em>
           </a>
-          <a href="https://www.linkedin.com/in/drygelworld/" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
+          <a href="https://www.linkedin.com/company/drygelworld" target="_blank" rel="noopener noreferrer" className={styles.verifyLink}>
             <strong>LinkedIn</strong>
             <em>Company profile</em>
           </a>
@@ -202,7 +300,7 @@ export default function DocumentationPage() {
             approval packs are prepared per order. Tell us the product and market.
           </p>
         </div>
-        <Link href="/contact" className={styles.ctaBtn}>Request documents</Link>
+        <Link href="/request-a-quote" className={styles.ctaBtn}>Request documents</Link>
       </section>
 
       <FaqBlock

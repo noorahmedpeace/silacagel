@@ -227,6 +227,11 @@
 }
 
 .docCard {
+  /* position:relative is load-bearing: the Download anchor's ::after stretches
+     over the whole card, so the entire card is the download - Clarity logged
+     five dead clicks from people clicking the card body instead of the button.
+     One anchor, no nesting, same keyboard target as before. */
+  position: relative;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
@@ -241,8 +246,22 @@
     transform var(--ds-dur-base) var(--ds-ease-out);
 }
 
+.docCard .download::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--ds-radius-card);
+}
+
+.docCard:focus-within {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* Hover-lift only on cards that actually hold a download. The "awaiting"
+   cards have no anchor, so per the card rule they make no hover promise. */
 @media (hover: hover) and (pointer: fine) {
-  .docCard:hover {
+  .docCard:has(.download):hover {
     transform: translateY(-3px);
     border-color: rgba(45, 91, 255, 0.28);
     box-shadow: var(--ds-shadow-card);
@@ -295,7 +314,10 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ds-text-faint);
+  /* --ds-text-faint is 3.43:1 on white, and this label is set at 0.66rem - the
+   * smallest type on the page, carrying the field name for every certificate.
+   * Faint is a fine token for decoration; this is not decoration. */
+  color: var(--ds-text-muted);
 }
 
 .docApplies {
@@ -339,7 +361,7 @@
   display: inline-flex;
   align-items: center;
   padding: 14px 26px;
-  border-radius: 11px;
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #fff;
   font-family: var(--font-display), var(--font-body);
@@ -458,5 +480,58 @@
   }
   a.verifyLink:hover {
     transform: none !important;
+  }
+}
+
+/* ── Document actions ─────────────────────────────────────────────────────
+   The whole card is the download: .download's ::after is stretched across it.
+   That overlay is exactly why .docActions needs its own stacking context and
+   .docAsk needs to sit above it - without the z-index the ask link would be
+   underneath the overlay and unclickable, which is the same class of bug the
+   card fix was meant to solve. */
+.docActions {
+  /* Deliberately NOT positioned. The download anchor's ::after is
+     position:absolute;inset:0 and takes its box from the nearest positioned
+     ancestor - giving this wrapper position:relative made IT the offset parent,
+     so the stretched link shrank from the whole card down to this little
+     column. The card stopped being clickable end to end and the ask link
+     underneath it stopped being clickable at all. Only .docAsk is positioned,
+     which is all that is needed to lift it above the overlay. */
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  flex: none;
+}
+
+.docAsk {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 4px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ds-brand-deep);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  white-space: nowrap;
+  transition: border-color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.docAsk:hover {
+  border-bottom-color: currentColor;
+}
+
+.docAsk:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (max-width: 720px) {
+  .docActions {
+    justify-items: start;
+    width: 100%;
   }
 }

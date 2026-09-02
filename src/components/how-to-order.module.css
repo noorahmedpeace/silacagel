@@ -66,7 +66,10 @@
   justify-content: center;
   height: 44px;
   padding: 0 20px;
-  border-radius: 10px;
+  /* Grouped rules like this one are why a name-based sweep missed three live
+     CTAs - "Request a Quote", "WhatsApp us" and "See indicative prices" all sat
+     at 10px while the rest of the site had moved to the shared shape. */
+  border-radius: var(--ds-cta-radius);
   font-size: 0.92rem;
   font-weight: 700;
   text-decoration: none;
@@ -84,8 +87,12 @@
 }
 
 .secondary {
+  /* WhatsApp green is a light colour. White text on it measures 1.98:1 - the
+   * worst contrast on the site, on the button a ready buyer taps. Dark text on
+   * the same green is 9.73:1 and keeps the colour everyone recognises, which is
+   * the whole point of using WhatsApp green in the first place. */
   background: #25d366;
-  color: #05270f;
+  color: var(--ds-text);
 }
 .secondary:hover {
   transform: translateY(-1px);

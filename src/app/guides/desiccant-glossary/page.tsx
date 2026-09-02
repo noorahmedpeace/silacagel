@@ -11,7 +11,7 @@ const GLOSSARY_PATH = "/guides/desiccant-glossary";
 const GLOSSARY_TITLE = "Desiccant Glossary: Silica Gel & Moisture Control Terms";
 // 154 chars, ends on a complete sentence.
 const GLOSSARY_DESCRIPTION =
-  "Definitions of 45 silica gel and desiccant terms buyers meet in specs and compliance documents — adsorption, DIN 55473, REACH, HS code 2811.22, and more.";
+  "Definitions of 45 silica gel and desiccant terms buyers meet in specs and compliance documents, adsorption, DIN 55473, REACH, HS code 2811.22, and more.";
 
 export const metadata: Metadata = {
   title: GLOSSARY_TITLE,
@@ -141,11 +141,11 @@ export default function DesiccantGlossaryPage() {
               <h3>Sizing tools</h3>
               <ul>
                 <li><Link href="/tools/container-desiccant-calculator">Container desiccant calculator</Link></li>
-                <li><Link href="/tools/moisture-load-calculator">Moisture load calculator</Link></li>
+                <li><Link href="/tools/silica-gel-calculator">Silica gel calculator</Link></li>
               </ul>
             </div>
           </div>
-          <Link className={styles.cta} href="/contact">
+          <Link className={styles.cta} href="/request-a-quote">
             Request export quote
           </Link>
         </section>

@@ -2,7 +2,7 @@
 
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
+import { deleteInquiry, updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
 
 export async function authenticateAdmin(formData: FormData) {
   const key = String(formData.get("key") ?? "");
@@ -36,4 +36,17 @@ export async function setInquiryStatus(id: string, status: InquiryStatus) {
 export async function addInquiryNote(id: string, note: string) {
   await assertAdmin();
   return updateInquiry(id, { addNote: note });
+}
+
+// Set (YYYY-MM-DD) or clear ("") the staff follow-up date. Validation is
+// enforced again in updateInquiry so a malformed value can never reach storage.
+export async function setInquiryFollowUp(id: string, date: string) {
+  await assertAdmin();
+  return updateInquiry(id, { followUpDate: date });
+}
+
+// Permanently remove an inquiry (junk / test / bot). Admin-guarded + irreversible.
+export async function removeInquiry(id: string) {
+  await assertAdmin();
+  return deleteInquiry(id);
 }

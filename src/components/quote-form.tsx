@@ -8,11 +8,12 @@ import {
   displayPhone,
   getContactEmailChannel,
   productCatalog,
+  whatsappNumber,
   type ContactDepartment,
 } from "@/lib/product-data";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
-import { FLASH10_CODE, getFlash10Remaining } from "@/lib/flash10";
+import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./quote-form.module.css";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -20,6 +21,11 @@ type SubmitStatus = "idle" | "sent" | "fallback";
 
 type QuoteFormProps = {
   title?: string;
+  /** Heading level for `title`. Defaults to 3, which is right where the form
+   *  sits under a section heading (product pages, landing pages). On /contact
+   *  the form is a top-level section directly under the h1, so h3 there skipped
+   *  a level and screen readers announced a gap in the outline. */
+  headingLevel?: 2 | 3;
   compact?: boolean;
   defaultProduct?: string;
   defaultDepartment?: ContactDepartment;
@@ -95,6 +101,7 @@ function initialState({
 
 export function QuoteForm({
   title = "Request Industrial Quote",
+  headingLevel = 3,
   compact = false,
   defaultProduct = "",
   defaultDepartment = "sales",
@@ -112,9 +119,23 @@ export function QuoteForm({
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState<string | null>(null);
   const [inquiryId, setInquiryId] = useState("");
+  const [fallbackHref, setFallbackHref] = useState<string>("");
   const routedChannel = getContactEmailChannel(state.department);
+  // Instant channel: buyers who won't fill a form still convert on WhatsApp,
+  // and all three review models flagged fast human reply as the #1 lever.
+  // Pre-fill whatever the buyer has already typed so the chat opens warm.
+  const waHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    [
+      "Hi DryGelWorld, I'd like a quote.",
+      state.product ? `Product: ${state.product}` : "",
+      state.quantity ? `Quantity: ${state.quantity}` : "",
+      state.country ? `Destination: ${state.country}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n"),
+  )}`;
   const startedAt = useRef(Date.now());
-  const website2 = useRef(""); // honeypot — bots fill it, humans never see it
+  const website2 = useRef(""); // honeypot, bots fill it, humans never see it
 
   useEffect(() => {
     startedAt.current = Date.now();
@@ -132,8 +153,6 @@ export function QuoteForm({
     if (!EMAIL_RE.test(state.email.trim())) return setError("Please enter a valid business email.");
 
     const route = getContactEmailChannel(state.department);
-    const promoRemaining = getFlash10Remaining();
-    const promoActive = promoRemaining > 0;
 
     const rfqMessage = [
       "Hello, I'm initiating an industrial Dry Gel World procurement inquiry.",
@@ -153,12 +172,6 @@ export function QuoteForm({
       `Target Price / Current Supplier Benchmark: ${state.targetPrice || "Not provided"}`,
       `Sample Requirement: ${state.sampleNeed}`,
       `Additional Notes: ${state.message || "Not provided"}`,
-      ...(promoActive
-        ? [
-            `Promotion: ${FLASH10_CODE}`,
-            "Discount: 10% (first-order trial pricing)",
-          ]
-        : []),
       `Global Support Line: ${displayPhone}`,
     ].join("\n");
 
@@ -186,6 +199,7 @@ export function QuoteForm({
       message: rfqMessage,
       attachments: [],
       ...clientTracking(),
+      source: "quote_form",
       website2: website2.current,
       formElapsedMs: Date.now() - startedAt.current,
     };
@@ -203,6 +217,7 @@ export function QuoteForm({
       } else if (result.fallback) {
         // Neither stored nor emailed: open the mail client as a genuine
         // fallback so the lead is not silently dropped.
+        setFallbackHref(url);
         setStatus("fallback");
         dispatch({ type: "submit" });
         window.location.href = url;
@@ -212,6 +227,7 @@ export function QuoteForm({
       }
     } catch {
       // Network/runtime failure: fall back to mailto rather than lose the lead.
+      setFallbackHref(url);
       setStatus("fallback");
       dispatch({ type: "submit" });
       window.location.href = url;
@@ -229,9 +245,22 @@ export function QuoteForm({
       <div className={styles.formMain}>
         <div className={styles.formHead}>
           <p>Get an export quote</p>
-          <h3>{title}</h3>
+          {headingLevel === 2 ? <h2>{title}</h2> : <h3>{title}</h3>}
           <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
         </div>
+
+        {/* Instant path first: the fastest reply is a WhatsApp chat, not an
+            async form. Buyers who won't fill anything still tap this. */}
+        <a
+          className={styles.whatsappCta}
+          href={waHref}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className={styles.whatsappCtaMain}>Quote on WhatsApp — fastest reply</span>
+          <span className={styles.whatsappCtaSub}>Chat a real person now · {displayPhone}</span>
+        </a>
+        <div className={styles.orDivider}><span>or send the form</span></div>
 
         {/* Core fields - the four that let the export desk respond fast. */}
         <label className={styles.field}>
@@ -465,7 +494,7 @@ export function QuoteForm({
           </div>
         </details>
 
-        {/* Honeypot — humans never see or fill this. */}
+        {/* Honeypot, humans never see or fill this. */}
         <input
           type="text"
           name="website2"
@@ -479,7 +508,7 @@ export function QuoteForm({
         />
 
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending…" : "Send my requirement — quote in 24h"}
+          {pending ? "Sending…" : "Send my requirement — reply usually within 1 hour"}
         </button>
 
         {error ? (
@@ -493,23 +522,63 @@ export function QuoteForm({
             <strong>RFQ received.</strong>
             <span>
               Your inquiry was logged{inquiryId && inquiryId !== "received" ? ` as ${inquiryId}` : ""} and
-              routed to our {routedChannel.label} export desk - expect a reply to {state.email}. WhatsApp
-              remains available for urgent follow-up.
+              routed to our {routedChannel.label} export desk - expect a reply to {state.email}. For a
+              faster reply,{" "}
+              <a href={waHref} target="_blank" rel="noopener noreferrer">
+                message us on WhatsApp
+              </a>
+              .
             </span>
+
+            <EvidencePack />
           </div>
         ) : null}
 
         {state.submitted && status === "fallback" ? (
           <div className={styles.successNote} role="status">
-            <strong>Almost there - please hit send.</strong>
+            <strong>RFQ summary prepared — please connect to dispatch:</strong>
             <span>
-              We opened your email client with the full RFQ pre-filled to {routedChannel.email}. If
-              nothing opened, email us directly at{" "}
-              <a href={createMailtoHref(routedChannel.email, routedChannel.defaultSubject)} rel="nofollow">
-                {routedChannel.email}
-              </a>{" "}
-              or reach us on WhatsApp.
+              If your email client did not launch automatically, tap below to send your inquiry directly via WhatsApp or email:
             </span>
+            <div style={{ display: "flex", gap: "10px", marginTop: "12px", flexWrap: "wrap" }}>
+              <a
+                href={waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "10px 16px",
+                  background: "#25d366",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                }}
+              >
+                Send via WhatsApp (Fastest)
+              </a>
+              <a
+                href={fallbackHref || createMailtoHref(routedChannel.email, routedChannel.defaultSubject)}
+                rel="nofollow"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "10px 16px",
+                  background: "var(--ds-surface-elevated, #0f172a)",
+                  color: "#fff",
+                  borderRadius: "8px",
+                  fontWeight: 600,
+                  fontSize: "0.92rem",
+                  textDecoration: "none",
+                }}
+              >
+                Email Export Desk ({routedChannel.email})
+              </a>
+            </div>
           </div>
         ) : null}
       </div>

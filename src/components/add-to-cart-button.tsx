@@ -5,10 +5,14 @@
 // (dashboard + sales email + customer confirmation) and drops the product
 // into the quote cart. Used on catalog cards, product heroes, and anywhere
 // else a product can be added.
-import { useRef, useState } from "react";
+import Link from "next/link";
+import { useCallback, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { useEscapeToClose } from "@/lib/use-escape-to-close";
 import { addToCart } from "@/lib/quote-cart";
 import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { fireLeadConversion } from "@/lib/lead-tracking";
+import { createMailtoHref, salesEmail } from "@/lib/product-data";
 import styles from "./sticky-quote-bar.module.css";
 
 export function AddToCartButton({
@@ -24,9 +28,12 @@ export function AddToCartButton({
   label?: string;
 }) {
   const [showModal, setShowModal] = useState(false);
-  const [quick, setQuick] = useState<"idle" | "sending" | "sent">("idle");
+  const [quick, setQuick] = useState<"idle" | "sending" | "sent" | "fallback">("idle");
   const [quickError, setQuickError] = useState("");
-  const openedAt = useRef(Date.now());
+  const [fallbackHref, setFallbackHref] = useState("");
+  // Stamped when the modal opens (not at render, Date.now() in render is impure
+  // and the timer should measure how long the form was actually open).
+  const openedAt = useRef(0);
 
   async function quickSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -39,6 +46,25 @@ export function AddToCartButton({
     }
     setQuickError("");
     setQuick("sending");
+
+    // Pre-built mailto so a server outage (store AND email both down) still
+    // hands the buyer a way to reach us instead of discarding what they typed.
+    const detail = String(fd.get("detail") ?? "");
+    const quantity = String(fd.get("quantity") ?? "");
+    const unit = String(fd.get("unit") ?? "kg");
+    const phone = String(fd.get("phone") ?? "");
+    const mailto = createMailtoHref(
+      salesEmail,
+      `Quote request: ${productFullName}`,
+      [
+        `Product: ${productFullName}`,
+        `Email: ${email}`,
+        `Quantity: ${quantity || "-"} ${unit}`,
+        `Phone/WhatsApp: ${phone || "-"}`,
+        `Details: ${detail || "-"}`,
+      ].join("\n"),
+    );
+
     try {
       const first = (() => {
         try { return JSON.parse(sessionStorage.getItem("dgw-first-touch") ?? "null"); } catch { return null; }
@@ -47,18 +73,18 @@ export function AddToCartButton({
         companyName: "(Quick add-to-cart lead)",
         contactPerson: "(not provided)",
         email,
-        phone: String(fd.get("phone") ?? ""),
+        phone,
         country: "(not provided)",
         city: "",
         productName: productFullName,
-        quantity: String(fd.get("quantity") ?? ""),
-        unit: String(fd.get("unit") ?? "kg"),
+        quantity,
+        unit,
         packaging: "",
         application: "",
         deliveryDate: "",
         destinationCountry: "",
         destinationPort: "",
-        message: String(fd.get("detail") ?? ""),
+        message: detail,
         attachments: [],
         screen: `${window.screen.width}x${window.screen.height}`,
         timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone ?? "",
@@ -69,29 +95,49 @@ export function AddToCartButton({
         utm: first?.utm ?? { source: "", medium: "", campaign: "", term: "", content: "" },
         gclid: first?.gclid ?? "",
         sessionId: sessionStorage.getItem("dgw-session-id") ?? "",
+        source: "add_to_cart",
         website2: String(fd.get("website2") ?? ""),
         formElapsedMs: Date.now() - openedAt.current,
       });
       if (result.ok) {
         addToCart({ name: productFullName, slug: productSlug });
         setQuick("sent");
+        // This path stores a real lead but never reported it, so GA4 / Google
+        // Ads optimised while blind to every buyer who converted here rather
+        // than on QuoteForm/RfqForm. Same call, same place, as those two.
+        fireLeadConversion(result.id, "add_to_cart");
+      } else if (result.fallback) {
+        // Neither stored nor emailed, open the mail client so the lead survives.
+        setFallbackHref(mailto);
+        setQuick("fallback");
+        window.location.href = mailto;
       } else {
-        setQuickError(result.error ?? "Could not send — please use WhatsApp or the quote page.");
+        setQuickError(result.error ?? "Could not send, please use WhatsApp or the quote page.");
         setQuick("idle");
       }
     } catch {
-      setQuickError("Could not send — please use WhatsApp or the quote page.");
-      setQuick("idle");
+      setFallbackHref(mailto);
+      setQuick("fallback");
+      window.location.href = mailto;
     }
   }
+
+  // Escape closes the dialog. Clicking the backdrop already did, but a keyboard
+  // user had no way out at all. Shared with sticky-quote-bar, which carries the
+  // same aria-modal promise - see the hook for why it is not inlined here.
+  const closeModal = useCallback(() => setShowModal(false), []);
+  useEscapeToClose(showModal, closeModal);
 
   return (
     <>
       <button
         type="button"
         className={className}
-        data-promo-quiet
-        onClick={() => setShowModal(true)}
+
+        onClick={() => {
+          openedAt.current = Date.now();
+          setShowModal(true);
+        }}
       >
         {label}
       </button>
@@ -121,17 +167,26 @@ export function AddToCartButton({
             {quick === "sent" ? (
               <div className={styles.modalSuccess}>
                 <span className={styles.modalCheck} aria-hidden="true">✓</span>
-                <h3>Added — we will reach you soon!</h3>
+                <h3>Added, we will reach you soon!</h3>
                 <p>
                   Our export team has your details and will contact you within 24
                   business hours with pricing for {productFullName}.
                 </p>
-                <a href="/request-a-quote?cart=1">Need more products? Open your quote cart →</a>
+                <Link href="/request-a-quote?cart=1">Need more products? Open your quote cart →</Link>
+              </div>
+            ) : quick === "fallback" ? (
+              <div className={styles.modalSuccess}>
+                <h3>Almost there, please hit send.</h3>
+                <p>
+                  We opened your email client with the request pre-filled. If nothing
+                  opened, email us directly at{" "}
+                  <a href={fallbackHref}>{salesEmail}</a>.
+                </p>
               </div>
             ) : (
               <form onSubmit={quickSubmit} className={styles.modalForm}>
                 <h3>Add to quote: {productFullName}</h3>
-                <p>Leave your email and quantity — we will reach you soon.</p>
+                <p>Leave your email and quantity, we will reach you soon.</p>
                 <label>
                   <span>Email *</span>
                   <input name="email" type="email" required autoFocus autoComplete="email" />

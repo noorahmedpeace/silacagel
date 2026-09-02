@@ -1,5 +1,5 @@
 {
-  "name": "DryGelWorld",
+  "name": "DryGelWorld | Industrial Desiccant Exporter",
   "short_name": "DryGelWorld",
   "description": "Industrial silica gel and desiccant export supplier.",
   "start_url": "/",
@@ -22,6 +22,29 @@
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Request Export Quote",
+      "short_name": "Get Quote",
+      "description": "Submit a direct quotation request to the Karachi factory export desk.",
+      "url": "/request-a-quote",
+      "icons": [{ "src": "/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Free Evaluation Samples",
+      "short_name": "Free Samples",
+      "description": "Order evaluation desiccant samples.",
+      "url": "/samples",
+      "icons": [{ "src": "/favicon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "DIN 55473 Sizing Calculator",
+      "short_name": "DIN Sizing",
+      "description": "Calculate certified desiccant units and WVTR foil dosage.",
+      "url": "/tools/desiccant-unit-calculator",
+      "icons": [{ "src": "/favicon-96x96.png", "sizes": "96x96" }]
     }
   ]
 }

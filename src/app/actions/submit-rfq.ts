@@ -9,7 +9,7 @@
 //
 // It ALSO persists every lead to the same Blob-backed inquiry store the full
 // RFQ form uses, so leads from the compact quote form (product/contact/home
-// pages), the /samples form, and DryBot all appear in /admin/inquiries — not
+// pages), the /samples form, and DryBot all appear in /admin/inquiries, not
 // just the email inbox. Persistence is best-effort and never blocks or fails
 // the email path: saveInquiry no-ops without BLOB_READ_WRITE_TOKEN exactly as
 // the email path no-ops without RESEND_API_KEY. Before this, only submitInquiry
@@ -22,7 +22,7 @@
 //   RFQ_BCC         - optional internal archive inbox (BCC on every RFQ)
 
 import { headers } from "next/headers";
-import { nextInquiryId, saveInquiry, type Inquiry } from "@/lib/rfq-store";
+import { createInquiry, type Inquiry } from "@/lib/rfq-store";
 
 export type RfqResult = { ok: true } | { ok: false; error?: string; fallback?: boolean };
 
@@ -40,7 +40,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Best-effort persistence to the shared inquiry store so compact-quote /
 // samples / DryBot leads appear in /admin/inquiries alongside full-RFQ-form
 // leads. Never throws (saveInquiry/nextInquiryId catch internally) and never
-// blocks the email path — a dashboard write failure must not fail the lead.
+// blocks the email path, a dashboard write failure must not fail the lead.
 async function persistLead(data: RfqPayload): Promise<void> {
   try {
     const productMatch = data.body.match(/product[^:\n]*:\s*(.+)/i);
@@ -53,14 +53,13 @@ async function persistLead(data: RfqPayload): Promise<void> {
       ip = (h.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
       userAgent = h.get("user-agent") ?? "";
     } catch {
-      /* headers() unavailable in some contexts — tracking is optional */
+      /* headers() unavailable in some contexts, tracking is optional */
     }
 
-    const id = await nextInquiryId();
-    const inquiry: Inquiry = {
-      id,
+    const inquiry: Omit<Inquiry, "id"> = {
       createdAt: new Date().toISOString(),
       status: "new",
+      source: "samples",
       notes: [],
       company: {
         companyName: data.company.trim().slice(0, 300),
@@ -100,7 +99,7 @@ async function persistLead(data: RfqPayload): Promise<void> {
         sessionId: "",
       },
     };
-    await saveInquiry(inquiry);
+    await createInquiry(inquiry);
   } catch {
     /* persistence is best-effort; the email/mailto path is the guarantee */
   }

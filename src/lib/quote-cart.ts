@@ -1,5 +1,5 @@
 // Client-side "quote cart": buyers collect products across pages, then submit
-// ONE RFQ for everything. No checkout/payments — the cart feeds the
+// ONE RFQ for everything. No checkout/payments, the cart feeds the
 // /request-a-quote form. localStorage-backed; a custom event keeps every
 // mounted badge/count in sync.
 "use client";
@@ -22,7 +22,7 @@ function persist(items: CartItem[]) {
     localStorage.setItem(KEY, JSON.stringify(items));
     window.dispatchEvent(new CustomEvent(CART_EVENT, { detail: items.length }));
   } catch {
-    // storage unavailable (private mode) — cart silently degrades
+    // storage unavailable (private mode), cart silently degrades
   }
 }
 

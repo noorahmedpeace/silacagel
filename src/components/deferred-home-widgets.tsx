@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
 import type { IndustryData } from "@/components/industry-slider";
+import type { PriceCalculatorProps } from "@/components/price-calculator";
 
 // Base fallback styling for deferred-widget placeholders. The min-height
 // is set per-widget by the caller so the placeholder matches the loaded
@@ -42,13 +43,26 @@ function LoadWhenVisible<P extends object>({
   const frameRef = useRef<HTMLDivElement>(null);
   const [Component, setComponent] = useState<ComponentType<P> | null>(null);
 
+  // Held in a ref and kept OUT of the effect deps. Callers pass an inline
+  // arrow, so `loader` is a new function on every render of the parent. With it
+  // in the deps, any unrelated re-render tore down the effect, the cleanup set
+  // cancelled = true, and an already in-flight dynamic import resolved into a
+  // discarded result - leaving the widget stuck on its placeholder forever.
+  // Harmless while every caller was a server component rendering once; the
+  // moment a client parent re-rendered (PricingFormatPicker holding the shared
+  // format state) the widget stopped loading on mobile entirely.
+  // Captured once and never reassigned: every caller passes the same import,
+  // only re-wrapped in a fresh arrow each render, so the first value is always
+  // the right one.
+  const loaderRef = useRef(loader);
+
   useEffect(() => {
     const node = frameRef.current;
     if (!node || Component) return;
 
     let cancelled = false;
     const load = () => {
-      loader().then((LoadedComponent) => {
+      loaderRef.current().then((LoadedComponent) => {
         if (!cancelled) {
           setComponent(() => LoadedComponent);
         }
@@ -79,7 +93,7 @@ function LoadWhenVisible<P extends object>({
       cancelled = true;
       observer.disconnect();
     };
-  }, [Component, loader]);
+  }, [Component]);
 
   // The wrapper holds the same min-height as the fallback so even before
   // the inner component renders, the slot in the layout is reserved.
@@ -97,18 +111,20 @@ function LoadWhenVisible<P extends object>({
 const WIDGET_MIN_HEIGHTS = {
   priceCalculator: 600,
   industrySlider: 640,
-  moistureCalculator: 720,
   quoteForm: 760,
   quoteFormCompact: 520,
   emblaCarousel: 360,
 } as const;
 
-export function DeferredPriceCalculator() {
+// Forwarded whole rather than destructured and rebuilt: PriceCalculatorProps is
+// a union that requires formatKey and onFormatChange to travel together, and
+// splitting them into separate optional fields discards that guarantee.
+export function DeferredPriceCalculator(props: PriceCalculatorProps = {}) {
   return (
     <LoadWhenVisible
       label="Loading procurement calculator"
       loader={() => import("@/components/price-calculator").then((mod) => mod.PriceCalculator)}
-      props={{}}
+      props={props}
       minHeight={WIDGET_MIN_HEIGHTS.priceCalculator}
     />
   );
@@ -125,16 +141,6 @@ export function DeferredIndustrySlider({ industries }: { industries: IndustryDat
   );
 }
 
-export function DeferredMoistureCalculator() {
-  return (
-    <LoadWhenVisible
-      label="Loading moisture calculator"
-      loader={() => import("@/components/moisture-calculator").then((mod) => mod.MoistureCalculator)}
-      props={{}}
-      minHeight={WIDGET_MIN_HEIGHTS.moistureCalculator}
-    />
-  );
-}
 
 export function DeferredQuoteForm({
   title,

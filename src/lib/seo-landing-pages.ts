@@ -162,7 +162,11 @@ function keywordClusterPage(input: KeywordClusterInput): SeoLandingPage {
     specsIntro:
       "Use these commercial inputs to compare formats, documentation, packing, and quote terms before contacting a supplier.",
     specs: [
-      { label: "Target keywords", value: input.targetKeywords },
+      // "Target keywords" was rendering as a row in the buyer-facing RFQ spec
+      // table, next to Formats and Documents — so a procurement reader saw
+      // "Target keywords: container desiccant supplier, cargo desiccant, ..."
+      // presented as a product attribute. The field stays on the input type as
+      // authoring documentation; it is simply no longer shown or emitted.
       { label: "Formats", value: input.formats },
       { label: "Buyer types", value: input.buyerTypes },
       { label: "Documents", value: input.documents },
@@ -335,7 +339,7 @@ const highIntentSeoLandingPages = {
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel beads", href: "/silica-gel-beads" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container desiccant", href: "/container-desiccant" },
+      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
@@ -434,7 +438,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel beads", href: "/silica-gel-beads" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Export markets", href: "/export" },
-      { label: "Wholesale silica gel packets", href: "/silica-gel-packets-wholesale" },
+      { label: "Wholesale silica gel packets", href: "/silica-gel-packets" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
@@ -450,7 +454,7 @@ const highIntentSeoLandingPages = {
     slug: "silica-gel-manufacturer",
     title: "Silica Gel Manufacturer & Exporter | Factory-Direct",
     metaDescription:
-      "Factory-direct silica gel manufacturer and exporter since 1983 — packets, beads, and bulk desiccant with ISO 9001:2015 QC, SDS/COA, and FOB/CIF worldwide.",
+      "Factory-direct silica gel manufacturer and exporter since 1983, packets, beads, and bulk desiccant with ISO 9001:2015 QC, SDS/COA, and FOB/CIF worldwide.",
     kicker: "Silica gel manufacturer",
     h1: "Silica gel manufacturer and exporter since 1983.",
     lead:
@@ -564,7 +568,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "What should I ask a silica gel manufacturer before ordering?", answer: "Ask about product format, size range, MOQ, repeat capacity, documents, packing, destination support, and private-label options." },
       { question: "Can one manufacturer supply packets and bulk silica gel?", answer: "A stronger B2B supplier should be able to discuss packets, bulk bags, cargo strips, and private-label programs in one RFQ path." },
-      { question: "Does DryGelWorld export silica gel worldwide?", answer: "Yes — export orders ship from Karachi on FOB, CIF, or EXW terms with COO, COA, packing list, and SDS documentation coordinated before dispatch." },
+      { question: "Does DryGelWorld export silica gel worldwide?", answer: "Yes, export orders ship from Karachi on FOB, CIF, or EXW terms with COO, COA, packing list, and SDS documentation coordinated before dispatch." },
       { question: "What documents matter for silica gel buyers?", answer: "Most industrial buyers request SDS and COA first, then ISO, labeling, DMF-free, or market-specific statements where relevant." },
       { question: "What is the typical manufacturer lead time?", answer: "Standard stock formats may dispatch in roughly 3-7 days, while printed private-label runs commonly add 5-10 days. Final timing is confirmed against quantity, artwork, packing, and destination." },
       { question: "Can a manufacturer quote FOB, CIF, EXW, and DAP?", answer: "Yes. DryGelWorld discusses EXW, FOB Karachi, CIF, and DAP after the destination, shipment volume, packing, and buyer logistics requirements are clear." },
@@ -694,7 +698,7 @@ const highIntentSeoLandingPages = {
   }),
   "desiccant-manufacturer": keywordClusterPage({
     slug: "desiccant-manufacturer",
-    title: "Desiccant Manufacturer | Silica Gel Moisture Control Supplier",
+    title: "Desiccant Manufacturer | Silica Gel Moisture Control",
     metaDescription:
       "Desiccant manufacturer page for silica gel packets, bulk desiccants, packaging desiccants, cargo desiccants, OEM sachets, SDS, COA, and export RFQs.",
     kicker: "Desiccant manufacturer",
@@ -760,9 +764,14 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Undersizing desiccant quantity or using a retail packet for an industrial moisture problem",
     quoteBasis: "Use case, format, kg or unit count, pallet plan, destination, Incoterms, documents",
     relatedLinks: [
+      // Elected page for the generic "desiccant supplier /
+      // manufacturer" family. GSC showed six of our own pages splitting
+      // that query across positions 3 to 63 for zero clicks; the losers
+      // now hand it their intent with the query as the anchor.
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial desiccant", href: "/industrial-desiccant" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Moisture absorber manufacturer", href: "/moisture-absorber-manufacturer" },
+      { label: "Moisture absorber manufacturer", href: "/moisture-absorber-supplier" },
     ],
     faqs: [
       { question: "What makes a desiccant industrial grade?", answer: "Industrial desiccant buying is usually based on repeat volume, format control, documents, packaging needs, and application risk." },
@@ -772,7 +781,7 @@ const highIntentSeoLandingPages = {
   }),
   "industrial-desiccant": keywordClusterPage({
     slug: "industrial-desiccant",
-    title: "Industrial Desiccant | Silica Gel for Moisture Control",
+    title: "Industrial Desiccant Types, Grades & Selection Guide",
     metaDescription:
       "Industrial desiccant page for silica gel moisture control in packaging, warehousing, export cartons, bulk supply, cargo containers, SDS, COA, and RFQs.",
     kicker: "Industrial desiccant",
@@ -799,9 +808,10 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Using the wrong format for the actual moisture location: product pack, carton, warehouse, or container",
     quoteBasis: "Moisture risk, format, quantity, destination, storage time, route, and documents",
     relatedLinks: [
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial supplier", href: "/industrial-desiccant-supplier" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
-      { label: "Container desiccant", href: "/container-desiccant" },
+      { label: "Container desiccant", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
       { question: "What is an industrial desiccant?", answer: "An industrial desiccant is a moisture control product used in packaging, storage, shipment, or production environments." },
@@ -878,7 +888,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Packet size, material, quantity, print scope, carton packing, destination, documents",
     relatedLinks: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Packets wholesale", href: "/silica-gel-packets-wholesale" },
+      { label: "Packets wholesale", href: "/silica-gel-packets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
     ],
     faqs: [
@@ -916,7 +926,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Comparing unit price without carton quantity, MOQ, packing, or repeat volume",
     quoteBasis: "Packet size, units per carton, cartons per shipment, destination, documents, repeat schedule",
     relatedLinks: [
-      { label: "Packet manufacturer", href: "/silica-gel-packets-manufacturer" },
+      { label: "Packet manufacturer", href: "/silica-gel-packets" },
       { label: "Private label silica gel", href: "/private-label-silica-gel-supplier" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
@@ -981,8 +991,11 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Container desiccant", href: "/container-desiccant" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      // One exact-match anchor to the elected page for the "container desiccant
+      // supplier" query family, which GSC shows split across nine URLs. Two
+      // vague anchors to the same href said nothing; one that repeats the query
+      // says everything.
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Cargo strips", href: "/container-desiccant-strips" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Export support", href: "/export" },
@@ -1026,8 +1039,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Using packet-only protection when the whole container environment is the moisture risk",
     quoteBasis: "Container size, route, cargo type, transit days, humidity risk, strip count, documents",
     relatedLinks: [
-      { label: "Container supplier", href: "/container-desiccant-supplier" },
-      { label: "Shipping moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Container strips", href: "/container-desiccant-strips" },
     ],
     faqs: [
@@ -1106,6 +1118,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Choosing a bag size without considering carton volume, exposure time, and humidity route",
     quoteBasis: "Bag size, material, fill, quantity, carton packing, destination, documents",
     relatedLinks: [
+      { label: "Half-kilo silica gel bags", href: "/silica-gel-bags-0-5kg" },
       { label: "Desiccant bags", href: "/desiccant-bags" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
@@ -1197,7 +1210,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Private-label silica gel", href: "/private-label-silica-gel-supplier" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
-      { label: "Silica gel packets manufacturer", href: "/silica-gel-packets-manufacturer" },
+      { label: "Silica gel packets manufacturer", href: "/silica-gel-packets" },
     ],
     faqs: [
       { question: "What is OEM silica gel supply?", answer: "OEM silica gel supply means packets, carton labels, warning text, and packing can be discussed around a buyer-specific program." },
@@ -1207,7 +1220,7 @@ const highIntentSeoLandingPages = {
   }),
   "private-label-silica-gel-supplier": keywordClusterPage({
     slug: "private-label-silica-gel-supplier",
-    title: "Private Label Silica Gel Supplier | Printed Desiccant Packets",
+    title: "Private Label Silica Gel | Printed Desiccant Packets",
     metaDescription:
       "Private label silica gel supplier for printed desiccant packets, OEM sachets, carton labels, warning copy, bulk programs, SDS, COA, MOQ, and export RFQs.",
     kicker: "Private label silica gel supplier",
@@ -1264,7 +1277,7 @@ const highIntentSeoLandingPages = {
         { text: ", verify the supplier " },
         { href: "/documentation", label: "document set" },
         { text: ", and use the " },
-        { href: "/contact", label: "commercial RFQ form" },
+        { href: "/request-a-quote", label: "commercial RFQ form" },
         { text: " to attach artwork, packing, destination, and repeat-volume requirements." },
       ],
     },
@@ -1342,7 +1355,7 @@ const highIntentSeoLandingPages = {
         { text: ", review available " },
         { href: "/documentation", label: "quality documents" },
         { text: ", then send artwork and commercial requirements through the " },
-        { href: "/contact", label: "private-label RFQ" },
+        { href: "/request-a-quote", label: "private-label RFQ" },
         { text: "." },
       ],
     },
@@ -1421,7 +1434,7 @@ const highIntentSeoLandingPages = {
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
       { label: "Silica gel vs clay", href: "/compare/silica-gel-vs-clay-desiccant" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What is white silica gel used for?", answer: "White silica gel is used for non-indicating moisture control inside product packs, cartons, bulk bags, warehouse stock, electronics packaging, pharma packaging review, leather goods, and export shipments." },
@@ -1499,7 +1512,7 @@ const highIntentSeoLandingPages = {
       { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What is indicating silica gel?", answer: "Indicating silica gel is a moisture-adsorbing desiccant with a visible color signal that helps users identify moisture exposure or saturation status." },
@@ -1516,7 +1529,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-for-transformer-breather": keywordClusterPage({
     slug: "silica-gel-for-transformer-breather",
-    title: "Silica Gel for Transformer Breathers | Cobalt-Free Orange Refill",
+    title: "Silica Gel for Transformer Breathers | Cobalt-Free",
     metaDescription:
       "Silica gel refill for transformer breathers. Cobalt-free orange indicating gel for REACH-sensitive and EU-bound utility and transformer OEM programs, in bulk kg with SDS, COA, and ISO 9001:2015 reference. We supply the desiccant gel, not the breather housing.",
     kicker: "Transformer breather silica gel",
@@ -1602,7 +1615,7 @@ const highIntentSeoLandingPages = {
       { label: "Cobalt-free vs blue gel (safety)", href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Documents hub", href: "/documentation" },
-      { label: "Request breather gel quote", href: "/contact" },
+      { label: "Request breather gel quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What silica gel is used in a transformer breather?", answer: "An indicating silica gel that shows a colour change as it saturates. Modern practice favours cobalt-free orange gel (dark orange when dry, green when saturated) over traditional cobalt-blue gel, because cobalt chloride is a substance of concern under EU REACH." },
@@ -1675,7 +1688,7 @@ const highIntentSeoLandingPages = {
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
       { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
       { label: "Indicating vs non-indicating", href: "/compare/indicating-vs-non-indicating-silica-gel" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What does non-indicating silica gel mean?", answer: "Non-indicating silica gel adsorbs moisture without changing color. It is normally selected where buyers need clean adsorption rather than a visual humidity signal." },
@@ -1721,7 +1734,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
       { question: "Is silica gel a moisture absorber?", answer: "Yes. Silica gel is a desiccant moisture absorber used inside packaging, storage, and shipment environments." },
@@ -1760,7 +1773,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Waiting until after container loading to plan moisture protection",
     quoteBasis: "Container size, route, transit days, cargo type, loading style, strip quantity",
     relatedLinks: [
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
     ],
@@ -1853,9 +1866,9 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier": keywordClusterPage({
     slug: "hair-net-supplier",
-    title: "Hair Net Supplier | Bouffant PPE for Food, Manufacturing & Healthcare",
+    title: "Hair Net Supplier | Bouffant PPE for Food & Industry",
     metaDescription:
-      "Hair net supplier for food processing, manufacturing, healthcare, and industrial PPE. Bouffant non-woven polypropylene nets in 18-22 inch diameters, green and white.",
+      "Hair net supplier for food processing, healthcare, and industrial PPE. Bouffant non-woven polypropylene, 18-22 inch, green and white, carton-packed.",
     kicker: "Hair Net Supplier",
     h1: "Hair net supplier for food, manufacturing, and healthcare PPE programs.",
     lead:
@@ -1887,7 +1900,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Beard cover supplier", href: "/beard-cover-supplier" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "What sizes of hair nets are supplied?", answer: "Standard bouffant nets are available in 18, 20, 21, and 22 inch diameters. Custom sizing can be discussed for high-volume programs." },
@@ -1897,7 +1910,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier": keywordClusterPage({
     slug: "beard-cover-supplier",
-    title: "Beard Cover Supplier | Disposable Beard Nets for Food & Manufacturing",
+    title: "Beard Cover Supplier | Disposable Beard Nets, Bulk",
     metaDescription:
       "Beard cover supplier (beard nets) for food handling, manufacturing, healthcare, and PPE programs. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier",
@@ -1931,7 +1944,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Hair net supplier", href: "/hair-net-supplier" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       { question: "Are beard covers and hair nets the same product?", answer: "No. Hair nets cover the head and contain scalp hair; beard covers contain facial hair. PPE programs in food and manufacturing typically order both." },
@@ -1941,9 +1954,9 @@ const highIntentSeoLandingPages = {
   }),
   "food-grade-hair-nets": keywordClusterPage({
     slug: "food-grade-hair-nets",
-    title: "Food-Grade Hair Nets | Bouffant PPE for Food Processing & Packaging",
+    title: "Food-Grade Hair Nets | Bouffant PPE for Processing",
     metaDescription:
-      "Hair nets for food processing, food packaging, bakery, and dairy production. Bouffant non-woven polypropylene in 18-22 inch diameters, green and white color zoning.",
+      "Hair nets for food processing, packaging, bakery, and dairy lines. Bouffant non-woven polypropylene, 18-22 inch, green and white for zone coding.",
     kicker: "Food-Industry Hair Nets",
     h1: "Hair nets for food processing, packaging, and production-line PPE.",
     lead:
@@ -1985,7 +1998,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier-uae": keywordClusterPage({
     slug: "hair-net-supplier-uae",
-    title: "Hair Net Supplier for UAE | Bouffant PPE Karachi-to-Jebel Ali",
+    title: "Hair Net Supplier UAE | Bouffant PPE Karachi-Jebel Ali",
     metaDescription:
       "Hair net supplier for UAE food processing, manufacturing, and healthcare PPE programs. Karachi-to-Jebel Ali shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier UAE",
@@ -2029,7 +2042,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-desiccant-supplier-saudi-arabia": keywordClusterPage({
     slug: "dry-clay-desiccant-supplier-saudi-arabia",
-    title: "Dry Clay Desiccant Supplier for Saudi Arabia | Karachi-to-Jeddah Industrial Supply",
+    title: "Dry Clay Desiccant Supplier Saudi Arabia | Karachi Export",
     metaDescription:
       "Dry clay desiccant supplier for Saudi industrial cargo, packaging, and warehouse moisture control. Karachi-to-Jeddah / Dammam shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier Saudi Arabia",
@@ -2073,7 +2086,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-usa": keywordClusterPage({
     slug: "beard-cover-supplier-usa",
-    title: "Beard Cover Supplier for USA | Disposable Beard Nets for Food & Manufacturing",
+    title: "Beard Cover Supplier USA | Disposable Beard Nets",
     metaDescription:
       "Beard cover supplier for US food processing, manufacturing, and healthcare PPE programs. Karachi-to-US-coast shipping, disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier USA",
@@ -2117,7 +2130,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-supplier-uk": keywordClusterPage({
     slug: "silica-gel-supplier-uk",
-    title: "Silica Gel Supplier UK | Karachi-to-Felixstowe Desiccant Export",
+    title: "Silica Gel Supplier UK | Desiccant Export to Felixstowe",
     metaDescription:
       "Silica gel desiccant supplier for UK importers, electronics distributors, leather and footwear buyers, and pharma procurement. Karachi-to-Felixstowe / Southampton / London Gateway routing with SDS, COA, and ISO 9001:2015 documentation.",
     kicker: "Silica Gel Supplier UK",
@@ -2161,7 +2174,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-desiccant-supplier-uae": keywordClusterPage({
     slug: "dry-clay-desiccant-supplier-uae",
-    title: "Dry Clay Desiccant Supplier UAE | Karachi-to-Jebel Ali Industrial Supply",
+    title: "Dry Clay Desiccant Supplier UAE | Karachi to Jebel Ali",
     metaDescription:
       "Dry clay desiccant supplier for UAE industrial cargo, packaging, warehouse, and freight buyers. Karachi-to-Jebel Ali / Khalifa Port shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier UAE",
@@ -2205,7 +2218,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-net-supplier-saudi-arabia": keywordClusterPage({
     slug: "hair-net-supplier-saudi-arabia",
-    title: "Hair Net Supplier Saudi Arabia | Bouffant PPE Karachi-to-Jeddah",
+    title: "Hair Net Supplier Saudi Arabia | Bouffant PPE Export",
     metaDescription:
       "Hair net supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier Saudi Arabia",
@@ -2513,7 +2526,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-uk": keywordClusterPage({
     slug: "beard-cover-supplier-uk",
-    title: "Beard Cover Supplier UK | Disposable PPE Karachi-to-Felixstowe",
+    title: "Beard Cover Supplier UK | Disposable PPE Export",
     metaDescription:
       "Beard cover supplier for UK food processors, manufacturers, and healthcare PPE programs. Karachi-to-Felixstowe / Southampton / London Gateway shipping. Disposable non-woven polypropylene with elasticated edge.",
     kicker: "Beard Cover Supplier UK",
@@ -2689,7 +2702,7 @@ const highIntentSeoLandingPages = {
   }),
   "beard-cover-supplier-saudi-arabia": keywordClusterPage({
     slug: "beard-cover-supplier-saudi-arabia",
-    title: "Beard Cover Supplier Saudi Arabia | Karachi-to-Jeddah PPE Supply",
+    title: "Beard Cover Supplier Saudi Arabia | PPE Export",
     metaDescription:
       "Beard cover supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier Saudi Arabia",
@@ -2733,7 +2746,7 @@ const highIntentSeoLandingPages = {
   }),
   "dry-clay-exporter-europe": keywordClusterPage({
     slug: "dry-clay-exporter-europe",
-    title: "Dry Clay Desiccant Exporter Europe | Multi-Port EU Industrial Supply",
+    title: "Dry Clay Desiccant Exporter Europe | EU Industrial Supply",
     metaDescription:
       "Dry clay desiccant exporter for European importers, packaging companies, industrial buyers, and distributor networks. Karachi-to-Hamburg / Rotterdam / Antwerp / Le Havre routing with activated bentonite and montmorillonite clay packs.",
     kicker: "Dry Clay Exporter Europe",
@@ -2821,7 +2834,7 @@ const highIntentSeoLandingPages = {
   }),
   "desiccants-for-pharma-industry": keywordClusterPage({
     slug: "desiccants-for-pharma-industry",
-    title: "Desiccants for Pharma Industry | Pharmaceutical Packaging Silica Gel Supplier",
+    title: "Desiccants for Pharma | Pharmaceutical Packaging Supplier",
     metaDescription:
       "Desiccants for pharmaceutical packaging - silica gel sachets for pill bottles, blister packs, diagnostic kits, healthcare cartons, and regulated pharma export. Document support: ISO 9001:2015, SDS, COA, DMF-free statement.",
     kicker: "Pharma Industry Desiccants",
@@ -2865,7 +2878,7 @@ const highIntentSeoLandingPages = {
   }),
   "hair-nets-for-food-industry": keywordClusterPage({
     slug: "hair-nets-for-food-industry",
-    title: "Hair Nets for Food Industry | Bouffant PPE for Food Processing",
+    title: "Hair Nets for Food Industry | Bouffant PPE Supplier",
     metaDescription:
       "Hair nets for food industry - bouffant PPE for food processing, packaging, bakery, dairy, and meat operations. Non-woven polypropylene in 18-22 inch diameters, green and white color zoning, B2B export supply.",
     kicker: "Food Industry Hair Nets",
@@ -2909,7 +2922,7 @@ const highIntentSeoLandingPages = {
   }),
   "moisture-absorber-for-shipping": keywordClusterPage({
     slug: "moisture-absorber-for-shipping",
-    title: "Moisture Absorber for Shipping | B2B Container & Cargo Supply",
+    title: "Moisture Absorber for Shipping | Container & Cargo",
     metaDescription:
       "Moisture absorbers designed for B2B shipping - silica gel and dry clay desiccants for cartons, containers, and pallet-level cargo protection. Karachi-origin export supply across UAE, Saudi, USA, UK, EU markets.",
     kicker: "Moisture Absorber for Shipping",
@@ -2942,7 +2955,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Format mix, volume, route, destination, documentation",
     relatedLinks: [
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
-      { label: "Container desiccant supplier", href: "/container-desiccant-supplier" },
+      { label: "Container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
       { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
     ],
     faqs: [
@@ -2953,9 +2966,9 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-for-leather-export": keywordClusterPage({
     slug: "silica-gel-for-leather-export",
-    title: "Silica Gel for Leather Export | Footwear & Leather Goods Moisture Control",
+    title: "Silica Gel for Leather Export | Footwear Moisture Control",
     metaDescription:
-      "Silica gel desiccants for leather export, footwear shipping, and leather goods packaging. Protect against mold, finish damage, and odor during long-haul ocean freight. DMF-free silica gel essential for EU-bound leather cargo.",
+      "Silica gel for leather and footwear export. Stop mould, finish damage, and odour on long ocean routes, with DMF-free material for EU-bound cargo.",
     kicker: "Silica Gel for Leather Export",
     h1: "Silica gel for leather, footwear, and leather goods export programs.",
     lead:
@@ -2997,7 +3010,7 @@ const highIntentSeoLandingPages = {
   }),
   "silica-gel-beads": keywordClusterPage({
     slug: "silica-gel-beads",
-    title: "Silica Gel Beads | Bulk Bead Supplier for Industrial Re-Packers",
+    title: "Silica Gel Beads | Bulk Beads for Re-Packers",
     metaDescription:
       "Silica gel beads for industrial re-packers, distributors, and high-volume packaging operations. Bulk 25kg bags of loose amorphous silicon dioxide beads, 1-3mm uniform size, B2B export supply from Karachi.",
     kicker: "Silica Gel Beads",
@@ -3056,13 +3069,13 @@ export const seoLandingPages = {
   ...highIntentSeoLandingPages,
   "silica-gel-packets": {
     slug: "silica-gel-packets",
-    title: "Silica Gel Packets Supplier | Bulk Desiccant Sachets",
+    title: "Silica Gel Packets in Pakistan | Price & Bulk Supplier",
     metaDescription:
-      "Silica gel packets and desiccant sachets factory-direct, 0.5g to 100g, for electronics, pharma, leather, and food packaging. PKR quotes for buyers in Pakistan, plus private label, SDS, COA, and RFQ support for export.",
+      "Buy silica gel packets in Pakistan from a Karachi manufacturer. 0.5g to 100g sizes, PKR pricing, bulk supply, WhatsApp quotes, SDS, COA, and export support.",
     kicker: "Silica gel packets",
-    h1: "Silica gel packets for cartons, packaging, and bulk supply.",
+    h1: "Buy silica gel packets in Pakistan, factory-direct.",
     lead:
-      "Source silica gel packets by gram size, sachet material, carton quantity, documentation needs, and destination market. Built for buyers who need clean RFQ inputs before price negotiation.",
+      "Choose the packet size and quantity you need, then request a quick PKR price by phone or WhatsApp. Karachi pickup, Pakistan-wide supply, and export documentation are available.",
     searchIntent:
       "For packaging buyers selecting packet size, sachet material, monthly quantity, documents, private label, and destination terms.",
     primaryCta: "Request Packet Quote",
@@ -3228,7 +3241,7 @@ export const seoLandingPages = {
       heading: "Validate packet dosage and documents before ordering",
       parts: [
         { text: "Use the " },
-        { href: "/tools/moisture-load-calculator", label: "carton moisture-load calculator" },
+        { href: "/tools/silica-gel-calculator", label: "silica gel calculator" },
         { text: " as a planning aid, compare packet specifications on the " },
         { href: "/products/retail-sachets", label: "silica gel sachet product page" },
         { text: ", and review available " },
@@ -3241,13 +3254,18 @@ export const seoLandingPages = {
       { label: "2g silica gel sachets", href: "/2g-silica-gel-sachets" },
       { label: "5g silica gel sachets", href: "/5g-silica-gel-sachets" },
       { label: "10g silica gel sachets", href: "/10g-silica-gel-sachets" },
+      { label: "Sizing up from packets to 0.5kg bags", href: "/silica-gel-bags-0-5kg" },
+      // First related link is the Pakistan supplier page with a keyword-bearing
+      // anchor - this page and that one used to compete for the same query with
+      // only footer boilerplate connecting them.
+      { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "Small sachet product page", href: "/products/retail-sachets" },
       { label: "Private label packets", href: "/private-label-desiccant-packets" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
       { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Technical documents", href: "/documentation" },
-      { label: "Request export quote", href: "/contact" },
+      { label: "Request export quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -3274,13 +3292,13 @@ export const seoLandingPages = {
   },
   "bulk-silica-gel-desiccant": {
     slug: "bulk-silica-gel-desiccant",
-    title: "Bulk Silica Gel Desiccant Supplier | Industrial Moisture Control",
+    title: "Bulk Silica Gel Desiccant Supplier | Moisture Control",
     metaDescription:
-      "Bulk silica gel desiccant factory-direct — loose beads by the kilogram, 25kg bags, and large packs for warehouses, distributors, and exporters. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
+      "Bulk silica gel desiccant factory-direct, loose beads by the kilogram, 25kg bags, and large packs for warehouses, distributors, and exporters. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Bulk silica gel desiccant",
     h1: "Bulk silica gel desiccant for warehouses, distributors, and industrial buyers.",
     lead:
-      "Buy bulk silica gel desiccant factory-direct — loose beads by the kilogram, 25kg bags, and large desiccant packs for warehouses, distributors, and production lines. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
+      "Buy bulk silica gel desiccant factory-direct, loose beads by the kilogram, 25kg bags, and large desiccant packs for warehouses, distributors, and production lines. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
     searchIntent:
       "For distributors, repackers, warehouses, and industrial buyers comparing loose kg, finished bags, pallets, documents, and repeat supply.",
     primaryCta: "Request Bulk Quote",
@@ -3456,6 +3474,7 @@ export const seoLandingPages = {
     },
     relatedLinks: [
       { label: "Silica gel per kg (bags, price basis)", href: "/silica-gel-per-kg" },
+      { label: "0.5kg bags instead of loose gel", href: "/silica-gel-bags-0-5kg" },
       { label: "Bulk product page", href: "/products/bulk-industrial" },
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
       { label: "Bulk sales calculator", href: "/bulk-sales" },
@@ -3603,12 +3622,12 @@ export const seoLandingPages = {
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "FOB Karachi quotes", href: "/export/fob-karachi" },
       { label: "Container export case study", href: "/case-studies/container-export-moisture-protection" },
-      { label: "Shipping container moisture control", href: "/shipping-container-moisture-control" },
+      { label: "Shipping container moisture control", href: "/shipping-container-desiccant-supplier" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Container desiccant vs packets", href: "/compare/container-desiccant-vs-silica-gel-packets" },
       { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
       { label: "Container strip documents", href: "/documentation" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -3764,13 +3783,21 @@ export const seoLandingPages = {
   },
   "silica-gel-manufacturer-pakistan": {
     slug: "silica-gel-manufacturer-pakistan",
-    title: "Silica Gel in Pakistan | Packets & Bulk Supplier | DryGelWorld",
+    // 48 chars - the previous 62-char title was truncated by compactMetaTitle
+    // into "...Bulk Supplier |…", a dangling pipe and ellipsis in the SERP.
+    // Opens with the exact query and names Karachi, the word a local buyer
+    // adds when they want a supplier they can actually visit.
+    title: "Silica Gel Pakistan | Packets & Bulk from Karachi",
+    // 152 chars, under the 158 limit so nothing truncates. The old source was
+    // 183, so the compactor kept only its 84-char first sentence and half the
+    // SERP space went unused. City, year, currency, paperwork - the four
+    // things a Pakistani buyer scans for.
     metaDescription:
-      "Buy silica gel packets and bulk desiccants in Pakistan direct from the manufacturer. Sizes from 0.5g to bulk drums, quick PKR quotes on WhatsApp, based in Karachi with export support.",
+      "Silica gel packets and bulk desiccant from a Karachi manufacturer since 1983. PKR pricing, low MOQ, ISO 9001:2015, SDS and COA with every order.",
     kicker: "Silica gel in Pakistan",
     h1: "Silica gel packets and bulk desiccants in Pakistan, factory-direct.",
     lead:
-      "Buy silica gel in Pakistan straight from the manufacturer — packets from 0.5g to 100g and bulk beads by the drum. Get a quick PKR price by phone, WhatsApp, or email; we ship across Pakistan and worldwide, or you can collect from our Karachi factory.",
+      "Buy silica gel in Pakistan straight from the manufacturer, packets from 0.5g to 100g and bulk beads by the drum. Get a quick PKR price by phone, WhatsApp, or email; we ship across Pakistan and worldwide, or you can collect from our Karachi factory.",
     searchIntent: "Local buyer intent: silica gel in Pakistan, silica gel packets in Pakistan, silica gel price in Pakistan, silica gel manufacturer Pakistan",
     primaryCta: "Get a PKR Price Quote",
     secondaryCta: "View Product Range",
@@ -3804,7 +3831,6 @@ export const seoLandingPages = {
     specsIntro:
       "A strong Pakistan supplier inquiry should separate local stock needs from export shipment needs.",
     specs: [
-      { label: "Target keywords", value: "Silica gel manufacturer in Pakistan, silica gel supplier Pakistan, silica gel company" },
       { label: "Product formats", value: "Silica gel packets, bulk silica gel, cargo strips, paper sachets, private-label packets" },
       { label: "Buyer types", value: "Importers, distributors, packagers, warehouses, exporters" },
       { label: "Documents", value: "SDS, COA, ISO support, labeling, and market-specific paperwork on request" },
@@ -3891,7 +3917,7 @@ export const seoLandingPages = {
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
       { label: "Certifications held and not held", href: "/certifications" },
       { label: "Export from Pakistan (FOB Karachi)", href: "/export/fob-karachi" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -3918,17 +3944,45 @@ export const seoLandingPages = {
         question: "Is this page for export buyers too?",
         answer: "Yes. International buyers searching for a silica gel manufacturer or exporter in Pakistan can use this page, then move to the country export pages for ports, customs codes, and Incoterms.",
       },
+      // The five below target real local search behaviour, two of them in Roman
+      // Urdu on purpose: Pakistani buyers search that way and none of the
+      // competitors in this result set write it. No PKR figures are quoted -
+      // the owner has not supplied real price bands yet, and an invented number
+      // in an FAQ is worse than none. Add the bands here the day they exist.
+      {
+        question: "Silica gel ka rate kya hai in Pakistan?",
+        // Real published reference prices (owner-supplied list, 2026-08-06) -
+        // the same numbers the /pricing table and calculator use, so this
+        // answer can never drift from the site's own published rates.
+        answer: "Reference rates: chhote PP bags Rs 0.84 (0.5g) se Rs 2.40 (3g) per piece, paper sachets Rs 2.16 (2g) se Rs 21.60 (20g), bulk packs Rs 30 (25g) se Rs 600 (500g), aur 1 kg container strip Rs 1,140. Quantity par rate behtar hota hai; exact quote ke liye WhatsApp par size aur quantity bhejein.",
+      },
+      {
+        question: "Karachi mein silica gel kahan milta hai?",
+        answer: "DryGelWorld ki factory North Karachi Industrial Area mein hai aur sales office Gulshan-e-Iqbal mein. Factory pickup available hai, aur Karachi bhar mein delivery bhi hoti hai.",
+      },
+      {
+        question: "What is the minimum order for silica gel in Pakistan?",
+        answer: "Local MOQs are lower than export MOQs and depend on the format: retail sachets are supplied by the carton, bulk beads by the bag or drum. Share the format and use case and we will confirm the smallest practical order.",
+      },
+      {
+        question: "Do you deliver silica gel to Lahore, Faisalabad and Sialkot?",
+        answer: "Yes, we dispatch across Pakistan through courier and cargo services, including Lahore, Faisalabad, Sialkot, Islamabad, and Multan. Delivery time and cost depend on the order weight and are confirmed with the quote.",
+      },
+      {
+        question: "Is silica gel available in Pakistan for food packaging?",
+        answer: "We supply silica gel used in general packaging, but we do not hold food-contact certification such as FDA or FSSC 22000, and we say so plainly. For direct food-contact use, ask us about the application first and we will tell you honestly whether our product fits.",
+      },
     ],
   },
   "silica-gel-supplier-karachi": {
     slug: "silica-gel-supplier-karachi",
     title: "Silica Gel Supplier in Karachi | DryGelWorld",
     metaDescription:
-      "Silica gel supplier in Karachi, factory-direct — packets and bulk desiccants for packaging lines, warehouses, and export cartons. Quick PKR quotes, factory pickup, plus SDS, COA, and export RFQs.",
+      "Silica gel supplier in Karachi, factory-direct, packets and bulk desiccants for packaging lines, warehouses, and export cartons. Quick PKR quotes, factory pickup, plus SDS, COA, and export RFQs.",
     kicker: "Karachi silica gel supplier",
     h1: "Silica gel supplier in Karachi for packaging, warehouse, and export buyers.",
     lead:
-      "Silica gel packets and bulk desiccants supplied factory-direct in Karachi — for packaging lines, warehouse stock, and export cartons. Get a quick PKR price by phone, WhatsApp, or email, or collect from the factory; export RFQs with SDS, COA, and Incoterms handled too.",
+      "Silica gel packets and bulk desiccants supplied factory-direct in Karachi, for packaging lines, warehouse stock, and export cartons. Get a quick PKR price by phone, WhatsApp, or email, or collect from the factory; export RFQs with SDS, COA, and Incoterms handled too.",
     searchIntent: "Local buyer intent: silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi",
     primaryCta: "Get a Karachi Quote",
     secondaryCta: "View Products",
@@ -3962,7 +4016,6 @@ export const seoLandingPages = {
     specsIntro:
       "Local supplier searches should still include proper RFQ data so pricing and stock planning are useful.",
     specs: [
-      { label: "Target keywords", value: "Silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi" },
       { label: "Formats", value: "0.5g-20g packets, bulk bags, cargo strips, private-label sachets" },
       { label: "Use cases", value: "Packaging, warehousing, electronics, leather, food cartons, export logistics" },
       { label: "Documents", value: "SDS, COA, ISO and buyer-specific paperwork on request" },
@@ -4096,11 +4149,11 @@ export const seoLandingPages = {
     slug: "food-grade-silica-gel-supplier",
     title: "Food Grade Silica Gel Supplier | Packaging Desiccant RFQ",
     metaDescription:
-      "Food grade silica gel supplier for food and dry-goods packaging — moisture control with SDS, COA, and labeling support. Quick PKR quotes, worldwide shipping or factory pickup, compliance review before every order.",
+      "Food grade silica gel supplier for food and dry-goods packaging, moisture control with SDS, COA, and labeling support. Quick PKR quotes, worldwide shipping or factory pickup, compliance review before every order.",
     kicker: "Food packaging desiccant",
     h1: "Food grade silica gel supplier for packaging buyers.",
     lead:
-      "Food grade silica gel and desiccants for food and dry-goods packaging — supplied with the SDS, COA, correct packet text, and documentation buyers need to confirm food-contact suitability before an order. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
+      "Food grade silica gel and desiccants for food and dry-goods packaging, supplied with the SDS, COA, correct packet text, and documentation buyers need to confirm food-contact suitability before an order. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
     searchIntent: "Food packaging intent: food grade silica gel supplier, food grade desiccant, desiccant for food packaging",
     primaryCta: "Request Food Packaging Quote",
     secondaryCta: "View Documents",
@@ -4134,7 +4187,6 @@ export const seoLandingPages = {
     specsIntro:
       "Use careful wording for food-grade searches. Claims should match the exact material, certificate, and destination requirements.",
     specs: [
-      { label: "Target keywords", value: "Food grade silica gel supplier, food grade desiccant, desiccant for food packaging" },
       { label: "Typical formats", value: "Small white packets, carton sachets, private-label packaging programs" },
       { label: "Documents", value: "SDS, COA, material statement, labeling and compliance proof where valid" },
       { label: "Buyer risk", value: "Making unsupported food-grade or food-contact claims without matching documents" },
@@ -4194,7 +4246,7 @@ export const seoLandingPages = {
         { text: ", compare " },
         { href: "/silica-gel-packets", label: "packet formats" },
         { text: ", then send the exact contact scenario through the " },
-        { href: "/contact", label: "application review form" },
+        { href: "/request-a-quote", label: "application review form" },
         { text: "." },
       ],
     },
@@ -4249,11 +4301,11 @@ export const seoLandingPages = {
     slug: "blue-silica-gel-manufacturer",
     title: "Blue Silica Gel Manufacturer | Indicating Desiccant Supplier",
     metaDescription:
-      "Blue silica gel manufacturer — indicating desiccant for humidity monitoring and lab storage. Blue uses cobalt chloride (restricted in the EU); we help you pick blue or a cobalt-free orange alternative. Quick PKR quotes, worldwide shipping.",
+      "Blue silica gel manufacturer, indicating desiccant for humidity monitoring and lab storage. Blue uses cobalt chloride (restricted in the EU); we help you pick blue or a cobalt-free orange alternative. Quick PKR quotes, worldwide shipping.",
     kicker: "Blue indicating silica gel",
     h1: "Blue silica gel manufacturer for indicating gel buyers.",
     lead:
-      "Blue indicating silica gel that shifts from blue to pink as it absorbs moisture, for humidity monitoring and lab storage. Note that blue uses cobalt chloride, which is restricted in the EU under REACH — we will help you confirm whether blue or a cobalt-free orange alternative fits your market before ordering. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
+      "Blue indicating silica gel that shifts from blue to pink as it absorbs moisture, for humidity monitoring and lab storage. Note that blue uses cobalt chloride, which is restricted in the EU under REACH, we will help you confirm whether blue or a cobalt-free orange alternative fits your market before ordering. Quick PKR quotes for buyers in Pakistan, worldwide shipping or factory pickup.",
     searchIntent: "Indicating gel intent: blue silica gel manufacturer, blue silica gel supplier, indicating silica gel",
     primaryCta: "Request Blue Gel Quote",
     secondaryCta: "Compare Orange Gel",
@@ -4287,7 +4339,6 @@ export const seoLandingPages = {
     specsIntro:
       "Blue gel inquiries should not be treated like generic white silica gel because color chemistry and market rules can matter.",
     specs: [
-      { label: "Target keywords", value: "Blue silica gel manufacturer, blue silica gel supplier, indicating silica gel" },
       { label: "Use cases", value: "Lab storage, equipment cases, humidity signal packs, controlled storage" },
       { label: "Documents", value: "SDS, COA, composition notes, destination compliance review" },
       { label: "Buyer risk", value: "Ordering an indicating color that does not match buyer or market restrictions" },
@@ -4414,11 +4465,11 @@ export const seoLandingPages = {
     slug: "orange-silica-gel-supplier",
     title: "Orange Silica Gel Supplier | Indicating Desiccant RFQ",
     metaDescription:
-      "Orange silica gel supplier — cobalt-free indicating desiccant in beads or packets for humidity monitoring in packaging, storage, and instruments. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
+      "Orange silica gel supplier, cobalt-free indicating desiccant in beads or packets for humidity monitoring in packaging, storage, and instruments. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Orange indicating silica gel",
     h1: "Orange silica gel supplier for buyers who need visible humidity indication.",
     lead:
-      "Orange indicating silica gel that changes colour as it absorbs moisture — cobalt-free, in beads or packets, for humidity monitoring in packaging, storage, and instruments. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA.",
+      "Orange indicating silica gel that changes colour as it absorbs moisture, cobalt-free, in beads or packets, for humidity monitoring in packaging, storage, and instruments. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA.",
     searchIntent: "Indicating gel intent: orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier",
     primaryCta: "Request Orange Gel Quote",
     secondaryCta: "Compare Blue Gel",
@@ -4452,7 +4503,6 @@ export const seoLandingPages = {
     specsIntro:
       "Indicating gel buyers should specify color-change expectations and document needs early.",
     specs: [
-      { label: "Target keywords", value: "Orange silica gel supplier, orange indicating silica gel, indicating desiccant supplier" },
       { label: "Formats", value: "Bulk beads, jars, packets, carton packs by buyer requirement" },
       { label: "Use cases", value: "Storage monitoring, lab supplies, packaging checks, moisture-state education" },
       { label: "Documents", value: "SDS, COA, composition notes and destination review on request" },
@@ -4538,7 +4588,8 @@ export const seoLandingPages = {
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Silica gel for transformer breathers", href: "/silica-gel-for-transformer-breather" },
       { label: "How to regenerate silica gel", href: "/blog/how-to-regenerate-silica-gel-oven-temperature-guide" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Documents hub", href: "/documentation" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {
@@ -4577,13 +4628,13 @@ export const seoLandingPages = {
   },
   "moisture-absorber-supplier": {
     slug: "moisture-absorber-supplier",
-    title: "Moisture Absorber Supplier | Industrial Desiccant Manufacturer",
+    title: "Moisture Absorber Supplier | Silica Gel & Clay Packs",
     metaDescription:
-      "Moisture absorber supplier — silica gel packets, bulk desiccant, and container strips for packaging, warehouses, and cargo. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA and export RFQs.",
+      "Moisture absorber supplier, silica gel packets, bulk desiccant, and container strips for packaging, warehouses, and cargo. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA and export RFQs.",
     kicker: "Moisture absorber supplier",
     h1: "Moisture absorber supplier for packaging, warehouses, and export.",
     lead:
-      "Moisture absorbers and desiccants for packaging, warehouses, and cargo — silica gel packets, bulk desiccant, and container strips that stop humidity damage in storage and transit. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
+      "Moisture absorbers and desiccants for packaging, warehouses, and cargo, silica gel packets, bulk desiccant, and container strips that stop humidity damage in storage and transit. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
     searchIntent: "Buyer intent: moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container",
     primaryCta: "Request Moisture Absorber Quote",
     secondaryCta: "View Product Range",
@@ -4617,7 +4668,6 @@ export const seoLandingPages = {
     specsIntro:
       "The term moisture absorber is broad, so the page routes buyers into the right desiccant format.",
     specs: [
-      { label: "Target keywords", value: "Moisture absorber supplier, desiccant supplier, packaging desiccant, moisture absorber for container" },
       { label: "Formats", value: "Silica gel packets, bulk beads, cargo strips, carton packs, private-label sachets" },
       { label: "Use cases", value: "Packaging, warehousing, electronics, pharma, leather, food cartons, shipping containers" },
       { label: "Documents", value: "SDS, COA, ISO and buyer-specific statements on request" },
@@ -4693,11 +4743,12 @@ export const seoLandingPages = {
         { text: " and the " },
         { href: "/compare/calcium-chloride-vs-moisture-absorber", label: "calcium chloride vs moisture absorber comparison" },
         { text: " show where each chemistry wins, and the " },
-        { href: "/tools/moisture-load-calculator", label: "moisture load calculator" },
+        { href: "/tools/silica-gel-calculator", label: "silica gel calculator" },
         { text: " estimates how many grams a carton needs before you ask for a quote." },
       ],
     },
     relatedLinks: [
+      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
@@ -4726,7 +4777,7 @@ export const seoLandingPages = {
       },
       {
         question: "How much moisture absorber does a carton or container need?",
-        answer: "It depends on package volume, the packaging material, storage or transit time, and the route humidity. The moisture load calculator estimates grams per carton and the container desiccant calculator estimates strip count per container; send the outputs with your RFQ and the quote will match them.",
+        answer: "It depends on package volume, the packaging material, storage or transit time, and the route humidity. The silica gel calculator estimates grams per carton and the container desiccant calculator estimates strip count per container; send the outputs with your RFQ and the quote will match them.",
       },
       {
         question: "Can moisture absorbers be reused?",
@@ -4742,49 +4793,277 @@ export const seoLandingPages = {
       },
     ],
   },
+  "silica-gel-bags-0-5kg": {
+    // Built for a real inbound inquiry - "Silica Bags 0.5kg, Qty required 100
+    // bags" - not for search volume. GSC shows zero impressions for
+    // "0.5kg silica gel bags" or "500g silica gel bags" across Jun-Aug 2026, so
+    // this is a page to SEND a buyer who asks, and a long-tail net if the query
+    // ever appears. It targets the SIZE, not the category, so it does not
+    // compete with /desiccant-bags-supplier or /bulk-silica-gel-desiccant -
+    // both of which it links to by role rather than by keyword.
+    slug: "silica-gel-bags-0-5kg",
+    title: "0.5kg Silica Gel Bags | 500g Desiccant Supplier",
+    metaDescription:
+      "0.5kg silica gel bags factory-direct from Karachi. White or indicating gel, non-woven or paper bags, no minimum order, SDS and batch COA with every order.",
+    kicker: "0.5kg silica gel bags",
+    h1: "0.5 kg silica gel bags, quoted by the bag and shipped by the carton.",
+    lead:
+      "Half-kilo silica gel bags for warehouse, crate, and heavy-carton moisture control. Choose white non-indicating gel or colour-changing indicating gel, in a breathable non-woven or paper bag, and take 100 bags or a pallet - there is no minimum order.",
+    searchIntent:
+      "For buyers searching 0.5kg silica gel bags, 500g silica gel bags, or a bulk industrial silica gel bag supplier who need a unit price, a bag material, and the documents before they can raise a purchase order.",
+    primaryCta: "Get a 0.5kg bag quote",
+    secondaryCta: "See published rates",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "No minimum order - 100 bags is a normal first order",
+      "White non-indicating or orange indicating gel",
+      "SDS, TDS and DMF-free statement published for download",
+      "Batch COA issued with every order",
+    ],
+    fitTitle: "Who buys silica gel by the 0.5kg bag",
+    fitItems: [
+      {
+        label: "Warehouses",
+        title: "Stock-room and rack protection",
+        text: "One 0.5kg bag covers a far larger air volume than a sachet, which is why store rooms and spare-parts racks buy this size rather than packets.",
+      },
+      {
+        label: "Exporters",
+        title: "Heavy cartons and crates",
+        text: "Machinery, spares, and dense export crates need a bag rather than a packet. The bag sits loose in the crate and is removed on arrival.",
+      },
+      {
+        label: "Repackers",
+        title: "Distributors and resellers",
+        text: "Buyers who resell into their own market take 0.5kg bags in carton quantities and quote their own customers from there.",
+      },
+    ],
+    specsTitle: "0.5kg silica gel bag specification",
+    specsIntro:
+      "The figures below are the published product specification. Anything application-specific - bag material, print, or a tighter humidity target - is confirmed in writing before an order is accepted.",
+    specs: [
+      { label: "Material", value: "Amorphous silicon dioxide (SiO₂), CAS 7631-86-9" },
+      { label: "Unit weight", value: "500 g (0.5 kg) per bag; 1 kg and 2 kg also supplied" },
+      { label: "Gel options", value: "White non-indicating, or orange indicating that changes colour as it saturates" },
+      { label: "Bag material", value: "Breathable non-woven or paper, selected for the application" },
+      { label: "Adsorption capacity", value: "Up to ~33% of own weight in water vapour (25 °C, 90% RH)" },
+      { label: "Shelf life", value: "24-36 months in the sealed factory pouch" },
+      { label: "Minimum order", value: "None. Trial and sample quantities are supplied; price scales with volume" },
+      { label: "Documents", value: "SDS, TDS and DMF-free statement published; batch COA issued per order" },
+      { label: "Certification", value: "ISO 9001:2015 (QMEC/IAS-CB, certificate 9101225)" },
+    ],
+    buyerGuide: {
+      title: "What to settle before you raise the PO",
+      intro:
+        "Four decisions change the quote. Sending them together is the difference between a price in a day and three rounds of email.",
+      sections: [
+        {
+          label: "Gel type",
+          title: "White or indicating",
+          text: "White non-indicating is the default and the cheaper option. Indicating gel changes colour as it saturates, so a warehouse team can read moisture state without instruments - worth it when bags are inspected rather than replaced on a schedule.",
+        },
+        {
+          label: "Bag material",
+          title: "Non-woven or paper",
+          text: "Non-woven is tougher and handles rough crates and repeated handling. Paper is cheaper and adequate inside a sealed carton. State which, or describe the packing and we will recommend one.",
+        },
+        {
+          label: "Quantity",
+          title: "Bags per order, and repeat interval",
+          text: "There is no minimum, so 100 bags is a normal first order. Tell us whether it repeats monthly, quarterly, or is one-off - a repeat schedule changes the rate.",
+        },
+        {
+          label: "Documents",
+          title: "What your QA needs on file",
+          text: "SDS, TDS and the DMF-free statement are published and can be downloaded now. A batch COA is issued with the shipment. Food-grade and pharmaceutical certifications are not held, and any such application must be confirmed against your own compliance requirement first.",
+        },
+      ],
+    },
+    sizeGuide: {
+      title: "0.5kg against the sizes around it",
+      intro:
+        "The 0.5kg bag sits between sachets and sacks. If your air volume is larger or smaller, one of these is the better unit.",
+      rows: [
+        {
+          size: "25 g - 250 g",
+          bestFor: "Cartons, instrument cases, single product packs",
+          buyerNote: "Sachet territory. Below roughly 250 g a packet is easier to place and cheaper to ship.",
+        },
+        {
+          size: "0.5 kg bag",
+          bestFor: "Heavy cartons, crates, racks, small store rooms",
+          buyerNote: "The unit this page quotes. Loose bag, removed on arrival, no hanging hardware.",
+        },
+        {
+          size: "1 kg - 5 kg strips",
+          bestFor: "Shipping containers on ocean freight",
+          buyerNote: "For a full container use hanging strips, not loose bags - they attach to the wall and stay clear of cargo.",
+        },
+        {
+          size: "25 kg sacks and jumbo bags",
+          bestFor: "Repackers and facility-scale programmes",
+          buyerNote: "Buying loose gel by the sack is cheaper per kilo if you pack your own bags.",
+        },
+      ],
+    },
+    comparison: {
+      title: "Which gel goes in the bag",
+      intro:
+        "All three are silica gel. The difference is whether the bag tells you when it is spent, and what the indicator is made of - which matters for where you are shipping.",
+      columns: ["White non-indicating", "Orange indicating", "Blue indicating"],
+      rows: [
+        {
+          label: "How you know it is spent",
+          values: [
+            "Replace on a schedule, or weigh the bag",
+            "Turns from orange to green as it saturates",
+            "Turns from blue to pink as it saturates",
+          ],
+        },
+        {
+          label: "Cobalt chloride",
+          values: [
+            "Not applicable",
+            "Cobalt-free",
+            "Contains cobalt chloride - check it against your destination's rules before ordering",
+          ],
+        },
+        {
+          label: "Typical use",
+          values: [
+            "Routine carton and warehouse protection",
+            "Stores inspected visually, and destinations that restrict cobalt",
+            "Legacy specifications that name blue gel explicitly",
+          ],
+        },
+        {
+          label: "Relative cost",
+          values: ["Lowest", "Higher - you are paying for the visual check", "Higher"],
+        },
+      ],
+    },
+    quoteChecklist: {
+      title: "Quote needs these details",
+      formTitle: "0.5kg silica gel bag quotation",
+      intro:
+        "Send these five and the quote comes back in one pass rather than three.",
+      items: [
+        "Number of bags for the first order, and whether it repeats",
+        "White non-indicating or orange indicating gel",
+        "Non-woven or paper bag",
+        "Destination city and port, or factory pickup in Karachi",
+        "Documents your QA needs on file - SDS, TDS, DMF-free statement, batch COA",
+      ],
+      defaultProduct: "0.5kg silica gel bags",
+    },
+    buyingTitle: "How a 0.5kg bag order runs",
+    buyingIntro:
+      "Three steps from enquiry to dispatch. Most of the delay in a first order is deciding the bag material, which is why it is asked first.",
+    buyingSteps: [
+      {
+        title: "01 Send quantity and gel type",
+        text: "Bags for the first order, white or indicating, and whether it repeats. There is no minimum, so a 100-bag trial is a normal starting point.",
+      },
+      {
+        title: "02 Confirm bag material and documents",
+        text: "Non-woven or paper, and which documents your QA files. SDS, TDS and the DMF-free statement can be downloaded while you decide.",
+      },
+      {
+        title: "03 Approve terms and dispatch",
+        text: "Destination and Incoterms for export, or a pickup slot for Karachi. The batch COA is issued with the shipment.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Bulk silica gel by the kilogram", href: "/bulk-silica-gel-desiccant" },
+      { label: "Silica gel packets and sachets", href: "/silica-gel-packets" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Published rates", href: "/pricing" },
+      { label: "SDS, COA and certificates", href: "/documentation" },
+    ],
+    faqs: [
+      {
+        question: "What is the minimum order for 0.5kg silica gel bags?",
+        answer:
+          "There is no minimum. A 100-bag first order is normal, and trial and sample quantities are supplied. The rate improves with volume and with a repeat schedule.",
+      },
+      {
+        question: "How much moisture does a 0.5kg silica gel bag absorb?",
+        answer:
+          "Silica gel adsorbs up to about 33% of its own weight in water vapour at 25 °C and 90% relative humidity, so a 500 g bag holds roughly 165 g of water at saturation. Real capacity depends on the humidity and temperature the bag actually sees.",
+      },
+      {
+        question: "Are the bags white gel or indicating gel?",
+        answer:
+          "Either. White non-indicating is the default. Orange indicating gel changes colour as it saturates so the bag can be read on inspection, and the orange grade supplied is cobalt-free.",
+      },
+      {
+        question: "Non-woven or paper bags - which should I order?",
+        answer:
+          "Non-woven is tougher for crates and repeated handling. Paper is cheaper and adequate inside a sealed carton. Describe the packing and we will recommend one rather than guessing.",
+      },
+      {
+        question: "Do you supply SDS and COA with 0.5kg bags?",
+        answer:
+          "Yes. The SDS, TDS and DMF-free statement are published for download, and a batch-level COA is issued with each order. Food-grade and pharmaceutical certifications are not held and must be confirmed against your application before commercial terms.",
+      },
+      {
+        question: "Can 0.5kg bags be used inside a shipping container?",
+        answer:
+          "They can sit in crates inside a container, but for the container itself hanging strips are the right unit - they attach to the wall and stay clear of the cargo. Size that separately with the container desiccant calculator.",
+      },
+      {
+        question: "Do you print our brand on the bag?",
+        answer:
+          "Printed bags are quoted separately from stock bags. Send the artwork and the annual volume with the enquiry and the print cost is included in the quotation.",
+      },
+    ],
+  },
   "shipping-container-desiccant-supplier": {
     slug: "shipping-container-desiccant-supplier",
-    title: "Shipping Container Desiccant Supplier | Sea-Freight",
+    // Search Console: this page ranks 7.5 for "best shipping container
+    // desiccant suppliers" and 12 for "container desiccant supplier", with
+    // zero clicks — and the title did not contain the word the searcher typed.
+    // Lead with the term that is actually winning impressions.
+    title: "Shipping Container Desiccant Supplier | Sea Freight",
     metaDescription:
-      "Shipping container desiccant supplier for sea-freight cargo. Stop container rain on long-haul routes - strips, MOQ, ISO 9001:2015, FOB/CIF. RFQ in 24h.",
-    kicker: "Shipping container desiccant",
-    h1: "Shipping container desiccant supplier for sea freight.",
+      "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
+    kicker: "VoyaSorb container system",
+    h1: "Shipping container desiccant system for sea freight: VoyaSorb.",
     lead:
-      "As a shipping container desiccant supplier, Dry Gel World plans container desiccants by container size, route humidity, transit time, commodity risk, and destination - then quotes strip count, MOQ, lead time, and Incoterms. ISO 9001:2015, DMF-free, factory-direct export.",
-    searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers",
-    primaryCta: "Plan Container Desiccants",
+      "VoyaSorb is our container desiccant system for stopping container rain on long-haul sea freight. It comes in two formats you can mix per cargo, hanging strips (silica gel for clean, dust-free loads, or high-uptake calcium chloride for heavy moisture) and bulk floor bags. We plan the charge by container size, route humidity, transit time, and commodity, then quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct.",
+    searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant system, cargo desiccant, silica gel for shipping containers, calcium chloride container desiccant",
+    primaryCta: "Plan a VoyaSorb Charge",
     secondaryCta: "Read Container Rain Guide",
     secondaryHref: "/blog/container-rain-prevention",
-    proofPoints: ["20ft / 40ft planning", "Cargo desiccant RFQs", "Container rain risk", "FOB / CIF support"],
+    proofPoints: ["Silica + calcium chloride formats", "20ft / 40ft planning", "Stops container rain", "FOB / CIF support"],
     heroImage: {
       src: "/products/premium-cargo-strips.webp",
       alt: "Container desiccant strips and cargo moisture control for shipping containers",
       caption: "Shipping container desiccant planning should start with route, container size, cargo type, humidity exposure, and transit days.",
       chips: ["Container desiccant", "Cargo", "20ft / 40ft", "Sea freight"],
     },
-    fitTitle: "Where shipping container desiccants matter",
+    fitTitle: "The VoyaSorb system, three formats, one charge",
     fitItems: [
       {
-        label: "Sea freight",
-        title: "Long-haul container routes",
-        text: "Use container desiccants where ocean transit and temperature swings can create condensation and carton damage.",
+        label: "Silica strips",
+        title: "VoyaSorb Container Strips",
+        text: "Hanging silica-gel strips for clean, dust-free cargo, electronics, machinery, packaged goods, where you want no liquid brine near the load.",
       },
       {
-        label: "Cargo",
-        title: "Pallet and carton protection",
-        text: "Cargo strips support moisture control around leather, textiles, machinery, food cartons, and export goods.",
+        label: "Calcium chloride",
+        title: "VoyaSorb CaCl₂ Strips",
+        text: "High-uptake calcium chloride hanging strips for heavy moisture loads and long humid routes, leather, textiles, wood, paper, and general cargo.",
       },
       {
-        label: "Claims",
-        title: "Container rain prevention",
-        text: "Plan desiccant quantity before shipment to reduce mold, corrosion, carton collapse, and moisture claims.",
+        label: "Bulk bags",
+        title: "VoyaSorb Bulk Bags",
+        text: "Floor- and pallet-level calcium chloride bags to pair with hanging strips for full-container coverage on high-humidity export lanes.",
       },
     ],
     specsTitle: "Container desiccant quote inputs",
     specsIntro:
       "Container desiccant pricing should be tied to route risk, container size, cargo type, transit days, and planned strip count.",
     specs: [
-      { label: "Target keywords", value: "Shipping container desiccant supplier, container desiccant, cargo desiccant, silica gel for shipping containers" },
       { label: "Container sizes", value: "20ft and 40ft route planning by commodity risk and humidity exposure" },
       { label: "Use cases", value: "Leather, textiles, machinery, cartons, warehouse-to-port cargo, food packaging exports" },
       { label: "Planning inputs", value: "Origin, destination, transit days, cargo type, pallet density, container loading style" },
@@ -4844,7 +5123,7 @@ export const seoLandingPages = {
         { text: ", review " },
         { href: "/blog/container-rain-prevention", label: "container rain controls" },
         { text: ", then submit route and cargo data for an " },
-        { href: "/contact", label: "export quotation" },
+        { href: "/request-a-quote", label: "export quotation" },
         { text: "." },
       ],
     },
@@ -4867,6 +5146,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Container strips", href: "/container-desiccant-strips" },
+      { label: "VoyaSorb bulk bags (product)", href: "/products/calcium-chloride-container-bulk" },
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
       { label: "Export support", href: "/export" },
       { label: "Container calculator", href: "/tools/container-desiccant-calculator" },
@@ -4903,7 +5183,12 @@ export const seoLandingPages = {
     slug: "drygelworld",
     title: `${brandName} Official Website | Silica Gel Desiccant Supplier`,
     metaDescription:
-      "Official DryGelWorld.com brand page for industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS, COA, and worldwide buyer support.",
+      // 154 chars. The previous 176-char version began "Official
+      // DryGelWorld.com brand page..." - compactMetaDescription read the dot
+      // in the domain as a sentence end and shipped a description starting at
+      // "com". The helper is fixed too, but the safest description is one the
+      // compactor never touches.
+      "The official DryGelWorld brand page: industrial silica gel packets, bulk desiccants, cargo strips, private-label sachets, export RFQs, SDS and COA support.",
     kicker: `Official ${brandName}.com`,
     h1: "DryGelWorld official silica gel export brand.",
     lead:
@@ -5020,7 +5305,7 @@ export const seoLandingPages = {
       { label: "Certifications", href: "/certifications" },
       { label: "Media kit", href: "/media-kit" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote" },
     ],
     faqs: [
       {

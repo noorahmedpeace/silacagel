@@ -162,7 +162,7 @@ export const glossaryCategories: GlossaryCategory[] = [
           "The amount of water vapor in air expressed as a percentage of the maximum that air could hold at its current temperature. Because warm air holds more vapor, RH rises as air cools even when no water is added, which is the mechanism behind condensation in transit. Most cargo damage thresholds are specified as an RH level inside the package rather than an absolute amount of water.",
         related: [
           { label: "Relative humidity and adsorption isotherms explained", href: "/blog/relative-humidity-and-adsorption-isotherms-explained" },
-          { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+          { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
         ],
       },
       {
@@ -207,7 +207,7 @@ export const glossaryCategories: GlossaryCategory[] = [
         definition:
           "Free moisture is water vapor in the package or container air, which a desiccant can adsorb quickly. Bound moisture is water held inside the goods and packaging materials themselves, released slowly as conditions change. Long voyages and hygroscopic cargo shift the sizing question from the air volume to the total bound moisture that will emerge over time.",
         related: [
-          { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+          { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
         ],
       },
       {

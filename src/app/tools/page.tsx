@@ -14,16 +14,22 @@ const tools = [
       "Size silica gel or clay desiccant by container type, route humidity, and transit time - get a unit count and a prefilled RFQ.",
   },
   {
-    slug: "moisture-load-calculator",
-    title: "Moisture Load Calculator",
+    slug: "silica-gel-calculator",
+    title: "Silica Gel Calculator",
     blurb:
-      "Calculate grams of desiccant needed from carton length, width, and height for sachet-level packaging programs.",
+      "Sachet quantity, total desiccant weight, and indicative order value - from a piece count, a carton size, or a kilogram target.",
+  },
+  {
+    slug: "desiccant-unit-calculator",
+    title: "DIN 55473 Desiccant Unit Calculator",
+    blurb:
+      "Calculate standard DIN 55473 / MIL-D-3464E desiccant units (U) and total sachet weight for sealed barrier packaging and ocean export.",
   },
 ] as const;
 
 const pageTitle = "Desiccant Calculators & Sizing Tools";
 const pageDescription =
-  "Free silica gel and desiccant sizing tools: container desiccant calculator and moisture load calculator, both routing to a prefilled export quote.";
+  "Free silica gel and desiccant sizing tools: container desiccant calculator, DIN 55473 unit calculator, and silica gel sachet calculator routing to prefilled export quotes.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -90,7 +96,7 @@ export default function ToolsHubPage() {
           Free sizing tools for export and packaging teams. Enter your container, cargo, or carton
           details to get a unit count, then send the result straight into an RFQ.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>

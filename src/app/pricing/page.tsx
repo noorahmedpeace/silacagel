@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { priceGroups, whatsappNumber } from "@/lib/product-data";
+import { EvidencePack } from "@/components/evidence-pack";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
 export const metadata: Metadata = {
   title: "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export",
   description:
-    "Indicative silica gel prices, wholesale rates and MOQ tiers for packets, bulk beads and container strips. Buyers in Pakistan can request a PKR quote; export buyers get USD terms — request a firm quotation.",
+    "Indicative silica gel prices and MOQ tiers for packets, bulk beads, and container strips. PKR rates for Pakistan, USD terms for export, firm quote on request.",
   alternates: {
     canonical: "/pricing",
   },
@@ -31,6 +33,10 @@ function fmtUsd(value: number) {
   if (value >= 100) return value.toFixed(0);
   if (value >= 1) return value.toFixed(2);
   return value.toFixed(4);
+}
+
+function fmtPkr(value: number) {
+  return `PKR ${Math.round(value).toLocaleString("en-PK")}`;
 }
 
 function usdRange(reference: number) {
@@ -80,17 +86,31 @@ const whatsappMessage = encodeURIComponent(
 export default function PricingPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Pricing", href: "/pricing" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Indicative Export Pricing</span>
         <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>
-        <p>
-          Indicative USD price ranges for every sachet size and container strip we
-          manufacture, taken from the same reference list behind our on-site
-          calculator. Use these ranges to budget, then request a quote for exact
-          pricing based on quantity, packaging, and Incoterm.
+          <p>
+          Pakistan buyers can use the published PKR reference prices below for
+          budgeting, or start from the{" "}
+          <Link href="/silica-gel-manufacturer-pakistan">Pakistan silica gel manufacturer page</Link>{" "}
+          for local supply, pickup, and delivery detail. Export buyers can use the USD ranges, then
+          request a firm quote based on quantity, packaging, destination, and Incoterm.
         </p>
         <div className={styles.heroActions}>
-          <Link href="/contact" className={styles.primaryBtn}>Request Export Quote</Link>
+          <Link href="/request-a-quote" className={styles.primaryBtn}>Request Export Quote</Link>
           <a
             href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
             target="_blank"
@@ -118,12 +138,13 @@ export default function PricingPage() {
                 <strong>MOQ:</strong> {groupMoq[group.title] ?? "Confirmed at quote stage"}
               </p>
             </div>
-            <div className={styles.tableWrap}>
+            <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
               <table className={styles.priceTable}>
                 <thead>
                   <tr>
                     <th scope="col">Size / format</th>
                     <th scope="col">Net fill</th>
+                    <th scope="col">Pakistan reference price</th>
                     <th scope="col">Indicative USD per piece</th>
                     <th scope="col">{perKg ? "Indicative USD per kg" : "Indicative USD per 1,000 pcs"}</th>
                   </tr>
@@ -133,6 +154,7 @@ export default function PricingPage() {
                     <tr key={`${group.title}-${item.label}`}>
                       <th scope="row">{item.label}</th>
                       <td>{item.grams >= 1000 ? `${item.grams / 1000} kg` : `${item.grams} g`}</td>
+                      <td>{fmtPkr(item.unitPrice)}</td>
                       <td>{usdRange(item.exportUsd)}</td>
                       <td>
                         {perKg
@@ -145,9 +167,9 @@ export default function PricingPage() {
                     <tr>
                       <th scope="row">Loose bulk beads (per kg / per MT)</th>
                       <td>25 kg bags, drums, jumbo bags</td>
-                      <td colSpan={2}>
+                      <td colSpan={3}>
                         Quoted by tonnage, typically 1 to 5 metric tons per shipment,
-                        below packed format per kg rates. <Link href="/contact">Request a bulk quote</Link>.
+                        below packed format per kg rates. <Link href="/request-a-quote">Request a bulk quote</Link>.
                       </td>
                     </tr>
                   ) : null}
@@ -186,7 +208,14 @@ export default function PricingPage() {
           format, quantity, packaging, documentation, and Incoterm, and holds for
           the validity window stated on the quote.
         </p>
-        <Link href="/contact" className={styles.primaryBtn}>Request exact pricing</Link>
+        <Link href="/request-a-quote" className={styles.primaryBtn}>Request exact pricing</Link>
+
+        {/* This page names SDS, COA and the ISO certificate but carried no way
+            to open them. Procurement screens a supplier on the paperwork before
+            it argues about price, so the pack is published here rather than
+            promised. EvidencePack filters on `available`, so a document without
+            an uploaded file can never render as a dead link. */}
+        <EvidencePack className={styles.evidence} />
       </section>
 
       <FaqBlock

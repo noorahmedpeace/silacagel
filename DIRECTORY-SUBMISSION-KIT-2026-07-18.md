@@ -10,7 +10,8 @@ Everything below is ready to paste. Keep the name, address, and phone (NAP) byte
 
 - **Business name:** DryGelWorld
 - **Legal entity:** Kamran Enterprises (trading as DryGelWorld)
-- **Address:** A-488, Block 1, Gulshan-e-Iqbal, Karachi 74000, Pakistan
+- **Address:** A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan
+  <br>Exactly this, region included. `src/lib/product-data.ts:69-81` states the published NAP is `companyAddressFull` = "A-488, Block 1, Gulshan-e-Iqbal, Karachi, Sindh 74000, Pakistan", and that schema, footer, GBP and every directory citation must show it identically. An earlier version of this sheet dropped "Sindh", which would have put a second address variant into circulation. The North Karachi factory is a separate secondary location and never goes in a citation.
 - **Phone:** +92 333 022 3337
 - **WhatsApp:** +92 333 022 3337
 - **Email:** sales@drygelworld.com
@@ -51,12 +52,24 @@ Silica gel sachets (paper, non-woven); bulk silica gel beads (white non-indicati
 2. **Wikidata** (wikidata.org, create a free account). Create an item for "DryGelWorld" or "Kamran Enterprises" with statements: instance of (business), industry (chemical manufacturing), country (Pakistan), inception (1983), official website. Wikidata is a primary grounding source many LLMs read. Keep it factual and neutral, no marketing language, or it gets deleted.
 3. **Metoree** (metoree.com, supplier registration). This is the directory the research found LLMs cite for "top desiccant manufacturers," and DryGelWorld is absent while Clariant and Desiccare are listed. Register as a desiccant manufacturer.
 
+> **Check geographic eligibility before submitting anything below.** Several
+> large directories only accept suppliers from a specific region, and a
+> submission from outside it is rejected without review. Losing an application
+> is cheap; the cost is the hours spent preparing it. See the rejected list at
+> the end of this section.
+
 ### Tier 2: B2B marketplaces and directories (free tiers exist)
-4. **ThomasNet** (thomasnet.com) supplier registration, desiccants category.
-5. **Kompass** (kompass.com) company registration.
-6. **IndiaMART / TradeIndia equivalents and ExportHub / Go4WorldBusiness** for South Asia export buyers.
+4. **Alibaba** (alibaba.com) supplier account. The largest B2B marketplace, openly accepts Pakistan-based manufacturers, and ranks for supplier queries. Its absence from the original version of this list was an oversight.
+5. **Kompass** (kompass.com) company registration. Global, no country restriction.
+6. **ExportHub** (exporthub.com) — Pakistan-based, and **Go4WorldBusiness**, which lists Pakistani exporters.
 7. **EC21** and **eWorldTrade** (global B2B).
 8. **TradeKey** (already listed, per /documentation "verify us elsewhere"; keep it current).
+
+### Rejected or blocked, do not spend time here
+
+- **ThomasNet** — REJECTED 2026-07-27. Their platform lists "industrial, institutional, and commercial B2B companies with **physical locations in the U.S. and Canada**" only. DryGelWorld is Karachi-based, so this is a permanent no for the free listing, not an error to appeal. Their reply offers `suppliersuccess@thomasnet.com` for "businesses without a physical location" — that is a **paid advertising** product, not a directory listing, and it buys exposure rather than the citation this kit is trying to build. Revisit only if a US entity or warehouse ever exists.
+  **Never invent a US address to get past this.** The entire method here is that the name, address and phone match exactly everywhere; one fabricated address discredits every other listing and is a misrepresentation to buyers.
+- **IndiaMART / TradeIndia** — remove from the plan unless verified first. Both are India-domestic marketplaces and India-Pakistan trade is heavily restricted, so a Pakistani supplier account is likely unavailable. Confirm eligibility before preparing anything.
 
 ### Tier 3: trade-data visibility (verify your own shipment records surface)
 9. **Volza** and **Panjiva** (importgenius.com, panjiva.com). These rank for "silica gel export [country]" and enumerate real exporters. Search for Kamran Enterprises / DryGelWorld shipments and claim or correct the company profile if one exists. If shipments are recorded under a forwarder name, that is worth fixing so your brand surfaces.

@@ -16,7 +16,7 @@ export function ProductSpecTable({
   productName: string;
   spec: ProductSpec;
   intro?: string;
-  /** Canonical product/category URL — sets JSON-LD @id so this merges with any
+  /** Canonical product/category URL, sets JSON-LD @id so this merges with any
    *  existing Product node on the page instead of creating a duplicate entity. */
   productUrl?: string;
 }) {
@@ -49,11 +49,11 @@ export function ProductSpecTable({
         <h2 id="product-spec-heading">{productName}: full spec sheet</h2>
         <p className={styles.intro}>
           {intro ??
-            "Standard B2B attributes for importers and distributors. Commercial terms (MOQ, exact price, lead time) are confirmed on the quote; documents are issued on request."}
+            "Standard B2B attributes for importers and distributors. There is no minimum order quantity, stock dispatches within 24 hours, and the technical documents are published below — only the final price is quoted per order."}
         </p>
       </div>
 
-      <div className={styles.tableWrap}>
+      <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
         <table className={styles.specTable}>
           <tbody>
             <tr>

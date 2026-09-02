@@ -322,11 +322,11 @@
   justify-content: center;
   min-height: 54px;
   padding: 0 30px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   background: var(--ds-grad-cta);
   color: #ffffff;
   font-family: var(--font-display), var(--font-body);
-  font-weight: 600;
+  font-weight: var(--ds-cta-weight);
   font-size: 1rem;
   letter-spacing: -0.01em;
   box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.28);

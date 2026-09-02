@@ -1,5 +1,5 @@
 // Keyword retrieval over the bundled DryGelWorld knowledge base (store.json).
-// No embeddings provider needed — good coverage for a focused product catalogue.
+// No embeddings provider needed, good coverage for a focused product catalogue.
 import store from "./store.json";
 
 type Record = { url: string; title: string; text: string };

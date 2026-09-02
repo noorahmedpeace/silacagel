@@ -3,20 +3,20 @@
 // Contract-packaging planner: a spec calculator + quote form that share state.
 // The calculator turns rough inputs into a concrete packing plan (throughput,
 // film format, print spec) and pre-fills the quote form with it. It deliberately
-// does NOT invent a per-pack price — final rates depend on film type, print
+// does NOT invent a per-pack price, final rates depend on film type, print
 // colours, and MOQ, so the output is an exact-quote request, not a fake number.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
-import { whatsappNumber } from "@/lib/product-data";
+import { createMailtoHref, salesEmail, whatsappNumber } from "@/lib/product-data";
 import styles from "./packaging-planner.module.css";
 
 const PACK_TYPES = [
   "Flow wrap / pillow pack",
   "Sachet (3- or 4-side seal)",
   "Bulk-to-retail repacking",
-  "Not sure — advise me",
+  "Not sure, advise me",
 ] as const;
 
 const MAX_FILES = 3;
@@ -43,13 +43,14 @@ export function PackagingPlanner() {
   const [whatsapp, setWhatsapp] = useState("");
   const [productName, setProductName] = useState("");
   const [targetCountry, setTargetCountry] = useState("");
-  const [materials, setMaterials] = useState("Toll packing — I ship bulk product");
+  const [materials, setMaterials] = useState("Toll packing, I ship bulk product");
   const [message, setMessage] = useState("");
   const [files, setFiles] = useState<Attachment[]>([]);
   const [uploading, setUploading] = useState(false);
-  const [state, setState] = useState<"idle" | "submitting" | "done">("idle");
+  const [state, setState] = useState<"idle" | "submitting" | "done" | "fallback">("idle");
   const [inquiryId, setInquiryId] = useState("");
   const [error, setError] = useState("");
+  const [fallbackHref, setFallbackHref] = useState("");
   const startedAt = useRef(Date.now());
   const website2 = useRef("");
   const formRef = useRef<HTMLDivElement>(null);
@@ -77,14 +78,14 @@ export function PackagingPlanner() {
             : "Existing bulk supply repacked into retail formats",
       printSpec:
         printed === "Printed film"
-          ? "Custom printed film — send your design or brief"
+          ? "Custom printed film, send your design or brief"
           : "Plain / stock film with optional label",
     };
   }, [weight, packs, packType, printed]);
 
   function applyPlanToForm() {
     const lines = [
-      "— Packing plan from the calculator —",
+      ", Packing plan from the calculator, ",
       `Pack type: ${packType}`,
       `Weight per pack: ${weight} g`,
       `Monthly quantity: ${fmt(packs)} packs (~${fmt(plan?.monthlyKg ?? 0)} kg/month)`,
@@ -149,7 +150,7 @@ export function PackagingPlanner() {
       phone: whatsapp,
       country: targetCountry,
       city: "",
-      productName: `Contract packaging — ${packType}`,
+      productName: `Contract packaging, ${packType}`,
       quantity: packsPerMonth,
       unit: "packs/month",
       packaging: `${packType} · ${printed}`,
@@ -160,9 +161,22 @@ export function PackagingPlanner() {
       message: body,
       attachments: files,
       ...clientTracking(),
+      source: "packaging",
       website2: website2.current,
       formElapsedMs: Date.now() - startedAt.current,
     };
+
+    // Carry the already-uploaded file URLs into the fallback mail so a server
+    // outage does not orphan the buyer's artwork/specs (they live at public
+    // Blob URLs regardless of whether the inquiry persisted).
+    const attachmentLines = files.length
+      ? `\n\nUploaded files:\n${files.map((f) => `${f.name}: ${f.url}`).join("\n")}`
+      : "";
+    const mailto = createMailtoHref(
+      salesEmail,
+      `Contract packaging inquiry, ${company || "new"}`,
+      `${body}\n\nEmail: ${email}${attachmentLines}`,
+    );
 
     setState("submitting");
     try {
@@ -173,11 +187,20 @@ export function PackagingPlanner() {
         fireLeadConversion(result.id, "packaging_form");
         return;
       }
+      if (result.fallback) {
+        // Store and email both failed, open the mail client so the fully typed
+        // packaging brief is not lost.
+        setFallbackHref(mailto);
+        setState("fallback");
+        window.location.href = mailto;
+        return;
+      }
       setError(result.error ?? "Something went wrong. Please try again or reach us on WhatsApp.");
       setState("idle");
     } catch {
-      setError("Something went wrong. Please try again or reach us on WhatsApp.");
-      setState("idle");
+      setFallbackHref(mailto);
+      setState("fallback");
+      window.location.href = mailto;
     }
   }
 
@@ -188,7 +211,7 @@ export function PackagingPlanner() {
         <h3>Packaging cost calculator</h3>
         <p className={styles.calcIntro}>
           Enter your pack spec to see the production plan. Exact per-pack rates depend on film type,
-          print colours, and MOQ — submit the plan and we reply with a firm quotation.
+          print colours, and MOQ, submit the plan and we reply with a firm quotation.
         </p>
         <div className={styles.calcGrid}>
           <label className={styles.field}>
@@ -225,7 +248,7 @@ export function PackagingPlanner() {
               <li>Format: {plan.film}</li>
               <li>{plan.printSpec}</li>
             </ul>
-            <p className={styles.planNote}>Final rate confirmed in your quotation — usually within 24 business hours.</p>
+            <p className={styles.planNote}>Final rate confirmed in your quotation, usually within 24 business hours.</p>
             <button type="button" className={styles.applyBtn} onClick={applyPlanToForm}>
               Get exact quote for this plan ↓
             </button>
@@ -250,6 +273,21 @@ export function PackagingPlanner() {
             >
               Prefer WhatsApp? Message us directly
             </a>
+          </div>
+        ) : state === "fallback" ? (
+          <div className={styles.success} role="status" aria-live="polite">
+            <h3>Almost there, please hit send.</h3>
+            <p>
+              We opened your email client with the full packaging brief pre-filled. If
+              nothing opened, email us at <a href={fallbackHref}>{salesEmail}</a> or{" "}
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hello, I'd like a contract packaging quote.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                message us on WhatsApp
+              </a>.
+            </p>
           </div>
         ) : (
           <form onSubmit={onSubmit} data-clarity-mask="true">
@@ -278,9 +316,9 @@ export function PackagingPlanner() {
               <label className={styles.field}>
                 <span>Who supplies the materials?</span>
                 <select value={materials} onChange={(e) => setMaterials(e.target.value)}>
-                  <option>Toll packing — I ship bulk product</option>
-                  <option>Turnkey — source film for me</option>
-                  <option>Not sure — advise me</option>
+                  <option>Toll packing, I ship bulk product</option>
+                  <option>Turnkey, source film for me</option>
+                  <option>Not sure, advise me</option>
                 </select>
               </label>
               <label className={`${styles.field} ${styles.fieldFull}`}>
@@ -290,7 +328,7 @@ export function PackagingPlanner() {
             </div>
 
             <div className={styles.uploadBox}>
-              <span>Upload design or spec (PDF, DOCX, XLSX, images — max 20 MB, up to {MAX_FILES} files)</span>
+              <span>Upload design or spec (PDF, DOCX, XLSX, images, max 20 MB, up to {MAX_FILES} files)</span>
               <input
                 type="file"
                 accept=".pdf,.docx,.xlsx,.png,.jpg,.jpeg,.webp"
@@ -308,7 +346,7 @@ export function PackagingPlanner() {
               ))}
             </div>
 
-            {/* Honeypot — humans never see or fill this. */}
+            {/* Honeypot, humans never see or fill this. */}
             <input
               type="text"
               name="website2"

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import { seoImages, getBlogSeoImage } from "@/lib/seo-images";
@@ -32,6 +33,19 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Blog", href: "/blog" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Knowledge Center</span>
         <h1>Practical silica gel & desiccant guides for global buyers.</h1>

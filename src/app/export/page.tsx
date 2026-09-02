@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import Link from "next/link";
 import { FaqBlock, type Faq } from "@/components/faq-block";
+import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import styles from "../strategy-pages.module.css";
 import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
-import { exportMarkets } from "./markets";
+import { exportHreflangAlternates, exportMarkets } from "./markets";
 
 export const metadata: Metadata = {
   title: "Silica Gel Exporter | Worldwide B2B Desiccant Supply",
@@ -11,6 +13,11 @@ export const metadata: Metadata = {
     "Silica gel exporter from Pakistan for worldwide B2B supply. Request FOB, CIF, EXW or DAP quotes for packets, bulk beads, private label and cargo strips.",
   alternates: {
     canonical: "/export",
+    // This page is the cluster's x-default, and it previously published no
+    // alternates at all - so the page every market pointed to never pointed
+    // back. Google requires reciprocity from every member, including this one,
+    // and a non-reciprocal cluster is discarded whole.
+    languages: exportHreflangAlternates(),
   },
 };
 
@@ -62,6 +69,19 @@ const exportFaqs: Faq[] = [
 export default function ExportPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "Export", href: "/export" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Export Supply</span>
         <h1>Silica gel exporter for worldwide B2B supply.</h1>
@@ -70,7 +90,7 @@ export default function ExportPage() {
           manufacturers sourcing bulk desiccant packets, cargo strips, and documentation-backed
           moisture control products on EXW, FOB, CIF, or DAP terms.
         </p>
-        <Link className={styles.cta} href="/contact">Request Export Quote</Link>
+        <Link className={styles.cta} href="/request-a-quote">Request Export Quote</Link>
       </section>
 
       <section className={styles.section}>
@@ -139,6 +159,8 @@ export default function ExportPage() {
           ))}
         </div>
       </section>
+
+      <CobaltFreeBand />
 
       <FaqBlock
         title="Silica gel export questions"

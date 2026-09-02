@@ -25,13 +25,13 @@ export const authors: Author[] = [
   {
     slug: "noor-ahmed-khan",
     name: "Noor Ahmed Khan",
-    role: "Owner & Export Director, DryGelWorld (Kamran Enterprises)",
+    role: "Owner & Managing Director, DryGelWorld (Kamran Enterprises)",
     shortBio:
       "Noor Ahmed Khan owns and runs DryGelWorld, the Karachi silica gel and desiccant manufacturer operating as Kamran Enterprises since 1983, and personally leads its B2B export desk.",
     bio:
-      "Noor Ahmed Khan is the owner and export director of DryGelWorld (legal entity: Kamran Enterprises), the Karachi-based silica gel and desiccant manufacturer operating since 1983. He personally handles international RFQs, MOQ and pricing decisions, documentation (ISO 9001:2015 references, SDS, COA, DMF-free statements), and dispatch planning for buyers across 190+ markets - and reviews the buyer guides published on this site against what actually happens in production and export shipments. Editorial scope is limited to products, packaging, and export logistics the company handles directly; regulatory claims are limited to certifications actually held (ISO 9001:2015 and a DMF-free statement).",
+      "Noor Ahmed Khan is the owner and managing director of DryGelWorld (legal entity: Kamran Enterprises), the Karachi-based silica gel and desiccant manufacturer operating since 1983. He personally handles international RFQs, MOQ and pricing decisions, documentation (ISO 9001:2015 references, SDS, COA, DMF-free statements), and dispatch planning for buyers across 190+ markets - and reviews the buyer guides published on this site against what actually happens in production and export shipments. Editorial scope is limited to products, packaging, and export logistics the company handles directly; regulatory claims are limited to certifications actually held (ISO 9001:2015 and a DMF-free statement).",
     credentials: [
-      "Owner & Export Director, DryGelWorld / Kamran Enterprises (manufacturing since 1983)",
+      "Owner & Managing Director, DryGelWorld / Kamran Enterprises (manufacturing since 1983)",
       "Runs the B2B export desk serving buyers in 190+ markets",
       "Operates an ISO 9001:2015-certified manufacturing programme",
       "Direct responsibility for SDS, COA, and DMF-free documentation on every shipment",

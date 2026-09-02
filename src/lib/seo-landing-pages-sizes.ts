@@ -128,7 +128,7 @@ export const gramSizeLandingInputs = {
         {
           label: "Dosage",
           title: "How many 1g sachets per pack?",
-          text: "As a starting rule: one 1g sachet per sealed pack up to about 0.01 m³ (a 20 × 20 × 25 cm box) with a good moisture barrier. Use two sachets, or move to 2g, when the pack is larger, the product is hygroscopic, the barrier is porous card only, or the route is a humid sea lane of three weeks or more. The Moisture Load Calculator gives a per-pack figure from volume, target RH, and transit time.",
+          text: "As a starting rule: one 1g sachet per sealed pack up to about 0.01 m³ (a 20 × 20 × 25 cm box) with a good moisture barrier. Use two sachets, or move to 2g, when the pack is larger, the product is hygroscopic, the barrier is porous card only, or the route is a humid sea lane of three weeks or more. The Silica Gel Calculator gives a per-pack figure from volume, target RH, and transit time.",
         },
         ...sachetMaterialsGuide,
         {
@@ -212,7 +212,7 @@ export const gramSizeLandingInputs = {
       { label: "10g silica gel sachets", href: "/10g-silica-gel-sachets" },
       { label: "All silica gel packet sizes", href: "/silica-gel-packets" },
       { label: "Unit-pack sachet product page", href: "/products/retail-sachets" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "Export hub: country pages", href: "/export" },
     ],
@@ -230,7 +230,7 @@ export const gramSizeLandingInputs = {
       {
         question: "How many 1g silica gel sachets do I need?",
         answer:
-          "One per sealed pack up to about 0.01 m³ with a reasonable moisture barrier. Use two, or move to a 2g sachet, for larger packs, hygroscopic products, porous card-only packaging, or humid sea routes of three weeks or more. DryGelWorld's Moisture Load Calculator gives a figure from pack volume, target humidity, and transit time.",
+          "One per sealed pack up to about 0.01 m³ with a reasonable moisture barrier. Use two, or move to a 2g sachet, for larger packs, hygroscopic products, porous card-only packaging, or humid sea routes of three weeks or more. DryGelWorld's Silica Gel Calculator gives a figure from pack volume, target humidity, and transit time.",
       },
       {
         question: "Does DryGelWorld manufacture 1g silica gel sachets?",
@@ -322,7 +322,7 @@ export const gramSizeLandingInputs = {
         {
           label: "Dosage",
           title: "How many 2g sachets per pack?",
-          text: "One 2g sachet per sealed pack in the 0.01-0.02 m³ range with a reasonable barrier is the usual starting point. Larger packs, hygroscopic products, or humid routes of three weeks or more call for two sachets or a 5g packet. Use the Moisture Load Calculator for a per-pack figure.",
+          text: "One 2g sachet per sealed pack in the 0.01-0.02 m³ range with a reasonable barrier is the usual starting point. Larger packs, hygroscopic products, or humid routes of three weeks or more call for two sachets or a 5g packet. Use the Silica Gel Calculator for a per-pack figure.",
         },
         ...sachetMaterialsGuide,
       ],
@@ -361,7 +361,7 @@ export const gramSizeLandingInputs = {
       { label: "10g silica gel sachets", href: "/10g-silica-gel-sachets" },
       { label: "All silica gel packet sizes", href: "/silica-gel-packets" },
       { label: "Silica gel for leather and footwear export", href: "/blog/silica-gel-for-leather-and-footwear-export" },
-      { label: "Moisture load calculator", href: "/tools/moisture-load-calculator" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
     ],
     faqs: [
       {
@@ -439,7 +439,7 @@ export const gramSizeLandingInputs = {
         {
           label: "Dosage",
           title: "How many 5g sachets per carton?",
-          text: "One 5g sachet per sealed pack of roughly 0.02-0.05 m³ (a typical shoe box is about 0.01 m³, so 5g gives a comfortable margin for leather). For master cartons, use one 10g packet or two to three 5g sachets depending on volume and route. The Moisture Load Calculator sizes it from volume, target RH, and transit days.",
+          text: "One 5g sachet per sealed pack of roughly 0.02-0.05 m³ (a typical shoe box is about 0.01 m³, so 5g gives a comfortable margin for leather). For master cartons, use one 10g packet or two to three 5g sachets depending on volume and route. The Silica Gel Calculator sizes it from volume, target RH, and transit days.",
         },
         ...sachetMaterialsGuide,
       ],
@@ -556,7 +556,7 @@ export const gramSizeLandingInputs = {
         {
           label: "Dosage",
           title: "How many 10g sachets per master carton?",
-          text: "One 10g sachet per sealed carton of roughly 0.05-0.1 m³ with a reasonable barrier; two for larger cartons, hygroscopic contents, or routes over three weeks. For crates and pallets step up to 25g-100g packs. The Moisture Load Calculator sizes it from volume, target RH, and transit days.",
+          text: "One 10g sachet per sealed carton of roughly 0.05-0.1 m³ with a reasonable barrier; two for larger cartons, hygroscopic contents, or routes over three weeks. For crates and pallets step up to 25g-100g packs. The Silica Gel Calculator sizes it from volume, target RH, and transit days.",
         },
         ...sachetMaterialsGuide,
       ],

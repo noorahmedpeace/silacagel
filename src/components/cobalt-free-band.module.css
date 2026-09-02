@@ -1,0 +1,125 @@
+/*
+ * Cobalt-free / REACH differentiation band. Matches the site's floating-dark-
+ * bookend language: a contained dark card on the light field, brand-accent
+ * eyebrow, three quiet proof points. Not a loud coloured strip.
+ */
+
+.band {
+  width: min(1400px, calc(100% - 64px));
+  margin: 0 auto;
+  padding: 8px 0 30px;
+}
+
+.inner {
+  border-radius: 22px;
+  padding: 34px clamp(22px, 4vw, 48px) 30px;
+  background: linear-gradient(150deg, #0b2a4a 0%, #103a63 52%, #0b2438 100%);
+  color: #eaf1fb;
+  box-shadow: 0 26px 60px -30px rgba(11, 42, 74, 0.7);
+}
+
+.intro {
+  max-width: 640px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ds-accent, #f0601e);
+}
+
+.heading {
+  margin: 0 0 10px;
+  font-size: clamp(21px, 2.6vw, 28px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.lead {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: rgba(234, 241, 251, 0.82);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 26px;
+  margin: 26px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.point {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+
+.dot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 999px;
+  background: var(--ds-accent, #f0601e);
+  box-shadow: 0 0 0 4px rgba(240, 96, 30, 0.18);
+}
+
+.pointTitle {
+  margin: 0 0 4px;
+  font-size: 14.5px;
+  font-weight: 650;
+  color: #fff;
+}
+
+.pointText {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(234, 241, 251, 0.78);
+}
+
+.footnote {
+  margin: 26px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 13px;
+  color: rgba(234, 241, 251, 0.7);
+}
+
+.link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(240, 96, 30, 0.55);
+  padding-bottom: 1px;
+  transition: border-color 0.16s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  border-bottom-color: var(--ds-accent, #f0601e);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 720px) {
+  .band {
+    width: calc(100% - 40px);
+  }
+  .inner {
+    padding: 26px 20px 24px;
+  }
+}

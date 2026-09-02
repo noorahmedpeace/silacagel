@@ -16,7 +16,11 @@ const CONTENT_SECURITY_POLICY = [
   "img-src 'self' data: https://images.pexels.com https://www.clarity.ms",
   "font-src 'self' data:",
   "connect-src 'self' https://www.clarity.ms https://*.clarity.ms https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://vitals.vercel-insights.com",
-  "frame-src 'self' https://www.youtube.com",
+  // google.com is here for the embedded map on /contact. The policy is
+  // Report-Only today, so its absence was silent - but the browser was already
+  // logging the violation on every contact-page view, and the day this is
+  // enforced the map would have vanished with no obvious cause.
+  "frame-src 'self' https://www.youtube.com https://www.google.com",
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -81,6 +85,18 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // The moisture load calculator is folded into the full silica gel
+      // calculator (9 Aug 2026). GSC showed four of this site's own pages
+      // splitting "silica gel calculator" - moisture-load at 15.6, the
+      // container calculator at 53.2, /tools at 44.7, a blog post at 61.5 -
+      // with zero clicks between them. The old tool's carton-volume function
+      // is the new page's "By carton size" tab, so this redirect points at a
+      // strict superset, never a downgrade.
+      {
+        source: "/tools/moisture-load-calculator",
+        destination: "/tools/silica-gel-calculator",
+        permanent: true,
+      },
       // Apex -> www consolidation (defense-in-depth; Vercel domain config should also enforce).
       {
         source: "/:path*",

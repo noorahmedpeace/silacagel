@@ -8,14 +8,14 @@ import { whatsappNumber } from "@/lib/product-data";
 import styles from "../contract-packaging-services/page.module.css";
 
 // HONESTY RULES: ISO 9001:2015 only. PSQCA PS:13 / DRAP obligations are the
-// BRAND's, stated as such. No invented MOQ or per-1000 rates — quote-only
+// BRAND's, stated as such. No invented MOQ or per-1000 rates, quote-only
 // until the owner supplies a real rate card. No machine photos until real
 // facility imagery exists.
 
 export const metadata: Metadata = {
-  title: "Soap Packing Services in Pakistan | Flow Wrap Soap Bars — Karachi",
+  title: "Soap Packing Services in Pakistan | Flow Wrap Soap Bars, Karachi",
   description:
-    "Machine flow-wrapping for soap bars in Karachi: pearlized BOPP, printed film, date coding, 40g guest bars to 200g+ bars, in-line 3-bar multipacks. No machine to buy — send your bars, get retail-ready wrapped stock. ISO 9001:2015, since 1983.",
+    "Machine flow-wrapping for soap bars in Karachi: pearlized BOPP, printed film, date coding, 40g guest bars to 200g+ bars, in-line 3-bar multipacks. No machine to buy, send your bars, get retail-ready wrapped stock. ISO 9001:2015, since 1983.",
   alternates: { canonical: "/soap-packing-services" },
   keywords: [
     "soap packing services in Pakistan",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Soap Packing & Flow-Wrapping Services in Pakistan | DryGelWorld",
     description:
-      "Machine-wrapped soap bars in pearlized BOPP — no machine to buy, no minimum factory. From Karachi, since 1983, ISO 9001:2015.",
+      "Machine-wrapped soap bars in pearlized BOPP, no machine to buy, no minimum factory. From Karachi, since 1983, ISO 9001:2015.",
     url: "/soap-packing-services",
     siteName,
     type: "website",
@@ -40,11 +40,11 @@ export const metadata: Metadata = {
 const films = [
   {
     title: "Pearlized BOPP",
-    text: "The classic retail soap overwrap — white pearl finish, premium shelf look, real moisture barrier, and it runs fast and seals cleanly on the flow-wrap line.",
+    text: "The classic retail soap overwrap, white pearl finish, premium shelf look, real moisture barrier, and it runs fast and seals cleanly on the flow-wrap line.",
   },
   {
     title: "Clear / gloss BOPP",
-    text: "Shows the bar itself — the right choice for swirled, layered, or translucent artisan soaps where the product is the design.",
+    text: "Shows the bar itself, the right choice for swirled, layered, or translucent artisan soaps where the product is the design.",
   },
   {
     title: "Matte & paper-touch BOPP",
@@ -55,7 +55,7 @@ const films = [
     text: "Foil-look film for gift and premium SKUs; PET/PE laminates where a stronger structure is needed.",
   },
   {
-    title: "Printed film — your brand",
+    title: "Printed film, your brand",
     text: "Your design printed on the reel, so the wrapper IS the label: brand, weight, ingredients, batch, and contact details, straight off the line.",
   },
   {
@@ -80,19 +80,19 @@ const faqs = [
       "We accept small trial runs so you can test the wrap on your actual bars before committing volume. For production runs, MOQ depends on the film: plain or pearlized stock film starts low; custom printed film carries the printer's reel minimum. State your monthly volume in the form and we quote the realistic minimum.",
   },
   {
-    question: "How is soap wrapping priced — per bar or per thousand?",
+    question: "How is soap wrapping priced, per bar or per thousand?",
     answer:
-      "Per-1,000 bars is the industry norm, plus a one-time setup/changeover charge per run and the film cost (yours or ours). We state all three lines separately in the quotation — no hidden handling fees.",
+      "Per-1,000 bars is the industry norm, plus a one-time setup/changeover charge per run and the film cost (yours or ours). We state all three lines separately in the quotation, no hidden handling fees.",
   },
   {
-    question: "Flow wrap vs pleat wrap vs shrink wrap — which does my soap need?",
+    question: "Flow wrap vs pleat wrap vs shrink wrap, which does my soap need?",
     answer:
-      "Pleat wrap is the folded-paper luxury/hotel look. Shrink wrap is a clear tight film that shows the bar but reads less premium and gives a weaker barrier. Flow wrap (pillow pack) is what mainstream retail bars use: a sealed film envelope with fin seal and crimped ends — a true moisture and fragrance barrier at machine speed. We run flow wrap.",
+      "Pleat wrap is the folded-paper luxury/hotel look. Shrink wrap is a clear tight film that shows the bar but reads less premium and gives a weaker barrier. Flow wrap (pillow pack) is what mainstream retail bars use: a sealed film envelope with fin seal and crimped ends, a true moisture and fragrance barrier at machine speed. We run flow wrap.",
   },
   {
     question: "Will wrapping stop my glycerin soap from sweating?",
     answer:
-      "Yes — glycerin dew forms because glycerin pulls moisture from humid air onto the bar's surface. Wrapping the bar in airtight film promptly after curing is the standard prevention, which is exactly what a sealed flow wrap provides.",
+      "Yes, glycerin dew forms because glycerin pulls moisture from humid air onto the bar's surface. Wrapping the bar in airtight film promptly after curing is the standard prevention, which is exactly what a sealed flow wrap provides.",
   },
   {
     question: "Can you print my brand on the wrapper?",
@@ -102,17 +102,17 @@ const faqs = [
   {
     question: "Do I need a DRAP licence to sell wrapped soap?",
     answer:
-      "Plain toilet soap in Pakistan falls under the PSQCA PS:13 standard, and the conformity (CM) licence is the brand/manufacturer's obligation. DRAP enlistment applies only if the soap makes medicated/antibacterial claims — again, the brand's responsibility, not the packer's. As your packing partner we wrap under our ISO 9001:2015 system and print your required labeling on the film; product registration stays with you, and we say that plainly.",
+      "Plain toilet soap in Pakistan falls under the PSQCA PS:13 standard, and the conformity (CM) licence is the brand/manufacturer's obligation. DRAP enlistment applies only if the soap makes medicated/antibacterial claims, again, the brand's responsibility, not the packer's. As your packing partner we wrap under our ISO 9001:2015 system and print your required labeling on the film; product registration stays with you, and we say that plainly.",
   },
   {
     question: "What bar sizes and shapes can you wrap?",
     answer:
-      "Pack length 60–200 mm, width up to 100 mm, bar height up to ~45 mm — which covers 40 g guest soaps through 200 g+ bars, in rectangular, oval, or round shapes. In-line 3-bar multipacks (bars end-to-end) fit within the 200 mm length; side-by-side bundles exceed the former, so for those we band individually wrapped bars instead — we'll tell you which honestly at the trial.",
+      "Pack length 60–200 mm, width up to 100 mm, bar height up to ~45 mm, which covers 40 g guest soaps through 200 g+ bars, in rectangular, oval, or round shapes. In-line 3-bar multipacks (bars end-to-end) fit within the 200 mm length; side-by-side bundles exceed the former, so for those we band individually wrapped bars instead, we'll tell you which honestly at the trial.",
   },
   {
     question: "Can you add an expiry or batch date on the wrapper?",
     answer:
-      "Yes — an in-line coder marks manufacturing/expiry date and batch number on each wrapper during the run.",
+      "Yes, an in-line coder marks manufacturing/expiry date and batch number on each wrapper during the run.",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function SoapPackingPage() {
         <p className={styles.kicker}>Premium Soap Flow-Wrapping · ISO 9001:2015</p>
         <h1>Soap packing &amp; flow-wrapping services in Pakistan.</h1>
         <p className={styles.lead}>
-          Machine-wrapped soap bars in pearlized BOPP — no machine to buy, no wrapping line to
+          Machine-wrapped soap bars in pearlized BOPP, no machine to buy, no wrapping line to
           staff. Send us your finished bars; we return sealed, retail-ready wrapped stock with your
           brand printed on the film. Karachi facility, manufacturing since 1983, ISO 9001:2015.
         </p>
@@ -181,7 +181,7 @@ export default function SoapPackingPage() {
         <div className={styles.sectionHead}>
           <h2>Why machine flow wrap beats hand-wrapping</h2>
           <p>
-            A sealed film wrap is not just presentation — it is a barrier that protects the bar and
+            A sealed film wrap is not just presentation, it is a barrier that protects the bar and
             your declared weight.
           </p>
         </div>
@@ -190,7 +190,7 @@ export default function SoapPackingPage() {
             <strong>Moisture &amp; fragrance barrier</strong>
             <p>
               BOPP film blocks moisture and slows fragrance loss, extending shelf life versus open
-              paper wraps. Toilet soap loses moisture on keeping — a sealed wrap protects the weight
+              paper wraps. Toilet soap loses moisture on keeping, a sealed wrap protects the weight
               printed on your label.
             </p>
           </article>
@@ -205,7 +205,7 @@ export default function SoapPackingPage() {
             <strong>Hygiene &amp; tamper evidence</strong>
             <p>
               Bars are wrapped by machine, untouched by hand, in a sealed envelope the customer
-              opens first — with uniform, retail-grade presentation on every bar.
+              opens first, with uniform, retail-grade presentation on every bar.
             </p>
           </article>
           <article className={styles.serviceCard}>
@@ -236,7 +236,7 @@ export default function SoapPackingPage() {
         <h2>Fit check: your bar sizes</h2>
         <p>
           A standard 100&nbsp;g toilet bar (≈85–90 × 50–55 × 20–30&nbsp;mm) and a 125&nbsp;g bar
-          (≈89 × 57 × 25&nbsp;mm) sit comfortably inside our line&apos;s envelope — pack length
+          (≈89 × 57 × 25&nbsp;mm) sit comfortably inside our line&apos;s envelope, pack length
           60–200&nbsp;mm, width up to 100&nbsp;mm, height up to ~45&nbsp;mm. That covers 40&nbsp;g
           hotel guest bars through 200&nbsp;g+ family bars, rectangular, oval, or round (round bars
           flow-wrap with fin-sealed ends).
@@ -244,11 +244,11 @@ export default function SoapPackingPage() {
         <ul className={styles.facilityList}>
           <li>Single bars: 40&nbsp;g to 200&nbsp;g+, any regular shape</li>
           <li>In-line 3-bar multipacks (bars end-to-end, up to ~180&nbsp;mm total) within the pack length</li>
-          <li>Side-by-side bundles exceed the former — we band individually wrapped bars instead</li>
+          <li>Side-by-side bundles exceed the former, we band individually wrapped bars instead</li>
           <li>Free wrap trial: send sample bars, get wrapped samples and a film recommendation back</li>
         </ul>
         <p className={styles.honesty}>
-          We tell you at the trial — not after the invoice — if a format won&apos;t run well. Exact
+          We tell you at the trial, not after the invoice, if a format won&apos;t run well. Exact
           per-1,000 rates depend on film choice, print, and run size, and are stated line by line in
           the quotation.
         </p>
@@ -259,7 +259,7 @@ export default function SoapPackingPage() {
           <h2>Who this service is for</h2>
           <p>
             Pakistan&apos;s soap industry is thousands of mostly small and medium factories across
-            Karachi, Lahore, Faisalabad, Gujranwala, and Peshawar — most without an in-house
+            Karachi, Lahore, Faisalabad, Gujranwala, and Peshawar, most without an in-house
             wrapping line.
           </p>
         </div>
@@ -275,11 +275,11 @@ export default function SoapPackingPage() {
       <section className={styles.facility} aria-label="Compliance">
         <h2>Compliance, stated honestly</h2>
         <p>
-          Plain toilet soap is governed by PSQCA&apos;s PS:13 standard — the conformity (CM) licence
+          Plain toilet soap is governed by PSQCA&apos;s PS:13 standard, the conformity (CM) licence
           is the brand&apos;s obligation. DRAP enlistment applies only to medicated/antibacterial
           claims, again on the brand&apos;s side. As your packing partner, we wrap under our ISO
-          9001:2015 quality system and print your required labeling on the film; we do not hold —
-          and do not claim — food-safety or pharma certifications. If your product needs those, we
+          9001:2015 quality system and print your required labeling on the film; we do not hold,
+          and do not claim, food-safety or pharma certifications. If your product needs those, we
           will say so before quoting.
         </p>
       </section>
@@ -287,7 +287,7 @@ export default function SoapPackingPage() {
       <section className={styles.facility} aria-label="Buying a machine instead">
         <h2>Thinking of buying a wrapping machine instead?</h2>
         <p>
-          A soap flow-wrapping machine costs thousands of dollars up front — then an operator, film
+          A soap flow-wrapping machine costs thousands of dollars up front, then an operator, film
           wastage, changeover downtime, spares from China, and floor space. If you wrap under a few
           hundred thousand bars a month, outsourced wrapping usually costs less than owning the
           line. Send your volume and we&apos;ll quote both honestly: our per-1,000 rate vs what a
@@ -297,7 +297,7 @@ export default function SoapPackingPage() {
 
       <MachineShowcase
         heading="Your soap, wrapped on our line"
-        intro="The flow-wrap machine on our Karachi floor, running soap bars in sealed film. Real photos and footage — send sample bars for a free wrap trial."
+        intro="The flow-wrap machine on our Karachi floor, running soap bars in sealed film. Real photos and footage, send sample bars for a free wrap trial."
         video="/videos/packaging-line.mp4"
         feature={{
           src: "/images/packaging/soap-packing-machine-hero.webp",

@@ -13,6 +13,7 @@ import {
 import { exportMarkets } from "./export/markets";
 import { blogArticles, getArticlePublication } from "./blog/articles";
 import { comparePages } from "@/lib/compare-data";
+import { supplierComparisons } from "@/lib/supplier-compare-data";
 import { caseStudies } from "@/lib/case-study-data";
 
 // Industry slugs are mirrored from src/app/industries/[industry]/page.tsx - keep both in sync.
@@ -32,7 +33,7 @@ const AUTHOR_SLUGS = ["noor-ahmed-khan", "dry-gel-world-export-desk"] as const;
 // Landing slugs that are 301 redirect sources in next.config.ts. They must NOT
 // appear in the sitemap (submitting a redirecting URL earns a GSC "Page with
 // redirect" notice and wastes crawl budget). Keep in sync with next.config
-// redirects() — every internal redirect whose source is otherwise a
+// redirects(), every internal redirect whose source is otherwise a
 // seoLandingPages key belongs here.
 const REDIRECTED_SLUGS = new Set<string>([
   "food-grade-silica-gel",
@@ -53,6 +54,8 @@ const REDIRECTED_SLUGS = new Set<string>([
   "shipping-container-moisture-control",
   "container-desiccant",
   "container-desiccant-supplier",
+  "bentonite-clay",
+  "documents",
 ]);
 
 const STATIC_ROUTES = [
@@ -66,6 +69,7 @@ const STATIC_ROUTES = [
   "/faq",
   "/blog",
   "/case-studies",
+  "/reviews",
   "/documentation",
   "/certifications",
   "/dispensers",
@@ -78,17 +82,22 @@ const STATIC_ROUTES = [
   "/export",
   "/drygelworld",
   "/compare",
+  "/compare/suppliers",
   "/guides",
   "/guides/silica-gel-buyer-guide",
   "/guides/desiccant-glossary",
+  "/guides/desiccant-quantity-guide",
   "/media-kit",
   "/industries",
   "/tools",
   "/tools/container-desiccant-calculator",
-  "/tools/moisture-load-calculator",
+  "/tools/silica-gel-calculator",
+  "/tools/desiccant-unit-calculator",
 ] as const;
 
 const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]>> = {
+  "/tools/silica-gel-calculator": [seoImages.desiccantSizing.src],
+  "/tools/desiccant-unit-calculator": [seoImages.desiccantSizing.src],
   "": [seoImages.defaultOg.src, seoImages.silicaGelSachets.src],
   "/products": [seoImages.silicaGelSachets.src, seoImages.industrialBulk.src, seoImages.containerDesiccant.src],
   "/blog": [seoImages.buyerGuideProcess.src, seoImages.desiccantSizing.src],
@@ -99,6 +108,7 @@ const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]
     seoImages.silicaGelVsOxygenAbsorber.src,
   ],
   "/guides/silica-gel-buyer-guide": [seoImages.buyerGuideProcess.src],
+  "/guides/desiccant-quantity-guide": [seoImages.containerHumidityDamage.src],
   "/case-studies": [seoImages.moistureProtection.src],
   "/bulk-sales": [seoImages.industrialBulk.src],
   "/private-label": [seoImages.privateLabelPackaging.src],
@@ -146,7 +156,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const slug of Object.keys(seoLandingPages)) {
     if (REDIRECTED_SLUGS.has(slug)) continue; // don't sitemap a 301 source
     if (staticRouteSlugs.has(slug)) continue; // already emitted as a static route
-    if (isNoindexLandingSlug(slug)) continue; // thin permutation page — noindexed
+    if (isNoindexLandingSlug(slug)) continue; // thin permutation page, noindexed
     const page = seoLandingPages[slug as keyof typeof seoLandingPages];
     const image = getLandingSeoImage(page);
 
@@ -207,6 +217,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
       images: sitemapImages([image.src]),
+    });
+  }
+
+  for (const comparison of supplierComparisons) {
+    entries.push({
+      url: absoluteUrl(`/compare/suppliers/${comparison.slug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.65,
+      images: sitemapImages([seoImages.defaultOg.src]),
     });
   }
 

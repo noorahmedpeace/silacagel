@@ -162,8 +162,8 @@
 }
 .rfq .two { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .rfqSubmit {
-  margin-top: 6px; border: 0; cursor: pointer; padding: 12.5px; border-radius: 12px;
-  color: #fff; font: inherit; font-weight: 650; letter-spacing: 0.01em;
+  margin-top: 6px; border: 0; cursor: pointer; padding: 12.5px; border-radius: var(--ds-cta-radius);
+  color: #fff; font: inherit; font-weight: var(--ds-cta-weight); letter-spacing: 0.01em;
   background: linear-gradient(135deg, var(--b2), var(--b3));
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.26), 0 6px 16px rgba(30, 90, 168, 0.3);
   transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;

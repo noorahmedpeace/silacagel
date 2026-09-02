@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     "food grade silica gel",
   ],
   openGraph: {
-    // Keep aligned with the <title> above — a diverging og:title makes shared
+    // Keep aligned with the <title> above, a diverging og:title makes shared
     // links and SERP snippets tell two different stories.
     title: "Silica Gel Manufacturer & Exporter | DryGelWorld",
     description:
@@ -181,7 +181,7 @@ export default function RootLayout({
       <head>
         {/* Facebook app id (property=, as FB expects). Renders only when the
             NEXT_PUBLIC_FB_APP_ID env var is set, so there is never an invalid
-            empty tag. Optional — sharing works without it. */}
+            empty tag. Optional, sharing works without it. */}
         {FB_APP_ID ? <meta property="fb:app_id" content={FB_APP_ID} /> : null}
         {/* Discoverability for AI agents: point at the plain-text /llms.txt
             grounding file so crawlers find it without guessing. */}
@@ -207,6 +207,37 @@ export default function RootLayout({
         <SiteFooter />
         <Analytics />
         <SpeedInsights />
+        {/* Internal-traffic switch. The owner's own IP is by far the largest
+            source of sessions, which contaminates every rate this site
+            measures — baseline, conversion rate, CTA performance. Visiting
+            /?internal=1 once per browser marks that browser as internal and
+            stops GA4 and Clarity from loading at all; /?internal=0 clears it.
+            Runs before both loaders so nothing fires first.
+
+            This is per-browser (localStorage), so it must be set on each
+            device the team uses. It complements, and does not replace, the
+            IP-based internal-traffic filter in the GA4 admin UI. */}
+        <Script id="drygel-internal-flag" strategy="beforeInteractive">
+          {`
+            (function () {
+              try {
+                var KEY = 'dgw-internal';
+                var q = window.location.search;
+                if (q.indexOf('internal=1') !== -1) localStorage.setItem(KEY, '1');
+                else if (q.indexOf('internal=0') !== -1) localStorage.removeItem(KEY);
+                // localhost / preview hosts are always internal. Local audit
+                // runs (next start + Playwright) were reaching the production
+                // Clarity project and polluting the very dead-click data this
+                // week's UX audit was built on - localhost:3000 showed up as a
+                // tracked page in the dashboard.
+                window.__drygelInternal = localStorage.getItem(KEY) === '1'
+                  || location.hostname !== 'www.drygelworld.com';
+              } catch (e) {
+                window.__drygelInternal = false;
+              }
+            })();
+          `}
+        </Script>
         <Script id="drygel-conversion-clicks" strategy="afterInteractive">
           {`
             (function () {
@@ -246,6 +277,11 @@ export default function RootLayout({
                 }
                 if (href.indexOf('tel:') === 0) {
                   window.__drygelTrackEvent('phone_click', Object.assign({}, base, { contact_method: 'phone' }));
+                  // Email and WhatsApp both tag the Clarity session; phone did
+                  // not, so a buyer who tapped Call could not be found in
+                  // session replay at all - the one contact method where you
+                  // cannot read back what they wanted.
+                  window.__drygelTrackClarity('phone_call_click', 'Phone call intent');
                   return;
                 }
                 if (href.indexOf('https://wa.me/') === 0 || href.indexOf('https://api.whatsapp.com/') === 0) {
@@ -253,7 +289,19 @@ export default function RootLayout({
                   window.__drygelTrackClarity('whatsapp_quote_click', 'WhatsApp quote intent');
                   return;
                 }
-                if (href === '/contact' || href.indexOf('/contact') === 0 || /quote|rfq/i.test(label)) {
+                // /request-a-quote is matched by href, not by label. It used to
+                // rely on the label regex below, and /quote|rfq/ does NOT match
+                // "quotation" - so the silica gel calculator's main CTA, the one
+                // carrying the buyer's calculated quantity, was the single
+                // untracked link on the site. The container calculator's
+                // equivalent only tracked because its label happened to read
+                // "Request a quote for 4 kg". Verified in the browser, both
+                // viewports, before and after.
+                if (
+                  href === '/contact' || href.indexOf('/contact') === 0 ||
+                  href.indexOf('/request-a-quote') === 0 || href.indexOf('/samples') === 0 ||
+                  /quote|rfq|quotation/i.test(label)
+                ) {
                   window.__drygelTrackEvent('quote_cta_click', base);
                   window.__drygelTrackClarity('request_quote_click', 'Request quote intent');
                   return;
@@ -273,20 +321,33 @@ export default function RootLayout({
         {/* Clarity loads once the page is interactive to capture short buying sessions. */}
         <Script id="ms-clarity" strategy="afterInteractive">
           {`
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "xgf9cuhe4e");
-            (window.__drygelClarityQueue || []).forEach(function(args) {
-              window.clarity.apply(window, args);
-            });
-            window.__drygelClarityQueue = [];
+            // The flag script above runs beforeInteractive, and Next drops
+            // beforeInteractive scripts outside the root layout tree - which is
+            // exactly what the built-in 404 page is. So on a 404 the flag was
+            // undefined and Clarity loaded even on localhost (verified 8 Aug).
+            // Each loader now re-derives the host check itself; the flag stays
+            // for the /?internal=1 per-browser switch.
+            if (!(window.__drygelInternal || location.hostname !== 'www.drygelworld.com')) {
+              (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "xgf9cuhe4e");
+              (window.__drygelClarityQueue || []).forEach(function(args) {
+                window.clarity.apply(window, args);
+              });
+              window.__drygelClarityQueue = [];
+            }
           `}
         </Script>
         <Script id="ga4-idle-loader" strategy="afterInteractive">
           {`
             (function () {
+              // Internal browser: never load GA4 at all, so owner/staff
+              // sessions cannot skew the rates the site is measured on. The
+              // hostname check is repeated here rather than trusted from the
+              // flag - see the note on the Clarity loader above.
+              if (window.__drygelInternal || location.hostname !== 'www.drygelworld.com') return;
               var measurementId = ${JSON.stringify(GA_ID)};
               var loadAnalytics = function () {
                 if (window.__drygelGaLoaded) return;
@@ -345,10 +406,32 @@ export default function RootLayout({
                   image: absoluteUrl("/dry-gel-world-banner.jpg"),
                   description:
                     "DryGelWorld is a silica gel desiccant manufacturer and exporter based in Karachi, Pakistan, manufacturing silica gel sachets since 1983. DryGelWorld supplies industrial moisture control products including silica gel packets, bulk silica gel, container desiccants, dry clay desiccants, and private-label desiccant sachets for international B2B buyers.",
+                  // Disambiguation: Google's AI has conflated this entity with a
+                  // similarly-named local "Drygel" ice-/gel-pack brand (wrong
+                  // phone, wrong area). State plainly what DryGelWorld is and is
+                  // not so the knowledge graph can separate the two.
+                  disambiguatingDescription:
+                    "DryGelWorld manufactures silica gel and industrial desiccants (moisture absorbers). It is not a gel-pack, ice-pack, or cold-pack brand, and is unrelated to any similarly named cold-pack company. Its only phone is +92 333 022 3337 and it operates from Gulshan-e-Iqbal, Karachi.",
                   foundingDate: "1983",
-                  founder: {
+                  // No `founder` node. It previously named "Kamran, Waseem &
+                  // Sons" as a Person - a family firm name, not an individual -
+                  // and the real 1983 founder is not published anywhere on this
+                  // site, so there is nothing truthful to put in its place.
+                  //
+                  // The named human in the graph is the current owner instead,
+                  // which is both accurate and what a buyer or a crawler is
+                  // actually looking for: a real, reachable person accountable
+                  // for the business. The same Person is already published on
+                  // the site through authors.ts.
+                  employee: {
                     "@type": "Person",
-                    name: "Kamran, Waseem & Sons",
+                    name: "Noor Ahmed Khan",
+                    // Must match the LinkedIn profile this node points to, or
+                    // the sameAs corroborates nothing.
+                    jobTitle: "Owner and Managing Director",
+                    email: mainEmail,
+                    telephone: phoneHref,
+                    sameAs: ["https://www.linkedin.com/in/drygelworld/"],
                   },
                   address: {
                     "@type": "PostalAddress",
@@ -374,6 +457,8 @@ export default function RootLayout({
                   ],
                   knowsAbout: [
                     "Silica gel desiccant manufacturing",
+                    "DIN 55473 and DIN 55474 desiccant unit sizing",
+                    "MIL-D-3464E military desiccant standard",
                     "Industrial moisture control",
                     "Container desiccant for ocean freight",
                     "Dry clay desiccant",
@@ -402,8 +487,14 @@ export default function RootLayout({
                     "https://www.facebook.com/drygelworld",
                     "https://www.instagram.com/drygelworld",
                     "https://www.youtube.com/@DryGelWorld",
-                    "https://www.linkedin.com/in/drygelworld/",
-                                  "https://www.wikidata.org/wiki/Q140185858",
+                    // The company Page, not /in/drygelworld. That slug is the
+                    // owner's personal profile and it stays on the employee
+                    // Person node above - listing a Person's profile as an
+                    // Organization's own tells Google the two are one entity.
+                    "https://www.linkedin.com/company/drygelworld",
+                    "https://www.daraz.pk/shop/6ttbbzu2/",
+                    "https://silicagelpk.com",
+                    "https://www.wikidata.org/wiki/Q140185858",
                   ],
                   hasOfferCatalog: {
                     "@type": "OfferCatalog",

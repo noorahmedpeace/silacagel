@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// Inquiry data changes at request time — never prerender.
+// Inquiry data changes at request time, never prerender.
 export const dynamic = "force-dynamic";
 
 export default async function AdminInquiriesPage() {

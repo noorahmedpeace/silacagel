@@ -228,30 +228,39 @@
   line-height: var(--ds-lh-body);
 }
 
+/* Rubber-stamp treatment: the risk verdict should feel like an inspector
+ * stamped the plan, not like another pill in the UI. Color per level comes
+ * from the risk_* classes below. */
 .riskBadge {
   display: inline-block;
   margin-top: 14px;
-  padding: 6px 16px;
-  border-radius: var(--ds-radius-pill);
+  padding: 7px 16px;
+  border: 2px dashed currentColor;
+  border-radius: 10px;
+  font-family: var(--font-mono);
   font-size: var(--ds-small);
   font-weight: 800;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  transform: rotate(-1.6deg);
 }
 
 .risk_low {
+  /* These four badges all sat between 4.31 and 4.39 against their own tinted
+   * background - just under the 4.5 AA needs, and they carry the calculator's
+   * actual verdict. Darkened only as far as it takes to clear the line. */
   background: rgba(22, 163, 74, 0.12);
-  color: #15803d;
+  color: #116b2f;
 }
 
 .risk_moderate {
   background: rgba(202, 138, 4, 0.14);
-  color: #a16207;
+  color: #845105;
 }
 
 .risk_high {
   background: rgba(234, 88, 12, 0.14);
-  color: #c2410c;
+  color: #a63709;
 }
 
 .risk_severe {
@@ -325,7 +334,10 @@
 
 .disclaimer {
   margin-top: 10px;
-  color: var(--ds-text-faint);
+  /* Same reason as the documentation labels: --ds-text-faint is 3.43:1 on the
+   * surface, and this line tells the buyer the number is an estimate rather
+   * than a commitment. A disclaimer nobody can read is not a disclaimer. */
+  color: var(--ds-text-muted);
   font-size: var(--ds-meta);
   line-height: 1.5;
 }
@@ -347,7 +359,7 @@
   justify-content: center;
   min-height: 48px;
   padding: 0 22px;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   font-size: var(--ds-small);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -358,7 +370,7 @@
 }
 
 .primary {
-  background: var(--ds-accent);
+  background: var(--ds-accent-on-light);
   color: #fff;
   box-shadow: var(--ds-shadow-cta);
 }

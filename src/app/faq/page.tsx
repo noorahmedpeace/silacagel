@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { FAQContent, type FaqItem } from "./faq-content";
 import styles from "./faq.module.css";
 
@@ -58,6 +58,19 @@ const faqs: FaqItem[] = [
 export default function FAQPage() {
   return (
     <main className={styles.page}>
+      {/* Hub pages carried no BreadcrumbList while every leaf page under them
+          did - the site told Google the tree everywhere except at the branch. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbJsonLd([
+              { name: "Home", href: "/" },
+              { name: "FAQ", href: "/faq" },
+            ]),
+          ),
+        }}
+      />
       <section className={styles.hero}>
         <span className={styles.kicker}>Technical FAQ</span>
         <h1>Answers to every procurement question.</h1>

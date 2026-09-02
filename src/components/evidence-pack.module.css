@@ -1,0 +1,38 @@
+/* Shared by both RFQ success states, so the styling stays neutral enough to
+   sit inside either card without fighting its host. */
+.pack {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(45, 91, 255, 0.16);
+  text-align: left;
+}
+
+.pack strong {
+  color: var(--ds-brand-deep);
+  font-weight: 800;
+  font-size: 0.92rem;
+}
+
+.pack ul {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pack li a {
+  color: var(--ds-brand-deep);
+  font-size: 0.86rem;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.pack > a {
+  justify-self: start;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ds-brand-deep);
+}

@@ -1,18 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { EvidencePack } from "@/components/evidence-pack";
 import { QuoteForm } from "@/components/quote-form";
 import { ProductSpecTable } from "@/components/product-spec-table";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
 import { getLandingSpec } from "@/lib/product-spec";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
+import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
+import { MobileQuoteBand } from "./mobile-quote-band";
 import { landingPageJsonLd, type SeoLandingPage as SeoLandingPageData } from "@/lib/seo-landing-pages";
 import styles from "./seo-landing-page.module.css";
 
 type SeoLandingPageProps = {
   page: SeoLandingPageData;
 };
+
+/*
+ * `searchIntent` was authored as an internal targeting note, but it renders as
+ * a hero paragraph — so 44 of the 59 landing pages were showing buyers lines
+ * like "High-intent buyer keyword: industrial desiccant supplier" and
+ * "Product keyword: container desiccant, cargo desiccant, moisture absorber"
+ * directly above the quote button. To a procurement reader that is the SEO
+ * machinery showing through, and a visible comma-separated keyword list is
+ * exactly what keyword stuffing looks like to a crawler.
+ *
+ * Rather than rewrite 59 strings (and risk churn on pages that are currently
+ * ranking), suppress the ones that are plainly internal notes and keep the
+ * ones written as real buyer sentences. Reversible by deleting this filter.
+ */
+const INTERNAL_NOTE = /^[A-Za-z0-9 /+-]*\b(keywords?|head term|transactional|product intent|pillar)\b\s*[:/]/i;
+
+function buyerFacingIntent(intent: string | undefined) {
+  if (!intent) return null;
+  return INTERNAL_NOTE.test(intent.trim()) ? null : intent;
+}
 
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
@@ -21,6 +44,24 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
     { name: "Home", href: "/" },
     { name: page.kicker, href: `/${page.slug}` },
   ];
+  const intent = buyerFacingIntent(page.searchIntent);
+  const isLocalBuyerPage = new Set([
+    "silica-gel-packets",
+    "silica-gel-manufacturer-pakistan",
+    "silica-gel-supplier-karachi",
+  ]).has(page.slug);
+  const localWhatsAppHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello, I need a PKR quote for ${page.h1}`,
+  )}`;
+  // Most h1s are full sentences ending in a period, so interpolating one
+  // mid-message produced "...export buyers.. Format / quantity" in the buyer's
+  // draft. The hero link gets away with it because nothing follows the h1 there.
+  const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello, I need a quote for ${page.h1.replace(/\.$/, "")}. Format / quantity / destination:`,
+  )}`;
+  const rfqHref = page.quoteChecklist
+    ? "#quote-form"
+    : `/request-a-quote?product=${encodeURIComponent(page.kicker || page.title)}`;
 
   return (
     <main className={styles.page}>
@@ -30,16 +71,48 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
           <span className={styles.kicker}>{page.kicker}</span>
           <h1>{page.h1}</h1>
           <p className={styles.lead}>{page.lead}</p>
-          <p className={styles.intent}>{page.searchIntent}</p>
+          {intent ? <p className={styles.intent}>{intent}</p> : null}
+        {/* Mobile only, and INSIDE the hero on purpose. Clarity: phones scroll
+            an average of 26% of the page - and the hero alone is ~1400px tall
+            on a 375px screen, so a band placed after it would have landed at
+            y=1406, twice below the fold. Sitting between the hero copy and the
+            proof panel puts the price and the WhatsApp channel in the first
+            screen, which was the whole point. Desktop never renders it. */}
+        <MobileQuoteBand
+          showPkrFrom={isLocalBuyerPage}
+          quoteHref={rfqHref}
+          subject={page.h1}
+        />
           <div className={styles.actions}>
-            <Link className={styles.primaryCta} href="/contact">
+            {/* Paid traffic lands here and bounces if the CTA sends it off-page.
+                When this page carries its own quote form, keep the buyer on it. */}
+            <Link className={styles.primaryCta} href={rfqHref}>
               {page.primaryCta}
             </Link>
             <Link className={styles.secondaryCta} href={page.secondaryHref}>
               {page.secondaryCta}
             </Link>
+            {isLocalBuyerPage ? (
+              <>
+                <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
+                  Call {displayPhone}
+                </a>
+                {/* Hidden on phones: the mobile band above already carries
+                    WhatsApp, and six CTAs in one hero is decision fatigue, not
+                    conversion. Desktop keeps it - there is no band there. */}
+                <a
+                  className={`${styles.secondaryCta} ${styles.hideOnMobile}`}
+                  href={localWhatsAppHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp PKR Quote
+                </a>
+              </>
+            ) : null}
           </div>
         </div>
+
 
         <aside className={styles.proofPanel} aria-label="Procurement proof points">
           <div className={styles.visualCard}>
@@ -74,12 +147,17 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         </aside>
       </section>
 
+
       <section className={styles.section}>
         <div className={styles.sectionHead}>
           <h2>{page.fitTitle}</h2>
+          {/* Was: "This page is structured for international procurement
+              intent: product fit, quote inputs, documents..." — describing the
+              page's own SEO construction to the buyer reading it. Say what
+              they get instead. */}
           <p>
-            This page is structured for international procurement intent: product fit, quote inputs,
-            documents, and the next action a buyer should take.
+            Product fit, the details we need to quote, the documents that ship with an order, and
+            how to place one.
           </p>
         </div>
         <div className={styles.cardGrid}>
@@ -222,6 +300,17 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+
+            {/* The document pack sits BESIDE the checklist, not behind the
+                submit button. EvidencePack already existed but rendered only in
+                QuoteForm's success state, so a buyer got the SDS, COA, TDS, ISO
+                certificate and DMF-free statement only after converting. These
+                pages name those documents 28-52 times each and carried zero
+                download links; QA screens a supplier on the paperwork before it
+                engages on price, which is the order this now follows.
+                EvidencePack filters on `available`, so nothing renders as a
+                dead link, and it makes no food-grade or pharma claim. */}
+            <EvidencePack className={styles.checklistDocs} />
           </div>
           <div className={styles.quoteFormShell}>
             <QuoteForm
@@ -249,9 +338,22 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             requirements so the buying conversation starts with useful data.
           </p>
         </div>
-        <Link className={styles.primaryCta} href="/contact">
-          {page.primaryCta}
-        </Link>
+        <div className={styles.actions}>
+          <Link className={styles.primaryCta} href={rfqHref}>
+            {page.primaryCta}
+          </Link>
+          <a className={styles.secondaryCta} href={`tel:${phoneHref}`}>
+            Call {displayPhone}
+          </a>
+          <a
+            className={styles.secondaryCta}
+            href={whatsappHref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp quote
+          </a>
+        </div>
       </section>
 
       <section className={styles.section}>
@@ -299,7 +401,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
         }}
       />
       <StickyQuoteBar
-        href={page.quoteChecklist ? "#quote-form" : "/contact"}
+        href={rfqHref}
         productName={page.kicker}
       />
     </main>

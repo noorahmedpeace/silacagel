@@ -8,6 +8,7 @@ import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
 import { getIndustrySeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { MobileQuoteBand } from "@/components/mobile-quote-band";
 
 type IndustryFormat = { label: string; text: string };
 type IndustryBody = {
@@ -238,7 +239,7 @@ const industryPages: Record<string, IndustryPage> = {
       {
         question: "Do you provide food-grade and compliance documentation?",
         answer:
-          "We provide SDS, COA, and a DMF-free statement with orders. FDA food-contact, FSSC 22000, Halal, and equivalent food-grade certifications are not currently held — buyers whose application requires them should confirm requirements with the export desk before commercial terms.",
+          "We provide SDS, COA, and a DMF-free statement with orders. FDA food-contact, FSSC 22000, Halal, and equivalent food-grade certifications are not currently held, buyers whose application requires them should confirm requirements with the export desk before commercial terms.",
       },
       {
         question: "How does silica gel extend the shelf life of dry foods?",
@@ -590,6 +591,8 @@ export default async function IndustryPage({
     ],
   };
 
+  const rfqHref = `/request-a-quote?application=${encodeURIComponent(page.title)}`;
+
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
@@ -603,15 +606,21 @@ export default async function IndustryPage({
         <span className={styles.kicker}>Industry Solution</span>
         <h1>{page.h1}</h1>
         <p>{page.description}</p>
-        <Link href="/contact" className={styles.cta}>Request Industry Quote</Link>
+        <Link href={rfqHref} className={styles.cta}>Request Industry Quote</Link>
         <div className={styles.heroProof}>
           <IsoBadge />
           <Link href="/documentation" className={styles.docLink}>
             <FileText size={15} strokeWidth={2} aria-hidden="true" />
-            SDS · COA · TDS · ISO — open documents
+            SDS · COA · TDS · ISO, open documents
           </Link>
         </div>
+
+        {/* Mobile only, inside the hero so it lands in the first screen. No
+            PKR anchor - this template serves local and export buyers alike. */}
+        <MobileQuoteBand quoteHref={rfqHref} subject={`${page.title} desiccant supply`} />
+
       </section>
+
 
       <figure className={styles.articleVisual}>
         <Image
@@ -680,6 +689,28 @@ export default async function IndustryPage({
           </div>
         </section>
       ) : null}
+
+      <section className={styles.section}>
+        <div className={styles.sectionHead}>
+          <h2>Request a quote for {page.title}.</h2>
+          <p>
+            Tell us your packaging specifications, required quantity, and destination - the factory
+            export desk returns a documented quote with MOQ, lead time, and shipping options.
+          </p>
+        </div>
+        <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
+          <Link className={styles.cta} href={rfqHref}>
+            Request Quote for {page.title}
+          </Link>
+          <Link
+            className={styles.secondaryCta}
+            href="/samples"
+            style={{ display: "inline-flex", alignItems: "center", padding: "12px 20px", borderRadius: "10px" }}
+          >
+            Order Free Evaluation Samples
+          </Link>
+        </div>
+      </section>
 
       <script
         type="application/ld+json"

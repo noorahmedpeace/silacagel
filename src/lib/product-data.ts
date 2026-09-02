@@ -21,6 +21,9 @@ export type ProductItem = {
   sizeOptions?: string[];
   categoryPath?: string[];
   attributes?: Record<string, string>;
+  /** Fill the hero frame edge-to-edge with a wide photo (cover) instead of the
+      default padded, contained product render. For real lifestyle photography. */
+  heroLandscape?: boolean;
   galleryImages?: {
     src: string;
     alt: string;
@@ -240,15 +243,18 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "container-strips",
-    name: "Maritime Export Cargo Protection",
-    shortName: "Cargo Strips",
-    metaTitle: "Container Cargo Strips | 1-5 kg Hanging Desiccant",
-    eyebrow: "Global Logistics",
+    name: "VoyaSorb Container Strips",
+    shortName: "VoyaSorb Strips",
+    // Keyword-first: the opening words of a title tag are the most valuable
+    // ranking real estate, and nobody searches the brand name. The brand
+    // carries in the H1 and body copy instead.
+    metaTitle: "Container Desiccant Strips | 1-5 kg Hanging Cargo Desiccant",
+    eyebrow: "VoyaSorb System",
     summary:
-      "High-adsorption maritime strips for international container loads, long-haul shipping, and extreme humidity transit.",
+      "High-adsorption maritime hanging strips for international container loads, long-haul shipping, and extreme humidity transit.",
     useCaseLine: "Ultimate protection for maritime export and international logistics.",
     description:
-      "Our cargo strips are specifically engineered for the extreme humidity shifts of maritime transit. They are the global standard for protecting high-value export containers over long-haul oceanic routes.",
+      "VoyaSorb Container Strips are the hanging-strip format of our VoyaSorb container desiccant system, engineered for the extreme humidity shifts of maritime transit. They hang inside the container and protect high-value export loads over long-haul oceanic routes, pair them with VoyaSorb Bulk Bags when a cargo needs both hanging and floor-level moisture control.",
     heroImage: seoImages.containerDesiccant.src,
     useCases: [
       "International ocean freight containers",
@@ -267,15 +273,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-strip",
-    name: "Calcium Chloride Container Strip",
-    shortName: "Calcium Chloride Strip",
-    metaTitle: "Calcium Chloride Container Strip | High-Capacity Cargo Desiccant",
-    eyebrow: "Calcium Chloride",
+    name: "VoyaSorb Calcium Chloride Container Strip",
+    shortName: "VoyaSorb CaCl₂ Strip",
+    metaTitle: "Calcium Chloride Container Strip | High-Capacity Desiccant",
+    eyebrow: "VoyaSorb System",
     summary:
       "High-capacity calcium chloride hanging strips for sea-freight containers, humid routes, and container-rain risk.",
     useCaseLine: "High-uptake hanging strip format for long ocean freight and humid container lanes.",
     description:
-      "Calcium chloride container strips are deliquescent cargo desiccants built for high-humidity sea freight. The strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety.",
+      "The high-uptake calcium chloride option in the VoyaSorb container desiccant system. These deliquescent cargo strips are built for high-humidity sea freight: the strip hangs inside the container and converts absorbed moisture into contained brine/gel inside the pouch, making pouch integrity and correct installation important for cargo safety. Choose the calcium chloride strip when the moisture load is heavy; choose VoyaSorb Container Strips (silica gel) for cleaner, dust-free cargo.",
     heroImage: "/products/calcium-chloride-container-strip.webp",
     useCases: [
       "Long-haul ocean freight containers",
@@ -305,15 +311,15 @@ export const productCatalog: ProductItem[] = [
   },
   {
     slug: "calcium-chloride-container-bulk",
-    name: "Calcium Chloride Container Bulk Bags",
-    shortName: "Calcium Chloride Bulk",
-    metaTitle: "Calcium Chloride Bulk Desiccant Bags | Container Moisture Absorber",
-    eyebrow: "Calcium Chloride",
+    name: "VoyaSorb Calcium Chloride Bulk Bags",
+    shortName: "VoyaSorb CaCl₂ Bags",
+    metaTitle: "Calcium Chloride Bulk Bags | Container Moisture Absorber",
+    eyebrow: "VoyaSorb System",
     summary:
       "Bulk calcium chloride desiccant bags for container cargo, storage, pallets, and high-humidity export shipments.",
     useCaseLine: "Bulk bag format for cargo-level moisture absorption in containers and storage zones.",
     description:
-      "Calcium chloride bulk desiccant bags are designed for buyers who need high moisture uptake in container cargo, warehouse staging, or palletized export loads. They are quote-only products because bag size, pouch construction, carton packing, destination, and documentation requirements vary by shipment.",
+      "The floor- and pallet-level format of the VoyaSorb container desiccant system. These bulk calcium chloride bags give high moisture uptake in container cargo, warehouse staging, and palletized export loads. They are quote-only because bag size, pouch construction, carton packing, destination, and documentation vary by shipment, use them alongside VoyaSorb hanging strips for full-container coverage.",
     heroImage: "/products/calcium-chloride-container-bulk.webp",
     useCases: [
       "Container cargo moisture absorption",
@@ -518,6 +524,59 @@ export const productCatalog: ProductItem[] = [
     priceBand: "Export reference from ~USD 2.00 / kg packed · tiered by format & volume",
     featuredSizes: ["1 g", "5 g", "10 g", "25 g", "50 g", "Custom"],
   },
+  {
+    slug: "humidity-indicator-cards",
+    name: "Humidity Indicator Cards (HIC)",
+    shortName: "Humidity Indicator Cards",
+    metaTitle: "Humidity Indicator Cards (HIC) Supplier | MSD Packaging",
+    eyebrow: "Humidity Indicator",
+    summary:
+      "Reversible humidity indicator cards that change colour at set relative-humidity thresholds, for moisture-sensitive electronics, dry-pack, and export QC. Sourced and private-labelled to your specification.",
+    useCaseLine: "A visual moisture check that pairs with desiccant inside sealed moisture-barrier packaging.",
+    description:
+      "Humidity indicator cards are the visual half of a dry pack: the desiccant controls the moisture, the card reports it. A QC operator reads a sealed pack's moisture state from the colour-changing spots without opening it. DryGelWorld sources and private-labels these cards to your specification, in cobalt or cobalt-free (REACH-friendly) chemistry and any spot layout, with compliance confirmed per supplied lot.",
+    heroImage: "/products/humidity-indicator-cards-photo.webp",
+    heroLandscape: true,
+    useCases: [
+      "Moisture-sensitive electronics and PCB dry-pack (with desiccant + barrier bag)",
+      "Incoming and outgoing QC checks without opening the sealed pack",
+      "Export cartons where a visual humidity record supports damage claims",
+      "Pharma, optics, and precision goods needing a documented dry state",
+    ],
+    packingOptions: [
+      "Format: reversible spot card; common layouts are single-spot and 3-, 4-, or 6-spot",
+      "Thresholds: typical spot points 5, 10, 20, 30, 40, 50, 60% RH, configured to your spec",
+      "Chemistry: cobalt-dichloride (blue-to-pink) or cobalt-free (REACH-friendly) on request",
+      "Packing: sealed moisture-barrier can or foil bag; count per pack quoted by volume",
+      "Standards: MIL-STD-3464 / JEDEC J-STD-033-style cards available if specified; test reports and compliance confirmed against the supplied lot, not held by DryGelWorld",
+      "Pairs with: silica gel or clay desiccant and moisture-barrier (MBB) bags for a full dry pack",
+    ],
+    leadTime: "Quoted by spot layout, chemistry, pack count, and dispatch schedule",
+    priceBand: "Quote-only sourced item. Pricing depends on spot layout, chemistry, pack count, and any standard/compliance requirement.",
+    featuredSizes: ["Single-spot", "3-spot", "4-spot", "6-spot", "Custom layout"],
+    colorOptions: ["Cobalt (blue-to-pink)", "Cobalt-free (REACH-friendly)"],
+    sizeOptions: ["Single-spot", "3-spot", "4-spot", "6-spot", "Custom layout"],
+    categoryPath: ["Moisture Control", "Humidity Indicator", "MSD Dry Pack"],
+    attributes: {
+      "Product Type": "Humidity Indicator Card (reversible)",
+      "Reads": "Relative humidity inside a sealed pack",
+      "Spot Layouts": "Single-spot, 3-spot, 4-spot, 6-spot, custom",
+      "Threshold Points": "5–60% RH, configured to spec",
+      Chemistry: "Cobalt-dichloride or cobalt-free (REACH-friendly)",
+      Reversible: "Yes, colour returns as humidity falls",
+      Packaging: "Sealed moisture-barrier can or foil bag",
+      Sourcing: "Sourced / private-label; not manufactured by DryGelWorld",
+      Standards: "MIL-STD-3464 / JEDEC J-STD-033-style available if specified; confirmed per lot",
+      "Pairs With": "Desiccant + moisture-barrier bag",
+    },
+    galleryImages: [
+      {
+        src: "/products/humidity-indicator-cards-2.webp",
+        alt: "Humidity indicator cards fanned beside foil moisture-barrier bags and loose silica gel beads",
+        label: "Cards ship alongside desiccant and moisture-barrier bags for a complete dry pack",
+      },
+    ],
+  },
 ];
 
 // Pricing basis (reviewed 2026-05): domestic = PKR per piece (kept at market
@@ -528,41 +587,46 @@ export const priceGroups: PriceGroup[] = [
     title: "Small Sizes",
     note: "Compact retail and light packing",
     items: [
-      { label: "0.5 gm", unitPrice: 0.75, exportUsd: 0.0035, grams: 0.5 },
-      { label: "1 gm", unitPrice: 1.0, exportUsd: 0.0045, grams: 1 },
-      { label: "1 gm XL", unitPrice: 1.15, exportUsd: 0.0052, grams: 1 },
-      { label: "2 gm", unitPrice: 1.65, exportUsd: 0.0072, grams: 2 },
-      { label: "3 gm", unitPrice: 1.9, exportUsd: 0.009, grams: 3 },
-      { label: "4 gm", unitPrice: 2.7, exportUsd: 0.011, grams: 4 },
-      { label: "5 gm", unitPrice: 3.25, exportUsd: 0.014, grams: 5 },
+      // PKR unitPrice set 2026-08-06 from the owner's written price list plus
+      // the 20% uplift he instructed ("sab main 20% barha do"). Sizes absent
+      // from that list (4/5 gm PP, 2/3/5 kg strips) carry the same +20% on
+      // their previous value so one rule moves the whole table. exportUsd is
+      // untouched - the instruction was domestic only.
+      { label: "0.5 gm", unitPrice: 0.84, exportUsd: 0.0035, grams: 0.5 },
+      { label: "1 gm", unitPrice: 1.08, exportUsd: 0.0045, grams: 1 },
+      { label: "1 gm XL", unitPrice: 1.2, exportUsd: 0.0052, grams: 1 },
+      { label: "2 gm", unitPrice: 1.86, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 2.4, exportUsd: 0.009, grams: 3 },
+      { label: "4 gm", unitPrice: 3.24, exportUsd: 0.011, grams: 4 },
+      { label: "5 gm", unitPrice: 3.9, exportUsd: 0.014, grams: 5 },
     ],
   },
   {
     title: "Paper Sachet",
     note: "Popular sachet range",
     items: [
-      { label: "1 gm", unitPrice: 1.1, exportUsd: 0.0045, grams: 1 },
-      { label: "2 gm", unitPrice: 1.95, exportUsd: 0.0072, grams: 2 },
-      { label: "3 gm", unitPrice: 2.2, exportUsd: 0.0095, grams: 3 },
-      { label: "10 gm", unitPrice: 7, exportUsd: 0.029, grams: 10 },
-      { label: "15 gm", unitPrice: 13, exportUsd: 0.052, grams: 15 },
-      { label: "20 gm", unitPrice: 18, exportUsd: 0.068, grams: 20 },
+      { label: "1 gm", unitPrice: 1.32, exportUsd: 0.0045, grams: 1 },
+      { label: "2 gm", unitPrice: 2.16, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 2.76, exportUsd: 0.0095, grams: 3 },
+      { label: "10 gm", unitPrice: 9.6, exportUsd: 0.029, grams: 10 },
+      { label: "15 gm", unitPrice: 15.6, exportUsd: 0.052, grams: 15 },
+      { label: "20 gm", unitPrice: 21.6, exportUsd: 0.068, grams: 20 },
     ],
   },
   {
     title: "Bulk & Strip",
     note: "Industrial and shipment formats",
     items: [
-      { label: "25 grams", unitPrice: 20, exportUsd: 0.078, grams: 25 },
-      { label: "50 grams", unitPrice: 40, exportUsd: 0.155, grams: 50 },
-      { label: "100 grams", unitPrice: 100, exportUsd: 0.39, grams: 100 },
-      { label: "200 grams", unitPrice: 200, exportUsd: 0.78, grams: 200 },
-      { label: "250 grams", unitPrice: 250, exportUsd: 0.95, grams: 250 },
-      { label: "500 grams", unitPrice: 500, exportUsd: 1.85, grams: 500 },
-      { label: "1 kg strip", unitPrice: 950, exportUsd: 4.2, grams: 1000 },
-      { label: "2 kg strip", unitPrice: 1850, exportUsd: 8.1, grams: 2000 },
-      { label: "3 kg strip", unitPrice: 2700, exportUsd: 11.9, grams: 3000 },
-      { label: "5 kg strip", unitPrice: 4400, exportUsd: 19.4, grams: 5000 },
+      { label: "25 grams", unitPrice: 30, exportUsd: 0.078, grams: 25 },
+      { label: "50 grams", unitPrice: 60, exportUsd: 0.155, grams: 50 },
+      { label: "100 grams", unitPrice: 120, exportUsd: 0.39, grams: 100 },
+      { label: "200 grams", unitPrice: 240, exportUsd: 0.78, grams: 200 },
+      { label: "250 grams", unitPrice: 300, exportUsd: 0.95, grams: 250 },
+      { label: "500 grams", unitPrice: 600, exportUsd: 1.85, grams: 500 },
+      { label: "1 kg strip", unitPrice: 1140, exportUsd: 4.2, grams: 1000 },
+      { label: "2 kg strip", unitPrice: 2220, exportUsd: 8.1, grams: 2000 },
+      { label: "3 kg strip", unitPrice: 3240, exportUsd: 11.9, grams: 3000 },
+      { label: "5 kg strip", unitPrice: 5280, exportUsd: 19.4, grams: 5000 },
     ],
   },
 ];

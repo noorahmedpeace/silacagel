@@ -96,7 +96,7 @@ export default function SilicaGelBuyerGuide() {
             >
               Save as PDF
             </button>
-            <Link href="/contact" className={styles.ctaAction}>
+            <Link href="/request-a-quote" className={styles.ctaAction}>
               Request Buyer Consultation
             </Link>
           </div>
@@ -184,7 +184,7 @@ export default function SilicaGelBuyerGuide() {
             closed-loop industrial systems, or supply downstream sachet makers.
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -257,7 +257,7 @@ export default function SilicaGelBuyerGuide() {
           </p>
 
           <h3>Working sizing table by carton volume</h3>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -327,7 +327,7 @@ export default function SilicaGelBuyerGuide() {
           </p>
 
           <h3>Loading reference per container size and route</h3>
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -378,7 +378,7 @@ export default function SilicaGelBuyerGuide() {
             multipliers below scale base sachet and strip sizing by route severity:
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -484,7 +484,7 @@ export default function SilicaGelBuyerGuide() {
             cargo:
           </p>
 
-          <div className={styles.tableWrap}>
+          <div className={styles.tableWrap} tabIndex={0} role="group" aria-label="Specification table, scrollable">
             <table className={styles.table}>
               <thead>
                 <tr>
@@ -707,7 +707,7 @@ export default function SilicaGelBuyerGuide() {
             per-shipment SDS + COA are standard.
           </p>
           <div className={styles.ctaRow}>
-            <Link href="/contact" className={styles.primaryCta}>
+            <Link href="/request-a-quote" className={styles.primaryCta}>
               Request Buyer Consultation
             </Link>
             <Link href="/compare" className={styles.secondaryCta}>

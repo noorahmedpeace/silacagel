@@ -128,9 +128,9 @@
 
 .primaryCta {
   padding: 15px 26px;
-  background: var(--ds-accent);
+  background: var(--ds-accent-on-light);
   color: #fff;
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
   box-shadow: var(--ds-shadow-cta);
 }
 
@@ -147,7 +147,7 @@
   background: transparent;
   color: var(--ds-brand-deep);
   border: 1.5px solid var(--ds-brand);
-  border-radius: var(--ds-radius-pill);
+  border-radius: var(--ds-cta-radius);
 }
 
 .secondaryCta:hover { background: var(--ds-brand-soft); }
@@ -343,9 +343,9 @@
     border-color var(--ds-dur-base) var(--ds-ease);
 }
 
-.card:hover,
-.buyerGuideCard:hover,
-.step:hover,
+/* Info cards (.card, .buyerGuideCard, .step) no longer lift - they are not
+   links and the lift was a promise the click could not keep. .related is a
+   real Link and keeps its hover. */
 .related:hover {
   transform: translateY(-4px);
   box-shadow: var(--ds-shadow-card);
@@ -482,7 +482,7 @@
     box-shadow var(--ds-dur-base) var(--ds-ease);
 }
 
-.sizeGuideCard:hover { transform: translateY(-4px); box-shadow: var(--ds-shadow-card); }
+/* sizeGuideCard is informational - no hover lift (see the card rule note above) */
 
 .sizeGuideCard::after { content: none; }
 
@@ -694,6 +694,14 @@
 }
 
 .ctaBand .primaryCta { align-self: flex-start; }
+.ctaBand .secondaryCta {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.58);
+}
+
+.ctaBand .secondaryCta:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
 
 @media (max-width: 760px) {
   .hero {
@@ -813,4 +821,22 @@
   .ctaBand {
     padding-block: var(--ds-section-py-tight);
   }
+}
+
+/* The mobile quote band is a hero child (mobile-quote-band.module.css hides
+   it above 760px). Nothing needed here: display:none removes it from the grid
+   entirely on desktop, so the hero's column count is unchanged. */
+
+/* Phones get the mobile quote band instead of this CTA - see the note at its
+   call site. Desktop and tablet are untouched. */
+@media (max-width: 760px) {
+  .hideOnMobile {
+    display: none;
+  }
+}
+
+/* Document pack inside the quote checklist column. The component brings its own
+   card styling; this only gives it separation from the checklist above it. */
+.checklistDocs {
+  margin-top: 18px;
 }

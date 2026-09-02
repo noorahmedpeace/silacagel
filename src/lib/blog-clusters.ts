@@ -11,6 +11,17 @@ export type BlogCluster = {
   products: ClusterLink[];
   compare?: ClusterLink;
   industry?: ClusterLink;
+  // Sizing tool or calculator matching the article's topic
+  tool?: ClusterLink;
+  // Commercial "supplier" landing page for the blog's topic. Renders in the
+  // buyer-decision column so informational articles hand the reader a
+  // converting page (RFQ/quote) without changing the article body.
+  commercial?: ClusterLink;
+  // Region-specific supplier page, for the one article whose crawl weight is
+  // worth pointing at a country query. Kept separate from `commercial` on
+  // purpose: that slot was deliberately given a page that reads
+  // internationally, and this one deliberately does not.
+  regional?: ClusterLink;
 };
 
 const PRODUCT_RETAIL: ClusterLink = { label: "Retail silica gel sachets", href: "/products/retail-sachets" };
@@ -24,6 +35,15 @@ const PRODUCT_BEARD: ClusterLink = { label: "Beard covers", href: "/products/bea
 const COMPARE_CLAY: ClusterLink = { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" };
 const COMPARE_SIEVE: ClusterLink = { label: "Silica gel vs molecular sieve", href: "/compare/silica-gel-vs-molecular-sieve" };
 const COMPARE_O2: ClusterLink = { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" };
+const COMPARE_3WAY: ClusterLink = { label: "Silica gel vs clay vs molecular sieve", href: "/compare/silica-gel-vs-clay-vs-molecular-sieve" };
+
+// Standalone guide (not a /blog/ slug): the container/carton quantity walkthrough.
+const GUIDE_QUANTITY: ClusterLink = { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" };
+
+// Interactive sizing calculators
+const TOOL_CONTAINER: ClusterLink = { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" };
+const TOOL_SACHET: ClusterLink = { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" };
+const TOOL_DIN: ClusterLink = { label: "DIN 55473 unit calculator", href: "/tools/desiccant-unit-calculator" };
 
 const IND_PHARMA: ClusterLink = { label: "Pharma packaging", href: "/industries/pharma-packaging" };
 const IND_ELECTRONICS: ClusterLink = { label: "Electronics packaging", href: "/industries/electronics-packaging" };
@@ -31,6 +51,19 @@ const IND_LEATHER: ClusterLink = { label: "Leather and footwear export", href: "
 const IND_FOOD: ClusterLink = { label: "Food packaging", href: "/industries/food-packaging" };
 const IND_TEXTILE: ClusterLink = { label: "Textile and garment export", href: "/industries/textile-garment-export" };
 const IND_SHIPPING: ClusterLink = { label: "Container shipping", href: "/industries/container-shipping" };
+
+// Commercial supplier landing pages (converting RFQ pages), linked from the
+// topically-matched informational blogs that previously had no path to them.
+const COMMERCIAL_CONTAINER: ClusterLink = { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" };
+const COMMERCIAL_CLAY: ClusterLink = { label: "Activated clay desiccant supplier", href: "/clay-desiccant-supplier" };
+// Deliberately NOT a packet-specific slug. /silica-gel-packets is written for
+// the domestic market (Karachi pickup, PKR pricing) while these articles are
+// read worldwide, and every packet-named alternative - packets-wholesale,
+// packets-manufacturer - 301s straight to it (next.config.ts:185-192). This is
+// the nearest destination that both resolves directly and reads internationally.
+const COMMERCIAL_BUY: ClusterLink = { label: "Buy silica gel", href: "/buy-silica-gel" };
+const COMMERCIAL_PACKETS: ClusterLink = { label: "Silica gel supplier", href: "/silica-gel-supplier" };
+const COMMERCIAL_EXPORT: ClusterLink = { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" };
 
 const guide = (slug: string, label: string): ClusterLink => ({ label, href: `/blog/${slug}` });
 
@@ -41,8 +74,14 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
       guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
       guide("desiccant-for-electronics-packaging", "Desiccant for electronics packaging"),
+      // Both of these guides answer "how much gel" for a specific enclosure,
+      // which is the same question this page asks in the general case.
+      guide("silica-gel-for-3d-printer-filament-storage", "Silica gel for 3D printer filament"),
+      guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    tool: TOOL_SACHET,
+    commercial: COMMERCIAL_BUY,
   },
   "silica-gel-vs-clay-desiccant": {
     guides: [
@@ -54,6 +93,8 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CLAY, PRODUCT_BULK],
     compare: COMPARE_CLAY,
+    tool: TOOL_DIN,
+    commercial: COMMERCIAL_CLAY,
   },
   "what-is-clay-desiccant-and-how-does-it-work": {
     guides: [
@@ -74,15 +115,20 @@ export const blogClusters: Record<string, BlogCluster> = {
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     compare: COMPARE_CLAY,
     industry: IND_SHIPPING,
+    tool: TOOL_CONTAINER,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "container-rain-prevention": {
     guides: [
+      GUIDE_QUANTITY,
       guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
       guide("moisture-protection-for-international-shipping", "Moisture protection for international shipping"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     industry: IND_SHIPPING,
+    tool: TOOL_CONTAINER,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "desiccant-for-electronics-packaging": {
     guides: [
@@ -92,14 +138,20 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
     industry: IND_ELECTRONICS,
+    tool: TOOL_DIN,
   },
   "can-you-reuse-silica-gel": {
     guides: [
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
       guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
       guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel (oven guide)"),
+      // The two applications where the same gel is dried out and used again on a
+      // cycle, which is exactly what this reader is asking about.
+      guide("how-to-dry-flowers-with-silica-gel", "Drying flowers with silica gel"),
+      guide("silica-gel-for-3d-printer-filament-storage", "Silica gel for 3D printer filament"),
     ],
     products: [PRODUCT_BULK],
+    commercial: COMMERCIAL_BUY,
   },
   "what-is-silica-gel-and-how-does-it-work": {
     guides: [
@@ -109,8 +161,58 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-silica-gel-is-made-manufacturing-process", "How silica gel is made"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
       guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+      // Someone who searched "what is a silica gel packet" has just learned what
+      // the object is; the next question is what to do with it. Two everyday
+      // uses, not all four - this list is fundamentals first.
+      guide("how-to-dry-flowers-with-silica-gel", "Drying flowers with silica gel"),
+      guide("silica-gel-for-camera-gear-and-lenses", "Silica gel for camera gear and lenses"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER, PRODUCT_BULK],
+    // Highest-impression page on the site and the only one of its size with no
+    // commercial destination at all. The audience is mostly curiosity, so this
+    // is a quiet "if you actually buy these" path rather than a hard sell.
+    commercial: COMMERCIAL_PACKETS,
+    // This article carries roughly 72% of the site's impressions - the only
+    // page with real crawl weight to pass on. Until now the Pakistan supplier
+    // page's 211 inbound links were all the same footer entry, which Google
+    // discounts as boilerplate; this is its first link from inside content.
+    regional: { label: "Silica gel supplier in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+  },
+  // Consumer application guides. The reader arrived with a packet in a shoebox
+  // or a spool in a bag, not a purchase order, so these point at the retail and
+  // bulk product pages and at the reuse guide they will want next - not at an
+  // export supplier page, which would be a mismatch of intent.
+  "how-to-dry-flowers-with-silica-gel": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("is-silica-gel-toxic-safety-guide", "Is silica gel toxic? Safety guide"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-for-3d-printer-filament-storage": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue indicating gel"),
+      guide("what-is-silica-gel-and-how-does-it-work", "What is a silica gel packet?"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
+  },
+  "silica-gel-for-camera-gear-and-lenses": {
+    guides: [
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("cobalt-free-orange-vs-blue-indicating-silica-gel-safety", "Orange vs blue indicating gel"),
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+    ],
+    products: [PRODUCT_RETAIL, PRODUCT_BULK],
+  },
+  "silica-gel-for-gun-safe-moisture-control": {
+    guides: [
+      guide("how-to-regenerate-silica-gel-oven-temperature-guide", "How to regenerate silica gel"),
+      guide("can-you-reuse-silica-gel", "Can you reuse silica gel?"),
+      guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
+    ],
+    products: [PRODUCT_BULK, PRODUCT_RETAIL],
   },
   "silica-gel-vs-molecular-sieve-vs-activated-alumina": {
     guides: [
@@ -118,7 +220,10 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("oxygen-absorber-vs-silica-gel-when-to-use-each", "Oxygen absorber vs silica gel"),
     ],
     products: [PRODUCT_BULK],
-    compare: COMPARE_SIEVE,
+    // The three-way compare page is the exact commercial twin of this
+    // three-way article; the two-way sieve page keeps its inlink from
+    // the clay/calcium clusters.
+    compare: COMPARE_3WAY,
   },
   "how-to-prevent-moisture-in-export-cartons": {
     guides: [
@@ -159,11 +264,13 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "best-desiccant-for-shipping-containers": {
     guides: [
+      GUIDE_QUANTITY,
       guide("container-rain-prevention", "Container rain prevention"),
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     industry: IND_SHIPPING,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "ppe-products-for-factories": {
     guides: [
@@ -182,10 +289,12 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "moisture-protection-for-international-shipping": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
       guide("container-rain-prevention", "Container rain prevention"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "industrial-packaging-protection-solutions": {
     guides: [
@@ -197,10 +306,12 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "container-desiccant-vs-silica-gel": {
     guides: [
+      GUIDE_QUANTITY,
       guide("best-desiccant-for-shipping-containers", "Best desiccant for shipping containers"),
       guide("silica-gel-vs-clay-desiccant", "Silica gel vs clay desiccant guide"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "reusable-vs-disposable-desiccants": {
     guides: [
@@ -218,10 +329,12 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "how-exporters-protect-cargo-from-humidity": {
     guides: [
+      GUIDE_QUANTITY,
       guide("moisture-protection-for-international-shipping", "Moisture protection for international shipping"),
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_PAPER],
+    commercial: COMMERCIAL_CONTAINER,
   },
   "silica-gel-for-pharma-packaging-buyer-guide": {
     guides: [
@@ -263,6 +376,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("silica-gel-sds-coa-requirements-for-buyers", "SDS and COA requirements for buyers"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_RETAIL],
+    commercial: COMMERCIAL_BUY,
     industry: IND_FOOD,
   },
   "silica-gel-bulk-pricing-factors-for-exporters": {
@@ -287,6 +401,9 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-exporters-protect-cargo-from-humidity", "How exporters protect cargo from humidity"),
     ],
     products: [PRODUCT_BULK, PRODUCT_PAPER, PRODUCT_CONTAINER],
+    // Anyone reading a customs and HS-code guide is importing for a business,
+    // which makes this the highest-intent informational audience on the site.
+    commercial: COMMERCIAL_EXPORT,
   },
   "how-silica-gel-is-made-manufacturing-process": {
     guides: [
@@ -303,9 +420,14 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("desiccant-units-explained-din-55473-and-unit-sizing", "Desiccant units explained (DIN 55473)"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_BULK],
+    // Equilibrium-RH endpoints are exactly what this article explains, and
+    // exactly what separates sieve from gel - the natural home for the
+    // two-way sieve inlink the alumina cluster handed to the three-way page.
+    compare: COMPARE_SIEVE,
   },
   "desiccant-units-explained-din-55473-and-unit-sizing": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("how-many-desiccant-packets-per-box-calculation-guide", "How many desiccant packets per box"),
       guide("relative-humidity-and-adsorption-isotherms-explained", "Relative humidity and adsorption isotherms"),
@@ -314,11 +436,13 @@ export const blogClusters: Record<string, BlogCluster> = {
   },
   "how-many-desiccant-packets-per-box-calculation-guide": {
     guides: [
+      GUIDE_QUANTITY,
       guide("how-to-choose-silica-gel-packet-size", "How to choose silica gel packet size"),
       guide("desiccant-placement-best-practices-in-packaging", "Desiccant placement best practices"),
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_RETAIL, PRODUCT_PAPER],
+    commercial: COMMERCIAL_BUY,
   },
   "desiccant-placement-best-practices-in-packaging": {
     guides: [
@@ -334,8 +458,13 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("can-you-reuse-silica-gel", "Can you reuse silica gel"),
       guide("how-long-does-silica-gel-last", "How long does silica gel last"),
       guide("reusable-vs-disposable-desiccants", "Reusable vs disposable desiccants"),
+      // Long-term storage cases: the gel sits in place for months and gets baked
+      // when it saturates, which is why this reader is here.
+      guide("silica-gel-for-camera-gear-and-lenses", "Silica gel for camera gear and lenses"),
+      guide("silica-gel-for-gun-safe-moisture-control", "Silica gel for gun safe moisture control"),
     ],
     products: [PRODUCT_BULK],
+    commercial: COMMERCIAL_BUY,
   },
   "cobalt-free-orange-vs-blue-indicating-silica-gel-safety": {
     guides: [

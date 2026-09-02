@@ -1,0 +1,124 @@
+/* Mobile-only quote band. Desktop and tablet never see it, so the desktop
+   layout is untouched by construction rather than by careful override. */
+.band {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .band {
+    display: grid;
+    gap: 14px;
+    /* Pulled tight under the hero so it reads as part of it, not a new
+       section. Margins only - the band is in normal flow and never overlays
+       content, so nothing it sits near can be covered. */
+    margin: 4px 0 26px;
+    padding: 16px 18px;
+    border: 1px solid var(--ds-hairline);
+    border-radius: var(--ds-radius-card);
+    background: var(--ds-surface);
+    /* Tinted to the brand hue rather than a black drop - the same two-light
+       treatment the rest of the site uses. */
+    box-shadow: 0 18px 34px -28px rgba(8, 30, 80, 0.4);
+    /* min-width:0 on a grid child is what stops a long price string from
+       forcing the page wider than the viewport. */
+    min-width: 0;
+  }
+
+  .priceBlock {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .label {
+    font-family: var(--font-mono);
+    font-size: var(--ds-eyebrow);
+    font-weight: 700;
+    letter-spacing: var(--ds-ls-eyebrow);
+    text-transform: uppercase;
+    color: var(--ds-text-muted);
+  }
+
+  .price {
+    font-family: var(--font-display), var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--ds-text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .unit {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ds-text-muted);
+    letter-spacing: 0;
+  }
+
+  .note {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--ds-text-muted);
+  }
+
+  .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .whatsapp,
+  .quote {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* 48px: comfortably past the 44px tap-target floor, thumb-reachable. */
+    min-height: 48px;
+    padding: 0 14px;
+    border-radius: var(--ds-cta-radius);
+    font-family: var(--font-display), var(--font-body);
+    font-size: 0.94rem;
+    font-weight: var(--ds-cta-weight);
+    letter-spacing: -0.005em;
+    text-align: center;
+    text-decoration: none;
+    transition: transform var(--ds-dur-quick) var(--ds-ease-out);
+  }
+
+  .whatsapp {
+    /* WhatsApp brand green, darkened until white text clears 4.5:1. */
+    background: #0f7a4f;
+    color: #ffffff;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  }
+
+  .quote {
+    background: var(--ds-grad-cta);
+    color: #ffffff;
+    box-shadow: var(--ds-shadow-cta), inset 0 1px 0 rgba(255, 255, 255, 0.26);
+  }
+
+  .whatsapp:active,
+  .quote:active {
+    transform: scale(0.985);
+  }
+
+  .whatsapp:focus-visible,
+  .quote:focus-visible {
+    outline: 2px solid var(--ds-brand);
+    outline-offset: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp,
+  .quote {
+    transition: none;
+  }
+
+  .whatsapp:active,
+  .quote:active {
+    transform: none;
+  }
+}
