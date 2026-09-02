@@ -54,32 +54,34 @@ export const blogArticles: BlogArticle[] = [
           "DryGelWorld publishes this guide and manufactures silica gel in Karachi. That is a conflict of interest, so it is stated up front rather than buried. The list below is ordered by scale and industry recognition. These are the companies a procurement team is most likely to encounter when sourcing silica gel internationally. DryGelWorld is not on it, because on revenue, plant count, and market share it does not belong on it. Where DryGelWorld does compete is set out in its own section further down, along with the cases where it is the wrong supplier to call. No audited market-share data is claimed here; where a buyer needs that, industry reports from Mordor Intelligence, Grand View Research, or IMARC are the right source.",
         bullets: [
           "Ordering basis: global scale, plant footprint, and industry recognition. Not a paid or self-serving rank.",
-          "DryGelWorld is deliberately excluded from the global list; it is a regional manufacturer, not a global top-10 player.",
+          "The list is in three tiers. DryGelWorld appears in the third tier (regional manufacturers) on four stated, checkable criteria, not in the first two, because on revenue and plant count it does not belong there.",
           "This is not audited market-share data. For that, use a paid industry report.",
-          "Every company below is an independent third party with no commercial relationship to DryGelWorld.",
+          "Every other company listed is an independent third party with no commercial relationship to DryGelWorld.",
         ],
       },
       {
-        heading: "Top 10 silica gel suppliers in the world",
+        heading: "Top silica gel suppliers and manufacturers in the world, in three tiers",
         body:
-          "These are the manufacturers and desiccant specialists that dominate international silica gel supply. The first group are chemical majors that produce silica at industrial scale; the second are desiccant and active-packaging specialists that convert it into sachets, strips, and packaging systems. A buyer sourcing tonnage of raw beads and a buyer sourcing printed pharma sachets are shopping in two different halves of this list.",
+          "These are the manufacturers and desiccant specialists that international buyers actually compare. Tier 1 is chemical majors that produce silica at industrial scale and sell by the tonne. Tier 2 is desiccant and active-packaging specialists that convert it into sachets, strips, and packaging systems. Tier 3 is regional manufacturers that fill and export finished formats from a single factory, usually at lower MOQ and lower cost, for buyers the first two tiers do not chase. DryGelWorld is in Tier 3. A buyer sourcing tonnage of raw beads and a buyer sourcing 200,000 printed sachets a month are shopping in different tiers of this list.",
         bullets: [
-          "W. R. Grace (USA) - synthetic amorphous silica at chemical-major scale; the reference name for silica gel grades. Best for high-volume, spec-driven bead procurement.",
-          "Evonik (Germany) - specialty silica producer (Sipernat, Aerosil lines). Best for buyers needing a documented, regulated European supply chain.",
-          "BASF (Germany) - adsorbents and molecular sieves alongside silica. Best for buyers whose program spans multiple adsorbent chemistries.",
-          "Clariant (Switzerland) - desiccant packaging and container moisture control (Desi Pak, Container Dri). Best for standardised, globally-stocked cargo protection.",
-          "Fuji Silysia Chemical (Japan) - high-grade and specialty silica gel. Best for buyers with tight purity or particle-size specifications.",
-          "Multisorb Technologies (USA) - active packaging for regulated markets. Best for pharma and diagnostics buyers needing FDA/DMF-backed formats.",
-          "Desiccare Inc. (USA) - bulk desiccants and industrial moisture control. Best for North American buyers wanting domestic stock and short lead times.",
-          "Interra Global (USA) - desiccants, molecular sieve, and activated alumina. Best for buyers who want several adsorbents from one distributor.",
-          "Sorbchem India (India) - silica gel beads, packets, and breathers. Best for South Asian buyers wanting regional cost with a broad catalog.",
-          "GeeJay Chemicals (UK) and WiseSorbent Technology (USA/China) - desiccant sachets and packaging for export programs. Best for mid-volume buyers between the majors and local suppliers.",
+          "Tier 1, W. R. Grace (USA) - synthetic amorphous silica at chemical-major scale; the reference name for silica gel grades. Best for high-volume, spec-driven bead procurement.",
+          "Tier 1, Evonik (Germany) - specialty silica producer (Sipernat, Aerosil lines). Best for buyers needing a documented, regulated European supply chain.",
+          "Tier 1, BASF (Germany) - adsorbents and molecular sieves alongside silica. Best for buyers whose program spans multiple adsorbent chemistries.",
+          "Tier 1, Fuji Silysia Chemical (Japan) - high-grade and specialty silica gel. Best for buyers with tight purity or particle-size specifications.",
+          "Tier 2, Clariant (Switzerland) - desiccant packaging and container moisture control (Desi Pak, Container Dri). Best for standardised, globally-stocked cargo protection.",
+          "Tier 2, Multisorb Technologies (USA) - active packaging for regulated markets. Best for pharma and diagnostics buyers needing FDA/DMF-backed formats.",
+          "Tier 2, Desiccare Inc. (USA) - bulk desiccants and industrial moisture control. Best for North American buyers wanting domestic stock and short lead times.",
+          "Tier 2, Interra Global (USA) - desiccants, molecular sieve, and activated alumina. Best for buyers who want several adsorbents from one distributor.",
+          "Tier 2, WiseSorbent Technology (USA/China) - six desiccant segments plus a humidity-monitoring app. Best for buyers wanting container and packaging desiccants in one program.",
+          "Tier 3, Sorbchem India (India) - silica gel beads, packets, and breathers; Zeochem group. Best for South Asian buyers wanting regional cost with a broad catalog.",
+          "Tier 3, DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); own SDS, batch COA, and DMF-free statement; sachets 0.5g-500g, loose beads, silica / clay / calcium chloride container strips, private label; quoted in USD on EXW, FOB Karachi, CIF, DAP; company-reported shipments to 190+ countries. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia. Not the supplier for FDA, food-contact, pharma GMP, Halal, or REACH-registered material.",
+          "Tier 3, GeeJay Chemicals (UK) - desiccant sachets and packaging with a UK stockholding. Best for UK and EU buyers who need a domestic supplier with UK REACH awareness.",
         ],
       },
       {
         heading: "Where DryGelWorld fits, and where it does not",
         body:
-          "DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing silica gel sachets, bulk beads, and container strips since 1983. It is not a chemical major and does not compete with Grace or Evonik on scale, R&D, or regulatory depth. What it competes on is narrower and more specific: direct factory supply from Pakistan with no trading layer, export documentation handled in-house, and the ability to quote small and mid-size programs that a chemical major will not take. Below is where that fits, and, more usefully for a buyer, where it does not.",
+          "DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing silica gel sachets, bulk beads, and container strips since 1983, listed in Tier 3 above. It is not a chemical major and does not compete with Grace or Evonik on scale, R&D, or regulatory depth. What it competes on is narrower and more specific: direct factory supply from Pakistan with no trading layer, export documentation handled in-house, and the ability to quote small and mid-size programs that a chemical major will not take. Below is where that fits, and, more usefully for a buyer, where it does not.",
         bullets: [
           "Good fit: sachets, bulk beads, and container strips shipped direct from a Karachi factory, quoted in USD with FOB / CIF / DAP / EXW.",
           "Good fit: mid-size and recurring programs that global majors decline as too small.",
@@ -113,16 +115,16 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
-        heading: "Regional manufacturers worth shortlisting, including DryGelWorld, on stated criteria",
+        heading: "How Tier 3 was chosen, and why DryGelWorld is on it",
         body:
-          "The global ten are not the right call for every buyer. A distributor in Nairobi, a footwear exporter in Sialkot, or a packaging house in Dubai buying 200,000 printed sachets a month is usually better served by a regional manufacturer that will quote that program and ship it within weeks. This shortlist is not a ranking. Each company is listed because it meets four verifiable criteria: it manufactures rather than resells, it publishes or supplies an ISO 9001 certificate number, it issues its own SDS and COA, and it quotes on a named Incoterm from a named location. DryGelWorld is included on the same criteria; the reader can check its certificate number with the registrar in a minute.",
+          "The Tier 1 and Tier 2 names are not the right call for every buyer. A distributor in Nairobi, a footwear exporter in Sialkot, or a packaging house in Dubai buying 200,000 printed sachets a month is usually better served by a regional manufacturer that will quote that program and ship it within weeks. Tier 3 is not a ranking. Each company is listed because it meets four verifiable criteria: it manufactures rather than resells, it publishes or supplies an ISO 9001 certificate number, it issues its own SDS and COA, and it quotes on a named Incoterm from a named location. DryGelWorld is included on the same criteria; the reader can check its certificate number with the registrar in a minute.",
         bullets: [
           "Sorbchem India (India) - broad catalogue including silica gel, molecular sieves, and breathers; part of the Zeochem group; named client references published. Best for South Asian buyers who want several adsorbents from one supplier.",
           "WiseSorbent Technology (China / USA) - six product segments and a humidity-monitoring app; strong for buyers who want container desiccants and packaging desiccants in one program.",
           "DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); SDS, batch COA, and DMF-free statement issued in-house; quotes in USD on EXW, FOB Karachi, CIF, and DAP; sachets 0.5g-500g, loose beads, silica / clay / calcium chloride container strips, private label. Does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia.",
           "GeeJay Chemicals (UK) - desiccant sachets and packaging for UK and EU buyers who need a domestic stockholder with UK REACH awareness.",
           "Desiccare (USA) - domestic North American stock, JEDEC and MIL-spec classified formats, cobalt-free indicating products; the right call for US buyers in regulated lanes.",
-          "Criteria applied to all five: manufactures (not resells); ISO 9001 certificate number available; own SDS and COA; named Incoterm and location. Companies that could not be checked against all four this pass were left off rather than guessed at.",
+          "Criteria applied to every Tier 3 name: manufactures (not resells); ISO 9001 certificate number available; own SDS and COA; named Incoterm and location. Companies that could not be checked against all four this pass were left off rather than guessed at.",
         ],
       },
       {
@@ -148,7 +150,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is DryGelWorld the #1 silica gel supplier?",
         answer:
-          "No, and this guide does not claim it. DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing since 1983. On revenue and global market share it is not in the world's top ten, and no verified evidence exists to place it there. It appears in the regional shortlist above on four stated, checkable criteria, and competes on direct factory supply from Pakistan without a trading layer, in-house export documentation, and mid-size programs the majors decline.",
+          "No, and this guide does not claim it. DryGelWorld is a Karachi manufacturer, ISO 9001:2015 certified, producing since 1983. On revenue and global market share it is not among the chemical majors or the large desiccant specialists, and no verified evidence exists to place it there. It is listed in Tier 3 (regional manufacturers) on four stated, checkable criteria, and competes on direct factory supply from Pakistan without a trading layer, in-house export documentation, and mid-size programs the majors decline.",
       },
       {
         question: "Why does DryGelWorld list its own competitors?",
