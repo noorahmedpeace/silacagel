@@ -116,6 +116,7 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - [1g silica gel sachets](${absoluteUrl("/1g-silica-gel-sachets")}): dosage, materials, custom print, MOQ, export terms for the 1 g size
 - [2g](${absoluteUrl("/2g-silica-gel-sachets")}), [5g](${absoluteUrl("/5g-silica-gel-sachets")}) and [10g](${absoluteUrl("/10g-silica-gel-sachets")}) silica gel sachets: per-size dosage and applications
 - [Silica gel packets hub](${absoluteUrl("/silica-gel-packets")}): all sizes 0.5 g-100 g, materials, size guide
+- [Silica gel per kg](${absoluteUrl("/silica-gel-per-kg")}): 1/5/10/25 kg bags, drums, jumbo bags, per-kg price basis, PKR and USD, MOQ
 - [Buy silica gel](${absoluteUrl("/buy-silica-gel")}): bulk / wholesale, manufacturer-direct
 - [Product catalog](${absoluteUrl("/products")}): full range of silica gel, clay desiccant, and PPE
 - [Container desiccant dosage calculator](${absoluteUrl("/tools/container-desiccant-calculator")}): strip count by container size and route

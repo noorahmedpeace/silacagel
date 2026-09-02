@@ -621,6 +621,204 @@ export const gramSizeLandingInputs = {
       ...exportFaqs,
     ],
   },
+  // Kilogram formats. One page, not one per bag size: the 5 kg and 25 kg buyer
+  // is the same person (repacker, warehouse, distributor) and the search
+  // intent is the per-kg price basis, not the bag size.
+  "silica-gel-per-kg": {
+    slug: "silica-gel-per-kg",
+    title: "Silica Gel per kg | Bags, Bulk Price Basis & Export Supply",
+    metaDescription:
+      "Buy silica gel by the kilogram from a Karachi manufacturer: 1, 5, 10, and 25 kg bags, drums and jumbo bags, indicative USD per kg, PKR quotes for Pakistan, MOQ, regeneration, and export terms.",
+    kicker: "Silica gel per kg",
+    h1: "Silica gel by the kilogram: bags, bulk price basis, and how to order.",
+    lead:
+      "DryGelWorld manufactures silica gel in Karachi and sells it by weight as well as in sachets: 1 kg, 5 kg, 10 kg, and 25 kg bags, drums, and jumbo bags of loose white beads. This page explains how per-kg pricing is built, what the indicative USD and PKR references are, who buys by the kilo, and what to send for a firm quote.",
+    searchIntent:
+      "Transactional and B2B: silica gel per kg, silica gel price per kg, silica gel price per kg in Pakistan, buy silica gel by kg, silica gel 25kg bag, bulk silica gel price, silica gel kg rate",
+    primaryCta: "Request per-kg Quote",
+    secondaryCta: "See indicative price list",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "Manufacturer since 1983, Karachi",
+      "1 / 5 / 10 / 25 kg bags, drums, jumbo bags",
+      "Indicative USD per kg published",
+      "PKR quotes for Pakistan buyers",
+    ],
+    image: "/macro_silica_beads_1775989669467.webp",
+    imageAlt: "Loose white silica gel beads sold by the kilogram in 25 kg bags by DryGelWorld, Karachi",
+    imageCaption:
+      "Loose silica gel beads are quoted per kg; the 25 kg bag is the standard unit for repackers and warehouses.",
+    chips: ["Per kg", "25 kg bags", "Bulk beads", "PKR & USD"],
+    fitTitle: "Who buys silica gel by the kilogram",
+    useCases: [
+      {
+        label: "Repackers & distributors",
+        title: "Fill your own sachets or resell by the bag",
+        text: "Packaging houses and distributors buy 25 kg bags of uniform 1-3 mm or 2-5 mm beads to fill their own sachets or to resell to local packers. Quoted per kg with a pallet or monthly volume.",
+      },
+      {
+        label: "Industrial users",
+        title: "Transformer breathers, dryers, compressed-air and lab use",
+        text: "Utilities, workshops, and labs buy cobalt-free orange indicating or white beads by the kg to refill breathers, desiccant dryers, and drying cabinets. Regenerable, so a kg lasts many cycles.",
+      },
+      {
+        label: "Warehouses & exporters",
+        title: "Bulk moisture control in cartons, crates, and stores",
+        text: "Warehouses and exporters use 1-5 kg bags and 25 g-500 g packs made from the same bulk material for crates, pallets, and stock rooms where sachets are too small.",
+      },
+    ],
+    targetKeywords: "silica gel per kg, silica gel price per kg, silica gel price per kg in Pakistan, silica gel kg, silica gel 25kg bag, bulk silica gel price, silica gel rate",
+    formats: "1 kg, 5 kg, 10 kg, and 25 kg bags of loose beads; drums; jumbo bags; 25 g-500 g packs and 1-5 kg container strips made from the same material",
+    buyerTypes: "Repackers, distributors, warehouses, exporters, utilities (transformer breathers), workshops, labs, dryer and compressed-air maintenance teams",
+    documents: "ISO 9001:2015 reference, SDS, batch COA, DMF-free statement; Certificate of Origin for export",
+    buyerRisk: "Comparing a per-kg quote for loose beads against a per-kg figure derived from sachets. Sachet prices include filling, paper, and print; loose beads do not. Compare like with like.",
+    quoteBasis: "Bead grade (white or indicating) and size (1-3 mm or 2-5 mm), bag size, total kg per order and per month, destination, Incoterm, and documents",
+    buyerGuide: {
+      title: "How silica gel is priced per kg",
+      intro:
+        "Per-kg pricing for loose silica gel is simpler than sachet pricing: there is no paper, no filling, and no print. The price moves with bead grade, bead size, bag size, order volume, and whether the buyer is in Pakistan (PKR, ex-factory or delivered) or abroad (USD, FOB Karachi, CIF, or DAP).",
+      sections: [
+        {
+          label: "Indicative reference",
+          title: "What the published USD per kg means",
+          text: "The pricing page shows an indicative ex-factory USD range per kg for the bulk formats, derived from the same published references used for the 25 g to 500 g packs and the 1-5 kg strips. It is a planning band before freight, not a binding price; the firm figure depends on volume and Incoterm and is confirmed at quote.",
+        },
+        {
+          label: "Pakistan buyers",
+          title: "PKR per kg, factory pickup or delivered",
+          text: "Buyers in Pakistan are quoted in PKR per kg or per 25 kg bag, ex-factory Karachi or delivered within Pakistan. Repackers in Karachi, Lahore, Faisalabad, and Sialkot are quoted by monthly volume. Send the bag size and monthly kg for a same-day WhatsApp quote.",
+        },
+        {
+          label: "Grades",
+          title: "White vs indicating, 1-3 mm vs 2-5 mm",
+          text: "White non-indicating beads are the standard and the lowest cost per kg. Cobalt-free orange indicating beads cost more per kg because of the indicator. Bead size (1-3 mm for sachet filling, 2-5 mm for breathers and dryers) changes handling more than price; state it in the RFQ so the quote matches the line.",
+        },
+        {
+          label: "MOQ",
+          title: "Bags, pallets, and tonnes",
+          text: "Loose beads are quoted by the 25 kg bag for smaller programs and by the pallet or tonne for distributors; the pricing page lists loose bulk from about one metric ton for the best per-kg rate. Trial bags are available before a bulk commitment.",
+        },
+        {
+          label: "Reuse",
+          title: "A kilogram is regenerable",
+          text: "Loose silica gel can be dried and reused: sachet-grade and indicating beads at typically 110-130 °C, plain bulk beads higher (the site's regeneration guide covers limits). Industrial buyers replacing breather or dryer charges should factor reuse into the per-kg cost.",
+        },
+        {
+          label: "Documents",
+          title: "Same paperwork as sachets",
+          text: "Every bulk shipment can carry an SDS, a batch COA, and the ISO 9001:2015 certificate reference (9101225); a DMF-free statement is issued for leather and footwear programs. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held.",
+        },
+      ],
+    },
+    sizeGuide: {
+      title: "Which kilogram format fits the job",
+      intro: "Bag size follows how the material is used, not the price; the per-kg rate improves with total volume, not with bag size.",
+      rows: [
+        {
+          size: "1 kg & 5 kg bags",
+          bestFor: "Breather refills, lab drying cabinets, small workshops, trial orders",
+          buyerNote: "Handy sizes for maintenance teams; also the base for 1-5 kg container strips.",
+        },
+        {
+          size: "10 kg bags",
+          bestFor: "Small repackers, warehouses, seasonal moisture programs",
+          buyerNote: "Middle ground when a 25 kg bag is more than a month's use.",
+        },
+        {
+          size: "25 kg bags",
+          bestFor: "Repackers filling sachets, distributors, factories with regular use",
+          buyerNote: "The standard bulk unit; quoted per kg and per pallet.",
+        },
+        {
+          size: "Drums & jumbo bags",
+          bestFor: "Recurring distributor supply, industrial lines, regional hubs",
+          buyerNote: "Quoted per tonne; confirm handling equipment at the destination.",
+        },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send these details for a per-kg quote",
+      formTitle: "Quote for silica gel by the kg",
+      intro: "Grade, bead size, bag size, volume, and destination set the per-kg rate.",
+      defaultProduct: "Silica gel (per kg)",
+      items: [
+        "Grade: white non-indicating or cobalt-free orange indicating",
+        "Bead size: 1-3 mm (sachet filling) or 2-5 mm (breathers, dryers)",
+        "Bag size: 1, 5, 10, or 25 kg, drum, or jumbo bag",
+        "Total kg per order and expected monthly volume",
+        "Pakistan: city and pickup or delivery; export: destination port and Incoterm",
+        "Documents: SDS, COA, ISO 9001:2015 reference, DMF-free statement, Certificate of Origin",
+      ],
+    },
+    contentBlock: {
+      heading: "Related bulk formats and pricing",
+      parts: [
+        { text: "The indicative USD per kg bands are on the " },
+        { href: "/pricing", label: "silica gel pricing page" },
+        { text: ". For bead specifications see " },
+        { href: "/silica-gel-beads", label: "silica gel beads" },
+        { text: "; for 25 g-500 g packs and warehouse programs see " },
+        { href: "/bulk-silica-gel-desiccant", label: "bulk silica gel desiccant" },
+        { text: "; for indicating beads by the kg see " },
+        { href: "/orange-silica-gel-supplier", label: "orange indicating silica gel" },
+        { text: " and " },
+        { href: "/silica-gel-for-transformer-breather", label: "silica gel for transformer breathers" },
+        { text: ". The " },
+        { href: "/blog/how-to-regenerate-silica-gel-oven-temperature-guide", label: "regeneration guide" },
+        { text: " explains how to dry and reuse a charge, and the " },
+        { href: "/blog/silica-gel-bulk-pricing-factors-for-exporters", label: "bulk pricing factors article" },
+        { text: " explains what moves the per-kg rate." },
+      ],
+    },
+    relatedLinks: [
+      { label: "Indicative pricing (USD per kg)", href: "/pricing" },
+      { label: "Silica gel beads (25 kg bags)", href: "/silica-gel-beads" },
+      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      { label: "Bulk product page", href: "/products/bulk-industrial" },
+      { label: "Silica gel in Pakistan (PKR)", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Orange indicating silica gel", href: "/orange-silica-gel-supplier" },
+      { label: "Silica gel sachets by size (1g-10g)", href: "/1g-silica-gel-sachets" },
+      { label: "Export hub", href: "/export" },
+    ],
+    faqs: [
+      {
+        question: "What is the price of silica gel per kg?",
+        answer:
+          "DryGelWorld publishes an indicative ex-factory USD range per kg for bulk formats on its pricing page; the firm rate depends on grade (white or indicating), bead size, bag size, total volume, and Incoterm. Buyers in Pakistan are quoted in PKR per kg or per 25 kg bag. Request a quote for a binding figure.",
+      },
+      {
+        question: "What is the silica gel price per kg in Pakistan?",
+        answer:
+          "Pakistan buyers receive a PKR per-kg or per-bag quote from the Karachi factory, ex-factory or delivered, usually the same day by WhatsApp. The rate improves with monthly volume; repackers and distributors are quoted by the pallet or tonne.",
+      },
+      {
+        question: "Can I buy silica gel in 1 kg or 5 kg quantities?",
+        answer:
+          "Yes. 1 kg and 5 kg bags are stocked for breather refills, labs, workshops, and trial orders, alongside 10 kg and 25 kg bags, drums, and jumbo bags. Small quantities are priced per bag; the best per-kg rate applies from about one metric ton.",
+      },
+      {
+        question: "What is the MOQ for silica gel by the kg?",
+        answer:
+          "There is no fixed minimum for bagged beads; trial bags are supported. Loose bulk pricing at the best per-kg rate starts from roughly one metric ton, and distributor programs are quoted by monthly tonnage. The figure is confirmed at quote.",
+      },
+      {
+        question: "Which bead size should I order by the kg?",
+        answer:
+          "1-3 mm beads for filling sachets on a line; 2-5 mm for transformer breathers, desiccant dryers, and drying cabinets where airflow through the bed matters. White non-indicating is the standard; cobalt-free orange indicating is used where a visual saturation check is needed.",
+      },
+      {
+        question: "Does DryGelWorld export silica gel by the kg?",
+        answer:
+          "Yes. 25 kg bags, drums, and jumbo bags ship from Karachi on EXW, FOB Karachi, CIF, or DAP terms in USD, with SDS, COA, ISO 9001:2015 reference, and Certificate of Origin. Country pages cover ports, customs codes, and lead times.",
+      },
+      {
+        question: "How many times can bulk silica gel be reused?",
+        answer:
+          "Many cycles, as long as it is dried correctly and not contaminated. Sachet-grade and indicating beads regenerate at typically 110-130 °C; plain bulk beads tolerate higher temperatures. Capacity declines slowly with each cycle; replace when the regenerated charge no longer holds humidity down.",
+      },
+      ...exportFaqs.slice(1, 2),
+    ],
+  },
 } satisfies Record<string, KeywordClusterInput>;
 
 export type GramSizeLandingSlug = keyof typeof gramSizeLandingInputs;

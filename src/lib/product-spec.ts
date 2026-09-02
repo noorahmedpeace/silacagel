@@ -283,6 +283,18 @@ export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
 
 // ── Category landing-page specs (keyed by SEO landing slug) ──────────────────
 const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }> = {
+  "silica-gel-per-kg": {
+    name: "Silica gel by the kilogram",
+    spec: {
+      productType: "Loose silica gel beads sold by weight",
+      sizes: "1 kg, 5 kg, 10 kg, 25 kg bags; drums; jumbo bags. Beads 1-3 mm or 2-5 mm",
+      weight: "Per kg; 25 kg bag standard",
+      packaging: "Lined bags, drums, jumbo bags on pallets",
+      application: "Sachet filling by repackers, breather and dryer refills, warehouse and crate moisture control",
+      industries: "Repackers, distributors, utilities, workshops, labs, warehouses, exporters",
+      moq: "No fixed minimum for bagged beads; best per-kg rate from about one metric ton; confirmed at quote",
+    },
+  },
   "global-silica-gel-supplier": {
     name: "Worldwide silica gel export supply",
     spec: {

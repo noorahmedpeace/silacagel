@@ -3029,6 +3029,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Buying non-uniform bead size - irregular bead size causes inconsistent adsorption performance and sachet-filling complications",
     quoteBasis: "Bead quantity (25kg bag count), monthly tonnage, destination, Incoterms, document expectations",
     relatedLinks: [
+      { label: "Silica gel per kg (bags, price basis)", href: "/silica-gel-per-kg" },
       { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
       { label: "Bulk silica gel supplier checklist (blog)", href: "/blog/bulk-silica-gel-supplier-checklist" },
       { label: "What is silica gel (blog)", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
@@ -3048,6 +3049,7 @@ const highIntentSeoLandingPages = {
   "2g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["2g-silica-gel-sachets"]),
   "5g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["5g-silica-gel-sachets"]),
   "10g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["10g-silica-gel-sachets"]),
+  "silica-gel-per-kg": keywordClusterPage(gramSizeLandingInputs["silica-gel-per-kg"]),
 } satisfies Record<string, SeoLandingPage>;
 
 export const seoLandingPages = {
@@ -3453,6 +3455,7 @@ export const seoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "Silica gel per kg (bags, price basis)", href: "/silica-gel-per-kg" },
       { label: "Bulk product page", href: "/products/bulk-industrial" },
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
       { label: "Bulk sales calculator", href: "/bulk-sales" },
