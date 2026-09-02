@@ -116,8 +116,7 @@ HUMAN_SIGNALS = (
     "we require", "interested in", "please send", "please share", "kindly send",
     "kindly share", "looking for", "enquiry", "inquiry", "rfq", "tender",
     "container", "kg", "gram", "sachet", "desiccant", "silica", "glove",
-    "?",
-)
+)  # a bare "?" used to count; a weekly SEO report with a question in it slipped through
 
 
 def acquire_single_instance_lock(name):
@@ -303,9 +302,15 @@ def should_reply(msg, body, own_user, log, now, contacted=()):
     # Marketing gives itself away in the subject as often as in the body, and
     # bulk senders use a dedicated sending domain.
     dom = addr.split("@")[-1]
-    if dom.startswith(("email.", "mail.", "news.", "e.", "em.", "mailer.",
-                       "marketing.", "info.", "reply.", "notify.")):
-        return False, "bulk sending domain (%s)" % dom
+    if dom.startswith(("email.", "mail.", "news.", "e.", "em.", "mailer.", "apps.",
+                       "marketing.", "info.", "reply.", "notify.", "alerts.", "app.",
+                       "notifications.", "hello.", "team.", "updates.", "report.")):
+        return False, "bulk/SaaS sending domain (%s)" % dom
+    subj_l = subj_raw.lower()
+    if any(w in subj_l for w in ("weekly report", "monthly report", "your report", "digest",
+                                 "summary for", "alert:", "invoice", "receipt", "verify your",
+                                 "confirm your", "password", "security alert", "newsletter")):
+        return False, "SaaS/notification subject"
 
     low = ((body or "")[:1800] + " " + subj_raw).lower()
     for phrase in BODY_AUTOMATED:
