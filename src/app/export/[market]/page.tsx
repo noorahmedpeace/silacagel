@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { absoluteUrl, brandName, breadcrumbJsonLd, compactMetaDescription } from "@/lib/seo";
 import { getExportMarketSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MobileQuoteBand } from "@/components/mobile-quote-band";
 import {
   exportHreflangAlternates,
@@ -208,6 +209,13 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
+        <Breadcrumbs
+          items={[
+            { name: "Home", href: "/" },
+            { name: "Export", href: "/export" },
+            { name: market.country, href: `/export/${market.slug}` },
+          ]}
+        />
         <span className={styles.kicker}>Export Market / {market.country}</span>
         <h1>{market.title}</h1>
         <p>{market.description}</p>

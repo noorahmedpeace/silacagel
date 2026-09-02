@@ -319,6 +319,73 @@ export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
 
 // ── Category landing-page specs (keyed by SEO landing slug) ──────────────────
 const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }> = {
+  "silica-gel-per-kg": {
+    name: "Silica gel by the kilogram",
+    spec: {
+      productType: "Loose silica gel beads sold by weight",
+      sizes: "1 kg, 5 kg, 10 kg, 25 kg bags; drums; jumbo bags. Beads 1-3 mm or 2-5 mm",
+      weight: "Per kg; 25 kg bag standard",
+      packaging: "Lined bags, drums, jumbo bags on pallets",
+      application: "Sachet filling by repackers, breather and dryer refills, warehouse and crate moisture control",
+      industries: "Repackers, distributors, utilities, workshops, labs, warehouses, exporters",
+      moq: "No fixed minimum for bagged beads; best per-kg rate from about one metric ton; confirmed at quote",
+    },
+  },
+  "global-silica-gel-supplier": {
+    name: "Worldwide silica gel export supply",
+    spec: {
+      productType: "Manufacturer-direct silica gel and desiccant export supply",
+      sizes: "0.5 g-500 g sachets and packs; 25 kg bead bags; 1-5 kg container strips",
+      packaging: "Paper, technical-fibre and non-woven sachets; 25 kg bags; drums; hanging strips; export cartons",
+      application: "International B2B supply for packaging, distribution, private label, and export cargo protection",
+      industries: "Importers, distributors, packagers, exporters, OEM and private-label brands worldwide",
+      exportMarkets: "Worldwide; dedicated pages for 21 markets including Africa (see the Export hub)",
+    },
+  },
+  "1g-silica-gel-sachets": {
+    name: "1g silica gel sachets",
+    spec: {
+      productType: "1 g silica gel desiccant sachet",
+      sizes: "1 g fill weight (0.5 g-20 g range available)",
+      weight: "1 g per sachet",
+      packaging: "Breathable paper (standard), technical-fibre or non-woven outer; bulk cartons or sealed inner liners",
+      application: "Unit-pack moisture control: pill bottles, electronics accessory packs, small retail and shoe boxes",
+      industries: "Pharma and nutraceutical packaging, electronics, footwear and leather goods, consumer goods",
+    },
+  },
+  "2g-silica-gel-sachets": {
+    name: "2g silica gel sachets",
+    spec: {
+      productType: "2 g silica gel desiccant sachet",
+      sizes: "2 g fill weight (0.5 g-20 g range available)",
+      weight: "2 g per sachet",
+      packaging: "Breathable paper (standard), technical-fibre or non-woven outer; bulk cartons or sealed inner liners",
+      application: "Medium retail boxes, accessories, small leather goods, tool and parts packs",
+      industries: "Consumer goods, leather and accessories, tools and hardware",
+    },
+  },
+  "5g-silica-gel-sachets": {
+    name: "5g silica gel sachets",
+    spec: {
+      productType: "5 g silica gel desiccant sachet",
+      sizes: "5 g fill weight (0.5 g-20 g range available)",
+      weight: "5 g per sachet",
+      packaging: "Breathable paper (standard), technical-fibre or non-woven outer; bulk cartons or sealed inner liners",
+      application: "Carton-level protection: shoe boxes, garment cartons, instrument cases, larger electronics packs",
+      industries: "Footwear and leather export, garments and textiles, electronics and instruments",
+    },
+  },
+  "10g-silica-gel-sachets": {
+    name: "10g silica gel sachets",
+    spec: {
+      productType: "10 g silica gel desiccant sachet",
+      sizes: "10 g fill weight (0.5 g-20 g range available)",
+      weight: "10 g per sachet",
+      packaging: "Breathable paper (standard), technical-fibre or non-woven outer; bulk cartons or sealed inner liners",
+      application: "Master cartons, equipment and instrument cases, textile cartons and rolls",
+      industries: "Consumer-goods export, equipment and instruments, textiles, electronics",
+    },
+  },
   "silica-gel-manufacturer": {
     name: "Manufacturer-direct silica gel supply",
     spec: {

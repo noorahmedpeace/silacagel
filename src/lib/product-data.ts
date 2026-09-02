@@ -162,7 +162,7 @@ export function createMailtoHref(email: string, subject?: string, body?: string)
 export const productCatalog: ProductItem[] = [
   {
     slug: "retail-sachets",
-    name: "Precision Grade Silica Gel",
+    name: "Silica Gel Sachets 0.5g-20g (Precision Grade)",
     shortName: "Precision Units",
     metaTitle: "Silica Gel Sachets | Retail & Unit-Pack Desiccant",
     eyebrow: "Unit-Level Protection",

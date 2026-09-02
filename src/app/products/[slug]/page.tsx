@@ -30,6 +30,7 @@ import {
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./product.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 type ProductPageProps = {
   params: Promise<{
@@ -49,6 +50,8 @@ const procurementDetails = {
     ],
     packaging: ["Plain sachet", "Warning text review", "Carton labeling", "Private-label discussion"],
     related: [
+      { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
+      { label: "5g silica gel sachets", href: "/5g-silica-gel-sachets" },
       { label: "Electronics case study", href: "/case-studies" },
       { label: "USA export page", href: "/export/usa" },
       { label: "Document hub", href: "/documentation" },
@@ -670,6 +673,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <Reveal>
             <section className={styles.hero}>
               <div className={styles.copy}>
+                <Breadcrumbs
+                  items={[
+                    { name: "Home", href: "/" },
+                    { name: "Products", href: "/products" },
+                    { name: product.name, href: `/products/${product.slug}` },
+                  ]}
+                />
                 <p className={styles.eyebrow}>{product.eyebrow}</p>
                 {product.categoryPath?.length ? (
                   <p className={styles.categoryTrail}>{product.categoryPath.join(" > ")}</p>
@@ -758,6 +768,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <span>Quote basis</span>
                     <strong>{product.priceBand}</strong>
                   </article>
+                  {productOfferPricing[product.slug] ? (
+                    <article>
+                      <span>Indicative export reference</span>
+                      <strong>
+                        USD {productOfferPricing[product.slug].lowPrice}
+                        {" - "}
+                        {productOfferPricing[product.slug].highPrice} per unit, ex-factory (
+                        <Link href="/pricing">full price list</Link>)
+                      </strong>
+                    </article>
+                  ) : null}
                   <article>
                     <span>Lead time</span>
                     <strong>{product.leadTime}</strong>

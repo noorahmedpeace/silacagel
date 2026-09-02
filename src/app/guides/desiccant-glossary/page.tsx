@@ -3,6 +3,7 @@ import Link from "next/link";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { glossaryCategories, glossaryTerms } from "@/lib/glossary-data";
 import styles from "../../strategy-pages.module.css";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import glossary from "./glossary.module.css";
 
 const GLOSSARY_PATH = "/guides/desiccant-glossary";
@@ -34,6 +35,13 @@ export default function DesiccantGlossaryPage() {
     <main className={styles.page}>
       <article>
         <section className={styles.hero}>
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Guides", href: "/guides" },
+              { name: "Desiccant Glossary", href: GLOSSARY_PATH },
+            ]}
+          />
           <span className={styles.kicker}>Reference</span>
           <h1>Desiccant &amp; Silica Gel Glossary</h1>
           <p>
@@ -172,7 +180,7 @@ export default function DesiccantGlossaryPage() {
               },
               breadcrumbJsonLd([
                 { name: "Home", href: "/" },
-                { name: "Guides", href: "/guides/silica-gel-buyer-guide" },
+                { name: "Guides", href: "/guides" },
                 { name: "Desiccant Glossary", href: GLOSSARY_PATH },
               ]),
             ],

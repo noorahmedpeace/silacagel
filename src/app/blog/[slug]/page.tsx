@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -17,6 +16,7 @@ import { getBlogSeoImage, withPageImageContext } from "@/lib/seo-images";
 import styles from "../../strategy-pages.module.css";
 import { blogArticles, getArticlePublication, getBlogArticle } from "../articles";
 import { BlogHeroSlider } from "@/components/blog-hero-slider";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 type BlogArticlePageProps = {
   params: Promise<{
@@ -93,6 +93,13 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
     <main className={styles.page}>
       <article>
         <section className={styles.hero}>
+          <Breadcrumbs
+            items={[
+              { name: "Home", href: "/" },
+              { name: "Blog", href: "/blog" },
+              { name: article.title, href: `/blog/${article.slug}` },
+            ]}
+          />
           <span className={styles.kicker}>{article.label}</span>
           <h1>{article.title}</h1>
           <p>{article.description}</p>

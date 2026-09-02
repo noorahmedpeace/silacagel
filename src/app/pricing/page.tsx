@@ -185,7 +185,9 @@ export default function PricingPage() {
           <h2 id="pricing-terms">Quoting basis &amp; Incoterms</h2>
           <p>
             Every range above is an ex-factory USD reference. Your landed cost
-            depends on the Incoterm you choose at quote stage:
+            depends on the Incoterm you choose at quote stage. Buying loose beads by
+            weight? See <Link href="/silica-gel-per-kg">silica gel per kg</Link> for
+            bag sizes, PKR quotes, and how the per-kg rate is built.
           </p>
         </div>
         <dl className={styles.incotermList}>

@@ -60,3 +60,6 @@ playwright-report/
 # Outreach run artifacts - contain buyer addresses.
 /outreach-sent.log
 /outreach-preview.txt
+
+# Outreach hitlists carry third-party contact addresses - never in a public repo.
+/OUTREACH-*.md

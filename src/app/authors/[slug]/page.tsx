@@ -138,7 +138,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
               },
               breadcrumbJsonLd([
                 { name: "Home", href: "/" },
-                { name: "Authors", href: `/authors/${author.slug}` },
                 { name: author.name, href: `/authors/${author.slug}` },
               ]),
             ],
