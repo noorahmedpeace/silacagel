@@ -545,6 +545,13 @@ def one_pass(user, pw, send, log, quiet=False):
 
 
 def main():
+    # RETIRED 2 Sep 2026. The owner's rule: no two people get the same reply, and
+    # nothing is sent before a person has read the message. On 2 Sep this watcher
+    # acknowledged five spam mails ("A birthday surprise is waiting for you") from
+    # spoofed privateemail.com addresses. Header and wording rules cannot make a
+    # template safe. Incoming mail is now read and answered individually through
+    # scripts/inbox-triage.py, every two hours.
+    sys.exit("  autoreply-watch.py retired hai - scripts/inbox-triage.py use karein (koi templated reply nahi)")
     ap = argparse.ArgumentParser()
     ap.add_argument("--send", action="store_true", help="actually reply (default: dry run)")
     ap.add_argument("--once", action="store_true", help="one pass then exit")

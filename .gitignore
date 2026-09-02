@@ -66,3 +66,7 @@ playwright-report/
 
 # single-instance lock files
 /*.lock
+/autoreply-log.json
+/inbox-triage-state.json
+/inbox-triage-state.json.tmp
+/inbox-triage-log.jsonl
