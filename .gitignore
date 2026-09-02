@@ -63,3 +63,6 @@ playwright-report/
 
 # Outreach hitlists carry third-party contact addresses - never in a public repo.
 /OUTREACH-*.md
+
+# single-instance lock files
+/*.lock

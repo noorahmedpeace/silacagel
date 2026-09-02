@@ -120,6 +120,41 @@ HUMAN_SIGNALS = (
 )
 
 
+def acquire_single_instance_lock(name):
+    """Refuse to run if another copy is already running.
+
+    On this machine a background task stopped through the harness leaves its
+    sh/python child alive. On 2 Sep two orphaned 11am senders fired together
+    and 19 buyers received the same mail twice; nine orphaned inbox watchers
+    were polling IMAP at once. The lock holds the owning PID; a stale lock
+    (PID gone) is taken over, a live one stops this process before it can act."""
+    import os as _os, sys as _sys
+    path = name + ".lock"
+    try:
+        fd = _os.open(path, _os.O_CREAT | _os.O_EXCL | _os.O_WRONLY)
+        _os.write(fd, str(_os.getpid()).encode()); _os.close(fd)
+        return path
+    except FileExistsError:
+        try:
+            pid = int(open(path).read().strip() or "0")
+        except Exception:
+            pid = 0
+        alive = False
+        if pid:
+            try:
+                import ctypes
+                h = ctypes.windll.kernel32.OpenProcess(0x1000, False, pid)
+                if h:
+                    alive = True
+                    ctypes.windll.kernel32.CloseHandle(h)
+            except Exception:
+                alive = True  # cannot tell -> assume alive, stay safe
+        if alive:
+            _sys.exit("  " + name + ": doosri copy pehle se chal rahi hai (pid " + str(pid) + ") - ye ruk gayi")
+        _os.remove(path)
+        return acquire_single_instance_lock(name)
+
+
 def env():
     out = {}
     if not os.path.exists(ENV):
@@ -511,6 +546,7 @@ def main():
     ap.add_argument("--every", type=int, default=POLL_SECONDS, help="poll seconds")
     args = ap.parse_args()
 
+    acquire_single_instance_lock("autoreply-watch")
     user, pw = creds()
     log = load_log()
     print("  mailbox: %s   mode: %s" % (user, "BHEJEGA" if args.send else "dry run"))
