@@ -283,6 +283,17 @@ export function buildSpec(override: Partial<ProductSpec>): ProductSpec {
 
 // ── Category landing-page specs (keyed by SEO landing slug) ──────────────────
 const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }> = {
+  "global-silica-gel-supplier": {
+    name: "Worldwide silica gel export supply",
+    spec: {
+      productType: "Manufacturer-direct silica gel and desiccant export supply",
+      sizes: "0.5 g-500 g sachets and packs; 25 kg bead bags; 1-5 kg container strips",
+      packaging: "Paper, technical-fibre and non-woven sachets; 25 kg bags; drums; hanging strips; export cartons",
+      application: "International B2B supply for packaging, distribution, private label, and export cargo protection",
+      industries: "Importers, distributors, packagers, exporters, OEM and private-label brands worldwide",
+      exportMarkets: "Worldwide; dedicated pages for 21 markets including Africa (see the Export hub)",
+    },
+  },
   "1g-silica-gel-sachets": {
     name: "1g silica gel sachets",
     spec: {

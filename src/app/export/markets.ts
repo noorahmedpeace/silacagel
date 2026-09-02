@@ -863,6 +863,32 @@ export const exportMarkets: ExportMarket[] = [
     ],
   },
   {
+    slug: "africa",
+    country: "Africa",
+    updatedAt: "2026-09-02",
+    title: "Silica gel and desiccant export supply for African importers.",
+    description:
+      "Karachi-origin silica gel sachets, bulk beads, dry clay packs, and container strips for importers, distributors, and packagers in East, West, Southern, and North Africa, routed through Mombasa, Dar es Salaam, Durban, Lagos, Tema, and Port Said.",
+    buyerTypes: ["Packaging distributors and re-packers", "Pharma and consumer-goods packagers", "Agricultural and food exporters (seed, grain, spice, tea, coffee)", "Logistics and freight consolidators"],
+    ports: ["Mombasa (Kenya)", "Dar es Salaam (Tanzania)", "Durban (South Africa)", "Lagos Apapa / Tin Can (Nigeria)", "Tema (Ghana)", "Port Said / Alexandria (Egypt)"],
+    products: ["0.5g-10g sachets", "25g-500g carton packs", "25kg loose bead bags", "1kg-5kg container strips", "Dry clay desiccant packs"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement", "Certificate of Origin"],
+    routeNote:
+      "Karachi to East Africa is one of the shortest sea routes DryGelWorld serves; West Africa and Egypt route via transhipment hubs. Import rules, pre-shipment inspection, and conformity programs differ by country (for example SONCAP in Nigeria, PVoC in Kenya, and country-specific rules elsewhere), so the importer of record should confirm the requirement for HS 2811.22 before dispatch. Each African country applies its own tariff; there is no single continental rate for Pakistan-origin goods.",
+    rfqTip: "Send destination country and port, monthly volume, Incoterm, any conformity or inspection program your importer must satisfy, and whether you need silica gel, dry clay, container strips, or a combined program.",
+    moq: "Typically from 100 kg or 100,000 sachets per format; loose beads and dry clay from 500 kg; trial and sample quantities available before bulk.",
+    leadTime: "Production 7-15 days after sign-off; sea transit Karachi → Mombasa / Dar es Salaam roughly 10-16 days, → Durban roughly 16-24 days, → Lagos / Tema roughly 30-40 days, → Port Said roughly 12-18 days (confirm with your forwarder).",
+    currency: "Quoted in USD",
+    incoterms: ["FOB Karachi", "CIF Mombasa", "CIF Durban", "CIF Lagos", "CIF Port Said", "DAP (selected destinations)"],
+    faqs: [
+      { question: "Which African countries does DryGelWorld ship silica gel to?", answer: "Any country reachable by sea from Karachi. The most common destinations are Kenya, Tanzania, South Africa, Nigeria, Ghana, and Egypt, routed through Mombasa, Dar es Salaam, Durban, Lagos, Tema, and Port Said. Inland delivery on DAP terms is quoted case by case." },
+      { question: "What is the MOQ for silica gel to Africa?", answer: "Sachet formats typically start from around 100 kg or 100,000 pieces per format, and loose beads or dry clay from about 500 kg. Trial and sample quantities are available before a bulk order so a distributor can test the market first." },
+      { question: "How long does shipping take from Karachi to East Africa?", answer: "Production is usually 7-15 days after sign-off. Sea transit from Karachi to Mombasa or Dar es Salaam is roughly 10-16 days, making East Africa one of the shortest export routes DryGelWorld serves. Durban is roughly 16-24 days and West Africa 30-40 days." },
+      { question: "Do you handle SONCAP, PVoC, or other conformity programs?", answer: "DryGelWorld supplies the SDS, COA, ISO 9001:2015 reference, Certificate of Origin, and product specifications that inspection agencies request. Registration with the program itself is done by the importer of record; confirm whether HS 2811.22 desiccant falls under your country's program before dispatch." },
+      { question: "Which silica gel format suits African agricultural exporters?", answer: "Seed, grain, spice, tea, and coffee exporters usually use 5g-10g sachets or 25g-100g packs inside cartons and 1-5kg strips in the container. The silica gel for rice, grain and spice export guide and the container desiccant calculator give a starting dosage." },
+    ],
+  },
+  {
     slug: "europe",
     updatedAt: "2026-09-02",
     country: "Europe",

@@ -116,6 +116,7 @@ const navGroups: NavGroup[] = [
     href: "/export",
     children: [
       { label: "Export hub", href: "/export", icon: Globe, desc: "Incoterms, MOQ & markets" },
+      { label: "Global silica gel supplier", href: "/global-silica-gel-supplier", icon: Globe, desc: "Worldwide supply map & entity facts" },
       { label: "USA", href: "/export/usa", icon: MapPin },
       { label: "United Kingdom", href: "/export/uk", icon: MapPin },
       { label: "Germany", href: "/export/germany", icon: MapPin },
@@ -124,6 +125,7 @@ const navGroups: NavGroup[] = [
       { label: "India", href: "/export/india", icon: MapPin },
       { label: "Canada", href: "/export/canada", icon: MapPin },
       { label: "Australia", href: "/export/australia", icon: MapPin },
+      { label: "Africa", href: "/export/africa", icon: MapPin },
     ],
   },
   {

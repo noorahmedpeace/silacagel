@@ -127,7 +127,7 @@ Status key: DONE today · OPEN · OWNER (needs information only the company can 
 | A1 | Sitemap lastmod stale | Bumped constant; export `updatedAt` for edited markets | seo.ts, markets.ts | Trustworthy freshness signal | DONE |
 | A2 | Offer price not visible | Visible indicative reference on 4 SKUs | products/[slug]/page.tsx | Removes schema mismatch risk | DONE |
 | A3 | Entity name conflict in schema | Unified to "DryGelWorld" | 4 files | Clean entity for AI/knowledge graph | DONE |
-| A4 | **Scale-claim inconsistency**: "190+ countries" (homepage, llms.txt) vs "60+ countries" (outreach docs) | Owner to confirm the true number of countries shipped to; then align homepage `trackRecord`, llms.txt line ~327, and outreach kits | page.tsx, llms.txt/route.ts | Avoids AI mis-citation and procurement distrust | OWNER |
+| A4 | Scale-claim inconsistency: "190+ countries" vs "60+ countries" | Owner confirmed 190+ as the stated figure (2026-09-02). Outreach kit aligned; new pages label it as the company's self-reported figure | OUTREACH-KIT.md, global supplier page | Consistent entity facts | DONE |
 | A5 | Placeholder gallery copy in production | Replaced | products/[slug]/page.tsx | Credibility | DONE |
 | A6 | Deploy and re-index | Deploy; submit the 6 new URLs plus edited ones via GSC and IndexNow (`npm run indexnow`) | scripts/ | Faster pickup | OPEN |
 
@@ -195,6 +195,16 @@ Status key: DONE today · OPEN · OWNER (needs information only the company can 
 - **No new "best/top manufacturers" articles**: cannibalisation risk with the existing pillar.
 - **No sachet dimensions or exact MOQ figures on the size pages**: not in the data; stated as "confirmed at quote".
 
+## 13c. Third pass (owner roadmap, same day)
+
+Owner supplied a 20-page roadmap. Cross-checked against the site: 15 of the 20 pages already existed (manufacturer, supplier, packets, bulk, beads, container, indicating, non-indicating, orange, white, USA, UK, Europe, UAE, Saudi Arabia, Australia). Two were 301 sources from the July consolidation and were not recreated (`/silica-gel-manufacturer-exporter`, `/silica-gel-packets-manufacturer`). The genuinely new items were built:
+
+- `/global-silica-gel-supplier`: top node of the topical map. One-paragraph entity statement, six verifiable-facts sections, a manufacturer-vs-trader-vs-domestic-converter comparison, the roadmap's ten buyer FAQs answered, and a content block that routes to manufacturer, products, sizes, industries, export hub, calculators, documents, and the top-suppliers guide. Linked from the supplier and manufacturer pages, the entity page, the header Export menu, and llms.txt.
+- `/export/africa`: regional page (Mombasa, Dar es Salaam, Durban, Lagos, Tema, Port Said), MOQ, lead time by route, Incoterms, conformity-program notes (SONCAP, PVoC) with the importer-of-record caveat, five FAQs. hreflang `en-002`.
+- Top-10 article retitled "Top silica gel suppliers and manufacturers in the world (2026)…" (slug unchanged) and given a transparent "Regional manufacturers worth shortlisting" section that includes DryGelWorld on four stated, checkable criteria alongside Sorbchem, WiseSorbent, GeeJay, and Desiccare. The "#1" FAQ still answers "No".
+- `/drygelworld` entity page: specs now carry legal entity, addresses, since-1983, certificate details, products, export terms, documents; a one-paragraph positioning statement for buyers, journalists, and AI assistants; name-variant guidance (DryGelWorld / Dry Gel World / SilicaGelPK); three entity FAQs.
+- `AI-VISIBILITY-MONITORING.md`: the fixed 12-query monthly test across ChatGPT, Google AI Overviews, Gemini, Perplexity, and Bing, with a 0-3 scoring rule and a log table.
+
 ## 13b. Second pass (same day)
 
 After the first report, every remaining in-repo roadmap item was implemented: all 21 export pages carry commercial blocks and most carry customs blocks; the four remaining thin landing pages were expanded; 20 more articles cite verified primary sources; breadcrumbs cover every content template; compare and case-study Article schema carry dates; the products hub no longer emits offer-less Product nodes; the homepage links the size layer; and a live factual error about calcium chloride availability was corrected on the comparison page and in llms.txt. Still open and owner-dependent: A4 (country count), B10 (twin consolidation), C4-C6 (listing fix, GBP, testimonials), C7 (data study needs real logger data), D2, D4, D5, D6 (CSP enforcement deliberately not flipped blind).
@@ -203,7 +213,9 @@ After the first report, every remaining in-repo roadmap item was implemented: al
 
 New: `src/lib/seo-landing-pages-sizes.ts`, `src/components/breadcrumbs.tsx`, `src/components/breadcrumbs.module.css`, this report, `COMPETITOR-LINK-INTERSECT-2026-09-02.md`.
 
-Modified: `src/lib/seo-landing-pages.ts`, `src/lib/compare-data.ts`, `src/app/page.tsx`, `src/app/products/page.tsx`, `src/app/compare/[slug]/page.tsx`, `src/app/industries/[industry]/page.tsx`, `src/app/guides/silica-gel-buyer-guide/page.tsx`, `src/lib/product-spec.ts`, `src/lib/product-data.ts`, `src/lib/seo.ts`, `src/lib/blog-clusters.ts`, `src/app/blog/articles.ts`, `src/app/blog/[slug]/page.tsx`, `src/app/export/markets.ts`, `src/app/export/[market]/page.tsx`, `src/app/products/[slug]/page.tsx`, `src/components/seo-landing-page.tsx`, `src/components/site-footer.tsx`, `src/app/layout.tsx`, `src/app/llms.txt/route.ts`, `src/app/about/page.tsx`, `src/app/media-kit/page.tsx`, `src/app/videos/page.tsx`, `src/app/case-studies/[slug]/page.tsx`, `src/app/authors/[slug]/page.tsx`, `src/app/guides/desiccant-glossary/page.tsx`, `BACKLINKS-EXECUTION-PLAN.md`, `OUTREACH-HITLIST-2026-07.md`.
+New (third pass): `src/lib/seo-landing-pages-global.ts`, `AI-VISIBILITY-MONITORING.md`.
+
+Modified: `src/lib/seo-landing-pages.ts`, `src/components/site-header.tsx`, `OUTREACH-KIT.md`, `src/lib/compare-data.ts`, `src/app/page.tsx`, `src/app/products/page.tsx`, `src/app/compare/[slug]/page.tsx`, `src/app/industries/[industry]/page.tsx`, `src/app/guides/silica-gel-buyer-guide/page.tsx`, `src/lib/product-spec.ts`, `src/lib/product-data.ts`, `src/lib/seo.ts`, `src/lib/blog-clusters.ts`, `src/app/blog/articles.ts`, `src/app/blog/[slug]/page.tsx`, `src/app/export/markets.ts`, `src/app/export/[market]/page.tsx`, `src/app/products/[slug]/page.tsx`, `src/components/seo-landing-page.tsx`, `src/components/site-footer.tsx`, `src/app/layout.tsx`, `src/app/llms.txt/route.ts`, `src/app/about/page.tsx`, `src/app/media-kit/page.tsx`, `src/app/videos/page.tsx`, `src/app/case-studies/[slug]/page.tsx`, `src/app/authors/[slug]/page.tsx`, `src/app/guides/desiccant-glossary/page.tsx`, `BACKLINKS-EXECUTION-PLAN.md`, `OUTREACH-HITLIST-2026-07.md`.
 
 ## 15. Recommended next steps (in order)
 

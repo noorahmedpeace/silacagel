@@ -76,7 +76,7 @@ Hi [Editor Name],
 
 I lead the export desk at DryGelWorld (Kamran Enterprises), a Karachi-based
 silica gel desiccant manufacturer that's been shipping container desiccants and
-industrial silica gel sachets to importers in 60+ countries since 1983.
+industrial silica gel sachets to importers in 190+ countries since 1983.
 
 A recurring pattern we see in B2B procurement RFQs: buyers undersize their
 moisture protection programs because they're picking by per-strip cost rather
@@ -242,7 +242,7 @@ content
 Hi [Editor Name],
 
 I lead the export desk at DryGelWorld (Kamran Enterprises), a silica gel
-desiccant manufacturer in Karachi shipping to 60+ countries since 1983.
+desiccant manufacturer in Karachi shipping to 190+ countries since 1983.
 
 We've just published a buyer guide for industrial silica gel procurement —
 covering selection, sizing math, container desiccant deployment, route

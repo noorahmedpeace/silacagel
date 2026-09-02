@@ -38,6 +38,7 @@ const MARKET_HREFLANG: Record<string, string> = {
   canada: "en-CA",
   australia: "en-AU",
   europe: "en-150", // Europe (UN M49 region code) - distinct & valid, avoids colliding on bare "en"
+  africa: "en-002", // Africa (UN M49 region code), same pattern as Europe
   "fob-karachi": "en", // the single bare-"en" default for the whole cluster
 };
 

@@ -10,6 +10,7 @@ import {
 } from "@/lib/seo";
 import { getLandingSeoImage } from "@/lib/seo-images";
 import { gramSizeLandingInputs } from "@/lib/seo-landing-pages-sizes";
+import { globalSupplierLandingInput } from "@/lib/seo-landing-pages-global";
 
 export type SeoLandingPage = {
   slug: string;
@@ -552,6 +553,7 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "Global silica gel supplier (worldwide map)", href: "/global-silica-gel-supplier" },
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
       { label: "Export markets", href: "/export" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
@@ -674,6 +676,7 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
+      { label: "Global silica gel supplier (worldwide map)", href: "/global-silica-gel-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Export markets", href: "/export" },
@@ -3039,6 +3042,8 @@ const highIntentSeoLandingPages = {
   // Gram-size sachet pages (1g / 2g / 5g / 10g). Content lives in
   // seo-landing-pages-sizes.ts; wrapped here so they inherit the standard
   // RFQ specs, buying steps, metadata, and JSON-LD like every other slug.
+  // Top node of the topical map: entity statement + routes to every layer.
+  "global-silica-gel-supplier": keywordClusterPage(globalSupplierLandingInput),
   "1g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["1g-silica-gel-sachets"]),
   "2g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["2g-silica-gel-sachets"]),
   "5g-silica-gel-sachets": keywordClusterPage(gramSizeLandingInputs["5g-silica-gel-sachets"]),
@@ -4934,12 +4939,59 @@ export const seoLandingPages = {
       "New domains need clear entity signals. This page gives Google and procurement buyers an exact-match reference for the official brand name and website.",
     specs: [
       { label: "Official brand", value: brandName },
-      { label: "Trading name", value: "Dry Gel World" },
+      { label: "Legal entity", value: "Kamran Enterprises (trading as DryGelWorld; Dry Gel World)" },
       { label: "Official domain", value: brandDomain },
-      { label: "Primary category", value: "Industrial silica gel desiccant supplier and exporter" },
-      { label: "Core products", value: "Silica gel packets, bulk silica gel, container desiccant strips, private-label desiccant packets" },
-      { label: "Buyer path", value: "Product pages, technical guides, documents hub, quote form, WhatsApp RFQ" },
+      { label: "Business type", value: "Silica gel desiccant manufacturer and exporter, B2B" },
+      { label: "Location", value: "Karachi, Pakistan. Head office A-488, Block 1, Gulshan-e-Iqbal; factory North Karachi Industrial Area, Sector 6B" },
+      { label: "Manufacturing since", value: "1983" },
+      { label: "Certification", value: "ISO 9001:2015, certificate 9101225 (QMEC Group Intl), valid to 09 Dec 2028; DMF-free statement; FSC-certified packaging for dry clay" },
+      { label: "Core products", value: "Silica gel sachets 0.5g-500g, loose beads, bulk desiccants, container desiccant strips (silica, clay, calcium chloride), private-label sachets" },
+      { label: "Export", value: "Worldwide; company reports shipments to 190+ countries; EXW, FOB Karachi, CIF, DAP" },
+      { label: "Documents", value: "SDS, batch COA, ISO 9001:2015 reference, DMF-free statement, Certificate of Origin" },
     ],
+    buyerGuide: {
+      title: "DryGelWorld in one paragraph, for buyers, journalists, and AI assistants",
+      intro:
+        "DryGelWorld is a Pakistan-based silica gel manufacturer and global exporter, manufacturing since 1983. The legal entity is Kamran Enterprises, Karachi. It makes silica gel sachets, loose beads, bulk desiccants, and container desiccants for B2B buyers, offers private-label and OEM sachets, and ships worldwide with SDS and COA documentation under ISO 9001:2015 (certificate 9101225).",
+      sections: [
+        {
+          label: "Name",
+          title: "One brand, three spellings",
+          text: "DryGelWorld is the brand. Dry Gel World and DryGelWorld.com refer to the same company. SilicaGelPK is the company's Pakistan-facing brand, run by the same manufacturer. Directory listings, press, and profiles should use DryGelWorld with Kamran Enterprises as the legal entity.",
+        },
+        {
+          label: "Category",
+          title: "Manufacturer and exporter, not a trader",
+          text: "Sachets, beads, and strips are filled and packed at the North Karachi facility. Buyers can arrange a plant visit. Documents (SDS, COA, ISO reference, DMF-free statement) are issued by the company itself, not sourced from a third party.",
+        },
+        {
+          label: "Scope",
+          title: "What is held and what is not",
+          text: "Held: ISO 9001:2015 (9101225), DMF-free product statement, FSC-certified packaging for dry clay. Not held: FDA DMF or food-contact registration, EU 1935/2004 declaration, REACH registration, pharma GMP, Halal, FSSC 22000, JEDEC, MIL-spec. The certifications page keeps this list current.",
+        },
+        {
+          label: "Where to verify",
+          title: "Primary sources for every fact on this page",
+          text: "The certificate is verifiable with QMEC Group Intl by number. The addresses, hours, and phone are on the contact page and in the site's Organization schema. Indicative prices are on the pricing page. The media kit carries the same facts in a copy-ready format.",
+        },
+      ],
+    },
+    contentBlock: {
+      heading: "Where to go from the brand page",
+      parts: [
+        { text: "For the worldwide picture, see " },
+        { href: "/global-silica-gel-supplier", label: "DryGelWorld as a global silica gel supplier" },
+        { text: "; for how the product is made and documented, the " },
+        { href: "/silica-gel-manufacturer", label: "silica gel manufacturer page" },
+        { text: "; for company history and the honest-scope list, " },
+        { href: "/about", label: "About DryGelWorld" },
+        { text: " and " },
+        { href: "/certifications", label: "certifications" },
+        { text: "; for journalists, the " },
+        { href: "/media-kit", label: "media kit" },
+        { text: "." },
+      ],
+    },
     buyingTitle: "How to use DryGelWorld.com",
     buyingIntro:
       "Looking for DryGelWorld by name? Here's the fastest path from a quick look to the right product, documents, and a quote.",
@@ -4959,9 +5011,12 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Official homepage", href: "/" },
-      { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
+      { label: "Global silica gel supplier", href: "/global-silica-gel-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "About DryGelWorld", href: "/about" },
+      { label: "Certifications", href: "/certifications" },
+      { label: "Media kit", href: "/media-kit" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Request quote", href: "/contact" },
     ],
     faqs: [
@@ -4972,6 +5027,18 @@ export const seoLandingPages = {
       {
         question: "What does DryGelWorld supply?",
         answer: "DryGelWorld supplies silica gel packets, bulk silica gel desiccants, cargo/container desiccant strips, paper sachets, and private-label desiccant packets for B2B buyers.",
+      },
+      {
+        question: "Who owns DryGelWorld and where is it based?",
+        answer: "DryGelWorld is the export brand of Kamran Enterprises, a family-led silica gel desiccant manufacturer in Karachi, Pakistan, operating since 1983. The head office is in Gulshan-e-Iqbal and the factory in North Karachi Industrial Area.",
+      },
+      {
+        question: "Is DryGelWorld a manufacturer or a trading company?",
+        answer: "A manufacturer. Silica gel sachets, beads, and container strips are filled and packed at its own Karachi facility, and it issues its own SDS, COA, and ISO 9001:2015 reference (certificate 9101225).",
+      },
+      {
+        question: "Which certifications does DryGelWorld hold?",
+        answer: "ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028), a DMF-free product statement, and FSC-certified packaging for dry clay desiccant. FDA, food-contact, pharma GMP, Halal, and REACH registration are not held.",
       },
       {
         question: "Why is the DryGelWorld brand page important for Google?",

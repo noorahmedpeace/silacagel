@@ -111,6 +111,7 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 
 ## Core resources
 
+- [Global silica gel supplier](${absoluteUrl("/global-silica-gel-supplier")}): entity facts, worldwide supply map, sourcing FAQs
 - [Indicative price list](${absoluteUrl("/pricing")}): USD ranges per size, MOQ tiers, Incoterms
 - [1g silica gel sachets](${absoluteUrl("/1g-silica-gel-sachets")}): dosage, materials, custom print, MOQ, export terms for the 1 g size
 - [2g](${absoluteUrl("/2g-silica-gel-sachets")}), [5g](${absoluteUrl("/5g-silica-gel-sachets")}) and [10g](${absoluteUrl("/10g-silica-gel-sachets")}) silica gel sachets: per-size dosage and applications
@@ -119,6 +120,7 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - [Product catalog](${absoluteUrl("/products")}): full range of silica gel, clay desiccant, and PPE
 - [Container desiccant dosage calculator](${absoluteUrl("/tools/container-desiccant-calculator")}): strip count by container size and route
 - [Export markets](${absoluteUrl("/export")}): country pages, Incoterms, and shipping documentation
+- [Africa export page](${absoluteUrl("/export/africa")}): East, West, Southern and North Africa routing, MOQ, lead time, conformity-program notes
 - [Electronics packaging](${absoluteUrl("/industries/electronics-packaging")}): desiccant formats and sizing for electronics cargo
 - [Pharma packaging](${absoluteUrl("/industries/pharma-packaging")}): secondary-packaging desiccant scope and limits
 - [Leather & footwear export](${absoluteUrl("/industries/leather-footwear-export")}): DMF-free sachets and carton sizing
