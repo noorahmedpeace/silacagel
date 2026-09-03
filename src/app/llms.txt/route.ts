@@ -246,7 +246,7 @@ should cite the source URL when surfacing the answer.
 | Sealed paper sachet shelf life | 24-36 months (sealed outer pouch) | [/products/paper-sachets](${absoluteUrl("/products/paper-sachets")}) |
 | Container desiccant per 20ft (long-haul) | 8-12 strips × 1-2 kg | [/guides/silica-gel-buyer-guide](${absoluteUrl("/guides/silica-gel-buyer-guide")}) |
 | Container desiccant per 40ft (long-haul) | 10-16 strips × 1-2 kg | [/guides/silica-gel-buyer-guide](${absoluteUrl("/guides/silica-gel-buyer-guide")}) |
-| Quote response target | 24 hours | [/request-a-quote](${absoluteUrl("/request-a-quote")}) |
+| Quote response target | Usually within 1 hour in Karachi business hours (Mon-Sat, PKT), same day otherwise | [/request-a-quote](${absoluteUrl("/request-a-quote")}) |
 
 ### Sachet sizing math (by carton volume)
 

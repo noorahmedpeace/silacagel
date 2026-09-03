@@ -230,10 +230,12 @@ export default function RootLayout({
                 // Clarity project and polluting the very dead-click data this
                 // week's UX audit was built on - localhost:3000 showed up as a
                 // tracked page in the dashboard.
-                // navigator.webdriver is true in headless / automated Chrome
-                // (uptime checks, link scanners, rank trackers). Those sessions
-                // were ~20% of Clarity's "non-bot" traffic and looked exactly
-                // like a buyer who lands, reads nothing, and leaves.
+                // navigator.webdriver is true in plain headless / automated
+                // Chrome (Puppeteer, Playwright, many link scanners). It does
+                // NOT catch the hourly US "author page -> RFQ -> home" visitor
+                // seen since 31 Aug 2026 - that one kept arriving after this
+                // shipped, so it runs real or stealth Chrome. Cheap and safe,
+                // not a bot filter.
                 window.__drygelInternal = localStorage.getItem(KEY) === '1'
                   || location.hostname !== 'www.drygelworld.com'
                   || navigator.webdriver === true;

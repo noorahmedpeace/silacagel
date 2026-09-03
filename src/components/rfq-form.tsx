@@ -4,10 +4,23 @@ import { useEffect, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { fireLeadConversion } from "@/lib/lead-tracking";
-import { ppeProductSlugs, productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
+import {
+  ppeProductSlugs,
+  productCatalog,
+  productIndicativeUsd,
+  whatsappNumber,
+  salesEmail,
+} from "@/lib/product-data";
 import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
 import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./rfq-form.module.css";
+
+// GA4 via the layout's queue; no-op when analytics is not loaded (internal
+// sessions, headless automation), so it can never throw inside a submit.
+function track(name: string, params?: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  window.__drygelTrackEvent?.(name, params);
+}
 
 // "pieces" exists because the calculator quotes sachet counts, not weight.
 // Without it a piece count had to be smuggled into the quantity field and
@@ -95,6 +108,7 @@ export function RfqForm({
   const [uploading, setUploading] = useState(false);
   const [cart, setCart] = useState<CartItem[]>([]);
   const startedAt = useRef(Date.now());
+  const formStarted = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
@@ -104,6 +118,11 @@ export function RfqForm({
   }, []);
 
   const knownProduct = productCatalog.some((p) => p.name === defaultProduct);
+  // "Get a Price Quote" on a product page landed here with no price in sight;
+  // three of the eight human arrivals in August left within five seconds.
+  // Show the same indicative USD band the product page and /pricing publish.
+  const matchedProduct = productCatalog.find((p) => p.name === defaultProduct);
+  const indicative = matchedProduct ? productIndicativeUsd[matchedProduct.slug] : undefined;
 
   async function onPickFiles(list: FileList | null) {
     if (!list) return;
@@ -137,6 +156,7 @@ export function RfqForm({
     event.preventDefault();
     if (state === "submitting") return;
     setError("");
+    track("rfq_submit_attempt", { elapsed_ms: Date.now() - startedAt.current });
     const fd = new FormData(event.currentTarget);
     const v = (name: string) => String(fd.get(name) ?? "");
     const ft = readFirstTouch();
@@ -187,6 +207,7 @@ export function RfqForm({
         return;
       }
       if (result.fallback) {
+        track("rfq_submit_fallback", { method: "mailto" });
         const subject = encodeURIComponent(`RFQ: ${payload.productName}, ${payload.companyName}`);
         const body = encodeURIComponent(
           `Company: ${payload.companyName}\nContact: ${payload.contactPerson}\nEmail: ${payload.email}\nPhone: ${payload.phone}\nCountry: ${payload.country}\nProduct: ${payload.productName}\nQuantity: ${payload.quantity} ${payload.unit}\nDestination: ${payload.destinationCountry}\n\n${payload.message}`,
@@ -195,12 +216,29 @@ export function RfqForm({
         setState("idle");
         return;
       }
+      track("rfq_submit_error", { reason: result.error ?? "unknown" });
       setError(result.error ?? "Something went wrong. Please try again.");
       setState("idle");
     } catch {
+      track("rfq_submit_error", { reason: "network" });
       setError("Something went wrong. Please try again or contact us on WhatsApp.");
       setState("idle");
     }
+  }
+
+  // Funnel instrumentation. Until now the only RFQ events were the CTA click
+  // and the stored lead, so a buyer who filled six fields and left (Clarity,
+  // 19 Aug) was indistinguishable from one who never touched the form.
+  function onFirstFocus(event: React.FocusEvent<HTMLFormElement>) {
+    if (formStarted.current) return;
+    const target = event.target as HTMLElement;
+    if (!/^(INPUT|SELECT|TEXTAREA)$/.test(target.tagName)) return;
+    formStarted.current = true;
+    track("rfq_form_start", { first_field: (target as HTMLInputElement).name || "" });
+  }
+  function onInvalid(event: React.FormEvent<HTMLFormElement>) {
+    const target = event.target as HTMLInputElement;
+    track("rfq_validation_error", { field: target.name || "", reason: target.validationMessage || "invalid" });
   }
 
   if (state === "done") {
@@ -234,7 +272,22 @@ export function RfqForm({
   }
 
   return (
-    <form ref={formRef} className={styles.form} onSubmit={onSubmit} noValidate={false}>
+    <form
+      ref={formRef}
+      className={styles.form}
+      onSubmit={onSubmit}
+      onFocusCapture={onFirstFocus}
+      onInvalidCapture={onInvalid}
+      noValidate={false}
+    >
+      {indicative && matchedProduct ? (
+        <p className={styles.proofLine}>
+          Indicative export reference for {matchedProduct.rfqLabel ?? matchedProduct.name}: USD{" "}
+          {indicative.lowPrice} - {indicative.highPrice} per unit, ex-factory (
+          <a href="/pricing" target="_blank" rel="noopener noreferrer">full price list</a>). Your
+          firm rate follows quantity and destination.
+        </p>
+      ) : null}
       {/* The pack was only rendered in the success state below, so a buyer got
           the SDS, COA, TDS, ISO certificate and DMF-free statement only after
           submitting. QA screens a supplier on the paperwork BEFORE it sends an
@@ -250,8 +303,8 @@ export function RfqForm({
             <input name="companyName" required autoComplete="organization" />
           </label>
           <label className={styles.field}>
-            <span>Contact person *</span>
-            <input name="contactPerson" required autoComplete="name" />
+            <span>Contact person</span>
+            <input name="contactPerson" autoComplete="name" />
           </label>
           <label className={styles.field}>
             <span>Business email *</span>
@@ -262,8 +315,8 @@ export function RfqForm({
             <input name="phone" type="tel" autoComplete="tel" />
           </label>
           <label className={styles.field}>
-            <span>Country *</span>
-            <input name="country" required list="rfq-countries" autoComplete="country-name" />
+            <span>Country</span>
+            <input name="country" list="rfq-countries" autoComplete="country-name" />
             <datalist id="rfq-countries">
               {COUNTRIES.map((c) => (
                 <option key={c} value={c} />

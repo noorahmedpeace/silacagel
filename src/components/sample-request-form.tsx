@@ -85,7 +85,7 @@ export function SampleRequestForm() {
           ✓ Sample request received — dispatch desk notified.
         </p>
         <p style={{ margin: "8px 0 12px", fontSize: "0.88rem", color: "var(--muted, #4d5b78)" }}>
-          Our export team will confirm sample availability and shipping arrangements to <strong>{email}</strong> within 24 hours.
+          Our export team will confirm sample availability and shipping arrangements to <strong>{email}</strong>, usually within 1 hour in Karachi business hours and same day otherwise.
         </p>
         <a
           href={sampleWaHref}

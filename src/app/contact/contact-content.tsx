@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import {
   companyAddressFull,
   contactEmailChannels,
@@ -28,6 +29,20 @@ const orderedEmailChannels = [...contactEmailChannels].sort(
 );
 
 export function ContactContent({ rfqHref }: { rfqHref: string }) {
+  // Two-thirds of human sessions are on PC, where a tel: link does nothing
+  // and Clarity recorded the number being clicked repeatedly as a dead click.
+  // Copying the number and saying so gives the click a visible result.
+  const [phoneCopied, setPhoneCopied] = useState(false);
+  function copyPhone() {
+    try {
+      void navigator.clipboard?.writeText(displayPhone);
+      setPhoneCopied(true);
+      window.setTimeout(() => setPhoneCopied(false), 2400);
+    } catch {
+      /* clipboard unavailable: the tel: href still runs on phones */
+    }
+  }
+
   return (
     <main className={styles.page}>
       <div className={styles.ambient} aria-hidden="true">
@@ -70,13 +85,14 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
 
         <article className={`${styles.tile} ${styles.tileRfq}`} id="rfq">
           <span className={styles.actionKicker}>Quotations</span>
-          <h2>Pricing is quoted, not listed.</h2>
+          <h2>Firm pricing comes from one short form.</h2>
           <p>
-            Rates depend on format, quantity, destination port, and trade term, so
-            there is one form that asks for exactly those and nothing else. Send it
-            and the factory export desk usually replies within 1 hour in Karachi
-            business hours (same day otherwise) with pricing, MOQ, lead time, and
-            shipping options.
+            Indicative PKR and USD bands are published on the{" "}
+            <Link href="/pricing">pricing page</Link>. A firm rate depends on
+            format, quantity, destination port, and trade term, so the quote form
+            asks for exactly those and nothing else. Send it and the factory export
+            desk usually replies within 1 hour in Karachi business hours (same day
+            otherwise) with pricing, MOQ, lead time, and shipping options.
           </p>
           <ul>
             <li>Product format and gram size</li>
@@ -99,8 +115,13 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
           <span className={styles.actionValue}>Instant chat</span>
         </a>
 
-        <a className={`${styles.tile} ${styles.tileAction}`} href={`tel:${phoneHref}`}>
-          <span className={styles.actionKicker}>Direct line</span>
+        <a
+          className={`${styles.tile} ${styles.tileAction}`}
+          href={`tel:${phoneHref}`}
+          onClick={copyPhone}
+          aria-live="polite"
+        >
+          <span className={styles.actionKicker}>{phoneCopied ? "Number copied" : "Direct line"}</span>
           <span className={styles.actionValue}>{displayPhone}</span>
         </a>
 

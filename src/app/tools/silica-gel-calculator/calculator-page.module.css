@@ -335,3 +335,16 @@
   color: var(--ds-text);
   text-wrap: balance;
 }
+
+/* Phones: this is the site's most-clicked Google URL, and mobile Google
+   sessions averaged 32s at 11% scroll - they never reached the tool under
+   the hero. Keep kicker + H1, drop the lead and the two buttons, so the
+   calculator itself is the first screen. Last in the file on purpose: an
+   earlier media rule loses to the base .heroActions rule at equal
+   specificity. */
+@media (max-width: 760px) {
+  .heroLead,
+  .heroActions {
+    display: none;
+  }
+}

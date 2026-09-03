@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contract Packaging & Sachet Filling Services in Pakistan | DryGelWorld",
     description:
-      "Automatic flow-wrap and sachet contract packing, toll or turnkey, OEM printing, repacking, and export packaging from Karachi, quote within 24 business hours.",
+      "Automatic flow-wrap and sachet contract packing, toll or turnkey, OEM printing, repacking, and export packaging from Karachi, quote usually within 1 hour (PKT business hours).",
     url: "/contract-packaging-services",
     siteName,
     type: "website",
@@ -94,7 +94,7 @@ const faqs = [
   {
     question: "How do I get a price?",
     answer:
-      "Use the calculator to build your packing plan, then submit the quote form, we reply with a firm quotation, usually within 24 business hours. Per-pack or per-thousand rates depend on film type, print colours, and volume; printed-film runs carry a one-time setup charge, which we state in the quote.",
+      "Use the calculator to build your packing plan, then submit the quote form, we reply with a firm quotation, usually within 1 hour in Karachi business hours. Per-pack or per-thousand rates depend on film type, print colours, and volume; printed-film runs carry a one-time setup charge, which we state in the quote.",
   },
   {
     question: "Who supplies the product and the film?",

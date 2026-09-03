@@ -95,7 +95,7 @@ const industryPages: Record<string, IndustryPage> = {
     title: "Desiccant for Pharma Packaging",
     metaTitle: "Pharma Desiccant Packets | SDS/COA Healthcare Packaging",
     metaDescription:
-      "Pharma-grade silica gel desiccant packets and canisters for pill bottles, blister cartons & diagnostic kits. SDS, COA, batch docs. Export RFQ in 24h.",
+      "Pharma-grade silica gel desiccant packets and canisters for pill bottles, blister cartons & diagnostic kits. SDS, COA, batch docs. Export RFQ answered within the hour.",
     h1: "Documentation-ready desiccant supply for pharma and healthcare packaging.",
     description:
       "Desiccant packets for pharma packaging, healthcare cartons, pill bottles, diagnostic kits, and regulated export requirements.",
@@ -138,7 +138,7 @@ const industryPages: Record<string, IndustryPage> = {
       {
         question: "What is the minimum order quantity for pharma desiccants?",
         answer:
-          "MOQs depend on format. Send your product type, packet size, and annual volume in an RFQ and we confirm MOQ, lead time, and Incoterms within 24 hours.",
+          "MOQs depend on format. Send your product type, packet size, and annual volume in an RFQ and we confirm MOQ, lead time, and Incoterms, usually within 1 hour in Karachi business hours.",
       },
     ],
   },

@@ -51,7 +51,7 @@ const stats = [
   { value: "1983", label: "Manufacturing since" },
   { value: "190+", label: "Export markets" },
   { value: "ISO 9001:2015", label: "Manufacturer certified" },
-  { value: "24h", label: "Quote response target" },
+  { value: "1h", label: "Typical quote reply, PKT business hours" },
 ];
 
 // Real, unstaged photographs of our own Karachi factory and warehouse - never

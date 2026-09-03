@@ -27,6 +27,7 @@ import {
   getProductBySlug,
   phoneHref,
   productCatalog,
+  productIndicativeUsd,
   whatsappNumber,
 } from "@/lib/product-data";
 import styles from "./product.module.css";
@@ -542,18 +543,10 @@ const productFaqs = {
   ],
 } as const;
 
-// Indicative USD price ranges per silica gel product, taken from the SAME
-// published export prices already shown on the homepage/buy pages
-// (src/lib/product-data.ts priceGroups). Used to emit a valid Product +
-// AggregateOffer node so price/availability is citable by Google and AI engines.
-// Only products with a real published price appear here; PPE/clay (quote-only)
-// are intentionally omitted rather than carrying invented prices.
-const productOfferPricing: Record<string, { lowPrice: number; highPrice: number; offerCount: number }> = {
-  "retail-sachets": { lowPrice: 0.0035, highPrice: 0.014, offerCount: 7 },
-  "paper-sachets": { lowPrice: 0.0045, highPrice: 0.068, offerCount: 6 },
-  "bulk-industrial": { lowPrice: 0.078, highPrice: 1.85, offerCount: 6 },
-  "container-strips": { lowPrice: 4.2, highPrice: 19.4, offerCount: 4 },
-};
+// Indicative USD price ranges per silica gel product. One table, shared with
+// the RFQ page's ?product= price line, so the two can never disagree; it
+// lives in product-data.ts next to the priceGroups it is derived from.
+const productOfferPricing = productIndicativeUsd;
 
 // Un-gated technical documents per product, by document-registry id. ONLY real,
 // applicable files are listed: these are all silica gel products, so the silica
@@ -696,7 +689,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     href={`/request-a-quote?product=${encodeURIComponent(product.name)}`}
                     className={styles.primaryAction}
                   >
-                    Get Price &amp; Order
+                    Get a Price Quote
                   </Link>
                   <AddToCartButton
                     productFullName={product.name}

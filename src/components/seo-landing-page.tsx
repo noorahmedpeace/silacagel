@@ -80,6 +80,10 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
             screen, which was the whole point. Desktop never renders it. */}
         <MobileQuoteBand
           showPkrFrom={isLocalBuyerPage}
+          showUsdBands={
+            /silica|sachet|packet|desiccant-bag|bulk|container-desiccant|cargo|moisture-absorber/i.test(page.slug) &&
+            !/clay|calcium|indicator|hair|glove|beard|ppe|nitrile/i.test(page.slug)
+          }
           quoteHref={rfqHref}
           subject={page.h1}
         />

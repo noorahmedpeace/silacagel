@@ -282,7 +282,7 @@ export default function SilicaGelCalculatorPage() {
       <section className={shell.hero}>
         <span className={shell.kicker}>Calculator</span>
         <h1>Silica gel calculator: how much desiccant do you need?</h1>
-        <p>
+        <p className={styles.heroLead}>
           Work out sachet quantity, total desiccant weight, and an indicative order value -
           from a piece count, a carton size, or a kilogram target. Built by a silica gel
           manufacturer, using the same formats and rates we quote from.

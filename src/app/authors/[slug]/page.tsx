@@ -6,12 +6,13 @@ import { authors, defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { absoluteUrl, authorJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { phoneHref, displayPhone, whatsappNumber } from "@/lib/product-data";
 import { blogArticles } from "@/app/blog/articles";
+import { VisitBeacon } from "@/components/visit-beacon";
+import { seoImages } from "@/lib/seo-images";
+import styles from "../authors.module.css";
 
 // Used by zero articles and a second telling of the company story; kept live
 // for the media-kit link but out of the index.
 const NOINDEX_AUTHORS = new Set(["dry-gel-world-export-desk"]);
-import { seoImages } from "@/lib/seo-images";
-import styles from "../authors.module.css";
 
 type AuthorPageProps = {
   params: Promise<{
@@ -149,6 +150,8 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
           </Link>
         </section>
       </article>
+
+      {author.slug === defaultAuthorSlug ? <VisitBeacon path={`/authors/${author.slug}`} /> : null}
 
       <script
         type="application/ld+json"

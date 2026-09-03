@@ -175,6 +175,18 @@ export const ppeProductSlugs = new Set([
   "beard-covers",
 ]);
 
+// Indicative USD export reference per product, taken from the published
+// priceGroups below (min/max exportUsd of each product's size range). Feeds
+// the product page's Offer JSON-LD and stat row, and the RFQ page's price line
+// on ?product= arrivals. Only products with a real published price appear;
+// PPE, clay, calcium chloride and indicator cards are quote-only on purpose.
+export const productIndicativeUsd: Record<string, { lowPrice: number; highPrice: number; offerCount: number }> = {
+  "retail-sachets": { lowPrice: 0.0035, highPrice: 0.014, offerCount: 7 },
+  "paper-sachets": { lowPrice: 0.0045, highPrice: 0.068, offerCount: 6 },
+  "bulk-industrial": { lowPrice: 0.078, highPrice: 1.85, offerCount: 6 },
+  "container-strips": { lowPrice: 4.2, highPrice: 19.4, offerCount: 4 },
+};
+
 export const productCatalog: ProductItem[] = [
   {
     slug: "retail-sachets",

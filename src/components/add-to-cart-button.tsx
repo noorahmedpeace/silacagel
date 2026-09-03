@@ -169,8 +169,8 @@ export function AddToCartButton({
                 <span className={styles.modalCheck} aria-hidden="true">✓</span>
                 <h3>Added, we will reach you soon!</h3>
                 <p>
-                  Our export team has your details and will contact you within 24
-                  business hours with pricing for {productFullName}.
+                  Our export team has your details and will contact you, usually within
+                  1 hour in Karachi business hours, with pricing for {productFullName}.
                 </p>
                 <Link href="/request-a-quote?cart=1">Need more products? Open your quote cart →</Link>
               </div>

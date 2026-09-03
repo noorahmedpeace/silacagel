@@ -139,10 +139,10 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
           <aside className={styles.inlineQuote} aria-label="Buy silica gel">
             <div>
               <strong>Need loose silica gel or indicating beads for this?</strong>
-              <span>Small packs and bulk bags, shipped from our Karachi factory. Sizes and indicative prices are on the product pages.</span>
+              <span>Small packs and bulk bags, shipped from our Karachi factory. Indicative prices per size are on the price list.</span>
             </div>
             <div className={styles.inlineQuoteActions}>
-              <Link className={styles.cta} href="/products/bulk-industrial">See sizes &amp; prices</Link>
+              <Link className={styles.cta} href="/pricing">See sizes &amp; prices</Link>
               <a
                 className={styles.inlineQuoteWa}
                 href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I need a small quantity of silica gel. Size and quantity:")}`}

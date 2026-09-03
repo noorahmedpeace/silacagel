@@ -4108,7 +4108,7 @@ export const seoLandingPages = {
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
       { label: "Pricing in PKR and USD", href: "/pricing" },
       { label: "Export FOB Karachi", href: "/export/fob-karachi" },
-      { label: "Request a Karachi quote", href: "/contact" },
+      { label: "Request a Karachi quote", href: "/request-a-quote?destination=Pakistan" },
     ],
     faqs: [
       {
@@ -4424,7 +4424,7 @@ export const seoLandingPages = {
       { label: "Silica gel colours explained", href: "/blog/silica-gel-colors-white-blue-orange-explained" },
       { label: "Indicating vs non-indicating comparison", href: "/compare/indicating-vs-non-indicating-silica-gel" },
       { label: "Documents hub", href: "/documentation" },
-      { label: "Request quote", href: "/contact" },
+      { label: "Request quote", href: "/request-a-quote?product=Blue%20indicating%20silica%20gel" },
     ],
     faqs: [
       {
@@ -5026,7 +5026,7 @@ export const seoLandingPages = {
     // Lead with the term that is actually winning impressions.
     title: "Shipping Container Desiccant Supplier | Sea Freight",
     metaDescription:
-      "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
+      "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ answered within the hour.",
     kicker: "VoyaSorb container system",
     h1: "Shipping container desiccant supplier for sea freight: hanging strips and bulk bags (VoyaSorb).",
     lead:

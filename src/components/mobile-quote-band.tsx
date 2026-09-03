@@ -32,13 +32,24 @@ const pkrFormatter = new Intl.NumberFormat("en-PK", {
 export type MobileQuoteBandProps = {
   /** Shown only when the page's buyer pays in PKR. */
   showPkrFrom?: boolean;
+  /**
+   * The page sells a format that /pricing actually lists (silica gel sachets,
+   * packs, strips). Clay, calcium chloride, indicator cards and PPE have no
+   * published band, so they must not promise one.
+   */
+  showUsdBands?: boolean;
   /** Where the quote action goes - an on-page form anchor beats a page hop. */
   quoteHref: string;
   /** Prefills the WhatsApp message with the page subject. */
   subject: string;
 };
 
-export function MobileQuoteBand({ showPkrFrom = false, quoteHref, subject }: MobileQuoteBandProps) {
+export function MobileQuoteBand({
+  showPkrFrom = false,
+  showUsdBands = false,
+  quoteHref,
+  subject,
+}: MobileQuoteBandProps) {
   const cleanSubject = subject.replace(/\.$/, "");
   const whatsappHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     showPkrFrom
@@ -58,13 +69,19 @@ export function MobileQuoteBand({ showPkrFrom = false, quoteHref, subject }: Mob
             </span>
             <span className={styles.note}>Published rate. Better on quantity.</span>
           </>
-        ) : (
+        ) : showUsdBands ? (
           <>
             <span className={styles.label}>Pricing</span>
             <span className={styles.price}>Indicative USD bands</span>
             <span className={styles.note}>
               <Link href="/pricing">Published per size</Link>, firm quote by quantity and destination.
             </span>
+          </>
+        ) : (
+          <>
+            <span className={styles.label}>Pricing</span>
+            <span className={styles.price}>On request</span>
+            <span className={styles.note}>Quoted by quantity and destination.</span>
           </>
         )}
       </div>
