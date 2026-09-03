@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { QuoteForm } from "@/components/quote-form";
 import { SilicaGelCalculator } from "@/components/silica-gel-calculator";
 import {
   cartonCubicFeet,
@@ -307,6 +308,27 @@ export default function SilicaGelCalculatorPage() {
           models air exchange, cargo moisture, and route climate, which a per-carton rule
           cannot do.
         </p>
+      </section>
+
+      {/* Clarity, Aug-Sep 2026: this is the most-clicked page in Search Console,
+          and not one session in 30 days went from here to /request-a-quote. The
+          buyer has just produced a number; asking them to carry it to another
+          page loses them. The form is here, with the calculator's own quantity
+          field beside it. */}
+      <section className={shell.section} id="quote-form" aria-label="Request a quote">
+        <div className={shell.sectionHead}>
+          <h2>Turn that number into a price.</h2>
+          <p>
+            Send the size and quantity the calculator gave you. The Karachi factory desk
+            replies with a firm rate, MOQ, and lead time, usually within 1 hour in
+            business hours (PKT) and same day otherwise.
+          </p>
+        </div>
+        <QuoteForm
+          title="Quote for silica gel sachets"
+          headingLevel={3}
+          defaultProduct="Silica Gel Sachets 0.5g-20g (Precision Grade)"
+        />
       </section>
 
       <section className={shell.section} id="how-much">

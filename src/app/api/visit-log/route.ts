@@ -32,7 +32,12 @@ export async function POST(req: Request) {
   const h = req.headers;
   const record = {
     at: new Date().toISOString(),
-    ip: (h.get("x-forwarded-for") ?? "").split(",")[0].trim(),
+    // The site sits behind Cloudflare, so x-forwarded-for[0] is a Cloudflare
+    // edge address (172.68.x.x), not the visitor. cf-connecting-ip carries the
+    // real client; keep the raw chain as a fallback.
+    ip: (h.get("cf-connecting-ip") ?? h.get("true-client-ip") ?? h.get("x-real-ip") ?? "").trim(),
+    forwardedFor: h.get("x-forwarded-for") ?? "",
+    asn: h.get("cf-ipcountry") ?? "",
     country: h.get("x-vercel-ip-country") ?? "",
     city: h.get("x-vercel-ip-city") ?? "",
     userAgent: h.get("user-agent") ?? "",

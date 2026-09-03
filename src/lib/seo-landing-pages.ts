@@ -269,6 +269,28 @@ function desiccantQuoteChecklist(defaultProduct: string): SeoLandingPage["quoteC
   };
 }
 
+// Local (PKR) buyers are not exporters: asking a Karachi packaging house for a
+// destination port and an Incoterm reads as the wrong form. Clarity, Aug 2026:
+// local buyers clicked "Get a PKR Price Quote", landed on /contact, which has
+// no form, and left.
+function localQuoteChecklist(defaultProduct: string): SeoLandingPage["quoteChecklist"] {
+  return {
+    title: "Send these details for a PKR price",
+    formTitle: `PKR quote for ${defaultProduct}`,
+    intro:
+      "Published rates are per piece; your rate moves with size, quantity, and packing. Send these and the Karachi desk replies with a firm price, usually within the hour in business hours.",
+    defaultProduct,
+    items: [
+      "Size or format needed: gram size, bag weight, or bulk kg",
+      "Quantity: trial order, monthly volume, or carton count",
+      "What is being protected: product pack, master carton, or warehouse stock",
+      "Delivery city, or pickup from the North Karachi factory",
+      "Printing or private label, if the packet carries your brand",
+      "Documents needed with the order: SDS, COA, ISO 9001:2015, DMF-free statement",
+    ],
+  };
+}
+
 const highIntentSeoLandingPages = {
   "silica-gel": keywordClusterPage({
     slug: "silica-gel",
@@ -2469,6 +2491,7 @@ const highIntentSeoLandingPages = {
     documents: "ISO 9001:2015, SDS, COA, DMF-free statement",
     buyerRisk: "Choosing bentonite for precision cargo where silica gel's higher per-gram capacity would deliver better protection economics",
     quoteBasis: "Format, volume, destination, Incoterms, document expectations",
+    quoteChecklist: desiccantQuoteChecklist("Industrial Dry Clay Desiccant"),
     relatedLinks: [
       { label: "Dry clay desiccant product page", href: "/products/dry-clay-desiccant" },
       { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
@@ -3909,6 +3932,7 @@ export const seoLandingPages = {
         { text: " explains where DryGelWorld fits against global manufacturers." },
       ],
     },
+    quoteChecklist: localQuoteChecklist("Silica gel"),
     relatedLinks: [
       { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
       { label: "Silica gel packets (all sizes)", href: "/silica-gel-packets" },
@@ -4100,6 +4124,7 @@ export const seoLandingPages = {
         { text: " covers port routing for buyers shipping onward." },
       ],
     },
+    quoteChecklist: localQuoteChecklist("Silica gel packets"),
     relatedLinks: [
       { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "Silica gel packets (all sizes)", href: "/silica-gel-packets" },
@@ -4416,6 +4441,7 @@ export const seoLandingPages = {
         { text: " covers oven temperatures for reuse." },
       ],
     },
+    quoteChecklist: desiccantQuoteChecklist("Blue indicating silica gel"),
     relatedLinks: [
       { label: "Orange (cobalt-free) silica gel supplier", href: "/orange-silica-gel-supplier" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
@@ -4580,6 +4606,7 @@ export const seoLandingPages = {
         { text: " shows what each stage looks like." },
       ],
     },
+    quoteChecklist: desiccantQuoteChecklist("Orange indicating silica gel"),
     relatedLinks: [
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
       { label: "White vs orange silica gel", href: "/compare/white-silica-gel-vs-orange-silica-gel" },
@@ -4747,6 +4774,7 @@ export const seoLandingPages = {
         { text: " estimates how many grams a carton needs before you ask for a quote." },
       ],
     },
+    quoteChecklist: desiccantQuoteChecklist("Moisture absorber desiccant"),
     relatedLinks: [
       { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
