@@ -1,74 +1,308 @@
+/* Tokens note: this file previously reached for --ds-border, --ds-ink and
+   --ds-muted, none of which exist in design-tokens.css - every rule was
+   silently running on its hardcoded fallback, so the figure drifted from the
+   rest of the site. The real tokens are --ds-hairline, --ink and --muted. */
+
 .wrap {
   margin: 0;
-  padding: 22px;
-  border: 1px solid var(--ds-border, #e5e7eb);
-  border-radius: 16px;
-  background: var(--ds-surface, #fff);
+  padding: 24px 26px;
+  border: 1px solid var(--ds-hairline, #e6e9f2);
+  border-radius: var(--ds-radius-card, 14px);
+  background: linear-gradient(180deg, var(--ds-surface, #fff) 0%, #fbfcff 100%);
+  box-shadow: var(--ds-shadow-soft), var(--ds-ring-top);
 }
 
 .head {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
+
 .head strong {
-  font-size: 1.05rem;
-  color: var(--ds-ink, #14224a);
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  letter-spacing: -0.015em;
+  color: var(--ink, #0a0e17);
 }
+
 .head span {
   font-size: 0.86rem;
-  color: var(--ds-muted, #5b6472);
+  color: var(--muted, #5b6472);
   line-height: 1.5;
 }
+
+/* ---- Readout: the figure's answer, always on screen ---- */
+
+.readout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 18px;
+  padding: 1px;
+  border: 1px solid var(--ds-hairline, #e6e9f2);
+  border-radius: 10px;
+  /* The 1px grid gap plus this ground colour draws the cell dividers, so no
+     rule has to be painted between the cells. */
+  background: var(--ds-hairline, #e6e9f2);
+  overflow: hidden;
+}
+
+.readoutCell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  background: var(--ds-surface, #fff);
+}
+
+.readoutLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--muted, #5b6472);
+}
+
+.readoutValue {
+  /* Proportional figures, not tabular: these are standalone display numbers,
+     and equal-width digits make a value like 250 look loose at this size. */
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--ds-brand-deep, #1e3fcc);
+}
+
+.readoutHint {
+  font-size: 0.74rem;
+  color: var(--muted, #5b6472);
+}
+
+/* ---- Chart ---- */
 
 /* Wide chart scrolls inside its own box on narrow screens; the page never
    scrolls horizontally. */
 .chartScroll {
   overflow-x: auto;
 }
+
 .chart {
   width: 100%;
   min-width: 420px;
   height: auto;
   display: block;
+  touch-action: pan-y;
+  cursor: crosshair;
+}
+
+.chart:focus-visible {
+  outline: 2px solid var(--ds-brand, #2d5bff);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 .grid {
-  stroke: var(--ds-border, #e5e7eb);
+  stroke: var(--ds-hairline, #e6e9f2);
   stroke-width: 1;
 }
+
 .axisLabel {
-  fill: var(--ds-muted, #5b6472);
+  fill: var(--muted, #5b6472);
   font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
+
 .axisTitle {
-  fill: var(--ds-ink, #14224a);
+  fill: var(--ink, #0a0e17);
   font-size: 12.5px;
   font-weight: 600;
 }
+
 .line {
   fill: none;
   stroke: var(--ds-brand, #2d5bff);
-  stroke-width: 2.5;
+  stroke-width: 2;
   stroke-linejoin: round;
   stroke-linecap: round;
 }
+
 .area {
-  fill: color-mix(in srgb, var(--ds-brand, #2d5bff) 12%, transparent);
+  fill: url(#isothermFill);
   stroke: none;
 }
+
+.fillTop {
+  stop-color: var(--ds-brand, #2d5bff);
+  stop-opacity: 0.16;
+}
+
+.fillBottom {
+  stop-color: var(--ds-brand, #2d5bff);
+  stop-opacity: 0;
+}
+
 .dot {
   fill: var(--ds-brand, #2d5bff);
   stroke: var(--ds-surface, #fff);
-  stroke-width: 1.5;
+  stroke-width: 2;
+}
+
+.endLabel {
+  fill: var(--ds-brand-deep, #1e3fcc);
+  font-size: 12.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- Cursor layer ---- */
+
+.crosshair {
+  stroke: var(--ds-brand, #2d5bff);
+  stroke-width: 1;
+  opacity: 0.35;
+}
+
+.activeHalo {
+  fill: var(--ds-brand, #2d5bff);
+  opacity: 0.16;
+}
+
+.activeDot {
+  fill: var(--ds-brand, #2d5bff);
+  stroke: var(--ds-surface, #fff);
+  stroke-width: 2;
+}
+
+/* Idle still shows the default reading (so the readout is never orphaned),
+   just quieter than under an active pointer. */
+.cursorIdle {
+  opacity: 0.55;
+  transition: opacity var(--ds-dur-base, 0.24s) var(--ds-ease-out, ease);
+}
+
+.cursorOn {
+  opacity: 1;
+  transition: opacity var(--ds-dur-base, 0.24s) var(--ds-ease-out, ease);
+}
+
+.hint {
+  margin: 10px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted, #5b6472);
+}
+
+/* ---- Table view ---- */
+
+.tableBlock {
+  margin-top: 14px;
+  border-top: 1px solid var(--ds-hairline, #e6e9f2);
+  padding-top: 12px;
+}
+
+.tableBlock summary {
+  cursor: pointer;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ds-brand-deep, #1e3fcc);
+}
+
+.tableBlock summary:focus-visible {
+  outline: 2px solid var(--ds-brand, #2d5bff);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.tableScroll {
+  overflow-x: auto;
+  margin-top: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.table caption {
+  caption-side: top;
+  text-align: left;
+  padding-bottom: 8px;
+  color: var(--muted, #5b6472);
+  font-size: 0.8rem;
+}
+
+.table th,
+.table td {
+  padding: 7px 12px 7px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--ds-hairline, #e6e9f2);
+}
+
+.table thead th {
+  color: var(--muted, #5b6472);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.table tbody th {
+  color: var(--ink, #0a0e17);
+  font-weight: 700;
+}
+
+.table tbody td {
+  color: var(--muted, #5b6472);
 }
 
 .note {
-  margin: 14px 0 0;
+  margin: 16px 0 0;
   font-size: 0.86rem;
   line-height: 1.55;
-  color: var(--ds-muted, #5b6472);
+  color: var(--muted, #5b6472);
 }
 
-/* Light-only site — no dark-mode override (it made chart text invisible). */
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  margin: 14px 0 0;
+}
+
+.linkRow a {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ds-brand-deep, #1e3fcc);
+  text-decoration: none;
+}
+
+.linkRow a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 640px) {
+  .wrap {
+    padding: 18px 16px;
+  }
+
+  .readout {
+    grid-template-columns: 1fr;
+  }
+
+  .readoutValue {
+    font-size: 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursorIdle,
+  .cursorOn {
+    transition: none;
+  }
+}
+
+/* Light-only site - no dark-mode override (it made chart text invisible). */
