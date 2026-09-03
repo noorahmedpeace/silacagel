@@ -370,7 +370,8 @@ export function SiteHeader() {
             </div>
 
             <Link href="/request-a-quote" className={styles.navCta}>
-              Request Quote
+              <span className={styles.navCtaFull}>Request Quote</span>
+              <span className={styles.navCtaShort}>Quote</span>
             </Link>
 
             <button

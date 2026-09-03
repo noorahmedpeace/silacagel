@@ -4,6 +4,11 @@ export type ProductItem = {
   slug: string;
   name: string;
   shortName: string;
+  // Buyer-facing H1 when `name` is an internal line name ("Technical Bond
+  // Moisture Control") that a search visitor cannot map to what they typed.
+  heroTitle?: string;
+  // Plain-English label for quote-form dropdowns; the option value stays `name`.
+  rfqLabel?: string;
   // Optional keyword-rich meta <title> override. Falls back to
   // `${shortName} | DryGelWorld` when unset.
   metaTitle?: string;
@@ -151,13 +156,24 @@ export function getContactEmailChannel(department?: ContactDepartment | string) 
   return contactEmailChannels.find((channel) => channel.id === department) ?? contactEmailChannels[1];
 }
 
+// mailto: is not form-encoded (RFC 6068): URLSearchParams turned every space
+// into a literal "+", so compose windows opened with the subject
+// "DryGelWorld+quotation+request".
 export function createMailtoHref(email: string, subject?: string, body?: string) {
-  const params = new URLSearchParams();
-  if (subject) params.set("subject", subject);
-  if (body) params.set("body", body);
-  const query = params.toString();
-  return query ? `mailto:${email}?${query}` : `mailto:${email}`;
+  const parts: string[] = [];
+  if (subject) parts.push(`subject=${encodeURIComponent(subject)}`);
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  return parts.length ? `mailto:${email}?${parts.join("&")}` : `mailto:${email}`;
 }
+
+// Sourced PPE lines. Quote forms list them under their own group so a buyer
+// looking for "paper sachets" is not reading hair nets in a "silica gel" list.
+export const ppeProductSlugs = new Set([
+  "powder-free-blue-nitrile-gloves",
+  "powdered-nitrile-examination-gloves",
+  "hair-nets",
+  "beard-covers",
+]);
 
 export const productCatalog: ProductItem[] = [
   {
@@ -183,16 +199,18 @@ export const productCatalog: ProductItem[] = [
       "Adsorption Capacity: >32% at 90% RH",
       "Document support: ISO 9001:2015, SDS, COA, DMF-free statement on request",
     ],
-    leadTime: "Standard stock for recurring global contracts",
-    priceBand: "Tiered industrial reference rates available",
+    leadTime: "Stock sizes dispatch within 24 hours ex-Karachi; printed private label +5–10 days",
+    priceBand: "Tiered by size and carton volume; indicative USD per piece on the price list",
     featuredSizes: ["0.5 gm", "1 gm", "2 gm", "3 gm", "5 gm", "10 gm", "20 gm"],
   },
   {
     slug: "paper-sachets",
     name: "Technical Bond Moisture Control",
     shortName: "Technical Bond",
+    heroTitle: "Paper silica gel sachets, 1g–20g, factory-direct",
+    rfqLabel: "Paper silica gel sachets 1g–20g (Technical Bond)",
     metaTitle: "Paper Silica Gel Sachets | Breathable B2B Packs",
-    eyebrow: "Scale Applications",
+    eyebrow: "Breathable paper sachets · 1g–20g",
     summary:
       "High-efficiency adsorption packs for general industrial cartons and volume inventory management.",
     useCaseLine: "Standard protection for industrial warehousing and scale logistics.",
@@ -210,16 +228,18 @@ export const productCatalog: ProductItem[] = [
       "Pore Size: Optimized for rapid adsorption",
       "Packaging: Dust-free industrial integrity",
     ],
-    leadTime: "Optimized for large-scale procurement cycles",
-    priceBand: "Tiered wholesale procurement rates",
+    leadTime: "Stock dispatches within 24 hours ex-Karachi; printed private label +5–10 days after artwork sign-off",
+    priceBand: "Tiered by gram size and carton volume; indicative USD per piece on the price list",
     featuredSizes: ["1 gm", "2 gm", "3 gm", "10 gm", "15 gm", "20 gm"],
   },
   {
     slug: "bulk-industrial",
     name: "Enterprise Bulk Logistics Supply",
     shortName: "Enterprise Bulk",
+    heroTitle: "Bulk silica gel beads and packs, 25g to 500g and loose 25kg, by the kg",
+    rfqLabel: "Bulk silica gel beads and packs, 25g–25kg (by the kg)",
     metaTitle: "Bulk Silica Gel Beads | Drums, Sacks & Jumbo Bags",
-    eyebrow: "Infrastructure Scale",
+    eyebrow: "Bulk formats · 25g packs to 25kg bags",
     summary:
       "High-capacity desiccant formats for warehouse stabilization, industrial lines, and regional distribution hub supply.",
     useCaseLine: "Heavy-duty coverage for expansive industrial and logistics environments.",
@@ -237,14 +257,16 @@ export const productCatalog: ProductItem[] = [
       "Standard: backed by ISO 9001:2015 manufacturing process",
       "Config: Customizable industrial density",
     ],
-    leadTime: "Quoted per project and logistical requirement",
-    priceBand: "Elite procurement rates for high-volume contracts",
+    leadTime: "Packs ship from stock; loose bulk tonnage lead time confirmed at quote",
+    priceBand: "Quoted by kg, pallet, or monthly tonnage; indicative USD per pack on the price list",
     featuredSizes: ["25 grams", "50 grams", "100 grams", "200 grams", "250 grams", "500 grams"],
   },
   {
     slug: "container-strips",
     name: "VoyaSorb Container Strips",
     shortName: "VoyaSorb Strips",
+    heroTitle: "Container desiccant hanging strips, 1–5 kg (VoyaSorb)",
+    rfqLabel: "Container desiccant hanging strips 1–5 kg (VoyaSorb)",
     // Keyword-first: the opening words of a title tag are the most valuable
     // ranking real estate, and nobody searches the brand name. The brand
     // carries in the H1 and body copy instead.
@@ -274,6 +296,7 @@ export const productCatalog: ProductItem[] = [
   {
     slug: "calcium-chloride-container-strip",
     name: "VoyaSorb Calcium Chloride Container Strip",
+    rfqLabel: "Calcium chloride container strips (VoyaSorb)",
     shortName: "VoyaSorb CaCl₂ Strip",
     metaTitle: "Calcium Chloride Container Strip | High-Capacity Desiccant",
     eyebrow: "VoyaSorb System",
@@ -312,6 +335,7 @@ export const productCatalog: ProductItem[] = [
   {
     slug: "calcium-chloride-container-bulk",
     name: "VoyaSorb Calcium Chloride Bulk Bags",
+    rfqLabel: "Calcium chloride bulk floor bags (VoyaSorb)",
     shortName: "VoyaSorb CaCl₂ Bags",
     metaTitle: "Calcium Chloride Bulk Bags | Container Moisture Absorber",
     eyebrow: "VoyaSorb System",

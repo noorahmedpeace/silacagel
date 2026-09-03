@@ -61,8 +61,10 @@ export function MobileQuoteBand({ showPkrFrom = false, quoteHref, subject }: Mob
         ) : (
           <>
             <span className={styles.label}>Pricing</span>
-            <span className={styles.price}>On request</span>
-            <span className={styles.note}>Quoted by quantity and destination.</span>
+            <span className={styles.price}>Indicative USD bands</span>
+            <span className={styles.note}>
+              <Link href="/pricing">Published per size</Link>, firm quote by quantity and destination.
+            </span>
           </>
         )}
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FileText, Mail, Package } from "lucide-react";
 import styles from "./drybot.module.css";
 
@@ -141,6 +142,13 @@ export function DryBot() {
     } finally { setSending(false); }
   }
 
+  // On the RFQ page the launcher sat over the bottom-right 64px of a phone
+  // screen, exactly where the full-width submit button and the WhatsApp
+  // link scroll through. A buyer already filling the form does not need a
+  // second lead capture competing with it.
+  const pathname = usePathname();
+  if (pathname === "/request-a-quote") return null;
+
   const waHref = `https://wa.me/${WA}?text=${encodeURIComponent("Hello DryGelWorld, I'd like a quote.")}`;
   const emHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Quote request, DryGelWorld")}`;
 
@@ -220,7 +228,7 @@ export function DryBot() {
             <form className={styles.rfq} onSubmit={sendRfq}>
               <button type="button" className={styles.back} onClick={() => setView("chat")}>&larr; Back to chat</button>
               <h3>Request a quote</h3>
-              <p className={styles.hint}>Share your requirement, the team replies, usually within 24 hours.</p>
+              <p className={styles.hint}>Share your requirement, the team replies, usually within the hour in Karachi business hours.</p>
               <div className={styles.two}>
                 <input placeholder="Contact name" value={rfq.contactName} onChange={(e) => setRfq({ ...rfq, contactName: e.target.value })} />
                 <input placeholder="Company" value={rfq.company} onChange={(e) => setRfq({ ...rfq, company: e.target.value })} />
@@ -248,7 +256,7 @@ export function DryBot() {
             <div className={styles.ok}>
               <div className={styles.okBadge}><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden><path fill="currentColor" d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.5z" /></svg></div>
               <h3 style={{ margin: "0 0 6px", color: "var(--b1)" }}>Request sent</h3>
-              <p className={styles.hint}>Thank you, our sales team will get back to you shortly, usually within 24 hours.</p>
+              <p className={styles.hint}>Thank you, our sales team will get back to you shortly, usually within the hour in Karachi business hours.</p>
               <button className={styles.back} style={{ margin: "10px auto 0" }} onClick={() => setView("chat")}>Back to chat</button>
             </div>
           )}

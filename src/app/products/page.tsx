@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { productCatalog } from "@/lib/product-data";
-import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, pageOpenGraph, siteName } from "@/lib/seo";
 import { seoImages } from "@/lib/seo-images";
 import shared from "../shared-page.module.css";
 import { FaqBlock } from "@/components/faq-block";
@@ -27,10 +27,14 @@ const productsFaqs = [
   },
 ];
 
+const pageTitle = "Silica Gel Products | Sachets, Bulk Beads & Strips";
+const pageDescription =
+  "Browse silica gel sachets, bulk beads, container desiccant strips, dry clay desiccant, and PPE for B2B export buyers. SDS and COA support.";
+
 export const metadata: Metadata = {
-  title: "Silica Gel Products | Sachets, Bulk Beads & Strips",
-  description:
-    "Browse silica gel sachets, bulk beads, container desiccant strips, dry clay desiccant, and PPE for B2B export buyers. SDS and COA support.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/products"),
   alternates: {
     canonical: "/products",
   },

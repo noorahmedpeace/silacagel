@@ -7,6 +7,7 @@ import {
   createMailtoHref,
   displayPhone,
   getContactEmailChannel,
+  ppeProductSlugs,
   productCatalog,
   whatsappNumber,
   type ContactDepartment,
@@ -299,18 +300,29 @@ export function QuoteForm({
             value={state.product}
             onChange={(event) => dispatch({ type: "set", field: "product", value: event.target.value })}
           >
-            <option value="">Select silica gel format</option>
+            <option value="">Select a product</option>
             {defaultProduct && !hasDefaultProductOption ? (
               <option value={defaultProduct}>{defaultProduct}</option>
             ) : null}
-            {productCatalog.map((item) => (
-              <option key={item.slug} value={item.name}>
-                {item.name}
-              </option>
-            ))}
-            <option value="Private-label printed sachets">Private-label printed sachets</option>
-            <option value="Container desiccant / cargo strips">Container desiccant / cargo strips</option>
-            <option value="Bulk silica gel beads">Bulk silica gel beads</option>
+            <optgroup label="Silica gel &amp; desiccants">
+              {productCatalog
+                .filter((item) => !ppeProductSlugs.has(item.slug))
+                .map((item) => (
+                  <option key={item.slug} value={item.name}>
+                    {item.rfqLabel ?? item.name}
+                  </option>
+                ))}
+              <option value="Private-label printed sachets">Private-label printed sachets</option>
+            </optgroup>
+            <optgroup label="Other supplies (PPE)">
+              {productCatalog
+                .filter((item) => ppeProductSlugs.has(item.slug))
+                .map((item) => (
+                  <option key={item.slug} value={item.name}>
+                    {item.rfqLabel ?? item.name}
+                  </option>
+                ))}
+            </optgroup>
           </select>
         </label>
 
@@ -500,6 +512,10 @@ export function QuoteForm({
           name="website2"
           tabIndex={-1}
           autoComplete="off"
+          data-1p-ignore=""
+          data-lpignore="true"
+          data-bwignore=""
+          data-form-type="other"
           aria-hidden="true"
           onChange={(event) => {
             website2.current = event.target.value;

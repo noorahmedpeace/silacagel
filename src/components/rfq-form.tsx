@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { submitInquiry, type InquiryFormInput } from "@/app/actions/submit-inquiry";
 import { fireLeadConversion } from "@/lib/lead-tracking";
-import { productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
+import { ppeProductSlugs, productCatalog, whatsappNumber, salesEmail } from "@/lib/product-data";
 import { clearCart, getCart, removeFromCart, type CartItem } from "@/lib/quote-cart";
 import { EvidencePack } from "@/components/evidence-pack";
 import styles from "./rfq-form.module.css";
@@ -307,9 +307,16 @@ export function RfqForm({
                 calculator, whose product is not in productCatalog. */}
             <select name="productName" required defaultValue={defaultProduct || ""}>
               <option value="" disabled>Select a product</option>
-              {productCatalog.map((p) => (
-                <option key={p.slug} value={p.name}>{p.name}</option>
-              ))}
+              <optgroup label="Silica gel &amp; desiccants">
+                {productCatalog.filter((p) => !ppeProductSlugs.has(p.slug)).map((p) => (
+                  <option key={p.slug} value={p.name}>{p.rfqLabel ?? p.name}</option>
+                ))}
+              </optgroup>
+              <optgroup label="Other supplies (PPE)">
+                {productCatalog.filter((p) => ppeProductSlugs.has(p.slug)).map((p) => (
+                  <option key={p.slug} value={p.name}>{p.rfqLabel ?? p.name}</option>
+                ))}
+              </optgroup>
               {defaultProduct && !knownProduct ? (
                 <option value={defaultProduct}>{defaultProduct}</option>
               ) : null}
@@ -386,16 +393,29 @@ export function RfqForm({
       </section>
 
       {/* Honeypot, humans never see or fill this. */}
+      {/* Honeypot. The label used to read "Website", the exact token password
+          managers match when filling a saved company record; a filled honeypot
+          returns a fake success and the lead is gone. Neutral text plus the
+          vendor opt-out attributes keep autofill away from it. */}
       <label className={styles.hp} aria-hidden="true">
-        Website
-        <input name="website2" type="text" tabIndex={-1} autoComplete="off" />
+        Leave this field empty
+        <input
+          name="website2"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          data-1p-ignore=""
+          data-lpignore="true"
+          data-bwignore=""
+          data-form-type="other"
+        />
       </label>
 
       {error ? (
         <p className={styles.error} role="alert">{error}</p>
       ) : null}
 
-      <p className={styles.proofLine}>ISO 9001:2015 · Cert No. 9101225 · SDS &amp; COA with every batch · Reply within 24 business hours</p>
+      <p className={styles.proofLine}>ISO 9001:2015 · Cert No. 9101225 · SDS &amp; COA with every batch · Reply usually within 1 hour (PKT business hours)</p>
 
       <div className={styles.actions}>
         <button className={styles.submit} type="submit" disabled={state === "submitting" || uploading}>

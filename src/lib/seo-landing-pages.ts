@@ -5028,13 +5028,14 @@ export const seoLandingPages = {
     metaDescription:
       "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ in 24h.",
     kicker: "VoyaSorb container system",
-    h1: "Shipping container desiccant system for sea freight: VoyaSorb.",
+    h1: "Shipping container desiccant supplier for sea freight: hanging strips and bulk bags (VoyaSorb).",
     lead:
-      "VoyaSorb is our container desiccant system for stopping container rain on long-haul sea freight. It comes in two formats you can mix per cargo, hanging strips (silica gel for clean, dust-free loads, or high-uptake calcium chloride for heavy moisture) and bulk floor bags. We plan the charge by container size, route humidity, transit time, and commodity, then quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct.",
+      "Hanging silica gel or calcium chloride strips plus bulk floor bags, sized to your container, route humidity, and transit days. We quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct from Karachi.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant system, cargo desiccant, silica gel for shipping containers, calcium chloride container desiccant",
     primaryCta: "Plan a VoyaSorb Charge",
-    secondaryCta: "Read Container Rain Guide",
-    secondaryHref: "/blog/container-rain-prevention",
+    // A buyer with a live shipment needs the dosage tool, not a blog post.
+    secondaryCta: "Size My Container Charge",
+    secondaryHref: "/tools/container-desiccant-calculator",
     proofPoints: ["Silica + calcium chloride formats", "20ft / 40ft planning", "Stops container rain", "FOB / CIF support"],
     heroImage: {
       src: "/products/premium-cargo-strips.webp",

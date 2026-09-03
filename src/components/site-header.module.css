@@ -1449,6 +1449,12 @@
   color: var(--ds-text-muted);
 }
 
+/* Base: the long label shows, the short one is for the phone bar below.
+   Must precede the media block so the mobile override wins the cascade. */
+.navCtaShort {
+  display: none;
+}
+
 @media (max-width: 760px) {
   .menuToggle {
     display: inline-flex;
@@ -1468,9 +1474,20 @@
     background: var(--industrial-blue-deep);
     border-color: var(--industrial-blue-deep);
   }
-  /* "Request Quote" is redundant on mobile (present in the drawer + the calculator CTA) */
+  /* The quote button stays in the bar on phones. It was hidden as "redundant
+     with the calculator CTA", but .calcCta is also hidden at this width, which
+     left the phone header with a logo and a hamburger and the only quote path
+     at the bottom of a scrolling drawer. Short label so it fits beside the
+     hamburger at 320px. */
   .navCta {
+    display: inline-flex;
+    padding: 0 12px;
+  }
+  .navCtaFull {
     display: none;
+  }
+  .navCtaShort {
+    display: inline;
   }
 }
 

@@ -2,13 +2,17 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { RfqForm } from "@/components/rfq-form";
 import { RfqFormFromQuery } from "@/components/rfq-form-prefill";
-import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import styles from "../strategy-pages.module.css";
 
+const pageTitle = "Request a Quote | Silica Gel & Desiccant Pricing";
+const pageDescription =
+  "Request an export quotation for silica gel sachets, bulk beads, container desiccants, and clay desiccant. Most RFQs answered within 1 hour (Karachi hours).";
+
 export const metadata: Metadata = {
-  title: "Request a Quote | Silica Gel & Desiccant Pricing",
-  description:
-    "Request an export quotation for silica gel sachets, bulk beads, container desiccants, and clay desiccant. Our export team replies within 24 business hours.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/request-a-quote"),
   alternates: { canonical: "/request-a-quote" },
 };
 
@@ -66,9 +70,10 @@ export default function RequestQuotePage() {
         <span className={styles.kicker}>Request a Quote</span>
         <h1>Request an export quotation.</h1>
         <p>
-          Tell us the product, quantity, and destination, our export specialists reply
-          within 24 business hours with pricing, lead time, and shipping details. Every
-          inquiry is handled by the factory team in Karachi, not a call center.
+          Tell us the product, quantity, and destination. Most RFQs are answered within
+          1 hour during Karachi business hours (PKT), and same day otherwise, with pricing,
+          lead time, and shipping details. Every inquiry is handled by the factory team in
+          Karachi, not a call center.
         </p>
       </section>
 
@@ -79,7 +84,7 @@ export default function RequestQuotePage() {
         <h2 className={styles.srOnly}>Why buyers quote with DryGelWorld</h2>
         <div className={styles.grid}>
           {[
-            { label: "Response", title: "Within 24 business hours", text: "Pricing, MOQ, lead time, and shipping options in the first reply." },
+            { label: "Response", title: "Usually within 1 hour", text: "Karachi business hours (PKT), same day otherwise. Pricing, MOQ, lead time, and shipping options in the first reply." },
             { label: "Factory-direct", title: "Manufacturer since 1983", text: "ISO 9001:2015 production in Karachi with SDS, COA, and DMF-free documentation." },
             { label: "Worldwide", title: "190+ export markets", text: "EXW, FOB Karachi, CIF, and DAP terms with route-based dosage guidance." },
           ].map((item) => (

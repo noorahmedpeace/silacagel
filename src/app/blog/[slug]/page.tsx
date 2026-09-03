@@ -76,6 +76,18 @@ export async function generateMetadata({
   };
 }
 
+// Hobby / small-quantity guides. Their readers arrived with a spool, a camera
+// bag, or a bunch of flowers, not a purchase order, so the inline quote card
+// and the FAQ heading must not talk to them in export-RFQ language.
+const CONSUMER_GUIDES = new Set([
+  "how-to-dry-flowers-with-silica-gel",
+  "silica-gel-for-3d-printer-filament-storage",
+  "silica-gel-for-camera-gear-and-lenses",
+  "silica-gel-for-gun-safe-moisture-control",
+  "how-to-regenerate-silica-gel-oven-temperature-guide",
+  "is-silica-gel-toxic-safety-guide",
+]);
+
 export default async function BlogArticlePage({ params }: BlogArticlePageProps) {
   const { slug } = await params;
   const article = getBlogArticle(slug);
@@ -123,23 +135,43 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
             so two-thirds of readers never reach the end-of-article CTA. This
             compact card puts a tracked quote path (RfqForm fires generate_lead)
             and WhatsApp above the fold of the body, where readers actually are. */}
-        <aside className={styles.inlineQuote} aria-label="Get a quote">
-          <div>
-            <strong>Need this for a real order?</strong>
-            <span>Tell us the format, quantity, and destination, export quote in 24 business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
-          </div>
-          <div className={styles.inlineQuoteActions}>
-            <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
-            <a
-              className={styles.inlineQuoteWa}
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I'd like a quote for silica gel / desiccants.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              WhatsApp
-            </a>
-          </div>
-        </aside>
+        {CONSUMER_GUIDES.has(article.slug) ? (
+          <aside className={styles.inlineQuote} aria-label="Buy silica gel">
+            <div>
+              <strong>Need loose silica gel or indicating beads for this?</strong>
+              <span>Small packs and bulk bags, shipped from our Karachi factory. Sizes and indicative prices are on the product pages.</span>
+            </div>
+            <div className={styles.inlineQuoteActions}>
+              <Link className={styles.cta} href="/products/bulk-industrial">See sizes &amp; prices</Link>
+              <a
+                className={styles.inlineQuoteWa}
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I need a small quantity of silica gel. Size and quantity:")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </aside>
+        ) : (
+          <aside className={styles.inlineQuote} aria-label="Get a quote">
+            <div>
+              <strong>Need this for a real order?</strong>
+              <span>Tell us the format, quantity, and destination. Quote usually within 1 hour in Karachi business hours. ISO 9001:2015, SDS &amp; COA on request.</span>
+            </div>
+            <div className={styles.inlineQuoteActions}>
+              <Link className={styles.cta} href="/request-a-quote">Request a Quote</Link>
+              <a
+                className={styles.inlineQuoteWa}
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi DryGelWorld, I'd like a quote for silica gel / desiccants.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp
+              </a>
+            </div>
+          </aside>
+        )}
 
         <section className={styles.articleBody}>
           {article.sections.map((section) => (
@@ -172,10 +204,11 @@ export default async function BlogArticlePage({ params }: BlogArticlePageProps) 
 
         <section className={styles.section}>
           <div className={styles.sectionHead}>
-            <h2>Buyer questions answered before RFQ.</h2>
+            <h2>{CONSUMER_GUIDES.has(article.slug) ? "Common questions." : "Buyer questions answered before RFQ."}</h2>
             <p>
-              These are the questions international procurement teams usually
-              need cleared before they approve samples, documents, or bulk MOQ.
+              {CONSUMER_GUIDES.has(article.slug)
+                ? "Short answers to what readers of this guide usually ask next."
+                : "These are the questions international procurement teams usually need cleared before they approve samples, documents, or bulk MOQ."}
             </p>
           </div>
           <div className={styles.grid}>

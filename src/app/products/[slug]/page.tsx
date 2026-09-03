@@ -684,7 +684,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 {product.categoryPath?.length ? (
                   <p className={styles.categoryTrail}>{product.categoryPath.join(" > ")}</p>
                 ) : null}
-                <h1>{product.name}</h1>
+                <h1>{product.heroTitle ?? product.name}</h1>
+                {product.heroTitle ? (
+                  <p className={styles.categoryTrail}>Product line: {product.name}</p>
+                ) : null}
                 <p className={styles.summary}>{product.summary}</p>
                 <p className={styles.description}>{product.description}</p>
 

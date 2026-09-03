@@ -32,7 +32,7 @@ export default function BulkSalesPage() {
       />
       <section className={shared.hero}>
         <span className={shared.kicker}>Bulk Sales</span>
-        <h1>Export quote planning and procurement context in one place.</h1>
+        <h1>Bulk and wholesale silica gel desiccant supply for distributors and exporters.</h1>
         <p>
           Review available format ranges, then use the estimator for a quick
           weight check before sending your final export requirement.

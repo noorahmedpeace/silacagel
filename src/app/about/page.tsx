@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { defaultAuthorSlug, getAuthor } from "@/lib/authors";
-import { absoluteUrl, breadcrumbJsonLd, siteName, brandName } from "@/lib/seo";
+import { absoluteUrl, breadcrumbJsonLd, pageOpenGraph, siteName, brandName } from "@/lib/seo";
 import {
   companyAddressFull,
   companyAddressLocality,
@@ -34,10 +34,14 @@ function BrandIcon({ d }: { d: string }) {
   );
 }
 
+const pageTitle = "About Dry Gel World | Silica Gel Manufacturer Since 1983";
+const pageDescription =
+  "DryGelWorld is a Karachi silica gel manufacturer since 1983, supplying export buyers with industrial desiccants, SDS, COA, and ISO support.";
+
 export const metadata: Metadata = {
-  title: "About Dry Gel World | Silica Gel Manufacturer Since 1983",
-  description:
-    "DryGelWorld is a Karachi silica gel manufacturer since 1983, supplying export buyers with industrial desiccants, SDS, COA, and ISO support.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/about"),
   alternates: {
     canonical: "/about",
   },

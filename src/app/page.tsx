@@ -506,7 +506,7 @@ export default function Home() {
                 <p className={styles.kicker}>Get a Quote</p>
                 <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
                 <p>
-                  Four fields, one clean quote back, usually within 24 hours.
+                  Four fields, one clean quote back, usually within the hour in Karachi business hours.
                 </p>
               </div>
                 <DeferredQuoteForm title="Send MOQ Requirement" compact />

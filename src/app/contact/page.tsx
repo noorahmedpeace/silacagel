@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { absoluteUrl, brandName, breadcrumbJsonLd } from "@/lib/seo";
+import { absoluteUrl, brandName, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import { ContactContent } from "./contact-content";
 
 /**
@@ -19,10 +19,14 @@ import { ContactContent } from "./contact-content";
  * carried through to the RFQ link so an old bookmark still lands prefilled.
  */
 
+const pageTitle = "Contact the Karachi Factory & Export Desk | DryGelWorld";
+const pageDescription =
+  "Reach DryGelWorld directly: Karachi factory and head-office addresses with maps, direct phone line, WhatsApp desk, department email routing, and opening hours.";
+
 export const metadata: Metadata = {
-  title: "Contact the Karachi Factory & Export Desk | DryGelWorld",
-  description:
-    "Reach DryGelWorld directly: Karachi factory and head-office addresses with maps, direct phone line, WhatsApp desk, department email routing, and opening hours.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/contact"),
   alternates: { canonical: "/contact" },
 };
 

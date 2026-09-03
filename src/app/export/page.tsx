@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -7,10 +7,14 @@ import styles from "../strategy-pages.module.css";
 import { contactEmailChannels, createMailtoHref } from "@/lib/product-data";
 import { exportHreflangAlternates, exportMarkets } from "./markets";
 
+const pageTitle = "Silica Gel Exporter | Worldwide B2B Desiccant Supply";
+const pageDescription =
+  "Silica gel exporter from Pakistan for worldwide B2B supply. Request FOB, CIF, EXW or DAP quotes for packets, bulk beads, private label and cargo strips.";
+
 export const metadata: Metadata = {
-  title: "Silica Gel Exporter | Worldwide B2B Desiccant Supply",
-  description:
-    "Silica gel exporter from Pakistan for worldwide B2B supply. Request FOB, CIF, EXW or DAP quotes for packets, bulk beads, private label and cargo strips.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/export"),
   alternates: {
     canonical: "/export",
     // This page is the cluster's x-default, and it previously published no

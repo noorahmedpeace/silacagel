@@ -99,6 +99,28 @@ export function compactMetaTitle(title: string, limit = META_TITLE_LIMIT) {
   return truncateAtWord(title, limit);
 }
 
+// Per-page Open Graph block. Next merges `openGraph` shallowly, so a page that
+// sets only a title loses the layout's image; a page that sets nothing ships
+// the homepage's "Silica Gel Manufacturer & Exporter" title on every shared
+// link to /pricing, /request-a-quote, and the rest. Both were happening.
+export function pageOpenGraph(title: string, description: string, path: string) {
+  return {
+    title,
+    description,
+    url: path,
+    siteName: brandName,
+    type: "website" as const,
+    images: [
+      {
+        url: defaultSeoImage,
+        width: 1200,
+        height: 630,
+        alt: "DryGelWorld premium desiccants: silica gel packets, bulk beads, and cargo strips",
+      },
+    ],
+  };
+}
+
 export function absoluteUrl(path = "") {
   if (!path) {
     return siteUrl;

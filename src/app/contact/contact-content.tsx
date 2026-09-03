@@ -74,8 +74,9 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
           <p>
             Rates depend on format, quantity, destination port, and trade term, so
             there is one form that asks for exactly those and nothing else. Send it
-            and the factory export desk replies within 24 business hours with
-            pricing, MOQ, lead time, and shipping options.
+            and the factory export desk usually replies within 1 hour in Karachi
+            business hours (same day otherwise) with pricing, MOQ, lead time, and
+            shipping options.
           </p>
           <ul>
             <li>Product format and gram size</li>

@@ -219,6 +219,10 @@ export function AddToCartButton({
                   type="text"
                   tabIndex={-1}
                   autoComplete="off"
+                  data-1p-ignore=""
+                  data-lpignore="true"
+                  data-bwignore=""
+                  data-form-type="other"
                   aria-hidden="true"
                   className={styles.hp}
                 />

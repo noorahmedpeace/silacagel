@@ -6584,8 +6584,13 @@
     font-size: 1rem;
   }
 
+  /* "Request Free Samples" stays on phones: it is the low-commitment opener
+     for a buyer not ready to file an RFQ, and hiding it left one orange
+     button as the whole mobile hero. */
   .heroXGhost {
-    display: none;
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
   }
 
   .heroXProof {

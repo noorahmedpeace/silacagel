@@ -230,8 +230,13 @@ export default function RootLayout({
                 // Clarity project and polluting the very dead-click data this
                 // week's UX audit was built on - localhost:3000 showed up as a
                 // tracked page in the dashboard.
+                // navigator.webdriver is true in headless / automated Chrome
+                // (uptime checks, link scanners, rank trackers). Those sessions
+                // were ~20% of Clarity's "non-bot" traffic and looked exactly
+                // like a buyer who lands, reads nothing, and leaves.
                 window.__drygelInternal = localStorage.getItem(KEY) === '1'
-                  || location.hostname !== 'www.drygelworld.com';
+                  || location.hostname !== 'www.drygelworld.com'
+                  || navigator.webdriver === true;
               } catch (e) {
                 window.__drygelInternal = false;
               }

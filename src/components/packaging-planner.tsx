@@ -248,7 +248,7 @@ export function PackagingPlanner() {
               <li>Format: {plan.film}</li>
               <li>{plan.printSpec}</li>
             </ul>
-            <p className={styles.planNote}>Final rate confirmed in your quotation, usually within 24 business hours.</p>
+            <p className={styles.planNote}>Final rate confirmed in your quotation, usually within 1 hour in Karachi business hours.</p>
             <button type="button" className={styles.applyBtn} onClick={applyPlanToForm}>
               Get exact quote for this plan ↓
             </button>
@@ -264,7 +264,7 @@ export function PackagingPlanner() {
           <div className={styles.success} role="status" aria-live="polite">
             <span aria-hidden="true">✓</span>
             <h3>Packaging inquiry received!</h3>
-            <p>Our team will reply with a firm quotation within 24 business hours.</p>
+            <p>Our team will reply with a firm quotation, usually within 1 hour in Karachi business hours and same day otherwise.</p>
             {inquiryId && inquiryId !== "received" ? <p className={styles.successId}>Inquiry ID: {inquiryId}</p> : null}
             <a
               href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(`Hello, I just submitted packaging inquiry ${inquiryId}. I'd like to discuss it.`)}`}
@@ -352,6 +352,10 @@ export function PackagingPlanner() {
               name="website2"
               tabIndex={-1}
               autoComplete="off"
+              data-1p-ignore=""
+              data-lpignore="true"
+              data-bwignore=""
+              data-form-type="other"
               aria-hidden="true"
               onChange={(e) => { website2.current = e.target.value; }}
               className={styles.hp}

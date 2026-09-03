@@ -30,7 +30,7 @@ type SeoLandingPageProps = {
  * ranking), suppress the ones that are plainly internal notes and keep the
  * ones written as real buyer sentences. Reversible by deleting this filter.
  */
-const INTERNAL_NOTE = /^[A-Za-z0-9 /+-]*\b(keywords?|head term|transactional|product intent|pillar)\b\s*[:/]/i;
+const INTERNAL_NOTE = /^[A-Za-z0-9 /+-]*\b(keywords?|head term|transactional|intent|pillar)\b\s*[:/]/i;
 
 function buyerFacingIntent(intent: string | undefined) {
   if (!intent) return null;

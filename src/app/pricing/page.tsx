@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
-import { breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
 import { priceGroups, whatsappNumber } from "@/lib/product-data";
 import { EvidencePack } from "@/components/evidence-pack";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
+const pageTitle = "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export";
+const pageDescription =
+  "Indicative silica gel prices and MOQ tiers for packets, bulk beads, and container strips. PKR rates for Pakistan, USD terms for export, firm quote on request.";
+
 export const metadata: Metadata = {
-  title: "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export",
-  description:
-    "Indicative silica gel prices and MOQ tiers for packets, bulk beads, and container strips. PKR rates for Pakistan, USD terms for export, firm quote on request.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: pageOpenGraph(pageTitle, pageDescription, "/pricing"),
   alternates: {
     canonical: "/pricing",
   },
