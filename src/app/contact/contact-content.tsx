@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { QuoteForm } from "@/components/quote-form";
 import {
   companyAddressFull,
   contactEmailChannels,
@@ -100,8 +101,20 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
             <li>Destination country and port</li>
             <li>Any documents you need with the shipment - SDS, COA, DMF-free</li>
           </ul>
-          <Link href={rfqHref} className={styles.primaryAction}>
-            Open the quotation form
+          {/* The form itself, not a link to it. Clarity, Aug-Sep 2026: every
+              Google Ads click landed on this page and none reached
+              /request-a-quote, and organic buyers who followed a "Request
+              quote" CTA here read the directory and left. The full 17-field
+              RFQ stays one click away for buyers who want the long form. */}
+          <div className={styles.rfqFormSlot}>
+            <QuoteForm
+              title="Send your requirement"
+              headingLevel={3}
+              compact
+            />
+          </div>
+          <Link href={rfqHref} className={styles.secondaryFormLink}>
+            Need the full export form, with documents and file upload? Open it here
           </Link>
         </article>
 
