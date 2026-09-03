@@ -3,7 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { absoluteUrl, breadcrumbJsonLd, siteName } from "@/lib/seo";
-import { displayPhone, phoneHref, whatsappNumber } from "@/lib/product-data";
+import {
+  displayPhone,
+  packSizeRange,
+  phoneHref,
+  sachetSizeRange,
+  stripSizeRange,
+  whatsappNumber,
+} from "@/lib/product-data";
 import shared from "../shared-page.module.css";
 import styles from "../strategy-pages.module.css";
 import { FaqBlock } from "@/components/faq-block";
@@ -143,7 +150,7 @@ const operationalCredentials = [
   { value: "1983", label: "Founded", note: "40+ years of Karachi silica gel manufacturing heritage" },
   { value: "10M+", label: "Sachets distributed", note: "Self-reported by operating company across 40+ years" },
   { value: "10,000+", label: "Customers served", note: "Operating-company self-reported figure" },
-  { value: "40+", label: "SKU formats", note: "Sachets 0.5g-500g + cargo strips 1kg-5kg + dry clay + PPE" },
+  { value: "40+", label: "SKU formats", note: `Sachets ${sachetSizeRange} + packs ${packSizeRange} + cargo strips ${stripSizeRange} + dry clay + PPE` },
 ];
 
 const documentTypes = [

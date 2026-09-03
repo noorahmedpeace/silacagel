@@ -58,6 +58,13 @@ const REDIRECTED_SLUGS = new Set<string>([
   "container-desiccant-supplier",
   "bentonite-clay",
   "documents",
+  // Duplicate-cluster consolidation, 4 Sep 2026 (see next.config.ts).
+  "desiccant-manufacturer",
+  "industrial-desiccant",
+  "packaging-desiccant-manufacturer",
+  "desiccant-bags",
+  "desiccants-for-pharma-industry",
+  "hair-nets-for-food-industry",
 ]);
 
 const STATIC_ROUTES = [

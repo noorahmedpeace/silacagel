@@ -13,7 +13,7 @@ const productsFaqs = [
   {
     question: "What's the difference between silica gel sachets, beads, and cargo strips?",
     answer:
-      "Sachets (0.5g-500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg-5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
+      "Sachets (0.5g-20g) and carton packs (25g-500g) protect individual product packs and cartons; loose beads serve repackers and bulk industrial moisture control; cargo strips (1kg-5kg) hang at the container ceiling for sea-freight condensation control. Size is matched to enclosed volume, transit time, and route humidity.",
   },
   {
     question: "Should I choose silica gel or clay desiccant?",

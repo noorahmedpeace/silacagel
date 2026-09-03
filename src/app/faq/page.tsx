@@ -31,7 +31,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "Do you offer custom sachet sizes or private labeling?",
-    a: "Yes. We support private-label manufacturing and custom gram sizing from 0.5g to 1kg+ for high-volume recurring B2B orders. Minimum quantities apply.",
+    a: "Yes. Private-label manufacturing and custom gram sizing are supported across the published range, and there is no minimum order quantity on plain stock. A printed run is the one exception: printing has a practical minimum, confirmed at quote with your artwork.",
   },
   {
     q: "How do I determine the right desiccant quantity for my package?",

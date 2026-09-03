@@ -249,6 +249,50 @@ const nextConfig: NextConfig = {
         destination: "/clay-desiccant-supplier",
         permanent: true,
       },
+      // Duplicate-cluster consolidation, 4 Sep 2026, owner-approved.
+      //
+      // Four pages were chasing the generic "desiccant supplier / manufacturer"
+      // family with 38-41% verbatim-identical text (the shared keywordClusterPage
+      // template) and ~350 unique words each. Over 90 days in Search Console the
+      // whole group produced ONE click from 925 impressions, every page sitting
+      // at position 33-58. /industrial-desiccant-supplier was already elected as
+      // the survivor in seo-landing-pages.ts; these three now point at it, and
+      // their distinct FAQs were merged into it first so nothing is lost.
+      {
+        source: "/desiccant-manufacturer",
+        destination: "/industrial-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/industrial-desiccant",
+        destination: "/industrial-desiccant-supplier",
+        permanent: true,
+      },
+      {
+        source: "/packaging-desiccant-manufacturer",
+        destination: "/industrial-desiccant-supplier",
+        permanent: true,
+      },
+      // Same pattern, smaller clusters: a bare-noun page and its "-supplier"
+      // twin, 41% identical, both indexed. The supplier page keeps the
+      // commercial modifier the buyer actually types.
+      {
+        source: "/desiccant-bags",
+        destination: "/desiccant-bags-supplier",
+        permanent: true,
+      },
+      // Orphans with zero inbound links that duplicate a stronger, well-linked
+      // page on the same intent.
+      {
+        source: "/desiccants-for-pharma-industry",
+        destination: "/pharmaceutical-desiccant",
+        permanent: true,
+      },
+      {
+        source: "/hair-nets-for-food-industry",
+        destination: "/food-grade-hair-nets",
+        permanent: true,
+      },
     ];
   },
   async headers() {

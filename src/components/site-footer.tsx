@@ -60,7 +60,6 @@ const footerColumns: FooterColumn[] = [
     title: "Desiccant Range",
     links: [
       { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
-      { label: "Desiccant manufacturer", href: "/desiccant-manufacturer" },
       { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
       { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
       { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
@@ -94,7 +93,8 @@ const footerColumns: FooterColumn[] = [
       { label: "Pharma packaging", href: "/industries/pharma-packaging" },
       { label: "Leather and footwear export", href: "/industries/leather-footwear-export" },
       { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "Packaging desiccant", href: "/packaging-desiccant-manufacturer" },
+      { label: "Container shipping", href: "/industries/container-shipping" },
+      { label: "Textile and garment export", href: "/industries/textile-garment-export" },
       { label: "Case studies", href: "/case-studies" },
     ],
     viewAll: { label: "All industries", href: "/industries" },

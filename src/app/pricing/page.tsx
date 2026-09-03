@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import Link from "next/link";
-import { priceGroups, whatsappNumber } from "@/lib/product-data";
+import { moqShort, priceGroups, whatsappNumber } from "@/lib/product-data";
 import { EvidencePack } from "@/components/evidence-pack";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
@@ -26,11 +26,14 @@ export const metadata: Metadata = {
 const BAND_LOW = 0.9;
 const BAND_HIGH = 1.3;
 
-// TODO(commercial): replace with final confirmed MOQ figures per tier.
+// Confirmed by the owner, 4 Sep 2026: there is no minimum order on any format.
+// This used to read "Low MOQ … confirmed at quote" here and "from 100 kg or
+// 100,000 sachets" on the export pages, which is the contradiction a
+// procurement manager notices first.
 const groupMoq: Record<string, string> = {
-  "Small Sizes": "Low MOQ, trial orders supported, confirmed at quote",
-  "Paper Sachet": "Low MOQ, with scaled pricing at monthly or container volume",
-  "Bulk & Strip": "Carton multiples per size; loose bulk from 1 metric ton",
+  "Small Sizes": moqShort + "; trial and sample quantities supplied",
+  "Paper Sachet": moqShort + "; the rate scales with monthly or container volume",
+  "Bulk & Strip": moqShort + "; carton and pallet multiples quoted per size",
 };
 
 function fmtUsd(value: number) {

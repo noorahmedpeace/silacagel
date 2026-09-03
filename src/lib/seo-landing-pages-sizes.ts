@@ -240,7 +240,7 @@ export const gramSizeLandingInputs = {
       {
         question: "What is the MOQ for 1g silica gel sachets?",
         answer:
-          "MOQ is negotiable and confirmed at quote. Trial orders are supported before a bulk commitment, and volume pricing applies at recurring monthly quantities. Printed private-label sachets carry a higher minimum than plain sachets because of print setup.",
+          "There is no minimum order quantity. Trial quantities are supplied before any bulk commitment, and volume pricing applies at recurring monthly quantities. Printed private-label sachets carry a higher minimum than plain sachets because of print setup.",
       },
       {
         question: "What does a 1g silica gel sachet cost wholesale?",

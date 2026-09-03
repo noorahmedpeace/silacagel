@@ -667,6 +667,59 @@ export const priceGroups: PriceGroup[] = [
   },
 ];
 
+// ---------------------------------------------------------------------------
+// Commercial terms, derived once so no page can contradict another.
+//
+// Before this existed the site stated its MOQ four ways ("No minimum order
+// quantity", "from 100 kg or 100,000 sachets", "Discuss MOQ by carton size",
+// "Low MOQ") and its sachet range five ways (0.5g-1kg, 0.5g-100g, 0.5g-500g,
+// 0.5g-20g, 0.5g-10g). A procurement manager who reads two of those on one
+// page concludes the supplier does not know its own terms.
+//
+// Confirmed by the owner, 4 Sep 2026: there is genuinely no minimum order,
+// and /pricing (priceGroups above) is the complete and correct size list.
+// ---------------------------------------------------------------------------
+
+export const moqStatement =
+  "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.";
+
+/** One-line form for spec tables and chips. */
+export const moqShort = "No minimum order quantity";
+
+function gramsRange(items: PriceItem[]) {
+  const grams = items.map((item) => item.grams);
+  return { min: Math.min(...grams), max: Math.max(...grams) };
+}
+
+function fmtGrams(grams: number) {
+  if (grams >= 1000) return `${grams / 1000}kg`;
+  return `${grams % 1 === 0 ? grams : grams.toFixed(1)}g`;
+}
+
+const sachetItems = priceGroups
+  .filter((group) => group.title === "Small Sizes" || group.title === "Paper Sachet")
+  .flatMap((group) => group.items);
+const bulkStripItems = priceGroups.filter((group) => group.title === "Bulk & Strip").flatMap((group) => group.items);
+const packItems = bulkStripItems.filter((item) => item.grams < 1000);
+const stripItems = bulkStripItems.filter((item) => item.grams >= 1000);
+
+const sachetSpan = gramsRange(sachetItems);
+const packSpan = gramsRange(packItems);
+const stripSpan = gramsRange(stripItems);
+
+/** e.g. "0.5g-20g" - the sachet range actually on the price list. */
+export const sachetSizeRange = `${fmtGrams(sachetSpan.min)}-${fmtGrams(sachetSpan.max)}`;
+/** e.g. "25g-500g" - carton packs and bags, not sachets. */
+export const packSizeRange = `${fmtGrams(packSpan.min)}-${fmtGrams(packSpan.max)}`;
+/** e.g. "1kg-5kg" - container hanging strips. */
+export const stripSizeRange = `${fmtGrams(stripSpan.min)}-${fmtGrams(stripSpan.max)}`;
+
+/** "Sachets 0.5g-20g, packs 25g-500g, container strips 1kg-5kg" */
+export const formatRangeSentence = `Sachets ${sachetSizeRange}, packs ${packSizeRange}, container strips ${stripSizeRange}`;
+
+/** Total published SKUs, for "N formats" claims. */
+export const publishedFormatCount = priceGroups.reduce((n, group) => n + group.items.length, 0);
+
 export const priceOptions = priceGroups.flatMap((group) =>
   group.items.map((item) => ({
     ...item,

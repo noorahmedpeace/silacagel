@@ -62,7 +62,7 @@ export const globalSupplierLandingInput = {
   targetKeywords:
     "global silica gel supplier, silica gel suppliers worldwide, international silica gel supplier, silica gel exporter, silica gel supplier by country",
   formats:
-    "Silica gel sachets 0.5g-500g (paper, technical fibre, non-woven), loose beads in 25kg bags, cobalt-free orange indicating gel, silica / clay / calcium chloride container strips, activated clay packs, private-label printed sachets",
+    "Silica gel sachets 0.5g-20g and carton packs 25g-500g (paper, technical fibre, non-woven), loose beads in 25kg bags, cobalt-free orange indicating gel, silica / clay / calcium chloride container strips, activated clay packs, private-label printed sachets",
   buyerTypes: "Importers, distributors, packagers, OEM and private-label brands, exporters, freight forwarders, procurement teams",
   documents: "ISO 9001:2015 certificate reference, SDS (local-language on request), batch COA, DMF-free statement, Certificate of Origin or REX statement, packing list, commercial invoice",
   buyerRisk:
@@ -91,7 +91,7 @@ export const globalSupplierLandingInput = {
       {
         label: "Products",
         title: "Four formats from one factory",
-        text: "Silica gel sachets from 0.5g to 500g in paper, technical-fibre, or non-woven outers; loose beads in 25kg bags (1-3mm, 2-5mm); cobalt-free orange indicating gel; container desiccant strips in silica gel, clay, and calcium chloride; activated clay packs; and custom-printed private-label sachets.",
+        text: "Silica gel sachets from 0.5g to 20g and carton packs from 25g to 500g in paper, technical-fibre, or non-woven outers; loose beads in 25kg bags (1-3mm, 2-5mm); cobalt-free orange indicating gel; container desiccant strips in silica gel, clay, and calcium chloride; activated clay packs; and custom-printed private-label sachets.",
       },
       {
         label: "Reach",
@@ -218,7 +218,7 @@ export const globalSupplierLandingInput = {
     {
       question: "What is the MOQ for international orders?",
       answer:
-        "Typically from around 100 kg or 100,000 sachets per format, with dry clay from 500 kg. Trial and sample quantities are available before a bulk commitment, and the exact figure is confirmed at quote based on format, print, and destination.",
+        "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Printed private-label runs are the one exception: a print run has a practical minimum, confirmed at quote with the artwork.",
     },
     {
       question: "Can silica gel be private labelled for export?",

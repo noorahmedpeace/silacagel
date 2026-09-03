@@ -93,7 +93,7 @@ export const caseStudies: CaseStudy[] = [
       { label: "Request Saudi bulk quote", href: "/request-a-quote" },
     ],
     faqs: [
-      { q: "What is the bulk silica gel MOQ for Saudi Arabia?", a: "Bulk silica gel beads typically start from around 500 kg, with sachet formats from about 100 kg or 100,000 pieces. Trial quantities are available before a recurring commitment." },
+      { q: "What is the bulk silica gel MOQ for Saudi Arabia?", a: "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Send the format, quantity, and destination and the quote comes back on that basis." },
       { q: "Which Saudi ports and Incoterms were used?", a: "Jeddah Islamic Port and King Abdulaziz Port Dammam, with FOB Karachi, CIF Jeddah, CIF Dammam, and DAP Saudi Arabia terms available." },
       { q: "How does a recurring supply template help?", a: "A fixed MOQ, lead-time, Incoterm, and document baseline means repeat orders only need volume and destination updates, making quotes faster and more predictable." },
     ],

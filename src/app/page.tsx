@@ -3,6 +3,7 @@ import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { totalCustomersSupplied } from "@/lib/customer-references";
+import { packSizeRange, sachetSizeRange, stripSizeRange } from "@/lib/product-data";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -45,7 +46,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Buy Bulk Silica Gel | Manufacturer Exporter | DryGelWorld",
   description:
-    "Buy bulk silica gel direct from DryGelWorld: wholesale packets, beads, container strips, low MOQ, SDS/COA, and worldwide shipping since 1983.",
+    "Buy bulk silica gel direct from DryGelWorld: wholesale packets, beads, container strips, no minimum order, SDS/COA, and worldwide shipping since 1983.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "DryGelWorld | Industrial Desiccant Exporter",
@@ -66,7 +67,7 @@ export const metadata: Metadata = {
 const trustSignalsArray = [
   {
     icon: PackageCheck,
-    title: "0.5g to 1kg sachet formats",
+    title: `Sachets ${sachetSizeRange}, packs ${packSizeRange}, strips ${stripSizeRange}`,
     label: "Full Range",
     href: "/products",
   },
@@ -251,7 +252,7 @@ export default function Home() {
                 {splitTextToSpans("Industrial silica gel for cargo that has to arrive dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
-                Sachets, beads, and container strips straight from our factory. Low MOQs, full documentation, and delivery to 190+ countries.
+                Sachets, beads, and container strips straight from our factory. No minimum order, full documentation, and delivery to 190+ countries.
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>

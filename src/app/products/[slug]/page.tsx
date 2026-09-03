@@ -41,7 +41,7 @@ type ProductPageProps = {
 
 const procurementDetails = {
   "retail-sachets": {
-    moq: "Quoted from carton quantities; recurring 0.5g-10g programs preferred",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available before bulk confirmation",
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     skuRows: [
@@ -59,7 +59,7 @@ const procurementDetails = {
     ],
   },
   "paper-sachets": {
-    moq: "Best quoted by monthly carton volume and recurring dispatch schedule",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Request samples by gram size and packaging material",
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     skuRows: [
@@ -75,7 +75,7 @@ const procurementDetails = {
     ],
   },
   "bulk-industrial": {
-    moq: "Quoted by kg, pallet, or recurring monthly tonnage",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Bulk bead and bag samples can be discussed before contract supply",
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     skuRows: [
@@ -91,7 +91,7 @@ const procurementDetails = {
     ],
   },
   "container-strips": {
-    moq: "Quoted by strip count, container size, route, and dispatch schedule",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Route and container details recommended before sample planning",
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     skuRows: [
@@ -107,7 +107,7 @@ const procurementDetails = {
     ],
   },
   "calcium-chloride-container-strip": {
-    moq: "Quoted by strip count, strip weight, container size, route humidity, and dispatch schedule",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample strips can be discussed after confirming route, container size, and cargo type",
     documents: ["SDS", "COA", "Lot documents on request"],
     skuRows: [
@@ -123,7 +123,7 @@ const procurementDetails = {
     ],
   },
   "calcium-chloride-container-bulk": {
-    moq: "Quoted by bag weight, carton volume, destination, and recurring supply plan",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample bags can be discussed after confirming target size and cargo application",
     documents: ["SDS", "COA", "Lot documents on request"],
     skuRows: [
@@ -139,7 +139,7 @@ const procurementDetails = {
     ],
   },
   "dry-clay-desiccant": {
-    moq: "Discuss MOQ by sachet size, monthly volume, and dispatch program",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available; confirm size and packaging format before bulk planning",
     documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
     skuRows: [
@@ -155,7 +155,7 @@ const procurementDetails = {
     ],
   },
   "humidity-indicator-cards": {
-    moq: "Quoted by spot layout, chemistry, pack count, and dispatch program",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample cards can be discussed after confirming spot layout, chemistry, and any standard",
     documents: ["SDS", "COA (per lot)", "Standard / REACH test report if specified, per lot"],
     skuRows: [
@@ -172,7 +172,7 @@ const procurementDetails = {
     ],
   },
   "hair-nets": {
-    moq: "Discuss MOQ by carton size and monthly volume",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available; confirm size, color, and material on request",
     documents: ["ISO 9001:2015"],
     skuRows: [
@@ -188,7 +188,7 @@ const procurementDetails = {
     ],
   },
   "powder-free-blue-nitrile-gloves": {
-    moq: "Quoted by size mix, carton volume, certification requirement, and recurring supply plan",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample box available on request; confirm size, grade, and document requirement first",
     documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
     skuRows: [
@@ -204,7 +204,7 @@ const procurementDetails = {
     ],
   },
   "powdered-nitrile-examination-gloves": {
-    moq: "Quoted by size mix, carton volume, certification requirement, and recurring supply plan",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample box available on request; confirm size, grade, powder preference, and document requirement first",
     documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
     skuRows: [
@@ -220,7 +220,7 @@ const procurementDetails = {
     ],
   },
   "beard-covers": {
-    moq: "Discuss MOQ by carton size and monthly volume",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available on request",
     documents: ["ISO 9001:2015"],
     skuRows: [
@@ -346,7 +346,7 @@ const productFaqs = {
   "retail-sachets": [
     {
       q: "What is the minimum order quantity for retail silica gel sachets?",
-      a: "Retail silica gel sachets are quoted in carton quantities - typical recurring buyers start at 50,000 to 100,000 sachets per month across 0.5g, 1g, 2g, and 3g sizes. Smaller pilot orders are reviewed case-by-case for export buyers with a clear ramp plan.",
+      a: "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Send the format, quantity, and destination and the quote comes back on that basis.",
     },
     {
       q: "Which compliance documents are provided with retail sachets?",
@@ -382,7 +382,7 @@ const productFaqs = {
   "bulk-industrial": [
     {
       q: "What is the typical MOQ for bulk industrial silica gel?",
-      a: "Bulk silica gel beads and bulk-bagged desiccant are quoted by metric tonnage. Export-grade buyers typically start at 1-5 metric tons per shipment with recurring monthly tonnage agreements. Drum, paper bag, and jumbo bag packaging are available.",
+      a: "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Send the format, quantity, and destination and the quote comes back on that basis.",
     },
     {
       q: "How is bulk silica gel packaged for ocean freight?",
