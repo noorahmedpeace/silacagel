@@ -51,6 +51,7 @@ import random
 import re
 import smtplib
 import ssl
+import json
 import sys
 import textwrap
 import time
@@ -62,6 +63,8 @@ NL = chr(10)  # written this way so the literal survives shell heredocs
 CSV_PATH = "outreach-buyer-list.csv"
 SENT_LOG = "outreach-sent.log"
 PREVIEW = "outreach-preview.txt"
+# Shared with scripts/outreach-find-emails.py, which refuses to harvest these.
+BLOCKLIST = "outreach-email-blocklist.json"
 
 SENDER_NAME = "Noor Ahmed Khan"
 REPLY_TO = "export@drygelworld.com"  # the address the signature shows
@@ -464,6 +467,19 @@ def load_sent():
     return out
 
 
+def load_blocklist():
+    """Addresses proved wrong by hand, shared with the harvester."""
+    if not os.path.exists(BLOCKLIST):
+        return set()
+    try:
+        with open(BLOCKLIST, encoding="utf-8") as fh:
+            return {str(x).strip().lower() for x in json.load(fh) if str(x).strip()}
+    except Exception as exc:
+        # A malformed blocklist must stop the run, not silently mail everyone
+        # on it. This is the only guard between a bad row and a stranger's inbox.
+        sys.exit("  blocklist padhi nahi gayi ({}): {}".format(BLOCKLIST, exc))
+
+
 def load_targets():
     with open(CSV_PATH, encoding="utf-8", errors="replace") as fh:
         rows = list(csv.DictReader(fh))
@@ -515,14 +531,24 @@ def main():
             return True
         a = addr.lower()
         return a in only or a.split("@")[-1] in only
+    # outreach-email-blocklist.json holds addresses proved wrong by hand: a
+    # company site that serves someone else's address, a desk that is not the
+    # one an RFQ belongs at. The harvester already refuses to collect them, but
+    # nothing stopped this script from mailing one that reached the CSV by
+    # another route - and a cold email to the wrong company is worse than no
+    # email at all. Checked here, so the refusal survives however the row got in.
+    blocked = load_blocklist()
     targets = [
         r for r in load_targets()
         if r["_to"].lower() not in sent
+        and r["_to"].lower() not in blocked
         and (r.get("Region") or "").strip().lower() not in skip
         and _wanted(r["_to"])
     ]
     if skip:
         print("  chhore gaye regions: {}".format(", ".join(sorted(skip))))
+    if blocked:
+        print("  blocklist mein {} address - unko nahi bheja jayega".format(len(blocked)))
 
     if not targets:
         print("  sab ko bheja ja chuka hai - kuch baaqi nahi")
