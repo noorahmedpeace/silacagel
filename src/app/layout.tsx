@@ -333,15 +333,40 @@ export default function RootLayout({
             // Each loader now re-derives the host check itself; the flag stays
             // for the /?internal=1 per-browser switch.
             if (!(window.__drygelInternal || location.hostname !== 'www.drygelworld.com')) {
-              (function(c,l,a,r,i,t,y){
-                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "xgf9cuhe4e");
-              (window.__drygelClarityQueue || []).forEach(function(args) {
-                window.clarity.apply(window, args);
-              });
-              window.__drygelClarityQueue = [];
+              // Idle-delayed like the GA4 loader below, but on a shorter fuse
+              // (GA4 waits 8s; recordings are worth more than pageview pings).
+              // Before this, Clarity was the one third-party script with no
+              // delay at all: it evaluated and instrumented the DOM during the
+              // hydration window, which showed up as long tasks on throttled
+              // mobile. Cost of the delay: recordings begin ~4s into a session,
+              // so the first taps of sub-4s bounces are not recorded.
+              var loadClarity = function () {
+                if (window.__drygelClarityLoaded) return;
+                window.__drygelClarityLoaded = true;
+                (function(c,l,a,r,i,t,y){
+                    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "xgf9cuhe4e");
+                (window.__drygelClarityQueue || []).forEach(function(args) {
+                  window.clarity.apply(window, args);
+                });
+                window.__drygelClarityQueue = [];
+              };
+              var scheduleClarity = function () {
+                window.setTimeout(function () {
+                  if ('requestIdleCallback' in window) {
+                    window.requestIdleCallback(loadClarity, { timeout: 2500 });
+                  } else {
+                    loadClarity();
+                  }
+                }, 3500);
+              };
+              if (document.readyState === 'complete') {
+                scheduleClarity();
+              } else {
+                window.addEventListener('load', scheduleClarity, { once: true });
+              }
             }
           `}
         </Script>

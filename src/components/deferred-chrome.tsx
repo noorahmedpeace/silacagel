@@ -37,19 +37,20 @@ export function DeferredChrome() {
       setReady(true);
     };
 
-    // Mount on whichever comes first: the browser going idle, a hard fallback
-    // timeout, or the first real user interaction (so a fast clicker still gets
-    // the promo/analytics wired up).
-    const events: Array<keyof WindowEventMap> = ["pointerdown", "keydown", "touchstart", "scroll"];
-    events.forEach((evt) => window.addEventListener(evt, mount, { once: true, passive: true }));
-
+    // Idle-only, deliberately. This used to ALSO mount on the first
+    // pointerdown/keydown/touchstart/scroll "so a fast clicker still gets the
+    // analytics wired up" - which meant the chunk fetch, eval, and mount of
+    // DryBot + ClarityBridge landed INSIDE the user's first interaction.
+    // Measured on an unthrottled desktop: a 1,408ms blocked frame on the first
+    // tap (Event Timing API, 10 Aug 2026) - the single largest INP contributor
+    // on the site. The idle path fires within ~2.6s anyway, and ClarityBridge
+    // loses nothing because pre-mount events queue in __drygelClarityQueue.
     const hasRic = typeof window.requestIdleCallback === "function";
     const idleId = hasRic
       ? window.requestIdleCallback(mount, { timeout: 2600 })
       : window.setTimeout(mount, 2200);
 
     function cleanup() {
-      events.forEach((evt) => window.removeEventListener(evt, mount));
       if (hasRic && typeof window.cancelIdleCallback === "function") {
         window.cancelIdleCallback(idleId as number);
       } else {

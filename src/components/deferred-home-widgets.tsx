@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
-import type { IndustryData } from "@/components/industry-slider";
+import { useEffect, useRef, useState, type ComponentType } from "react";
+
 import type { PriceCalculatorProps } from "@/components/price-calculator";
 
 // Base fallback styling for deferred-widget placeholders. The min-height
@@ -110,10 +110,8 @@ function LoadWhenVisible<P extends object>({
 // shorter, the small extra whitespace is preferable to a CLS spike.
 const WIDGET_MIN_HEIGHTS = {
   priceCalculator: 600,
-  industrySlider: 640,
   quoteForm: 760,
   quoteFormCompact: 520,
-  emblaCarousel: 360,
 } as const;
 
 // Forwarded whole rather than destructured and rebuilt: PriceCalculatorProps is
@@ -129,18 +127,6 @@ export function DeferredPriceCalculator(props: PriceCalculatorProps = {}) {
     />
   );
 }
-
-export function DeferredIndustrySlider({ industries }: { industries: IndustryData[] }) {
-  return (
-    <LoadWhenVisible
-      label="Loading industry slider"
-      loader={() => import("@/components/industry-slider").then((mod) => mod.IndustrySlider)}
-      props={{ industries }}
-      minHeight={WIDGET_MIN_HEIGHTS.industrySlider}
-    />
-  );
-}
-
 
 export function DeferredQuoteForm({
   title,
@@ -161,19 +147,3 @@ export function DeferredQuoteForm({
   );
 }
 
-export function DeferredEmblaCarousel({
-  children,
-  options,
-}: {
-  children: ReactNode;
-  options?: { align?: "start" | "center" | "end"; loop?: boolean };
-}) {
-  return (
-    <LoadWhenVisible
-      label="Loading buyer proof carousel"
-      loader={() => import("@/components/embla-carousel").then((mod) => mod.EmblaCarousel)}
-      props={{ children, options }}
-      minHeight={WIDGET_MIN_HEIGHTS.emblaCarousel}
-    />
-  );
-}
