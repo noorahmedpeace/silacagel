@@ -268,10 +268,24 @@
 
 /* ---- Link columns: plain text, SaaS-footer style ---- */
 
+/* Eight groups in four columns: two full rows, no half-empty row.
+ *
+ * This used to be six columns holding seven groups, so "Company" dropped onto
+ * a row of its own and left five empty cells - a hole the width of the footer
+ * sitting above the supplier strip. Any column count that leaves a remainder of
+ * one does that (7 in 6, 7 in 3, 7 in 2), so the fix is a group count and a
+ * column count that divide: 8 in 4, 8 in 2, 8 in 1.
+ *
+ * The groups are also ordered tallest-first, so the long lists (Products,
+ * Resources, Industries, Export Markets) fill row one and the short ones
+ * (Desiccant Range, Supply in Pakistan, Manufacturing, Company) sit together in
+ * row two. The bottom edge of the grid then reads level instead of stepping
+ * down under one short column. */
 .linkGrid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 36px 26px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 36px 30px;
   margin-top: clamp(36px, 5vw, 56px);
 }
 
@@ -474,12 +488,6 @@
 
 /* ---- Responsive ---- */
 
-@media (max-width: 1180px) {
-  .linkGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 1080px) {
   .footer {
     width: min(100% - 32px, 1400px);
@@ -491,7 +499,9 @@
   }
 }
 
-@media (max-width: 760px) {
+/* Four columns hold until the labels would start wrapping twice; then two,
+ * which still divides eight exactly (four rows), and finally one. */
+@media (max-width: 860px) {
   .linkGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 30px 22px;

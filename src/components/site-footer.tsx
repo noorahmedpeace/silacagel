@@ -44,12 +44,21 @@ const footerColumns: FooterColumn[] = [
       { label: "Silica gel (overview)", href: "/silica-gel" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "1g silica gel sachets", href: "/1g-silica-gel-sachets" },
-      { label: "Bulk silica gel desiccant", href: "/bulk-silica-gel-desiccant" },
+      {
+        label: "Bulk silica gel desiccant",
+        href: "/bulk-silica-gel-desiccant",
+      },
       { label: "Silica gel per kg", href: "/silica-gel-per-kg" },
       { label: "White silica gel", href: "/white-silica-gel" },
       { label: "Indicating silica gel", href: "/indicating-silica-gel" },
-      { label: "Non-indicating silica gel", href: "/non-indicating-silica-gel" },
-      { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
+      {
+        label: "Non-indicating silica gel",
+        href: "/non-indicating-silica-gel",
+      },
+      {
+        label: "Food grade silica gel",
+        href: "/food-grade-silica-gel-supplier",
+      },
       { label: "Blue silica gel", href: "/blue-silica-gel-manufacturer" },
       { label: "Orange silica gel", href: "/orange-silica-gel-supplier" },
       { label: "Silica gel beads", href: "/silica-gel-beads" },
@@ -57,17 +66,69 @@ const footerColumns: FooterColumn[] = [
     viewAll: { label: "View all products", href: "/products" },
   },
   {
-    title: "Desiccant Range",
+    title: "Resources",
     links: [
-      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
-      { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
-      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
-      { label: "Moisture absorber supplier", href: "/moisture-absorber-supplier" },
-      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
-      { label: "Shipping container desiccant", href: "/shipping-container-desiccant-supplier" },
-      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
+      { label: "Request a sample", href: "/samples" },
+      { label: "Indicative pricing", href: "/pricing" },
+      { label: "All buyer resources", href: "/guides" },
+      { label: "All calculators & tools", href: "/tools" },
+      {
+        label: "Container dosage calculator",
+        href: "/tools/container-desiccant-calculator",
+      },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
+      {
+        label: "DIN 55473 unit calculator",
+        href: "/tools/desiccant-unit-calculator",
+      },
+      {
+        label: "Silica gel buyer guide",
+        href: "/guides/silica-gel-buyer-guide",
+      },
+      {
+        label: "Desiccant quantity guide",
+        href: "/guides/desiccant-quantity-guide",
+      },
+      { label: "Desiccant comparisons", href: "/compare" },
+      { label: "Documents (SDS, COA)", href: "/documentation" },
+      { label: "Technical FAQ", href: "/faq" },
+      // Three individual blog posts used to sit here. They are one click away
+      // through the blog link below, and dropping them keeps this column the
+      // same height as the three beside it - see .linkGrid.
     ],
-    viewAll: { label: "View all formats", href: "/products" },
+    viewAll: { label: "Visit the buyer blog", href: "/blog" },
+  },
+  {
+    title: "Industries",
+    links: [
+      { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
+      {
+        label: "Electronic packaging desiccant",
+        href: "/electronic-packaging-desiccant",
+      },
+      {
+        label: "Electronics packaging",
+        href: "/industries/electronics-packaging",
+      },
+      { label: "Pharma packaging", href: "/industries/pharma-packaging" },
+      {
+        label: "Leather and footwear export",
+        href: "/industries/leather-footwear-export",
+      },
+      { label: "Food packaging", href: "/industries/food-packaging" },
+      { label: "Container shipping", href: "/industries/container-shipping" },
+      {
+        label: "Textile and garment export",
+        href: "/industries/textile-garment-export",
+      },
+      { label: "Automotive parts", href: "/industries/automotive-parts" },
+      {
+        label: "Defence and ammunition",
+        href: "/industries/defense-and-ammunition-packaging",
+      },
+      { label: "Case studies", href: "/case-studies" },
+    ],
+    viewAll: { label: "All industries", href: "/industries" },
   },
   {
     title: "Export Markets",
@@ -79,9 +140,37 @@ const footerColumns: FooterColumn[] = [
       { label: "UK supplier", href: "/export/uk" },
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
+      { label: "Turkey supplier", href: "/export/turkey" },
+      { label: "Vietnam supplier", href: "/export/vietnam" },
+      { label: "FOB Karachi terms", href: "/export/fob-karachi" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
     ],
     viewAll: { label: "All export markets", href: "/export" },
+  },
+  {
+    title: "Desiccant Range",
+    links: [
+      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
+      {
+        label: "Industrial desiccant supplier",
+        href: "/industrial-desiccant-supplier",
+      },
+      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
+      {
+        label: "Moisture absorber supplier",
+        href: "/moisture-absorber-supplier",
+      },
+      {
+        label: "Container desiccant strips",
+        href: "/container-desiccant-strips",
+      },
+      {
+        label: "Shipping container desiccant",
+        href: "/shipping-container-desiccant-supplier",
+      },
+      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
+    ],
+    viewAll: { label: "View all formats", href: "/products" },
   },
   {
     // Pakistan supply is a different buyer from the export markets above: PKR
@@ -89,52 +178,58 @@ const footerColumns: FooterColumn[] = [
     // to be one Karachi link buried in the export column.
     title: "Supply in Pakistan",
     links: [
-      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
-      { label: "Silica gel supplier Lahore", href: "/silica-gel-supplier-lahore" },
-      { label: "Silica gel supplier Faisalabad", href: "/silica-gel-supplier-faisalabad" },
-      { label: "Silica gel supplier Sialkot", href: "/silica-gel-supplier-sialkot" },
-      { label: "Silica gel manufacturer Pakistan", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "Contract packing services", href: "/contract-packaging-services" },
+      {
+        label: "Silica gel supplier Karachi",
+        href: "/silica-gel-supplier-karachi",
+      },
+      {
+        label: "Silica gel supplier Lahore",
+        href: "/silica-gel-supplier-lahore",
+      },
+      {
+        label: "Silica gel supplier Faisalabad",
+        href: "/silica-gel-supplier-faisalabad",
+      },
+      {
+        label: "Silica gel supplier Sialkot",
+        href: "/silica-gel-supplier-sialkot",
+      },
+      {
+        label: "Silica gel manufacturer Pakistan",
+        href: "/silica-gel-manufacturer-pakistan",
+      },
+      {
+        label: "Contract packing services",
+        href: "/contract-packaging-services",
+      },
       { label: "Prices in PKR", href: "/pricing" },
     ],
-    viewAll: { label: "Request a PKR quote", href: "/request-a-quote?destination=Pakistan" },
+    viewAll: {
+      label: "Request a PKR quote",
+      href: "/request-a-quote?destination=Pakistan",
+    },
   },
   {
-    title: "Industries",
+    // Split out of "Company" (Sep 2026). Two different intents were sharing one
+    // column: a buyer checking who we are, and a buyer asking what we can make
+    // for them. Separating them also makes the grid eight columns, which fills
+    // 4 x 2 exactly - see .linkGrid for why that matters.
+    title: "Manufacturing",
     links: [
-      { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
-      { label: "Electronic packaging desiccant", href: "/electronic-packaging-desiccant" },
-      { label: "Electronics packaging", href: "/industries/electronics-packaging" },
-      { label: "Pharma packaging", href: "/industries/pharma-packaging" },
-      { label: "Leather and footwear export", href: "/industries/leather-footwear-export" },
-      { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "Container shipping", href: "/industries/container-shipping" },
-      { label: "Textile and garment export", href: "/industries/textile-garment-export" },
-      { label: "Case studies", href: "/case-studies" },
+      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
+      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
+      { label: "Private label program", href: "/private-label" },
+      {
+        label: "Private label packets",
+        href: "/private-label-desiccant-packets",
+      },
+      {
+        label: "Contract packaging services",
+        href: "/contract-packaging-services",
+      },
+      { label: "Bulk & wholesale sales", href: "/bulk-sales" },
     ],
-    viewAll: { label: "All industries", href: "/industries" },
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Request a sample", href: "/samples" },
-      { label: "Indicative pricing", href: "/pricing" },
-      { label: "All buyer resources", href: "/guides" },
-      { label: "All calculators & tools", href: "/tools" },
-      { label: "Container dosage calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
-      { label: "DIN 55473 unit calculator", href: "/tools/desiccant-unit-calculator" },
-      { label: "Silica gel buyer guide", href: "/guides/silica-gel-buyer-guide" },
-      { label: "Desiccant quantity guide", href: "/guides/desiccant-quantity-guide" },
-      { label: "Desiccant comparisons", href: "/compare" },
-      { label: "Documents (SDS, COA)", href: "/documentation" },
-      { label: "How silica gel works", href: "/blog/what-is-silica-gel-and-how-does-it-work" },
-      { label: "Export carton moisture guide", href: "/blog/how-to-prevent-moisture-in-export-cartons" },
-      { label: "SDS and COA guide", href: "/blog/silica-gel-sds-coa-requirements-for-buyers" },
-      { label: "Technical FAQ", href: "/faq" },
-      { label: "Media kit", href: "/media-kit" },
-    ],
-    viewAll: { label: "Visit the buyer blog", href: "/blog" },
   },
   {
     title: "Company",
@@ -147,18 +242,10 @@ const footerColumns: FooterColumn[] = [
       // named-customer page, which is what a buyer checking credentials wants
       // next to About and Certifications.
       { label: "Customers we supply", href: "/reviews" },
-      { label: "Contact", href: "/contact" },
       { label: "Certifications", href: "/certifications" },
+      { label: "Contact", href: "/contact" },
       { label: "DryGelWorld official site", href: "/drygelworld" },
-      { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
-      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "Export markets", href: "/export" },
-      { label: "Manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
-      { label: "Private label program", href: "/private-label" },
-      { label: "Contract packaging services", href: "/contract-packaging-services" },
-      { label: "Bulk & wholesale sales", href: "/bulk-sales" },
+      { label: "Media kit", href: "/media-kit" },
     ],
   },
 ];
@@ -175,19 +262,32 @@ export function SiteFooter() {
   );
 
   return (
-    <footer className={styles.footer} aria-label="Dry Gel World footer navigation">
+    <footer
+      className={styles.footer}
+      aria-label="Dry Gel World footer navigation"
+    >
       <div className={styles.top}>
         <div className={styles.brandBlock}>
           <span className={styles.kicker}>Global buyer navigation</span>
           <h2>Find the right silica gel supply path.</h2>
           <p>
-            Compare product formats, export support, private-label options, and technical
-            documentation, or go straight to the industry guide that matches your business.
+            Compare product formats, export support, private-label options, and
+            technical documentation, or go straight to the industry guide that
+            matches your business.
           </p>
           <div className={styles.actions}>
-            <Link className={styles.primary} href="/request-a-quote">Request Export Quote</Link>
-            <Link className={styles.secondary} href="/products">View Products</Link>
-            <a className={styles.whatsapp} href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
+            <Link className={styles.primary} href="/request-a-quote">
+              Request Export Quote
+            </Link>
+            <Link className={styles.secondary} href="/products">
+              View Products
+            </Link>
+            <a
+              className={styles.whatsapp}
+              href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               WhatsApp
             </a>
           </div>
@@ -203,9 +303,15 @@ export function SiteFooter() {
           >
             <span>Main email</span>
             <strong>{mainEmail}</strong>
-            <small>Primary owner inbox for important business, partnerships, and direct follow-up.</small>
+            <small>
+              Primary owner inbox for important business, partnerships, and
+              direct follow-up.
+            </small>
           </a>
-          <div className={styles.emailDirectory} aria-label="Department email directory">
+          <div
+            className={styles.emailDirectory}
+            aria-label="Department email directory"
+          >
             {contactEmailChannels.map((channel) => (
               <a
                 className={styles.emailRoute}
@@ -224,7 +330,11 @@ export function SiteFooter() {
 
       <div className={styles.linkGrid}>
         {footerColumns.map((column) => (
-          <nav aria-label={`${column.title} footer links`} className={styles.column} key={column.title}>
+          <nav
+            aria-label={`${column.title} footer links`}
+            className={styles.column}
+            key={column.title}
+          >
             <h3>{column.title}</h3>
             <ul className={styles.linkList}>
               {column.links.map((link) => (
@@ -274,7 +384,9 @@ export function SiteFooter() {
       </div>
 
       <div className={styles.bottomBar}>
-        <span className={styles.copyright}>© 2026 DryGelWorld. All rights reserved.</span>
+        <span className={styles.copyright}>
+          © 2026 DryGelWorld. All rights reserved.
+        </span>
         <div className={styles.bottomMeta}>
           {/* No human-facing /sitemap.xml link: it renders as raw XML (poor UX)
               and Google already discovers it via robots.txt (see robots.ts). */}
