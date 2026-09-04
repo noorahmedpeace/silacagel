@@ -14,6 +14,7 @@ import { FormatShowcase } from "@/components/format-showcase";
 import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
 import { HomeQuoteEstimator } from "@/components/home-quote-estimator";
+import { VisitBeacon } from "@/components/visit-beacon";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
@@ -517,6 +518,8 @@ export default function Home() {
         {/* Persistent CTA during the long homepage scroll; routes all quote
             intent to the dedicated /request-a-quote page (2026 redesign). */}
         <StickyQuoteBar href="/request-a-quote" />
+        {/* Temporary; fires only for no-referrer loads. See the route file. */}
+        <VisitBeacon path="/" />
         <script
           type="application/ld+json"
           suppressHydrationWarning

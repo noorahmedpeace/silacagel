@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { RfqForm } from "@/components/rfq-form";
 import { RfqFormFromQuery } from "@/components/rfq-form-prefill";
+import { VisitBeacon } from "@/components/visit-beacon";
 import { absoluteUrl, brandName, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
 import styles from "../strategy-pages.module.css";
 
@@ -131,6 +132,8 @@ export default function RequestQuotePage() {
           ))}
         </div>
       </section>
+      {/* Temporary; fires only for no-referrer loads. See the route file. */}
+      <VisitBeacon path="/request-a-quote" />
     </main>
   );
 }

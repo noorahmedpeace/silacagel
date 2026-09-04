@@ -1,19 +1,26 @@
 import { NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 
-// Temporary diagnostic, added 3 Sep 2026. An automated visitor has walked
-// /authors/noor-ahmed-khan -> /request-a-quote -> / every hour since 31 Aug,
-// from a US Windows/Chrome client with a fresh cookie each time. Clarity
-// records it as a human and Vercel Hobby logs carry no user-agent or IP, so
-// it could not be named. The author page posts one beacon per load; this
-// stores the request headers plus the client's self-description under a
-// separate Blob prefix (never the inquiries one). Only that one path is
-// accepted, and each server instance stops after a few hundred records.
-// Remove this route and <VisitBeacon /> once the visitor is identified.
+// Temporary diagnostic, added 3 Sep 2026, widened 4 Sep.
+//
+// An automated visitor walked /authors/noor-ahmed-khan -> /request-a-quote ->
+// / at a fixed minute past every hour from 31 Aug, from a US Windows/Chrome
+// client with a fresh cookie each time. Clarity records that traffic as human
+// and Vercel Hobby logs carry no user-agent or IP, so it could not be named.
+// The author-page pattern stopped at 14:07 UTC on 3 Sep, four hours before
+// this shipped, but US no-referrer zero-click sessions are still ~24% of all
+// traffic, so the beacon now also sits on the two other URLs that pattern
+// used. The component only fires when there is no referrer, so search and
+// link visitors are never logged.
+//
+// Records go to their own Blob prefix (never the inquiries one), only the
+// three paths below are accepted, and each server instance stops after a few
+// hundred records. Remove this route and <VisitBeacon /> once the traffic is
+// identified, or by mid-September if it never returns.
 
 export const runtime = "nodejs";
 
-const ALLOWED_PATH = "/authors/noor-ahmed-khan";
+const ALLOWED_PATHS = new Set(["/authors/noor-ahmed-khan", "/request-a-quote", "/"]);
 const PREFIX = "visit-log-b82c666a4112";
 let stored = 0;
 
@@ -27,7 +34,9 @@ export async function POST(req: Request) {
   } catch {
     client = null;
   }
-  if (!client || client.path !== ALLOWED_PATH) return new NextResponse(null, { status: 204 });
+  if (!client || typeof client.path !== "string" || !ALLOWED_PATHS.has(client.path)) {
+    return new NextResponse(null, { status: 204 });
+  }
 
   const h = req.headers;
   const record = {

@@ -2,13 +2,20 @@
 
 import { useEffect } from "react";
 
-// Temporary diagnostic (see src/app/api/visit-log/route.ts). Posts one
-// beacon per page load with the client's own description of itself, so the
-// hourly automated visitor on the author page can be identified. Nothing
-// here identifies a person: no cookies, no form data, no page content.
+// Temporary diagnostic (see src/app/api/visit-log/route.ts). Posts one beacon
+// with the client's own description of itself, so the automated traffic that
+// Clarity records as human can be identified and filtered out.
+//
+// It fires ONLY when the page was opened with no referrer, which is the
+// signature of the traffic in question: 95% of no-referrer sessions record
+// zero clicks and last about 25 seconds, while real buyers arrive from Google
+// and carry a referrer. So a visitor who came from a search result, a link, or
+// another page of this site is never logged. Nothing here identifies a person:
+// no cookies, no form data, no page content.
 export function VisitBeacon({ path }: { path: string }) {
   useEffect(() => {
     try {
+      if (document.referrer) return;
       const n = navigator as Navigator & {
         deviceMemory?: number;
         userAgentData?: { brands?: unknown; platform?: string; mobile?: boolean };
