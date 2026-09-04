@@ -80,9 +80,24 @@ const footerColumns: FooterColumn[] = [
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
       { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
-      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
     ],
     viewAll: { label: "All export markets", href: "/export" },
+  },
+  {
+    // Pakistan supply is a different buyer from the export markets above: PKR
+    // prices, road delivery from the Karachi factory, WhatsApp first. It used
+    // to be one Karachi link buried in the export column.
+    title: "Supply in Pakistan",
+    links: [
+      { label: "Silica gel supplier Karachi", href: "/silica-gel-supplier-karachi" },
+      { label: "Silica gel supplier Lahore", href: "/silica-gel-supplier-lahore" },
+      { label: "Silica gel supplier Faisalabad", href: "/silica-gel-supplier-faisalabad" },
+      { label: "Silica gel supplier Sialkot", href: "/silica-gel-supplier-sialkot" },
+      { label: "Silica gel manufacturer Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Contract packing services", href: "/contract-packaging-services" },
+      { label: "Prices in PKR", href: "/pricing" },
+    ],
+    viewAll: { label: "Request a PKR quote", href: "/request-a-quote?destination=Pakistan" },
   },
   {
     title: "Industries",

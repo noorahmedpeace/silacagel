@@ -4204,6 +4204,545 @@ export const seoLandingPages = {
       },
     ],
   },
+  "silica-gel-supplier-lahore": {
+    slug: "silica-gel-supplier-lahore",
+    title: "Silica Gel Supplier in Lahore | Factory-Direct, PKR Price",
+    metaDescription:
+      "Silica gel supplier for Lahore buyers: sachets 0.5g-20g, packs to 500g, bulk beads, dispatched factory-direct from Karachi. PKR prices, no minimum order, WhatsApp quotes.",
+    kicker: "Lahore silica gel supply",
+    h1: "Silica gel supplier for Lahore packaging lines, warehouses, and exporters.",
+    lead:
+      "Sachets, carton packs, and bulk beads dispatched to Lahore straight from our Karachi factory, with no trader in between. PKR prices, no minimum order, and a quote on WhatsApp once you say the size and quantity.",
+    searchIntent: "Local buyer intent: silica gel supplier in Lahore, silica gel Lahore, desiccant supplier Lahore, silica gel price Lahore",
+    primaryCta: "Get a Lahore PKR Quote",
+    secondaryCta: "See published PKR rates",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "Manufacturer since 1983, not a trader",
+      "Dispatched from Karachi to Lahore",
+      "PKR rates published per size",
+      "No minimum order",
+    ],
+    heroImage: {
+      src: "/products/white-nonindicating-clean-sachets.webp",
+      alt: "White silica gel sachets supplied to Lahore packaging and pharmaceutical buyers",
+      caption: "The sizes Lahore buyers order most: 1g to 5g inside unit packs, 10g to 25g in export cartons, loose beads for repackers.",
+      chips: ["Lahore", "Factory-direct", "PKR", "No minimum"],
+    },
+    fitTitle: "What Lahore industry buys silica gel for",
+    fitItems: [
+      {
+        label: "Pharma",
+        title: "Bottles, blisters, and diagnostic kits",
+        text: "Lahore has one of the country's densest clusters of pharmaceutical and diagnostics plants. Those buyers take 0.5g to 3g sachets inside bottles and secondary cartons, and they check the SDS, the batch COA, and the DO NOT EAT text before anything else.",
+      },
+      {
+        label: "Engineering",
+        title: "Auto parts, tools, and machined components",
+        text: "Kot Lakhpat and the Multan Road belt run parts, fasteners, and light engineering. The risk there is surface oxidation in cartons that sit through a Lahore monsoon, so 10g to 25g packs or activated clay do the job at a lower cost per carton.",
+      },
+      {
+        label: "Food",
+        title: "Spices, dried goods, and snack packing",
+        text: "Food packers use sachets outside the primary pack and in master cartons. DryGelWorld does not hold food-contact certification, so anything that would touch food directly has to be confirmed against your own compliance requirement first.",
+      },
+      {
+        label: "Warehouse",
+        title: "Stored stock through the monsoon",
+        text: "Distributors holding inventory from July to September buy 50g to 500g packs and loose beads by the kilogram, and replace them on a schedule rather than trying to regenerate them in place.",
+      },
+    ],
+    specsTitle: "What a Lahore buyer should send with the enquiry",
+    specsIntro:
+      "A Lahore quote moves fastest when the enquiry says the size, the quantity, and where the cartons are going after packing.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Formats", value: `Sachets ${sachetSizeRange}, carton packs ${packSizeRange}, container strips ${stripSizeRange}, loose beads by the kilogram, activated clay packs` },
+      { label: "Dispatch", value: "Packed and dispatched from the Karachi factory. Delivery to Lahore by your own transporter or courier, or arranged by us and quoted separately; there is no DryGelWorld warehouse in Lahore." },
+      { label: "Pricing", value: "PKR per piece, published per size on the pricing page, and better on quantity. Export orders leaving Lahore are quoted in USD." },
+      { label: "Documents", value: "SDS, batch COA, ISO 9001:2015 certificate 9101225, and the DMF-free statement on request" },
+      { label: "Quote basis", value: "Sachet size or bead grade, quantity, carton packing, delivery city, and whether the goods are for local sale or export" },
+    ],
+    buyingTitle: "How a Lahore buyer gets a price the same day",
+    buyingIntro:
+      "Most Lahore enquiries arrive on WhatsApp. The four things below are what turn a message into a firm number instead of a conversation.",
+    buyingSteps: [
+      {
+        title: "Say the size, or describe the pack",
+        text: "If you know the gram size, send it. If not, describe the carton or the product pack and its rough dimensions, and the desk will suggest a size from the published range.",
+      },
+      {
+        title: "Give a quantity and a repeat schedule",
+        text: "Pieces per order and per month. There is no minimum, but the rate improves with volume, and a monthly figure gets you the volume rate on the first order rather than the third.",
+      },
+      {
+        title: "Say where it is going",
+        text: "Delivered to your Lahore plant, collected from Karachi by your transporter, or loaded straight into an export carton. This changes the packing and the price.",
+      },
+      {
+        title: "Name the documents you need",
+        text: "Pharma and food buyers should ask for the SDS and batch COA up front so they travel with the delivery rather than being chased afterwards.",
+      },
+    ],
+    buyerGuide: {
+      title: "Buying silica gel in Lahore: what is worth checking",
+      intro:
+        "Most silica gel sold in Lahore passes through a trader. That is not automatically bad, but it changes what you can verify and what you pay. Here is what DryGelWorld is, and what it is not.",
+      sections: [
+        {
+          label: "Where it is made",
+          title: "Karachi, not Lahore",
+          text: "DryGelWorld is the export brand of Kamran Enterprises, manufacturing silica gel desiccant in Karachi since 1983. Production is at the North Karachi Industrial Area, Sector 6B, and the head office is at A-488, Block 1, Gulshan-e-Iqbal. There is no office, warehouse, or stock point in Lahore. Everything ships from Karachi, which is why the price is factory price and not a trader's markup.",
+        },
+        {
+          label: "Delivery",
+          title: "How the goods actually reach Lahore",
+          text: "Cartons are dispatched from the Karachi factory by road. Most Lahore buyers nominate their own transporter or a courier account and we hand over to it; delivery can also be arranged from this side and quoted as a separate line. Transit is confirmed at quote against the carrier you choose, so nothing is promised here that depends on somebody else's schedule.",
+        },
+        {
+          label: "Price",
+          title: "PKR rates are published, not negotiated from a secret list",
+          text: "Indicative PKR rates per piece for every published size are on the pricing page, and the same table drives the on-site calculator. Your quoted rate moves with quantity, packing, and printing, but it starts from a number you can read before you call.",
+        },
+        {
+          label: "Verification",
+          title: "Four things a Lahore buyer can check remotely",
+          text: "The ISO 9001:2015 certificate, number 9101225 issued by QMEC Group Intl and valid to December 2028, can be verified with the registrar. The SDS and a recent batch COA can be requested before ordering. A video walk-through of the Karachi plant can be arranged. And the certifications page lists what is not held, which a trading counter will rarely do.",
+        },
+        {
+          label: "Limits",
+          title: "What is not held, stated plainly",
+          text: "FDA registration, food-contact certification, pharmacopoeia compliance, Halal certification, and REACH registration are not held. Lahore pharma and food buyers whose specification requires any of these should confirm that requirement before ordering rather than after.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    contentBlock: {
+      heading: "Formats Lahore buyers order most",
+      parts: [
+        { text: "Unit packs usually start with " },
+        { href: "/1g-silica-gel-sachets", label: "1g sachets" },
+        { text: " or " },
+        { href: "/5g-silica-gel-sachets", label: "5g sachets" },
+        { text: " from the " },
+        { href: "/silica-gel-packets", label: "full packet range" },
+        { text: "; warehouses and repackers buy " },
+        { href: "/silica-gel-beads", label: "loose beads by the kilogram" },
+        { text: "; and cost-tier industrial cartons often use " },
+        { href: "/clay-desiccant-supplier", label: "activated clay packs" },
+        { text: " instead. Exporters loading containers add " },
+        { href: "/container-desiccant-strips", label: "container desiccant strips" },
+        { text: ". Published PKR rates are on the " },
+        { href: "/pricing", label: "pricing page" },
+        { text: " and the " },
+        { href: "/tools/silica-gel-calculator", label: "calculator" },
+        { text: " turns a carton size into a quantity." },
+      ],
+    },
+    quoteChecklist: localQuoteChecklist("Silica gel packets"),
+    relatedLinks: [
+      { label: "Silica gel supplier in Karachi", href: "/silica-gel-supplier-karachi" },
+      { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
+      { label: "Silica gel supplier in Lahore", href: "/silica-gel-supplier-lahore" },
+      { label: "Silica gel supplier in Faisalabad", href: "/silica-gel-supplier-faisalabad" },
+      { label: "Silica gel supplier in Sialkot", href: "/silica-gel-supplier-sialkot" },
+      { label: "Silica gel packets (all sizes)", href: "/silica-gel-packets" },
+      { label: "Loose silica gel beads (25kg bags)", href: "/silica-gel-beads" },
+      { label: "Activated clay desiccant", href: "/clay-desiccant-supplier" },
+      { label: "Pricing in PKR and USD", href: "/pricing" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
+    ],
+    faqs: [
+      {
+        question: "Do you have an office or warehouse in Lahore?",
+        answer: "No. Manufacturing and stock are in Karachi, at the North Karachi Industrial Area plant, and the head office is in Gulshan-e-Iqbal. Orders for Lahore are packed in Karachi and dispatched by road. Anyone in Lahore selling under this name is a reseller, not us.",
+      },
+      {
+        question: "How is silica gel delivered from Karachi to Lahore?",
+        answer: "By road. Most buyers nominate their own transporter or courier account and we hand the cartons over to it, which keeps the freight on your terms and your rate. Delivery can also be arranged from our side and quoted as a separate line. Transit time is confirmed against the carrier at quote.",
+      },
+      {
+        question: "What is the price of silica gel in Lahore?",
+        answer: "The same factory PKR rate as anywhere else in Pakistan, plus freight to Lahore. Indicative rates per piece for every published size are on the pricing page, from 0.5g sachets up to 5kg container strips, and the rate improves with quantity.",
+      },
+      {
+        question: "Is there a minimum order for Lahore buyers?",
+        answer: "No. There is no minimum order quantity in any format. A trial quantity can be supplied before a bulk commitment, and the per-unit rate improves as volume grows.",
+      },
+      {
+        question: "Which sizes do Lahore pharmaceutical packers usually take?",
+        answer: "0.5g to 3g sachets inside bottles and blister cartons, and 10g to 25g packs in the shipper. Ask for the SDS and batch COA with the order. Note that pharmacopoeia compliance and food-contact certification are not held, so confirm your specification before ordering.",
+      },
+      {
+        question: "Can Lahore buyers get silica gel for export cartons?",
+        answer: "Yes, and it is a large part of what leaves this factory. Goods packed in Lahore and exported through Karachi Port or Port Qasim are quoted in USD on EXW, FOB Karachi, CIF, or DAP terms, with the SDS, COA, and destination documents prepared for the shipment.",
+      },
+      {
+        question: "Do you supply indicating silica gel in Lahore?",
+        answer: "Yes. Cobalt-free orange indicating gel is the recommended type and is supplied as beads or sachets. Blue indicating gel contains cobalt chloride, is restricted in the EU and UK, and is supplied only on request with clear labelling; it must never be described as cobalt-free.",
+      },
+      {
+        question: "What is cheaper for bulk cartons, silica gel or clay?",
+        answer: "Activated clay is cheaper per kilogram and holds up to about 25 percent of its weight against silica gel's roughly 33 percent, so it suits machinery, tools, and durable goods where mild oxidation is the risk. For moisture-sensitive cargo, silica gel is the safer specification even at a higher price.",
+      },
+    ],
+  },
+  "silica-gel-supplier-faisalabad": {
+    slug: "silica-gel-supplier-faisalabad",
+    title: "Silica Gel Supplier Faisalabad | Textile & Garment Export",
+    metaDescription:
+      "Silica gel for Faisalabad textile and garment exporters: 0.5g-2g polybag sachets, carton packs, container strips. DMF-free statement for EU and UK buyers. Factory-direct from Karachi, no minimum.",
+    kicker: "Faisalabad textile supply",
+    h1: "Silica gel supplier for Faisalabad textile mills and garment exporters.",
+    lead:
+      "Sachets sized for polybags and garment cartons, plus container strips for the sea leg, dispatched factory-direct from Karachi. The DMF-free statement that EU and UK buyers ask for comes with the order.",
+    searchIntent: "Local buyer intent: silica gel supplier Faisalabad, desiccant for textile export, garment packaging silica gel Pakistan",
+    primaryCta: "Get a Faisalabad Quote",
+    secondaryCta: "See published PKR rates",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "0.5g-2g sachets for polybags",
+      "DMF-free statement with the order",
+      "Cobalt-free orange indicating gel",
+      "No minimum order",
+    ],
+    heroImage: {
+      src: "/products/format-sachets.webp",
+      alt: "Small silica gel sachets for garment polybags and textile export cartons",
+      caption: "Garment polybags take 0.5g to 2g. Master cartons take 10g to 50g. Long sea routes add a container strip above the load.",
+      chips: ["Faisalabad", "Textile", "DMF-free", "Export"],
+    },
+    fitTitle: "Where moisture costs a Faisalabad exporter money",
+    fitItems: [
+      {
+        label: "Garments",
+        title: "Polybags and folded stock",
+        text: "Cotton holds moisture. A garment folded into a polybag in a humid Faisalabad August and shipped to a European winter arrives with mildew spotting that no amount of pressing removes. 0.5g to 2g sachets inside the polybag are the standard answer.",
+      },
+      {
+        label: "Home textiles",
+        title: "Towels, bed linen, and made-ups",
+        text: "Bulkier goods hold more water and sit in cartons longer. Master cartons of towels and made-ups usually take 10g to 50g packs, sized against the carton volume rather than the piece count.",
+      },
+      {
+        label: "Fabric rolls",
+        title: "Greige and finished fabric",
+        text: "Rolls stacked in an unconditioned warehouse through the monsoon pick up moisture at the edges. Larger packs or loose beads in the wrapping slow that down while the stock waits for a shipping slot.",
+      },
+      {
+        label: "Containers",
+        title: "The sea leg to Europe and North America",
+        text: "Carton-level sachets protect the goods; they do not protect the container. On a four to six week route, hanging strips at the container ceiling handle the condensation that drips back onto the top layer, which is what container rain actually is.",
+      },
+    ],
+    specsTitle: "What a Faisalabad textile enquiry should include",
+    specsIntro:
+      "Textile quotes are fastest when the enquiry describes the pack, the route, and the document set the foreign buyer has asked for.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Formats", value: `Sachets ${sachetSizeRange} for polybags and cartons, packs ${packSizeRange} for master cartons, container strips ${stripSizeRange}, printed private-label sachets` },
+      { label: "Dispatch", value: "Packed and dispatched from the Karachi factory. Delivery to Faisalabad by your transporter or courier, or arranged and quoted separately; there is no DryGelWorld stock point in Faisalabad." },
+      { label: "Documents", value: "DMF-free statement, SDS, batch COA, and the ISO 9001:2015 certificate 9101225 on request" },
+      { label: "Buyer risk", value: "Specifying blue indicating gel for a European order. Blue gel contains cobalt chloride, an EU substance of very high concern, and cobalt-free orange gel is the correct alternative." },
+      { label: "Quote basis", value: "Sachet size, pieces per garment or per carton, monthly volume, printing, destination country, and Incoterm" },
+    ],
+    buyingTitle: "How a Faisalabad exporter should raise the enquiry",
+    buyingIntro:
+      "The difference between a same-day number and a week of messages is usually four lines of detail.",
+    buyingSteps: [
+      {
+        title: "Describe the pack, not just the product",
+        text: "Polybag, inner carton, or master carton; and roughly how much air is inside it. That decides the gram size far more than the garment does.",
+      },
+      {
+        title: "Give pieces per month",
+        text: "Textile orders repeat. A monthly figure gets the volume rate on the first order, and there is no minimum to reach before you qualify.",
+      },
+      {
+        title: "Name the destination country",
+        text: "EU and UK orders should be quoted with the DMF-free statement and cobalt-free orange gel from the start, rather than discovering the requirement at the buyer's inspection.",
+      },
+      {
+        title: "Say whether the sachet carries print",
+        text: "Plain stock ships from inventory. Printed private-label sachets with your own warning text add roughly five to ten days after artwork sign-off and carry a print minimum.",
+      },
+    ],
+    buyerGuide: {
+      title: "What a textile exporter should know before buying desiccant",
+      intro:
+        "Faisalabad ships a lot of cotton into markets with strict chemical rules and short patience for damaged stock. Three things decide whether a desiccant helps or creates a problem.",
+      sections: [
+        {
+          label: "DMF",
+          title: "Why the DMF-free statement exists",
+          text: "Dimethyl fumarate was used in some desiccant sachets and caused severe skin reactions through furniture and footwear in Europe, which led to a restriction. Buyers in the EU and UK now ask textile and leather suppliers to confirm sachets are DMF-free. DryGelWorld issues that statement on manufacturer letterhead with the order. It is a declaration, not a certification, and should be described that way to your buyer.",
+        },
+        {
+          label: "Cobalt",
+          title: "Blue gel is the wrong choice for Europe",
+          text: "Blue indicating silica gel gets its colour from cobalt chloride, listed as a substance of very high concern under EU REACH. Cobalt-free orange indicating gel does the same job, changing colour as it takes up moisture. Blue gel is still supplied on request and clearly labelled, but it is never described as cobalt-free and should not be sent into an EU or UK order without the buyer knowing.",
+        },
+        {
+          label: "REACH",
+          title: "What DryGelWorld does not have",
+          text: "There is no REACH registration number. That is a real constraint, and European buyers do ask. Under REACH the registration obligation generally sits with the EU importer rather than the non-EU supplier, so the question is usually answered by your buyer's own compliance route, but it must be raised early rather than at the letter of credit stage.",
+        },
+        {
+          label: "Sizing",
+          title: "How much goes in a polybag",
+          text: "For garment polybags the working range is 0.5g to 2g per bag, with 1g the most common. Master cartons of made-ups usually take 10g to 50g. The on-site calculator converts a carton size into a quantity, and the result carries into a quote request with the numbers already filled in.",
+        },
+        {
+          label: "Supply",
+          title: "Factory-direct, from Karachi",
+          text: "Manufacturing has been in Karachi since 1983 and there is no Faisalabad office or warehouse. Cartons are dispatched from the North Karachi plant by road on your transporter or ours. The advantage is the price you pay is the factory price, and the SDS, COA, and DMF-free statement come from the people who packed the goods.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    contentBlock: {
+      heading: "The textile export stack",
+      parts: [
+        { text: "Inside the polybag, " },
+        { href: "/1g-silica-gel-sachets", label: "1g sachets" },
+        { text: " do most of the work; master cartons move up to the " },
+        { href: "/silica-gel-packets", label: "larger packet sizes" },
+        { text: "; and the sea leg is covered by " },
+        { href: "/container-desiccant-strips", label: "container desiccant strips" },
+        { text: " sized with the " },
+        { href: "/tools/container-desiccant-calculator", label: "container calculator" },
+        { text: ". Orders going to Europe should use " },
+        { href: "/orange-silica-gel-supplier", label: "cobalt-free orange indicating gel" },
+        { text: " rather than blue, and the reasoning is set out in the " },
+        { href: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety", label: "cobalt-free safety guide" },
+        { text: ". Buyers who want their own brand on the sachet should read the " },
+        { href: "/private-label", label: "private label page" },
+        { text: "." },
+      ],
+    },
+    quoteChecklist: localQuoteChecklist("Silica gel sachets for textile export"),
+    relatedLinks: [
+      { label: "Silica gel for leather and footwear export", href: "/silica-gel-for-leather-export" },
+      { label: "Textile and garment export industry page", href: "/industries/textile-garment-export" },
+      { label: "Cobalt-free orange indicating gel", href: "/orange-silica-gel-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Private-label printed sachets", href: "/private-label" },
+      { label: "Silica gel supplier in Karachi", href: "/silica-gel-supplier-karachi" },
+      { label: "Pricing in PKR and USD", href: "/pricing" },
+    ],
+    faqs: [
+      {
+        question: "What size silica gel sachet goes in a garment polybag?",
+        answer: "0.5g to 2g per polybag, with 1g the most common choice for shirts and light garments. Heavier items and multi-piece packs move to 2g. The decision is driven by the air volume inside the sealed bag and how long the goods will be in transit and storage.",
+      },
+      {
+        question: "Do you supply the DMF-free statement Faisalabad exporters need?",
+        answer: "Yes. It is issued on manufacturer letterhead and supplied with the order. It is a declaration by the manufacturer, not a third-party certification, and should be presented to your buyer as such.",
+      },
+      {
+        question: "Do you have a REACH registration number?",
+        answer: "No. DryGelWorld holds ISO 9001:2015 and issues a DMF-free statement, but it is not REACH registered. Under REACH the registration duty usually falls on the EU importer rather than a non-EU supplier, so raise it with your buyer early. We will not invent a number.",
+      },
+      {
+        question: "Should textile exports to Europe use blue or orange indicating gel?",
+        answer: "Orange. Blue indicating gel contains cobalt chloride, an EU substance of very high concern, and should not go into a European order without the buyer's explicit knowledge. Cobalt-free orange gel changes colour the same way and is the correct specification for EU and UK routes.",
+      },
+      {
+        question: "Is there a minimum order for Faisalabad mills?",
+        answer: "No. There is no minimum order quantity on plain stock in any size, and trial quantities are supplied before bulk commitments. Printed private-label sachets are the one exception: a print run has a practical minimum, confirmed at quote with the artwork.",
+      },
+      {
+        question: "How is the order delivered to Faisalabad?",
+        answer: "Cartons are packed and dispatched from the Karachi factory by road. Most mills nominate their own transporter; delivery can also be arranged from our side and quoted separately. There is no DryGelWorld warehouse in Faisalabad.",
+      },
+      {
+        question: "Can sachets carry our own brand and warning text?",
+        answer: "Yes. Printed private-label sachets are produced in Karachi with your logo, the warning text in the languages your destination requires, and lot codes. Allow roughly five to ten days after artwork approval on top of the normal dispatch.",
+      },
+      {
+        question: "Do carton sachets replace a container desiccant?",
+        answer: "No, they do different jobs. Sachets protect the goods inside the pack. A hanging strip at the container ceiling handles the moisture in the container air that condenses on the roof and drips back onto the top cartons. Long sea routes to Europe and North America usually need both.",
+      },
+    ],
+  },
+  "silica-gel-supplier-sialkot": {
+    slug: "silica-gel-supplier-sialkot",
+    title: "Silica Gel Supplier Sialkot | Surgical & Leather Export",
+    metaDescription:
+      "Silica gel for Sialkot surgical instrument, sports goods, and leather exporters: 1g-25g sachets against rust and mould in transit. DMF-free statement, cobalt-free orange gel, factory-direct from Karachi.",
+    kicker: "Sialkot export supply",
+    h1: "Silica gel supplier for Sialkot surgical, sports goods, and leather exporters.",
+    lead:
+      "Sachets sized to instrument pouches, glove cartons, and ball boxes, from a Karachi manufacturer that ships direct. The point is simple: stainless steel still spots and leather still moulds when a container sweats, and a one-rupee sachet is cheaper than a rejected consignment.",
+    searchIntent: "Local buyer intent: silica gel supplier Sialkot, desiccant for surgical instruments, rust prevention in export cartons Pakistan",
+    primaryCta: "Get a Sialkot Quote",
+    secondaryCta: "See published PKR rates",
+    secondaryHref: "/pricing",
+    proofPoints: [
+      "1g-25g sachets for instrument packs",
+      "Cobalt-free orange indicating gel",
+      "DMF-free statement for EU orders",
+      "No minimum order",
+    ],
+    heroImage: {
+      src: "/products/kraft-2g-white.jpeg",
+      alt: "Small silica gel sachets used in surgical instrument and leather goods export packing",
+      caption: "Instrument pouches take 1g to 5g. Cartons of gloves or balls take 10g to 25g. Both are cheaper than a claim.",
+      chips: ["Sialkot", "Surgical", "Leather", "Export"],
+    },
+    fitTitle: "What moisture does to a Sialkot consignment",
+    fitItems: [
+      {
+        label: "Surgical",
+        title: "Stainless steel still corrodes",
+        text: "Surgical stainless resists corrosion, it is not immune to it. In a container that sweats on a long sea route, chloride-bearing condensation pits and spots polished instruments, and a buyer who opens a box of spotted forceps rejects the lot rather than cleaning it.",
+      },
+      {
+        label: "Leather",
+        title: "Gloves, uppers, and finished goods",
+        text: "Leather is the classic mould substrate. Sports gloves, motorbike wear, and finished leather goods sitting in a humid container grow surface mould that survives inspection photographs and ends in a claim.",
+      },
+      {
+        label: "Sports goods",
+        title: "Balls, bladders, and stitched products",
+        text: "Cartons of stitched goods hold a lot of air. The desiccant sizing here follows carton volume rather than piece count, which usually means 10g to 25g packs rather than the small sachets used in instrument pouches.",
+      },
+      {
+        label: "Musical",
+        title: "Brass, woodwind, and cased instruments",
+        text: "Cased instruments trap humid air against metal and wood for the length of the voyage. A sachet inside the case is standard practice for exporters shipping into cold destination markets.",
+      },
+    ],
+    specsTitle: "What a Sialkot export enquiry should include",
+    specsIntro:
+      "Sialkot ships direct to demanding markets. A quote is fastest when the enquiry names the pack, the route, and the paperwork the buyer has specified.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Formats", value: `Sachets ${sachetSizeRange} for pouches and cartons, packs ${packSizeRange} for master cartons, container strips ${stripSizeRange}, cobalt-free orange indicating gel` },
+      { label: "Dispatch", value: "Packed and dispatched from the Karachi factory. Delivery to Sialkot by your transporter or courier, or arranged and quoted separately; there is no DryGelWorld stock point in Sialkot." },
+      { label: "Documents", value: "DMF-free statement, SDS, batch COA, ISO 9001:2015 certificate 9101225 on request" },
+      { label: "Buyer risk", value: "Treating a sachet as optional on a short route. Container sweat depends on the temperature swing between origin and destination, not only on the number of days at sea." },
+      { label: "Quote basis", value: "Sachet size, pieces per pouch or carton, monthly volume, destination country, and whether the sachet is printed" },
+    ],
+    buyingTitle: "How a Sialkot exporter should raise the enquiry",
+    buyingIntro:
+      "Four lines get a firm number back the same working day.",
+    buyingSteps: [
+      {
+        title: "Describe the innermost pack",
+        text: "Instrument pouch, glove polybag, ball box, or instrument case, and roughly its size. Sealed packs need less; open cartons need more.",
+      },
+      {
+        title: "Say how many, and how often",
+        text: "Pieces per shipment and per month. There is no minimum to qualify, and a monthly figure earns the volume rate immediately.",
+      },
+      {
+        title: "Name the destination",
+        text: "EU, UK, and US orders should be specified with cobalt-free orange gel and the DMF-free statement from the start.",
+      },
+      {
+        title: "Say if the sachet is printed",
+        text: "Plain stock dispatches quickly. Printed sachets carrying your brand and destination-language warning text add roughly five to ten days after artwork approval.",
+      },
+    ],
+    buyerGuide: {
+      title: "Rust, mould, and what a desiccant can and cannot do",
+      intro:
+        "Sialkot's exports fail in transit for two reasons, and a desiccant only addresses one of them properly. Being clear about which is which saves an argument later.",
+      sections: [
+        {
+          label: "The mechanism",
+          title: "Why a container sweats",
+          text: "Cargo loaded warm and humid in Punjab travels into cooler air. The container roof cools faster than the load, moisture in the container air condenses on the steel, and it drips back down onto the top cartons. That is container rain. It is driven by the temperature difference between origin and destination, so a short route into a cold market can be worse than a long route into a warm one.",
+        },
+        {
+          label: "What it fixes",
+          title: "Sachets protect the pack, strips protect the container",
+          text: "A sachet inside a pouch or carton takes up the moisture in that enclosed air, which is what protects instruments and leather from surface corrosion and mould. It does nothing about water dripping from the container roof. That needs a hanging strip above the load, and a full container usually wants both.",
+        },
+        {
+          label: "What it does not fix",
+          title: "Moisture already in the goods",
+          text: "A desiccant lowers humidity in the air around a product. It cannot dry leather that was packed damp or steel that was packed with residual coolant or fingerprints. If goods are going into a carton wet, the fix is upstream in drying and handling, and no quantity of silica gel will substitute for it.",
+        },
+        {
+          label: "Indicating",
+          title: "Orange, not blue, for Europe",
+          text: "Indicating gel changes colour as it saturates, which lets a QC team see whether the pack still has capacity. Use cobalt-free orange. Blue indicating gel contains cobalt chloride, an EU substance of very high concern, and it should never be sent into a European order described as cobalt-free.",
+        },
+        {
+          label: "Supply",
+          title: "Karachi factory, no Sialkot branch",
+          text: "Manufacturing has been in Karachi since 1983, at the North Karachi Industrial Area plant. There is no office or warehouse in Sialkot, so cartons are dispatched by road on your transporter or ours. What you get in exchange is a factory price and paperwork issued by the people who packed the goods.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    contentBlock: {
+      heading: "What Sialkot exporters usually order",
+      parts: [
+        { text: "Instrument pouches and small packs take " },
+        { href: "/1g-silica-gel-sachets", label: "1g" },
+        { text: " or " },
+        { href: "/5g-silica-gel-sachets", label: "5g sachets" },
+        { text: "; glove and ball cartons move up through the " },
+        { href: "/silica-gel-packets", label: "packet range" },
+        { text: "; and QC teams who want to see remaining capacity specify " },
+        { href: "/orange-silica-gel-supplier", label: "cobalt-free orange indicating gel" },
+        { text: ". Full containers add " },
+        { href: "/container-desiccant-strips", label: "hanging strips" },
+        { text: " sized by the " },
+        { href: "/tools/container-desiccant-calculator", label: "container calculator" },
+        { text: ", and the leather-specific guidance is on the " },
+        { href: "/silica-gel-for-leather-export", label: "leather export page" },
+        { text: "." },
+      ],
+    },
+    quoteChecklist: localQuoteChecklist("Silica gel sachets for export packing"),
+    relatedLinks: [
+      { label: "Silica gel for leather and footwear export", href: "/silica-gel-for-leather-export" },
+      { label: "Cobalt-free orange indicating gel", href: "/orange-silica-gel-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Silica gel supplier in Karachi", href: "/silica-gel-supplier-karachi" },
+      { label: "Silica gel supplier in Lahore", href: "/silica-gel-supplier-lahore" },
+      { label: "Pricing in PKR and USD", href: "/pricing" },
+    ],
+    faqs: [
+      {
+        question: "Does silica gel stop surgical instruments from rusting in transit?",
+        answer: "It removes the moisture in the air inside the pouch or carton, which is what causes the surface spotting and pitting buyers reject. It cannot help if instruments are packed with residual moisture, coolant, or fingerprints on them, so packing hygiene has to be right first.",
+      },
+      {
+        question: "What size sachet goes into an instrument pouch?",
+        answer: "1g to 5g for a sealed instrument pouch, depending on its size and how long the goods will be in transit and storage. Master cartons of instruments or gloves usually take 10g to 25g, sized by carton volume rather than piece count.",
+      },
+      {
+        question: "Do leather gloves and sports goods need a different size?",
+        answer: "Usually a larger one. Leather goods and stitched products sit in cartons with more trapped air than an instrument pouch, so 10g to 25g packs are common, and long routes into humid markets sometimes go higher.",
+      },
+      {
+        question: "Is there a minimum order for Sialkot exporters?",
+        answer: "No. There is no minimum order quantity on plain stock, and a trial quantity can be supplied before any bulk commitment. Printed private-label sachets are the exception, since a print run carries a practical minimum confirmed at quote.",
+      },
+      {
+        question: "How does the order reach Sialkot?",
+        answer: "Cartons are packed and dispatched from the Karachi factory by road. Most exporters nominate their own transporter or courier; delivery can also be arranged from our side and quoted as a separate line. There is no DryGelWorld office or warehouse in Sialkot.",
+      },
+      {
+        question: "Which indicating gel should go into a European order?",
+        answer: "Cobalt-free orange. Blue indicating gel contains cobalt chloride, an EU substance of very high concern under REACH, and must never be described as cobalt-free. Blue is still supplied on request with clear labelling where a buyer specifically wants it.",
+      },
+      {
+        question: "Do you supply the DMF-free statement?",
+        answer: "Yes, on manufacturer letterhead with the order. Leather and footwear buyers in the EU and UK commonly require it. It is a manufacturer declaration rather than a third-party certification and should be described that way.",
+      },
+      {
+        question: "Do we need a container desiccant as well as sachets?",
+        answer: "For a full container on a long or cold route, usually yes. Sachets protect the air inside each pack; a hanging strip above the load handles the condensation forming on the container roof. The container calculator sizes the strip count from container type, route, and transit days.",
+      },
+    ],
+  },
   "silica-gel-supplier-karachi": {
     slug: "silica-gel-supplier-karachi",
     title: "Silica Gel Supplier in Karachi | DryGelWorld",
