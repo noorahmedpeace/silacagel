@@ -195,6 +195,26 @@ const footerColumns: FooterColumn[] = [
         href: "/silica-gel-supplier-sialkot",
       },
       {
+        label: "Silica gel supplier Islamabad",
+        href: "/silica-gel-supplier-islamabad",
+      },
+      {
+        label: "Silica gel supplier Multan",
+        href: "/silica-gel-supplier-multan",
+      },
+      {
+        label: "Silica gel supplier Gujranwala",
+        href: "/silica-gel-supplier-gujranwala",
+      },
+      {
+        label: "Silica gel supplier Peshawar",
+        href: "/silica-gel-supplier-peshawar",
+      },
+      {
+        label: "Silica gel supplier Hyderabad",
+        href: "/silica-gel-supplier-hyderabad",
+      },
+      {
         label: "Silica gel manufacturer Pakistan",
         href: "/silica-gel-manufacturer-pakistan",
       },
