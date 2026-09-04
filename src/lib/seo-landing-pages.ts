@@ -2475,47 +2475,234 @@ const highIntentSeoLandingPages = {
   }),
   "clay-desiccant-supplier": keywordClusterPage({
     slug: "clay-desiccant-supplier",
-    title: "Activated Clay Desiccant Supplier | Industrial Clay Packs",
+    // Search Console, 90 days: "clay desiccant" 256 impressions at position
+    // 27.9 and "activated clay desiccant" 262 at position 34, both zero
+    // clicks, against a page that carried no sizes, no capacity figure, no
+    // price basis and no lead time. The words a buyer types lead the title.
+    title: "Clay Desiccant Supplier | Activated Bentonite Packs 1g-50g",
     metaDescription:
-      "Activated clay desiccant supplier for industrial cargo and durable-goods storage. Clay desiccant packs in sachet and bag formats - B2B export supply.",
-    kicker: "Activated Clay Desiccant",
-    h1: "Activated clay desiccant supplier for industrial and cargo moisture control.",
+      "Activated clay desiccant from a Karachi manufacturer: bentonite packs 1g to 50g and bulk, ~25% adsorption, no minimum order. Grey granule clay for industrial cargo, machinery, and cost-tier moisture control.",
+    kicker: "Activated clay desiccant",
+    h1: "Clay desiccant supplier: activated bentonite packs for industrial and cargo moisture control.",
     lead:
-      "Activated bentonite clay desiccant for industrial cargo packaging, durable goods storage, and cost-tier moisture control programs. Natural mineral-based desiccant in sachet and bag formats, supplied B2B for export and bulk industrial use.",
+      "Activated bentonite clay desiccant in 1g to 50g packs and bulk, for industrial cargo, machinery parts, and carton-level protection where cost per kilogram matters more than peak capacity. Grey mineral granules, up to about 25 percent of their own weight in water vapour, packed in Karachi and quoted with no minimum order.",
     searchIntent: "B2B buyer keyword: clay desiccant, activated clay desiccant, clay desiccant supplier, industrial clay desiccant, bentonite clay",
-    primaryCta: "Request Bentonite Clay Quote",
+    primaryCta: "Request Clay Desiccant Quote",
+    secondaryCta: "Compare Clay vs Silica Gel",
+    secondaryHref: "/compare/silica-gel-vs-clay-desiccant",
     proofPoints: [
-      "Activated natural bentonite clay",
-      "Industrial sachet and bag formats",
-      "Cost-tier alternative to silica gel",
-      "ISO 9001:2015, SDS, COA on request",
+      "Activated bentonite, ~25% capacity",
+      "1g to 50g packs plus bulk",
+      "No minimum order",
+      "From ~USD 2.00 / kg packed",
     ],
     image: "/products/industrial-dry-clay-desiccant-packs.webp",
-    imageAlt: "Bentonite clay desiccant for industrial moisture control",
-    imageCaption: "Bentonite clay is the cost-tier choice for industrial cargo packaging where mild oxidation is the dominant moisture risk.",
-    chips: ["Bentonite", "Clay", "Industrial", "Cost-tier"],
-    fitTitle: "Bentonite clay buying paths",
+    imageAlt: "Activated bentonite clay desiccant packs for industrial moisture control",
+    imageCaption: "Activated bentonite granules packed for industrial cargo, where cost per kilogram decides the format and mild oxidation is the risk being managed.",
+    chips: ["Bentonite", "1g-50g", "~25% capacity", "No minimum"],
+    fitTitle: "Where activated clay is the right desiccant",
     useCases: [
-      { label: "Industrial", title: "Durable goods packaging", text: "Bentonite clay packs for industrial cargo, machinery parts, and durable goods packaging where cost-tier moisture protection is the priority." },
-      { label: "Warehouse", title: "Storage and warehouse programs", text: "Bulk bentonite for warehouse stabilization and regional distribution hub moisture control." },
-      { label: "Bulk cargo", title: "Container-tier carton protection", text: "Bentonite at the carton level paired with silica gel container strips for tiered moisture protection on long-haul sea freight." },
+      {
+        label: "Machinery",
+        title: "Steel parts, tools, and spares",
+        text: "Machined components, hand tools, fasteners, and spare parts in export cartons, where the risk is surface oxidation over a few weeks rather than damage to a moisture-sensitive product.",
+      },
+      {
+        label: "Warehouse",
+        title: "Stored stock and staging areas",
+        text: "Cartons and pallets held in unconditioned warehouses through a humid season, where the desiccant is replaced on a schedule and unit cost drives the quantity that is affordable.",
+      },
+      {
+        label: "Cargo",
+        title: "Carton tier under a container charge",
+        text: "Clay inside cartons paired with silica gel or calcium chloride strips at the container ceiling, so the cheaper desiccant handles carton air and the strips handle the container volume.",
+      },
     ],
-    targetKeywords: "bentonite clay desiccant, activated bentonite supplier, clay desiccant industrial, bentonite moisture absorber",
-    formats: "Sachets, bags, custom industrial packaging",
-    buyerTypes: "Industrial importers, packaging distributors, warehouse operators, freight consolidators",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement",
-    buyerRisk: "Choosing bentonite for precision cargo where silica gel's higher per-gram capacity would deliver better protection economics",
-    quoteBasis: "Format, volume, destination, Incoterms, document expectations",
+    targetKeywords: "clay desiccant, activated clay desiccant, bentonite clay desiccant, clay desiccant supplier, industrial clay desiccant, montmorillonite desiccant",
+    formats: "1 g, 5 g, 10 g, 25 g, 50 g packs and custom sizes; bags and industrial cartons; bulk granules on request",
+    buyerTypes: "Industrial importers, packaging distributors, machinery and tool exporters, warehouse operators, freight consolidators",
+    documents: "ISO 9001:2015 company certificate (scope: packaging and supply of silica desiccant); SDS and lot COA obtained from the clay source and passed on with the order",
+    buyerRisk: "Buying clay for cargo that needed silica gel. Clay holds about 25 percent of its weight against silica gel's ~33 percent, and it has no indicating version, so a saturated pack looks identical to a fresh one.",
+    quoteBasis: "Pack size in grams, quantity, carton or pallet packing, destination, Incoterm, and whether the clay sits alone or under a container charge",
+    sizeGuide: {
+      title: "Clay pack sizes and what each one is for",
+      intro:
+        "Clay is specified the same way as silica gel: by the air volume inside the pack, the transit or storage time, and the humidity the cargo passes through. These are the standard packs; custom gram weights are made to order.",
+      rows: [
+        {
+          size: "1 g - 5 g packs",
+          bestFor: "Small parts bags, fastener packs, hand tools, and instrument boxes.",
+          buyerNote: "Sized for unit packs. At this weight clay and silica gel cost about the same per pack, so choose silica gel unless the buyer specifically wants clay.",
+        },
+        {
+          size: "10 g - 25 g packs",
+          bestFor: "Export cartons of machined parts, tools, hardware, and general durable goods.",
+          buyerNote: "The most common industrial size. This is where clay's price per kilogram starts to matter across a full container of cartons.",
+        },
+        {
+          size: "50 g packs",
+          bestFor: "Master cartons, machinery crates, and pallet-level protection in stored stock.",
+          buyerNote: "Used where one pack must cover a large carton volume, and where replacing the desiccant on a schedule is acceptable.",
+        },
+        {
+          size: "Bulk granules",
+          bestFor: "Repackers and buyers who fill their own sachets or bags on a packing line.",
+          buyerNote: "Quoted by the kilogram. Confirm the granule size you can run through your filling equipment before ordering.",
+        },
+      ],
+    },
+    comparison: {
+      title: "Clay, silica gel, or calcium chloride: choosing honestly",
+      intro:
+        "These three cover most cargo. Clay is the cheapest per kilogram and the weakest per gram, silica gel is the general-purpose choice, and calcium chloride handles the wettest containers. A supplier who recommends one for everything is selling stock, not protection.",
+      columns: ["Activated clay", "Silica gel", "Calcium chloride"],
+      rows: [
+        {
+          label: "Capacity by weight",
+          values: ["Up to ~25%", "Up to ~33%", "Well above its own weight (deliquescent)"],
+        },
+        {
+          label: "Best for",
+          values: [
+            "Industrial cargo, machinery, tools, stored stock",
+            "General packaging, electronics, pharma, leather, food cartons",
+            "Long-haul sea freight and container rain",
+          ],
+        },
+        {
+          label: "Where it sits",
+          values: ["Inside cartons", "Inside unit packs and cartons", "Hung in the container, or floor bags"],
+        },
+        {
+          label: "Indicating version",
+          values: ["No, a saturated pack looks the same", "Yes, cobalt-free orange", "No"],
+        },
+        {
+          label: "Relative cost per kg",
+          values: ["Lowest", "Moderate", "Quoted by strip, not by kg"],
+        },
+        {
+          label: "Regenerates",
+          values: ["Poorly, treat as single-use", "Yes, in an oven", "No, it dissolves as it works"],
+        },
+      ],
+    },
+    buyerGuide: {
+      title: "Buying activated clay desiccant: what a procurement team should check",
+      intro:
+        "Clay is a commodity mineral, so the difference between suppliers is not the material. It is the pack construction, the honesty of the capacity claim, and whether the documents that arrive actually describe what is in the bag.",
+      sections: [
+        {
+          label: "The material",
+          title: "Activated bentonite, also called montmorillonite",
+          text: "Bentonite is a rock made mostly of montmorillonite clay, and in desiccant trade the two words are used interchangeably. It is activated by controlled drying, which opens the pore structure so it adsorbs water vapour. It arrives as grey to brown granules, is non-toxic and non-flammable, and holds up to about 25 percent of its own weight in water vapour at 25 degrees Celsius and 90 percent relative humidity.",
+        },
+        {
+          label: "Where it wins",
+          title: "Cost per kilogram across a lot of cartons",
+          text: "Clay is the cheapest common desiccant per kilogram. On a container of machined parts or hand tools, protecting every carton with silica gel may cost more than the moisture risk justifies. Clay lets the whole load be covered, with silica gel kept for the lines that genuinely need it.",
+        },
+        {
+          label: "Where it loses",
+          title: "Lower capacity, and no way to see saturation",
+          text: "Clay holds less water per gram than silica gel and its advantage narrows at higher temperatures. It also has no indicating version, so a pack that has already done its work looks identical to a fresh one. For cargo where a failed desiccant means a rejected shipment, silica gel with an orange indicating fraction is the safer specification.",
+        },
+        {
+          label: "Documents",
+          title: "What DryGelWorld can and cannot issue for clay",
+          text: "The ISO 9001:2015 certificate, number 9101225 with QMEC Group Intl, covers the company's quality system for packaging and supply of silica desiccant. For clay, the safety data sheet and lot certificate of analysis are obtained from the clay source and passed on with the order. The DMF-free statement and the silica gel SDS and COA published on the documentation hub are silica gel documents and do not describe clay. Ask for the clay paperwork explicitly at RFQ so it travels with the shipment.",
+        },
+        {
+          label: "Customs",
+          title: "HS code and origin",
+          text: "Activated clay normally clears under HS 2508.10 or 3802.90 depending on the activation and how your broker classifies it, which is a different heading from silica gel at 2811.22. Confirm the code with your own broker before the commercial invoice is issued, because a desiccant shipment that mixes clay and silica gel may need both lines.",
+        },
+        {
+          label: "Commercial terms",
+          title: "No minimum, quoted by pack and volume",
+          text: "There is no minimum order quantity. A trial quantity of any pack size can be supplied before a bulk commitment, and the rate improves with volume. Export pricing starts from about USD 2.00 per kilogram packed and moves with pack size, carton packing, destination, and Incoterm. Terms are EXW, FOB Karachi, CIF, or DAP.",
+        },
+      ],
+    },
     quoteChecklist: desiccantQuoteChecklist("Industrial Dry Clay Desiccant"),
+    contentBlock: {
+      heading: "Clay in a wider moisture programme",
+      parts: [
+        { text: "Most buyers who land here are choosing between formats rather than materials. The " },
+        { href: "/compare/silica-gel-vs-clay-desiccant", label: "silica gel vs clay comparison" },
+        { text: " sets out the capacity and cost trade-off, and " },
+        { href: "/blog/what-is-clay-desiccant-and-how-does-it-work", label: "how clay desiccant works" },
+        { text: " covers the chemistry. If the cargo is moving by sea, the carton tier usually sits under a container charge from the " },
+        { href: "/shipping-container-desiccant-supplier", label: "container desiccant range" },
+        { text: ", sized with the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: ". Product specifications are on the " },
+        { href: "/products/dry-clay-desiccant", label: "dry clay product page" },
+        { text: ", published rates on the " },
+        { href: "/pricing", label: "pricing page" },
+        { text: ", and what is and is not certified under " },
+        { href: "/certifications", label: "certifications" },
+        { text: "." },
+      ],
+    },
     relatedLinks: [
       { label: "Dry clay desiccant product page", href: "/products/dry-clay-desiccant" },
-      { label: "Silica gel vs clay comparison", href: "/blog/silica-gel-vs-clay-desiccant" },
+      { label: "Silica gel vs clay comparison", href: "/compare/silica-gel-vs-clay-desiccant" },
+      { label: "How clay desiccant works", href: "/blog/what-is-clay-desiccant-and-how-does-it-work" },
       { label: "Industrial desiccant supplier", href: "/industrial-desiccant-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Clay desiccant for European buyers", href: "/dry-clay-exporter-europe" },
+      { label: "Pricing in PKR and USD", href: "/pricing" },
     ],
     faqs: [
-      { question: "What's the difference between bentonite and montmorillonite clay?", answer: "Bentonite is a rock composed predominantly of montmorillonite clay - the terms are often used interchangeably in industrial desiccant supply. Both are activated by heat treatment to expose the layered structure that adsorbs moisture." },
-      { question: "Is bentonite clay desiccant safe?", answer: "Yes - bentonite is non-toxic and non-flammable. Like all desiccants, packets should carry DO NOT EAT warnings and be kept away from children and food contact." },
-      { question: "Bentonite or silica gel for shipping containers?", answer: "Silica gel is the better choice for moisture-sensitive cargo on long routes - ~33% adsorption vs bentonite's ~24-28%. Bentonite is the cost-tier choice for industrial durable goods on shorter routes where moisture risk is mild oxidation." },
+      {
+        question: "What is activated clay desiccant?",
+        answer: "Activated clay desiccant is bentonite, a natural mineral made mostly of montmorillonite, dried under controlled conditions so its pore structure adsorbs water vapour. It arrives as grey to brown granules, is non-toxic and non-flammable, and is packed into sachets, bags, or cartons for industrial moisture control.",
+      },
+      {
+        question: "How much moisture does clay desiccant absorb?",
+        answer: "Up to about 25 percent of its own weight in water vapour at 25 degrees Celsius and 90 percent relative humidity. Silica gel reaches about 33 percent under the same conditions, so clay needs roughly a third more weight to do the same job, which is why the decision is usually about cost per kilogram rather than cost per pack.",
+      },
+      {
+        question: "What sizes of clay desiccant packs are available?",
+        answer: "Standard packs are 1 g, 5 g, 10 g, 25 g, and 50 g, with custom gram weights made to order. Bags, industrial cartons, and bulk granules for buyers who fill their own sachets are all quoted. Confirm granule size before ordering bulk if it has to run through your own filling line.",
+      },
+      {
+        question: "What is the minimum order for clay desiccant?",
+        answer: "There is no minimum order quantity. A trial quantity of any pack size can be supplied before a bulk commitment, and the per-unit rate improves as volume grows.",
+      },
+      {
+        question: "How much does clay desiccant cost?",
+        answer: "Export pricing starts from about USD 2.00 per kilogram packed and moves with pack size, carton packing, quantity, destination, and Incoterm. Indicative bands for the silica gel range are published on the pricing page; clay is quoted per enquiry because pack construction varies more.",
+      },
+      {
+        question: "Is bentonite the same as montmorillonite clay?",
+        answer: "In practice, yes. Bentonite is a rock composed predominantly of montmorillonite clay, and desiccant suppliers use the two terms interchangeably. If a specification names one, the other will normally satisfy it, but confirm with your quality team where a standard is being cited.",
+      },
+      {
+        question: "Is clay desiccant safe?",
+        answer: "Bentonite is non-toxic and non-flammable. Like every desiccant, packs must carry DO NOT EAT warning text and be kept away from children and out of direct food contact unless the application has been separately confirmed. DryGelWorld does not hold food-contact or pharmacopoeia certification for clay.",
+      },
+      {
+        question: "Can clay desiccant be regenerated and reused?",
+        answer: "Not usefully. Clay can be dried, but it loses capacity quickly and the pack material rarely survives repeated heating, so industrial buyers treat it as single-use. Silica gel is the desiccant to specify when regeneration is part of the plan.",
+      },
+      {
+        question: "Clay or silica gel for a shipping container?",
+        answer: "For the container itself, neither: hanging calcium chloride or silica gel strips are made for that job. Clay belongs inside the cartons, under the container charge, and works well on machinery, tools, and durable goods. For moisture-sensitive cargo on a long humid route, silica gel inside the carton is the safer specification.",
+      },
+      {
+        question: "Does clay desiccant come with an SDS and COA?",
+        answer: "The safety data sheet and lot certificate of analysis are obtained from the clay source and passed on with the order. Ask for them at RFQ so they travel with the shipment. The silica gel SDS, COA, and the DMF-free statement published on this site are silica gel documents and do not describe clay.",
+      },
+      {
+        question: "Which HS code applies to clay desiccant?",
+        answer: "Activated clay normally clears under HS 2508.10 or 3802.90 depending on activation and your broker's classification, which is a different heading from silica gel at 2811.22. A mixed shipment of clay and silica gel may need both lines on the invoice, so confirm with your customs broker before documents are issued.",
+      },
+      {
+        question: "Do you supply clay desiccant to Europe?",
+        answer: "Yes, and the dry clay export page for European buyers covers the routing. Note that DryGelWorld does not hold a REACH registration number. Buyers who require one should confirm that requirement before ordering, because it applies to the importer of record as much as to the supplier.",
+      },
     ],
   }),
   "disposable-beard-covers": keywordClusterPage({
