@@ -99,80 +99,6 @@ const footerColumns: FooterColumn[] = [
     viewAll: { label: "Visit the buyer blog", href: "/blog" },
   },
   {
-    title: "Industries",
-    links: [
-      { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
-      {
-        label: "Electronic packaging desiccant",
-        href: "/electronic-packaging-desiccant",
-      },
-      {
-        label: "Electronics packaging",
-        href: "/industries/electronics-packaging",
-      },
-      { label: "Pharma packaging", href: "/industries/pharma-packaging" },
-      {
-        label: "Leather and footwear export",
-        href: "/industries/leather-footwear-export",
-      },
-      { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "Container shipping", href: "/industries/container-shipping" },
-      {
-        label: "Textile and garment export",
-        href: "/industries/textile-garment-export",
-      },
-      { label: "Automotive parts", href: "/industries/automotive-parts" },
-      {
-        label: "Defence and ammunition",
-        href: "/industries/defense-and-ammunition-packaging",
-      },
-      { label: "Case studies", href: "/case-studies" },
-    ],
-    viewAll: { label: "All industries", href: "/industries" },
-  },
-  {
-    title: "Export Markets",
-    links: [
-      { label: "UAE silica gel supplier", href: "/export/uae" },
-      { label: "Saudi Arabia supplier", href: "/export/saudi-arabia" },
-      { label: "Qatar supplier", href: "/export/qatar" },
-      { label: "USA export", href: "/export/usa" },
-      { label: "UK supplier", href: "/export/uk" },
-      { label: "Germany supplier", href: "/export/germany" },
-      { label: "India supplier", href: "/export/india" },
-      { label: "Turkey supplier", href: "/export/turkey" },
-      { label: "Vietnam supplier", href: "/export/vietnam" },
-      { label: "FOB Karachi terms", href: "/export/fob-karachi" },
-      { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
-    ],
-    viewAll: { label: "All export markets", href: "/export" },
-  },
-  {
-    title: "Desiccant Range",
-    links: [
-      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
-      {
-        label: "Industrial desiccant supplier",
-        href: "/industrial-desiccant-supplier",
-      },
-      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
-      {
-        label: "Moisture absorber supplier",
-        href: "/moisture-absorber-supplier",
-      },
-      {
-        label: "Container desiccant strips",
-        href: "/container-desiccant-strips",
-      },
-      {
-        label: "Shipping container desiccant",
-        href: "/shipping-container-desiccant-supplier",
-      },
-      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
-    ],
-    viewAll: { label: "View all formats", href: "/products" },
-  },
-  {
     // Pakistan supply is a different buyer from the export markets above: PKR
     // prices, road delivery from the Karachi factory, WhatsApp first. It used
     // to be one Karachi link buried in the export column.
@@ -230,6 +156,77 @@ const footerColumns: FooterColumn[] = [
     },
   },
   {
+    title: "Industries",
+    links: [
+      { label: "Pharmaceutical desiccant", href: "/pharmaceutical-desiccant" },
+      {
+        label: "Electronic packaging desiccant",
+        href: "/electronic-packaging-desiccant",
+      },
+      {
+        label: "Electronics packaging",
+        href: "/industries/electronics-packaging",
+      },
+      { label: "Pharma packaging", href: "/industries/pharma-packaging" },
+      {
+        label: "Leather and footwear export",
+        href: "/industries/leather-footwear-export",
+      },
+      { label: "Food packaging", href: "/industries/food-packaging" },
+      { label: "Container shipping", href: "/industries/container-shipping" },
+      {
+        label: "Textile and garment export",
+        href: "/industries/textile-garment-export",
+      },
+      { label: "Automotive parts", href: "/industries/automotive-parts" },
+      {
+        label: "Defence and ammunition",
+        href: "/industries/defense-and-ammunition-packaging",
+      },
+      { label: "Case studies", href: "/case-studies" },
+    ],
+    viewAll: { label: "All industries", href: "/industries" },
+  },
+  {
+    title: "Export Markets",
+    links: [
+      { label: "UAE silica gel supplier", href: "/export/uae" },
+      { label: "Saudi Arabia supplier", href: "/export/saudi-arabia" },
+      { label: "Qatar supplier", href: "/export/qatar" },
+      { label: "USA export", href: "/export/usa" },
+      { label: "UK supplier", href: "/export/uk" },
+      { label: "Germany supplier", href: "/export/germany" },
+      { label: "India supplier", href: "/export/india" },
+      { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
+    ],
+    viewAll: { label: "All export markets", href: "/export" },
+  },
+  {
+    title: "Desiccant Range",
+    links: [
+      { label: "Bentonite clay desiccant", href: "/clay-desiccant-supplier" },
+      {
+        label: "Industrial desiccant supplier",
+        href: "/industrial-desiccant-supplier",
+      },
+      { label: "Desiccant bags supplier", href: "/desiccant-bags-supplier" },
+      {
+        label: "Moisture absorber supplier",
+        href: "/moisture-absorber-supplier",
+      },
+      {
+        label: "Container desiccant strips",
+        href: "/container-desiccant-strips",
+      },
+      {
+        label: "Shipping container desiccant",
+        href: "/shipping-container-desiccant-supplier",
+      },
+      { label: "Dry clay exporter Europe", href: "/dry-clay-exporter-europe" },
+    ],
+    viewAll: { label: "View all formats", href: "/products" },
+  },
+  {
     // Split out of "Company" (Sep 2026). Two different intents were sharing one
     // column: a buyer checking who we are, and a buyer asking what we can make
     // for them. Separating them also makes the grid eight columns, which fills
@@ -249,6 +246,7 @@ const footerColumns: FooterColumn[] = [
         href: "/contract-packaging-services",
       },
       { label: "Bulk & wholesale sales", href: "/bulk-sales" },
+      { label: "Soap packing services", href: "/soap-packing-services" },
     ],
   },
   {
@@ -266,6 +264,7 @@ const footerColumns: FooterColumn[] = [
       { label: "Contact", href: "/contact" },
       { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Media kit", href: "/media-kit" },
+      { label: "Factory videos", href: "/videos" },
     ],
   },
 ];
