@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AnalyticsGate } from "@/components/analytics-gate";
 
 import { GuaranteeStrip } from "@/components/guarantee-strip";
 import { DeferredChrome } from "@/components/deferred-chrome";
@@ -205,8 +204,7 @@ export default function RootLayout({
         <GuaranteeStrip />
         <DeferredChrome />
         <SiteFooter />
-        <Analytics />
-        <SpeedInsights />
+        <AnalyticsGate />
         {/* Internal-traffic switch. The owner's own IP is by far the largest
             source of sessions, which contaminates every rate this site
             measures — baseline, conversion rate, CTA performance. Visiting
