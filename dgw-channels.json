@@ -1,0 +1,57 @@
+{
+  "workspaceId": "6a41bc97379fd941344ff349",
+  "post": [
+    {
+      "id": "6a41c194a213131659c2a676",
+      "name": "Drygelworld",
+      "type": "FB_PAGE",
+      "profileImg": "https://graph.facebook.com/1147515651779039/picture?width=150&height=150",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    },
+    {
+      "id": "6a41c1b419b34ee5fd33eac5",
+      "name": "Silica Gel",
+      "type": "IN",
+      "profileImg": "https://media.licdn.com/dms/image/v2/D5603AQG4l909sAimIw/profile-displayphoto-scale_100_100/B56Z4XtUqvG0Ac-/0/1778514219944?e=1784160000&v=beta&t=Xl4LNFLKgMYX_xBvBISTa-zWZa3qu55AgLpPPBOK8lo",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    },
+    {
+      "id": "6a41c871379fd94134501c49",
+      "name": "DryGelWorld | Desiccant Manufacturer",
+      "type": "IG_DIRECT",
+      "profileImg": "https://scontent-lhr6-2.cdninstagram.com/v/t51.82787-19/727884402_18069862556391649_7397955421517757996_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=109&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%3D&_nc_ohc=BfY6Kqrl1CkQ7kNvwGBCwvX&_nc_oc=Adr8aVFQRFdK05ro4Xtq-Xq7f06EE4NPYyPXMuXq6QGS3hjH-DflDguaM6Btj1sUomA&_nc_zt=24&_nc_ht=scontent-lhr6-2.cdninstagram.com&edm=AP4hL3IEAAAA&_nc_gid=PKOEnxrQJKl2ozXVBqhtTA&_nc_tpa=Q5bMBQJxUSniavSc5eDf6NBo9dnecnAh-RGvcN1rTnhH0lgvOD3KuUykvK6zAW6uCBlIyMneJasHQD3S&oh=00_AQLhxCP2Uou5fUOkgChYhOX5Yes6vUYfFNc0iTimY80l6A&oe=6A97F59A",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    },
+    {
+      "id": "6a5b8dc92b0abf382778f588",
+      "name": "drygelworld",
+      "type": "G_BUSINESS",
+      "profileImg": "",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    }
+  ],
+  "skipped": [
+    {
+      "id": "6a41c84c379fd941345017bb",
+      "name": "DryGelWorld",
+      "type": "TW",
+      "profileImg": "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    },
+    {
+      "id": "6a41c96ca213131659c2c51d",
+      "name": "DryGelWorld",
+      "type": "YT",
+      "profileImg": "https://yt3.ggpht.com/IKvEtj34jtqCEt3y882l0q_Hn5QF6qyGJcDuuNiPjnTmdkr6nJWAuFLitg_9gVwyFdwBc4SzFg=s88-c-k-c0x00ffffff-no-rj",
+      "workspaceId": "6a41bc97379fd941344ff349"
+    },
+    {
+      "id": "6a5bb1a2d16b02c81fe9bffd",
+      "name": "Silica Gel ",
+      "type": "FB_GROUP",
+      "profileImg": "https://static.socialchamp.io/assets/shared-icons/profile-150x150.svg",
+      "workspaceId": "6a41bc97379fd941344ff349",
+      "note": "Excluded 2 Sep 2026: 35 posts sat in 'queued' for two days with no error and none published - Social Champ cannot post into this group (Meta withdrew the Groups API in 2024). Re-add only if Social Champ support confirms group posting works."
+    }
+  ]
+}

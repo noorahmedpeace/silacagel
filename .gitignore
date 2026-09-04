@@ -70,3 +70,6 @@ playwright-report/
 /inbox-triage-state.json
 /inbox-triage-state.json.tmp
 /inbox-triage-log.jsonl
+/sc-media-50.json
+/sc-scheduled-50.json
+/sc-scheduled-50b.json

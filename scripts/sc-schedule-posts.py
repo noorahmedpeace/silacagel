@@ -50,7 +50,7 @@ UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36")
 
 POSTS = "sc-posts.json"
-MEDIA = "sc-media.json"
+MEDIA = os.environ.get("SC_MEDIA", "sc-media.json")
 CHANNELS = "dgw-channels.json"
 DONE = "sc-scheduled.json"
 
@@ -97,6 +97,7 @@ def main():
     ap.add_argument("--done", default=DONE, help="record of what this file has already scheduled")
     ap.add_argument("--after-queue", action="store_true",
                     help="start after the last post already queued, instead of in %d minutes" % LEAD_MINUTES)
+    ap.add_argument("--start", help="pehli post ka local waqt, HH:MM (aaj, ya kal agar guzar chuka)")
     args = ap.parse_args()
 
     posts = load(args.posts)["posts"]
@@ -123,6 +124,12 @@ def main():
 
     now = datetime.now(timezone.utc)
     start = now + timedelta(minutes=LEAD_MINUTES)
+    if args.start:
+        hh, mm = (int(x) for x in args.start.split(":"))
+        local = now.astimezone().replace(hour=hh, minute=mm, second=0, microsecond=0)
+        if local < now.astimezone() - timedelta(minutes=5):
+            local += timedelta(days=1)
+        start = local.astimezone(timezone.utc)
     tok = token() if (args.go or args.after_queue) else None
     if args.after_queue:
         # Queue up behind whatever is already scheduled (the hourly blog run,
@@ -137,6 +144,8 @@ def main():
             print("  queue mein aakhri post: %s local" % last.astimezone().strftime("%d %b %H:%M"))
             start = max(start, last + timedelta(hours=args.gap))
     start = start.replace(second=0, microsecond=0)
+    if start < now:
+        start = now + timedelta(minutes=3)
     ok = fail = 0
 
     for i, p in enumerate(todo):
