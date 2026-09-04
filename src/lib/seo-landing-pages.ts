@@ -4511,7 +4511,10 @@ export const seoLandingPages = {
   },
   "orange-silica-gel-supplier": {
     slug: "orange-silica-gel-supplier",
-    title: "Orange Silica Gel Supplier | Indicating Desiccant RFQ",
+    // "cobalt free silica gel" reached position 9 for 14 impressions and zero
+    // clicks in 90 days. The page is exactly what that searcher wants, but the
+    // title did not contain the phrase they typed.
+    title: "Cobalt-Free Orange Silica Gel Supplier | Indicating",
     metaDescription:
       "Orange silica gel supplier, cobalt-free indicating desiccant in beads or packets for humidity monitoring in packaging, storage, and instruments. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Orange indicating silica gel",
@@ -5079,7 +5082,7 @@ export const seoLandingPages = {
     // Lead with the term that is actually winning impressions.
     title: "Shipping Container Desiccant Supplier | Sea Freight",
     metaDescription:
-      "VoyaSorb is our shipping container desiccant system, hanging silica or calcium chloride strips plus bulk bags to stop container rain on long-haul sea freight. ISO 9001:2015, FOB/CIF, RFQ answered within the hour.",
+      "Hanging silica gel and calcium chloride strips plus bulk floor bags for 20ft and 40ft sea freight, sized to your route and transit days. Factory-direct from Karachi, no minimum order, ISO 9001:2015, FOB or CIF.",
     kicker: "VoyaSorb container system",
     h1: "Shipping container desiccant supplier for sea freight: hanging strips and bulk bags (VoyaSorb).",
     lead:

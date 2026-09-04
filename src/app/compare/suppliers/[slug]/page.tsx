@@ -24,11 +24,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Long supplier names ("Trade Link / Silica Gel Manufacturer") push the
   // suffixed title past the 60-char SERP limit - append it only when it fits,
   // same guard as /compare/[slug].
+  // Search Console, 90 days: "absortech alternatives" put this cluster at
+  // position 7.7 for 19 impressions and zero clicks. Someone typing
+  // "<brand> alternatives" is shopping for a replacement, and the title said
+  // "Supplier Comparison", which is not the words they used. Lead with the
+  // comparison, close with the word they typed, and only when it fits the
+  // 60-character SERP limit.
   const baseTitle = `DryGelWorld vs ${comparison.name}`;
+  const withAlternative = `${baseTitle} | ${comparison.name} Alternative`;
   const title =
-    `${baseTitle} | Supplier Comparison`.length <= 60
-      ? `${baseTitle} | Supplier Comparison`
-      : compactMetaTitle(baseTitle);
+    withAlternative.length <= 60
+      ? withAlternative
+      : `${baseTitle} | Supplier Comparison`.length <= 60
+        ? `${baseTitle} | Supplier Comparison`
+        : compactMetaTitle(baseTitle);
   const description = compactMetaDescription(comparison.summary);
   return {
     title,

@@ -5,9 +5,12 @@ import { seoImages } from "@/lib/seo-images";
 import { supplierComparisons } from "@/lib/supplier-compare-data";
 import styles from "./supplier-compare.module.css";
 
-const pageTitle = `Silica Gel Supplier Comparisons | ${siteName}`;
+// "Supplier Comparisons" is not what buyers type. The queries that reach this
+// cluster are "<brand> alternatives" and "best <product> suppliers", so the
+// title carries both words a shopper actually uses.
+const pageTitle = "Silica Gel & Desiccant Supplier Alternatives Compared";
 const pageDescription =
-  "Evidence-led comparisons of DryGelWorld with major silica gel, desiccant, specialty chemical, and container moisture-control suppliers.";
+  "Side-by-side comparisons of DryGelWorld against Clariant, W. R. Grace, Multisorb, Absortech and other desiccant suppliers: formats, MOQ, documents, and what each one is actually best at.";
 
 export const metadata: Metadata = {
   title: pageTitle,
