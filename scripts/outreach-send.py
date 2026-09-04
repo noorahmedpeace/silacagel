@@ -312,11 +312,12 @@ def body_for(row):
             "We manufacture silica gel and clay desiccant in Karachi - the factory," + NL +
             "not an importer. For a company shipping containers, buying locally" + NL +
             "removes the import lead time and the LC, and the rate is in rupees." + NL + NL +
-            "Container strips for full loads, sachets from 0.5 g to 1 kg for carton" + NL +
-            "packing, and clay if you would rather not pay for silica gel where clay" + NL +
-            "does the same job. Every consignment carries an SDS, a certificate of" + NL +
-            "analysis and a DMF-free statement - the documents your own buyers ask" + NL +
-            "you for. ISO 9001:2015 certified, manufacturing since 1983."
+            "Container strips 1 kg to 5 kg for full loads, sachets 0.5 g to 20 g and" + NL +
+            "carton packs 25 g to 500 g, and clay if you would rather not pay for" + NL +
+            "silica gel where clay does the same job. There is no minimum order." + NL +
+            "Every consignment carries an SDS and a certificate of analysis, and" + NL +
+            "silica gel also carries a DMF-free statement - the documents your own" + NL +
+            "buyers ask you for. ISO 9001:2015 certified, manufacturing since 1983."
         )
         ask = (
             "If it is useful, I can send free samples and a dosage estimate for one" + NL +
@@ -342,9 +343,11 @@ def body_for(row):
         middle = (
             "We manufacture silica gel and clay desiccant in Karachi, Pakistan and\n"
             "have been exporting since 1983 - ISO 9001:2015, and every shipment goes\n"
-            "out with an SDS, a certificate of analysis and a DMF-free statement.\n\n"
-            "Formats run from 0.5 g sachets to 1 kg packs, with container desiccant\n"
-            "strips for full loads. We quote EXW, FOB Karachi, CIF and DAP."
+            "out with an SDS, a certificate of analysis and, for silica gel, a\n"
+            "DMF-free statement.\n\n"
+            "Sachets run 0.5 g to 20 g, carton packs 25 g to 500 g, and container\n"
+            "strips 1 kg to 5 kg. There is no minimum order. We quote EXW, FOB\n"
+            "Karachi, CIF and DAP."
         )
         ask = (
             "If you would like, I can send free evaluation samples to your office so\n"
