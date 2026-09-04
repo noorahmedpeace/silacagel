@@ -91,6 +91,46 @@ def fetch(url, timeout=14):
     return raw.decode("utf-8", errors="replace")
 
 
+CF_RE = re.compile(r'data-cfemail="([0-9a-fA-F]+)"')
+
+
+def decode_cfemail(hex_string):
+    """Undo Cloudflare's email obfuscation.
+
+    Cloudflare rewrites every mailto: on a page into
+    <a href="/cdn-cgi/l/email-protection#<hex>"> or a span carrying
+    data-cfemail="<hex>", and the plain address never appears in the HTML.
+    That is why a first pass over 25 Pakistani manufacturers found one address:
+    the emails were on the pages, encoded. The cipher is trivial - the first
+    byte is the key, every following byte is XORed with it - and decoding it
+    reads exactly what the page already shows a human visitor.
+    """
+    try:
+        data = bytes.fromhex(hex_string)
+    except ValueError:
+        return ""
+    if len(data) < 2:
+        return ""
+    key = data[0]
+    out = "".join(chr(b ^ key) for b in data[1:])
+    return out if "@" in out and "." in out.split("@")[-1] else ""
+
+
+def emails_in(html):
+    """Every address on the page: written plainly, or Cloudflare-encoded."""
+    found = [m.strip(".,;:'\"()<>") for m in EMAIL_RE.findall(html)]
+    for hexed in CF_RE.findall(html):
+        addr = decode_cfemail(hexed)
+        if addr:
+            found.append(addr)
+    # The same encoding is used on the href of the protected link.
+    for hexed in re.findall(r"/cdn-cgi/l/email-protection#([0-9a-fA-F]+)", html):
+        addr = decode_cfemail(hexed)
+        if addr:
+            found.append(addr)
+    return found
+
+
 def score(addr, host):
     a = addr.lower()
     local, _, dom = a.partition("@")
@@ -119,8 +159,7 @@ def harvest(host):
                 html = fetch(url)
             except Exception:
                 continue
-            for m in EMAIL_RE.findall(html):
-                a = m.strip(".,;:'\"()<>")
+            for a in emails_in(html):
                 low = a.lower()
                 if any(j in low for j in JUNK) or low.endswith(JUNK_END):
                     continue
