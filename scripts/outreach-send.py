@@ -496,15 +496,26 @@ def load_targets():
     return out
 
 
+TEMPLATE = "plain"
+
+
 def build(row):
+    """(subject, plain text, html or None). The premium template is a laid-out
+    letter used for the domestic batch; the default stays the plain note that
+    the export campaign was written in."""
+    if TEMPLATE == "premium":
+        import outreach_template_premium as premium
+        return premium.subject_for(row), premium.text_body(row), premium.html_body(row)
     sector, problem = split_sector(row.get("Sector / Why they buy"))
     return (
         subject_for(problem, sector, (row.get("Company") or "").strip()),
         body_for(row),
+        None,
     )
 
 
 def main():
+    global CSV_PATH, TEMPLATE, PREVIEW
     ap = argparse.ArgumentParser()
     ap.add_argument("--send", action="store_true", help="actually send (default: preview only)")
     ap.add_argument("--limit", type=int, default=12, help="max messages this run")
@@ -521,7 +532,25 @@ def main():
     # who is still pending: matches against the recipient address or domain.
     ap.add_argument("--only", default="",
                     help="comma-separated addresses/domains; only these are mailed")
+    ap.add_argument("--csv", default=CSV_PATH,
+                    help="doosri buyer list (default: %s)" % CSV_PATH)
+    ap.add_argument("--template", choices=("plain", "premium"), default="plain",
+                    help="premium = designed letter (domestic batch)")
+    # A young sending domain cannot take a burst. 77 mails went out in under two
+    # hours on 4 Sep and the bounces and a Gmail "very low reputation" refusal
+    # followed the same day, so the domestic batch is paced in minutes.
+    ap.add_argument("--gap", default="20-45",
+                    help="seconds between sends, MIN-MAX (e.g. 90-180)")
     args = ap.parse_args()
+
+    CSV_PATH = args.csv
+    TEMPLATE = args.template
+    if args.template == "premium":
+        PREVIEW = "outreach-preview-premium.txt"
+    try:
+        gap_lo, gap_hi = (float(x) for x in str(args.gap).split("-"))
+    except Exception:
+        sys.exit("  --gap MIN-MAX chahiye, jaise 90-180")
 
     sent = load_sent()
     skip = {x.strip().lower() for x in args.skip_region}
@@ -559,7 +588,7 @@ def main():
     if not args.send:
         with open(PREVIEW, "w", encoding="utf-8") as fh:
             for r in batch:
-                subj, body = build(r)
+                subj, body, html = build(r)
                 fh.write("=" * 78 + "\n")
                 fh.write("TO      : {} <{}>\n".format(r.get("Company", ""), r["_to"]))
                 fh.write("PRIORITY: {}   REGION: {}\n".format(r.get("Priority", ""), r.get("Region", "")))
@@ -606,7 +635,7 @@ def main():
                 except Exception:
                     pass
                 s = connect()
-            subj, body = build(r)
+            subj, body, html = build(r)
             msg = EmailMessage()
             msg["From"] = formataddr((SENDER_NAME, user))
             msg["To"] = r["_to"]
@@ -615,7 +644,7 @@ def main():
             msg["Date"] = formatdate(localtime=True)
             msg["Message-ID"] = make_msgid(domain="drygelworld.com")
             msg.set_content(body)
-            msg.add_alternative(html_body(body), subtype="html")
+            msg.add_alternative(html or html_body(body), subtype="html")
             try:
                 try:
                     s.send_message(msg)
@@ -634,7 +663,7 @@ def main():
             if i < len(batch):
                 # Human-ish spacing. A burst of identical-interval sends is the
                 # pattern bulk filters look for.
-                time.sleep(random.uniform(20, 45))
+                time.sleep(random.uniform(gap_lo, gap_hi))
 
     print("\n  bheje: {}   nakaam: {}   baaqi: {}".format(ok, fail, len(targets) - ok))
 
