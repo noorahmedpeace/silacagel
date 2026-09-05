@@ -30,6 +30,12 @@ export type SeoLandingPage = {
     alt: string;
     caption: string;
     chips: string[];
+    /**
+     * The image's own width/height, e.g. "1 / 1". The hero frame defaults to
+     * 16 / 11; a page whose photo is a different shape sets this so the frame
+     * matches the picture instead of cropping it.
+     */
+    aspect?: string;
   };
   fitTitle: string;
   fitItems: Array<{
@@ -4228,6 +4234,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets and beads on a laboratory bench with staff in lab coats packing cartons",
       caption: "Pharma bottles take 0.5g to 3g. Electronics and instrument cartons take 10g to 25g. Both ship from Karachi.",
       chips: ["Islamabad", "Rawalpindi", "Pharma", "PKR"],
+      aspect: "1 / 1",
     },
     fitTitle: "What the twin cities buy silica gel for",
     fitItems: [
@@ -4327,6 +4334,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets and beads on a bench beside crates of mangoes and stacked fabric, with a container being loaded",
       caption: "Dried fruit and dates spoil from moisture before they spoil from anything else. The sachet goes in the carton, not the primary pack.",
       chips: ["Multan", "Agri export", "Textile", "PKR"],
+      aspect: "1 / 1",
     },
     fitTitle: "What south Punjab ships that moisture ruins",
     fitItems: [
@@ -4430,6 +4438,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets and beads on a bench inside a plant, with sacks on pallets and cartons stacked for dispatch",
       caption: "For a container of fans or cutlery, clay covers the bulk at a lower cost per kilogram and silica gel is kept for the parts that justify it.",
       chips: ["Gujranwala", "Engineering", "Steel", "Clay"],
+      aspect: "1 / 1",
     },
     fitTitle: "What the engineering belt ships that rusts",
     fitItems: [
@@ -4531,6 +4540,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets being weighed beside crates of dried fruit and nuts in a trading warehouse",
       caption: "Dry fruit, wood, and stone all fail the same way: they take up moisture in a carton and show it later.",
       chips: ["Peshawar", "Dry fruit", "Marble", "PKR"],
+      aspect: "1 / 1",
     },
     fitTitle: "What KPK trade needs moisture control for",
     fitItems: [
@@ -4632,6 +4642,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets and beads on a bench with fabric rolls, sacks and folded textiles behind",
       caption: "The closest industrial city to the plant. Short road leg, factory price, and the same documents as an export order.",
       chips: ["Hyderabad", "Kotri", "Textile", "Rice"],
+      aspect: "1 / 1",
     },
     fitTitle: "What Hyderabad and Kotri industry packs",
     fitItems: [
@@ -4730,6 +4741,7 @@ export const seoLandingPages = {
       alt: "Silica gel beads and sachets beside pharmaceutical bottles and folded textiles, the two things Lahore packs most",
       caption: "The sizes Lahore buyers order most: 1g to 5g inside unit packs, 10g to 25g in export cartons, loose beads for repackers.",
       chips: ["Lahore", "Factory-direct", "PKR", "No minimum"],
+      aspect: "1 / 1",
     },
     fitTitle: "What Lahore industry buys silica gel for",
     fitItems: [
@@ -4915,6 +4927,7 @@ export const seoLandingPages = {
       alt: "A tray of silica gel sachets and beads in front of spinning frames and stacked fabric in a textile mill",
       caption: "Garment polybags take 0.5g to 2g. Master cartons take 10g to 50g. Long sea routes add a container strip above the load.",
       chips: ["Faisalabad", "Textile", "DMF-free", "Export"],
+      aspect: "1 / 1",
     },
     fitTitle: "Where moisture costs a Faisalabad exporter money",
     fitItems: [
@@ -5093,6 +5106,7 @@ export const seoLandingPages = {
       alt: "Silica gel sachets and beads beside a football and a leather glove, with a worker sealing an export carton",
       caption: "Instrument pouches take 1g to 5g. Cartons of gloves or balls take 10g to 25g. Both are cheaper than a claim.",
       chips: ["Sialkot", "Surgical", "Leather", "Export"],
+      aspect: "1 / 1",
     },
     fitTitle: "What moisture does to a Sialkot consignment",
     fitItems: [

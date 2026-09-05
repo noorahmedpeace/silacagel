@@ -186,6 +186,8 @@
 .visualCard {
   position: relative;
   width: 100%;
+  /* Default frame. A page that declares its photo's own ratio overrides this
+     inline, so the picture is shown whole instead of being cropped to fit. */
   aspect-ratio: 16 / 11;
   border-radius: 10px;
   overflow: hidden;
@@ -839,4 +841,37 @@
    card styling; this only gives it separation from the checklist above it. */
 .checklistDocs {
   margin-top: 18px;
+}
+
+/* Caption under the picture instead of over it. Used where the page declares
+   its photo's own aspect ratio, because those photos carry their subject in
+   the lower half and a caption band would sit right on top of it. */
+.visualCaptionBelow {
+  margin-top: 10px;
+  padding: 0 2px;
+  color: var(--ds-text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.visualCaptionBelow p {
+  margin: 0 0 7px;
+}
+
+.visualCaptionBelow div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.visualCaptionBelow span {
+  padding: 2px 8px;
+  background: var(--ds-brand-soft);
+  color: var(--ds-brand-deep);
+  border-radius: var(--ds-radius-pill);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }

@@ -39,6 +39,9 @@ function buyerFacingIntent(intent: string | undefined) {
 
 export function SeoLandingPage({ page }: SeoLandingPageProps) {
   const heroImage = getLandingSeoImage(page);
+  // A page that declares its photo's aspect ratio is asking for the picture to
+  // be shown whole rather than cropped into the shared 16:11 frame.
+  const photoIsWhole = Boolean(page.heroImage?.aspect);
   const landingSpec = getLandingSpec(page.slug);
   const breadcrumbItems = [
     { name: "Home", href: "/" },
@@ -119,7 +122,16 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
 
 
         <aside className={styles.proofPanel} aria-label="Procurement proof points">
-          <div className={styles.visualCard}>
+          {/* Two treatments, chosen by whether the page declared its photo's
+              shape. Pages that did (the Pakistan city pages) get the picture
+              whole, at its own ratio, with the caption reading underneath:
+              their photos put the product and the sign in the lower half,
+              exactly where a caption band would fall. Every other landing page
+              keeps the original 16:11 frame with the caption over the image. */}
+          <div
+            className={styles.visualCard}
+            style={photoIsWhole ? { aspectRatio: page.heroImage?.aspect } : undefined}
+          >
             <Image
               src={heroImage.src}
               alt={heroImage.alt}
@@ -129,8 +141,22 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
               sizes="(max-width: 1080px) 100vw, 38vw"
               priority
             />
-            <div className={styles.visualScrim} />
-            <div className={styles.visualCaption}>
+            {photoIsWhole ? null : (
+              <>
+                <div className={styles.visualScrim} />
+                <div className={styles.visualCaption}>
+                  <p>{heroImage.caption}</p>
+                  <div>
+                    {(page.heroImage?.chips ?? []).map((chip) => (
+                      <span key={chip}>{chip}</span>
+                    ))}
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          {photoIsWhole ? (
+            <div className={styles.visualCaptionBelow}>
               <p>{heroImage.caption}</p>
               <div>
                 {(page.heroImage?.chips ?? []).map((chip) => (
@@ -138,7 +164,7 @@ export function SeoLandingPage({ page }: SeoLandingPageProps) {
                 ))}
               </div>
             </div>
-          </div>
+          ) : null}
           <div>
             <span className={styles.kicker}>Buyer proof</span>
             <h2>Quote-ready details buyers check before contacting a supplier.</h2>
