@@ -78,6 +78,7 @@ IMAP_HOST = "mail.privateemail.com"
 SMTP_HOST = "mail.privateemail.com"
 SENT_FOLDER = "Sent"
 SPAM_FOLDER = "Spam"
+DRAFTS_FOLDER = "Drafts"
 
 SENDER_NAME = "Noor Ahmed Khan"
 REPLY_TO = "export@drygelworld.com"
@@ -832,6 +833,19 @@ def refuse(msg, force):
         sys.exit("  " + msg)
 
 
+def cmd_draft(args):
+    """Same letter, left in Drafts instead of sent.
+
+    The owner's rule from 6 Sep 2026: the FIRST answer to a new enquiry goes out
+    from here, but once that person replies, the conversation is his. Everything
+    after the first message is written, checked and parked in Drafts, and he
+    pushes it himself. So this shares every guard with cmd_reply - the message
+    must have been listed, the Message-ID must still match, the recipient is
+    still taken from Reply-To - and only the last step differs."""
+    args.draft = True
+    return cmd_reply(args)
+
+
 def cmd_reply(args):
     uid = valid_uid(args.uid)
     folder = args.folder
@@ -841,10 +855,12 @@ def cmd_reply(args):
     shown = st["seen"].get(k)
     if not shown:
         refuse("%s kabhi `list` mein dikhaya nahi gaya - pehle list chalayein" % k, args.force)
+    drafting = bool(getattr(args, "draft", False))
     prev = st["decisions"].get(k)
     if prev and prev.get("action") == "replied":
         refuse("%s ko pehle hi reply ja chuka hai (%s -> %s)" % (k, prev.get("at"), ", ".join(prev.get("to") or [])), args.force)
-    blocker = audit_blockers(k)
+    # A draft sends nothing, so a past attempt cannot double-send because of it.
+    blocker = None if drafting else audit_blockers(k)
     if blocker:
         refuse(blocker, args.force)
 
@@ -925,6 +941,22 @@ def cmd_reply(args):
     print(NL.join("  | " + l for l in body_text.splitlines()))
     if args.dry:
         print("  (dry run - kuch nahi bheja)")
+        return
+
+    if drafting:
+        try:
+            box.append(DRAFTS_FOLDER, r"(\Draft)", imaplib.Time2Internaldate(time.time()), m.as_bytes())
+        except Exception as exc:
+            sys.exit("  Drafts mein nahi rakha ja saka: %s" % str(exc)[:140])
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        audit({"event": "drafted", "key": k, "to": all_addrs, "subject": subj, "body": body_text, "at": now})
+        update_state(lambda f: f["decisions"].__setitem__(
+            k, {"action": "drafted", "at": now, "to": all_addrs, "subject": subj[:80], "mid": mid}))
+        print("  DRAFT mein rakh di -> %s   (Noor khud bhejenge; kuch send NAHI hua)" % ", ".join(all_addrs))
+        try:
+            box.logout()
+        except Exception:
+            pass
         return
 
     # Last look at state and audit right before committing, so two windows
@@ -1011,12 +1043,15 @@ def cmd_status(args):
     st = load_state()
     dec = st["decisions"]
     rep = [(u, d) for u, d in dec.items() if d.get("action") == "replied"]
+    dr = [(u, d) for u, d in dec.items() if d.get("action") == "drafted"]
     sk = [(u, d) for u, d in dec.items() if d.get("action") == "skipped"]
     lines = audit_lines()
     resolved = {e.get("attempt_id") for e in lines if e.get("event") in ("sent", "smtp-failed")}
     open_att = [e for e in lines if e.get("event") == "attempt" and e.get("attempt_id") not in resolved]
-    print("  faisle: %d   replied: %d   skipped: %d   shown-but-undecided: %d   archived sets: %d   open attempts: %d" % (
-        len(dec), len(rep), len(sk), len([k for k in st["seen"] if k not in dec]), len(st["archived"]), len(open_att)))
+    print("  faisle: %d   replied: %d   DRAFT mein (Noor bhejein): %d   skipped: %d   shown-but-undecided: %d   archived sets: %d   open attempts: %d" % (
+        len(dec), len(rep), len(dr), len(sk), len([k for k in st["seen"] if k not in dec]), len(st["archived"]), len(open_att)))
+    for u, d in sorted(dr, key=lambda x: x[1].get("at", "")):
+        print("  DRAFT    %s  %-12s -> %-36s %s" % (d.get("at", "")[:16], u, ", ".join(d.get("to") or []), d.get("subject", "")[:50]))
     for e in open_att:
         print("  OPEN ATTEMPT %s  %s -> %s  (anjaam maloom nahi - Sent dekhein)" % (e.get("at", "")[:16], e.get("key"), ", ".join(e.get("to") or [])))
     for u, d in sorted(rep, key=lambda x: x[1].get("at", "")):
@@ -1031,6 +1066,7 @@ def main():
     a = sub.add_parser("list"); a.add_argument("--hours", type=int, default=48); a.add_argument("--chars", type=int, default=4000); a.add_argument("--all", action="store_true", help="decided messages bhi dikhao"); a.set_defaults(fn=cmd_list)
     a = sub.add_parser("show"); a.add_argument("--uid", required=True); a.add_argument("--folder", default="INBOX"); a.set_defaults(fn=cmd_show)
     a = sub.add_parser("reply"); a.add_argument("--uid", required=True); a.add_argument("--file", required=True); a.add_argument("--folder", default="INBOX"); a.add_argument("--to", help="override recipient(s), comma-separated"); a.add_argument("--cc", help="comma-separated"); a.add_argument("--dry", action="store_true"); a.add_argument("--force", action="store_true"); a.set_defaults(fn=cmd_reply)
+    a = sub.add_parser("draft"); a.add_argument("--uid", required=True); a.add_argument("--file", required=True); a.add_argument("--folder", default="INBOX"); a.add_argument("--to"); a.add_argument("--cc"); a.add_argument("--dry", action="store_true"); a.add_argument("--force", action="store_true"); a.set_defaults(fn=cmd_draft)
     a = sub.add_parser("skip"); a.add_argument("--uid", required=True, help="ek ya comma-separated"); a.add_argument("--why", required=True); a.add_argument("--folder", default="INBOX"); a.add_argument("--force", action="store_true"); a.set_defaults(fn=cmd_skip)
     a = sub.add_parser("status"); a.set_defaults(fn=cmd_status)
     args = ap.parse_args()
