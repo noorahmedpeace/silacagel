@@ -191,10 +191,10 @@ def text_body(row):
         "certificate of analysis, our ISO 9001:2015 certificate (no. 9101225) and a "
         "DMF-free statement." % (city or "your city"),
         "",
-        "If it is useful, I will send free evaluation samples in the formats that fit "
-        "your packing, so your team can test them on one consignment before anything "
-        "is committed. Tell me the format and the quantity you would run and I will "
-        "come back with a written quotation.",
+        "If it is useful, I will send evaluation samples in the formats that fit your "
+        "packing. The material is free; the courier is on your account. Your team can "
+        "test them on one consignment before anything is committed. Tell me the format "
+        "and the quantity you would run and I will come back with a written quotation.",
         "",
         "WhatsApp is usually faster than email: %s" % PHONE_DISPLAY,
         "",
@@ -220,7 +220,7 @@ def html_body(row):
         ("ISO 9001:2015", "Certificate 9101225, verifiable with the registrar"),
         ("SDS &amp; COA", "With every consignment, no request needed"),
         ("DMF-free statement", "Issued for silica gel"),
-        ("Free samples", "Tested on one consignment before you commit"),
+        ("Evaluation samples", "Material free, courier on your account"),
     ]
     fact_rows = "".join(
         '<tr>'
@@ -274,7 +274,7 @@ def html_body(row):
   </td></tr>
 
   <tr><td style="padding:0 28px 22px;font-size:14px;line-height:1.62;color:%(ink)s;">
-    <p style="margin:0 0 18px;">If it helps, I will send free evaluation samples in the formats that suit your packing, so your team can test them on one consignment before anything is committed. Tell me the format and the quantity you would run, and a written quotation follows.</p>
+    <p style="margin:0 0 18px;">If it helps, I will send evaluation samples in the formats that suit your packing - the material free, the courier on your account - so your team can test them on one consignment before anything is committed. Tell me the format and the quantity you would run, and a written quotation follows.</p>
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
       <tr>
         <td style="border-radius:7px;background:%(accent)s;">
