@@ -5587,6 +5587,160 @@ export const seoLandingPages = {
       },
     ],
   },
+  "grain-storage-desiccant-supplier": {
+    slug: "grain-storage-desiccant-supplier",
+    title: "Grain Storage Desiccants | Rice, Flour & Dry Staples",
+    metaDescription:
+      "Desiccants for rice, wheat flour, pulses, spices, and dry staples - carton sachets for packed goods and VoyaSorb container strips for bulk grain shipments. Karachi factory, PKR quotes, SDS and COA included.",
+    kicker: "Grain & staples moisture control",
+    h1: "Desiccants for rice, flour, and dry staple storage.",
+    lead:
+      "Moisture control for rice, wheat flour, pulses, spices, and packed dry staples - sachets for master cartons and retail-pack outer packaging, plus hanging container strips for bulk grain shipments out of Karachi. Post-harvest guidance keeps milled rice near 13-14% moisture and wheat lower still; a humid container or godown pushes packed staples past that line, and caking, clumping, and mould follow. Quick PKR quotes for buyers in Pakistan, export terms for shipments abroad.",
+    searchIntent:
+      "For rice exporters, flour mills, spice packers, and dry-goods traders protecting staples in storage or transit.",
+    primaryCta: "Request Grain Storage Quote",
+    secondaryCta: "Container Strips",
+    secondaryHref: "/container-desiccant-strips",
+    proofPoints: ["Rice & staple exporters", "Container strips for bulk", "SDS / COA supplied", "No minimum order"],
+    heroImage: {
+      src: "/seo-images/food-packaging-silica-gel-desiccant.webp",
+      alt: "Silica gel desiccant sachets protecting packed dry food staples from moisture",
+      caption: "Staple-food moisture control works at two levels: sachets in the outer packaging, and container strips over bulk cargo - neither touching the food itself.",
+      chips: ["Rice & grain", "Flour & pulses", "Spices", "Container strips"],
+    },
+    fitTitle: "Where staple-food desiccants fit",
+    fitItems: [
+      {
+        label: "Rice export",
+        title: "Containers out of Karachi",
+        text: "Bagged rice rides ocean legs where day-night temperature swings condense moisture inside the container. Hanging strips absorb that load before it reaches the bags.",
+      },
+      {
+        label: "Flour & pulses",
+        title: "Cartons and master packs",
+        text: "Atta, besan, daal, and packed staples cake and clump when outer cartons take on humidity. Sachets in the secondary packaging keep the pack environment dry.",
+      },
+      {
+        label: "Spices",
+        title: "Aroma and colour protection",
+        text: "Ground spices lose colour and flow when they take on moisture. Carton-level desiccants protect without sitting against the product.",
+      },
+    ],
+    specsTitle: "Grain storage quote inputs",
+    specsIntro:
+      "Placement decides the format: sachets belong in outer packaging, strips belong over bulk cargo. Neither is quoted for direct food contact without a specific documented review.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Carton formats", value: "Paper sachets and packets placed in secondary packaging, not against the food" },
+      { label: "Bulk shipments", value: "VoyaSorb hanging strips (1-2 kg) and calcium chloride formats for full containers" },
+      { label: "Documents", value: "SDS, COA, and DMF-free statement with every shipment" },
+      { label: "Quote basis", value: "Staple type, pack format, container count or carton volume, route, destination" },
+    ],
+    buyerGuide: {
+      title: "How staple exporters and packers choose moisture control",
+      intro:
+        "Rice, flour, pulses, and spices are hygroscopic - they pull moisture from humid air until they spoil their own texture, colour, or shelf life. The fix is not one product; it depends on where your goods sit and how far they travel.",
+      sections: [
+        {
+          label: "Threshold",
+          title: "Know the moisture line your staple must hold",
+          text: "Post-harvest storage guidance keeps milled rice near or below 13-14% moisture and wheat near 12-13% for medium-term storage; above that band, mould and heating risk climb. Desiccants do not dry the grain itself - they stop the surrounding air from pushing packed goods back over the line.",
+        },
+        {
+          label: "Placement",
+          title: "Outer packaging and container air, never the food",
+          text: "Sachets sit in master cartons, outer bags, or between retail packs. Hanging strips sit above bulk cargo. Direct contact with loose food is a separate, certification-gated conversation - ask before assuming it.",
+        },
+        {
+          label: "Route",
+          title: "Size the dose to the voyage, not the product alone",
+          text: "A Karachi-Gulf leg and a Karachi-Europe leg condense different amounts of water inside a container. Send the route and container count and the dosage is calculated for the humidity the shipment will actually see.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Match the format to the staple and the journey",
+      intro: "Three supply paths cover almost every raashan and staple-food scenario.",
+      columns: ["Packed retail staples", "Master cartons in godown", "Bulk container export"],
+      rows: [
+        { label: "Format", values: ["Small paper sachets in outer packs", "25-100 g packets per carton", "VoyaSorb 1-2 kg hanging strips"] },
+        { label: "Protects against", values: ["Clumping and caking", "Carton softening, mould, odour", "Container rain on ocean legs"] },
+        { label: "Food contact", values: ["None - outer packaging only", "None - carton level", "None - hangs above cargo"] },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send your staple and route for a sized quote",
+      formTitle: "Quote for grain & staple moisture control",
+      intro: "Dosage and format follow from what you pack and where it goes - five inputs get a complete quote.",
+      defaultProduct: "Grain storage desiccant",
+      items: [
+        "Staple type: rice, flour, pulses, spices, or mixed dry goods",
+        "Pack format: retail packs, master cartons, woven bags, or bulk",
+        "Storage: godown duration, or container route and count",
+        "Destination market and any buyer document requirements",
+        "Monthly or seasonal volume, and private-label needs if any",
+      ],
+    },
+    contentBlock: {
+      heading: "Size the dose before you buy",
+      parts: [
+        { text: "Use the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: " for bulk shipments, review " },
+        { href: "/documentation", label: "SDS and COA documents" },
+        { text: ", then send your staple and route through the " },
+        { href: "/request-a-quote", label: "quote form" },
+        { text: "." },
+      ],
+    },
+    buyingTitle: "How to order staple-food moisture control",
+    buyingIntro:
+      "The quickest path from moisture problem to protected shipment is placement first, dose second, price third.",
+    buyingSteps: [
+      {
+        title: "Name the staple and the damage",
+        text: "Caking flour, clumping sugar, mouldy bags after a voyage, spice colour loss - the symptom points to the placement.",
+      },
+      {
+        title: "Confirm placement and format",
+        text: "Carton sachets for packed goods, hanging strips for containers. Direct-contact requests get a documented review, not an assumption.",
+      },
+      {
+        title: "Send route and volume",
+        text: "Container count and route for exports, carton volume for godown storage - the dose and PKR/USD price follow.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Food packaging industry", href: "/industries/food-packaging" },
+      { label: "Rice & spice export guide", href: "/blog/silica-gel-for-rice-grain-spice-export" },
+      { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
+    ],
+    faqs: [
+      {
+        question: "Can silica gel sachets go inside a rice or flour bag?",
+        answer: "Not by default. Standard supply is for outer packaging - master cartons, outer bags, and container air. Any direct-contact use needs a specific documented review of the sachet material and the destination market's requirements first.",
+      },
+      {
+        question: "How much desiccant does a rice container need?",
+        answer: "It depends on the route, season, container type, and cargo moisture - not just the tonnage. Send the route and container count, or use the container desiccant calculator, and the dose is sized to the voyage.",
+      },
+      {
+        question: "What moisture level should stored rice and wheat hold?",
+        answer: "Post-harvest guidance generally keeps milled rice near or below 13-14% moisture and wheat near 12-13% for medium-term storage. Desiccants protect packed goods from the humid air around them; they are not a substitute for drying grain before packing.",
+      },
+      {
+        question: "Do you supply flour mills and spice packers inside Pakistan?",
+        answer: "Yes - factory-direct from Karachi with PKR pricing, no minimum order quantity, and free samples so you can trial a format before committing a season's volume.",
+      },
+      {
+        question: "Which documents come with a staple-food desiccant order?",
+        answer: "SDS, COA, and a DMF-free statement ship with orders, backed by ISO 9001:2015 manufacturing. Destination-specific claims are only made where the matching document exists.",
+      },
+    ],
+  },
   "blue-silica-gel-manufacturer": {
     slug: "blue-silica-gel-manufacturer",
     title: "Blue Silica Gel Manufacturer | Indicating Desiccant Supplier",
