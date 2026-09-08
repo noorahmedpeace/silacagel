@@ -5712,9 +5712,10 @@ export const seoLandingPages = {
       },
     ],
     relatedLinks: [
+      { label: "Rice export containers", href: "/rice-export-container-desiccant" },
+      { label: "Spice & dry fruit desiccants", href: "/spice-dry-fruit-desiccant-supplier" },
       { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
       { label: "Container desiccant strips", href: "/container-desiccant-strips" },
-      { label: "Food packaging industry", href: "/industries/food-packaging" },
       { label: "Rice & spice export guide", href: "/blog/silica-gel-for-rice-grain-spice-export" },
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
@@ -5738,6 +5739,312 @@ export const seoLandingPages = {
       {
         question: "Which documents come with a staple-food desiccant order?",
         answer: "SDS, COA, and a DMF-free statement ship with orders, backed by ISO 9001:2015 manufacturing. Destination-specific claims are only made where the matching document exists.",
+      },
+    ],
+  },
+  "rice-export-container-desiccant": {
+    slug: "rice-export-container-desiccant",
+    title: "Rice Export Container Desiccant | Karachi Supplier",
+    metaDescription:
+      "Container desiccants for rice exporters shipping from Karachi - VoyaSorb hanging strips sized to the route, so bagged rice arrives without container rain damage, mould, or caked bags. SDS, COA, PKR and export quotes.",
+    kicker: "Rice export protection",
+    h1: "Container desiccants for rice exporters.",
+    lead:
+      "A rice container that loads dry in Karachi can still discharge wet: ocean day-night temperature swings condense the moisture already inside the container and cargo, and it drips back onto the top tiers as container rain. Hanging desiccant strips absorb that airborne load across the voyage - sized to the route, hung above the bags, never touching the rice. Factory-direct from Karachi with SDS, COA, and export documentation.",
+    searchIntent:
+      "For rice exporters and grain traders booking containers out of Karachi who need voyage moisture protection.",
+    primaryCta: "Request Rice Container Quote",
+    secondaryCta: "Dosage Calculator",
+    secondaryHref: "/tools/container-desiccant-calculator",
+    proofPoints: ["Route-sized dosage", "Hangs above cargo", "SDS / COA supplied", "PKR & export terms"],
+    heroImage: {
+      src: "/products/calcium-chloride-container-bulk.webp",
+      alt: "Container desiccant formats for bulk rice and grain export shipments",
+      caption: "Strips hang from container lashing points above the bags - the rice is protected from the container's air without anything touching the cargo.",
+      chips: ["Container rain", "Voyage dosage", "Rice & grain", "Karachi loading"],
+    },
+    fitTitle: "Where rice shipments lose money to moisture",
+    fitItems: [
+      {
+        label: "Container rain",
+        title: "Top-tier bags take the drip",
+        text: "Condensation forms on the container ceiling on cold nights and drips onto the top tiers. Those bags cake, stain, or mould first - and one stained tier can taint an inspection.",
+      },
+      {
+        label: "Long routes",
+        title: "Climate crossings condense more water",
+        text: "A voyage that crosses from warm to cool waters swings the container through its dew point repeatedly. The longer and colder the crossing, the more water the air gives up.",
+      },
+      {
+        label: "Bag mould",
+        title: "Humid air around sound grain",
+        text: "Rice milled to a safe moisture level can still grow surface mould on the bags when trapped humid air sits against them for weeks.",
+      },
+    ],
+    specsTitle: "Rice container quote inputs",
+    specsIntro:
+      "Dosage follows the voyage, not just the tonnage - the same cargo needs different protection on different routes and in different seasons.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Formats", value: "VoyaSorb hanging strips (1-2 kg) and calcium chloride container formats" },
+      { label: "Placement", value: "Hung from lashing points above cargo - no contact with bags or rice" },
+      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 manufacturing" },
+      { label: "Quote basis", value: "Route, season, container count and type, bag format, transit time" },
+    ],
+    buyerGuide: {
+      title: "How rice exporters size container protection",
+      intro:
+        "Container rain is physics, not bad luck: the air and cargo inside every loaded container carry water, and temperature swings force it out onto the coldest surface - the ceiling. Protection is about absorbing that load before it condenses.",
+      sections: [
+        {
+          label: "Route",
+          title: "Quote the voyage, not the commodity",
+          text: "Karachi to Jebel Ali is a short warm-water hop; Karachi to Rotterdam crosses seasons. Send the actual route and month, and dosage is sized to the humidity that voyage will actually generate - the container desiccant calculator gives a starting figure.",
+        },
+        {
+          label: "Placement",
+          title: "Above the cargo, on the lashing points",
+          text: "Strips hang along the top side rails where condensation forms. Nothing sits on or against the bags, so there is no contact question and no lost cargo space.",
+        },
+        {
+          label: "Evidence",
+          title: "Documents that survive an inspection",
+          text: "Shipments go out with SDS, COA, and a DMF-free statement. If your buyer's inspection regime needs specific paperwork, send the requirement with the RFQ rather than after loading.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Container protection options for grain cargo",
+      intro: "Three formats cover rice and grain containers; the route and budget pick between them.",
+      columns: ["Silica gel strips", "Calcium chloride strips", "No protection"],
+      rows: [
+        { label: "Best for", values: ["Standard routes and seasons", "Long or high-humidity crossings", "Short hops in dry season, at your risk"] },
+        { label: "Behaviour", values: ["Absorbs and holds as vapour", "Higher capacity, absorbs into brine", "Condensation lands on top tiers"] },
+        { label: "Placement", values: ["Hung above cargo", "Hung above cargo", "-"] },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send the voyage for a sized quote",
+      formTitle: "Quote for rice container desiccant",
+      intro: "Five inputs size the dose and the price - most exporters have them on the booking confirmation.",
+      defaultProduct: "VoyaSorb Container Strips",
+      items: [
+        "Route and destination port, and the shipping month",
+        "Container count and type (20ft / 40ft, standard or high-cube)",
+        "Bag format: woven PP, jute, or lined bags, and tiers per container",
+        "Transit plus expected port dwell time",
+        "Buyer inspection or documentation requirements, if any",
+      ],
+    },
+    contentBlock: {
+      heading: "Size the voyage before you book protection",
+      parts: [
+        { text: "Run the " },
+        { href: "/tools/container-desiccant-calculator", label: "container desiccant calculator" },
+        { text: " with your route, compare " },
+        { href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant", label: "silica gel vs calcium chloride strips" },
+        { text: ", then send the booking details through the " },
+        { href: "/request-a-quote", label: "quote form" },
+        { text: "." },
+      ],
+    },
+    buyingTitle: "How rice exporters order container protection",
+    buyingIntro: "The quote is fastest when it starts from the booking, because the booking already holds the voyage facts.",
+    buyingSteps: [
+      {
+        title: "Send the booking facts",
+        text: "Route, month, container count and type - the same details on your shipping line confirmation.",
+      },
+      {
+        title: "Confirm the dose per container",
+        text: "Strips per container follow from route and season; the calculator gives a starting point and the quote confirms it.",
+      },
+      {
+        title: "Load with the shipment",
+        text: "Strips are supplied ready to hang at loading in Karachi, with SDS and COA in the document pack.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Grain & staples desiccants", href: "/grain-storage-desiccant-supplier" },
+      { label: "Container desiccant strips", href: "/container-desiccant-strips" },
+      { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
+      { label: "Rice & spice export guide", href: "/blog/silica-gel-for-rice-grain-spice-export" },
+      { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
+    ],
+    faqs: [
+      {
+        question: "How many desiccant strips does a rice container need?",
+        answer: "It depends on the route, season, container type, and transit time - not just the tonnage. The container desiccant calculator gives a route-based starting figure, and the final dose is confirmed on the quote.",
+      },
+      {
+        question: "Do the strips touch the rice bags?",
+        answer: "No. Strips hang from the container's lashing points above the cargo. They absorb moisture from the air; nothing sits on or against the bags.",
+      },
+      {
+        question: "My rice is milled dry - why does the container still get wet?",
+        answer: "The air, dunnage, and flooring inside a loaded container carry water even when the grain is dry. Temperature swings at sea condense that water on the ceiling, and it drips back as container rain.",
+      },
+      {
+        question: "Silica gel or calcium chloride for a rice container?",
+        answer: "Both are supplied from Karachi. Standard routes usually run on silica gel strips; long or high-humidity crossings often justify calcium chloride's higher capacity. Send the route and both options are priced.",
+      },
+      {
+        question: "Can strips be delivered to my loading point in Karachi?",
+        answer: "Yes - factory-direct delivery in Karachi with PKR pricing, or export terms if you consolidate elsewhere. No minimum order quantity, and samples are available before a seasonal commitment.",
+      },
+    ],
+  },
+  "spice-dry-fruit-desiccant-supplier": {
+    slug: "spice-dry-fruit-desiccant-supplier",
+    title: "Spice & Dry Fruit Desiccants | Caking Protection",
+    metaDescription:
+      "Desiccants for spice packers and dry fruit exporters - carton-level moisture control against caking, colour loss, and sticky product. Sachets for outer packaging, container strips for export. Karachi factory, SDS and COA.",
+    kicker: "Spice & dry fruit protection",
+    h1: "Moisture control for spice packers and dry fruit exporters.",
+    lead:
+      "Ground spices cake and lose colour when they take on moisture; dried fruit turns sticky and clumps. Both problems start in the air around the pack, not in the product - and both are controlled at the carton and container level, without anything touching the food. Sachets for master cartons, hanging strips for export containers, factory-direct from Karachi.",
+    searchIntent:
+      "For spice grinders and packers, dry fruit and date exporters, and dry-goods traders fighting caking and colour loss.",
+    primaryCta: "Request Spice Packer Quote",
+    secondaryCta: "Grain & Staples Page",
+    secondaryHref: "/grain-storage-desiccant-supplier",
+    proofPoints: ["Carton-level control", "No food contact", "Free samples", "SDS / COA supplied"],
+    heroImage: {
+      src: "/seo-images/silica-gel-desiccant-sachets-procurement.webp",
+      alt: "Desiccant sachets for spice and dry fruit carton moisture control",
+      caption: "Sachets sit in the master carton or outer pack; strips hang over export containers - the product itself is never touched.",
+      chips: ["Anti-caking", "Colour protection", "Dry fruit export", "Carton sachets"],
+    },
+    fitTitle: "Where spices and dry fruit lose value to moisture",
+    fitItems: [
+      {
+        label: "Caking",
+        title: "Ground spice sets into lumps",
+        text: "Powdered spice pulls moisture from humid carton air until it cakes. A packer's blend that pours at filling can arrive set solid after a month in a humid godown.",
+      },
+      {
+        label: "Colour & aroma",
+        title: "The qualities buyers pay for",
+        text: "Moisture accelerates the colour fade and aroma loss that grade spice lots down. Keeping carton air dry protects exactly what the price was quoted on.",
+      },
+      {
+        label: "Dry fruit",
+        title: "Sticky, clumped, or mouldy",
+        text: "Dates, apricots, and other dried fruit re-absorb moisture in transit - stickiness and clumping first, surface mould on long voyages.",
+      },
+    ],
+    specsTitle: "Spice & dry fruit quote inputs",
+    specsIntro:
+      "Placement stays at the carton and container level. Direct contact with food is a certification conversation, not a default - the same line the food-grade page holds.",
+    specs: [
+      { label: "MOQ", value: moqStatement },
+      { label: "Carton formats", value: "Paper sachets and packets in master cartons and outer packs" },
+      { label: "Export formats", value: "VoyaSorb hanging strips for full containers" },
+      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 manufacturing" },
+      { label: "Quote basis", value: "Product, pack format, carton or container volume, route, destination" },
+    ],
+    buyerGuide: {
+      title: "How spice and dry fruit shippers place moisture control",
+      intro:
+        "The product is hygroscopic and the margin lives in its condition on arrival. The control points are the carton, the godown, and the container - each with its own format.",
+      sections: [
+        {
+          label: "Carton",
+          title: "Sachets in the master pack, not the retail pack",
+          text: "A sachet in the master carton protects a dozen retail packs at once and never raises a food-contact question. Sizing follows carton volume and storage time.",
+        },
+        {
+          label: "Godown",
+          title: "Bridge the humid months",
+          text: "Stock packed before the humid season and sold through it needs carton-level protection for the full holding period - state the holding time in the RFQ so the dose matches it.",
+        },
+        {
+          label: "Container",
+          title: "Strips for the export leg",
+          text: "Export containers get hanging strips sized to the route, the same system rice exporters use. The spice cartons travel in air the strips keep dry.",
+        },
+      ],
+    },
+    sizeGuide: silicaGelCommercialSizeGuide,
+    comparison: {
+      title: "Pick the control point",
+      intro: "Three placements cover the spice and dry fruit chain from filling line to discharge port.",
+      columns: ["Master carton", "Godown storage", "Export container"],
+      rows: [
+        { label: "Format", values: ["Paper sachets per carton", "Packets sized to holding time", "VoyaSorb hanging strips"] },
+        { label: "Protects against", values: ["Caking and clumping in the pack", "Season-long humidity exposure", "Container rain and voyage humidity"] },
+        { label: "Food contact", values: ["None - outer pack only", "None - carton level", "None - hangs above cargo"] },
+      ],
+    },
+    quoteChecklist: {
+      title: "Send the product and pack for a sized quote",
+      formTitle: "Quote for spice / dry fruit desiccant",
+      intro: "Condition on arrival is the whole game - five inputs let the dose match the journey.",
+      defaultProduct: "Spice and dry fruit carton desiccant",
+      items: [
+        "Product: ground spice, whole spice, dates, dried fruit, or mixed",
+        "Pack format: retail packs per master carton, or bulk bags",
+        "Holding time in godown and the humid months it spans",
+        "Export route and container count, if shipping abroad",
+        "Volume per month or season, and private-label needs if any",
+      ],
+    },
+    contentBlock: {
+      heading: "Start from the format, not the price list",
+      parts: [
+        { text: "Review " },
+        { href: "/silica-gel-packets", label: "packet and sachet formats" },
+        { text: ", read the " },
+        { href: "/grain-storage-desiccant-supplier", label: "grain and staples guidance" },
+        { text: ", then send your product and route through the " },
+        { href: "/request-a-quote", label: "quote form" },
+        { text: "." },
+      ],
+    },
+    buyingTitle: "How to order spice & dry fruit protection",
+    buyingIntro: "Packers order fastest by naming the symptom - the symptom picks the placement, the placement picks the format.",
+    buyingSteps: [
+      {
+        title: "Name the symptom",
+        text: "Caked powder, faded colour, sticky fruit, or mouldy bags after a voyage - each points to its control point.",
+      },
+      {
+        title: "Confirm carton or container",
+        text: "Master-carton sachets for packed goods, hanging strips for the export leg - often both, quoted together.",
+      },
+      {
+        title: "Trial before the season",
+        text: "Free samples and no minimum order mean a packer can trial one carton line before committing the humid-season volume.",
+      },
+    ],
+    relatedLinks: [
+      { label: "Grain & staples desiccants", href: "/grain-storage-desiccant-supplier" },
+      { label: "Rice export containers", href: "/rice-export-container-desiccant" },
+      { label: "Food grade silica gel", href: "/food-grade-silica-gel-supplier" },
+      { label: "Silica gel packets", href: "/silica-gel-packets" },
+      { label: "Food packaging industry", href: "/industries/food-packaging" },
+    ],
+    faqs: [
+      {
+        question: "Can the sachet go inside the retail spice pack?",
+        answer: "Not by default. Standard placement is the master carton or outer pack, which protects the retail packs without any food-contact question. Direct-contact requests get a documented review of material and destination requirements first.",
+      },
+      {
+        question: "Will a desiccant fix spice that has already caked?",
+        answer: "No. Desiccants prevent moisture uptake; they do not pull water back out of a set product. Protect the next lot from filling onward - that is where the value is saved.",
+      },
+      {
+        question: "What about dried fruit like dates and apricots?",
+        answer: "Dried fruit re-absorbs moisture in humid transit and turns sticky or clumped. Carton-level sachets and container strips control the surrounding air; the fruit itself is never in contact with the desiccant.",
+      },
+      {
+        question: "Do you supply small spice packers in Pakistan?",
+        answer: "Yes - factory-direct from Karachi, PKR pricing, no minimum order quantity, and free samples, so a small packer can trial a single carton line before the humid season.",
+      },
+      {
+        question: "Which documents come with an order?",
+        answer: "SDS, COA, and a DMF-free statement, backed by ISO 9001:2015 manufacturing. Claims beyond those documents are not made.",
       },
     ],
   },

@@ -97,6 +97,15 @@ const nextConfig: NextConfig = {
         destination: "/tools/silica-gel-calculator",
         permanent: true,
       },
+      // Short seasonal alias the owner can say on a phone call or WhatsApp
+      // ("drygelworld.com/rice") ahead of the Oct-Nov rice export season.
+      // A redirect, not a page: the keyworded slug stays the one canonical
+      // URL, so no duplicate-content risk.
+      {
+        source: "/rice",
+        destination: "/rice-export-container-desiccant",
+        permanent: false,
+      },
       // Apex -> www consolidation (defense-in-depth; Vercel domain config should also enforce).
       {
         source: "/:path*",
