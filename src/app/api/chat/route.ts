@@ -35,6 +35,19 @@ const PROVIDERS: Provider[] = (
       model: process.env.GROQ_MODEL || "llama-3.1-8b-instant",
       key: process.env.GROQ_API_KEY || "",
     },
+    // Third leg, added 18 Sep 2026. The outage post-mortem: Cerebras has
+    // returned 402 since 2 Sep, and GROQ_API_KEY turned out to be EMPTY in
+    // production - the key.length filter below silently dropped Groq from
+    // this list, so "fallback" was a one-provider chain and every visitor
+    // read the hiccup line for 16 days. Google's OpenAI-compatible endpoint
+    // speaks the same SSE the parser already reads. Free-tier RPM is low,
+    // but DryBot's traffic is a few conversations a day.
+    {
+      name: "gemini",
+      url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
+      model: process.env.GEMINI_CHAT_MODEL || "gemini-2.0-flash",
+      key: process.env.GEMINI_API_KEY || "",
+    },
   ] as Provider[]
 ).filter((p) => p.key.length > 0);
 
