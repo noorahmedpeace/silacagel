@@ -1,46 +1,42 @@
 import type { Metadata } from "next";
 import { breadcrumbJsonLd } from "@/lib/seo";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./dispensers.module.css";
 
+// Rewritten 18 Sep 2026 (11-Sep audit P0-5). The previous page sold two
+// invented machines ("DT-1200", "DT-1500") with fabricated specs, an "ROI in
+// 6 months" claim attributed to non-existent "average clients", a placement
+// guarantee, and a cleanroom-standards claim. DryGelWorld does not
+// manufacture dispensing machinery. What the factory actually supplies to
+// buyers who run dispensers is the CONSUMABLE: sachets in formats matched to
+// third-party dispensing equipment. This page now says exactly that and
+// nothing more.
+
 export const metadata: Metadata = {
-  title: "Desiccant Dispensers | Silica Gel Packet Automation",
+  title: "Desiccant Packets for Dispenser Lines | DryGelWorld",
   description:
-    "Explore desiccant dispensing equipment for packaging lines, including silica gel packet insertion support for pharma, food, and industrial workflows.",
+    "Silica gel sachets supplied in formats for automated dispensing and insertion equipment - size, material, and packaging matched to your machine's specification. Factory-direct from Karachi.",
   alternates: {
     canonical: "/dispensers",
   },
 };
 
-const machines = [
+const fitPoints = [
   {
-    model: "DT-1200 Series",
-    title: "DT-1200 Hygiene-Grade Dispenser",
-    desc: "Engineered specifically for pharmaceutical and hygiene-sensitive production environments. Features precision servo motors for cutting accuracy and stepper motors for reliable packet feeding at enterprise-level throughput.",
-    image: "/dispenser-dt1200.webp",
-    specs: [
-      { label: "Speed", value: "Up to 250 packs/min" },
-      { label: "Drive System", value: "Servo + Stepper Motors" },
-      { label: "Industry", value: "Pharmaceutical / Medical" },
-      { label: "Packet Types", value: "Sachets, Strip Packets" },
-      { label: "Error Detection", value: "Optical Sensor Array" },
-      { label: "Compliance", value: "Buyer spec review" },
-    ],
+    title: "Sachet sizes matched to your feeder",
+    desc: "Sachets from 0.5 g to 20 g and packets to 500 g, produced to consistent dimensions so a mechanical feeder or manual insertion station handles them predictably.",
   },
   {
-    model: "DT-1500 Series",
-    title: "DT-1500 Continuous Strip Dispenser",
-    desc: "Optimized for high-volume food and industrial packaging lines using continuous pillow-strip format packets. Mark sensors prevent cross-cutting errors for near-zero waste throughput.",
-    image: "/dispenser-dt1200.webp",
-    specs: [
-      { label: "Speed", value: "200 packs/min" },
-      { label: "Error Prevention", value: "Mark Sensor System" },
-      { label: "Industry", value: "Food & Industrial Packaging" },
-      { label: "Packet Types", value: "Pillow / Strip Packets" },
-      { label: "Format", value: "Continuous Roll Feed" },
-      { label: "Controls", value: "PLC Touch Panel" },
-    ],
+    title: "Materials to your machine's spec",
+    desc: "Paper and non-woven sachet materials selected against your equipment and application - send the machine make/model or its packet specification with the RFQ.",
+  },
+  {
+    title: "Packaging for line-side use",
+    desc: "Cartons and inner bags organised for line-side replenishment, with counts per carton agreed up front so floor stock stays countable.",
+  },
+  {
+    title: "Documents with every shipment",
+    desc: "SDS, COA, and a DMF-free statement, backed by ISO 9001:2015 manufacturing - the paperwork your QA asks for before a consumable goes on the line.",
   },
 ];
 
@@ -61,57 +57,44 @@ export default function DispensersPage() {
         }}
       />
       <section className={styles.hero}>
-        <span className={styles.kicker}>Industrial Automation</span>
-        <h1>High-Speed Desiccant Dispensers for Enterprise Packaging Lines.</h1>
+        <span className={styles.kicker}>Desiccant supply for automated lines</span>
+        <h1>Sachets built for your dispensing equipment.</h1>
         <p>
-          Automate desiccant insertion into your packaging line, eliminating manual labor costs
-          while achieving consistent placement accuracy at speeds up to 250 packets per minute.
+          DryGelWorld manufactures the consumable, not the machine: silica gel sachets and
+          packets produced to the size, material, and packaging your dispensing or insertion
+          equipment expects. If your line inserts desiccant automatically - or you are
+          specifying a line that will - send the machine&apos;s packet specification and we
+          quote against it.
         </p>
-      </section>
-
-      <section className={styles.machines}>
-        {machines.map((m) => (
-          <article key={m.model} className={styles.machineCard}>
-            <div className={styles.machineImage}>
-              <Image src={m.image} alt={m.title} fill style={{ objectFit: "cover" }} sizes="50vw" />
-              <div className={styles.machineBadge}>{m.model}</div>
-            </div>
-            <div className={styles.machineCopy}>
-              <h2>{m.title}</h2>
-              <p>{m.desc}</p>
-              <div className={styles.specTable}>
-                {m.specs.map((s) => (
-                  <div key={s.label} className={styles.specRow}>
-                    <span>{s.label}</span>
-                    <strong>{s.value}</strong>
-                  </div>
-                ))}
-              </div>
-              <Link href="/request-a-quote" className={styles.ctaBtn}>Request Machinery Quote →</Link>
-            </div>
-          </article>
-        ))}
       </section>
 
       <section className={styles.whyAutomate}>
         <div className={styles.sectionHead}>
-          <span className={styles.kicker}>ROI Case</span>
-          <h2>Why Automate Desiccant Insertion?</h2>
+          <span className={styles.kicker}>What we supply</span>
+          <h2>Matching the sachet to the machine.</h2>
         </div>
         <div className={styles.reasonsGrid}>
-          {[
-            { icon: "⚡", title: "10× Throughput", desc: "Replace 10 manual workers with a single machine running at 250 packs/min, 24/7." },
-            { icon: "🎯", title: "Zero Placement Errors", desc: "Optical sensors guarantee every packet is correctly positioned before sealing." },
-            { icon: "💰", title: "ROI in 6 Months", desc: "Average clients recover machine cost within 6 months through labor savings alone." },
-            { icon: "🔒", title: "Pharma-Grade Hygiene", desc: "Stainless steel contact surfaces and enclosed feeding systems meet cleanroom standards." },
-          ].map((r) => (
+          {fitPoints.map((r) => (
             <article key={r.title} className={styles.reasonCard}>
-              <div className={styles.reasonIcon}>{r.icon}</div>
               <h3>{r.title}</h3>
               <p>{r.desc}</p>
             </article>
           ))}
         </div>
+      </section>
+
+      <section className={styles.hero}>
+        <h2>Send your machine&apos;s packet spec.</h2>
+        <p>
+          Dimensions, material, unit weight, and count per carton - or simply the equipment
+          make and model, and our export desk works from its documentation. No minimum order
+          quantity on standard formats; printed private-label sachets are the only exception.
+        </p>
+        <p>
+          <Link href="/request-a-quote" className={styles.ctaBtn}>
+            Request a Dispenser-Format Quote →
+          </Link>
+        </p>
       </section>
     </main>
   );
