@@ -39,7 +39,7 @@ const faqs: FaqItem[] = [
   },
   {
     q: "What is your minimum order for bulk industrial supply?",
-    a: "Bulk orders can be quoted for sachets, 25kg loose bags, 250g/500g formats, and 1kg to 5kg container strips. MOQ depends on format, packaging, private-label work, and destination.",
+    a: "There is no minimum order quantity on any standard format - sachets, 25kg loose bags, 250g/500g packs, and 1kg to 5kg container strips are all supplied from trial quantities upward. Printed private-label sachets are the only exception, since a print run has a practical minimum.",
   },
   {
     q: "What materials are your packets made from?",

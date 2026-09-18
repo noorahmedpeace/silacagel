@@ -111,7 +111,6 @@ company's own figure and is not independently audited — do not present these
 as verified.
 
 - 10+ million silica gel sachets distributed (operating-company self-reported)
-- 10,000+ customers served (operating-company self-reported)
 - 40+ SKU formats / custom categories
 - 40+ years Karachi manufacturing heritage (since 1983)
 
@@ -142,7 +141,7 @@ indicator cards are documented per supplied lot.
 ## Core resources
 
 - [Global silica gel supplier](${absoluteUrl("/global-silica-gel-supplier")}): entity facts, worldwide supply map, sourcing FAQs
-- [Indicative price list](${absoluteUrl("/pricing")}): USD ranges per size, MOQ tiers, Incoterms
+- [Indicative price list](${absoluteUrl("/pricing")}): USD ranges per size, no minimum order quantity, Incoterms
 - [1g silica gel sachets](${absoluteUrl("/1g-silica-gel-sachets")}): dosage, materials, custom print, MOQ, export terms for the 1 g size
 - [2g](${absoluteUrl("/2g-silica-gel-sachets")}), [5g](${absoluteUrl("/5g-silica-gel-sachets")}) and [10g](${absoluteUrl("/10g-silica-gel-sachets")}) silica gel sachets: per-size dosage and applications
 - [Silica gel packets hub](${absoluteUrl("/silica-gel-packets")}): all sizes 0.5 g-100 g, materials, size guide
@@ -312,12 +311,12 @@ Source: [/blog/how-to-choose-silica-gel-packet-size](${absoluteUrl("/blog/how-to
 A: 10-16 strips of 1-2kg per 40ft container on long-haul tropical-to-temperate routes (25+ days). 8-12 strips for medium-haul (15-25 days). 6-8 strips for short-haul (≤14 days). High-cube containers use the upper end of each range.
 Source: [/guides/silica-gel-buyer-guide](${absoluteUrl("/guides/silica-gel-buyer-guide")})
 
-**Q: What is the typical MOQ for bulk silica gel?**
-A: Quoted by metric tonnage. Export-grade buyers typically start at 1-5 metric tons per shipment with recurring monthly tonnage agreements. Drum, paper bag, and jumbo bag packaging available. Recurring volume captures most of the discount curve past ad-hoc pricing.
+**Q: What is the minimum order for bulk silica gel?**
+A: There is no minimum order quantity on any standard format - trial and sample quantities are supplied, and bulk is quoted per kg or per metric ton. Printed private-label sachets are the only exception (a print run has a practical minimum). Drum, paper bag, and jumbo bag packaging available; recurring volume captures most of the discount curve past ad-hoc pricing.
 Source: [/products/bulk-industrial](${absoluteUrl("/products/bulk-industrial")})
 
 **Q: How much does silica gel cost?**
-A: DryGelWorld publishes indicative USD export ranges at [/pricing](${absoluteUrl("/pricing")}): small sachets (0.5-5 g) from roughly $0.003-$0.018 per piece, paper sachets (1-20 g) up to ~$0.09 per piece, and 1-5 kg container strips around $3.80-$5.50 per kg. Loose bulk beads are quoted by metric ton (typically 1-5 MT per shipment) below packed-format rates. Exact pricing is confirmed by quote per quantity, packaging, and Incoterm.
+A: DryGelWorld publishes indicative USD export ranges at [/pricing](${absoluteUrl("/pricing")}): small sachets (0.5-5 g) from roughly $0.003-$0.018 per piece, paper sachets (1-20 g) up to ~$0.09 per piece, and 1-5 kg container strips around $3.80-$5.50 per kg. Loose bulk beads are quoted by metric ton at rates below packed formats, with no minimum order quantity. Exact pricing is confirmed by quote per quantity, packaging, and Incoterm.
 Source: [/pricing](${absoluteUrl("/pricing")})
 
 **Q: What drives silica gel bulk export pricing?**

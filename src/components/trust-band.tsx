@@ -72,7 +72,10 @@ const VERIFICATION: Entry[] = [
 const SCALE: Entry[] = [
   { value: "10M+", label: "Packets produced", sub: "Silica gel sachets to date", href: "/products" },
   { value: "190+", label: "Export markets", sub: "FOB / CIF / EXW lanes worldwide", href: "/export" },
-  { value: "10,000+", label: "Customers served", sub: "Domestic and export buyers", href: "/case-studies" },
+  // "10,000+ customers served" was removed 18 Sep 2026: /reviews counts 50
+  // named customers on the same site, and the two figures sat in open
+  // contradiction (11-Sep audit P0-7). The remaining rows are claims the
+  // site can stand behind everywhere it makes them.
 ];
 
 const ZONES: Zone[] = [

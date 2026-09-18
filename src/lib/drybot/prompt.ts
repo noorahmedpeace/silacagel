@@ -23,7 +23,7 @@ export function businessInfo(): string {
   const email = env("NEXT_PUBLIC_SALES_EMAIL", "sales@drygelworld.com");
   return (
     "DryGelWorld facts (always usable): silica gel & desiccant manufacturer/exporter in Karachi, since 1983. " +
-    "ISO 9001:2015 certified. Delivery to 190+ countries, low MOQs, FOB/CIF/EXW terms. " +
+    "ISO 9001:2015 certified. Delivery to 190+ countries, no minimum order quantity (printed private label excepted), FOB/CIF/EXW terms. " +
     "No online store, sold by quotation (RFQ); quotes usually within 1 hour in Karachi business hours, same day otherwise. " +
     `Contact: WhatsApp/phone ${phone}; sales ${email}; export export@drygelworld.com; quote page https://drygelworld.com/contact.`
   );

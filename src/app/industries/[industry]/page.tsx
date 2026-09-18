@@ -138,7 +138,7 @@ const industryPages: Record<string, IndustryPage> = {
       {
         question: "What is the minimum order quantity for pharma desiccants?",
         answer:
-          "MOQs depend on format. Send your product type, packet size, and annual volume in an RFQ and we confirm MOQ, lead time, and Incoterms, usually within 1 hour in Karachi business hours.",
+          "There is no minimum order quantity on standard formats - trial quantities are supplied. Send your product type, packet size, and annual volume in an RFQ and we confirm pricing, lead time, and Incoterms, usually within 1 hour in Karachi business hours.",
       },
     ],
   },
@@ -695,7 +695,7 @@ export default async function IndustryPage({
           <h2>Request a quote for {page.title}.</h2>
           <p>
             Tell us your packaging specifications, required quantity, and destination - the factory
-            export desk returns a documented quote with MOQ, lead time, and shipping options.
+            export desk returns a documented quote with pricing, lead time, and shipping options.
           </p>
         </div>
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>

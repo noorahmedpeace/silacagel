@@ -6,9 +6,9 @@ import { EvidencePack } from "@/components/evidence-pack";
 import { FaqBlock, type Faq } from "@/components/faq-block";
 import styles from "./pricing.module.css";
 
-const pageTitle = "Silica Gel Price & Wholesale MOQ Quote | Pakistan & Export";
+const pageTitle = "Silica Gel Price & Wholesale Quote | Pakistan & Export";
 const pageDescription =
-  "Indicative silica gel prices and MOQ tiers for packets, bulk beads, and container strips. PKR rates for Pakistan, USD terms for export, firm quote on request.";
+  "Indicative silica gel prices for packets, bulk beads, and container strips - no minimum order quantity. PKR rates for Pakistan, USD terms for export, firm quote on request.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -61,12 +61,13 @@ const pricingFaqs: Faq[] = [
   {
     question: "How much does silica gel cost per kg in bulk?",
     answer:
-      "On our published export list, 1 kg container strips work out to roughly $3.80 to $5.50 per kg, and the 2 kg to 5 kg strips fall in a similar per kg band. Loose bulk silica gel beads are quoted by metric ton, usually 1 to 5 tons per shipment, and cost less per kg than packed formats. The exact rate depends on quantity, packaging, and Incoterm, so request a quote for a firm number.",
+      "On our published export list, 1 kg container strips work out to roughly $3.80 to $5.50 per kg, and the 2 kg to 5 kg strips fall in a similar per kg band. Loose bulk silica gel beads are quoted by metric ton with no minimum order, and cost less per kg than packed formats. The exact rate depends on quantity, packaging, and Incoterm, so request a quote for a firm number.",
   },
   {
     question: "What is the minimum order quantity (MOQ)?",
+    // Owner-confirmed 4 Sep 2026: no minimum on any standard format.
     answer:
-      "MOQ depends on the format. Sachets and packets support low trial-order MOQs with scaled pricing at monthly or container volume, while loose bulk silica gel is quoted by tonnage, typically starting at 1 metric ton per shipment. The exact MOQ for your format and destination is confirmed at quote stage.",
+      "There is no minimum order quantity on any standard format - trial and sample quantities are supplied, and pricing scales with monthly or container volume. Printed private-label sachets are the only exception, because a print run has a practical minimum. Loose bulk beads are quoted by metric ton at rates below packed formats.",
   },
   {
     question: "Do you offer OEM / private label pricing?",
@@ -76,7 +77,7 @@ const pricingFaqs: Faq[] = [
   {
     question: "What affects silica gel pricing?",
     answer:
-      "Format is the biggest driver: sachet, container strip, or loose bulk. After that come packaging (paper bag, drum, jumbo bag), certification and documentation scope, MOQ commitment, payment terms, and the shipping Incoterm such as EXW, FOB, CIF, or DAP. Raw material cost varies less than 15% between reputable manufacturers, so most of the difference you see in quotes comes from these commercial factors, which is why this page shows ranges instead of fixed prices.",
+      "Format is the biggest driver: sachet, container strip, or loose bulk. After that come packaging (paper bag, drum, jumbo bag), certification and documentation scope, volume commitment, payment terms, and the shipping Incoterm such as EXW, FOB, CIF, or DAP. Raw material cost varies less than 15% between reputable manufacturers, so most of the difference you see in quotes comes from these commercial factors, which is why this page shows ranges instead of fixed prices.",
   },
 ];
 
@@ -108,7 +109,7 @@ export default function PricingPage() {
       />
       <section className={styles.hero}>
         <span className={styles.kicker}>Indicative Export Pricing</span>
-        <h1>Silica gel prices, wholesale MOQ tiers, and export quotations.</h1>
+        <h1>Silica gel prices, wholesale rates, and export quotations.</h1>
           <p>
           Pakistan buyers can use the published PKR reference prices below for
           budgeting, or start from the{" "}

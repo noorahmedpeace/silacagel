@@ -149,7 +149,6 @@ const productSpecs = [
 const operationalCredentials = [
   { value: "1983", label: "Founded", note: "40+ years of Karachi silica gel manufacturing heritage" },
   { value: "10M+", label: "Sachets distributed", note: "Self-reported by operating company across 40+ years" },
-  { value: "10,000+", label: "Customers served", note: "Operating-company self-reported figure" },
   { value: "40+", label: "SKU formats", note: `Sachets ${sachetSizeRange} + packs ${packSizeRange} + cargo strips ${stripSizeRange} + dry clay + PPE` },
 ];
 
