@@ -353,8 +353,8 @@ export default function CertificationsPage() {
           >
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
-                src="/dry-gel-world-factory.jpg"
-                alt="DryGelWorld production line with workers in hair nets, packaging machines, robotic arms, and finished-goods staging"
+                src="/facility/production-floor-sachet-line.webp"
+                alt="Production floor at the DryGelWorld facility in Karachi: sachet-filling machines with an operator at work"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -371,7 +371,7 @@ export default function CertificationsPage() {
               <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
                 Production line
               </strong>
-              Karachi manufacturing floor with packaging lines, finished inventory, and shipment staging.
+              The Karachi production floor: sachet-making machines and the operators who run them.
             </figcaption>
           </figure>
           <figure
@@ -386,8 +386,8 @@ export default function CertificationsPage() {
           >
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
-                src="/dry-gel-world-fulfillment.jpg"
-                alt="DryGelWorld fulfillment with branded industrial bulk packs on pallets, forklift loading, and global logistics dispatch"
+                src="/facility/warehouse-bulk-bags.webp"
+                alt="Shelved white silica gel bulk bags in the DryGelWorld store room in Karachi"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -402,9 +402,9 @@ export default function CertificationsPage() {
               }}
             >
               <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
-                Fulfillment & global logistics
+                Bulk stock
               </strong>
-              Branded industrial bulk pack staging, pallet build, and global dispatch handover.
+              Bulk silica gel bags shelved in the store room, ready for weighing and dispatch.
             </figcaption>
           </figure>
           <figure
@@ -419,8 +419,8 @@ export default function CertificationsPage() {
           >
             <div style={{ position: "relative", aspectRatio: "16 / 9" }}>
               <Image
-                src="/dry-gel-world-product-display.jpg"
-                alt="DryGelWorld branded product range with silica gel sachets, indicating bead variants, and industrial bulk pouches"
+                src="/facility/finished-sachet-inventory.webp"
+                alt="Shelves of bagged finished silica gel sachets in the DryGelWorld finished-goods store"
                 fill
                 sizes="(max-width: 720px) 100vw, 33vw"
                 style={{ objectFit: "cover" }}
@@ -437,7 +437,7 @@ export default function CertificationsPage() {
               <strong style={{ display: "block", color: "var(--ds-text)", marginBottom: "4px" }}>
                 Product range
               </strong>
-              Branded silica gel sachets, indicating bead variants (white / blue / orange), industrial bulk pouches.
+              Finished sachet inventory, bagged and shelved ahead of dispatch.
             </figcaption>
           </figure>
         </div>

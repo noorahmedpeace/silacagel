@@ -104,19 +104,22 @@ const brandAssets = [
     note: "1200×630 banner image. Use for editorial article headers and social embeds.",
   },
   {
+    // Real facility photography only (18 Sep 2026). The previous three
+    // entries offered AI-generated scenes as "facility photos" - handing a
+    // publisher a synthetic factory image invites them to print it as real.
     title: "Manufacturing facility photo",
-    file: "/dry-gel-world-factory.jpg",
-    note: "Karachi manufacturing facility - silica gel production line context.",
+    file: "/facility/production-floor-sachet-line.webp",
+    note: "Karachi production floor - sachet-filling machines with an operator.",
   },
   {
-    title: "Fulfillment / export operation photo",
-    file: "/dry-gel-world-fulfillment.jpg",
-    note: "Export packaging and dispatch context.",
+    title: "Warehouse / bulk stock photo",
+    file: "/facility/warehouse-bulk-bags.webp",
+    note: "Bulk silica gel bags shelved in the Karachi store room.",
   },
   {
-    title: "Product display photo",
-    file: "/dry-gel-world-product-display.jpg",
-    note: "Catalog product display - sachets, container strips, bulk format options.",
+    title: "Finished goods photo",
+    file: "/facility/finished-sachet-inventory.webp",
+    note: "Bagged finished sachet inventory ahead of dispatch.",
   },
 ];
 
