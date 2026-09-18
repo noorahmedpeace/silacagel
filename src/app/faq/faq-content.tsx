@@ -17,15 +17,22 @@ export function FAQContent({ faqs }: { faqs: FaqItem[] }) {
       <section className={styles.accordion}>
         {faqs.map((f, i) => (
           <article key={f.q} className={`${styles.item} ${open === i ? styles.itemOpen : ""}`}>
-            <button className={styles.question} onClick={() => setOpen(open === i ? null : i)}>
+            <button
+              className={styles.question}
+              onClick={() => setOpen(open === i ? null : i)}
+              aria-expanded={open === i}
+            >
               <span>{f.q}</span>
               <span className={styles.chevron}>{open === i ? "-" : "+"}</span>
             </button>
-            {open === i && (
-              <div className={styles.answer}>
-                <p>{f.a}</p>
-              </div>
-            )}
+            {/* hidden, not unmounted: the page emits FAQPage JSON-LD naming all
+                ten answers, and Google's guidelines require marked-up content
+                to be present in the DOM. Until 18 Sep 2026 the closed answers
+                were conditionally unmounted, so the rendered page carried 1 of
+                10 answers while the schema promised all ten. */}
+            <div className={styles.answer} hidden={open !== i}>
+              <p>{f.a}</p>
+            </div>
           </article>
         ))}
       </section>

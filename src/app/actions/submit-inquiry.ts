@@ -103,6 +103,30 @@ const clean = (v: unknown, max = 300) =>
     .trim()
     .slice(0, max);
 
+// Honeypot quarantine. Public-by-URL blob store (private access 400s on this
+// store), so the prefix is its own non-guessable namespace, matching the
+// inquiries prefix convention. Capped per server instance so a bot flood
+// cannot fill the store; the cap resets on cold start, which is fine - the
+// point is catching the occasional autofilled human, not archiving bots.
+let quarantined = 0;
+async function quarantineHoneypotHit(input: InquiryFormInput) {
+  const token = process.env.BLOB_READ_WRITE_TOKEN?.trim();
+  if (!token || quarantined >= 200) return;
+  quarantined++;
+  const { put } = await import("@vercel/blob");
+  const h = await headers();
+  await put(
+    `honeypot-quarantine-b82c666a4112/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`,
+    JSON.stringify({
+      at: new Date().toISOString(),
+      ip: (h.get("x-forwarded-for") ?? "").split(",")[0].trim(),
+      userAgent: h.get("user-agent") ?? "",
+      input,
+    }),
+    { access: "public", addRandomSuffix: false },
+  );
+}
+
 async function sendEmail(to: string[], subject: string, text: string, replyTo?: string) {
   const apiKey = process.env.RESEND_API_KEY?.trim();
   const from = process.env.RFQ_FROM?.trim();
@@ -128,7 +152,17 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
   // a human can filter it, because the client timer is trivially forged (the
   // DryBot route hard-codes it) and mostly punished genuine fast buyers.
   const { honeypot, suspectedBot, elapsedBucket } = classifySubmit(input);
-  if (honeypot) return { ok: true, id: "received" };
+  if (honeypot) {
+    // Opaque success unchanged - the bot learns nothing. But the payload is
+    // no longer discarded: browser autofill filling the hidden field is a
+    // documented way to lose a REAL buyer, and until 18 Sep 2026 that buyer
+    // saw a full success screen while nothing was stored or logged anywhere.
+    // Quarantined submissions go to their own capped blob prefix so a human
+    // can sweep for false positives; failures are swallowed so this can
+    // never slow or break the opaque-success contract.
+    void quarantineHoneypotHit(input).catch(() => {});
+    return { ok: true, id: "received" };
+  }
   const source = normalizeSource(input.source);
 
   // Authoritative validation. Only company + a valid email are required so

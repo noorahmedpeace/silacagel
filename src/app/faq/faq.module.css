@@ -158,9 +158,19 @@
   transform: rotate(45deg);
 }
 
-/* Answer - mounts on open, so a keyframe gives the reveal motion. */
+/* Answer - always in the DOM (the FAQPage schema names every answer, so the
+   content must exist on the rendered page), toggled with [hidden]. The
+   reveal keyframe hangs off .itemOpen so it re-runs each time an item is
+   opened rather than once at mount. */
 .answer {
   padding: 4px 28px 24px;
+}
+
+.answer[hidden] {
+  display: none;
+}
+
+.itemOpen .answer {
   animation: answerIn var(--ds-dur-base) var(--ds-ease-out) both;
 }
 
