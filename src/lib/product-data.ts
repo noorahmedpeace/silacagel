@@ -390,16 +390,16 @@ export const productCatalog: ProductItem[] = [
     metaTitle: "Powder-Free Nitrile Examination Gloves | DryGelWorld",
     eyebrow: "Nitrile Gloves",
     summary:
-      "Powder-free nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",
-    useCaseLine: "Medical and industrial grade hand protection for hygiene-critical workflows.",
+      "Powder-free nitrile gloves - the residue-free specification that medical, pharma, food-contact, and electronics buyers default to when donning powder cannot touch the product or the patient.",
+    useCaseLine: "The residue-free glove for workflows where powder contamination is a rejection.",
     description:
-      "Powder-free nitrile examination gloves provide latex-free hand protection for buyers who need a clean, durable glove for medical examination, laboratory handling, food processing, cleaning, and factory use. The nitrile material supports better puncture resistance than vinyl, textured fingertips improve grip, and the beaded cuff supports fast donning on high-volume lines.",
+      "Powder-free is the specification to order when residue matters: no donning powder means nothing transfers to a wound, a tablet line, a food surface, or an electronics assembly. That is why powder-free has become the default for medical examination (the US FDA banned powdered patient-examination gloves in 2017), for pharma and food-contact QA regimes, and for any buyer whose auditor asks what touches the product. The trade-off against the powdered version is donning speed on sweaty, high-turnover shifts - if that is your bottleneck and residue is not a concern, see the powdered nitrile gloves instead.",
     heroImage: "/products/powder-free-nitrile-examination-gloves.webp",
     useCases: [
-      "Medical examination and clinic use",
-      "Laboratory sampling and inspection work",
-      "Food processing and hygiene-control zones",
-      "Industrial assembly, cleaning, and maintenance",
+      "Medical examination and clinics - the powder-free spec most health regulators now expect",
+      "Pharma and food processing lines where residue on product fails QA",
+      "Laboratory and cleanwork handling where particulate matters",
+      "Electronics and coating work where powder transfer marks the workpiece",
     ],
     packingOptions: [
       "Material: nitrile synthetic rubber, latex-free, powder-free",
@@ -435,16 +435,16 @@ export const productCatalog: ProductItem[] = [
     metaTitle: "Powdered Nitrile Examination Gloves | DryGelWorld",
     eyebrow: "Nitrile Gloves",
     summary:
-      "Powdered nitrile examination gloves in blue and black for medical, laboratory, food-handling, and industrial hand protection.",
-    useCaseLine: "Medical and industrial grade hand protection for fast donning workflows.",
+      "Powdered nitrile gloves - cornstarch-dusted for fast donning on high-turnover industrial shifts where glove changes are constant and residue on the work is not a concern.",
+    useCaseLine: "The fast-donning glove for shifts that change gloves every few minutes.",
     description:
-      "Powdered nitrile examination gloves are designed for buyers who need latex-free disposable hand protection with easier donning in busy medical, laboratory, food handling, cleaning, and light industrial environments. Textured fingertips improve grip, the beaded cuff supports secure wear, and carton-based supply keeps recurring PPE programs easy to quote.",
+      "The cornstarch donning powder is the whole point of this glove: hands slide in fast even when damp, which is what a cleaning crew, a workshop, or a packing floor changing gloves dozens of times per shift actually needs, usually at a lower landed cost than powder-free. The same powder is also its limit - it can transfer to whatever is handled, so buyers in medicine should note the US FDA banned powdered patient-examination gloves in 2017, and product-contact QA regimes generally specify powder-free. If residue on the work matters, order the powder-free version; if donning speed on an industrial floor matters, this is the one.",
     heroImage: "/products/powdered-nitrile-examination-gloves.webp",
     useCases: [
-      "Medical examination and clinic use where powdered gloves are accepted",
-      "Laboratory sampling and inspection work",
-      "Food handling, cleaning, and hygiene-controlled workflows",
-      "Industrial assembly, maintenance, and general PPE programs",
+      "Industrial cleaning and maintenance crews with constant glove changes",
+      "Workshops and packing floors where damp hands make powder-free gloves slow to don",
+      "General PPE programs priced per carton for recurring supply",
+      "Markets where powdered examination gloves remain accepted - confirm your regulator before medical use",
     ],
     packingOptions: [
       "Material: nitrile synthetic rubber, latex-free, powdered",
