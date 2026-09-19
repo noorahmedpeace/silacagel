@@ -34,9 +34,13 @@ import styles from "./calculator-page.module.css";
  * client island on the page, so every word Google needs is in the HTML.
  */
 
-const pageTitle = "Silica Gel Calculator | How Much Desiccant Do You Need?";
+// "Desiccant Calculator" is a first-class term in the title, not just part of
+// the question: GSC (Mar-Sep 2026) showed 84 impressions for "desiccant
+// calculator" at position 43 vs 80 at position 18 for "silica gel calculator"
+// - the generic term was the bigger prize and the page barely surfaced for it.
+const pageTitle = "Silica Gel & Desiccant Calculator | How Much Do You Need?";
 const pageDescription =
-  "Free silica gel calculator. Work out sachet quantity, total desiccant weight, and indicative cost by piece count, carton size, or total kilograms.";
+  "Free desiccant calculator for silica gel. Work out sachet quantity, total desiccant weight, and indicative cost by piece count, carton size, or total kilograms.";
 const pagePath = "/tools/silica-gel-calculator";
 
 export const metadata: Metadata = {
@@ -282,10 +286,11 @@ export default function SilicaGelCalculatorPage() {
     <main className={shell.page}>
       <section className={shell.hero}>
         <span className={shell.kicker}>Calculator</span>
-        <h1>Silica gel calculator: how much desiccant do you need?</h1>
+        <h1>Silica gel &amp; desiccant calculator: how much do you need?</h1>
         <p className={styles.heroLead}>
-          Work out sachet quantity, total desiccant weight, and an indicative order value -
-          from a piece count, a carton size, or a kilogram target. Built by a silica gel
+          A desiccant calculator works out how much drying agent a sealed space needs: enter
+          a piece count, a carton size, or a kilogram target, and it returns sachet quantity,
+          total desiccant weight, and an indicative order value. Built by a silica gel
           manufacturer, using the same formats and rates we quote from.
         </p>
         <div className={styles.heroActions}>
