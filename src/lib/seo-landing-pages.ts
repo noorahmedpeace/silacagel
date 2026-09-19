@@ -5585,6 +5585,10 @@ export const seoLandingPages = {
         question: "What should a food-packaging RFQ show?",
         answer: "Show the food category, packet placement, possible contact, pack size, destination, packet text, quantity, and required certifications or documents.",
       },
+      {
+        question: "Is silica gel halal?",
+        answer: "Silica gel is an inorganic mineral - silicon dioxide - with no animal-derived ingredients in the gel itself, so it is generally regarded as unproblematic for halal-conscious supply chains. DryGelWorld does not currently hold a halal certificate and does not claim one; buyers who need formal certification should say so in the RFQ, and composition statements plus SDS documentation are supplied so the claim can be assessed on evidence.",
+      },
     ],
   },
   "grain-storage-desiccant-supplier": {

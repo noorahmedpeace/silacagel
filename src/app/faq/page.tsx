@@ -42,6 +42,10 @@ const faqs: FaqItem[] = [
     a: "There is no minimum order quantity on any standard format - sachets, 25kg loose bags, 250g/500g packs, and 1kg to 5kg container strips are all supplied from trial quantities upward. Printed private-label sachets are the only exception, since a print run has a practical minimum.",
   },
   {
+    q: "Is silica gel halal?",
+    a: "Silica gel is an inorganic mineral product - silicon dioxide - with no animal-derived ingredients in the gel itself, which is why it is generally regarded as unproblematic for halal-conscious supply chains. To be equally clear: DryGelWorld does not currently hold a halal certificate and does not claim one. Buyers whose programs require formal certification should state that in the RFQ so it can be addressed honestly - including composition statements and SDS documentation of what the product contains.",
+  },
+  {
     q: "What materials are your packets made from?",
     a: "Core formats include breathable paper sachets, woven silica gel bead bags, non-woven silica gel bead bags, and custom sizes on request. Material selection should match the product, market, and document requirement.",
   },
