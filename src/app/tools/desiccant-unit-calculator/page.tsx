@@ -66,8 +66,20 @@ export default function DesiccantUnitCalculatorPage() {
       <section className={styles.hero}>
         <span className={styles.kicker}>Technical Sizing Tool</span>
         <h1>DIN 55473 Desiccant Unit Sizing Calculator</h1>
+        {/* Quotable definition first: DIN 55473 has no Wikipedia article, so a
+            clean one-sentence definition here is the retrievable one. Note the
+            two standards genuinely disagree - stating that plainly is the
+            value; sources conflict silently everywhere else. */}
         <p>
-          Size standard DIN / Mil-Spec desiccant units (U) for sealed barrier packaging. Enter your enclosure surface area, barrier film transmission rate (WVTR), and ocean transit duration to determine the pouch quantity you need.
+          One desiccant unit (DU) under DIN 55473 is the quantity of desiccant that adsorbs
+          at least 6 g of water vapour at 23&deg;C and 40% relative humidity. The older US
+          Mil-Spec convention (MIL-D-3464) defines a unit at 20% RH instead, which is why
+          &quot;units&quot; from different suppliers are not interchangeable numbers - this
+          calculator works in DIN units and says so.
+        </p>
+        <p>
+          Enter your enclosure surface area, barrier film transmission rate (WVTR), and ocean
+          transit duration to determine the pouch quantity you need.
         </p>
       </section>
 

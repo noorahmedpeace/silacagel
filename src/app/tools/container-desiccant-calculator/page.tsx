@@ -180,9 +180,14 @@ export default function ContainerDosageCalculatorPage() {
         <span className={styles.kicker}>Buyer Tool</span>
         <h1>Container desiccant calculator.</h1>
         <p>
-          Work out the desiccant kg your shipment needs to prevent container rain before you
-          request a quote. Adjust for container size, cargo type, packaging, pallets, transit
-          days, and route humidity - and see the full moisture-load math behind every number.
+          Container rain is condensation: the air and cargo inside a loaded container carry
+          water, and when the steel cools past the dew point at sea, that water films on the
+          ceiling and drips back onto the top tiers. A container desiccant calculator sizes
+          the kilograms of desiccant needed to absorb that moisture load before it condenses.
+        </p>
+        <p>
+          Adjust for container size, cargo type, packaging, pallets, transit days, and route
+          humidity - and see the full moisture-load math behind every number.
         </p>
         <div className={st.row} aria-hidden="true">
           <span className={`${st.sticker} ${st.brand} ${st.tiltL}`}>No signup</span>

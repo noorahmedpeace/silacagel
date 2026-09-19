@@ -3746,7 +3746,7 @@ export const seoLandingPages = {
     kicker: "Container desiccant strips",
     h1: "Container desiccant strips for long-haul cargo and export moisture risk.",
     lead:
-      "Plan cargo strips by route, container size, transit time, commodity type, and humidity exposure before final freight and desiccant pricing.",
+      "Container desiccant strips are high-capacity absorbent strips hung from a container's lashing points to soak up the airborne moisture that would otherwise condense on the cold steel ceiling and drip back onto cargo as container rain. Plan strips by route, container size, transit time, commodity type, and humidity exposure before final freight and desiccant pricing.",
     searchIntent:
       "For export and logistics teams planning strip weight, count, placement, route humidity, transit time, documents, and Incoterms.",
     primaryCta: "Plan Cargo Strips",
