@@ -4277,7 +4277,7 @@ export const blogArticles: BlogArticle[] = [
     slug: "silica-gel-import-customs-hs-code-guide",
     label: "Export Operations",
     title: "Silica gel HS code and import customs guide for buyers and exporters",
-    metaTitle: "Silica Gel HS Code (2811.22): Import & Customs Guide 2026",
+    metaTitle: "Silica Gel HS Code 2811.22 & Desiccant HS Codes | Guide",
     metaDescription:
       "Silica gel usually classifies under HS 2811.22. Clay, calcium chloride and composite desiccants can differ. Country suffixes, documents, and clearance steps.",
     sources: [
@@ -4305,6 +4305,18 @@ export const blogArticles: BlogArticle[] = [
           "USA: HTS under 2811.22.xx; EU: CN 2811 22 00; confirm local extension per country.",
           "Indicating silica gel with dye is still classified on the silica gel base unless a national note says otherwise - confirm with the broker.",
           "The importing country's tariff schedule is authoritative, not the supplier.",
+        ],
+      },
+      {
+        heading: "HS codes for the whole desiccant family",
+        body: "Buyers rarely import silica gel alone, and GSC queries show the same people searching codes for indicator cards and container desiccants. The six-digit roots below are the ones DryGelWorld declares on its own export paperwork (see each product's spec sheet); the destination country's 8-10 digit suffix always comes from your customs broker. One packaging nuance to know: bulk silica gel travels on the silicon-dioxide root, while some jurisdictions classify PREPARED desiccant packets and sachets under 3824.99 (chemical preparations not elsewhere specified) - both classifications are seen in real customs data, so ask your broker which your port expects before the shipment is on the water.",
+        bullets: [
+          "Silica gel, bulk beads and sachets: 2811.22 (silicon dioxide) - US HTS commonly 2811.22.10; some ports classify prepared packets under 3824.99 instead.",
+          "Calcium chloride container desiccant: 2827.20 (calcium chloride).",
+          "Humidity indicator cards (HIC): 3822.90 or 4823.90 depending on jurisdiction - confirm which your port uses.",
+          "Dry clay / bentonite desiccant: 2508.10 (bentonite) or 3802.90 (activated clay products).",
+          "Nitrile examination gloves: 4015.19 (rubber gloves).",
+          "Every code above is the six-digit international root - the importing country's tariff schedule sets the final suffix and the duty rate.",
         ],
       },
       {
