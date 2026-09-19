@@ -838,6 +838,115 @@ export const comparePages: ComparePage[] = [
     relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
     relatedProduct: "/products/dry-clay-desiccant",
   },
+  // Added 19 Sep 2026 from the blueprint's P0: GSC showed 54 impressions
+  // across "silica gel vs activated alumina" variants (positions 34-47) with
+  // no page owning the intent - 19 comparisons existed, not this one.
+  {
+    slug: "silica-gel-vs-activated-alumina",
+    productA: "Silica Gel",
+    productB: "Activated Alumina",
+    h1: "Silica gel vs activated alumina: buyer comparison",
+    description:
+      "Buyer comparison of silica gel and activated alumina desiccants - water capacity, temperature behavior, crush strength, regeneration, cost, and which applications each one actually wins.",
+    introA:
+      "Silica gel is amorphous silicon dioxide with a very high internal surface area. At room temperature it holds more water than any common desiccant per kilogram, which is why it is the default for packaging, container shipping, and storage protection.",
+    introB:
+      "Activated alumina is porous aluminium oxide. It holds less water than silica gel at room temperature, but it is mechanically tougher - high crush strength, resistant to breakdown when liquid water hits the bed - which is why compressed-air dryers and water-treatment beds specify it.",
+    criteria: [
+      { label: "Composition", a: "Amorphous silicon dioxide (SiO2)", b: "Porous aluminium oxide (Al2O3)" },
+      { label: "Water capacity at ~25°C, high RH", a: "Roughly 35-40% of its weight", b: "Roughly 15-20% of its weight" },
+      { label: "Mechanical strength", a: "Beads can fracture on contact with liquid water", b: "High crush strength; tolerates liquid-water slugs in dryer beds" },
+      { label: "Regeneration temperature", a: "120-150°C", b: "Typically 180-260°C" },
+      { label: "Typical dew point in heatless air dryers", a: "Around -40°C", b: "Around -40°C (deeper needs molecular sieve)" },
+      { label: "Typical buying format", a: "Sachets, packets, strips, loose beads", b: "Bulk beads for fixed dryer/treatment beds" },
+      { label: "Documentation held by DryGelWorld", a: "ISO 9001:2015 + DMF-free + SDS + COA", b: "Not in DryGelWorld catalog" },
+    ],
+    decisions: [
+      { scenario: "Packaging and carton moisture protection", recommended: "a", note: "Silica gel - higher room-temperature capacity per kg and every packet format exists for it; alumina is not sold as sachets." },
+      { scenario: "Container / export shipment protection", recommended: "a", note: "Silica gel strips and packets - the voyage humidity range sits exactly where silica gel adsorbs best." },
+      { scenario: "Compressed-air desiccant dryer beds", recommended: "b", note: "Activated alumina - crush strength and liquid-slug tolerance matter more than peak capacity in a pressure-swing bed." },
+      { scenario: "Water treatment (fluoride/arsenic adsorption beds)", recommended: "b", note: "Activated alumina - this is an alumina-specific chemistry silica gel does not perform." },
+      { scenario: "Transformer breathers", recommended: "a", note: "Silica gel is the standard breather fill; indicating grades show exhaustion at a glance." },
+      { scenario: "Drying below -40°C dew point", recommended: "b", note: "Neither is ideal - this is molecular sieve territory; between the two, alumina beds run deeper more predictably." },
+    ],
+    faqs: [
+      {
+        q: "Which holds more water - silica gel or activated alumina?",
+        a: "At room temperature and ordinary humidity, silica gel - roughly 35-40% of its own weight at high RH against roughly 15-20% for activated alumina. That gap is why packaging and cargo protection is silica gel territory: more protection per kilogram shipped.",
+      },
+      {
+        q: "Why do compressed-air dryers use activated alumina instead?",
+        a: "Because a dryer bed is a mechanical environment, not a packet. Alumina's high crush strength survives pressure cycling, and it tolerates slugs of liquid water that would fracture silica gel beads. In a fixed bed, robustness beats peak capacity.",
+      },
+      {
+        q: "Is activated alumina cheaper than silica gel?",
+        a: "Per kilogram they sit in a similar band, grade-dependent. The real cost difference comes from the application: alumina beds are bought once and regenerated in place for years, while packaging desiccant is consumed per shipment - so compare cost per duty, not per kg.",
+      },
+      {
+        q: "Does DryGelWorld supply activated alumina?",
+        a: "No - activated alumina is not in the current catalog. DryGelWorld manufactures silica gel formats and clay desiccant, and can advise on silica gel sizing where a buyer is weighing the two for a borderline application.",
+      },
+    ],
+    relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
+    relatedProduct: "/products/bulk-industrial",
+  },
+  // GSC: "blue vs orange silica gel" and variants, ~30+ impressions around
+  // position 30 with only the white-vs-orange page adjacent. This is also the
+  // site's REACH wedge stated as a comparison. Honesty rules hold: blue
+  // contains cobalt chloride and is never called cobalt-free; orange is the
+  // cobalt-free indicator; "REACH-friendly", never "REACH-registered".
+  {
+    slug: "blue-vs-orange-silica-gel",
+    productA: "Blue Silica Gel",
+    productB: "Orange Silica Gel",
+    h1: "Blue vs orange silica gel: which indicating gel to buy",
+    description:
+      "Blue vs orange indicating silica gel compared - indicator chemistry, the EU cobalt chloride restriction, color change, food-adjacent use, and which one to specify by destination market.",
+    introA:
+      "Blue indicating silica gel uses cobalt(II) chloride as its moisture indicator - deep blue when dry, pink when saturated. The indication is clear and familiar from decades of lab use, but the cobalt salt is the reason this grade is restricted in the EU and increasingly avoided elsewhere.",
+    introB:
+      "Orange indicating silica gel uses a cobalt-free organic indicator - orange when dry, shifting toward green/colorless as it saturates. It exists precisely to give the same at-a-glance indication without cobalt chloride, which is why REACH-conscious buyers specify it.",
+    criteria: [
+      { label: "Indicator chemistry", a: "Cobalt(II) chloride", b: "Cobalt-free organic indicator" },
+      { label: "Color change (dry → saturated)", a: "Blue → pink", b: "Orange → green / colorless" },
+      { label: "EU status", a: "Cobalt chloride is restricted - blue gel is effectively out of EU supply chains", b: "REACH-friendly choice for EU-bound goods" },
+      { label: "Food-adjacent packaging", a: "Avoid - cobalt indicator has no place near food", b: "Preferred indicating option; direct food contact still needs its own review" },
+      { label: "Regeneration", a: "Oven-regenerable; indicator degrades with repeated cycles", b: "Oven-regenerable; indicator degrades with repeated cycles" },
+      { label: "Typical use", a: "Legacy lab desiccators, markets without cobalt restrictions", b: "Export goods, EU-bound shipments, modern lab and industrial use" },
+      { label: "DryGelWorld supply", a: "Quoted where the destination market permits it", b: "Stocked as the standard indicating grade" },
+    ],
+    decisions: [
+      { scenario: "Goods destined for the EU", recommended: "b", note: "Orange - cobalt chloride's REACH restriction makes blue a compliance problem before it is a technical one." },
+      { scenario: "Food or pharma-adjacent packaging", recommended: "b", note: "Orange - no cobalt near consumables; confirm placement and documents as with any food-adjacent desiccant." },
+      { scenario: "Legacy lab equipment specifying blue", recommended: "a", note: "Blue where the spec and the market allow it - or propose orange as the drop-in replacement, which most labs accept." },
+      { scenario: "Transformer breathers", recommended: "b", note: "Orange shows exhaustion just as clearly without the cobalt handling and disposal questions." },
+      { scenario: "Unsure which your market allows", recommended: "b", note: "Orange is the safe default: it indicates identically well and raises no cobalt question anywhere." },
+    ],
+    faqs: [
+      {
+        q: "Why is blue silica gel restricted in the EU?",
+        a: "Its indicator, cobalt(II) chloride, is classified as a substance of very high concern under EU chemicals regulation, and indicator-treated silica gel containing it has been restricted since the early 2000s. The gel itself is not the problem - the cobalt salt is.",
+      },
+      {
+        q: "Is orange silica gel really cobalt-free?",
+        a: "Yes - that is its reason to exist. Orange indicating silica gel uses an organic indicator instead of cobalt chloride. Blue silica gel, by contrast, always contains cobalt chloride; there is no cobalt-free blue.",
+      },
+      {
+        q: "Do blue and orange perform differently as desiccants?",
+        a: "No - the base silica gel adsorbs the same either way. The difference is the indicator chemistry and everything downstream of it: compliance, disposal, and where each grade may be shipped or used.",
+      },
+      {
+        q: "Which color change is easier to read?",
+        a: "Both are unambiguous. Blue-to-pink is the classic lab signal; orange-to-green reads just as clearly in packets and breather windows. Buyers switching from blue to orange rarely report readability complaints.",
+      },
+      {
+        q: "Can DryGelWorld supply both?",
+        a: "Orange indicating gel is the standard supplied grade. Blue can be quoted where the destination market permits cobalt chloride - the export desk checks the destination before quoting, because shipping blue into a restricted market helps nobody.",
+      },
+    ],
+    relatedBlog: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
+    relatedProduct: "/orange-silica-gel-supplier",
+  },
 ];
 
 export function getComparePage(slug: string): ComparePage | undefined {
