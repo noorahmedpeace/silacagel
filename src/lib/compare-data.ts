@@ -463,7 +463,7 @@ export const comparePages: ComparePage[] = [
     description:
       "Compare calcium chloride and silica gel for containers, cartons, storage, and export cargo: water uptake, liquid/brine risk, reuse, packaging fit, and buyer decision scenarios.",
     introA:
-      "Calcium chloride is a deliquescent moisture absorber. It can take up a high amount of water in humid environments and converts absorbed moisture into contained brine or gel inside the pouch.",
+      "Calcium chloride is a deliquescent moisture absorber - the chemistry inside household closet products like DampRid as well as industrial container pouches. It can take up a high amount of water in humid environments and converts absorbed moisture into contained brine or gel inside the pouch.",
     introB:
       "Silica gel is a solid adsorbing desiccant. It adsorbs water vapor into its porous structure, remains dry/solid when saturated, and is widely used in sachets, cartons, bulk bags, and container strips.",
     criteria: [
@@ -946,6 +946,59 @@ export const comparePages: ComparePage[] = [
     ],
     relatedBlog: "/blog/cobalt-free-orange-vs-blue-indicating-silica-gel-safety",
     relatedProduct: "/orange-silica-gel-supplier",
+  },
+  // The single most-repeated consumer comparison observed across Quora and
+  // forums ("wet phone: rice or silica gel?"); Wikipedia carries an entire
+  // "Phone repair with rice" article and Apple's support documentation warns
+  // against rice. Nobody in the desiccant industry answers it honestly on a
+  // dedicated page. Consumer trust page - the CTA stays soft.
+  {
+    slug: "rice-vs-silica-gel",
+    productA: "Rice",
+    productB: "Silica Gel",
+    h1: "Rice vs silica gel: which actually dries things out",
+    description:
+      "Rice vs silica gel as a drying agent, tested honestly: what rice actually absorbs, why Apple warns against the rice trick for wet phones, when silica gel is genuinely better, and what neither can fix.",
+    introA:
+      "Uncooked rice is the internet's folk desiccant - cheap, in every kitchen, and famous as the fix for a dropped-in-water phone. It does absorb some moisture, but slowly and weakly, and it sheds starch dust and grains into whatever it is supposed to be rescuing.",
+    introB:
+      "Silica gel is a purpose-made desiccant: a porous mineral that actively pulls water vapor from the surrounding air, far faster and to a far drier endpoint than any food grain. It is what the electronics, pharma, and export industries actually use.",
+    criteria: [
+      { label: "What it is", a: "A food grain that happens to be mildly hygroscopic", b: "A purpose-made adsorbent (porous silicon dioxide)" },
+      { label: "Drying speed", a: "Slow - grains absorb surface moisture over days", b: "Fast - actively adsorbs water vapor from the air" },
+      { label: "How dry it can get a sealed space", a: "Barely below ambient humidity", b: "Down to a genuinely dry equilibrium" },
+      { label: "Residue", a: "Starch dust and grains in ports and crevices", b: "None from intact sachets" },
+      { label: "Reusable", a: "No meaningful way to recharge it", b: "Oven-regenerable, many cycles" },
+      { label: "Cost for one phone rescue", a: "Pennies, already in the kitchen", b: "A few sachets - pennies if kept from past packaging" },
+      { label: "Verdict for a wet phone", a: "Better than nothing, worse than open air with airflow", b: "The better desiccant - but drying is not repair" },
+    ],
+    decisions: [
+      { scenario: "Phone dropped in water", recommended: "b", note: "Power off, do not charge, wipe, and leave it in a sealed box with silica gel - or simply in moving air. Apple's own guidance warns against rice, which sheds particles into the device. If it was salt water or it won't start, drying will not fix corrosion - it needs service." },
+      { scenario: "Camera bag, dry box, wardrobe", recommended: "b", note: "Silica gel - rechargeable sachets hold a sealed space dry; rice cannot reach or hold a dry endpoint." },
+      { scenario: "Nothing else in the house tonight", recommended: "a", note: "Rice is marginally better than a sealed empty box - but open air with a fan is usually better than the rice bag." },
+      { scenario: "Food storage (flour, spices, dry goods)", recommended: "b", note: "Carton-level or outer-pack sachets, never loose desiccant touching food. Rice in the salt shaker is folk practice for clumping salt, not product protection." },
+      { scenario: "Anything commercial - shipments, inventory, exports", recommended: "b", note: "There is no commercial case for rice. Purpose-made desiccant is cheap, documented (SDS/COA), and sized by math." },
+    ],
+    faqs: [
+      {
+        q: "Does the rice trick work for a wet phone at all?",
+        a: "Weakly. Tests of household drying methods have repeatedly found uncooked rice performs about the same as - or worse than - simply leaving the phone in open air, and Apple's support documentation explicitly advises against putting a wet device in rice because of the particles it sheds. What saves wet electronics is time without power, airflow, and luck - not the grain.",
+      },
+      {
+        q: "Why is silica gel so much better than rice?",
+        a: "Surface area and chemistry. Silica gel is engineered as a sponge for water vapor - a porous structure that actively pulls moisture from the air. Rice absorbs water mainly when cooked in it; as a room-temperature desiccant it is barely better than the cardboard box it came in.",
+      },
+      {
+        q: "Can silica gel fix a water-damaged phone?",
+        a: "No - and honesty matters here: drying prevents further damage, it does not undo corrosion that already happened, especially after salt water. Power off immediately, do not charge, dry with silica gel or airflow, and if the device misbehaves afterwards, it needs professional service.",
+      },
+      {
+        q: "Where do I get silica gel for home use?",
+        a: "Keep the sachets that arrive in shoe boxes, electronics, and bags - regenerate them in a low oven and store them airtight. For a steady supply, small sachets are inexpensive in bulk; DryGelWorld supplies from single cartons upward with no minimum order.",
+      },
+    ],
+    relatedBlog: "/blog/silica-gel-for-camera-gear-and-lenses",
+    relatedProduct: "/silica-gel-packets",
   },
 ];
 
