@@ -5951,6 +5951,91 @@ export const blogArticles: BlogArticle[] = [
       { label: "QMEC Group Intl - ISO 9001:2015 registrar", href: "https://www.qmecgroup.org", publisher: "QMEC Group Intl" },
     ],
   },
+  {
+    slug: "when-not-to-use-silica-gel",
+    label: "Application Guide",
+    title: "When silica gel is the wrong answer: guitars, cigars, books, and other over-drying mistakes",
+    metaTitle: "When NOT to Use Silica Gel: Guitars, Cigars & Books",
+    metaDescription:
+      "A silica gel manufacturer on where its own product is the wrong tool: instruments, cigars, and archives need a humidity setpoint, not maximum dryness.",
+    description:
+      "Drier is not always better. Wood instruments, cigars, books, and leather in daily use are damaged by over-drying - they need two-way humidity control at a setpoint, not a desiccant pulling toward zero. A manufacturer's honest map of where silica gel belongs and where it does not.",
+    readTime: "7 min read",
+    sections: [
+      {
+        heading: "The mistake: treating 'drier' as 'safer'",
+        body: "Silica gel has one job: pull a sealed space toward dry and hold it there. For electronics, cameras, tools, seeds, exports, and stored metal, that is exactly right. But a second family of goods is built around water - wood holds it, tobacco holds it, paper and leather hold it - and those goods are damaged by dryness just as surely as by damp. They need a humidity SETPOINT, held from both directions, and a one-way desiccant cannot hold a setpoint. It only pulls down.",
+        bullets: [
+          "Silica gel is one-way: it removes moisture until it saturates or the space runs dry.",
+          "Goods built around bound water (wood, tobacco, paper, leather in use) need two-way control at a target RH.",
+          "The right tool for a setpoint is a two-way humidity pack or a conditioned environment, not a drying agent.",
+        ],
+      },
+      {
+        heading: "Guitars and wooden instruments: do not put sachets in the case",
+        body: "Instrument makers publish care guidance in the same band again and again: keep the instrument around the middle of the humidity range, roughly 40-50% RH, because soundboards and fretboards are thin, seasoned wood that shrinks as it dries. Over-dried guitars develop sharp fret ends, sunken tops, and in the worst case cracked soundboards - damage that costs far more than the sachets saved. A silica gel packet in a sealed case in a dry climate is actively working toward that damage. The correct product is a two-way humidity pack made for instruments, which releases moisture when the case is too dry and absorbs it when too damp.",
+        bullets: [
+          "Guitar over-drying symptoms: sharp fret ends, sunken top, cracked soundboard.",
+          "Instrument care guidance clusters around 40-50% RH - a setpoint, not a floor.",
+          "Use two-way instrument humidity packs in cases; keep silica gel for the microphone box and cable drawer.",
+        ],
+      },
+      {
+        heading: "Cigars: a humidor is the opposite of a dry box",
+        body: "Cigars are kept at roughly 65-72% RH - far above room ambient in most climates. At silica-gel dryness a cigar wrapper turns brittle and the smoke harsh; the entire point of a humidor is to ADD moisture at a controlled rate. This is the clearest case on the page: a desiccant does not belong anywhere near a humidor, and any general-purpose moisture advice that ends up applied to cigars ruins them.",
+        bullets: [
+          "Cigar storage targets roughly 65-72% RH - a humidor holds moisture in, it does not remove it.",
+          "Silica gel near cigars means brittle wrappers and ruined smoking - the wrong tool categorically.",
+          "Use humidor two-way packs or a properly seasoned humidor instead.",
+        ],
+      },
+      {
+        heading: "Books, photographs, and archives: conservation wants moderate, stable RH",
+        body: "Paper conservation practice aims for moderate, STABLE humidity - commonly cited bands sit around 30-50% RH, with stability valued over any particular number, because cycling humidity works paper fibers and bindings apart. Bone-dry storage embrittles paper and photographic emulsions. There is a professional nuance here that proves the point: museums do use silica gel for display cases - but as CONDITIONED gel, pre-equilibrated to the target RH so it buffers in both directions around a setpoint. That is a two-way application of the same mineral, and it is a different product and practice from dropping dry sachets in a box of books.",
+        bullets: [
+          "Archives value stability in a moderate band (~30-50% RH) over maximum dryness.",
+          "Bone-dry storage embrittles paper, bindings, and photo emulsions.",
+          "Museum practice uses CONDITIONED silica gel as a two-way buffer - deliberately not the dry sachet in this site's catalog.",
+        ],
+      },
+      {
+        heading: "Leather in use vs leather in an export carton",
+        body: "This one is a genuine both-ways case, and the difference is the timeframe. A leather jacket or shoes in a wardrobe for years need the leather's own moisture to stay supple - persistent dry storage cracks finishes and stiffens hides, and wardrobe care guides say so. But leather goods sealed in an export carton for a three-week humid voyage face the opposite risk: mold. That is why footwear exporters put sachets in shipping cartons (weeks, humid, sealed) and why the same sachet left in the box for years of home storage is the wrong call. Protect the voyage, then let the goods breathe.",
+        bullets: [
+          "Export carton, weeks at sea, humid route: sachets in - mold is the failure mode.",
+          "Home wardrobe, years of storage: sachets out - over-drying cracks leather.",
+          "Same product, opposite verdicts - the timeframe and environment decide.",
+        ],
+      },
+      {
+        heading: "Where silica gel is exactly right - and a maker's honest line",
+        body: "The list this manufacturer will happily sell for: electronics and camera gear (target: dry), tool boxes and gun safes (dry), seeds (dry and cool), documents in SHORT-term transit (dry beats damp for weeks), pharmaceuticals in sealed packs (dry), and every export carton and container this site's calculators size (dry, for the voyage). The honest line is simple: silica gel is for spaces that should be dry. If the thing you are protecting is supposed to stay partly moist - instruments, cigars, long-stored leather, archival paper - buy a two-way humidity product from that specialty, and come back here when a shipment needs to arrive dry.",
+        bullets: [
+          "Right: electronics, cameras, tools, safes, seeds, sealed pharma packs, export cartons and containers.",
+          "Wrong: instrument cases, humidors, long-term leather storage, archival paper storage.",
+          "A supplier that tells you when NOT to buy its product is also telling you its sizing advice can be trusted.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I use silica gel in a guitar case if I add less of it?",
+        answer: "No - the problem is direction, not dose. A desiccant only pulls humidity down, and an instrument needs a setpoint held from both sides. Use a two-way instrument humidity pack; any amount of one-way desiccant in a sealed case drifts the wood toward over-dry.",
+      },
+      {
+        question: "Is museum-conditioned silica gel the same as your sachets?",
+        answer: "Same mineral, different product and practice. Conservation labs pre-equilibrate gel to a target humidity so it buffers both directions inside a display case. The dry sachets in this catalog are for spaces that should be dry - they are not conditioned buffers.",
+      },
+      {
+        question: "Should leather shoes be stored with silica gel at home?",
+        answer: "For years-long wardrobe storage, no - persistent dryness stiffens and cracks leather. For a sealed export carton on a humid multi-week voyage, yes - mold is the failure mode there. The environment and timeframe decide, and this page maps both cases.",
+      },
+      {
+        question: "What should I use instead of silica gel for cigars, instruments, or archives?",
+        answer: "Two-way humidity packs made for each specialty (humidor packs, instrument case packs) or, for archives, stable moderate-humidity storage. Those products release and absorb moisture around a setpoint - a job a drying agent cannot do.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -5977,6 +6062,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   // (electronics entry now lives below with bumped updatedAt)
   "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-09-02" },
   "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-09-02" },
+  "when-not-to-use-silica-gel": { publishedAt: "2026-09-19", updatedAt: "2026-09-19" },
   "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-09-02" },
   "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-11" },
   "private-label-silica-gel-packets-guide": { publishedAt: "2026-02-04", updatedAt: "2026-09-02" },
