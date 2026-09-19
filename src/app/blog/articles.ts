@@ -5044,6 +5044,16 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
+        heading: "Microwave, packet material, and how many cycles - the three questions forums fight over",
+        body: "Search any 3D-printing or photography forum and the same three regeneration questions repeat, with answers that contradict each other wildly. Honest versions: (1) MICROWAVE - it does drive water out, but it heats unevenly, and the hotspots are what degrade indicator dye and scorch sachet material; an oven holds a temperature, a microwave holds a power level, which is why oven guidance is repeatable and microwave guidance is luck. If a microwave is genuinely the only option, use loose beads in a glass dish, low power, short bursts with stirring, and accept the risk. (2) PACKET MATERIAL - the gel itself tolerates the full 120-150 degree window, but the paper, non-woven, or film sachet around it often does not, and a scorched packet sheds fibers into the beads. Whenever possible, cut sachets open and regenerate the beads loose in a shallow dish; if you must regenerate whole sachets, stay at the bottom of the temperature window and check them frequently. (3) HOW MANY CYCLES - circulating answers range from three to five all the way to hundreds, and both extremes are quoting real observations of DIFFERENT situations. Clean water vapor in and out of a lab desiccator barely ages the gel; kitchen-oven cycles with overshooting temperature, plus adsorbed oils, salts, or dust from real-world use, kill capacity in a handful of rounds. There is no honest fixed number - retire the gel when it takes visibly longer to dry, sheds dust, or an indicating grade changes color weakly or unevenly.",
+        bullets: [
+          "Microwave: physically works, practically risky - uneven hotspots degrade dye and scorch packets. Oven is repeatable; microwave is luck.",
+          "Packet material is the temperature ceiling, not the gel: regenerate beads loose where possible; whole sachets only at the low end of the window.",
+          "No honest fixed cycle count exists: clean vapor barely ages gel, contamination and overshoot kill it fast. Retire on slow uptake, dust shedding, or weak color change.",
+          "The 3-5 cycles vs 100+ cycles claims across the internet are both real - they describe different contamination and temperature-control conditions.",
+        ],
+      },
+      {
         heading: "Indicating gel and special cases",
         body: "Indicating silica gel can be regenerated, but watch the dye and the temperature. Orange (non-cobalt) and legacy blue indicating gels both reactivate in the same 120-150°C window and visibly return to their dry color, which is a convenient end-point signal - when the color is fully back, regeneration is essentially complete. Do not exceed ~150°C for indicating gel, as excessive heat can degrade the dye. Microwave regeneration is sometimes suggested for small amounts but is risky (uneven heating, hot spots, dye damage, and container hazards) and is not recommended for anything beyond tiny hobby quantities. For industrial reactivation, a vented convection oven or a purpose-built desiccant reactivation unit is the reliable method.",
         bullets: [
