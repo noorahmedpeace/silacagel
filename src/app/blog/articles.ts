@@ -6046,6 +6046,73 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  {
+    slug: "air-freight-vs-sea-freight-desiccant",
+    label: "Sizing Guide",
+    title: "Air freight vs sea freight: do you need desiccant at all for air cargo?",
+    metaTitle: "Desiccant for Air Freight vs Sea Freight: Do You Need It?",
+    metaDescription:
+      "Sea containers get desiccant guidance everywhere; air cargo gets none. When air freight genuinely needs desiccant, when it does not, and why the answer differs.",
+    description:
+      "Every container desiccant guide assumes ocean freight, and none of them answer the exporter comparing modes. The honest answer: air cargo usually needs far less moisture protection than sea cargo - but 'usually' has specific exceptions this guide maps: tarmac dwell in monsoon weather, cold-soak condensation on descent, and the door-to-door legs before and after the flight.",
+    readTime: "6 min read",
+    sections: [
+      {
+        heading: "Why sea freight dominates every desiccant conversation",
+        body: "The physics of a sea container earns its reputation: a sealed steel box, weeks at sea, day-night cycling through its dew point, and the moisture sealed in at loading with nowhere to go but the ceiling and back onto the cargo. Every input that makes container rain - time, temperature swings, trapped humid air - is at its maximum on an ocean leg. Air freight compresses the journey from weeks to hours and swaps the sealed box for unit load devices and mixed handling, which removes most (not all) of the condensation cycle that desiccant exists to absorb.",
+        bullets: [
+          "Sea: weeks of dew-point cycling in a sealed box - the textbook desiccant case.",
+          "Air: hours in transit, so the classic multi-week condensation cycle mostly never starts.",
+          "Most air shipments that arrive damp got wet on the ground, not in the air.",
+        ],
+      },
+      {
+        heading: "The three air-cargo cases where moisture still bites",
+        body: "First: TARMAC AND WAREHOUSE DWELL. An air pallet that waits hours on a Karachi tarmac in monsoon season, or overnights in a non-climate-controlled transit shed, absorbs ambient humidity exactly like any other cargo - the flight is short, the ground time is not. Second: COLD-SOAK CONDENSATION. Cargo holds run cold at altitude; when a cold-soaked consignment is unloaded into hot, humid air, moisture condenses ON the goods and packaging within minutes - the same physics as a cold bottle sweating. Sensitive electronics and instruments feel this most. Third: THE ROAD LEGS. Door-to-door 'air freight' often includes days of trucking and consolidation at each end; a two-hour flight bracketed by four days of humid ground transport has most of the exposure of a short sea leg.",
+        bullets: [
+          "Ground dwell in humid weather is the main moisture input for air cargo - not the flight.",
+          "Cold-soaked cargo unloaded into tropical air condenses moisture onto itself on arrival.",
+          "Count the full door-to-door days, not the flight hours, when judging exposure.",
+        ],
+      },
+      {
+        heading: "So does air cargo need desiccant?",
+        body: "A working rule an exporter can actually apply: protect the PACKAGE for air, protect the CONTAINER for sea. For air freight, carton-level sachets sized for days (not weeks) cover the ground legs and the cold-soak arrival for hygroscopic or corrosion-sensitive goods - electronics, instruments, pharma packs, leather. Hanging container strips, the workhorse of sea freight, have no role in an aircraft ULD. For goods that shrug off humidity (metals in oiled wrap, sealed plastics, glass), a short air leg with reasonable ground handling usually needs nothing - and paying air rates is itself the moisture strategy, since the exposure window shrinks from weeks to days.",
+        bullets: [
+          "Air: carton-level sachets for sensitive goods, sized for days of ground exposure.",
+          "Sea: container strips plus carton sachets - the full system, sized for weeks.",
+          "Insensitive cargo on a short air leg: usually nothing - the speed IS the protection.",
+        ],
+      },
+      {
+        heading: "Sizing the two modes side by side",
+        body: "The same consignment illustrates the gap. A pallet of leather goods flying Karachi to Dubai might carry small sachets per carton against monsoon-season ground dwell - grams of desiccant in total. The same pallet in a groupage sea container on the same lane sits inside a box that needs kilograms of hanging strips sized by the container calculator, plus the same carton sachets. The product being protected is identical; the environment doing the damage is not. That is the whole answer: desiccant is sized to the environment and the clock, and air freight changes both.",
+        bullets: [
+          "Same goods, same lane: grams of sachets by air vs kilograms of strips by sea.",
+          "Size sea freight with the container desiccant calculator; size air freight by carton and ground-dwell days.",
+          "When a shipment switches mode, re-size the protection - do not copy the old spec across.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do aircraft cargo holds control humidity?",
+        answer: "Holds are pressurized and run cold at cruise, which keeps absolute moisture low during flight. The risk is not the cruise - it is cold-soaked cargo meeting hot humid air on unloading, and the hours the consignment spends on the ground before and after.",
+      },
+      {
+        question: "Should I put container desiccant strips in an air shipment?",
+        answer: "No - strips are engineered for sealed sea containers with weeks of dew-point cycling, and there is nowhere sensible to deploy them in a ULD. If an air consignment needs protection, it needs carton-level sachets sized for days.",
+      },
+      {
+        question: "My air cargo arrived damp - how, if the flight was two hours?",
+        answer: "Almost certainly on the ground: humid dwell before departure, condensation on a cold-soaked consignment at arrival, or the trucking legs either side. Trace the door-to-door timeline and the wet step is usually visible - and it is the step to protect next time.",
+      },
+      {
+        question: "Which DryGelWorld formats fit air freight?",
+        answer: "Carton-level paper sachets and packets (0.5 g to 500 g), sized to carton volume and expected ground-dwell days. Send the route, season, and carton count in an RFQ and the export desk sizes it - there is no minimum order quantity to trial a format.",
+      },
+    ],
+  },
 ];
 
 export function getBlogArticle(slug: string) {
@@ -6072,6 +6139,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   // (electronics entry now lives below with bumped updatedAt)
   "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-09-02" },
   "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-09-02" },
+  "air-freight-vs-sea-freight-desiccant": { publishedAt: "2026-09-21", updatedAt: "2026-09-21" },
   "when-not-to-use-silica-gel": { publishedAt: "2026-09-19", updatedAt: "2026-09-19" },
   "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-09-02" },
   "silica-gel-sds-coa-requirements-for-buyers": { publishedAt: "2026-01-14", updatedAt: "2026-05-11" },
