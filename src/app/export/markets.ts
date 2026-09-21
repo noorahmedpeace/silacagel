@@ -67,6 +67,18 @@ export const exportMarkets: ExportMarket[] = [
         "Bilingual Arabic/English carton labeling can be arranged for retail-facing packs.",
       ],
     },
+    procurementNotes: [
+      {
+        label: "Lane moisture",
+        title: "Short lane, real condensation risk",
+        text: "Karachi-Jebel Ali is a short, warm-water hop (~3-5 days at sea), and buyers sometimes skip desiccant for exactly that reason. The risk is not voyage length - it is the night-time cooling cycle: a container loaded humid in Karachi condenses on its first cool night regardless of how short the lane is. During Arabian Sea monsoon months (roughly June-September) loading humidity in Karachi is at its highest, and that is when a skipped-desiccant shipment is most likely to arrive with damp top tiers.",
+      },
+      {
+        label: "Dosage",
+        title: "Size by loading season, not just the lane",
+        text: "For this route the dominant variable is the moisture sealed in at loading - cargo, pallets, and Karachi's ambient humidity on packing day. Use the container desiccant calculator with the actual shipping month; a monsoon-season loading typically justifies the higher end of the dose band that the same cargo would need in winter.",
+      },
+    ],
     faqs: [
       { question: "What is the MOQ for silica gel to the UAE?", answer: "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Send the format, quantity, and destination and the quote comes back on that basis." },
       { question: "Which Incoterms do you offer for UAE shipments?", answer: "FOB Karachi, CIF Jebel Ali, and DAP UAE are all available, so buyers can choose factory handover, freight-included delivery to port, or delivered terms based on their logistics setup." },
@@ -108,6 +120,18 @@ export const exportMarkets: ExportMarket[] = [
         "Saudi clearing agents commonly request attested commercial documents; align the document set before dispatch.",
       ],
     },
+    procurementNotes: [
+      {
+        label: "Lane moisture",
+        title: "Jeddah via the Red Sea: a hot, humid finish",
+        text: "Karachi-Jeddah (~6-9 days) ends in the Red Sea, one of the warmest and most humid marine environments on any trade lane, while Dammam routes finish in the Gulf's summer humidity. Day-night temperature cycling across these waters condenses the moisture sealed in at loading onto the container ceiling - the classic container-rain pattern - so bagged and carton cargo on this lane carries genuine top-tier risk even on a one-week transit.",
+      },
+      {
+        label: "Dosage",
+        title: "Monsoon loading plus a Red Sea finish is the peak case",
+        text: "A container packed in Karachi during Arabian Sea monsoon months (roughly June-September) and discharged in Red Sea humidity combines the two highest moisture inputs this lane sees. Use the container desiccant calculator with the real shipping month and cargo type; that combination sits at the top of the dose band, while winter loadings of non-hygroscopic cargo sit at the bottom.",
+      },
+    ],
     faqs: [
       { question: "What is the MOQ for silica gel to Saudi Arabia?", answer: "There is no minimum order quantity. Every format, from 0.5 g sachets to 5 kg container strips, can be supplied as a trial or sample quantity first, and the per-unit rate improves as volume grows. Send the format, quantity, and destination and the quote comes back on that basis." },
       { question: "Which ports do you ship to in Saudi Arabia?", answer: "Common destinations are Jeddah Islamic Port and King Abdulaziz Port in Dammam, with onward routing to Riyadh and other cities via dry-port and forwarding partners." },
