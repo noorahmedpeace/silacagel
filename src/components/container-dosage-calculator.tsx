@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { trackCalculatorStart, trackCalculatorComplete } from "@/lib/calculator-tracking";
 import Link from "next/link";
 import styles from "./container-dosage-calculator.module.css";
-import { exportEmail } from "@/lib/product-data";
+import { exportEmail, priceGroups } from "@/lib/product-data";
 import {
   CARGO_TYPES,
   CLIMATES,
@@ -102,6 +102,22 @@ export function ContainerDosageCalculator() {
   const rfqHref = `/request-a-quote?product=${encodeURIComponent("Silica Gel Container Desiccant Strips")}&qty=${result.suppliedKg}&application=${encodeURIComponent(
     `${result.containerLabel} container, ${climateOption.shortLabel} route, ~${days} day transit`,
   )}`;
+
+  // The dose→price step no competitor's calculator takes (AGM states method
+  // without price, Sorbstar prices nothing, Uline prices without a tool).
+  // Derived from the SAME published strip rates as /pricing - per-kg USD from
+  // the "Bulk & Strip" kg items, so the calculator can never contradict the
+  // price list. Indicative band, not a quote: the RFQ confirms.
+  const priceBand = useMemo(() => {
+    const stripItems = (priceGroups.find((g) => g.title === "Bulk & Strip")?.items ?? []).filter(
+      (item) => item.grams >= 1000,
+    );
+    if (!stripItems.length || !result.suppliedKg) return null;
+    const perKg = stripItems.map((item) => item.exportUsd / (item.grams / 1000));
+    const lo = Math.min(...perKg) * result.suppliedKg;
+    const hi = Math.max(...perKg) * result.suppliedKg;
+    return { lo: Math.round(lo), hi: Math.round(hi) };
+  }, [result.suppliedKg]);
 
   // Memoized: the ~1KB URL-encoded plan is only read on an "Email this plan"
   // click, so rebuilding it on every slider tick was pure waste.
@@ -309,6 +325,18 @@ export function ContainerDosageCalculator() {
             Estimated moisture load to control: <strong>~{formatNumber(result.litres, 2)} litres</strong>{" "}
             of water over {days} days.
           </p>
+          {priceBand ? (
+            <p className={styles.resultDetail}>
+              Indicative strip cost for this dose:{" "}
+              <strong>
+                ${priceBand.lo}
+                {priceBand.hi !== priceBand.lo ? `-$${priceBand.hi}` : ""} USD
+              </strong>{" "}
+              per container (export list rates, same basis as the{" "}
+              <Link href="/pricing">published price list</Link>; the quote confirms the final
+              figure by volume and Incoterm).
+            </p>
+          ) : null}
           <p className={`${styles.riskBadge} ${styles[`risk_${result.risk.level}`]}`}>
             {result.risk.label} risk
           </p>
