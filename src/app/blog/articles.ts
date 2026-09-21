@@ -3873,6 +3873,16 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
+        heading: "The two panic questions: the dog ate a packet, and a packet went through the laundry",
+        body: "Two silica gel emergencies fill pet and consumer forums, and both deserve calm, specific answers. THE DOG (or cat) ATE A PACKET: plain white silica gel is not poisonous to pets - the gel passes through undigested. The real risks are mechanical and situational: a small dog that ate several packets or one large packet can develop a gut obstruction, the plastic or foil packet itself can lodge, and an indicating gel (especially legacy blue, which contains cobalt chloride) adds a chemical concern the plain gel does not have. Watch for vomiting, lethargy, refusal to eat, or straining; call your vet if any appear, if the animal is small, if multiple packets are gone, or if the beads were colored - and when in doubt, just call the vet, which is never the wrong move. A PACKET WENT THROUGH THE WASHING MACHINE: this ruins nothing. The gel is inert - wet beads are just spent beads. Shake the drum and the clothes out, check the door gasket and the drain filter for loose beads and packet fragments, and rewash if a packet burst and left dust. The machine is not damaged, and the clothes are not contaminated - it is a cleanup nuisance, not a chemical event.",
+        bullets: [
+          "Plain white gel eaten by a pet: not poisoning - the concerns are obstruction (small animal, large quantity) and the packet material itself.",
+          "Colored/indicating beads eaten by a pet - or any symptoms at all: call the vet. Legacy blue gel contains cobalt chloride.",
+          "Packet through the laundry: clothes and machine are fine - shake out, check the drain filter for beads, rewash if it burst.",
+          "Neither situation is improved by panic, and one phone call to a vet settles the pet case definitively.",
+        ],
+      },
+      {
         heading: "Disposal, reuse, and shipping classification",
         body: "Used non-indicating silica gel is generally non-hazardous waste and can go to normal landfill; many operations instead reactivate it by drying the beads in an oven to restore adsorption capacity. For freight, standard silica gel is chemically stable and classed as non-dangerous goods, so it does not require dangerous-goods documentation for air or sea - confirm the exact line entry with your forwarder. For indicating grades, follow local rules for the specific indicator used. Request the SDS from DryGelWorld at quote stage so your customs broker and EHS team have it on file before the first shipment.",
         bullets: [
