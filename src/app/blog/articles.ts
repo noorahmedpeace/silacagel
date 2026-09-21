@@ -6052,7 +6052,7 @@ export const blogArticles: BlogArticle[] = [
     title: "Air freight vs sea freight: do you need desiccant at all for air cargo?",
     metaTitle: "Desiccant for Air Freight vs Sea Freight: Do You Need It?",
     metaDescription:
-      "Sea containers get desiccant guidance everywhere; air cargo gets none. When air freight genuinely needs desiccant, when it does not, and why the answer differs.",
+      "Sea containers get desiccant guidance everywhere; air cargo gets none. When air freight genuinely needs desiccant, when it does not, and why it differs.",
     description:
       "Every container desiccant guide assumes ocean freight, and none of them answer the exporter comparing modes. The honest answer: air cargo usually needs far less moisture protection than sea cargo - but 'usually' has specific exceptions this guide maps: tarmac dwell in monsoon weather, cold-soak condensation on descent, and the door-to-door legs before and after the flight.",
     readTime: "6 min read",
