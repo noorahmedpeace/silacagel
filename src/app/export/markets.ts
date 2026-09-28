@@ -957,6 +957,76 @@ export const exportMarkets: ExportMarket[] = [
       { question: "Is silica gel from Pakistan duty-free in the EU?", answer: "Pakistan holds EU GSP+ status, which zero-rates many chemical lines including CN 2811 22 00 subject to origin rules. Verify in TARIC and request a REX statement of origin with the shipment." },
     ],
   },
+  // Added 28 Sep 2026 from the 21-Sep strategy memo: the Philippines showed
+  // 28,837 impressions and 13 CLICKS in 90 days with no page at all - the
+  // clicks are what separate this from the Brazil-style anomaly geographies
+  // the memo says not to build on. Dosage stays qualitative; duty rates are
+  // never stated, only the official tariff lookup.
+  {
+    slug: "philippines",
+    country: "Philippines",
+    updatedAt: "2026-09-28",
+    title: "Silica gel supplier for Philippine importers and food exporters.",
+    description:
+      "Factory-direct silica gel sachets, bulk beads, and container strips for Philippine packaging distributors, dried-fruit and coconut exporters, electronics assemblers, and garment shippers.",
+    buyerTypes: [
+      "Manila and Cebu packaging distributors",
+      "Dried mango, coconut, and banana-chip exporters",
+      "Electronics assembly and re-export shippers",
+      "Garment and footwear consolidators",
+    ],
+    ports: ["Manila (MICT / South Harbor)", "Cebu", "Batangas", "Subic Bay"],
+    products: ["0.5g-20g sachets", "25g-500g carton packs", "1kg-5kg container strips", "Humidity indicator cards"],
+    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    routeNote:
+      "Karachi-to-Philippines cargo usually moves via Singapore or Malaysian transshipment; the extra port dwell in equatorial humidity is part of the moisture math, so state the full door-to-door plan in the RFQ rather than the ocean leg alone.",
+    rfqTip: "Send the destination port (Manila or Cebu), product format, monthly quantity, and whether the shipment window falls inside typhoon season.",
+    moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
+    leadTime: "Production 7-15 days after sign-off; sea transit via Singapore/Malaysia transshipment, confirmed per booking.",
+    currency: "Quoted in USD (PHP guidance on request)",
+    incoterms: ["FOB Karachi", "CIF Manila", "CIF Cebu", "DAP Philippines"],
+    procurementNotes: [
+      {
+        label: "Climate",
+        title: "Year-round tropical humidity, sharpened by typhoon season",
+        text: "The Philippines is a year-round high-humidity destination, and roughly June through November the typhoon season adds saturated air, rain exposure at port, and unplanned dwell time. A shipment window inside those months sits at the top of the dose band that the same cargo would need in the dry months - size with the container desiccant calculator using the real shipping month.",
+      },
+      {
+        label: "Food exporters",
+        title: "Dried mango and coconut leave the Philippines protected too",
+        text: "Many Philippine buyers are not importing protection for inbound cargo - they are dried-fruit and coconut-product exporters protecting their own outbound cartons to the US, Japan, and the Gulf. Carton-level food-adjacent sachets (outer packaging, never touching the food) and humidity indicator cards are the usual program; the grain-and-staples guidance on this site applies directly.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the MOQ for silica gel to the Philippines?",
+        answer: "There is no minimum order quantity on standard formats - trial and sample quantities ship, and rates improve with volume. Printed private-label sachets are the only exception, since a print run has a practical minimum.",
+      },
+      {
+        question: "How should typhoon-season shipments be sized?",
+        answer: "By the shipping month, not the average. June-November loadings and transshipment dwell in equatorial ports sit at the top of the dose band; run the container desiccant calculator with the actual month and cargo type, and say the window is typhoon-season in the RFQ so the quote reflects it.",
+      },
+      {
+        question: "Can Philippine food exporters use these desiccants in their own export cartons?",
+        answer: "Yes - at the carton and outer-packaging level, which is the standard placement for dried mango, coconut, and similar hygroscopic food exports. Direct food contact is a separate, certification-gated conversation. SDS, COA, and a DMF-free statement ship with orders.",
+      },
+      {
+        question: "Which documents does the Bureau of Customs side usually need?",
+        answer: "The commercial set travels with every shipment: invoice, packing list, SDS, COA, and the HS classification (silica gel root 2811.22). The final tariff line and duty rate come from the Philippine Tariff Commission's official finder - confirm them with your broker rather than a supplier's estimate.",
+      },
+    ],
+    customs: {
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
+      dutyNote:
+        "Philippine duty and VAT are set by the national tariff schedule; rates vary by line and trade agreement, so confirm against the official finder below rather than any supplier statement.",
+      tariffLookup: { label: "Philippine Tariff Commission - Tariff Finder", href: "https://finder.tariffcommission.gov.ph/" },
+      requiredDocs: ["Commercial invoice", "Packing list", "Bill of lading", "SDS", "COA on request"],
+      regulatoryNotes: [
+        "Silica gel desiccant is an industrial chemical product; food-CONTACT use is a separate review with its own documentation.",
+        "DMF-free statement supplied with shipments - relevant for footwear and leather export programs.",
+      ],
+    },
+  },
 ];
 
 export function getExportMarket(slug: string) {

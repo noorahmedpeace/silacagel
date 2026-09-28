@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, sitemapLastModified } from "@/lib/seo";
+import { absoluteUrl } from "@/lib/seo";
 import { seoLandingPages, isNoindexLandingSlug } from "@/lib/seo-landing-pages";
 import { productCatalog } from "@/lib/product-data";
 import {
@@ -129,18 +129,17 @@ function sitemapImages(paths: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Use a real, stable last-modified date rather than build time. Stamping
-  // `new Date()` on every URL on every deploy told Google the lastmod was
-  // untrustworthy, so it discounted the signal for the whole sitemap. Bump
-  // `sitemapLastModified` in src/lib/seo.ts when content materially changes
-  // (and wire per-article dates here once articles carry date fields).
-  const lastModified = new Date(sitemapLastModified);
+  // lastmod policy (28 Sep 2026): emit lastModified ONLY where a real
+  // per-page date exists (blog articles, markets with updatedAt). The
+  // previous shared constant stamped 190 URLs with one identical date -
+  // including 11 pages created after it - and a provably wrong lastmod gets
+  // the signal discounted for the whole file. Per the sitemaps spec, no
+  // lastmod is better than a false one.
   const entries: MetadataRoute.Sitemap = [];
 
   for (const route of STATIC_ROUTES) {
     entries.push({
       url: absoluteUrl(route),
-      lastModified,
       changeFrequency: route === "" ? "weekly" : "monthly",
       priority: route === "" ? 1 : 0.7,
       images: sitemapImages(staticRouteImages[route] ?? [seoImages.defaultOg.src]),
@@ -150,7 +149,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const product of productCatalog) {
     entries.push({
       url: absoluteUrl(`/products/${product.slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.85,
       images: sitemapImages([product.heroImage]),
@@ -171,7 +169,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     entries.push({
       url: absoluteUrl(`/${slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
       images: sitemapImages([image.src]),
@@ -183,7 +180,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     entries.push({
       url: absoluteUrl(`/industries/${slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.7,
       images: sitemapImages([image.src]),
@@ -195,7 +191,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     entries.push({
       url: absoluteUrl(`/export/${market.slug}`),
-      lastModified: new Date(market.updatedAt ?? sitemapLastModified),
+      ...(market.updatedAt ? { lastModified: new Date(market.updatedAt) } : {}),
       changeFrequency: "monthly",
       priority: 0.7,
       images: sitemapImages([image.src]),
@@ -222,7 +218,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     entries.push({
       url: absoluteUrl(`/compare/${page.slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
       images: sitemapImages([image.src]),
@@ -232,7 +227,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const comparison of supplierComparisons) {
     entries.push({
       url: absoluteUrl(`/compare/suppliers/${comparison.slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.65,
       images: sitemapImages([seoImages.defaultOg.src]),
@@ -242,7 +236,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const slug of AUTHOR_SLUGS) {
     entries.push({
       url: absoluteUrl(`/authors/${slug}`),
-      lastModified,
       changeFrequency: "yearly",
       priority: 0.4,
     });
@@ -251,7 +244,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const study of caseStudies) {
     entries.push({
       url: absoluteUrl(`/case-studies/${study.slug}`),
-      lastModified,
       changeFrequency: "monthly",
       priority: 0.75,
       images: sitemapImages([study.image]),
