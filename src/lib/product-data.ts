@@ -624,45 +624,48 @@ export const priceGroups: PriceGroup[] = [
     note: "Compact retail and light packing",
     items: [
       // PKR unitPrice set 2026-08-06 from the owner's written price list plus
-      // the 20% uplift he instructed ("sab main 20% barha do"). Sizes absent
-      // from that list (4/5 gm PP, 2/3/5 kg strips) carry the same +20% on
-      // their previous value so one rule moves the whole table. exportUsd is
-      // untouched - the instruction was domestic only.
-      { label: "0.5 gm", unitPrice: 0.84, exportUsd: 0.0035, grams: 0.5 },
-      { label: "1 gm", unitPrice: 1.08, exportUsd: 0.0045, grams: 1 },
-      { label: "1 gm XL", unitPrice: 1.2, exportUsd: 0.0052, grams: 1 },
-      { label: "2 gm", unitPrice: 1.86, exportUsd: 0.0072, grams: 2 },
-      { label: "3 gm", unitPrice: 2.4, exportUsd: 0.009, grams: 3 },
-      { label: "4 gm", unitPrice: 3.24, exportUsd: 0.011, grams: 4 },
-      { label: "5 gm", unitPrice: 3.9, exportUsd: 0.014, grams: 5 },
+      // the 20% uplift he instructed ("sab main 20% barha do"), then a further
+      // +10% on 2026-09-29 ("prize list ko 10% increase krdu jitni bhi daale
+      // hue"). Sizes absent from the original list (4/5 gm PP, 2/3/5 kg strips)
+      // carry the same uplift so one rule moves the whole table. Values under
+      // PKR 100 are rounded to two decimals, the rest to whole rupees.
+      // exportUsd is untouched in both rounds - each instruction was domestic
+      // only; raise it explicitly if the export column is ever meant to move.
+      { label: "0.5 gm", unitPrice: 0.92, exportUsd: 0.0035, grams: 0.5 },
+      { label: "1 gm", unitPrice: 1.19, exportUsd: 0.0045, grams: 1 },
+      { label: "1 gm XL", unitPrice: 1.32, exportUsd: 0.0052, grams: 1 },
+      { label: "2 gm", unitPrice: 2.05, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 2.64, exportUsd: 0.009, grams: 3 },
+      { label: "4 gm", unitPrice: 3.56, exportUsd: 0.011, grams: 4 },
+      { label: "5 gm", unitPrice: 4.29, exportUsd: 0.014, grams: 5 },
     ],
   },
   {
     title: "Paper Sachet",
     note: "Popular sachet range",
     items: [
-      { label: "1 gm", unitPrice: 1.32, exportUsd: 0.0045, grams: 1 },
-      { label: "2 gm", unitPrice: 2.16, exportUsd: 0.0072, grams: 2 },
-      { label: "3 gm", unitPrice: 2.76, exportUsd: 0.0095, grams: 3 },
-      { label: "10 gm", unitPrice: 9.6, exportUsd: 0.029, grams: 10 },
-      { label: "15 gm", unitPrice: 15.6, exportUsd: 0.052, grams: 15 },
-      { label: "20 gm", unitPrice: 21.6, exportUsd: 0.068, grams: 20 },
+      { label: "1 gm", unitPrice: 1.45, exportUsd: 0.0045, grams: 1 },
+      { label: "2 gm", unitPrice: 2.38, exportUsd: 0.0072, grams: 2 },
+      { label: "3 gm", unitPrice: 3.04, exportUsd: 0.0095, grams: 3 },
+      { label: "10 gm", unitPrice: 10.56, exportUsd: 0.029, grams: 10 },
+      { label: "15 gm", unitPrice: 17.16, exportUsd: 0.052, grams: 15 },
+      { label: "20 gm", unitPrice: 23.76, exportUsd: 0.068, grams: 20 },
     ],
   },
   {
     title: "Bulk & Strip",
     note: "Industrial and shipment formats",
     items: [
-      { label: "25 grams", unitPrice: 30, exportUsd: 0.078, grams: 25 },
-      { label: "50 grams", unitPrice: 60, exportUsd: 0.155, grams: 50 },
-      { label: "100 grams", unitPrice: 120, exportUsd: 0.39, grams: 100 },
-      { label: "200 grams", unitPrice: 240, exportUsd: 0.78, grams: 200 },
-      { label: "250 grams", unitPrice: 300, exportUsd: 0.95, grams: 250 },
-      { label: "500 grams", unitPrice: 600, exportUsd: 1.85, grams: 500 },
-      { label: "1 kg strip", unitPrice: 1140, exportUsd: 4.2, grams: 1000 },
-      { label: "2 kg strip", unitPrice: 2220, exportUsd: 8.1, grams: 2000 },
-      { label: "3 kg strip", unitPrice: 3240, exportUsd: 11.9, grams: 3000 },
-      { label: "5 kg strip", unitPrice: 5280, exportUsd: 19.4, grams: 5000 },
+      { label: "25 grams", unitPrice: 33, exportUsd: 0.078, grams: 25 },
+      { label: "50 grams", unitPrice: 66, exportUsd: 0.155, grams: 50 },
+      { label: "100 grams", unitPrice: 132, exportUsd: 0.39, grams: 100 },
+      { label: "200 grams", unitPrice: 264, exportUsd: 0.78, grams: 200 },
+      { label: "250 grams", unitPrice: 330, exportUsd: 0.95, grams: 250 },
+      { label: "500 grams", unitPrice: 660, exportUsd: 1.85, grams: 500 },
+      { label: "1 kg strip", unitPrice: 1254, exportUsd: 4.2, grams: 1000 },
+      { label: "2 kg strip", unitPrice: 2442, exportUsd: 8.1, grams: 2000 },
+      { label: "3 kg strip", unitPrice: 3564, exportUsd: 11.9, grams: 3000 },
+      { label: "5 kg strip", unitPrice: 5808, exportUsd: 19.4, grams: 5000 },
     ],
   },
 ];

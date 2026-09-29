@@ -4190,7 +4190,7 @@ export const seoLandingPages = {
         // Real published reference prices (owner-supplied list, 2026-08-06) -
         // the same numbers the /pricing table and calculator use, so this
         // answer can never drift from the site's own published rates.
-        answer: "Reference rates: chhote PP bags Rs 0.84 (0.5g) se Rs 2.40 (3g) per piece, paper sachets Rs 2.16 (2g) se Rs 21.60 (20g), bulk packs Rs 30 (25g) se Rs 600 (500g), aur 1 kg container strip Rs 1,140. Quantity par rate behtar hota hai; exact quote ke liye WhatsApp par size aur quantity bhejein.",
+        answer: "Reference rates: chhote PP bags Rs 0.92 (0.5g) se Rs 2.64 (3g) per piece, paper sachets Rs 2.38 (2g) se Rs 23.76 (20g), bulk packs Rs 33 (25g) se Rs 660 (500g), aur 1 kg container strip Rs 1,254. Quantity par rate behtar hota hai; exact quote ke liye WhatsApp par size aur quantity bhejein.",
       },
       {
         question: "Karachi mein silica gel kahan milta hai?",
