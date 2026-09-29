@@ -32,7 +32,7 @@ const PROVIDERS: Provider[] = (
     {
       name: "groq",
       url: "https://api.groq.com/openai/v1/chat/completions",
-      model: process.env.GROQ_MODEL || "llama-3.1-8b-instant",
+      model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
       key: process.env.GROQ_API_KEY || "",
     },
     // Third leg, added 18 Sep 2026. The outage post-mortem: Cerebras has
@@ -45,7 +45,7 @@ const PROVIDERS: Provider[] = (
     {
       name: "gemini",
       url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-      model: process.env.GEMINI_CHAT_MODEL || "gemini-2.0-flash",
+      model: process.env.GEMINI_CHAT_MODEL || "gemini-2.5-flash",
       key: process.env.GEMINI_API_KEY || "",
     },
   ] as Provider[]
