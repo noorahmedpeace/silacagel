@@ -51,14 +51,6 @@ const PROVIDERS: Provider[] = (
   ] as Provider[]
 ).filter((p) => p.key.length > 0);
 
-// Diagnostic (29 Sep 2026): the Gemini key was set via MCP and verified
-// non-empty in the store, yet no gemini attempt ever appears in runtime
-// logs. This one line settles which providers the RUNNING function can see;
-// remove it once the chain is confirmed.
-console.log(
-  "[chat] providers at module load:",
-  PROVIDERS.map((p) => `${p.name}(key:${p.key.length})`).join(", ") || "NONE",
-);
 
 // Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
 // and time-bounded so it never slows the chat. No-op if the env var is unset.
@@ -96,36 +88,6 @@ export async function POST(req: Request) {
   const session = typeof body.session === "string" ? body.session : "";
   const last = [...messages].reverse().find((m) => m.role === "user");
   if (!last) return new Response(JSON.stringify({ error: "no user message" }), { status: 400 });
-
-  // Diagnostic probe (29 Sep 2026, remove with the module-load log): returns
-  // the provider names + key lengths the RUNNING instance can see. No secret
-  // material - lengths only. Needed because `vercel logs` retention is too
-  // short to catch the cold-start line.
-  if (last.content === "___providers___") {
-    const enc = new TextEncoder();
-    const results: string[] = [];
-    for (const p of PROVIDERS) {
-      try {
-        const r = await fetch(p.url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${p.key}` },
-          body: JSON.stringify({
-            model: p.model,
-            max_tokens: 4,
-            messages: [{ role: "user", content: "hi" }],
-          }),
-        });
-        const t = r.ok ? "OK" : (await r.text().catch(() => "")).slice(0, 120);
-        results.push(`${p.name}[${p.model}] -> ${r.status} ${t}`);
-      } catch (e) {
-        results.push(`${p.name}[${p.model}] -> THREW ${e instanceof Error ? e.message.slice(0, 120) : "?"}`);
-      }
-    }
-    const body = `data: ${JSON.stringify({ text: results.join(" || ") || "NONE" })}\n\ndata: ${JSON.stringify({ done: true })}\n\ndata: [DONE]\n\n`;
-    return new Response(enc.encode(body), {
-      headers: { "Content-Type": "text/event-stream; charset=utf-8" },
-    });
-  }
 
   const chunks = retrieve(last.content, 3);
   const sources = [...new Set(chunks.map((c) => c.url))];
