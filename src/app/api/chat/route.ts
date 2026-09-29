@@ -21,32 +21,38 @@ type Msg = { role: string; content: string };
 // down. A provider that fails hands off to the next; only when all fail does
 // the visitor see the fallback line.
 type Provider = { name: string; url: string; model: string; key: string };
+// Order = who answers first. Reordered 29 Sep 2026 after the 27-day outage
+// post-mortem (two retired model names, never bad keys):
+//   1. Groq first - the proven serving leg (openai/gpt-oss-120b, free tier),
+//      and putting a DEAD provider first taxed every single chat with a
+//      wasted round-trip before the real answer started.
+//   2. Gemini second - key valid, gemini-flash-latest ALIAS so Google's next
+//      model retirement cannot 404 this leg; free tier throws occasional 503
+//      "high demand", which hands off cleanly.
+//   3. Cerebras last - 402 quota-dead since 2 Sep; kept because the key
+//      costs nothing and revives by itself if billing/quota ever returns.
+// All three are free tiers. If the hiccup line ever returns, re-add the
+// runtime probe from the 29-Sep debugging (git log route.ts) before trusting
+// sampled Hobby logs.
 const PROVIDERS: Provider[] = (
   [
-    {
-      name: "cerebras",
-      url: "https://api.cerebras.ai/v1/chat/completions",
-      model: process.env.CEREBRAS_MODEL || "gpt-oss-120b",
-      key: process.env.CEREBRAS_API_KEY || "",
-    },
     {
       name: "groq",
       url: "https://api.groq.com/openai/v1/chat/completions",
       model: process.env.GROQ_MODEL || "openai/gpt-oss-120b",
       key: process.env.GROQ_API_KEY || "",
     },
-    // Third leg, added 18 Sep 2026. The outage post-mortem: Cerebras has
-    // returned 402 since 2 Sep, and GROQ_API_KEY turned out to be EMPTY in
-    // production - the key.length filter below silently dropped Groq from
-    // this list, so "fallback" was a one-provider chain and every visitor
-    // read the hiccup line for 16 days. Google's OpenAI-compatible endpoint
-    // speaks the same SSE the parser already reads. Free-tier RPM is low,
-    // but DryBot's traffic is a few conversations a day.
     {
       name: "gemini",
       url: "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions",
-      model: process.env.GEMINI_CHAT_MODEL || "gemini-2.5-flash",
+      model: process.env.GEMINI_CHAT_MODEL || "gemini-flash-latest",
       key: process.env.GEMINI_API_KEY || "",
+    },
+    {
+      name: "cerebras",
+      url: "https://api.cerebras.ai/v1/chat/completions",
+      model: process.env.CEREBRAS_MODEL || "gpt-oss-120b",
+      key: process.env.CEREBRAS_API_KEY || "",
     },
   ] as Provider[]
 ).filter((p) => p.key.length > 0);
