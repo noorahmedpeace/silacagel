@@ -97,6 +97,20 @@ export async function POST(req: Request) {
   const last = [...messages].reverse().find((m) => m.role === "user");
   if (!last) return new Response(JSON.stringify({ error: "no user message" }), { status: 400 });
 
+  // Diagnostic probe (29 Sep 2026, remove with the module-load log): returns
+  // the provider names + key lengths the RUNNING instance can see. No secret
+  // material - lengths only. Needed because `vercel logs` retention is too
+  // short to catch the cold-start line.
+  if (last.content === "___providers___") {
+    const enc = new TextEncoder();
+    const body = `data: ${JSON.stringify({
+      text: PROVIDERS.map((p) => `${p.name}(key:${p.key.length})`).join(", ") || "NONE",
+    })}\n\ndata: ${JSON.stringify({ done: true })}\n\ndata: [DONE]\n\n`;
+    return new Response(enc.encode(body), {
+      headers: { "Content-Type": "text/event-stream; charset=utf-8" },
+    });
+  }
+
   const chunks = retrieve(last.content, 3);
   const sources = [...new Set(chunks.map((c) => c.url))];
   const context = [
