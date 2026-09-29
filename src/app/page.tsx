@@ -3,7 +3,7 @@ import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { totalCustomersSupplied } from "@/lib/customer-references";
-import { packSizeRange, sachetSizeRange, stripSizeRange } from "@/lib/product-data";
+import { sachetSizeRange, stripSizeRange } from "@/lib/product-data";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { CobaltFreeBand } from "@/components/cobalt-free-band";
@@ -65,23 +65,29 @@ export const metadata: Metadata = {
   },
 };
 
+// Three facts a buyer checks first, one short line each so the strip reads as a
+// single row instead of three ragged cards. The size span is derived from the
+// live constants (smallest sachet, largest strip), never hand-typed. DMF-free is
+// a statement, not a certificate, so it is not listed under the ISO cell.
+const smallestSachet = sachetSizeRange.split("-")[0];
+const largestStrip = stripSizeRange.split("-").pop();
 const trustSignalsArray = [
   {
     icon: PackageCheck,
-    title: `Sachets ${sachetSizeRange}, packs ${packSizeRange}, strips ${stripSizeRange}`,
-    label: "Full Range",
+    title: `${smallestSachet} sachets to ${largestStrip} strips`,
+    detail: "No minimum order",
     href: "/products",
   },
   {
     icon: Globe,
-    title: "Direct FOB / CIF export desk",
-    label: "Global Supply",
+    title: "FOB / CIF export desk",
+    detail: "Full shipping documents",
     href: "/export",
   },
   {
     icon: ShieldCheck,
-    title: "ISO 9001:2015 & DMF-free",
-    label: "Certified",
+    title: "ISO 9001:2015 certified",
+    detail: "Certificate no. 9101225",
     href: "/certifications",
   },
 ];
@@ -271,12 +277,10 @@ export default function Home() {
                   const Icon = signal.icon;
                   return (
                     <Link key={signal.href} href={signal.href} className={styles.heroXSignal}>
-                      <span className={styles.heroXSignalIcon}>
-                        <Icon size={22} strokeWidth={1.6} />
-                      </span>
+                      <Icon className={styles.heroXSignalIcon} size={18} strokeWidth={1.8} aria-hidden="true" />
                       <span className={styles.heroXSignalText}>
-                        <span>{signal.label}</span>
                         <strong>{signal.title}</strong>
+                        <span>{signal.detail}</span>
                       </span>
                     </Link>
                   );

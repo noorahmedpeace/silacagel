@@ -5136,83 +5136,81 @@
   background: var(--ds-brand-bright);
 }
 
+/* One quiet spec line under the CTAs, not three boxed cards: two pill buttons
+ * plus three bordered cards (each with its own boxed icon) stacked five outlined
+ * shapes on top of each other. A single hairline and two dividers keep the facts
+ * readable without competing with the buttons. */
 .heroXSignals {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  width: 100%;
-  max-width: 720px;
+  display: flex;
+  align-items: stretch;
+  width: fit-content;
+  max-width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .heroXSignal {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px 16px;
-  border-radius: 14px;
-  background: rgba(16, 22, 38, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  align-items: flex-start;
+  gap: 10px;
+  padding: 2px 26px;
   color: #fff;
-  transition: transform var(--ds-dur-base) var(--ds-ease-out),
-    background var(--ds-dur-base) var(--ds-ease-out),
-    border-color var(--ds-dur-base) var(--ds-ease-out),
-    box-shadow var(--ds-dur-base) var(--ds-ease-out);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.heroXSignal:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.heroXSignal:last-child {
+  padding-right: 0;
 }
 
 .heroXSignalIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 11px;
-  background: rgba(45, 91, 255, 0.18);
-  border: 1px solid rgba(91, 134, 255, 0.34);
+  margin-top: 2px;
   color: var(--ds-brand-bright);
-  transition: transform var(--ds-dur-base) var(--ds-ease-spring),
-    background var(--ds-dur-base) var(--ds-ease-out);
 }
 
 .heroXSignalText {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   min-width: 0;
 }
 
-.heroXSignalText span {
-  font-family: var(--font-mono);
-  font-size: 0.64rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(233, 238, 247, 0.6);
-}
-
 .heroXSignalText strong {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 600;
   line-height: 1.25;
   letter-spacing: -0.01em;
+  white-space: nowrap;
   color: #fff;
 }
 
+.heroXSignalText span {
+  font-size: 0.82rem;
+  line-height: 1.3;
+  color: rgba(233, 238, 247, 0.62);
+  transition: color var(--ds-dur-base) var(--ds-ease-out);
+}
+
+.heroXSignal:focus-visible {
+  outline: 2px solid var(--ds-brand-bright);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .heroXSignal:hover {
-    transform: translateY(-3px);
-    background: rgba(255, 255, 255, 0.09);
-    border-color: rgba(91, 134, 255, 0.4);
-    box-shadow: 0 20px 44px -22px rgba(45, 91, 255, 0.6);
-  }
-  .heroXSignal:hover .heroXSignalIcon {
-    transform: scale(1.08);
-    background: rgba(45, 91, 255, 0.28);
+  .heroXSignal:hover .heroXSignalText span {
+    color: rgba(233, 238, 247, 0.92);
   }
 }
 
 @media (max-width: 900px) {
-  .heroXSignals { grid-template-columns: 1fr; }
+  .heroXSignals { flex-direction: column; gap: 12px; width: 100%; }
+  .heroXSignal { padding: 0; border-left: 0; }
   .heroXImage { object-position: 60% center; opacity: 0.58; }
 }
 
@@ -5230,8 +5228,8 @@
   .heroXAurora,
   .heroXEyebrowDot { animation: none !important; }
   .heroXImage { opacity: 0.68; transform: none; }
-  .heroXPrimary:hover, .heroXGhost:hover, .heroXSignal:hover,
-  .heroXPrimary:hover svg, .heroXSignal:hover .heroXSignalIcon {
+  .heroXPrimary:hover, .heroXGhost:hover,
+  .heroXPrimary:hover svg {
     transform: none !important;
   }
 }
