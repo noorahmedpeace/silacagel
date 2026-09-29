@@ -103,9 +103,25 @@ export async function POST(req: Request) {
   // short to catch the cold-start line.
   if (last.content === "___providers___") {
     const enc = new TextEncoder();
-    const body = `data: ${JSON.stringify({
-      text: PROVIDERS.map((p) => `${p.name}(key:${p.key.length})`).join(", ") || "NONE",
-    })}\n\ndata: ${JSON.stringify({ done: true })}\n\ndata: [DONE]\n\n`;
+    const results: string[] = [];
+    for (const p of PROVIDERS) {
+      try {
+        const r = await fetch(p.url, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${p.key}` },
+          body: JSON.stringify({
+            model: p.model,
+            max_tokens: 4,
+            messages: [{ role: "user", content: "hi" }],
+          }),
+        });
+        const t = r.ok ? "OK" : (await r.text().catch(() => "")).slice(0, 120);
+        results.push(`${p.name}[${p.model}] -> ${r.status} ${t}`);
+      } catch (e) {
+        results.push(`${p.name}[${p.model}] -> THREW ${e instanceof Error ? e.message.slice(0, 120) : "?"}`);
+      }
+    }
+    const body = `data: ${JSON.stringify({ text: results.join(" || ") || "NONE" })}\n\ndata: ${JSON.stringify({ done: true })}\n\ndata: [DONE]\n\n`;
     return new Response(enc.encode(body), {
       headers: { "Content-Type": "text/event-stream; charset=utf-8" },
     });
