@@ -51,6 +51,15 @@ const PROVIDERS: Provider[] = (
   ] as Provider[]
 ).filter((p) => p.key.length > 0);
 
+// Diagnostic (29 Sep 2026): the Gemini key was set via MCP and verified
+// non-empty in the store, yet no gemini attempt ever appears in runtime
+// logs. This one line settles which providers the RUNNING function can see;
+// remove it once the chain is confirmed.
+console.log(
+  "[chat] providers at module load:",
+  PROVIDERS.map((p) => `${p.name}(key:${p.key.length})`).join(", ") || "NONE",
+);
+
 // Fire a conversation log to a Google Sheet webhook (CHAT_LOG_URL), best-effort
 // and time-bounded so it never slows the chat. No-op if the env var is unset.
 async function logConversation(payload: {
