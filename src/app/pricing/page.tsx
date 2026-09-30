@@ -43,7 +43,15 @@ function fmtUsd(value: number) {
 }
 
 function fmtPkr(value: number) {
-  return `PKR ${Math.round(value).toLocaleString("en-PK")}`;
+  // Sachets are priced in paisa, so rounding to whole rupees made every small
+  // size read "PKR 1" - a 0.5 gm at 0.92 and a 1 gm XL at 1.32 looked identical,
+  // and a price rise was invisible on the page. Show decimals below PKR 100 and
+  // whole rupees above it, where the paisa genuinely do not matter.
+  const decimals = value < 100 ? 2 : 0;
+  return `PKR ${value.toLocaleString("en-PK", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  })}`;
 }
 
 function usdRange(reference: number) {
