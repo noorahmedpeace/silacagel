@@ -639,7 +639,9 @@ export const priceGroups: PriceGroup[] = [
       { label: "1 gm XL", unitPrice: 1.32, exportUsd: 0.00572, grams: 1 },
       { label: "2 gm", unitPrice: 2.05, exportUsd: 0.00792, grams: 2 },
       { label: "3 gm", unitPrice: 2.64, exportUsd: 0.0099, grams: 3 },
-      { label: "4 gm", unitPrice: 3.56, exportUsd: 0.0121, grams: 4 },
+      // 4 gm is set by hand at 3.99, not by the uplift rule - owner's call on
+      // 30 Sep. Do not "correct" it back onto the formula.
+      { label: "4 gm", unitPrice: 3.99, exportUsd: 0.0121, grams: 4 },
       { label: "5 gm", unitPrice: 4.29, exportUsd: 0.0154, grams: 5 },
     ],
   },
