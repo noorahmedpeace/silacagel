@@ -105,11 +105,16 @@ describe("per-1,000 rate formatting - the regression that printed $4.50 as $5", 
   });
 
   it("formats a real sub-cent sachet rate correctly on a large order", () => {
-    const option = priceOptions.find((o) => o.exportUsd === 0.0045)!; // 1 gm
+    // Found by label and sub-cent band, not by a rate literal: the export
+    // column is repriced by hand (it moved 0.0045 -> 0.00495 on 30 Sep 2026
+    // and this test went red for a week). The regression under test is the
+    // FORMATTER keeping two decimals on a per-1,000 rate, whatever the rate.
+    const option = priceOptions.find((o) => o.label === "1 gm" && o.exportUsd < 0.01)!;
     const r = computeEstimate({ option, quantity: "1000000", currency: usd });
+    const expectedPerThousand = option.exportUsd * 1000;
     expect(r.showPerThousand).toBe(true);
-    expect(r.perThousand).toBeCloseTo(4.5, 9);
-    expect(rateFormatter(usd.locale).format(r.perThousand)).toBe("4.50");
+    expect(r.perThousand).toBeCloseTo(expectedPerThousand, 9);
+    expect(rateFormatter(usd.locale).format(r.perThousand)).toBe(expectedPerThousand.toFixed(2));
   });
 });
 
