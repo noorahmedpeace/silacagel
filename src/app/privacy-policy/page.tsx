@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
+import { breadcrumbJsonLd } from "@/lib/seo";
 import { companyAddressFull, mainEmail } from "@/lib/product-data";
-import styles from "../strategy-pages.module.css";
+import { LegalDocument, type LegalSection } from "@/components/legal-document";
 
 // Written 9 Oct 2026 against what the code actually does - every data flow
 // named here exists in this repo (GA4 + Clarity + Vercel Analytics in
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 
 const EFFECTIVE = "9 October 2026";
 
-const sections: { title: string; body: string[]; bullets?: string[] }[] = [
+const sections: LegalSection[] = [
   {
     title: "Who we are",
     body: [
@@ -108,52 +107,16 @@ export default function PrivacyPolicyPage() {
   ]);
 
   return (
-    <main className={styles.page}>
+    <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className={styles.hero}>
-        <span className={styles.kicker}>Privacy</span>
-        <h1>Privacy Policy.</h1>
-        <p>
-          A plain statement of what this site collects and why - written against what the site
-          actually does, not a template. Effective {EFFECTIVE}.
-        </p>
-      </section>
-
-      {sections.map((s) => (
-        <section className={styles.section} key={s.title}>
-          <div className={styles.sectionHead}>
-            <h2>{s.title}</h2>
-          </div>
-          <div className={styles.grid}>
-            <article className={styles.card}>
-              {s.body.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
-              ))}
-              {s.bullets ? (
-                <ul>
-                  {s.bullets.map((b) => (
-                    <li key={b.slice(0, 40)}>{b}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </article>
-          </div>
-        </section>
-      ))}
-
-      <section className={styles.section}>
-        <div className={styles.grid}>
-          <article className={styles.card}>
-            <h3>Related</h3>
-            <p>
-              <Link href="/terms-of-use">Terms of Use</Link> ·{" "}
-              <Link href="/documentation">Product documents (SDS, COA)</Link> ·{" "}
-              <Link href="/contact">Contact the export desk</Link>
-            </p>
-            <p>Canonical URL: {absoluteUrl("/privacy-policy")}</p>
-          </article>
-        </div>
-      </section>
+      <LegalDocument
+        kicker="Privacy"
+        title="Privacy Policy"
+        intro="A plain statement of what this site collects and why, written against what the site actually does, not a template."
+        effective={EFFECTIVE}
+        sections={sections}
+        related={[{ href: "/terms-of-use", label: "Terms of Use" }, { href: "/documentation", label: "Product documents (SDS, COA)" }, { href: "/contact", label: "Contact the export desk" }]}
+      />
     </main>
   );
 }

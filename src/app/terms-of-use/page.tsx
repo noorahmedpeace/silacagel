@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { breadcrumbJsonLd } from "@/lib/seo";
 import { companyAddressFull, mainEmail } from "@/lib/product-data";
-import styles from "../strategy-pages.module.css";
+import { LegalDocument, type LegalSection } from "@/components/legal-document";
 
 // Written 9 Oct 2026. Deliberately modest: it states what the site's
 // information is and is not (indicative prices, estimating calculators, an
@@ -19,7 +18,7 @@ export const metadata: Metadata = {
 
 const EFFECTIVE = "9 October 2026";
 
-const sections: { title: string; body: string[]; bullets?: string[] }[] = [
+const sections: LegalSection[] = [
   {
     title: "Who you are dealing with",
     body: [
@@ -86,51 +85,16 @@ export default function TermsOfUsePage() {
   ]);
 
   return (
-    <main className={styles.page}>
+    <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <section className={styles.hero}>
-        <span className={styles.kicker}>Terms</span>
-        <h1>Terms of Use.</h1>
-        <p>
-          What the information on this site is and is not, and how an enquiry becomes an order.
-          Effective {EFFECTIVE}.
-        </p>
-      </section>
-
-      {sections.map((s) => (
-        <section className={styles.section} key={s.title}>
-          <div className={styles.sectionHead}>
-            <h2>{s.title}</h2>
-          </div>
-          <div className={styles.grid}>
-            <article className={styles.card}>
-              {s.body.map((p) => (
-                <p key={p.slice(0, 40)}>{p}</p>
-              ))}
-              {s.bullets ? (
-                <ul>
-                  {s.bullets.map((b) => (
-                    <li key={b.slice(0, 40)}>{b}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </article>
-          </div>
-        </section>
-      ))}
-
-      <section className={styles.section}>
-        <div className={styles.grid}>
-          <article className={styles.card}>
-            <h3>Related</h3>
-            <p>
-              <Link href="/privacy-policy">Privacy Policy</Link> ·{" "}
-              <Link href="/pricing">Indicative price list</Link> ·{" "}
-              <Link href="/request-a-quote">Request a quotation</Link>
-            </p>
-          </article>
-        </div>
-      </section>
+      <LegalDocument
+        kicker="Terms"
+        title="Terms of Use"
+        intro="What the information on this site is and is not, and how an enquiry becomes an order."
+        effective={EFFECTIVE}
+        sections={sections}
+        related={[{ href: "/privacy-policy", label: "Privacy Policy" }, { href: "/pricing", label: "Indicative price list" }, { href: "/request-a-quote", label: "Request a quotation" }]}
+      />
     </main>
   );
 }

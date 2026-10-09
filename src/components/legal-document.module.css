@@ -1,0 +1,247 @@
+/* Legal document layout. Light theme, like the rest of the site. One accent
+ * (brand blue) for links and section numbers; no cards, no shadows - the
+ * clauses are separated by space and a single hairline, not boxes. */
+
+.wrap {
+  background: var(--ds-bg);
+  color: var(--ds-text);
+  padding: clamp(40px, 6vw, 72px) var(--ds-page-px) clamp(64px, 8vw, 112px);
+}
+
+.head,
+.layout {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.head {
+  display: grid;
+  gap: 14px;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.kicker {
+  margin: 0;
+  color: var(--ds-brand);
+  font-size: var(--ds-small);
+  font-weight: 600;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  color: var(--ds-text);
+}
+
+.intro {
+  margin: 0;
+  max-width: 62ch;
+  font-size: var(--ds-lead);
+  line-height: 1.6;
+  color: var(--ds-text-muted);
+  text-wrap: pretty;
+}
+
+.meta {
+  margin: 4px 0 0;
+  font-size: var(--ds-small);
+  color: var(--ds-text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(28px, 4vw, 56px);
+  padding-top: clamp(28px, 4vw, 48px);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* ── Contents ── */
+
+.toc {
+  font-size: 0.92rem;
+}
+
+.tocLabel {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--ds-text);
+}
+
+.toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.toc a {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: var(--ds-text-muted);
+  text-decoration: none;
+  line-height: 1.35;
+  transition: background var(--ds-dur-quick) var(--ds-ease-out),
+    color var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.toc a:hover {
+  background: var(--ds-surface-tint);
+  color: var(--ds-text);
+}
+
+.toc a:focus-visible,
+.doc a:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 2px;
+}
+
+/* Phones: contents as a compact two-column list under the header. */
+@media (max-width: 1023px) {
+  .toc {
+    padding: 16px 18px;
+    border-radius: 12px;
+    background: var(--ds-surface-tint);
+  }
+  .toc ol {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100dvh - 120px);
+    overflow-y: auto;
+  }
+}
+
+/* ── Document ── */
+
+.doc {
+  max-width: 70ch;
+  min-width: 0;
+}
+
+.clause {
+  scroll-margin-top: 104px;
+  padding: 0 0 clamp(28px, 3vw, 36px);
+}
+
+.clause + .clause {
+  padding-top: clamp(28px, 3vw, 36px);
+  border-top: 1px solid var(--ds-hairline);
+}
+
+.clause h2,
+.related h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 0 0 14px;
+  font-size: clamp(1.2rem, 1.05rem + 0.6vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.012em;
+  color: var(--ds-text);
+  text-wrap: balance;
+}
+
+.num {
+  color: var(--ds-brand);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.clause h2 .num {
+  min-width: 1.4em;
+}
+
+.clause p,
+.clause li {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ds-text-muted);
+  text-wrap: pretty;
+}
+
+.clause p {
+  margin: 0 0 14px;
+}
+
+.clause p:last-child {
+  margin-bottom: 0;
+}
+
+.clause ul,
+.related ul {
+  margin: 4px 0 0;
+  padding-left: 1.2em;
+  display: grid;
+  gap: 8px;
+}
+
+.clause li::marker {
+  color: var(--ds-brand);
+}
+
+/* ── Related ── */
+
+.related {
+  margin-top: clamp(28px, 3vw, 40px);
+  padding-top: clamp(24px, 3vw, 32px);
+  border-top: 1px solid var(--ds-hairline-strong);
+}
+
+.related ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+}
+
+.related a {
+  color: var(--ds-brand);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--ds-brand) 35%, transparent);
+  text-underline-offset: 4px;
+  transition: text-decoration-color var(--ds-dur-quick) var(--ds-ease-out);
+}
+
+.related a:hover {
+  text-decoration-color: currentColor;
+}
+
+.footnote {
+  margin: 18px 0 0;
+  font-size: var(--ds-small);
+  color: var(--ds-text-faint);
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc a,
+  .related a {
+    transition: none;
+  }
+}
