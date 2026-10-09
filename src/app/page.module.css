@@ -6808,3 +6808,143 @@
 .categoryAside a:hover {
   border-bottom-color: currentColor;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * TASTE PASS (Oct 2026). Appended last so it wins by source order.
+ * Ten uppercase kicker pills in ten sections, two-tone gradient headings,
+ * decorative dots on chips and labels, and a "Track record" section that
+ * restated the proof register were the things that made the page read as
+ * assembled from a template. The page's structure, copy, slugs and anchors
+ * are unchanged; this is typography, labels and one hover.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Headings in solid ink. The heading gradient split every h2 into a black
+   half and a cobalt half ("Track record." / "Size it, price it,"), which is a
+   pattern, not a hierarchy. Cobalt stays on links and documented facts. */
+.sectionHead h2,
+.productHead h2,
+.customerReferenceIntro h2 {
+  background: none;
+  color: var(--ds-text);
+  -webkit-text-fill-color: var(--ds-text);
+}
+
+/* Hero eyebrow in the body face. Mono uppercase was the same chip as every
+   section kicker; with those gone it should not look like a leftover one. */
+.heroXEyebrow {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  gap: 0;
+  padding: 8px 14px;
+}
+
+/* Two lines on a desktop headline, not three: a touch more width for the copy
+   column and a slightly lower display cap. */
+.heroXCopy {
+  max-width: 860px;
+}
+
+.heroXTitle {
+  max-width: 19ch;
+  font-size: clamp(2.2rem, 1rem + 4.2vw, 4rem);
+}
+
+/* Decorative status dots conveyed no state. */
+.pricingHighlightChip::before,
+.pricingSection .calculatorHint::before {
+  content: none;
+}
+
+/* The one new hover: a light sweep across the two filled CTAs. It answers the
+   pointer, nothing loops. Pointer devices only; off under reduced motion. */
+.heroXPrimary,
+.flowCta {
+  position: relative;
+  overflow: hidden;
+}
+
+.heroXPrimary::after,
+.flowCta::after {
+  content: "";
+  position: absolute;
+  inset: -120% auto -120% -40%;
+  width: 36%;
+  transform: rotate(18deg);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0));
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .heroXPrimary::after,
+  .flowCta::after {
+    transition: transform 0.7s var(--ds-ease-out), opacity 0.3s var(--ds-ease);
+  }
+
+  .heroXPrimary:hover::after,
+  .flowCta:hover::after {
+    opacity: 1;
+    transform: translateX(340%) rotate(18deg);
+  }
+}
+
+/* Phones: the two hero buttons stack, so neither label ever wraps, and the
+   three facts under them come back as one short column. They were hidden on
+   phones, which left the mobile hero with no checkable claim at all. */
+@media (max-width: 760px) {
+  /* Re-asserted here because the body-face rule above sits after the phone
+     block and would otherwise win: at 0.74rem the eyebrow wrapped to two lines. */
+  .heroXEyebrow {
+    font-size: 0.64rem;
+    letter-spacing: 0.05em;
+    padding: 7px 12px;
+  }
+
+  .heroXActions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .heroXPrimary,
+  .heroXGhost {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .heroXSignals {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding-top: 16px;
+    margin-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .heroXSignal {
+    align-items: center;
+    padding: 0;
+    border-left: 0;
+  }
+
+  .heroXSignalIcon {
+    margin-top: 0;
+  }
+
+  .heroXSignalText {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 8px;
+  }
+
+  .heroXSignalText strong {
+    font-size: 0.88rem;
+    white-space: normal;
+  }
+
+  .heroXSignalText span {
+    font-size: 0.78rem;
+  }
+}

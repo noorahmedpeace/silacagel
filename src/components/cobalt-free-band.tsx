@@ -48,7 +48,6 @@ export function CobaltFreeBand() {
         <ul className={styles.grid}>
           {points.map((p) => (
             <li key={p.title} className={styles.point}>
-              <span className={styles.dot} aria-hidden="true" />
               <div>
                 <h3 className={styles.pointTitle}>{p.title}</h3>
                 <p className={styles.pointText}>{p.text}</p>

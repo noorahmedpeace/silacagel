@@ -56,20 +56,13 @@
   list-style: none;
 }
 
+/* A short accent rule beside each point instead of a bullet dot: it groups the
+   title with its text and reads as a column, not a list. */
 .point {
   display: flex;
-  gap: 11px;
   align-items: flex-start;
-}
-
-.dot {
-  flex: 0 0 auto;
-  width: 8px;
-  height: 8px;
-  margin-top: 6px;
-  border-radius: 999px;
-  background: var(--ds-accent, #f0601e);
-  box-shadow: 0 0 0 4px rgba(240, 96, 30, 0.18);
+  padding-left: 14px;
+  border-left: 2px solid rgba(240, 96, 30, 0.75);
 }
 
 .pointTitle {

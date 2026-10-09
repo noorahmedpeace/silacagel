@@ -168,32 +168,6 @@ const scrollyIndustries = [
   },
 ];
 
-// Honest track record: only verified, provable facts, each card links to the
-// page that documents the claim. No invented customers or persona quotes.
-const trackRecord = [
-  {
-    stat: "10M+",
-    label: "Sachets shipped",
-    detail: "Manufacturing continuously since 1983.",
-    href: "/media-kit",
-    proof: "See the media kit",
-  },
-  {
-    stat: "190+",
-    label: "Export markets",
-    detail: "Quoted FOB / CIF / DAP with full shipping documentation.",
-    href: "/export",
-    proof: "Browse export markets",
-  },
-  {
-    stat: "ISO 9001:2015",
-    label: "Certificate #9101225",
-    detail: "SDS and COA supplied with every batch.",
-    href: "/certifications",
-    proof: "Verify the certificate",
-  },
-];
-
 const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
 // No `priority` here: a blanket priority on both art-directed variants makes Next
 // emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
@@ -252,7 +226,6 @@ export default function Home() {
             <div className={styles.heroXContainer}>
             <div className={styles.heroXCopy}>
               <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
-                <span className={styles.heroXEyebrowDot} aria-hidden="true" />
                 ISO 9001:2015 · Manufacturer since 1983
               </span>
               <h1 className={styles.heroXTitle}>
@@ -264,11 +237,11 @@ export default function Home() {
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
                 <Link href="/request-a-quote" className={styles.heroXPrimary}>
-                  Request Export Quote
+                  Request a quote
                   <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
                 <Link href="/samples" className={styles.heroXGhost}>
-                  Request Free Samples
+                  Get free samples
                 </Link>
               </div>
 
@@ -299,7 +272,6 @@ export default function Home() {
                 {/* "Trusted by" implies these companies vouch for us. They have
                     bought from us; that is a supply record, not an endorsement,
                     and the stronger claim is the one that is checkable. */}
-                <p className={styles.kicker}>Customer Supply References</p>
                 <h2 id="customer-reference-title">Supplying pharma, textile and export packaging.</h2>
                 <p>
                   Desiccant supply for pharmaceutical, textile, medical and industrial packaging operations.
@@ -329,11 +301,10 @@ export default function Home() {
           <Reveal direction="up">
             <section className={styles.procurementFlowSection} aria-label="Buyer workflow">
               <div className={styles.procurementFlowIntro}>
-                <p className={styles.kicker}>How it works</p>
                 <AnimatedText text="Three steps to a quote." mode="bubble" />
                 <p className={styles.flowIntroSub}>Send the right details once and get a clearer quote path.</p>
                 <Link href="/request-a-quote" className={styles.flowCta}>
-                  Start your quote
+                  Request a quote
                   <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
                 </Link>
               </div>
@@ -377,7 +348,6 @@ export default function Home() {
           <Reveal direction="up">
             <section id="products" className={styles.productSection}>
               <div className={styles.productHead}>
-                <p className={styles.kicker}>Products</p>
                 <AnimatedText text="Choose the right format for the job." mode="bubble" />
                 <p>
                   Sachets for cartons, bulk beads for volume, strips for containers.
@@ -403,7 +373,6 @@ export default function Home() {
             <section id="pricing" className={styles.pricingSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Pricing</p>
                   <AnimatedText text="Size it, price it, send the RFQ." mode="bubble" />
                   <p>
                     Pick a format, estimate volume, and get a quote built around your destination and terms.
@@ -447,7 +416,6 @@ export default function Home() {
             <section id="industries" className={styles.partnerSection}>
               <div className={styles.sectionIntro}>
                 <div className={styles.sectionHead}>
-                  <p className={styles.kicker}>Industries</p>
                   <AnimatedText text="Trusted where humidity means damage." mode="bubble" />
                   <p>
                     From pharma to ocean freight, matched to your shipment risk.
@@ -467,37 +435,12 @@ export default function Home() {
 
               <IndustryScrolly industries={scrollyIndustries} />
 
+              {/* The industries are the case studies' subject, so the section ends
+                  on the stories, not on a sixth "request a quote" button: the five
+                  per-industry quote links above already carry that intent. The old
+                  "Track record" section that followed restated the proof register
+                  (10M+, 190+, ISO 9001) two screens up and was removed. */}
               <div className={styles.industryCta}>
-                <Link href="/request-a-quote" className={styles.flowCta}>
-                  Match my industry
-                  <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
-                </Link>
-              </div>
-            </section>
-          </Reveal>
-
-          <Reveal direction="up">
-            <section id="proof" className={styles.proofSection}>
-              <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Buyer Confidence</p>
-                <AnimatedText text="Track record." mode="rise" />
-              </div>
-
-              <div className={styles.trackGrid}>
-                {trackRecord.map((item) => (
-                  <Link key={item.stat} href={item.href} className={styles.trackCard}>
-                    <span className={styles.trackStat}>{item.stat}</span>
-                    <span className={styles.trackLabel}>{item.label}</span>
-                    <span className={styles.trackDetail}>{item.detail}</span>
-                    <span className={styles.trackProof}>
-                      {item.proof}
-                      <ArrowRight size={15} strokeWidth={2.4} aria-hidden="true" />
-                    </span>
-                  </Link>
-                ))}
-              </div>
-
-              <div className={styles.caseStudyAction}>
                 <Link href="/case-studies" className={styles.secondaryCta}>
                   Read the case studies
                   <ArrowRight size={17} strokeWidth={2.4} aria-hidden="true" />
@@ -509,7 +452,6 @@ export default function Home() {
           <Reveal direction="up">
             <section id="contact" className={styles.homeRfqSection} aria-label="International RFQ form">
               <div className={styles.sectionHead}>
-                <p className={styles.kicker}>Get a Quote</p>
                 <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
                 <p>
                   Four fields, one clean quote back, usually within the hour in Karachi business hours.

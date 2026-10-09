@@ -224,7 +224,7 @@ export function PriceCalculator({
             ? "Domestic Pakistan price schedule."
             : "Fixed export price schedule."}{" "}
           Excludes freight, duties, and destination charges. Not an Incoterm-qualified
-          quote &mdash; final pricing depends on format, quantity, destination, documents,
+          quote: final pricing depends on format, quantity, destination, documents,
           and dispatch schedule.
         </p>
 

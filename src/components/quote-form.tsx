@@ -258,7 +258,7 @@ export function QuoteForm({
           target="_blank"
           rel="noopener noreferrer"
         >
-          <span className={styles.whatsappCtaMain}>Quote on WhatsApp — fastest reply</span>
+          <span className={styles.whatsappCtaMain}>Quote on WhatsApp, the fastest reply</span>
           <span className={styles.whatsappCtaSub}>Chat a real person now · {displayPhone}</span>
         </a>
         <div className={styles.orDivider}><span>or send the form</span></div>
@@ -524,7 +524,7 @@ export function QuoteForm({
         />
 
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending…" : "Send my requirement — reply usually within 1 hour"}
+          {pending ? "Sending…" : "Send my requirement, reply usually within 1 hour"}
         </button>
 
         {error ? (
@@ -552,7 +552,7 @@ export function QuoteForm({
 
         {state.submitted && status === "fallback" ? (
           <div className={styles.successNote} role="status">
-            <strong>RFQ summary prepared — please connect to dispatch:</strong>
+            <strong>RFQ summary prepared. Please connect to dispatch:</strong>
             <span>
               If your email client did not launch automatically, tap below to send your inquiry directly via WhatsApp or email:
             </span>

@@ -62,7 +62,7 @@ const VERIFICATION: Entry[] = [
   {
     value: "DMF-free",
     label: "Verified product",
-    sub: "SDS & COA — download now",
+    sub: "Download SDS & COA",
     href: "/documentation",
   },
 ];
@@ -96,7 +96,6 @@ export function TrustBand() {
   return (
     <section className={styles.band} aria-labelledby="proof-heading">
       <header className={styles.head}>
-        <p className={styles.eyebrow}>Proof</p>
         <h2 className={styles.heading} id="proof-heading">
           Manufacturing scale, documented.
         </h2>
@@ -139,8 +138,8 @@ export function TrustBand() {
       </div>
 
       <p className={styles.footnote}>
-        ISO 9001:2015, DMF-free status and the 1983 founding date are documented — see{" "}
-        <Link href="/certifications">certifications</Link>.
+        ISO 9001:2015, DMF-free status and the 1983 founding date are documented on the{" "}
+        <Link href="/certifications">certifications page</Link>.
       </p>
     </section>
   );
