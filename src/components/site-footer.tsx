@@ -409,6 +409,8 @@ export function SiteFooter() {
         <div className={styles.bottomMeta}>
           {/* No human-facing /sitemap.xml link: it renders as raw XML (poor UX)
               and Google already discovers it via robots.txt (see robots.ts). */}
+          <Link href="/privacy-policy">Privacy</Link>
+          <Link href="/terms-of-use">Terms</Link>
           <address>{companyAddressFull}</address>
           <a href={`tel:${phoneHref}`}>{displayPhone}</a>
         </div>

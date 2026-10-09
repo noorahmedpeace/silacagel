@@ -74,6 +74,8 @@ const STATIC_ROUTES = [
   "/products",
   "/contact",
   "/request-a-quote",
+  "/privacy-policy",
+  "/terms-of-use",
   "/samples",
   "/faq",
   "/blog",
