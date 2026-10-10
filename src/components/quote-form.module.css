@@ -106,11 +106,9 @@
 }
 
 .field span {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ds-text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ds-text);
 }
 
 .field input,
@@ -237,10 +235,8 @@
   align-items: center;
   gap: 12px;
   margin: 4px 0 2px;
-  color: var(--ds-text-muted);
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  color: var(--ds-text-faint);
+  font-size: 0.85rem;
 }
 
 .orDivider span {
@@ -266,9 +262,8 @@
   color: #fff;
   border: none;
   border-radius: var(--ds-cta-radius);
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
   cursor: pointer;
   box-shadow: var(--ds-shadow-cta);
   transition:
@@ -318,6 +313,16 @@
 .successNote a {
   color: var(--ds-brand-deep);
   font-weight: 700;
+}
+
+/* Reply-time promise right under the button: the moment a buyer decides
+   whether to send is the moment they want to know when they will hear back. */
+.submitNote {
+  grid-column: 1 / -1;
+  margin: -8px 0 0;
+  text-align: center;
+  color: var(--ds-text-muted);
+  font-size: 0.88rem;
 }
 
 /* Required-field marker on the four core fields. */
@@ -501,8 +506,6 @@
     letter-spacing: 0;
   }
 
-  .formHead p,
-  .field span,
   .sidebarKicker {
     letter-spacing: 0.07em;
   }
@@ -547,9 +550,8 @@
     min-height: 52px;
     width: 100%;
     padding: 0 18px;
-    font-size: 0.92rem;
-    letter-spacing: 0.02em;
-    border-radius: 12px;
+    font-size: 0.98rem;
+    border-radius: 999px;
   }
 
   .rfqSidebar {

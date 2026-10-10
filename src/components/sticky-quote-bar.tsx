@@ -34,9 +34,14 @@ export function StickyQuoteBar({
   productName,
   productFullName,
   productSlug,
+  hideOver,
 }: {
   /** Anchor or route the CTA points at. Defaults to the on-page quote form. */
   href?: string;
+  /** Element id to hide over when the CTA is a route, not an anchor. The
+   *  homepage links to /request-a-quote, so without this the pill never
+   *  learned about the form on the page and sat on top of its submit button. */
+  hideOver?: string;
   /** Optional product name woven into the label. */
   productName?: string;
   /** Full catalog name + slug enable the Add-to-Cart mode of the pill. */
@@ -167,8 +172,9 @@ export function StickyQuoteBar({
     window.addEventListener("scroll", onScroll, { passive: true });
 
     let observer: IntersectionObserver | undefined;
-    if (href.startsWith("#")) {
-      const target = document.getElementById(href.slice(1));
+    const watchId = hideOver ?? (href.startsWith("#") ? href.slice(1) : "");
+    if (watchId) {
+      const target = document.getElementById(watchId);
       if (target) {
         observer = new IntersectionObserver((entries) => {
           formInView.current = entries.some((entry) => entry.isIntersecting);
@@ -184,7 +190,7 @@ export function StickyQuoteBar({
       window.removeEventListener("scroll", onScroll);
       observer?.disconnect();
     };
-  }, [href]);
+  }, [href, hideOver]);
 
   if (dismissed) return null;
 

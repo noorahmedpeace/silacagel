@@ -3,7 +3,7 @@ import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { totalCustomersSupplied } from "@/lib/customer-references";
-import { sachetSizeRange, stripSizeRange } from "@/lib/product-data";
+import { displayPhone, sachetSizeRange, stripSizeRange, whatsappNumber } from "@/lib/product-data";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
 import { AnimatedText } from "@/components/animated-text";
@@ -32,6 +32,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   Factory,
+  MessageCircle,
   FileCheck2,
   Globe,
   ShieldCheck,
@@ -475,19 +476,53 @@ export default function Home() {
 
           <Reveal direction="up">
             <section id="contact" className={styles.homeRfqSection} aria-label="International RFQ form">
-              <div className={styles.sectionHead}>
-                <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
-                <p>
-                  Four fields, one clean quote back, usually within the hour in Karachi business hours.
-                </p>
+              {/* Two columns: what happens after you send on the left, the
+                  form on the right. Buyers abandon a form that does not say
+                  when or how they will hear back, so the answer sits beside
+                  it, and WhatsApp (the channel most buyers here actually use)
+                  is offered once, as a real alternative, not a banner. */}
+              <div className={styles.rfqLayout}>
+                <div className={styles.rfqAside}>
+                  <AnimatedText text="Tell us what you ship. We price it." mode="rise" />
+                  <p className={styles.rfqLead}>Two fields to start. The rest only if you have it.</p>
+                  <ol className={styles.rfqSteps}>
+                    <li>
+                      <strong>A person reads it</strong>
+                      <span>Usually within the hour in Karachi business hours, not an autoresponder.</span>
+                    </li>
+                    <li>
+                      <strong>You get a written price</strong>
+                      <span>Per piece or per kg, on FOB, CIF or DAP terms. No minimum order.</span>
+                    </li>
+                    <li>
+                      <strong>Test before you buy</strong>
+                      <span>Sample material is free (200 to 300 g). You cover the courier.</span>
+                    </li>
+                  </ol>
+                  <a
+                    className={styles.rfqWhatsapp}
+                    href={`https://wa.me/${whatsappNumber}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className={styles.rfqWhatsappIcon} aria-hidden="true">
+                      <MessageCircle size={20} strokeWidth={1.8} />
+                    </span>
+                    <span>
+                      <strong>Rather chat? WhatsApp us</strong>
+                      <small>{displayPhone}, the fastest reply</small>
+                    </span>
+                    <ArrowUpRight size={18} strokeWidth={2} aria-hidden="true" />
+                  </a>
+                </div>
+                <DeferredQuoteForm title="Your export quote" compact instantChannel={false} />
               </div>
-                <DeferredQuoteForm title="Send MOQ Requirement" compact />
             </section>
           </Reveal>
         </main>
         {/* Persistent CTA during the long homepage scroll; routes all quote
             intent to the dedicated /request-a-quote page (2026 redesign). */}
-        <StickyQuoteBar href="/request-a-quote" />
+        <StickyQuoteBar href="/request-a-quote" hideOver="contact" />
         {/* Temporary; fires only for no-referrer loads. See the route file. */}
         <VisitBeacon path="/" />
         <script

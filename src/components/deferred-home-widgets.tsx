@@ -132,16 +132,18 @@ export function DeferredQuoteForm({
   title,
   compact,
   defaultProduct,
+  instantChannel,
 }: {
   title?: string;
   compact?: boolean;
   defaultProduct?: string;
+  instantChannel?: boolean;
 }) {
   return (
     <LoadWhenVisible
       label="Loading RFQ form"
       loader={() => import("@/components/quote-form").then((mod) => mod.QuoteForm)}
-      props={{ title, compact, defaultProduct }}
+      props={{ title, compact, defaultProduct, instantChannel }}
       minHeight={compact ? WIDGET_MIN_HEIGHTS.quoteFormCompact : WIDGET_MIN_HEIGHTS.quoteForm}
     />
   );

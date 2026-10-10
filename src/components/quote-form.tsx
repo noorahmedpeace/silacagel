@@ -32,6 +32,9 @@ type QuoteFormProps = {
   defaultDepartment?: ContactDepartment;
   defaultQuantity?: string;
   defaultMessage?: string;
+  /** Render the WhatsApp button inside the form. Off where the page already
+   *  offers WhatsApp next to the form (homepage), so it is not shown twice. */
+  instantChannel?: boolean;
 };
 
 type FormFields = {
@@ -108,6 +111,7 @@ export function QuoteForm({
   defaultDepartment = "sales",
   defaultQuantity = "",
   defaultMessage = "",
+  instantChannel = true,
 }: QuoteFormProps) {
   const hasDefaultProductOption =
     defaultProduct.length > 0 && productCatalog.some((item) => item.name === defaultProduct);
@@ -245,28 +249,31 @@ export function QuoteForm({
     >
       <div className={styles.formMain}>
         <div className={styles.formHead}>
-          <p>Get an export quote</p>
           {headingLevel === 2 ? <h2>{title}</h2> : <h3>{title}</h3>}
-          <span>Company and email are all we need to start - add shipment specifics only if you have them.</span>
+          <span>Company and email are all we need to start. Add shipment details only if you have them.</span>
         </div>
 
         {/* Instant path first: the fastest reply is a WhatsApp chat, not an
             async form. Buyers who won't fill anything still tap this. */}
-        <a
-          className={styles.whatsappCta}
-          href={waHref}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span className={styles.whatsappCtaMain}>Quote on WhatsApp, the fastest reply</span>
-          <span className={styles.whatsappCtaSub}>Chat a real person now · {displayPhone}</span>
-        </a>
-        <div className={styles.orDivider}><span>or send the form</span></div>
+        {instantChannel ? (
+          <>
+            <a
+              className={styles.whatsappCta}
+              href={waHref}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.whatsappCtaMain}>Quote on WhatsApp, the fastest reply</span>
+              <span className={styles.whatsappCtaSub}>Chat a real person now · {displayPhone}</span>
+            </a>
+            <div className={styles.orDivider}><span>or send the form</span></div>
+          </>
+        ) : null}
 
         {/* Core fields - the four that let the export desk respond fast. */}
         <label className={styles.field}>
           <span>
-            Company Name <em className={styles.req}>*</em>
+            Company name <em className={styles.req}>*</em>
           </span>
           <input
             value={state.company}
@@ -281,7 +288,7 @@ export function QuoteForm({
 
         <label className={styles.field}>
           <span>
-            Business Email <em className={styles.req}>*</em>
+            Business email <em className={styles.req}>*</em>
           </span>
           <input
             value={state.email}
@@ -295,7 +302,7 @@ export function QuoteForm({
         </label>
 
         <label className={styles.field}>
-          <span>Product Type / Format</span>
+          <span>Product</span>
           <select
             value={state.product}
             onChange={(event) => dispatch({ type: "set", field: "product", value: event.target.value })}
@@ -327,7 +334,7 @@ export function QuoteForm({
         </label>
 
         <label className={styles.field}>
-          <span>Quantity / Monthly Volume</span>
+          <span>Quantity or monthly volume</span>
           <input
             value={state.quantity}
             onChange={(event) => dispatch({ type: "set", field: "quantity", value: event.target.value })}
@@ -524,8 +531,11 @@ export function QuoteForm({
         />
 
         <button className={styles.submit} type="submit" disabled={pending}>
-          {pending ? "Sending…" : "Send my requirement, reply usually within 1 hour"}
+          {pending ? "Sending…" : "Send quote request"}
         </button>
+        <p className={styles.submitNote}>
+          We reply to your email, usually within the hour in Karachi business hours.
+        </p>
 
         {error ? (
           <div className={styles.errorNote} role="alert">

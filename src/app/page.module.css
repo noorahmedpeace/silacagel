@@ -7057,3 +7057,140 @@
     transition: none;
   }
 }
+
+/* Homepage RFQ (Oct 2026, part of the taste pass). What happens next on the
+   left, the form on the right; one WhatsApp card instead of a full-width
+   green banner inside the form. */
+.rfqLayout {
+  display: grid;
+  gap: clamp(28px, 4vw, 56px);
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .rfqLayout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+  .rfqAside {
+    position: sticky;
+    top: 120px;
+  }
+}
+
+.rfqAside {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+
+.rfqAside h2 {
+  margin: 0;
+  max-width: 14ch;
+}
+
+.rfqLead {
+  margin: 0;
+  color: var(--ds-text-muted);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+.rfqSteps {
+  list-style: none;
+  counter-reset: rfq;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.rfqSteps li {
+  counter-increment: rfq;
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 14px;
+  row-gap: 2px;
+  padding: 16px 0;
+  border-top: 1px solid var(--ds-hairline);
+}
+
+.rfqSteps li:last-child {
+  border-bottom: 1px solid var(--ds-hairline);
+}
+
+.rfqSteps li::before {
+  content: counter(rfq, decimal-leading-zero);
+  grid-row: span 2;
+  color: var(--ds-brand);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+}
+
+.rfqSteps strong {
+  color: var(--ds-text);
+  font-weight: 700;
+}
+
+.rfqSteps span {
+  color: var(--ds-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rfqWhatsapp {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: #effaf3;
+  box-shadow: inset 0 0 0 1px rgba(31, 143, 78, 0.22);
+  color: #0f4d2b;
+  text-decoration: none;
+  transition: background 0.3s var(--ds-ease-out), transform 0.45s var(--ds-ease-out);
+}
+
+.rfqWhatsapp strong {
+  display: block;
+  font-weight: 700;
+}
+
+.rfqWhatsapp small {
+  color: #2f6b49;
+  font-size: 0.88rem;
+}
+
+.rfqWhatsappIcon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #1f8f4e;
+  color: #fff;
+}
+
+.rfqWhatsapp:hover {
+  background: #e2f6ea;
+  transform: translateY(-2px);
+}
+
+.rfqWhatsapp:active {
+  transform: scale(0.98);
+}
+
+.rfqWhatsapp:focus-visible {
+  outline: 2px solid #1f8f4e;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rfqWhatsapp {
+    transition: none;
+  }
+}
