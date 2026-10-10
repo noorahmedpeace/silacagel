@@ -1,267 +1,275 @@
 /*
- * The proof register.
- *
- * One continuous ruled register rather than six cards or two side-by-side
- * mini-tables. Both earlier attempts had the same weakness: separate columns
- * of unequal length end ragged, and the empty field under the shorter one
- * reads as a mistake rather than as space.
- *
- * A single register running the full width fixes that structurally — every row
- * is the same width, the rules are continuous, and the section ends on a line
- * instead of on a gap. It also happens to be what a specification sheet or a
- * certificate register actually looks like, which is the right reference for a
- * manufacturer; a card grid is the reference for a SaaS product.
- *
- * Deliberately no per-item shadows, no lift on hover, no icons, no motion.
- * Evidence should sit still.
+ * The proof register, as a bento. Same white card frame as the rest of the
+ * homepage. Brand blue marks the documented items (it is the site's link and
+ * fact colour); the unaudited totals stay in ink, quieter, in their own strip.
+ * Radius system: 24px outer card, 18px cells, full pill for actions.
  */
 
 .band {
-  container-type: inline-size;
   display: grid;
-  gap: clamp(22px, 2.4vw, 30px);
+  gap: clamp(24px, 3vw, 36px);
   max-width: var(--ds-container-max);
   margin: 0 auto;
-  padding: clamp(26px, 3.4vw, 46px) clamp(20px, 3vw, 44px);
+  padding: clamp(28px, 4vw, 56px) clamp(20px, 3.4vw, 48px);
   border: 1px solid var(--ds-hairline);
-  border-radius: var(--ds-radius-hero, 24px);
+  border-radius: 24px;
   background: var(--ds-surface);
-}
-
-/* ── Header ───────────────────────────────────────────────────────────────── */
-
-.head { display: grid; gap: 8px; }
-
-.eyebrow {
-  margin: 0;
-  color: var(--ds-brand-deep);
-  font-family: var(--font-mono);
-  font-size: var(--ds-eyebrow);
-  font-weight: 700;
-  letter-spacing: var(--ds-ls-eyebrow, 0.12em);
-  text-transform: uppercase;
 }
 
 .heading {
   margin: 0;
-  max-width: 24ch;
+  max-width: 28ch;
   color: var(--ds-text);
   font-family: var(--font-display);
-  font-size: clamp(1.6rem, 1.1rem + 1.9vw, 2.5rem);
-  line-height: var(--ds-lh-tight, 1.08);
-  letter-spacing: var(--ds-ls-tight, -0.02em);
+  font-size: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
-/* ── Anchor ───────────────────────────────────────────────────────────────── */
-/*
- * A full-width opening band rather than a tinted box in a column. The box read
- * as a filled rectangle sitting beside a table; as a band it becomes the
- * register's first line and gives the founding date the presence it earns —
- * longevity is the one claim here a trading company cannot manufacture.
- */
+/* ── Bento ── */
+
+.bento {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 900px) {
+  .bento {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-rows: auto auto auto;
+  }
+  .anchor {
+    grid-row: span 2;
+  }
+  .figures {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Shared action: label plus the arrow in its own circle. */
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.actionIcon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  transition: transform 0.45s var(--ds-ease-out), background 0.3s var(--ds-ease-out);
+}
+
+/* ── Anchor: dark navy cell ── */
 
 .anchor {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 6px 28px;
-  padding: 0 0 clamp(20px, 2.2vw, 26px);
-  border-bottom: 2px solid var(--ds-text);
-  color: inherit;
+  align-content: end;
+  gap: 10px;
+  min-height: 300px;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: 18px;
+  color: var(--ds-text-on-dark);
   text-decoration: none;
+  background:
+    radial-gradient(70% 80% at 0% 0%, rgba(45, 91, 255, 0.45), transparent 65%),
+    linear-gradient(160deg, #0b1330 0%, #06070d 100%);
 }
 
-@container (min-width: 640px) {
-  .anchor {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    align-items: baseline;
-  }
+.anchorLabel {
+  color: var(--ds-text-on-dark-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
 }
 
 .anchorValue {
-  color: var(--ds-brand-deep);
   font-family: var(--font-display);
-  font-size: clamp(2.1rem, 1.4rem + 2.8vw, 3.4rem);
+  font-size: clamp(4.2rem, 2.6rem + 5vw, 7.2rem);
   font-weight: 800;
-  line-height: 1;
-  letter-spacing: var(--ds-ls-tight, -0.025em);
-  white-space: nowrap;
-}
-
-.anchorText { display: grid; gap: 2px; min-width: 0; }
-
-.anchorLabel {
-  color: var(--ds-text);
-  font-size: 0.95rem;
-  font-weight: 750;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
 }
 
 .anchorSub {
-  color: var(--ds-text-muted);
-  font-size: 0.84rem;
-  line-height: var(--ds-lh-snug, 1.45);
+  max-width: 34ch;
+  color: var(--ds-text-on-dark-muted);
+  line-height: 1.55;
 }
 
-.anchorAction {
-  color: var(--ds-brand);
-  font-size: 0.8rem;
-  font-weight: 700;
-  white-space: nowrap;
+.anchor .action {
+  margin-top: 8px;
+  color: #fff;
 }
 
-.anchor:hover .anchorAction { text-decoration: underline; }
-
-.anchor:focus-visible {
-  outline: 2px solid var(--ds-brand);
-  outline-offset: 4px;
-  border-radius: var(--ds-radius-tight);
+.anchor .actionIcon {
+  background: rgba(255, 255, 255, 0.12);
 }
 
-/* ── Zones ────────────────────────────────────────────────────────────────── */
+/* ── Document cells ── */
 
-.zones { display: grid; gap: clamp(24px, 2.6vw, 34px); }
-
-.zone { display: grid; gap: 2px; }
-
-.zoneHead {
+.doc {
   display: grid;
-  gap: 3px;
-  margin: 0 0 6px;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border-radius: 18px;
+  background: var(--ds-surface-tint);
+  box-shadow: inset 0 0 0 1px rgba(45, 91, 255, 0.1);
   color: var(--ds-text);
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-@container (min-width: 720px) {
-  .zoneHead {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: baseline;
-    gap: 14px;
-  }
-}
-
-/* The distinction that used to live in a footnote nobody read, sitting beside
-   the numbers it qualifies instead of 400px below them. */
-.zoneNote {
-  color: var(--ds-text-faint);
-  font-family: var(--font-body);
-  font-size: 0.74rem;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.4;
-  text-transform: none;
-}
-
-.rows { display: grid; margin: 0; padding: 0; list-style: none; }
-
-.rows li { border-top: 1px solid var(--ds-hairline); }
-.rows li:last-child { border-bottom: 1px solid var(--ds-hairline); }
-
-/* ── Row ──────────────────────────────────────────────────────────────────── */
-
-.row {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 2px;
-  padding: clamp(12px, 1vw, 14px) 2px;
-  color: inherit;
   text-decoration: none;
-  transition: background-color var(--ds-dur-quick) var(--ds-ease-out);
+  transition: box-shadow 0.35s var(--ds-ease-out), background 0.35s var(--ds-ease-out);
 }
 
-/*
- * Value | label | detail, in three aligned columns across the full width.
- *
- * The value column is a fixed fraction rather than `auto`, so every row starts
- * its label at the same x. An earlier attempt sized it in ch on the parent: ch
- * resolves against the parent's 16px body font while the value renders in a
- * bold display face up to 1.6rem, so the column came out far too narrow and
- * each value overlapped its own label. Because the labels were all still at
- * the same x, a numeric alignment check reported that as passing — it was only
- * catchable by looking at the rendered page.
- */
-@container (min-width: 720px) {
-  .row {
-    /* min-content floor, not a px one: the column can never be narrower than
-       its longest value ("ISO 9001:2015"), so the overlap that a fixed width
-       caused cannot recur, while the fr cap stops it claiming 490px for a
-       four-character figure and stranding the detail column near the far
-       edge. */
-    grid-template-columns:
-      minmax(min-content, 0.55fr)
-      minmax(0, 1fr)
-      minmax(0, 1.45fr);
-    align-items: baseline;
-    gap: 6px 28px;
-    padding-inline: 4px;
+.docIcon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--ds-surface);
+  color: var(--ds-brand);
+  box-shadow: 0 8px 20px -12px rgba(30, 63, 204, 0.45);
+}
+
+.docBody {
+  display: grid;
+  gap: 4px;
+}
+
+.docValue {
+  color: var(--ds-brand-deep);
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1.1rem + 1.3vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.docLabel {
+  font-weight: 600;
+}
+
+.docDetail {
+  color: var(--ds-text-muted);
+  font-size: 0.92rem;
+}
+
+.doc .action {
+  color: var(--ds-brand-deep);
+}
+
+.doc .actionIcon {
+  background: var(--ds-surface);
+  box-shadow: inset 0 0 0 1px rgba(45, 91, 255, 0.18);
+}
+
+/* ── Unaudited totals strip ── */
+
+.figures {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px 32px;
+  align-items: center;
+  padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.6vw, 30px);
+  border-radius: 18px;
+  border: 1px dashed var(--ds-hairline-strong);
+}
+
+@media (min-width: 900px) {
+  .figures {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 2fr);
   }
 }
 
-.row:hover { background: var(--ds-surface-tint); }
-
-.row:focus-visible {
-  outline: 2px solid var(--ds-brand);
-  outline-offset: -2px;
-  border-radius: var(--ds-radius-tight);
-}
-
-.rowValue {
-  color: var(--ds-text);
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 0.98rem + 0.75vw, 1.6rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: var(--ds-ls-tight, -0.02em);
-}
-
-/* Documented facts carry the brand colour; operating figures do not. The
-   colour difference is the hierarchy, so it needs no badge to explain it. */
-.rowDoc .rowValue { color: var(--ds-brand-deep); }
-
-.rowLabel {
-  color: var(--ds-text);
-  font-size: 0.92rem;
-  font-weight: 700;
-  line-height: 1.3;
-}
-
-.rowSub {
-  color: var(--ds-text-muted);
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-/* Only the document rows carry an action — those two go to a file the reader
-   can open; the figures just go to a page. */
-.rowDoc .rowSub { color: var(--ds-brand); font-weight: 650; }
-.rowDoc:hover .rowSub { text-decoration: underline; }
-
-/* ── Footnote ─────────────────────────────────────────────────────────────── */
-
-.footnote {
+.figuresNote {
   margin: 0;
   color: var(--ds-text-faint);
-  font-size: 0.78rem;
-  line-height: var(--ds-lh-body, 1.6);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.footnote a {
+.figureList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.figure {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  color: var(--ds-text);
+  text-decoration: none;
+}
+
+.figureValue {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.figureLabel {
   color: var(--ds-text-muted);
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-.footnote a:hover { color: var(--ds-brand); }
+@media (max-width: 560px) {
+  .doc {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .doc .action {
+    grid-column: 1 / -1;
+  }
+  .figureList {
+    grid-template-columns: 1fr;
+  }
+}
 
-/* ── Narrow ───────────────────────────────────────────────────────────────── */
-/*
- * Not a collapsed desktop table. Each row becomes a small stacked block —
- * value, then label, then detail — with more vertical padding than desktop,
- * because a 13px hit target is fine with a mouse and not with a thumb.
- */
-@container (max-width: 719px) {
-  .row { padding-block: 15px; }
-  .rowValue { margin-bottom: 2px; }
+/* ── States ── */
+
+@media (hover: hover) and (pointer: fine) {
+  .doc:hover {
+    background: var(--ds-brand-soft);
+    box-shadow: inset 0 0 0 1px rgba(45, 91, 255, 0.28);
+  }
+  .anchor:hover .actionIcon,
+  .doc:hover .actionIcon {
+    transform: translate(2px, -2px) scale(1.06);
+  }
+  .figure:hover .figureLabel {
+    color: var(--ds-text);
+  }
+}
+
+.anchor:focus-visible,
+.doc:focus-visible,
+.figure:focus-visible {
+  outline: 2px solid var(--ds-brand);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .actionIcon,
+  .doc {
+    transition: none;
+  }
 }
