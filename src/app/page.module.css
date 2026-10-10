@@ -6948,3 +6948,112 @@
     font-size: 0.78rem;
   }
 }
+
+/* Factory band (Oct 2026, part of the taste pass). A contained dark photo
+   card in the same frame as the cobalt band: the plant photo on the right,
+   faded into navy on the left where the copy sits. Coral is the one accent. */
+.factoryBand {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: clamp(440px, 52vw, 600px);
+  margin: 0 auto 30px;
+  display: grid;
+  align-items: center;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #06070d;
+  box-shadow: 0 26px 60px -30px rgba(6, 7, 13, 0.6);
+}
+
+.factoryBandImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.factoryBandShade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(6, 7, 13, 0.95) 0%, rgba(6, 7, 13, 0.8) 45%, rgba(6, 7, 13, 0.35) 100%);
+}
+
+.factoryBandCopy {
+  display: grid;
+  gap: 20px;
+  justify-items: start;
+  max-width: 880px;
+  padding: clamp(48px, 7vw, 96px) clamp(24px, 6vw, 96px);
+  color: #f4f6fb;
+}
+
+.factoryBandIcon {
+  color: var(--ds-accent);
+}
+
+.factoryBand h2 {
+  margin: 0;
+  max-width: 22ch;
+  color: #f4f6fb;
+  -webkit-text-fill-color: #f4f6fb;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.9rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.factoryBand p {
+  margin: 0;
+  max-width: 50ch;
+  color: rgba(233, 238, 247, 0.74);
+  font-size: 1.12rem;
+  line-height: 1.6;
+}
+
+.factoryBandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 26px;
+  border-radius: 999px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: background 0.3s var(--ds-ease-out), transform 0.45s var(--ds-ease-out);
+}
+
+.factoryBandLink:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.factoryBandLink:active {
+  transform: scale(0.98);
+}
+
+.factoryBandLink:focus-visible {
+  outline: 2px solid var(--ds-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .factoryBand {
+    width: calc(100% - 28px);
+    min-height: 0;
+  }
+
+  .factoryBandShade {
+    background: linear-gradient(180deg, rgba(6, 7, 13, 0.7) 0%, rgba(6, 7, 13, 0.92) 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .factoryBandLink {
+    transition: none;
+  }
+}

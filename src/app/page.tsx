@@ -31,6 +31,8 @@ const splitTextToSpans = (text: string) => {
 
 import {
   ArrowRight,
+  ArrowUpRight,
+  Factory,
   FileCheck2,
   Globe,
   ShieldCheck,
@@ -114,7 +116,7 @@ const procurementFlow = [
   {
     step: "03",
     title: "Plan shipment",
-    text: "Lock MOQ, Incoterms, and dispatch details, then confirm the final quote.",
+    text: "Agree quantity, Incoterms and dispatch date, then confirm the final quote.",
     icon: Truck,
     image: "/workflow/plan-shipment.webp",
     mobileImage: "/workflow/plan-shipment-mobile.webp",
@@ -232,7 +234,7 @@ export default function Home() {
                 {splitTextToSpans("Industrial silica gel for cargo that has to arrive dry.")}
               </h1>
               <p className={`${styles.heroXLead} gsap-hero-fade`}>
-                Sachets, beads, and container strips straight from our factory. No minimum order, full documentation, and delivery to 190+ countries.
+                Sachets, beads, and container strips straight from our factory. No minimum order, and SDS, COA and export documents with every shipment.
               </p>
 
               <div className={`${styles.heroXActions} gsap-hero-fade`}>
@@ -287,6 +289,33 @@ export default function Home() {
                 </Link>
               </div>
               <CustomerReferenceMarquee compact />
+            </section>
+          </Reveal>
+
+          {/* Factory band. The one place on the page that shows the plant
+              itself, full width, before the documented facts below it. */}
+          <Reveal direction="up">
+            <section className={styles.factoryBand} aria-labelledby="factory-band-title">
+              <Image
+                src="/facility/warehouse-aisle-rolls-bags.webp"
+                alt="Warehouse aisle with non-woven fabric rolls and stacked bags at the Karachi plant"
+                fill
+                sizes="(max-width: 1400px) 100vw, 1400px"
+                className={styles.factoryBandImage}
+              />
+              <div className={styles.factoryBandShade} aria-hidden="true" />
+              <div className={styles.factoryBandCopy}>
+                <Factory size={28} strokeWidth={1.5} className={styles.factoryBandIcon} aria-hidden="true" />
+                <h2 id="factory-band-title">Not a trader. A plant in North Karachi you can visit.</h2>
+                <p>
+                  Beads are filled, sealed and packed on our own line. SDS, lot COA and a DMF-free statement leave with
+                  every shipment.
+                </p>
+                <Link href="/documentation" className={styles.factoryBandLink}>
+                  See the documents
+                  <ArrowUpRight size={17} strokeWidth={2} aria-hidden="true" />
+                </Link>
+              </div>
             </section>
           </Reveal>
 
