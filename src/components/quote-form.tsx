@@ -123,6 +123,11 @@ export function QuoteForm({
   const [pending, setPending] = useState(false);
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [error, setError] = useState<string | null>(null);
+  // Per-field messages sit under their own input (announced through
+  // aria-describedby); `error` is kept for server-side failures only.
+  const [fieldErrors, setFieldErrors] = useState<{ company?: string; email?: string }>({});
+  const companyRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
   const [inquiryId, setInquiryId] = useState("");
   const [fallbackHref, setFallbackHref] = useState<string>("");
   const routedChannel = getContactEmailChannel(state.department);
@@ -154,8 +159,12 @@ export function QuoteForm({
     // Client-side validation of the two truly essential fields. Quantity is
     // collected but not required: forcing it upfront was measurable friction,
     // and the export desk can ask for it in the reply.
-    if (!state.company.trim()) return setError("Please enter your company name.");
-    if (!EMAIL_RE.test(state.email.trim())) return setError("Please enter a valid business email.");
+    const nextErrors: { company?: string; email?: string } = {};
+    if (!state.company.trim()) nextErrors.company = "Enter your company name.";
+    if (!EMAIL_RE.test(state.email.trim())) nextErrors.email = "Enter a valid business email, like name@company.com.";
+    setFieldErrors(nextErrors);
+    if (nextErrors.company) return companyRef.current?.focus();
+    if (nextErrors.email) return emailRef.current?.focus();
 
     const route = getContactEmailChannel(state.department);
 
@@ -243,6 +252,7 @@ export function QuoteForm({
 
   return (
     <form
+      noValidate
       className={`${styles.form}${compact ? ` ${styles.compact}` : ""}`}
       data-clarity-mask="true"
       onSubmit={handleSubmit}
@@ -276,14 +286,25 @@ export function QuoteForm({
             Company name <em className={styles.req}>*</em>
           </span>
           <input
+            ref={companyRef}
+            aria-invalid={fieldErrors.company ? true : undefined}
+            aria-describedby={fieldErrors.company ? "qf-company-error" : undefined}
             value={state.company}
-            onChange={(event) => dispatch({ type: "set", field: "company", value: event.target.value })}
+            onChange={(event) => {
+              dispatch({ type: "set", field: "company", value: event.target.value });
+              if (fieldErrors.company) setFieldErrors((prev) => ({ ...prev, company: undefined }));
+            }}
             placeholder="Registered business / importer name"
             type="text"
             name="company"
             autoComplete="organization"
             required
           />
+          {fieldErrors.company ? (
+            <small id="qf-company-error" className={styles.fieldError}>
+              {fieldErrors.company}
+            </small>
+          ) : null}
         </label>
 
         <label className={styles.field}>
@@ -291,14 +312,25 @@ export function QuoteForm({
             Business email <em className={styles.req}>*</em>
           </span>
           <input
+            ref={emailRef}
+            aria-invalid={fieldErrors.email ? true : undefined}
+            aria-describedby={fieldErrors.email ? "qf-email-error" : undefined}
             value={state.email}
-            onChange={(event) => dispatch({ type: "set", field: "email", value: event.target.value })}
+            onChange={(event) => {
+              dispatch({ type: "set", field: "email", value: event.target.value });
+              if (fieldErrors.email) setFieldErrors((prev) => ({ ...prev, email: undefined }));
+            }}
             placeholder="procurement@company.com"
             type="email"
             name="email"
             autoComplete="email"
             required
           />
+          {fieldErrors.email ? (
+            <small id="qf-email-error" className={styles.fieldError}>
+              {fieldErrors.email}
+            </small>
+          ) : null}
         </label>
 
         <label className={styles.field}>

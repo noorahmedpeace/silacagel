@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, type ComponentType } from "react";
+import { useEffect, useRef, useState, type ComponentType, type ReactNode } from "react";
 
 import type { PriceCalculatorProps } from "@/components/price-calculator";
+import skeleton from "./deferred-skeleton.module.css";
 
 // Base fallback styling for deferred-widget placeholders. The min-height
 // is set per-widget by the caller so the placeholder matches the loaded
@@ -29,16 +30,43 @@ function WidgetFallback({ label, minHeight }: { label: string; minHeight: number
   return <div style={{ ...baseFallbackStyle, minHeight: `${minHeight}px` }}>{label}</div>;
 }
 
+function QuoteFormSkeleton({ minHeight }: { minHeight: number }) {
+  const field = (
+    <span className={skeleton.field}>
+      <span className={`${skeleton.bar} ${skeleton.label}`} />
+      <span className={`${skeleton.bar} ${skeleton.input}`} />
+    </span>
+  );
+  return (
+    <div className={skeleton.form} style={{ minHeight }} role="status" aria-label="Loading the quote form">
+      <span className={`${skeleton.bar} ${skeleton.title}`} />
+      <span className={`${skeleton.bar} ${skeleton.line}`} />
+      <span className={skeleton.row}>
+        {field}
+        {field}
+      </span>
+      <span className={skeleton.row}>
+        {field}
+        {field}
+      </span>
+      <span className={`${skeleton.bar} ${skeleton.button}`} />
+    </div>
+  );
+}
+
 function LoadWhenVisible<P extends object>({
   label,
   loader,
   props,
   minHeight,
+  fallback,
 }: {
   label: string;
   loader: () => Promise<ComponentType<P>>;
   props: P;
   minHeight: number;
+  /** Shape-matched placeholder; the plain labelled box is the default. */
+  fallback?: ReactNode;
 }) {
   const frameRef = useRef<HTMLDivElement>(null);
   const [Component, setComponent] = useState<ComponentType<P> | null>(null);
@@ -99,7 +127,7 @@ function LoadWhenVisible<P extends object>({
   // the inner component renders, the slot in the layout is reserved.
   return (
     <div ref={frameRef} style={{ minHeight: Component ? undefined : `${minHeight}px` }}>
-      {Component ? <Component {...props} /> : <WidgetFallback label={label} minHeight={minHeight} />}
+      {Component ? <Component {...props} /> : (fallback ?? <WidgetFallback label={label} minHeight={minHeight} />)}
     </div>
   );
 }
@@ -145,6 +173,11 @@ export function DeferredQuoteForm({
       loader={() => import("@/components/quote-form").then((mod) => mod.QuoteForm)}
       props={{ title, compact, defaultProduct, instantChannel }}
       minHeight={compact ? WIDGET_MIN_HEIGHTS.quoteFormCompact : WIDGET_MIN_HEIGHTS.quoteForm}
+      fallback={
+        <QuoteFormSkeleton
+          minHeight={compact ? WIDGET_MIN_HEIGHTS.quoteFormCompact : WIDGET_MIN_HEIGHTS.quoteForm}
+        />
+      }
     />
   );
 }

@@ -1,0 +1,50 @@
+/* Skeleton for the deferred quote form: the same shape as the form it
+   becomes (title, two rows of label + input, a button), so the swap reads as
+   the form arriving rather than a box being replaced. */
+.form {
+  display: grid;
+  gap: 18px;
+  padding: clamp(20px, 2.4vw, 28px);
+  border: 1px solid var(--ds-hairline);
+  border-radius: var(--ds-radius-hero, 24px);
+  background: var(--ds-surface);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 2vw, 26px);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.bar {
+  display: block;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #eef1f7 0%, #f6f8fc 50%, #eef1f7 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.title { height: 30px; width: 46%; }
+.line { height: 14px; width: 78%; }
+.label { height: 12px; width: 38%; }
+.input { height: 48px; border-radius: 10px; }
+.button { height: 52px; border-radius: 999px; margin-top: 6px; }
+
+@keyframes shimmer {
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar { animation: none; }
+}

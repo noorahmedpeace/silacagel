@@ -325,6 +325,18 @@
   font-size: 0.88rem;
 }
 
+/* Inline field error: under its own input, with the input edge marked too. */
+.fieldError {
+  color: var(--ds-accent-on-light);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--ds-accent-on-light);
+  box-shadow: 0 0 0 4px rgba(201, 64, 31, 0.1);
+}
+
 /* Required-field marker on the four core fields. */
 .req {
   color: var(--ds-accent);
