@@ -6,7 +6,6 @@ import { totalCustomersSupplied } from "@/lib/customer-references";
 import { sachetSizeRange, stripSizeRange } from "@/lib/product-data";
 import { Reveal } from "@/components/reveal";
 import { TrustBand } from "@/components/trust-band";
-import { CobaltFreeBand } from "@/components/cobalt-free-band";
 import { AnimatedText } from "@/components/animated-text";
 import { IndustryScrolly } from "@/components/industry-scrolly";
 import { StickyQuoteBar } from "@/components/sticky-quote-bar";
@@ -321,10 +320,6 @@ export default function Home() {
 
           <Reveal direction="up">
             <TrustBand />
-          </Reveal>
-
-          <Reveal direction="up">
-            <CobaltFreeBand />
           </Reveal>
 
           <Reveal direction="up">
