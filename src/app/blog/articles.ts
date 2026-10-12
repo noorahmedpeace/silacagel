@@ -1117,6 +1117,15 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
+        heading: "How do silica gel packets work?",
+        body: "A silica gel packet works by holding the air inside a closed package below the humidity at which moisture damages the product. Each bead is full of microscopic pores, and water vapour in the trapped air sticks to the walls of those pores. As the beads take water out of the air, the relative humidity inside the box, pouch, or bottle falls, so less moisture is left to condense on metal, soak into leather, or soften food and tablets. The packet keeps working until the beads are saturated; after that it stops pulling water and needs replacing or drying out. That is why a packet works well in a sealed carton and poorly in an open drawer: in a closed space it only has to dry a fixed amount of air, while in an open room fresh humid air keeps arriving.",
+        bullets: [
+          "The beads do not get wet or change shape as they work; a saturated bead looks the same as a dry one unless it is an indicating type.",
+          "Orange indicating beads change colour as they saturate and are cobalt-free. Blue indicating beads contain cobalt chloride.",
+          "Sizing matters more than brand: the packet must be large enough for the air volume and the time the package stays closed.",
+        ],
+      },
+      {
         heading: "Adsorption happens on internal surface area",
         body: "Silica gel works through adsorption, which means water vapor attaches to the internal pore surfaces of the bead. This is different from absorption, where liquid is taken into a material like a sponge. For buyers, the difference matters because desiccant performance depends on bead quality, packet material, airflow, package volume, humidity exposure, and how much moisture must be controlled during storage or transit.",
         bullets: [
@@ -1169,6 +1178,16 @@ export const blogArticles: BlogArticle[] = [
         question: "Can you eat silica gel?",
         answer:
           "No - and don't. Pure silica gel as a desiccant is not chemically toxic and is generally classed as a non-hazardous packaging material, but the beads are not food. Real-world packets often pass through manufacturing lines, dust, and packaging environments that are not food-safe. Every silica gel sachet should carry DO NOT EAT and THROW AWAY warning text, and should be kept away from children and pets.",
+      },
+      {
+        question: "What should I do if a child or pet eats a silica gel packet?",
+        answer:
+          "Take the packet away, check how much was swallowed, and give a small drink of water. Plain white silica gel usually passes through without harm, but the beads are a choking risk and the packet itself can cause a blockage in a small animal. Call your local poison control centre or a vet if the person or pet vomits, has stomach pain, or seems unwell, and always if the beads were blue, because blue indicating gel contains cobalt chloride. Keep the packet or its label to show them.",
+      },
+      {
+        question: "Can I reuse a silica gel packet?",
+        answer:
+          "Yes, if the packet material can take heat. Drying it in an oven at low heat drives the water back out of the beads so they can adsorb again. Paper and non-woven packets tolerate a gentle oven; plastic-film packets can melt. Reused packets suit shoes, tool boxes, and camera bags at home. For export cargo or regulated packaging, use fresh packets so the capacity is known.",
       },
       {
         question: "How do I regenerate silica gel?",
@@ -6138,7 +6157,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "container-rain-prevention": { publishedAt: "2025-10-01", updatedAt: "2026-09-02" },
   // (electronics entry now lives below with bumped updatedAt)
   "can-you-reuse-silica-gel": { publishedAt: "2025-11-12", updatedAt: "2026-09-02" },
-  "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-09-02" },
+  "what-is-silica-gel-and-how-does-it-work": { publishedAt: "2025-12-03", updatedAt: "2026-10-12" },
   "air-freight-vs-sea-freight-desiccant": { publishedAt: "2026-09-21", updatedAt: "2026-09-21" },
   "when-not-to-use-silica-gel": { publishedAt: "2026-09-19", updatedAt: "2026-09-19" },
   "how-to-prevent-moisture-in-export-cartons": { publishedAt: "2025-12-24", updatedAt: "2026-09-02" },
