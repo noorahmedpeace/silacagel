@@ -3850,6 +3850,17 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
+        heading: "Silica gel hazards at a glance",
+        body: "Plain silica gel has a short, practical hazard list, and none of it is poisoning. The beads are small enough to choke a child or a small pet. They are a strong drying agent, so loose beads or their dust can dry out skin and irritate eyes. Broken beads make a fine nuisance dust that should not be breathed in deliberately. Silica gel itself does not burn: silicon dioxide is already fully oxidised, so it is not flammable, although the paper or fabric sachet around it can burn like any packaging. The one chemical hazard belongs to blue indicating gel, whose cobalt chloride indicator is classed as a carcinogen in the EU; orange indicating gel and plain white gel do not contain it.",
+        bullets: [
+          "Choking: the main reason for the DO NOT EAT and keep-away-from-children warning.",
+          "Drying: gloves for handling loose beads in volume; rinse eyes with water if dust gets in.",
+          "Dust: ventilate when emptying or refilling bulk bags; intact sachets release none.",
+          "Fire: the gel is not flammable; the sachet material is ordinary packaging.",
+          "Chemical: only blue indicating gel, because of cobalt chloride.",
+        ],
+      },
+      {
         heading: "The important distinction: amorphous vs crystalline silica",
         body: "Buyers sometimes confuse desiccant silica gel with crystalline silica, and the safety profiles are completely different. Crystalline silica (respirable quartz dust, as found in cutting stone, concrete, or sandblasting) is a recognised occupational hazard linked to silicosis on long-term inhalation. Desiccant silica gel is amorphous, not crystalline - it does not carry the same silicosis classification. The only real airborne concern with desiccant gel is ordinary nuisance dust from broken beads, which is managed with basic ventilation and not inhaling the powder. Always read the SDS for the exact grade you are buying.",
         bullets: [
@@ -3882,10 +3893,10 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Food contact, pets, and 'someone swallowed a packet'",
-        body: "For food packaging, plain silica gel is widely used because incidental contact is considered low risk; food-grade documentation is a separate compliance question handled at procurement, not a sign the gel is otherwise unsafe. If a person or pet swallows a small non-indicating sachet, the realistic risk is choking or mild stomach upset and dryness rather than poisoning - standard advice is to stay calm, remove any remaining sachet, drink water, and seek medical or veterinary advice if symptoms persist or if the sachet was a large or indicating type. This is exactly why the beads carry the keep-away-from-children warning.",
+        body: "For food packaging, plain silica gel is widely used because incidental contact is considered low risk. Whether a specific market requires a food-contact certificate is a separate compliance question; DryGelWorld does not hold food-grade or FDA certification and supplies the SDS and a batch COA, so a buyer with that requirement should confirm it with their own regulator before ordering. If a person or pet swallows a small non-indicating sachet, the realistic risk is choking or mild stomach upset and dryness rather than poisoning - standard advice is to stay calm, remove any remaining sachet, drink water, and seek medical or veterinary advice if symptoms persist or if the sachet was a large or indicating type. This is exactly why the beads carry the keep-away-from-children warning.",
         bullets: [
           "Plain gel is widely used in food packaging (incidental contact, low risk).",
-          "Food-grade compliance is a documentation step, not a safety red flag.",
+          "Food-contact certification is a market compliance question, separate from the gel's safety.",
           "Swallowed small sachet: choking/dryness risk, not poisoning.",
           "Indicating or large sachets ingested → seek medical/vet advice.",
           "Keep sachets away from children and pets.",
@@ -3932,7 +3943,22 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Which silica gel is safest for regulated or food-contact packaging?",
         answer:
-          "Use plain non-indicating silica gel, or cobalt-free orange indicating gel where a visual saturation signal is needed. Avoid traditional cobalt-chloride blue indicating gel for regulated markets. Specify the requirement at quote stage and request the SDS and food-grade documentation so compliance is confirmed before bulk commitment.",
+          "Use plain non-indicating silica gel, or cobalt-free orange indicating gel where a visual saturation signal is needed. Avoid traditional cobalt-chloride blue indicating gel for regulated markets. Specify the requirement at quote stage and request the SDS and batch COA. DryGelWorld does not hold food-grade or FDA certification, so confirm any food-contact certificate your market requires before bulk commitment.",
+      },
+      {
+        question: "Is silica gel flammable?",
+        answer:
+          "No. Silica gel is silicon dioxide, which is already fully oxidised and does not burn. It is not classed as a flammable material. The paper or fabric sachet holding the beads can burn like any packaging, so store bulk cartons away from heat sources as you would other packing stock.",
+      },
+      {
+        question: "Can I touch silica gel with my hands?",
+        answer:
+          "Yes. Touching sachets or plain beads is safe. Because the gel pulls moisture, handling loose beads for a long time can leave skin feeling dry, so wash your hands afterwards and use gloves for bulk loose-bead work. Avoid touching your eyes with dusty hands; if dust gets in, rinse with clean water.",
+      },
+      {
+        question: "Is orange silica gel toxic?",
+        answer:
+          "Orange indicating silica gel does not contain cobalt chloride, which is why it replaced blue gel in many regulated markets. It is still not food, so the same choking and do-not-eat warnings apply, and it should be handled like plain gel. If someone swallows orange beads and feels unwell, contact poison control or a doctor and have the product label or SDS ready.",
       },
       {
         question: "Do packing workers need protective equipment to handle silica gel?",
@@ -6182,7 +6208,7 @@ const articlePublication: Record<string, ArticlePublication> = {
   "food-grade-silica-gel-procurement-guide": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
   "silica-gel-bulk-pricing-factors-for-exporters": { publishedAt: "2026-05-13", updatedAt: "2026-09-02" },
   "silica-gel-for-leather-and-footwear-export": { publishedAt: "2026-05-13", updatedAt: "2026-05-13" },
-  "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
+  "is-silica-gel-toxic-safety-guide": { publishedAt: "2026-06-19", updatedAt: "2026-10-12" },
   "silica-gel-colors-white-blue-orange-explained": { publishedAt: "2026-06-19", updatedAt: "2026-06-19" },
   "silica-gel-shelf-life-and-storage-guide": { publishedAt: "2026-06-23", updatedAt: "2026-09-02" },
   "silica-gel-for-rice-grain-spice-export": { publishedAt: "2026-06-24", updatedAt: "2026-06-24" },
