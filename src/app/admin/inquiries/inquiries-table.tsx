@@ -15,7 +15,10 @@ const STATUS_LABEL: Record<InquiryStatus, string> = {
 };
 
 function csvEscape(v: string) {
-  return /[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v;
+  // A buyer-typed value starting with = + - @ runs as a formula when the CSV is
+  // opened in Excel (=HYPERLINK(...) and worse). A leading ' makes it text.
+  const safe = /^[=+\-@\t\r]/.test(v) ? `'${v}` : v;
+  return /[",\n]/.test(safe) ? `"${safe.replace(/"/g, '""')}"` : safe;
 }
 
 export function InquiriesTable({ initial }: { initial: Inquiry[] }) {

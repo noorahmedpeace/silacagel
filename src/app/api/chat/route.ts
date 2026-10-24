@@ -3,12 +3,40 @@
 import { after } from "next/server";
 import { SYSTEM_PROMPT, businessInfo } from "@/lib/drybot/prompt";
 import { retrieve } from "@/lib/drybot/retrieve";
+import { clientIp, isSameSiteOrigin } from "@/lib/request-guard";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
 
 type Msg = { role: string; content: string };
+
+// Abuse limits. Every message costs free-tier quota on up to three providers,
+// and a scripted flood exhausting them is exactly the September failure mode
+// (every visitor reads the fallback line behind an HTTP 200). A real visitor
+// types a few short questions; these limits never touch one.
+const MAX_MESSAGE_CHARS = 2000;
+const MAX_TOTAL_CHARS = 8000;
+const CHATS_PER_WINDOW = 30;
+const WINDOW_MS = 60 * 60 * 1000;
+
+// Per-instance, in memory: free, adds no latency, and resets on cold start.
+// Not a global ceiling, but it stops one client hammering one instance, which
+// is how a quota drain looks. Pruned so it cannot grow without bound.
+const hits = new Map<string, { n: number; since: number }>();
+function chatAllowed(ip: string): boolean {
+  const now = Date.now();
+  if (hits.size > 5000) {
+    for (const [k, v] of hits) if (now - v.since > WINDOW_MS) hits.delete(k);
+  }
+  const h = hits.get(ip);
+  if (!h || now - h.since > WINDOW_MS) {
+    hits.set(ip, { n: 1, since: now });
+    return true;
+  }
+  h.n += 1;
+  return h.n <= CHATS_PER_WINDOW;
+}
 
 // Two OpenAI-compatible providers, tried in order: Cerebras first (higher free
 // limits, stronger model), Groq second. Both keys are set in production.
@@ -89,9 +117,25 @@ async function logConversation(payload: {
 }
 
 export async function POST(req: Request) {
+  if (!isSameSiteOrigin(req.headers)) {
+    return new Response(JSON.stringify({ error: "forbidden" }), { status: 403 });
+  }
+  if (!chatAllowed(clientIp(req.headers))) {
+    return new Response(JSON.stringify({ error: "rate limited" }), { status: 429 });
+  }
+
   const body = (await req.json().catch(() => ({}))) as { messages?: Msg[]; session?: string };
-  const messages = Array.isArray(body.messages) ? body.messages.slice(-12) : [];
-  const session = typeof body.session === "string" ? body.session : "";
+  // Keep only well-formed turns, each capped, and the whole history capped.
+  const messages: Msg[] = [];
+  let total = 0;
+  for (const m of (Array.isArray(body.messages) ? body.messages : []).slice(-12).reverse()) {
+    if (!m || typeof m.content !== "string" || (m.role !== "user" && m.role !== "assistant")) continue;
+    const content = m.content.slice(0, MAX_MESSAGE_CHARS);
+    if (total + content.length > MAX_TOTAL_CHARS) break;
+    total += content.length;
+    messages.unshift({ role: m.role, content });
+  }
+  const session = typeof body.session === "string" ? body.session.slice(0, 80) : "";
   const last = [...messages].reverse().find((m) => m.role === "user");
   if (!last) return new Response(JSON.stringify({ error: "no user message" }), { status: 400 });
 

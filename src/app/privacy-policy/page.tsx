@@ -6,8 +6,8 @@ import { LegalDocument, type LegalSection } from "@/components/legal-document";
 // Written 9 Oct 2026 against what the code actually does - every data flow
 // named here exists in this repo (GA4 + Clarity + Vercel Analytics in
 // layout.tsx, the inquiry pipeline in actions/submit-inquiry.ts and
-// lib/rfq-store.ts, DryBot in api/chat, the diagnostic beacon in
-// api/visit-log, the storage keys in quote-cart.ts / rfq-form.tsx). If a
+// lib/rfq-store.ts, DryBot in api/chat, the storage keys in quote-cart.ts /
+// rfq-form.tsx; the api/visit-log diagnostic beacon was removed 25 Oct 2026). If a
 // flow is added or removed, this page changes with it; it is not a template.
 
 export const metadata: Metadata = {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/privacy-policy" },
 };
 
-const EFFECTIVE = "9 October 2026";
+const EFFECTIVE = "25 October 2026";
 
 const sections: LegalSection[] = [
   {
@@ -36,7 +36,6 @@ const sections: LegalSection[] = [
       "Microsoft Clarity - page interaction recordings and heatmaps, used to find broken or confusing parts of the site. Clarity masks text typed into form fields.",
       "Vercel Analytics and Speed Insights - page views and performance timings.",
       "Our hosting (Vercel) and network layer (Cloudflare) process request data such as IP address and browser type to serve and protect the site, as all hosting does.",
-      "On a small number of pages, a diagnostic beacon records basic request details (IP address, browser, headers) for visits that arrive without a referrer. It exists to identify automated traffic and is removed once that work is done.",
     ],
   },
   {

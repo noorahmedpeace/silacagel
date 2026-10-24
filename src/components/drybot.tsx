@@ -35,9 +35,22 @@ const SUGGESTIONS = [
   "Food-grade",
 ];
 
+// Source links come from the server's retrieval index, but they are rendered
+// as raw HTML, so only plain https links to this site are allowed through.
+function isSiteUrl(u: string): boolean {
+  try {
+    const url = new URL(u);
+    return url.protocol === "https:" && url.hostname.endsWith("drygelworld.com") && !/["'<>]/.test(u);
+  } catch {
+    return false;
+  }
+}
+
 function renderHtml(t: string): string {
   let e = t.replace(/```[\s\S]*?```/g, "").replace(/`([^`]+)`/g, "$1");
-  e = e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // Quotes too: the link patterns below build href="..." attributes, and an
+  // unescaped " in model output could otherwise break out into an attribute.
+  e = e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
   e = e.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   e = e.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
   // Auto-link bare URLs, but keep any trailing sentence punctuation OUTSIDE the
@@ -187,7 +200,7 @@ export function DryBot() {
                       {m.role === "bot" && m.text === "" ? (
                         <span className={styles.typing}><i /><i /><i /></span>
                       ) : m.role === "bot" ? (
-                        <span dangerouslySetInnerHTML={{ __html: renderHtml(m.text) + (m.sources && m.sources.length ? `<div class="${styles.sources}"><b>Sources</b>${m.sources.map((u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).join("")}</div>` : "") }} />
+                        <span dangerouslySetInnerHTML={{ __html: renderHtml(m.text) + (m.sources && m.sources.length ? `<div class="${styles.sources}"><b>Sources</b>${m.sources.filter(isSiteUrl).map((u) => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`).join("")}</div>` : "") }} />
                       ) : (
                         m.text
                       )}

@@ -6,7 +6,6 @@ import { authors, defaultAuthorSlug, getAuthor } from "@/lib/authors";
 import { absoluteUrl, authorJsonLd, breadcrumbJsonLd } from "@/lib/seo";
 import { phoneHref, displayPhone, whatsappNumber } from "@/lib/product-data";
 import { blogArticles } from "@/app/blog/articles";
-import { VisitBeacon } from "@/components/visit-beacon";
 import { seoImages } from "@/lib/seo-images";
 import styles from "../authors.module.css";
 
@@ -151,7 +150,6 @@ export default async function AuthorPage({ params }: AuthorPageProps) {
         </section>
       </article>
 
-      {author.slug === defaultAuthorSlug ? <VisitBeacon path={`/authors/${author.slug}`} /> : null}
 
       <script
         type="application/ld+json"

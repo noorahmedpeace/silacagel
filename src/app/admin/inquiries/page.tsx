@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { listInquiries } from "@/lib/rfq-store";
+import { isAdminSession } from "@/lib/request-guard";
 import { authenticateAdmin } from "./actions";
 import { InquiriesTable } from "./inquiries-table";
 import styles from "./admin.module.css";
@@ -14,9 +15,8 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default async function AdminInquiriesPage() {
-  const adminKey = process.env.RFQ_ADMIN_KEY?.trim();
   const cookieStore = await cookies();
-  const authed = Boolean(adminKey) && cookieStore.get("rfq_admin")?.value === adminKey;
+  const authed = isAdminSession(cookieStore.get("rfq_admin")?.value);
 
   if (!authed) {
     return (

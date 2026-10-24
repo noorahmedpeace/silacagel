@@ -1,16 +1,19 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { createMailtoHref, salesEmail, whatsappNumber } from "@/lib/product-data";
-import { submitRfq } from "@/app/actions/submit-rfq";
+import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { clientTracking, fireLeadConversion } from "@/lib/lead-tracking";
 import styles from "./sample-request-form.module.css";
 
 // Low-friction top-of-funnel offer (FEATURES.md F4, P0): 3 fields instead
 // of the full RFQ form, for buyers who want a sample before committing to
-// a bulk quote. Reuses the same submitRfq server action / Resend pipeline
-// the main RFQ form already uses - no new backend, same honest sent /
-// fallback / error states.
+// a bulk quote. Goes through submitInquiry like every other form, so it gets
+// the honeypot, rate limit, dashboard record, buyer confirmation and the
+// conversion event. It used to call a separate submitRfq action that let the
+// browser choose the recipient, subject and body, which made it an open mail
+// relay from the verified sender.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = "idle" | "sending" | "sent" | "fallback";
@@ -22,6 +25,13 @@ export function SampleRequestForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
   const [fallbackHref, setFallbackHref] = useState<string>("");
+  const startedAt = useRef(0);
+  const website2 = useRef(""); // honeypot, humans never see it
+
+  useEffect(() => {
+    startedAt.current = Date.now();
+    clientTracking(); // stash first-touch UTM/gclid on mount
+  }, []);
 
   const sampleWaHref = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hello DryGelWorld, I just requested a sample of ${product || "silica gel"} for destination: ${destination || "export market"}. My email is: ${email}`,
@@ -52,16 +62,31 @@ export function SampleRequestForm() {
 
     setStatus("sending");
     try {
-      const result = await submitRfq({
-        company: `Sample request - ${product}`,
+      const result = await submitInquiry({
+        companyName: `Sample request - ${product}`,
+        contactPerson: "",
         email: email.trim(),
-        quantity: "Sample quantity (small trial pack)",
-        toEmail: salesEmail,
-        subject,
-        body,
+        phone: "",
+        country: "",
+        city: "",
+        productName: product.trim(),
+        quantity: "Sample (200-300 g, material free, courier paid by buyer)",
+        unit: "",
+        packaging: "",
+        application: "",
+        deliveryDate: "",
+        destinationCountry: destination.trim(),
+        destinationPort: "",
+        message: body,
+        attachments: [],
+        ...clientTracking(),
+        source: "samples",
+        website2: website2.current,
+        formElapsedMs: Date.now() - startedAt.current,
       });
 
       if (result.ok) {
+        fireLeadConversion(result.id, "samples");
         setStatus("sent");
       } else if (result.fallback) {
         setFallbackHref(mailtoUrl);
@@ -82,7 +107,7 @@ export function SampleRequestForm() {
     return (
       <div style={{ background: "rgba(20, 108, 67, 0.08)", border: "1px solid rgba(20, 108, 67, 0.2)", borderRadius: "12px", padding: "18px" }}>
         <p className={`${styles.status} ${styles.statusOk}`} style={{ fontWeight: 600, fontSize: "1rem" }}>
-          ✓ Sample request received — dispatch desk notified.
+          ✓ Sample request received. The dispatch desk has it.
         </p>
         <p style={{ margin: "8px 0 12px", fontSize: "0.88rem", color: "var(--muted, #4d5b78)" }}>
           Our export team will confirm sample availability and shipping arrangements to <strong>{email}</strong>, usually within 1 hour in Karachi business hours and same day otherwise.
@@ -201,6 +226,22 @@ export function SampleRequestForm() {
           placeholder="Optional"
         />
       </label>
+      {/* Honeypot, humans never see or fill this. */}
+      <input
+        type="text"
+        name="website2"
+        tabIndex={-1}
+        autoComplete="off"
+        data-1p-ignore=""
+        data-lpignore="true"
+        data-bwignore=""
+        data-form-type="other"
+        aria-hidden="true"
+        onChange={(event) => {
+          website2.current = event.target.value;
+        }}
+        style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }}
+      />
       {error ? <p className={`${styles.status} ${styles.statusError}`}>{error}</p> : null}
       <button type="submit" className={styles.submit} disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Request a sample"}

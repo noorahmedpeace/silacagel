@@ -1,15 +1,21 @@
 "use server";
 
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
-import { deleteInquiry, updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
+import { deleteInquiry, rateLimitOk, updateInquiry, type InquiryStatus } from "@/lib/rfq-store";
+import { adminSessionToken, clientIp, isAdminSession, safeEqual } from "@/lib/request-guard";
 
+// Login: constant-time comparison, a per-IP attempt limit, and a cookie that
+// holds a session token derived from the key, never the key itself (it used
+// to store the raw key for 30 days).
 export async function authenticateAdmin(formData: FormData) {
-  const key = String(formData.get("key") ?? "");
+  const key = String(formData.get("key") ?? "").slice(0, 200);
   const adminKey = process.env.RFQ_ADMIN_KEY?.trim();
-  if (adminKey && key === adminKey) {
+  const ip = clientIp(await headers());
+  if (!(await rateLimitOk(ip, 10, "admin-login"))) redirect("/admin/inquiries");
+  if (adminKey && safeEqual(key, adminKey)) {
     const cookieStore = await cookies();
-    cookieStore.set("rfq_admin", key, {
+    cookieStore.set("rfq_admin", adminSessionToken(adminKey), {
       httpOnly: true,
       secure: true,
       sameSite: "lax",
@@ -21,9 +27,8 @@ export async function authenticateAdmin(formData: FormData) {
 }
 
 async function assertAdmin() {
-  const adminKey = process.env.RFQ_ADMIN_KEY?.trim();
   const cookieStore = await cookies();
-  if (!adminKey || cookieStore.get("rfq_admin")?.value !== adminKey) {
+  if (!isAdminSession(cookieStore.get("rfq_admin")?.value)) {
     throw new Error("Not authorized.");
   }
 }

@@ -7,8 +7,11 @@
 // if the store AND the sales email BOTH fail, surfaced to the server log and
 // handed back as `fallback` so the client can recover it. Suspicious *timing*
 // no longer drops a lead; it only flags `suspectedBot` for review.
+import { randomBytes } from "node:crypto";
 import { headers } from "next/headers";
+import { after } from "next/server";
 import { classifySubmit } from "@/lib/inquiry-guard";
+import { clientIp } from "@/lib/request-guard";
 import { createInquiry, rateLimitOk, type Inquiry } from "@/lib/rfq-store";
 import { salesEmail } from "@/lib/product-data";
 
@@ -109,20 +112,16 @@ const clean = (v: unknown, max = 300) =>
 // cannot fill the store; the cap resets on cold start, which is fine - the
 // point is catching the occasional autofilled human, not archiving bots.
 let quarantined = 0;
-async function quarantineHoneypotHit(input: InquiryFormInput) {
+async function quarantineHoneypotHit(input: InquiryFormInput, ip: string, userAgent: string) {
   const token = process.env.BLOB_READ_WRITE_TOKEN?.trim();
   if (!token || quarantined >= 200) return;
   quarantined++;
   const { put } = await import("@vercel/blob");
-  const h = await headers();
+  // 128 random bits in the path: these records hold an email and IP, and the
+  // prefix itself is in the public repo, so it cannot be the protection.
   await put(
-    `honeypot-quarantine-b82c666a4112/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.json`,
-    JSON.stringify({
-      at: new Date().toISOString(),
-      ip: (h.get("x-forwarded-for") ?? "").split(",")[0].trim(),
-      userAgent: h.get("user-agent") ?? "",
-      input,
-    }),
+    `honeypot-quarantine-b82c666a4112/${Date.now()}-${randomBytes(16).toString("hex")}.json`,
+    JSON.stringify({ at: new Date().toISOString(), ip, userAgent, input }),
     { access: "public", addRandomSuffix: false },
   );
 }
@@ -160,7 +159,12 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     // Quarantined submissions go to their own capped blob prefix so a human
     // can sweep for false positives; failures are swallowed so this can
     // never slow or break the opaque-success contract.
-    void quarantineHoneypotHit(input).catch(() => {});
+    // after(): a bare `void` promise can be frozen with the serverless function
+    // once the response is sent, so the safety net silently never saved.
+    const hh = await headers();
+    const qIp = clientIp(hh);
+    const qUa = hh.get("user-agent") ?? "";
+    after(() => quarantineHoneypotHit(input, qIp, qUa).catch(() => {}));
     return { ok: true, id: "received" };
   }
   const source = normalizeSource(input.source);
@@ -171,12 +175,12 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
   // are optional and stored as-is (empty, never a "(not provided)" placeholder
   // that would pollute dashboard segmentation).
   if (!clean(input.companyName)) return { ok: false, error: "Company name is required." };
-  if (!EMAIL_RE.test(input.email?.trim() || "")) {
+  if (!EMAIL_RE.test(String(input.email ?? "").trim())) {
     return { ok: false, error: "A valid business email is required." };
   }
 
   const h = await headers();
-  const ip = (h.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  const ip = clientIp(h);
   const userAgent = h.get("user-agent") ?? "";
 
   if (!(await rateLimitOk(ip))) {
@@ -194,9 +198,21 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     );
   }
 
-  const attachments = (input.attachments ?? [])
+  // Only https links into Vercel Blob. A substring test accepted
+  // https://evil.tld/x?.blob.vercel-storage.com, which then appeared as a
+  // clickable link in the sales email and the dashboard.
+  const isBlobUrl = (v: unknown) => {
+    if (typeof v !== "string") return false;
+    try {
+      const u = new URL(v);
+      return u.protocol === "https:" && u.hostname.endsWith(".public.blob.vercel-storage.com");
+    } catch {
+      return false;
+    }
+  };
+  const attachments = (Array.isArray(input.attachments) ? input.attachments : [])
     .slice(0, 3)
-    .filter((a) => typeof a?.url === "string" && a.url.includes(".blob.vercel-storage.com"))
+    .filter((a) => isBlobUrl(a?.url))
     .map((a) => ({ name: clean(a.name, 120), url: a.url, size: Number(a.size) || 0 }));
 
   const inquiry: Omit<Inquiry, "id"> = {
@@ -308,21 +324,25 @@ export async function submitInquiry(input: InquiryFormInput): Promise<InquiryRes
     c.email,
   );
 
-  const buyerSent = await sendEmail(
-    [c.email],
-    "We Received Your Inquiry | DryGelWorld",
-    [
-      "Thank you for contacting DryGelWorld.",
-      "",
-      "Our export specialists are reviewing your request.",
-      "",
-      "Most RFQs are answered within 1 hour during Karachi business hours (Mon-Sat, PKT), and same day otherwise, with pricing, lead time, and shipping details.",
-      "Need it faster? WhatsApp +92 333 022 3337 and quote your inquiry ID.",
-      "",
-      `Inquiry ID: ${id}`,
-    ].join("\n"),
-    salesEmail,
-  );
+  // No confirmation to an address a suspected bot typed: that is how this form
+  // gets used to mail strangers from the verified sender. Sales still gets it.
+  const buyerSent = suspectedBot
+    ? true // deliberately skipped, not a delivery failure
+    : await sendEmail(
+        [c.email],
+        "We Received Your Inquiry | DryGelWorld",
+        [
+          "Thank you for contacting DryGelWorld.",
+          "",
+          "Our export specialists are reviewing your request.",
+          "",
+          "Most RFQs are answered within 1 hour during Karachi business hours (Mon-Sat, PKT), and same day otherwise, with pricing, lead time, and shipping details.",
+          "Need it faster? WhatsApp +92 333 022 3337 and quote your inquiry ID.",
+          "",
+          `Inquiry ID: ${id}`,
+        ].join("\n"),
+        salesEmail,
+      );
 
   // Delivery-failure observability. A lead that persists to the dashboard but
   // whose admin email fails (Resend outage/misconfig) would otherwise succeed

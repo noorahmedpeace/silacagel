@@ -3,6 +3,7 @@
 // inquiry ID, emails sales, and confirms to the buyer. Previously this used the
 // email-only path, so chatbot leads never appeared in the dashboard.
 import { submitInquiry } from "@/app/actions/submit-inquiry";
+import { isSameSiteOrigin } from "@/lib/request-guard";
 
 export const runtime = "nodejs";
 
@@ -16,6 +17,11 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const empty = { source: "", medium: "", campaign: "", term: "", content: "" };
 
 export async function POST(req: Request) {
+  // A plain JSON endpoint with no honeypot, so it is limited to this site's
+  // own pages (DryBot) rather than callable from anywhere.
+  if (!isSameSiteOrigin(req.headers)) {
+    return Response.json({ ok: false, error: "forbidden" }, { status: 403 });
+  }
   const b = (await req.json().catch(() => ({}))) as LeadBody;
   if (!b.email && !b.phone) {
     return Response.json({ ok: false, error: "email or phone required" }, { status: 400 });

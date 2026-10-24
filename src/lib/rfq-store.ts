@@ -2,7 +2,7 @@
 // gracefully when BLOB_READ_WRITE_TOKEN is absent (local dev/build) so the
 // form still works via the email/mailto path and nothing crashes.
 import { BlobPreconditionFailedError, del, list, put } from "@vercel/blob";
-import { createHash, randomInt } from "node:crypto";
+import { createHash, randomBytes, randomInt } from "node:crypto";
 
 // A single put() lets the SDK retry ~10x with exponential backoff, which can
 // stall for many minutes and burn the Server Action deadline before the
@@ -73,11 +73,41 @@ export type Inquiry = {
 
 const hasBlob = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN?.trim());
 
-// Inquiry JSON lives under a non-guessable prefix derived from the admin key
-// (the blob store is public-read by URL; the prefix keeps paths unenumerable).
+// The store is public-read by URL (private access 400s on this store), so a
+// record's URL is the only thing protecting it.
+//
+// The prefix USED to be the whole protection: inquiries-<12 hex of
+// sha256(RFQ_ADMIN_KEY)>, with records at <prefix>/DGW-YYYY-NNNNNN.json. That
+// failed twice over. The GitHub repo is public and hard-coded the prefix, and
+// the id space is only 10^6 per year, so every lead was enumerable in hours.
+// Publishing the hash also let anyone test admin-key guesses offline.
+//
+// Now every record carries 128 random bits in its own path (recordPath), so a
+// known prefix no longer helps. INQUIRY_BLOB_PREFIX decouples the prefix from
+// the admin key: set it to the current value BEFORE rotating RFQ_ADMIN_KEY, or
+// the dashboard loses sight of every existing record.
 function prefix() {
+  const fixed = process.env.INQUIRY_BLOB_PREFIX?.trim();
+  if (fixed) return fixed;
   const key = process.env.RFQ_ADMIN_KEY?.trim() || "dev";
   return `inquiries-${createHash("sha256").update(key).digest("hex").slice(0, 12)}`;
+}
+
+const ID_RE = /^DGW-\d{4}-\d{6}$/;
+
+// New records: <prefix>/DGW-YYYY-NNNNNN-<32 hex>.json. Only list() (which needs
+// the store token) can find them, so outsiders cannot guess the URL.
+function recordPath(id: string) {
+  return `${prefix()}/${id}-${randomBytes(16).toString("hex")}.json`;
+}
+
+// Locate one record by id. The list prefix matches both the new suffixed path
+// and a legacy <id>.json written before Oct 2026 (ids are fixed-length, so no
+// other id can share it).
+async function findRecord(id: string) {
+  if (!ID_RE.test(id)) return null;
+  const { blobs } = await list({ prefix: `${prefix()}/${id}`, limit: 5 });
+  return blobs.find((b) => b.pathname.endsWith(".json")) ?? null;
 }
 
 async function readJson<T>(url: string): Promise<T | null> {
@@ -124,7 +154,13 @@ export async function createInquiry(
   for (let attempt = 0; attempt < 3; attempt++) {
     id = generateInquiryId();
     try {
-      await put(`${prefix()}/${id}.json`, JSON.stringify({ ...data, id }), {
+      // With a random path segment allowOverwrite:false can no longer catch an
+      // id collision, so look for the id first. A failed lookup must not cost
+      // the lead: if list() errors, write anyway (a 1-in-10^6 duplicate id is
+      // far cheaper than a lost buyer).
+      const taken = await findRecord(id).catch(() => null);
+      if (taken) continue;
+      await put(recordPath(id), JSON.stringify({ ...data, id }), {
         access: "public",
         addRandomSuffix: false,
         allowOverwrite: false, // never overwrite a lead
@@ -142,7 +178,8 @@ export async function createInquiry(
 export async function saveInquiry(inquiry: Inquiry): Promise<boolean> {
   if (!hasBlob()) return false;
   try {
-    await put(`${prefix()}/${inquiry.id}.json`, JSON.stringify(inquiry), {
+    const existing = await findRecord(inquiry.id);
+    await put(existing?.pathname ?? recordPath(inquiry.id), JSON.stringify(inquiry), {
       access: "public",
       addRandomSuffix: false,
       allowOverwrite: true,
@@ -192,14 +229,13 @@ export async function getInquiry(id: string): Promise<Inquiry | null> {
 // a compare-and-set write.
 async function readInquiryWithEtag(
   id: string,
-): Promise<{ inquiry: Inquiry; etag: string } | null> {
-  if (!hasBlob() || !/^DGW-\d{4}-\d{6}$/.test(id)) return null;
+): Promise<{ inquiry: Inquiry; etag: string; pathname: string } | null> {
+  if (!hasBlob() || !ID_RE.test(id)) return null;
   try {
-    const { blobs } = await list({ prefix: `${prefix()}/${id}.json`, limit: 1 });
-    const b = blobs[0];
+    const b = await findRecord(id);
     if (!b) return null;
     const inquiry = await readJson<Inquiry>(b.url);
-    return inquiry?.id ? { inquiry, etag: b.etag } : null;
+    return inquiry?.id ? { inquiry, etag: b.etag, pathname: b.pathname } : null;
   } catch {
     return null;
   }
@@ -226,7 +262,7 @@ export async function updateInquiry(
   for (let attempt = 0; attempt < 4; attempt++) {
     const found = await readInquiryWithEtag(id);
     if (!found) return false;
-    const { inquiry, etag } = found;
+    const { inquiry, etag, pathname } = found;
 
     if (patch.status) inquiry.status = patch.status;
     if (patch.addNote?.trim()) {
@@ -238,7 +274,7 @@ export async function updateInquiry(
     }
 
     try {
-      await put(`${prefix()}/${id}.json`, JSON.stringify(inquiry), {
+      await put(pathname, JSON.stringify(inquiry), {
         access: "public",
         addRandomSuffix: false,
         allowOverwrite: true,
@@ -259,21 +295,26 @@ export async function updateInquiry(
 // the Blob object is removed. Validates the ID shape so a malformed value can't
 // target an arbitrary path.
 export async function deleteInquiry(id: string): Promise<boolean> {
-  if (!hasBlob() || !/^DGW-\d{4}-\d{6}$/.test(id)) return false;
+  if (!hasBlob() || !ID_RE.test(id)) return false;
   try {
-    await del(`${prefix()}/${id}.json`, { abortSignal: AbortSignal.timeout(WRITE_TIMEOUT_MS) });
+    const b = await findRecord(id);
+    if (!b) return false;
+    await del(b.url, { abortSignal: AbortSignal.timeout(WRITE_TIMEOUT_MS) });
     return true;
   } catch {
     return false;
   }
 }
 
-// Simple blob-based rate limiter: max `limit` hits per ip-hash per hour.
-export async function rateLimitOk(ip: string, limit = 5): Promise<boolean> {
+// Simple blob-based rate limiter: max `limit` hits per key-hash per hour.
+// `scope` keeps unrelated endpoints (leads, uploads, chat) in separate buckets.
+// Best-effort by design: a read-modify-write on a blob is not atomic and it
+// fails open, so it slows abuse rather than guaranteeing a ceiling.
+export async function rateLimitOk(ip: string, limit = 5, scope = "rfq"): Promise<boolean> {
   if (!hasBlob()) return true;
   try {
     const hour = new Date().toISOString().slice(0, 13);
-    const key = createHash("sha256").update(`${ip}|${hour}`).digest("hex").slice(0, 16);
+    const key = createHash("sha256").update(`${scope}|${ip}|${hour}`).digest("hex").slice(0, 16);
     const path = `${prefix()}/ratelimit/${key}.json`;
     const existing = await list({ prefix: path, limit: 1 });
     let n = 0;
