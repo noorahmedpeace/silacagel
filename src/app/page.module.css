@@ -4942,8 +4942,10 @@
   animation: heroXImageIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Zoom only. Starting from opacity 0 hid the LCP image at first paint, so
+   Chrome counted it late (5-5.7 s on mobile, audit 25 Oct 2026). */
 @keyframes heroXImageIn {
-  from { opacity: 0; transform: scale(1.08); }
+  from { opacity: 0.68; transform: scale(1.08); }
   to   { opacity: 0.68; transform: scale(1.04); }
 }
 

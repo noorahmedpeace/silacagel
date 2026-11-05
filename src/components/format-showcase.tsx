@@ -46,6 +46,21 @@ export function FormatShowcase() {
   // the incoming one faded up from the page background, which is a flash, not a
   // cross-fade.
   const [leaving, setLeaving] = useState<number | null>(null);
+  // Offstage cards warm up only after the page has loaded. Rendering them
+  // eager from the server made Next emit six <link rel=preload> tags that
+  // downloaded ahead of the hero and pushed mobile LCP past 5 s (audit, 25 Oct
+  // 2026). Warming them in idle time keeps every tab switch instant without
+  // competing with the first paint.
+  const [warm, setWarm] = useState(false);
+  useEffect(() => {
+    const start = () => {
+      const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 1200));
+      idle(() => setWarm(true));
+    };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, { once: true });
+    return () => window.removeEventListener("load", start);
+  }, []);
   const railRef = useRef<HTMLDivElement>(null);
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   // Set once the user actually picks a tab. Without it the rail would scroll
@@ -154,14 +169,12 @@ export function FormatShowcase() {
                   fill
                   className={page.formatImage}
                   sizes="(max-width: 900px) 100vw, 30vw"
-                  // The first card is the LCP candidate and gets priority. The
-                  // other five are eager rather than lazy on purpose: left
-                  // lazy, the browser deferred the offstage ones and then
-                  // fetched them at the moment of the click - which is exactly
-                  // the pop this design removes. Six optimised webps is a
-                  // cheap price for every switch being instant.
-                  priority={index === 0}
-                  loading={index === 0 ? undefined : "eager"}
+                  // Lazy until the page has loaded, then eager (see `warm`): the
+                  // section sits below the fold, so none of these should be
+                  // preloaded ahead of the hero, but left lazy for good the
+                  // offstage ones would only fetch at the moment of the click,
+                  // which is exactly the pop this design removes.
+                  loading={warm ? "eager" : "lazy"}
                 />
                 <span className={page.formatStat}>{item.badge}</span>
               </span>

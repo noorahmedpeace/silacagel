@@ -494,7 +494,8 @@
   align-self: flex-start;
   padding: 6px 12px;
   background: var(--ds-accent-soft);
-  color: var(--ds-accent-deep);
+  /* accent-deep measured 3.43:1 on this tint at 12px; this darker coral is 5.9:1 */
+  color: #a8351a;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.04em;

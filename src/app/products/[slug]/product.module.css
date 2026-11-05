@@ -1155,3 +1155,11 @@
   .docProofLink { transition: none !important; }
   .docProofLink:hover { transform: none !important; }
 }
+
+/* Section labels ("Procurement Details", "Buyer FAQ", ...) are .eyebrow pills
+   inside .sectionHead, and `.sectionHead p` is more specific than `.eyebrow`,
+   so the pill text rendered muted grey on the orange fill at 1.36:1 contrast.
+   Restore the white the pill was designed with. */
+.sectionHead .eyebrow {
+  color: #fff;
+}

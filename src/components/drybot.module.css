@@ -34,7 +34,7 @@
 }
 .launcherAv {
   flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; overflow: hidden; position: relative; z-index: 1;
-  background: url("/drybot-avatar.jpg") 50% 18% / cover;
+  background: url("/drybot-avatar.webp") center / cover;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45);
 }
 
@@ -57,7 +57,7 @@
 .id { display: flex; align-items: center; gap: 11px; }
 .logo {
   width: 34px; height: 34px; border-radius: 50%; overflow: hidden;
-  background: url("/drybot-avatar.jpg") 50% 18% / cover, rgba(255, 255, 255, 0.16);
+  background: url("/drybot-avatar.webp") center / cover, rgba(255, 255, 255, 0.16);
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.4);
 }
 /* Explicit column + line-height: the name inherited a tight line-height and
@@ -75,7 +75,7 @@
 .row { display: flex; gap: 9px; align-items: flex-end; max-width: 90%; }
 .rowBot { align-self: flex-start; }
 .rowUser { align-self: flex-end; flex-direction: row-reverse; }
-.av { flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; overflow: hidden; background: url("/drybot-avatar.jpg") 50% 18% / cover, linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 4px 10px rgba(30, 90, 168, 0.35); }
+.av { flex: 0 0 27px; width: 27px; height: 27px; border-radius: 50%; overflow: hidden; background: url("/drybot-avatar.webp") center / cover, linear-gradient(135deg, var(--b2), var(--b3)); box-shadow: 0 4px 10px rgba(30, 90, 168, 0.35); }
 .msg { padding: 10px 13px; border-radius: 15px; font-size: 14px; line-height: 1.55; white-space: pre-wrap; word-wrap: break-word; }
 .bot { background: var(--card); border: 1px solid var(--line); border-bottom-left-radius: 5px; box-shadow: 0 3px 12px rgba(11, 42, 74, 0.06); }
 .user { color: #fff; background: linear-gradient(135deg, var(--b2), var(--b3)); border-bottom-right-radius: 5px; box-shadow: 0 6px 16px rgba(30, 90, 168, 0.32); }

@@ -576,3 +576,12 @@
     transform: none !important;
   }
 }
+
+/* Touch screens: the comparison links were 22px tall, under the 24px WCAG 2.2
+   AA target size. A few px of padding clears it without lengthening the
+   footer on desktop. */
+@media (pointer: coarse) {
+  .vsList a {
+    padding: 4px 0;
+  }
+}
