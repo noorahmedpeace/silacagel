@@ -288,13 +288,6 @@ export function RfqForm({
           firm rate follows quantity and destination.
         </p>
       ) : null}
-      {/* The pack was only rendered in the success state below, so a buyer got
-          the SDS, COA, TDS, ISO certificate and DMF-free statement only after
-          submitting. QA screens a supplier on the paperwork BEFORE it sends an
-          RFQ - this is the page where that happens, so the pack is published
-          above the form as well. EvidencePack filters on `available`, so a
-          document without an uploaded file can never render as a dead link. */}
-      <EvidencePack className={styles.introDocs} />
       <section className={styles.section} aria-labelledby="rfq-company">
         <h2 className={styles.sectionTitle} id="rfq-company">Company information</h2>
         <div className={styles.grid2}>
@@ -483,6 +476,15 @@ export function RfqForm({
           WhatsApp Us
         </a>
       </div>
+
+      {/* The pack was only rendered in the success state, so a buyer got the
+          SDS, COA, TDS, ISO certificate and DMF-free statement only after
+          submitting, and QA screens a supplier on the paperwork BEFORE it sends
+          an RFQ. It sat above the fields until Nov 2026, which pushed the first
+          input ~380px further down on a phone; it now follows the button, still
+          on the page before anyone submits. EvidencePack filters on
+          `available`, so a missing file never renders as a dead link. */}
+      <EvidencePack className={styles.introDocs} />
     </form>
   );
 }

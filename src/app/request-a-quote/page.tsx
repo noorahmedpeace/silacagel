@@ -67,34 +67,11 @@ export default function RequestQuotePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <section className={styles.hero}>
-        <span className={styles.kicker}>Request a Quote</span>
-        <h1>Request an export quotation.</h1>
+        <h1>Request a quotation.</h1>
         <p>
-          Tell us the product, quantity, and destination. Most RFQs are answered within
-          1 hour during Karachi business hours (PKT), and same day otherwise, with pricing,
-          lead time, and shipping details. Every inquiry is handled by the factory team in
-          Karachi, not a call center.
+          Product, quantity and destination are enough to start. Most requests are answered
+          within 1 hour in Karachi business hours (PKT), same day otherwise.
         </p>
-      </section>
-
-      <section className={styles.section}>
-        {/* The section carried this as an aria-label, which names the landmark
-            but leaves the outline jumping h1 -> h3 at the first card. A real
-            heading, hidden visually, closes the gap without changing the design. */}
-        <h2 className={styles.srOnly}>Why buyers quote with DryGelWorld</h2>
-        <div className={styles.grid}>
-          {[
-            { label: "Response", title: "Usually within 1 hour", text: "Karachi business hours (PKT), same day otherwise. Pricing, MOQ, lead time, and shipping options in the first reply." },
-            { label: "Factory-direct", title: "Manufacturer since 1983", text: "ISO 9001:2015 production in Karachi with SDS, COA, and DMF-free documentation." },
-            { label: "Worldwide", title: "190+ export markets (company figure)", text: "EXW, FOB Karachi, CIF, and DAP terms with route-based dosage guidance." },
-          ].map((item) => (
-            <article className={styles.card} key={item.title}>
-              <span>{item.label}</span>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
       </section>
 
       <section className={styles.section}>
@@ -116,6 +93,28 @@ export default function RequestQuotePage() {
         <Suspense fallback={<RfqForm />}>
           <RfqFormFromQuery />
         </Suspense>
+      </section>
+
+      <section className={styles.section}>
+        {/* Below the form since Nov 2026: above it, these cards and the hero
+            pushed the first field ~1,150px down on a phone (audit, 25 Oct).
+            The section carried this as an aria-label, which names the landmark
+            but leaves the outline jumping h1 -> h3 at the first card. A real
+            heading, hidden visually, closes the gap without changing the design. */}
+        <h2 className={styles.srOnly}>Why buyers quote with DryGelWorld</h2>
+        <div className={styles.grid}>
+          {[
+            { label: "Response", title: "Usually within 1 hour", text: "Karachi business hours (PKT), same day otherwise. Pricing, lead time, and shipping options in the first reply." },
+            { label: "Factory-direct", title: "Manufacturer since 1983", text: "ISO 9001:2015 production in Karachi with SDS, COA, and DMF-free documentation." },
+            { label: "Worldwide", title: "190+ export markets (company figure)", text: "EXW, FOB Karachi, CIF, and DAP terms with route-based dosage guidance." },
+          ].map((item) => (
+            <article className={styles.card} key={item.title}>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className={styles.section} aria-labelledby="rfq-faq">
