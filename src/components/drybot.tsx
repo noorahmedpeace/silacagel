@@ -47,7 +47,9 @@ function isSiteUrl(u: string): boolean {
 }
 
 function renderHtml(t: string): string {
-  let e = t.replace(/```[\s\S]*?```/g, "").replace(/`([^`]+)`/g, "$1");
+  // Strip the model's citation markers (【Source 2】, [Source 3]); the Sources
+  // list under the answer already names the pages.
+  let e = t.replace(/```[\s\S]*?```/g, "").replace(/`([^`]+)`/g, "$1").replace(/\s*(【[^】]*】|\[Source \d+\])/g, "");
   // Quotes too: the link patterns below build href="..." attributes, and an
   // unescaped " in model output could otherwise break out into an attribute.
   e = e.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
