@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { QuoteForm } from "@/components/quote-form";
 import {
@@ -28,6 +29,13 @@ const channelPriority: Record<string, number> = { export: 0, sales: 1, general: 
 const orderedEmailChannels = [...contactEmailChannels].sort(
   (a, b) => (channelPriority[a.id] ?? 9) - (channelPriority[b.id] ?? 9),
 );
+
+// Carries a ?product= from the URL through to the quote page's prefill.
+export function ContactContentFromQuery() {
+  const raw = useSearchParams().get("product")?.trim().slice(0, 120);
+  const rfqHref = raw ? `/request-a-quote?product=${encodeURIComponent(raw)}` : "/request-a-quote";
+  return <ContactContent rfqHref={rfqHref} />;
+}
 
 export function ContactContent({ rfqHref }: { rfqHref: string }) {
   // Two-thirds of human sessions are on PC, where a tel: link does nothing

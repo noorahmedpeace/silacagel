@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { absoluteUrl, brandName, breadcrumbJsonLd, pageOpenGraph } from "@/lib/seo";
-import { ContactContent } from "./contact-content";
+import { ContactContent, ContactContentFromQuery } from "./contact-content";
 
 /**
  * /contact and /request-a-quote both used to serve a quotation form, under
@@ -30,21 +31,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
-type ContactPageProps = {
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-};
-
-const first = (value: string | string[] | undefined) =>
-  typeof value === "string" && value.trim() ? value.trim().slice(0, 120) : undefined;
-
-export default async function ContactPage({ searchParams }: ContactPageProps) {
-  const params = await searchParams;
-  const product = first(params.product);
-
-  const rfqHref = product
-    ? `/request-a-quote?product=${encodeURIComponent(product)}`
-    : "/request-a-quote";
-
+// Static page. Reading searchParams here made every visit a fresh server
+// render (x-vercel-cache MISS, TTFB 0.8-1.7 s against 0.4 s for cached pages);
+// the optional ?product= is now read in the browser by ContactContentFromQuery,
+// and the prerendered fallback is the same page with the plain quote link.
+export default function ContactPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -79,7 +70,9 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <ContactContent rfqHref={rfqHref} />
+      <Suspense fallback={<ContactContent rfqHref="/request-a-quote" />}>
+        <ContactContentFromQuery />
+      </Suspense>
     </>
   );
 }
