@@ -107,13 +107,18 @@ export function RfqForm({
   const [files, setFiles] = useState<Attachment[]>([]);
   const [uploading, setUploading] = useState(false);
   const [cart, setCart] = useState<CartItem[]>([]);
-  const startedAt = useRef(Date.now());
+  // 0 until mount: Date.now() during render is impure (react-hooks/purity);
+  // the effect below stamps the real open time.
+  const startedAt = useRef(0);
   const formStarted = useRef(false);
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     startedAt.current = Date.now();
     readFirstTouch();
+    // The cart lives in localStorage, which does not exist during the server
+    // render; reading it once after mount is the hydration-safe way to show it.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCart(getCart());
   }, []);
 

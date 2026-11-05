@@ -51,7 +51,9 @@ export function PackagingPlanner() {
   const [inquiryId, setInquiryId] = useState("");
   const [error, setError] = useState("");
   const [fallbackHref, setFallbackHref] = useState("");
-  const startedAt = useRef(Date.now());
+  // 0 until mount: Date.now() during render is impure (react-hooks/purity);
+  // the effect below stamps the real open time.
+  const startedAt = useRef(0);
   const website2 = useRef("");
   const formRef = useRef<HTMLDivElement>(null);
 

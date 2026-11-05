@@ -144,7 +144,9 @@ export function QuoteForm({
       .filter(Boolean)
       .join("\n"),
   )}`;
-  const startedAt = useRef(Date.now());
+  // 0 until mount: Date.now() during render is impure (react-hooks/purity);
+  // the effect below stamps the real open time.
+  const startedAt = useRef(0);
   const website2 = useRef(""); // honeypot, bots fill it, humans never see it
 
   useEffect(() => {
