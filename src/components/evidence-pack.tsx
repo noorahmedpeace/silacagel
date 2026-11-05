@@ -33,7 +33,7 @@ export function EvidencePack({ className }: { className?: string }) {
 
   return (
     <div className={`${styles.pack}${className ? ` ${className}` : ""}`}>
-      <strong>Your document pack — download now</strong>
+      <strong>Your document pack: download now</strong>
       <ul>
         {evidencePack.map((doc) => (
           <li key={doc.id}>

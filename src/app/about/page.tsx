@@ -49,8 +49,8 @@ export const metadata: Metadata = {
 
 const stats = [
   { value: "1983", label: "Manufacturing since" },
-  { value: "190+", label: "Export markets" },
-  { value: "ISO 9001:2015", label: "Manufacturer certified" },
+  { value: "190+", label: "Export markets (company figure)" },
+  { value: "ISO 9001:2015", label: "Certified quality system" },
   { value: "1h", label: "Typical quote reply, PKT business hours" },
 ];
 
@@ -118,21 +118,21 @@ const verifiableClaims = [
   {
     label: "Manufacturing site",
     value: factoryAddressFull,
-    note: "Production factory in North Karachi Industrial Area, where silica gel desiccant sachets, strips, and industrial PPE lines are converted and packed on-site.",
+    note: "Production factory in North Karachi Industrial Area, where silica gel desiccant sachets and strips are converted and packed on-site. Clay, calcium chloride and PPE are sourced.",
   },
   {
     label: "Manufacturer certification",
     value: "ISO 9001:2015",
-    note: "Certificate published for download; baseline for all export shipments.",
+    note: "Certificate published for download; scope is packaging and supply of silica desiccant (not clay, calcium chloride or PPE).",
   },
   {
     label: "Documentation per shipment",
     value: "SDS · COA · DMF-free statement",
-    note: "Published for download and standard across all silica gel and industrial PPE shipments. Translations available on request (5-10 day turnaround).",
+    note: "Published for download and standard across silica gel shipments. Translations available on request (5-10 day turnaround).",
   },
   {
     label: "Export markets",
-    value: "190+ countries",
+    value: "190+ countries (company figure)",
     note: "Active export to Middle East, EU, USA, Africa, Asia-Pacific. Country-specific landing pages at /export.",
   },
 ];

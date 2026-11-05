@@ -60,7 +60,7 @@ export const comparePages: ComparePage[] = [
       { label: "Regulatory profile", a: "Inert SiO₂; SDS + COA available", b: "Inert mineral; SDS + COA available" },
       { label: "Best-fit cargo", a: "Pharma, electronics, leather, precision goods", b: "Bulk container loadings, warehouse stock, cost-tier industrial" },
       { label: "Indicating-color option", a: "Orange (REACH) or blue (legacy)", b: "Not typically available" },
-      { label: "Documentation held", a: "ISO 9001:2015 + DMF-free", b: "ISO 9001:2015" },
+      { label: "Documentation held", a: "ISO 9001:2015 + DMF-free", b: "SDS + COA (sourced product)" },
     ],
     decisions: [
       { scenario: "Pharma secondary packaging (non-DMF)", recommended: "a", note: "Silica gel - higher capacity per gram, sachet format flexibility, documentation alignment with pharma buyer audits." },
@@ -83,7 +83,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply both silica gel and dry clay desiccant?",
-        a: "Yes - both are in the catalog with ISO 9001:2015 manufacturer certification. Format options for clay include sachets, strips, and bulk paper bags. Choice between the two is a per-cargo decision based on the criteria above.",
+        a: "Yes, both are in the catalog. Silica gel is supplied under ISO 9001:2015; clay is a sourced product supplied with SDS and COA. Format options for clay include sachets, strips, and bulk paper bags. Choice between the two is a per-cargo decision based on the criteria above.",
       },
       {
         q: "Which is REACH-compliant?",
@@ -210,7 +210,7 @@ export const comparePages: ComparePage[] = [
       { label: "Typical color behavior", a: "Stays white / translucent", b: "Changes color as moisture exposure increases" },
       { label: "Best packaging fit", a: "Retail sachets, cartons, pharma/food review, private label", b: "Inspection packs, lab/storage jars, monitored environments" },
       { label: "Buyer risk", a: "Wrong packet size or unsupported compliance claim", b: "Indicator chemistry not approved for buyer/destination" },
-      { label: "Common formats", a: "0.5g-50g sachets, bags, bulk beads, 25kg bags", b: "Bulk beads, jars, packets, carton packs" },
+      { label: "Common formats", a: "0.5g-20g sachets, 25g-500g packs, bulk beads, 25kg bags", b: "Bulk beads, jars, packets, carton packs" },
       { label: "Document priority", a: "SDS, COA, material statements", b: "SDS, COA, composition and color-system review" },
       { label: "Food/pharma discussion", a: "More common starting point for review", b: "Usually not first choice for direct food/pharma claims" },
     ],
@@ -285,7 +285,7 @@ export const comparePages: ComparePage[] = [
       { label: "Protection zone", a: "Whole container environment", b: "Product pack, pouch, box, or carton" },
       { label: "Main risk", a: "Container rain, condensation, humid sea routes", b: "Product-level moisture, carton humidity, storage exposure" },
       { label: "Sizing input", a: "20ft/40ft, route, transit days, cargo", b: "Gram size, carton volume, product sensitivity" },
-      { label: "Common format", a: "1kg-5kg hanging strips or cargo bags", b: "0.5g-50g sachets and carton bags" },
+      { label: "Common format", a: "1kg-5kg hanging strips or cargo bags", b: "0.5g-20g sachets and 25g-500g packs" },
       { label: "Best buyer", a: "Exporters, logistics teams, freight planners", b: "Packagers, brands, manufacturers, distributors" },
       { label: "Can replace the other?", a: "No - container level only", b: "No - product/carton level only" },
       { label: "Best program", a: "Often used together", b: "Often used together" },
@@ -324,7 +324,7 @@ export const comparePages: ComparePage[] = [
       { label: "Best fit", a: "Repacking, warehouse, industrial systems", b: "Product packs and cartons" },
       { label: "Production use", a: "Needs buyer-side packing or dosing", b: "Ready for insertion into packs" },
       { label: "Private label", a: "Usually outer bags/cartons", b: "Strong - sachet text and carton labels" },
-      { label: "MOQ logic", a: "Weight and pallet volume", b: "Packet count and print/material run" },
+      { label: "Quantity basis", a: "Weight and pallet volume", b: "Packet count and print/material run" },
       { label: "Documentation", a: "SDS, COA, grade, bead size", b: "SDS, COA, packet material, warning text" },
       { label: "Buyer risk", a: "Buying loose beads when finished sachets are needed", b: "Paying for sachets when repacking bulk would be cheaper" },
     ],
@@ -340,7 +340,7 @@ export const comparePages: ComparePage[] = [
       { q: "Is bulk silica gel cheaper than packets?", a: "Bulk silica gel is usually cheaper per kg, but packets save packing labor and are ready for insertion into products or cartons." },
       { q: "When should I buy silica gel packets?", a: "Buy packets when the desiccant must go directly into product packs, cartons, bottles, boxes, or private-label customer packaging." },
       { q: "When should I buy bulk silica gel?", a: "Buy bulk silica gel for repacking, distributor stock, warehouse use, industrial systems, or when your team controls the final packaging format." },
-      { q: "What sizes are available?", a: "Bulk gel is commonly quoted in kg, 25kg bags, drums, or pallet quantities. Packets are commonly 0.5g-50g or custom by MOQ." },
+      { q: "What sizes are available?", a: "Bulk gel is commonly quoted in kg, 25kg bags, drums, or pallet quantities. Packets are 0.5g-20g sachets and 25g-500g packs, with custom sizes on request." },
       { q: "What documents should I request?", a: "Request SDS, COA, ISO 9001:2015 support, bead grade or packet material details, packing list, and destination-specific documents." },
     ],
     relatedBlog: "/blog/bulk-silica-gel-supplier-checklist",
@@ -367,7 +367,7 @@ export const comparePages: ComparePage[] = [
       { label: "Best voyage length", a: "Short to medium hauls; carton + container layering", b: "Long tropical-to-temperate hauls (25-40+ days)" },
       { label: "Regenerable", a: "Silica gel yes (120-150°C); clay typically single-use", b: "No - single-use consumable" },
       { label: "Cost per unit", a: "Lower per strip", b: "Higher per pouch, but fewer units per container" },
-      { label: "In DryGelWorld catalog", a: "Yes (silica gel + clay strips, ISO 9001:2015 + DMF-free)", b: "Yes (1-5 kg calcium chloride strips and bulk bags)" },
+      { label: "In DryGelWorld catalog", a: "Yes (silica gel strips under ISO 9001:2015 + DMF-free; clay strips sourced, with SDS and COA)", b: "Yes (1-5 kg calcium chloride strips and bulk bags; sourced, with SDS and COA)" },
     ],
     decisions: [
       { scenario: "Leather / footwear on a long tropical route", recommended: "both", note: "Calcium chloride poles for raw container-air capacity, plus silica gel sachets inside cartons - but only if the cargo tolerates any remote brine risk; for premium leather many exporters stay all-silica-gel to eliminate liquid entirely." },
@@ -375,7 +375,7 @@ export const comparePages: ComparePage[] = [
       { scenario: "High-volume bulk commodities, very humid 30-40 day haul", recommended: "b", note: "Calcium chloride - when sheer container-air water removal over weeks is the goal and cargo is robust, its 150-300% capacity does more per kg than adsorbing strips." },
       { scenario: "Short intra-region container (≤14 days)", recommended: "a", note: "Silica gel / clay strips - the deliquescent capacity premium isn't needed on a short voyage." },
       { scenario: "Cargo that cannot tolerate any liquid risk", recommended: "a", note: "Adsorbing desiccants only. A solid desiccant cannot leak; this is the deciding factor for many pharma-adjacent and high-value shipments." },
-      { scenario: "Claim-defensible documentation matters", recommended: "a", note: "DryGelWorld silica gel/clay ship with ISO 9001:2015, SDS, COA and DMF-free statement; pair with a dated loading-photo log for arbitration." },
+      { scenario: "Claim-defensible documentation matters", recommended: "a", note: "DryGelWorld silica gel ships under ISO 9001:2015 with SDS, COA and DMF-free statement, and sourced clay ships with SDS and COA; pair with a dated loading-photo log for arbitration." },
     ],
     faqs: [
       {
@@ -384,7 +384,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply calcium chloride container desiccants?",
-        a: "Yes. DryGelWorld supplies calcium chloride container strips (1-5 kg hanging strips) and calcium chloride bulk bags, alongside silica gel and dry clay container strips, under ISO 9001:2015. The export desk will recommend silica gel where the cargo cannot tolerate any liquid risk, and calcium chloride where raw container-air capacity on a long humid voyage matters more.",
+        a: "Yes. DryGelWorld supplies calcium chloride container strips (1-5 kg hanging strips) and calcium chloride bulk bags, alongside silica gel and dry clay container strips. Calcium chloride and clay are sourced, with SDS and COA; ISO 9001:2015 covers the silica gel. The export desk will recommend silica gel where the cargo cannot tolerate any liquid risk, and calcium chloride where raw container-air capacity on a long humid voyage matters more.",
       },
       {
         q: "Which is better for container rain on a long ocean voyage?",
@@ -437,7 +437,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply VCI products?",
-        a: "No. VCI films, papers, and emitters are a separate product category not in the DryGelWorld catalog. DryGelWorld supplies silica gel and clay desiccants (ISO 9001:2015 + DMF-free); for metal-corrosion programs we can advise on the desiccant side and where VCI from a specialist fits alongside it.",
+        a: "No. VCI films, papers, and emitters are a separate product category not in the DryGelWorld catalog. DryGelWorld supplies silica gel (ISO 9001:2015, DMF-free) and sourced clay desiccants; for metal-corrosion programs we can advise on the desiccant side and where VCI from a specialist fits alongside it.",
       },
       {
         q: "Can I use silica gel instead of VCI for metal parts?",
@@ -757,7 +757,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply activated carbon?",
-        a: "No - activated carbon is not in the DryGelWorld catalog. DryGelWorld supplies silica gel and clay desiccants under ISO 9001:2015 + DMF-free. Buyers needing combined moisture-plus-odor protection can source carbon from a specialist and silica gel from DryGelWorld.",
+        a: "No - activated carbon is not in the DryGelWorld catalog. DryGelWorld supplies silica gel (ISO 9001:2015, DMF-free) and sourced clay desiccants. Buyers needing combined moisture-plus-odor protection can source carbon from a specialist and silica gel from DryGelWorld.",
       },
       {
         q: "When would I use both silica gel and activated carbon?",
@@ -797,7 +797,7 @@ export const comparePages: ComparePage[] = [
       { label: "Packaging compatibility", a: "Paper, Tyvek, and film sachets; carton and container use", b: "Breathable sachets and bags; container and warehouse use", c: "Sealed systems, cartridges, IG spacer frames - rarely open packaging" },
       { label: "Cost per kg of material", a: "Reference", b: "20-35% lower than silica gel", c: "2-4× silica gel" },
       { label: "Typical buyer documentation", a: "SDS + COA per shipment; DMF-free statement", b: "SDS + COA per shipment", c: "SDS + COA; grade certificates from specialist producers" },
-      { label: "In the DryGelWorld catalog", a: "Yes - ISO 9001:2015 manufacture", b: "Yes - ISO 9001:2015 manufacture", c: "No - sourced from specialist zeolite producers" },
+      { label: "In the DryGelWorld catalog", a: "Yes - packed under ISO 9001:2015", b: "Yes - sourced, with SDS and COA", c: "No - sourced from specialist zeolite producers" },
     ],
     decisions: [
       { scenario: "Container shipping (general export cargo)", recommended: "a", note: "Silica gel strips - capacity and RH range match voyage conditions; sieve's deep-dry endpoint adds cost without benefit here." },
@@ -828,11 +828,11 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "What documentation should a buyer request for each material?",
-        a: "For any of the three: an SDS and a per-shipment COA. For silica gel from DryGelWorld, a DMF-free statement is standard and manufacture is ISO 9001:2015 certified; the same ISO scope covers its clay desiccant. Molecular sieve is not in the DryGelWorld catalog - request grade certificates (3A/4A/5A/13X) directly from the zeolite producer.",
+        a: "For any of the three: an SDS and a per-shipment COA. For silica gel from DryGelWorld, a DMF-free statement is standard. DryGelWorld's ISO 9001:2015 certificate (9101225) covers packaging and supply of silica desiccant. Clay desiccant is sourced and ships with its own SDS and COA. Molecular sieve is not in the DryGelWorld catalog - request grade certificates (3A/4A/5A/13X) directly from the zeolite producer.",
       },
       {
         q: "Does DryGelWorld supply all three?",
-        a: "Silica gel and dry clay desiccant: yes, both manufactured under ISO 9001:2015 with SDS and COA per shipment. Molecular sieve: no - buyers needing sieve should source from specialist producers, and DryGelWorld can advise where silica gel covers a borderline application instead.",
+        a: "Silica gel and dry clay desiccant: yes. Silica gel is packed under ISO 9001:2015; clay is sourced. Both ship with SDS and COA. Molecular sieve: no - buyers needing sieve should source from specialist producers, and DryGelWorld can advise where silica gel covers a borderline application instead.",
       },
     ],
     relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",
@@ -884,7 +884,7 @@ export const comparePages: ComparePage[] = [
       },
       {
         q: "Does DryGelWorld supply activated alumina?",
-        a: "No - activated alumina is not in the current catalog. DryGelWorld manufactures silica gel formats and clay desiccant, and can advise on silica gel sizing where a buyer is weighing the two for a borderline application.",
+        a: "No - activated alumina is not in the current catalog. DryGelWorld supplies silica gel formats and sourced clay desiccant, and can advise on silica gel sizing where a buyer is weighing the two for a borderline application.",
       },
     ],
     relatedBlog: "/blog/silica-gel-vs-molecular-sieve-vs-activated-alumina",

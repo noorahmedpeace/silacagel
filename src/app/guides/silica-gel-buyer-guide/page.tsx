@@ -703,8 +703,8 @@ export default function SilicaGelBuyerGuide() {
           <p>
             The {siteName} export desk reviews buyer-specific cargo profiles and
             recommends format, sizing, container strip allocation, and documentation
-            scope before quote stage. ISO 9001:2015 manufacturer certification and
-            per-shipment SDS + COA are standard.
+            scope before quote stage. ISO 9001:2015 certification for silica desiccant
+            and per-shipment SDS + COA are standard.
           </p>
           <div className={styles.ctaRow}>
             <Link href="/request-a-quote" className={styles.primaryCta}>

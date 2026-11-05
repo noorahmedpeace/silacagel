@@ -383,18 +383,18 @@ const highIntentSeoLandingPages = {
       { question: "Is silica gel toxic or safe?", answer: "Standard non-indicating silica gel (silicon dioxide) is chemically inert and non-toxic - it is labelled 'do not eat' only because it is a choking hazard and not a food. Avoid the older blue cobalt-chloride indicating type for any food-contact use; orange indicating gel is a cobalt-free alternative. DryGelWorld supplies SDS and a DMF-free statement per shipment." },
       { question: "What are the types of silica gel?", answer: "The main types are white/clear non-indicating silica gel (standard packaging use), orange indicating silica gel (cobalt-free, changes colour when saturated), and blue indicating silica gel (older cobalt-chloride type). Formats include small sachets, larger desiccant bags, loose beads, and container strips." },
       { question: "Can silica gel be reused?", answer: "Yes. Silica gel is regenerable - heating it to around 110-130°C drives off the adsorbed moisture so it can be used again. Indicating gel returns toward its dry colour once regenerated. Packaging sachets are usually treated as single-use consumables." },
-      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer and exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 190+ countries, with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
+      { question: "Where can I buy industrial silica gel in bulk?", answer: "DryGelWorld is a Karachi, Pakistan silica gel manufacturer and exporter supplying packets, loose beads, and 25kg bulk bags to buyers in 190+ countries (company figure), with SDS, COA, and ISO 9001:2015 support. Send your type, format, quantity, and destination for an export quote." },
     ],
   }),
   "buy-silica-gel": keywordClusterPage({
     slug: "buy-silica-gel",
     title: "Buy Silica Gel in Bulk | Manufacturer-Direct Supply",
     metaDescription:
-      "Buy silica gel in bulk direct from the manufacturer. Wholesale desiccant packets, beads, and container strips with low MOQ, SDS/COA, and worldwide shipping. Get a price today.",
+      "Buy silica gel in bulk direct from the manufacturer. Wholesale desiccant packets, beads, and container strips with no minimum order, SDS/COA, and worldwide shipping. Get a price today.",
     kicker: "Buy silica gel",
     h1: "Buy silica gel in bulk - direct from the manufacturer, shipped worldwide.",
     lead:
-      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. No minimum order, fast quotes, SDS and COA on request, and export shipping to 190+ countries. Tell us the format and quantity and get an indicative price the same day.",
+      "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. No minimum order, fast quotes, SDS and COA on request, and export shipping to 190+ countries (company figure). Tell us the format and quantity and get an indicative price the same day.",
     searchIntent: "Transactional: buy silica gel online, purchase silica gel, order silica gel, and request bulk pricing",
     primaryCta: "Get Silica Gel Price",
     secondaryCta: "View Product Range",
@@ -475,9 +475,15 @@ const highIntentSeoLandingPages = {
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     faqs: [
-      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer and exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 190+ countries. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for an indicative price." },
+      { question: "Where can I buy silica gel in bulk?", answer: "You can buy silica gel in bulk directly from DryGelWorld, a Karachi, Pakistan manufacturer and exporter supplying packets, loose beads, 25kg bulk bags, and container strips to buyers in 190+ countries by our own count. Buying manufacturer-direct avoids middleman markups on wholesale and export orders. Send your format, quantity, and destination for an indicative price." },
       { question: "How much does silica gel cost?", answer: "Silica gel price depends on order volume, packet size and material, type (white vs indicating), packing/labeling, destination, and Incoterms. Bulk and repeat orders earn lower per-kg pricing than small retail packs. Share your quantity and format for an exact quote." },
-      { question: "What is the minimum order quantity (MOQ) to buy silica gel?", answer: "MOQ depends on the format - sachets, bulk beads, or container strips. DryGelWorld supports low MOQs for trial orders and scaled pricing for monthly or container-volume supply. Tell us your target quantity and we confirm MOQ and lead time." },
+      // Was "MOQ depends on the format ... supports low MOQs ... we confirm
+      // MOQ and lead time", which contradicted moqShort ("No minimum order
+      // quantity") used everywhere else. A buyer in Casablanca quoted both
+      // lines back at us on 29 Oct 2026 and asked which one was true, so this
+      // now matches the owner's confirmed position (4 Sep 2026): no minimum on
+      // any standard format, printed private label the only real exception.
+      { question: "What is the minimum order quantity (MOQ) to buy silica gel?", answer: "There is no minimum order quantity on any standard format - sachets, bulk beads, or container strips - and trial quantities are supplied in every one of them. Pricing scales with monthly or container volume. Printed private label is the single exception, because a print run has a practical floor. Tell us your target quantity and format and we quote it as it stands." },
       { question: "Can I buy wholesale silica gel for resale or private label?", answer: "Yes. DryGelWorld supplies wholesale silica gel and private-label/OEM desiccant packets with custom packet text, artwork, and carton labels for distributors and brands. Confirm packet size, material, labeling, and MOQ in your RFQ." },
       { question: "Do you ship silica gel worldwide?", answer: "Yes. DryGelWorld exports silica gel worldwide (USA, UK, Germany, Canada, GCC, and more) on FOB, CIF, EXW, and DAP terms, with SDS and COA provided per shipment. Share your destination port or city for a landed quote." },
       { question: "How do I buy the right silica gel for my product?", answer: "Match the format to the job: packets for product/carton protection, bulk beads for repacking and warehouses, and container strips for ocean freight. Send the product you're protecting, carton or container size, route, and quantity, and we recommend the type and dosage before you buy." },
@@ -611,15 +617,15 @@ const highIntentSeoLandingPages = {
     slug: "silica-gel-supplier",
     title: "Silica Gel Supplier | Wholesale & B2B Desiccant Supply",
     metaDescription:
-      "Silica gel supplier with packets, bulk beads, and cargo strips in reliable B2B supply. Flexible MOQ, fast RFQ turnaround, SDS/COA, worldwide delivery.",
+      "Silica gel supplier with packets, bulk beads, and cargo strips in reliable B2B supply. No minimum order, fast RFQ turnaround, SDS/COA, worldwide delivery.",
     kicker: "Silica gel supplier",
     h1: "Silica gel supplier with packet, bulk, and cargo formats in reliable B2B supply.",
     lead:
-      "One supplier for every silica gel format - packets, bulk beads, cargo strips, and private label - with flexible MOQ, dependable repeat supply, and fast quote turnaround.",
+      "One supplier for every silica gel format - packets, bulk beads, cargo strips, and private label - with no minimum order, dependable repeat supply, and fast quote turnaround.",
     searchIntent:
       "For B2B buyers comparing silica gel packet, bulk, cargo, private-label, document, and delivery options from one supplier.",
     primaryCta: "Request Supplier Quote",
-    proofPoints: ["Reliable repeat supply", "Flexible MOQ", "All formats, one supplier", "Fast RFQ turnaround"],
+    proofPoints: ["Reliable repeat supply", "No minimum order", "All formats, one supplier", "Fast RFQ turnaround"],
     image: "/products/white-nonindicating-clean-sachets.webp",
     imageAlt: "Clean silica gel packets for supplier RFQ page",
     imageCaption: "A supplier inquiry should separate packets, bulk desiccant, packaging desiccant, and container moisture control needs.",
@@ -1172,7 +1178,7 @@ const highIntentSeoLandingPages = {
     slug: "desiccant-bags",
     title: "Desiccant Bags | Silica Gel Moisture Absorber Bags",
     metaDescription:
-      "Industrial desiccant bags for cartons, warehouses & export cargo. Silica gel and clay options, bulk MOQ, SDS/COA. B2B supplier since 1983 - get a quote.",
+      "Industrial desiccant bags for cartons, warehouses & export cargo. Silica gel and clay options, no minimum order, SDS/COA. B2B supplier since 1983 - get a quote.",
     kicker: "Desiccant bags",
     h1: "Desiccant bags for packaging, storage, and industrial moisture control.",
     lead:
@@ -2069,7 +2075,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "hair net supplier uae, bouffant hair net dubai, food industry PPE uae, hair net dubai",
     formats: "Bouffant non-woven, 18\"-22\" diameter, green or white",
     buyerTypes: "UAE food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference; food-grade compliance discussed per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); food-grade compliance discussed per buyer market",
     buyerRisk: "Sourcing hair nets without confirmed sizing, color zoning, or destination labeling alignment",
     quoteBasis: "Diameter, color, carton count, monthly volume, destination emirate, labeling language",
     relatedLinks: [
@@ -2098,7 +2104,7 @@ const highIntentSeoLandingPages = {
       "Karachi to Jeddah / Dammam routing",
       "Activated bentonite or montmorillonite",
       "Cost-tier industrial format",
-      "Document support: ISO 9001:2015, SDS, COA, DMF-free",
+      "Document support: SDS, COA, DMF-free statement",
     ],
     image: "/silicagel_bulk_enterprise.webp",
     imageAlt: "Dry clay desiccant supplied to Saudi industrial buyers",
@@ -2113,7 +2119,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "dry clay desiccant supplier saudi arabia, bentonite clay jeddah, industrial clay packs ksa, montmorillonite desiccant saudi",
     formats: "1g-50g sachets, bags, custom industrial packaging",
     buyerTypes: "Saudi industrial importers, packaging companies, distributors, warehouse and logistics operators",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement; SASO and Halal alignment discussed per buyer market",
+    documents: "SDS and COA (sourced clay, outside the ISO 9001:2015 scope), DMF-free statement; SASO and Halal alignment discussed per buyer market",
     buyerRisk: "Confusing cost-tier clay with precision-tier silica gel for cargo where the cargo value warrants stronger protection",
     quoteBasis: "Format, volume, target Saudi port, Incoterms, document expectations",
     relatedLinks: [
@@ -2124,7 +2130,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "Do you ship dry clay desiccant directly to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes for Pakistani-origin desiccant supply to Saudi industrial buyers." },
       { question: "Bentonite or montmorillonite clay?", answer: "Both bentonite and montmorillonite formats can be discussed depending on buyer requirement, packaging compatibility, and document set. Confirm the preferred material at RFQ stage." },
-      { question: "Is the dry clay SASO or Halal certified?", answer: "SASO and Halal certifications are confirmed per buyer requirement. DryGelWorld supplies ISO 9001:2015, SDS, COA, and DMF-free statement on request. Formal SASO or Halal registration must be confirmed against the buyer's compliance program before dispatch." },
+      { question: "Is the dry clay SASO or Halal certified?", answer: "SASO and Halal certifications are confirmed per buyer requirement. DryGelWorld supplies SDS, COA, and a DMF-free statement on request (the clay is sourced and outside its ISO 9001:2015 scope). Formal SASO or Halal registration must be confirmed against the buyer's compliance program before dispatch." },
     ],
   }),
   "beard-cover-supplier-usa": keywordClusterPage({
@@ -2157,7 +2163,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "beard cover supplier usa, beard net wholesale, disposable beard guard, beard cover food industry usa",
     formats: "Standard non-woven beard cover, carton 100 or 1000 ct",
     buyerTypes: "US food processors, manufacturers, PPE distributors, healthcare procurement, private-label resellers",
-    documents: "ISO 9001:2015 quality reference; FDA / FSSC discussions per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); FDA / FSSC discussions per buyer market",
     buyerRisk: "Assuming FDA or FSSC compliance from generic industrial-safety PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, US port (East / West), Incoterms, private-label requirement",
     relatedLinks: [
@@ -2230,7 +2236,7 @@ const highIntentSeoLandingPages = {
       "Karachi to Jebel Ali / Khalifa / Port Khalid",
       "Activated bentonite or montmorillonite",
       "Cost-tier industrial format",
-      "ISO 9001:2015, SDS, COA, DMF-free",
+      "SDS, COA, DMF-free statement",
     ],
     image: "/products/industrial-dry-clay-desiccant-packs.webp",
     imageAlt: "Dry clay desiccant supplied to UAE industrial buyers",
@@ -2245,7 +2251,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "dry clay desiccant supplier uae, bentonite clay dubai, industrial clay packs uae, montmorillonite desiccant dubai",
     formats: "1g-50g sachets, bags, custom industrial packaging",
     buyerTypes: "UAE industrial importers, packaging distributors, warehouse and freight operators, regional resellers",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement; ESMA / GSO alignment discussed per buyer market",
+    documents: "SDS and COA (sourced clay, outside the ISO 9001:2015 scope), DMF-free statement; ESMA / GSO alignment discussed per buyer market",
     buyerRisk: "Confusing cost-tier clay with precision-tier silica gel for UAE cargo where damage cost exceeds desiccant savings",
     quoteBasis: "Format, volume, target UAE port, Incoterms, document expectations, labeling language",
     relatedLinks: [
@@ -2256,7 +2262,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "Do you ship dry clay desiccant directly to UAE?", answer: "Yes - Karachi-to-Jebel Ali is the standard route, with Khalifa Port and Port Khalid also supported. Sample packs and cargo-volume orders both viable through this lane." },
       { question: "Bentonite or montmorillonite clay?", answer: "Both formats can be discussed depending on buyer requirement, packaging compatibility, and document set. Confirm the preferred material at RFQ stage." },
-      { question: "Is the dry clay ESMA or GSO certified?", answer: "ESMA and GSO certifications must be confirmed per buyer requirement. DryGelWorld supplies ISO 9001:2015, SDS, COA, and DMF-free statement on request; formal UAE compliance must be confirmed against the buyer's program before dispatch." },
+      { question: "Is the dry clay ESMA or GSO certified?", answer: "ESMA and GSO certifications must be confirmed per buyer requirement. DryGelWorld supplies SDS, COA, and a DMF-free statement on request (the clay is sourced and outside its ISO 9001:2015 scope); formal UAE compliance must be confirmed against the buyer's program before dispatch." },
     ],
   }),
   "hair-net-supplier-saudi-arabia": keywordClusterPage({
@@ -2289,7 +2295,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "hair net supplier saudi arabia, bouffant hair net jeddah, food industry PPE saudi, hair net dammam",
     formats: "Bouffant non-woven, 18\"-22\" diameter, green or white",
     buyerTypes: "Saudi food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference; SASO and food-grade compliance discussed per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); SASO and food-grade compliance discussed per buyer market",
     buyerRisk: "Sourcing PPE without confirmed sizing, color zoning, or SASO documentation alignment",
     quoteBasis: "Diameter, color, carton count, monthly volume, destination port, labeling language",
     relatedLinks: [
@@ -2299,7 +2305,7 @@ const highIntentSeoLandingPages = {
     ],
     faqs: [
       { question: "Do you ship hair nets directly to Saudi Arabia?", answer: "Yes - Karachi-to-Jeddah and Karachi-to-Dammam are standard lanes. Buyers should confirm Incoterms and Arabic / English labeling expectations before commercial terms." },
-      { question: "Is SASO certification required?", answer: "SASO certification must be confirmed per buyer requirement. DryGelWorld supplies ISO 9001:2015 reference and standard export documentation; formal SASO compliance must be confirmed against the buyer's import program before dispatch." },
+      { question: "Is SASO certification required?", answer: "SASO certification must be confirmed per buyer requirement. DryGelWorld supplies standard export documentation (hair nets are sourced PPE, outside its ISO 9001:2015 scope); formal SASO compliance must be confirmed against the buyer's import program before dispatch." },
       { question: "Can you supply Arabic-language carton labeling?", answer: "Arabic / English carton labeling can be discussed alongside the order; confirm at RFQ stage so the artwork is prepared before dispatch." },
     ],
   }),
@@ -2333,7 +2339,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "18 inch hair nets, 18\" bouffant hair net, snug-fit hair net supplier, small hair net food industry",
     formats: "18\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Ordering only one size for a multi-head-size workforce - typical production lines benefit from 18\" + 20\" + 22\" stock",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2377,7 +2383,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "22 inch hair nets, 22\" bouffant hair net, large hair net supplier, full coverage hair net food industry",
     formats: "22\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Skipping 22\" stock for a long-haired or full-coverage workforce - under-coverage drives PPE non-compliance",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2388,7 +2394,7 @@ const highIntentSeoLandingPages = {
     faqs: [
       { question: "Why pick 22 inch over 20 inch?", answer: "22 inch is the workhorse size for most adult workforces and accommodates tied-back long hair. 20 inch is a mid-range option; 22\" gives more coverage margin." },
       { question: "Is 22 inch available in both green and white?", answer: "Yes - both stock colors are available at the 22 inch diameter. Used for color-zoned production lines (e.g. green for raw zones, white for packaging)." },
-      { question: "What's the MOQ for 22 inch hair nets?", answer: "Standard MOQ is discussed by monthly carton volume; high-volume programs benefit from quoted recurring supply. Sample packs can be discussed before bulk commitment." },
+      { question: "What's the MOQ for 22 inch hair nets?", answer: "There is no minimum order quantity; only printed private-label runs carry a minimum. High-volume programs benefit from quoted recurring supply, and sample packs can be discussed before bulk commitment." },
     ],
   }),
   "20-inch-hair-nets": keywordClusterPage({
@@ -2421,7 +2427,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "20 inch hair nets, 20\" bouffant hair net, standard hair net food industry, default hair net size",
     formats: "20\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Ordering only 20\" for a varied workforce - pair with 18\" and 22\" for full coverage",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2465,7 +2471,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "disposable hair nets, single-use bouffant cap, disposable PPE hair net, throwaway hair net food industry",
     formats: "Non-woven PP, 18\"-22\" diameter, green or white",
     buyerTypes: "Food processors, healthcare procurement, manufacturers, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Switching to reusable nets at a workforce scale where disposable is still cheaper (typically <50-100 employees)",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2487,7 +2493,7 @@ const highIntentSeoLandingPages = {
     // price basis and no lead time. The words a buyer types lead the title.
     title: "Clay Desiccant Supplier | Activated Bentonite Packs 1g-50g",
     metaDescription:
-      "Activated clay desiccant from a Karachi manufacturer: bentonite packs 1g to 50g and bulk, ~25% adsorption, no minimum order. Grey granule clay for industrial cargo, machinery, and cost-tier moisture control.",
+      "Activated clay desiccant from a Karachi supplier: bentonite packs 1g to 50g and bulk, ~25% adsorption, no minimum order. Grey granule clay for industrial cargo, machinery, and cost-tier moisture control.",
     kicker: "Activated clay desiccant",
     h1: "Clay desiccant supplier: activated bentonite packs for industrial and cargo moisture control.",
     lead:
@@ -2741,7 +2747,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "disposable beard covers, single-use beard net, disposable beard guard, throwaway beard cover food industry",
     formats: "Non-woven PP with elastic edge, carton 100 or 1000 ct",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Under-ordering beard covers relative to male workforce headcount - plan ~30-50% of male shift coverage",
     quoteBasis: "Carton count, monthly volume, destination, labeling, private-label requirement",
     relatedLinks: [
@@ -2785,7 +2791,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "beard cover supplier uk, beard net wholesale uk, disposable beard guard uk, beard cover food industry uk",
     formats: "Non-woven PP, carton 100 or 1000 ct",
     buyerTypes: "UK food processors, manufacturers, PPE distributors, healthcare procurement, private-label resellers",
-    documents: "ISO 9001:2015 quality reference; EN 14126 and FSSC discussions per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); EN 14126 and FSSC discussions per buyer market",
     buyerRisk: "Assuming EN 14126 or FSSC compliance from generic industrial PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, UK port, Incoterms, private-label requirement, post-Brexit documentation",
     relatedLinks: [
@@ -2829,7 +2835,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "21 inch hair nets, 21\" bouffant hair net, mid-size hair net supplier, food industry hair net 21 inch",
     formats: "21\" diameter, non-woven polypropylene, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Skipping 21\" when workforce distribution makes it the optimal default size",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2839,7 +2845,7 @@ const highIntentSeoLandingPages = {
     ],
     faqs: [
       { question: "When does 21 inch make sense over 20 inch or 22 inch?", answer: "21\" is the right choice when workers find 20\" slightly tight and 22\" slightly loose. Programs ordering only one mid-range size often prefer 21\" over 20\" for the extra fit margin." },
-      { question: "Are 21 inch hair nets common?", answer: "Less stocked than 20\" or 22\" but still in standard production. Carton MOQ is similar; lead time may be slightly longer for the smaller-volume size." },
+      { question: "Are 21 inch hair nets common?", answer: "Less stocked than 20\" or 22\" but still in standard production. There is no minimum order on this size either; lead time may be slightly longer for the smaller-volume size." },
       { question: "Can I order 21\" in both green and white?", answer: "Yes - 21\" is available in both standard stock colors for production lines using PPE color zoning." },
     ],
   }),
@@ -2873,7 +2879,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "non-woven hair nets, polypropylene hair net, PP bouffant cap, non-woven PP hair net food",
     formats: "Non-woven PP, 18\"-22\" diameter, green or white",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Specifying Tyvek when non-woven PP would meet the program requirement at lower cost",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
@@ -2917,7 +2923,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "hair net supplier usa, bouffant hair net wholesale us, food industry PPE united states, hair net manufacturer us",
     formats: "Bouffant non-woven, 18\"-22\" diameter, green or white",
     buyerTypes: "US food processors, manufacturers, healthcare procurement, PPE distributors, private-label resellers",
-    documents: "ISO 9001:2015 quality reference; FDA / FSSC discussions per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); FDA / FSSC discussions per buyer market",
     buyerRisk: "Assuming FDA / FSSC compliance from generic industrial-safety PPE without explicit certification confirmation",
     quoteBasis: "Diameter, color, carton count, monthly volume, US port (East / West), Incoterms",
     relatedLinks: [
@@ -2961,7 +2967,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "beard cover supplier saudi arabia, beard net jeddah, disposable beard guard ksa, beard cover food industry saudi",
     formats: "Non-woven PP with elastic edge, carton 100 or 1000 ct",
     buyerTypes: "Saudi food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference; SASO / Halal discussions per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); SASO / Halal discussions per buyer market",
     buyerRisk: "Assuming SASO or Halal coverage from industrial PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, destination port (Jeddah vs Dammam), Incoterms, labeling",
     relatedLinks: [
@@ -2990,7 +2996,7 @@ const highIntentSeoLandingPages = {
       "Multi-port EU routing (Hamburg, Rotterdam, Antwerp, Le Havre)",
       "Activated bentonite or montmorillonite",
       "Cost-tier industrial moisture control",
-      "ISO 9001:2015, SDS, COA documentation",
+      "SDS and COA documentation",
     ],
     image: "/products/industrial-dry-clay-desiccant-packs.webp",
     imageAlt: "Dry clay desiccant exported to European industrial buyers",
@@ -3005,7 +3011,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "dry clay desiccant exporter europe, bentonite clay supplier eu, montmorillonite desiccant europe, clay desiccant industrial europe",
     formats: "Activated bentonite / montmorillonite; sachets, bags, custom industrial packaging",
     buyerTypes: "European industrial importers, packaging distributors, automotive packagers, warehouse operators",
-    documents: "ISO 9001:2015, SDS, COA, DMF-free statement; REACH alignment discussed per buyer market",
+    documents: "SDS and COA (sourced clay, outside the ISO 9001:2015 scope), DMF-free statement; REACH alignment discussed per buyer market",
     buyerRisk: "Mismatched REACH expectations or multi-port routing decisions at RFQ stage",
     quoteBasis: "Format, volume, target EU port, Incoterms, REACH expectations, document language",
     relatedLinks: [
@@ -3015,7 +3021,7 @@ const highIntentSeoLandingPages = {
     ],
     faqs: [
       { question: "Do you ship dry clay desiccant across Europe?", answer: "Yes - Karachi-to-Europe is a documented lane with multi-port options (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe). Buyers can pick the destination port that fits their distribution network." },
-      { question: "Is the clay REACH-registered for EU sale?", answer: "REACH registration is not a credential currently held by DryGelWorld. DryGelWorld supplies SDS, COA, ISO 9001:2015 reference, and DMF-free statement on request; formal REACH compliance must be confirmed against the buyer's compliance program before dispatch." },
+      { question: "Is the clay REACH-registered for EU sale?", answer: "REACH registration is not a credential currently held by DryGelWorld. DryGelWorld supplies SDS, COA, and a DMF-free statement on request (the clay is sourced and outside its ISO 9001:2015 scope); formal REACH compliance must be confirmed against the buyer's compliance program before dispatch." },
       { question: "Bentonite or montmorillonite - what do you supply?", answer: "Both formats can be discussed depending on buyer requirement and packaging compatibility. The terms are often used interchangeably - bentonite is a rock predominantly composed of montmorillonite clay. Confirm preferred specification at RFQ stage." },
     ],
   }),
@@ -3049,7 +3055,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "non-woven beard covers, polypropylene beard net, PP beard guard, non-woven PP beard cover food",
     formats: "Non-woven PP with elastic edge, carton 100 or 1000 ct",
     buyerTypes: "Food processors, manufacturers, healthcare procurement, PPE distributors",
-    documents: "ISO 9001:2015 quality reference",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant)",
     buyerRisk: "Specifying Tyvek when non-woven PP would meet the program requirement at significantly lower cost",
     quoteBasis: "Carton count, monthly volume, destination, labeling, private-label requirement",
     relatedLinks: [
@@ -3137,7 +3143,7 @@ const highIntentSeoLandingPages = {
     targetKeywords: "hair nets for food industry, food processing hair nets, bouffant cap food, food grade hair net",
     formats: "Bouffant non-woven PP, 18\"-22\" diameter, green or white",
     buyerTypes: "Food processors, bakeries, dairy plants, meat processors, packaging halls, hospitality operations, food service distributors",
-    documents: "ISO 9001:2015 quality reference; food-grade certifications discussed per buyer market",
+    documents: "Sourced PPE, outside DryGelWorld's ISO 9001:2015 scope (silica desiccant); food-grade certifications discussed per buyer market",
     buyerRisk: "Skipping color zoning - single-color PPE programs lose the visual cross-contamination prevention that color zoning provides",
     quoteBasis: "Diameter mix, color split (green/white), carton count, monthly volume, destination, labeling",
     relatedLinks: [
@@ -3701,7 +3707,7 @@ export const seoLandingPages = {
         { href: "/pricing", label: "indicative export price ranges" },
         { text: ", and check the " },
         { href: "/documentation", label: "available SDS and COA documents" },
-        { text: " before requesting final MOQ, lead time, and export pricing." },
+        { text: " before requesting final lead time and export pricing." },
       ],
     },
     relatedLinks: [
@@ -3730,7 +3736,7 @@ export const seoLandingPages = {
       },
       {
         question: "What is the typical MOQ for bulk silica gel?",
-        answer: "Bulk-bead export discussions commonly begin around 500 kg, while exact MOQ depends on bag format, grade, destination, and whether the program is a trial or recurring order.",
+        answer: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
       },
       {
         question: "Which bulk packing formats are available?",
@@ -4027,7 +4033,7 @@ export const seoLandingPages = {
     // SERP space went unused. City, year, currency, paperwork - the four
     // things a Pakistani buyer scans for.
     metaDescription:
-      "Silica gel packets and bulk desiccant from a Karachi manufacturer since 1983. PKR pricing, low MOQ, ISO 9001:2015, SDS and COA with every order.",
+      "Silica gel packets and bulk desiccant from a Karachi manufacturer since 1983. PKR pricing, no minimum order, ISO 9001:2015, SDS and COA with every order.",
     kicker: "Silica gel in Pakistan",
     h1: "Silica gel packets and bulk desiccants in Pakistan, factory-direct.",
     lead:
@@ -4100,13 +4106,13 @@ export const seoLandingPages = {
         },
         {
           label: "Documents",
-          title: "SDS, COA, DMF-free, FSC clay packaging",
-          text: "Every shipment can carry a safety data sheet and a batch certificate of analysis. A DMF-free product statement is issued on manufacturer letterhead for EU and UK leather and footwear programs. Dry clay desiccant ships in FSC-certified kraft and corrugated packaging. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held and are never claimed.",
+          title: "SDS, COA, and DMF-free statement",
+          text: "Every shipment can carry a safety data sheet and a batch certificate of analysis. A DMF-free product statement is issued on manufacturer letterhead for EU and UK leather and footwear programs. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held and are never claimed.",
         },
         {
           label: "Scope",
           title: "What is made here and what is not",
-          text: "White non-indicating silica gel in sachets from 0.5g to 500g, loose beads in 25kg bags, cobalt-free orange indicating gel, silica and calcium chloride container strips, and activated clay packs. Molecular sieve, activated alumina, and lab-grade silica are not in the catalog.",
+          text: "White non-indicating silica gel in 0.5g-20g sachets and 25g-500g packs, loose beads in 25kg bags, cobalt-free orange indicating gel, silica and calcium chloride container strips, and activated clay packs (clay and calcium chloride are sourced). Molecular sieve, activated alumina, and lab-grade silica are not in the catalog.",
         },
         {
           label: "Local buyers",
@@ -4162,7 +4168,7 @@ export const seoLandingPages = {
       },
       {
         question: "What certifications does DryGelWorld hold?",
-        answer: "ISO 9001:2015 (certificate 9101225, issued by QMEC Group Intl, valid to December 2028) for packaging and supply of silica desiccant, plus a DMF-free product statement and FSC-certified packaging for dry clay desiccant. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held.",
+        answer: "ISO 9001:2015 (certificate 9101225, issued by QMEC Group Intl, valid to December 2028) for packaging and supply of silica desiccant, plus a DMF-free product statement. FDA, food-contact, pharma GMP, Halal, and REACH certifications are not held.",
       },
       {
         question: "Can DryGelWorld support silica gel buyers in Pakistan?",
@@ -5348,8 +5354,8 @@ export const seoLandingPages = {
         },
         {
           label: "Formats",
-          title: "What is made here for local buyers",
-          text: "White non-indicating sachets from 0.5g to 20g are the fastest-moving local items, used in garment, leather, footwear, electronics, and pharmaceutical secondary packaging. Larger 25g to 500g packs suit machinery and instrument cases. Loose 1-3mm and 2-5mm beads ship in 25kg bags for repackers. Cobalt-free orange indicating gel, 1kg-5kg container strips, and activated clay packs are also produced at the same site rather than bought in.",
+          title: "What we supply to local buyers",
+          text: "White non-indicating sachets from 0.5g to 20g are the fastest-moving local items, used in garment, leather, footwear, electronics, and pharmaceutical secondary packaging. Larger 25g to 500g packs suit machinery and instrument cases. Loose 1-3mm and 2-5mm beads ship in 25kg bags for repackers. Cobalt-free orange indicating gel and 1kg-5kg container strips ship from the same site; activated clay packs are a sourced product supplied alongside them.",
         },
         {
           label: "Documents",
@@ -5414,7 +5420,7 @@ export const seoLandingPages = {
       },
       {
         question: "Can Karachi buyers request both packets and bulk silica gel?",
-        answer: "Yes. Sachets from 0.5g to 500g, loose beads in 25kg bags, 1kg-5kg container strips, cobalt-free orange indicating gel, and activated clay packs are all made at the North Karachi factory and can be combined on one order.",
+        answer: "Yes. 0.5g-20g sachets and 25g-500g packs, loose beads in 25kg bags, 1kg-5kg container strips, and cobalt-free orange indicating gel ship from the North Karachi factory, and sourced activated clay packs can be combined with them on one order.",
       },
       {
         question: "Which industrial areas in Karachi does DryGelWorld supply?",
@@ -5738,11 +5744,11 @@ export const seoLandingPages = {
       },
       {
         question: "Do you supply flour mills and spice packers inside Pakistan?",
-        answer: "Yes - factory-direct from Karachi with PKR pricing, no minimum order quantity, and free samples so you can trial a format before committing a season's volume.",
+        answer: "Yes - factory-direct from Karachi with PKR pricing, no minimum order quantity, and free samples (200-300 g, courier charged to the buyer) so you can trial a format before committing a season's volume.",
       },
       {
         question: "Which documents come with a staple-food desiccant order?",
-        answer: "SDS, COA, and a DMF-free statement ship with orders, backed by ISO 9001:2015 manufacturing. Destination-specific claims are only made where the matching document exists.",
+        answer: "SDS, COA, and a DMF-free statement ship with orders, backed by an ISO 9001:2015 quality system for silica desiccant. Destination-specific claims are only made where the matching document exists.",
       },
     ],
   },
@@ -5792,7 +5798,7 @@ export const seoLandingPages = {
       { label: "MOQ", value: moqStatement },
       { label: "Formats", value: "VoyaSorb hanging strips (1-2 kg) and calcium chloride container formats" },
       { label: "Placement", value: "Hung from lashing points above cargo - no contact with bags or rice" },
-      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 manufacturing" },
+      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 (silica desiccant packaging and supply)" },
       { label: "Quote basis", value: "Route, season, container count and type, bag format, transit time" },
     ],
     buyerGuide: {
@@ -5913,7 +5919,7 @@ export const seoLandingPages = {
     primaryCta: "Request Spice Packer Quote",
     secondaryCta: "Grain & Staples Page",
     secondaryHref: "/grain-storage-desiccant-supplier",
-    proofPoints: ["Carton-level control", "No food contact", "Free samples", "SDS / COA supplied"],
+    proofPoints: ["Carton-level control", "No food contact", "Free samples, courier extra", "SDS / COA supplied"],
     heroImage: {
       src: "/seo-images/silica-gel-desiccant-sachets-procurement.webp",
       alt: "Desiccant sachets for spice and dry fruit carton moisture control",
@@ -5945,7 +5951,7 @@ export const seoLandingPages = {
       { label: "MOQ", value: moqStatement },
       { label: "Carton formats", value: "Paper sachets and packets in master cartons and outer packs" },
       { label: "Export formats", value: "VoyaSorb hanging strips for full containers" },
-      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 manufacturing" },
+      { label: "Documents", value: "SDS, COA, DMF-free statement; ISO 9001:2015 (silica desiccant packaging and supply)" },
       { label: "Quote basis", value: "Product, pack format, carton or container volume, route, destination" },
     ],
     buyerGuide: {
@@ -6019,7 +6025,7 @@ export const seoLandingPages = {
       },
       {
         title: "Trial before the season",
-        text: "Free samples and no minimum order mean a packer can trial one carton line before committing the humid-season volume.",
+        text: "Free samples (200-300 g, courier charged to the buyer) and no minimum order mean a packer can trial one carton line before committing the humid-season volume.",
       },
     ],
     relatedLinks: [
@@ -6044,11 +6050,11 @@ export const seoLandingPages = {
       },
       {
         question: "Do you supply small spice packers in Pakistan?",
-        answer: "Yes - factory-direct from Karachi, PKR pricing, no minimum order quantity, and free samples, so a small packer can trial a single carton line before the humid season.",
+        answer: "Yes - factory-direct from Karachi, PKR pricing, no minimum order quantity, and free samples (200-300 g, courier charged to the buyer), so a small packer can trial a single carton line before the humid season.",
       },
       {
         question: "Which documents come with an order?",
-        answer: "SDS, COA, and a DMF-free statement, backed by ISO 9001:2015 manufacturing. Claims beyond those documents are not made.",
+        answer: "SDS, COA, and a DMF-free statement, backed by an ISO 9001:2015 quality system for silica desiccant. Claims beyond those documents are not made.",
       },
     ],
   },
@@ -6456,17 +6462,17 @@ export const seoLandingPages = {
     buyerGuide: {
       title: "Moisture absorber is a category, not a product: how to choose",
       intro:
-        "Buyers searching for a moisture absorber supplier usually mean one of three desiccant chemistries: silica gel, activated clay, or calcium chloride. DryGelWorld manufactures all three formats in Karachi, so the guidance below is about fit rather than steering you to a single product. The right choice depends on where the absorber sits, how long it must work, and what the moisture would damage.",
+        "Buyers searching for a moisture absorber supplier usually mean one of three desiccant chemistries: silica gel, activated clay, or calcium chloride. DryGelWorld supplies all three from Karachi (silica gel is packed in-house; clay and calcium chloride are sourced), so the guidance below is about fit rather than steering you to a single product. The right choice depends on where the absorber sits, how long it must work, and what the moisture would damage.",
       sections: [
         {
           label: "Silica gel",
           title: "Silica gel: the default for cartons and product packs",
-          text: "Silica gel adsorbs up to about 33% of its own weight at 25 °C and 90% RH, stays dry to the touch, does not swell or leak, and keeps working at low humidity where other absorbers slow down. That makes it the standard choice inside product boxes, electronics packaging, leather and footwear cartons, and instrument cases. Sachets run from 0.5g to 500g, and loose beads ship in 25kg bags for repackers.",
+          text: "Silica gel adsorbs up to about 33% of its own weight at 25 °C and 90% RH, stays dry to the touch, does not swell or leak, and keeps working at low humidity where other absorbers slow down. That makes it the standard choice inside product boxes, electronics packaging, leather and footwear cartons, and instrument cases. Sachets run from 0.5g to 20g and packs from 25g to 500g, and loose beads ship in 25kg bags for repackers.",
         },
         {
           label: "Clay",
           title: "Activated clay: economical volume protection",
-          text: "Activated clay is a natural mineral desiccant with a lower cost per unit than silica gel and somewhat lower capacity at low humidity. It suits large cartons, crates, and drum liners where the pack has room and the goal is bulk humidity control rather than precision. DryGelWorld ships dry clay packs in FSC-certified kraft and corrugated packaging. Clay can be regenerated at 100-120 °C, though most buyers use it once and replace it.",
+          text: "Activated clay is a natural mineral desiccant with a lower cost per unit than silica gel and somewhat lower capacity at low humidity. It suits large cartons, crates, and drum liners where the pack has room and the goal is bulk humidity control rather than precision. DryGelWorld's clay packs are a sourced product. Clay can be regenerated at 100-120 °C, though most buyers use it once and replace it.",
         },
         {
           label: "Calcium chloride",
@@ -6553,7 +6559,7 @@ export const seoLandingPages = {
       },
       {
         question: "Does DryGelWorld manufacture these absorbers or trade them?",
-        answer: "DryGelWorld is the export brand of Kamran Enterprises, which has manufactured desiccants in Karachi since 1983. Silica gel sachets and beads, activated clay packs, and silica and calcium chloride container strips are produced at the North Karachi Industrial Area factory, and buyers can arrange a plant visit.",
+        answer: "DryGelWorld is the export brand of Kamran Enterprises, which has manufactured desiccants in Karachi since 1983. Silica gel sachets are packed at the North Karachi Industrial Area factory, and buyers can arrange a plant visit. Activated clay packs and calcium chloride container strips are sourced and supplied alongside the silica gel range.",
       },
     ],
   },
@@ -6795,7 +6801,7 @@ export const seoLandingPages = {
     kicker: "VoyaSorb container system",
     h1: "Shipping container desiccant supplier for sea freight: hanging strips and bulk bags (VoyaSorb).",
     lead:
-      "Hanging silica gel or calcium chloride strips plus bulk floor bags, sized to your container, route humidity, and transit days. We quote strip count, MOQ, and Incoterms. ISO 9001:2015, DMF-free, factory-direct from Karachi.",
+      "Hanging silica gel or calcium chloride strips plus bulk floor bags, sized to your container, route humidity, and transit days. We quote strip count and Incoterms, with no minimum order. ISO 9001:2015 and DMF-free for the silica gel; calcium chloride strips are sourced.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant system, cargo desiccant, silica gel for shipping containers, calcium chloride container desiccant",
     primaryCta: "Plan a VoyaSorb Charge",
     // A buyer with a live shipment needs the dosage tool, not a blog post.
@@ -6999,7 +7005,7 @@ export const seoLandingPages = {
       { label: "Business type", value: "Silica gel desiccant manufacturer and exporter, B2B" },
       { label: "Location", value: "Karachi, Pakistan. Head office A-488, Block 1, Gulshan-e-Iqbal; factory North Karachi Industrial Area, Sector 6B" },
       { label: "Manufacturing since", value: "1983" },
-      { label: "Certification", value: "ISO 9001:2015, certificate 9101225 (QMEC Group Intl), valid to 09 Dec 2028; DMF-free statement; FSC-certified packaging for dry clay" },
+      { label: "Certification", value: "ISO 9001:2015, certificate 9101225 (QMEC Group Intl), valid to 09 Dec 2028; DMF-free statement" },
       { label: "Core products", value: "Silica gel sachets 0.5g-20g, carton packs 25g-500g, loose beads, bulk desiccants, container desiccant strips (silica, clay, calcium chloride), private-label sachets" },
       { label: "Export", value: "Worldwide; company reports shipments to 190+ countries; EXW, FOB Karachi, CIF, DAP" },
       { label: "Documents", value: "SDS, batch COA, ISO 9001:2015 reference, DMF-free statement, Certificate of Origin" },
@@ -7022,7 +7028,7 @@ export const seoLandingPages = {
         {
           label: "Scope",
           title: "What is held and what is not",
-          text: "Held: ISO 9001:2015 (9101225), DMF-free product statement, FSC-certified packaging for dry clay. Not held: FDA DMF or food-contact registration, EU 1935/2004 declaration, REACH registration, pharma GMP, Halal, FSSC 22000, JEDEC, MIL-spec. The certifications page keeps this list current.",
+          text: "Held: ISO 9001:2015 (9101225), DMF-free product statement. Not held: FDA DMF or food-contact registration, EU 1935/2004 declaration, REACH registration, pharma GMP, Halal, FSSC 22000, JEDEC, MIL-spec. The certifications page keeps this list current.",
         },
         {
           label: "Where to verify",
@@ -7093,7 +7099,7 @@ export const seoLandingPages = {
       },
       {
         question: "Which certifications does DryGelWorld hold?",
-        answer: "ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028), a DMF-free product statement, and FSC-certified packaging for dry clay desiccant. FDA, food-contact, pharma GMP, Halal, and REACH registration are not held.",
+        answer: "ISO 9001:2015 (certificate 9101225, QMEC Group Intl, valid to December 2028) and a DMF-free product statement. FDA, food-contact, pharma GMP, Halal, and REACH registration are not held.",
       },
       {
         question: "Why is the DryGelWorld brand page important for Google?",

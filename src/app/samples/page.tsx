@@ -3,9 +3,9 @@ import { absoluteUrl, brandName, breadcrumbJsonLd, siteName } from "@/lib/seo";
 import { SampleRequestForm } from "@/components/sample-request-form";
 import styles from "../strategy-pages.module.css";
 
-const pageTitle = "Free Silica Gel & Desiccant Samples | DryGelWorld Export Desk";
+const pageTitle = "Free Desiccant Samples (Courier Extra) | DryGelWorld Export Desk";
 const pageDescription =
-  "Request free silica gel sachets, bulk beads, or container desiccant samples for industrial evaluation before bulk order. Direct factory dispatch from Karachi.";
+  "Request free 200-300 g samples of silica gel sachets, bulk beads, or container desiccant for evaluation before a bulk order. The material is free; the buyer pays the courier.";
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -37,9 +37,10 @@ export default function SamplesPage() {
         <h1>See the product before you commit to a bulk order.</h1>
         <p>
           Tell us the product and destination - the export desk follows up by email to confirm
-          sample availability, format, and dispatch. For pricing, MOQ, and full documentation
-          on a specific order, use the full export quote form instead.
+          sample availability, format, and dispatch. For pricing and full documentation on a
+          specific order, use the full export quote form instead.
         </p>
+        <p>Sample material is free (200 to 300 g). You cover the courier.</p>
       </section>
 
       <section className={styles.section}>

@@ -36,7 +36,7 @@ const fitPoints = [
   },
   {
     title: "Documents with every shipment",
-    desc: "SDS, COA, and a DMF-free statement, backed by ISO 9001:2015 manufacturing - the paperwork your QA asks for before a consumable goes on the line.",
+    desc: "SDS, COA, and a DMF-free statement, backed by an ISO 9001:2015 quality system for silica desiccant - the paperwork your QA asks for before a consumable goes on the line.",
   },
 ];
 

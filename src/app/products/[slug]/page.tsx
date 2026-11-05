@@ -141,7 +141,7 @@ const procurementDetails = {
   "dry-clay-desiccant": {
     moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available; confirm size and packaging format before bulk planning",
-    documents: ["ISO 9001:2015", "SDS", "COA", "DMF-free statement"],
+    documents: ["Sourced product", "SDS", "COA", "DMF-free statement"],
     skuRows: [
       { size: "1g-5g", material: "Activated clay sachet", fit: "Industrial cartons, durable goods, cost-tier packaging", pack: "Carton quantities" },
       { size: "10g-25g", material: "Activated clay bag", fit: "Industrial parts, storage, larger cargo", pack: "Bulk cartons" },
@@ -174,13 +174,13 @@ const procurementDetails = {
   "hair-nets": {
     moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available; confirm size, color, and material on request",
-    documents: ["ISO 9001:2015"],
+    documents: ["Sourced product", "Not covered by DryGelWorld's ISO 9001:2015 scope"],
     skuRows: [
       { size: "18\" diameter", material: "Non-woven polypropylene with elasticated edge", fit: "Standard production line PPE", pack: "Cartons of 100 or 1000" },
       { size: "20\"-22\" diameter", material: "Non-woven polypropylene with elasticated edge", fit: "General industrial / food / healthcare PPE", pack: "Cartons of 100 or 1000" },
       { size: "Custom diameter / color", material: "Non-woven polypropylene", fit: "Brand-specific or zone-coded production", pack: "Custom packaging by requirement" },
     ],
-    packaging: ["Standard carton 100 ct", "Bulk carton 1000 ct", "Color-coded by zone (white/blue/green/red)", "Private label discussion"],
+    packaging: ["Standard carton 100 ct", "Bulk carton 1000 ct", "Green and white (stocked)", "Private label discussion"],
     related: [
       { label: "Beard covers", href: "/products/beard-covers" },
       { label: "Food industry PPE blog", href: "/blog/why-hair-nets-matter-in-food-export" },
@@ -190,7 +190,7 @@ const procurementDetails = {
   "powder-free-blue-nitrile-gloves": {
     moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample box available on request; confirm size, grade, and document requirement first",
-    documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
+    documents: ["Sourced product", "No CE, FDA, EN 455 or ASTM D6319 documents on file", "Inspection certificate on request"],
     skuRows: [
       { size: "XS / Small", material: "Blue or black powder-free nitrile", fit: "Clinics, labs, food handling, and small-hand users", pack: "100 gloves per box; export cartons by order" },
       { size: "Medium / Large", material: "Powder-free nitrile with textured fingertips", fit: "General medical, lab, factory, cleaning, and inspection workflows", pack: "100 gloves per box; carton volume quoted" },
@@ -206,7 +206,7 @@ const procurementDetails = {
   "powdered-nitrile-examination-gloves": {
     moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample box available on request; confirm size, grade, powder preference, and document requirement first",
-    documents: ["ISO support", "CE / FDA if lot-confirmed", "EN 455 / ASTM D6319 if lot-confirmed", "COA / inspection certificate on request"],
+    documents: ["Sourced product", "No CE, FDA, EN 455 or ASTM D6319 documents on file", "Inspection certificate on request"],
     skuRows: [
       { size: "XS / Small", material: "Blue or black powdered nitrile", fit: "Clinics, labs, cleaning, and small-hand users where powdered gloves are accepted", pack: "100 gloves per box; export cartons by order" },
       { size: "Medium / Large", material: "Powdered nitrile with textured fingertips", fit: "General medical, lab, factory, cleaning, and inspection workflows", pack: "100 gloves per box; carton volume quoted" },
@@ -222,7 +222,7 @@ const procurementDetails = {
   "beard-covers": {
     moq: "No minimum order quantity. Trial and sample quantities are supplied in every format, and the rate improves with volume.",
     sample: "Sample packs available on request",
-    documents: ["ISO 9001:2015"],
+    documents: ["Sourced product", "Not covered by DryGelWorld's ISO 9001:2015 scope"],
     skuRows: [
       { size: "Standard", material: "Non-woven polypropylene with elasticated edge", fit: "Food handling, healthcare, manufacturing", pack: "Cartons of 100 or 1000" },
       { size: "Custom", material: "Non-woven polypropylene", fit: "Brand-specific production", pack: "Custom packaging by requirement" },
@@ -350,7 +350,7 @@ const productFaqs = {
     },
     {
       q: "Which compliance documents are provided with retail sachets?",
-      a: "Each export shipment ships with ISO 9001:2015 manufacturer certification, a Safety Data Sheet (SDS) per shipment, a Certificate of Analysis (COA) where required, and a DMF-free statement on request. FDA, JEDEC, and food-contact certifications are not currently held.",
+      a: "Each export shipment ships under DryGelWorld's ISO 9001:2015 certification for packaging and supply of silica desiccant, with a Safety Data Sheet (SDS) per shipment, a Certificate of Analysis (COA) where required, and a DMF-free statement on request. FDA, JEDEC, and food-contact certifications are not currently held.",
     },
     {
       q: "Can sachets be printed with our private label?",
@@ -364,7 +364,7 @@ const productFaqs = {
   "paper-sachets": [
     {
       q: "What sizes of paper silica gel sachets are available?",
-      a: "Paper silica gel sachets are produced in 1g, 2g, 3g, 5g, 10g, 20g, and custom sizes up to 100g. The material is technical bond porous paper with a non-woven option for larger formats. Size depends on carton volume and target moisture load.",
+      a: "Paper silica gel sachets are produced in 1g, 2g, 3g, 5g, 10g, and 20g, with 25g-500g packs for larger loads. The material is technical bond porous paper with a non-woven option for larger formats. Size depends on carton volume and target moisture load.",
     },
     {
       q: "What is the shelf life of a sealed paper silica gel sachet?",
@@ -376,7 +376,7 @@ const productFaqs = {
     },
     {
       q: "Do paper sachets meet pharmaceutical packaging requirements?",
-      a: "Paper sachets ship with ISO 9001:2015 manufacturer certification, SDS, COA, and a DMF-free statement on request. Buyers requiring FDA Drug Master File, REACH, or specific pharmacopoeia compliance should confirm regional requirements with the export desk before order placement.",
+      a: "Paper sachets ship under DryGelWorld's ISO 9001:2015 certification for packaging and supply of silica desiccant, with SDS, COA, and a DMF-free statement on request. Buyers requiring FDA Drug Master File, REACH, or specific pharmacopoeia compliance should confirm regional requirements with the export desk before order placement.",
     },
   ],
   "bulk-industrial": [
@@ -462,11 +462,11 @@ const productFaqs = {
     },
     {
       q: "Is dry clay desiccant FDA or food-grade certified?",
-      a: "DryGelWorld's clay desiccant ships with ISO 9001:2015 manufacturer certification, SDS, and COA. FDA food-contact and pharma-grade certifications are not currently held. Buyers needing those certifications for direct food or pharmaceutical contact should specify the requirement at quote stage.",
+      a: "DryGelWorld's clay desiccant is a sourced product and ships with SDS and COA. FDA food-contact and pharma-grade certifications are not currently held. Buyers needing those certifications for direct food or pharmaceutical contact should specify the requirement at quote stage.",
     },
     {
       q: "What packaging is available for dry clay desiccant?",
-      a: "Clay desiccant is supplied in Tyvek and non-woven sachets from 1g to 500g, plus container strips. Bulk paper-bag and jumbo-bag formats are available for high-volume buyers. Private-label and multi-language printing are supported on the same minimum-run basis as silica gel sachets.",
+      a: "Clay desiccant is supplied in paper and non-woven sachets from 1 g to 50 g, plus container strips and bulk bags. Printed private-label runs carry a minimum.",
     },
   ],
   "powder-free-blue-nitrile-gloves": [
@@ -476,7 +476,7 @@ const productFaqs = {
     },
     {
       q: "Are the gloves medical grade?",
-      a: "The product is positioned for medical examination and industrial use, but formal CE, FDA, EN 455, ASTM D6319, or AQL documentation must be confirmed against the exact supplied lot before advertising a medical certification claim.",
+      a: "These are sourced gloves. No CE, FDA, EN 455 or ASTM D6319 documents are on file, so they should not be bought for regulated medical use on our paperwork.",
     },
     {
       q: "What sizes and packaging are available?",
@@ -484,7 +484,7 @@ const productFaqs = {
     },
     {
       q: "Can DryGelWorld supply related gloves?",
-      a: "Powdered nitrile gloves, latex gloves, and vinyl gloves can be discussed as related PPE sourcing requests. Availability, documents, packaging, and MOQ are confirmed at quote stage.",
+      a: "Powdered nitrile gloves, latex gloves, and vinyl gloves can be discussed as related PPE sourcing requests. Availability, documents, packaging, and pricing are confirmed at quote stage.",
     },
   ],
   "powdered-nitrile-examination-gloves": [
@@ -494,7 +494,7 @@ const productFaqs = {
     },
     {
       q: "Are the gloves medical grade?",
-      a: "The product is positioned for medical examination and industrial use, but formal CE, FDA, EN 455, ASTM D6319, or AQL documentation must be confirmed against the exact supplied lot before advertising a medical certification claim.",
+      a: "These are sourced gloves. No CE, FDA, EN 455 or ASTM D6319 documents are on file, so they should not be bought for regulated medical use on our paperwork.",
     },
     {
       q: "What sizes and packaging are available?",
@@ -512,15 +512,15 @@ const productFaqs = {
     },
     {
       q: "What is the minimum order quantity for hair nets?",
-      a: "Hair nets are quoted by carton (100 count or 1000 count) with monthly volume agreements for recurring industrial buyers. Standard MOQs start at 50 cartons; private-label and color-coded runs are agreed at quote stage.",
+      a: "Hair nets are quoted by carton (100 count or 1000 count) with monthly volume agreements for recurring industrial buyers. There is no minimum order quantity; only printed private-label runs carry a minimum.",
     },
     {
       q: "Are color-coded hair nets available for zone-based hygiene compliance?",
-      a: "Yes - white, blue, green, and red hair nets are supplied for zone-based production hygiene (food, pharma, electronics). Custom colors and private-label printing are supported above a minimum run agreed with the export desk.",
+      a: "Yes - green and white hair nets are stocked for zone-based production hygiene (food, pharma, electronics). Other colors are quoted on request, and only printed private-label runs carry a minimum.",
     },
     {
       q: "Which industries use bouffant hair nets from DryGelWorld?",
-      a: "Hair nets are supplied to food processing, pharmaceutical manufacturing, electronics assembly, healthcare, and general industrial production where personnel hair containment is required. ISO 9001:2015 manufacturer certification applies; FDA food-contact certification is not currently held.",
+      a: "Hair nets are supplied to food processing, pharmaceutical manufacturing, electronics assembly, healthcare, and general industrial production where personnel hair containment is required. Hair nets are sourced PPE, and DryGelWorld's ISO 9001:2015 scope covers silica desiccant, not PPE; FDA food-contact certification is not held.",
     },
   ],
   "beard-covers": [
@@ -530,7 +530,7 @@ const productFaqs = {
     },
     {
       q: "How are beard covers packaged for export?",
-      a: "Beard covers ship in cartons of 100 or 1000, with bulk monthly carton agreements for recurring industrial buyers. Color options and private-label printing are supported above a minimum run that's agreed at quote stage.",
+      a: "Beard covers ship in cartons of 100 or 1000, with bulk monthly carton agreements for recurring industrial buyers. There is no minimum order quantity; other colors are quoted on request, and only printed private-label runs carry a minimum.",
     },
     {
       q: "Are beard covers required for food production environments?",
@@ -538,7 +538,7 @@ const productFaqs = {
     },
     {
       q: "Can beard covers be supplied in matching colors with hair nets?",
-      a: "Yes - beard covers can be supplied in white, blue, green, and red to match hair net zone-coding systems for food, pharma, electronics, and general industrial production. Color matching is agreed at quote stage and shipped together to simplify zone enforcement.",
+      a: "White is the stocked color. Other colors to match a hair net zone-coding system for food, pharma, electronics, and general industrial production are quoted on request, and matched orders ship together to simplify zone enforcement.",
     },
   ],
 } as const;

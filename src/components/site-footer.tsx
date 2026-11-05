@@ -272,12 +272,12 @@ const footerColumns: FooterColumn[] = [
 const trustBadges = [
   { icon: ShieldCheck, label: "ISO 9001:2015 certified" },
   { icon: Factory, label: "Manufacturing since 1983" },
-  { icon: Globe2, label: "Exporting to 190+ countries" },
+  { icon: Globe2, label: "190+ countries shipped (company figure)" },
 ];
 
 export function SiteFooter() {
   const whatsappMessage = encodeURIComponent(
-    "Hello, I'm requesting a Dry Gel World silica gel export quote. Please advise MOQ, lead time, documentation, and shipping terms.",
+    "Hello, I'm requesting a Dry Gel World silica gel export quote. Please advise pricing, lead time, documentation, and shipping terms.",
   );
 
   return (

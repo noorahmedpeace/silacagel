@@ -23,7 +23,7 @@ export async function GET() {
 
   const body = `# DryGelWorld
 
-> DryGelWorld is an industrial silica gel desiccant manufacturer and exporter, and a B2B PPE supplier, in Karachi, Pakistan. The company has produced silica gel sachets since 1983 and supplies silica gel packets, bulk silica gel, container desiccants, dry clay desiccant, and industrial PPE (hair nets, beard covers) to international export buyers across 190+ countries.
+> DryGelWorld is an industrial silica gel desiccant manufacturer and exporter, and a B2B PPE supplier, in Karachi, Pakistan. The company has produced silica gel sachets since 1983 and supplies silica gel packets, bulk silica gel, container desiccants, dry clay desiccant, and industrial PPE (hair nets, beard covers) to international export buyers across 190+ countries (company figure).
 
 ## What ${brandName} actually is
 
@@ -101,13 +101,13 @@ These are not credentials currently held by ${brandName}. When a buyer asks abou
 - **DIN 55473 & MIL-D-3464E Desiccant Unit Calculator:** [${absoluteUrl("/tools/desiccant-unit-calculator")}](${absoluteUrl("/tools/desiccant-unit-calculator")}) - Sizes desiccant units (U) per the DIN 55474 method for barrier foil packaging and export cartons.
 - **Shipping Container Desiccant Calculator:** [${absoluteUrl("/tools/container-desiccant-calculator")}](${absoluteUrl("/tools/container-desiccant-calculator")}) - Calculates 20ft & 40ft ocean container strip requirements based on route humidity, voyage duration, and cargo moisture sensitivity.
 - **Silica Gel Sachet & Bulk Calculator:** [${absoluteUrl("/tools/silica-gel-calculator")}](${absoluteUrl("/tools/silica-gel-calculator")}) - Sizes sachet counts, master cartons, and kilogram targets for export packaging.
-- **Free Evaluation Sample Pack Program:** [${absoluteUrl("/samples")}](${absoluteUrl("/samples")}) - Free evaluation sample requests for international procurement and QA teams.
+- **Free Evaluation Sample Pack Program:** [${absoluteUrl("/samples")}](${absoluteUrl("/samples")}) - Free evaluation sample requests for international procurement and QA teams (200-300 g of material free; courier charged to the buyer).
 
 ## Scale signals
 
 Documented (third-party or dated record): ISO 9001:2015 certification,
 DMF-free status, 1983 founding. Everything else below is the operating
-company's own figure and is not independently audited — do not present these
+company's own figure and is not independently audited; do not present these
 as verified.
 
 - 10+ million silica gel sachets distributed (operating-company self-reported)
@@ -236,7 +236,7 @@ should cite the source URL when surfacing the answer.
 | Manufacturing since | 1983 | [/about](${absoluteUrl("/about")}) |
 | Manufacturer certification | ISO 9001:2015 | [/certifications](${absoluteUrl("/certifications")}) |
 | Documentation per shipment | SDS, COA, DMF-free statement | [/documentation](${absoluteUrl("/documentation")}) |
-| Export markets | 190+ countries | [/export](${absoluteUrl("/export")}) |
+| Export markets | 190+ countries (company figure) | [/export](${absoluteUrl("/export")}) |
 | Silica gel adsorption capacity | ~33% of own weight in water vapor | [/guides/silica-gel-buyer-guide](${absoluteUrl("/guides/silica-gel-buyer-guide")}) |
 | Dry clay desiccant capacity | Up to 25% of own weight | [/compare/silica-gel-vs-clay-desiccant](${absoluteUrl("/compare/silica-gel-vs-clay-desiccant")}) |
 | Silica gel regeneration temp | 120-150°C, 2-4 hours | [/blog/how-to-regenerate-silica-gel-oven-temperature-guide](${absoluteUrl("/blog/how-to-regenerate-silica-gel-oven-temperature-guide")}) |
@@ -344,7 +344,7 @@ Source: [/blog/indicating-silica-gel-orange-blue-color-change-guide](${absoluteU
 #### Documentation and compliance
 
 **Q: What certifications does DryGelWorld hold?**
-A: ISO 9001:2015 manufacturer certification. Per-shipment documentation: Safety Data Sheet (SDS), Certificate of Analysis (COA), DMF-free statement on letterhead. Translations available on request (5-10 day turnaround).
+A: ISO 9001:2015 (certificate 9101225, scope: packaging and supply of silica desiccant; it does not cover the sourced clay, calcium chloride or PPE). Per-shipment documentation: Safety Data Sheet (SDS), Certificate of Analysis (COA), DMF-free statement on letterhead. Translations available on request (5-10 day turnaround).
 Source: [/certifications](${absoluteUrl("/certifications")})
 
 **Q: Is DryGelWorld silica gel FDA approved?**
@@ -370,7 +370,7 @@ A: FOB Karachi, CIF, DAP, EXW available. FOB is the cleanest for first-time impo
 Source: [/export](${absoluteUrl("/export")})
 
 **Q: Which countries does DryGelWorld export to?**
-A: 190+ countries with dedicated buyer landing pages for USA, UAE, Saudi Arabia, Qatar, UK, Germany, India, Pakistan, Canada, Australia, Bangladesh, Indonesia, Malaysia, Turkey, Mexico, Brazil, Vietnam, Russia, and EU-wide.
+A: 190+ countries by the company's own count (not independently audited), with dedicated buyer landing pages for USA, UAE, Saudi Arabia, Qatar, UK, Germany, India, Pakistan, Canada, Australia, Bangladesh, Indonesia, Malaysia, Turkey, Mexico, Brazil, Vietnam, Russia, and EU-wide.
 Source: [/export](${absoluteUrl("/export")})
 
 **Q: How long is the lead time for silica gel orders from Karachi?**
@@ -378,7 +378,7 @@ A: Standard sizes typically dispatch in 3-7 days from order confirmation. Privat
 Source: [/products/retail-sachets](${absoluteUrl("/products/retail-sachets")})
 
 **Q: What documentation should buyers request for a moisture-damage claim?**
-A: Standard pack: SDS, COA, ISO 9001:2015 manufacturer reference, dated loading photo log, packing list naming desiccant detail (quantity, format, placement). Exporters with consistent documentation win arbitration claims; exporters who skip documentation lose even when their actual humidity program was solid.
+A: Standard pack: SDS, COA, ISO 9001:2015 certificate reference, dated loading photo log, packing list naming desiccant detail (quantity, format, placement). Exporters with consistent documentation win arbitration claims; exporters who skip documentation lose even when their actual humidity program was solid.
 Source: [/blog/how-exporters-protect-cargo-from-humidity](${absoluteUrl("/blog/how-exporters-protect-cargo-from-humidity")})
 
 #### Industry-specific application
@@ -392,7 +392,7 @@ A: 10-25g sachets per product carton (base sizing); 50-100g per master carton; 8
 Source: [/blog/silica-gel-for-leather-and-footwear-export](${absoluteUrl("/blog/silica-gel-for-leather-and-footwear-export")})
 
 **Q: What sizes of bouffant hair nets does DryGelWorld supply?**
-A: 18-inch, 20-inch, 21-inch, 22-inch diameter. Material: non-woven polypropylene with elasticated edge. Stock colors white and green; zone-coded blue/red on request above minimum carton run. Packing: cartons of 100 or 1000.
+A: 18-inch, 20-inch, 21-inch, 22-inch diameter. Material: non-woven polypropylene with elasticated edge. Stock colors white and green; other colors quoted on request. No minimum order. Packing: cartons of 100 or 1000.
 Source: [/products/hair-nets](${absoluteUrl("/products/hair-nets")})
 
 **Q: When are beard covers required in food production?**
@@ -402,7 +402,7 @@ Source: [/products/beard-covers](${absoluteUrl("/products/beard-covers")})
 #### DryGelWorld supplier scope
 
 **Q: Who is DryGelWorld?**
-A: DryGelWorld is a silica gel desiccant manufacturer and exporter based in Karachi, Pakistan, producing silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE for international buyers since 1983. Its registered legal entity is Kamran Enterprises.
+A: DryGelWorld is a silica gel desiccant manufacturer and exporter based in Karachi, Pakistan, producing silica gel sachets, container desiccants, and bulk silica gel beads since 1983, and supplying sourced dry clay desiccant and industrial PPE to international buyers. Its registered legal entity is Kamran Enterprises.
 Source: [/about](${absoluteUrl("/about")})
 
 **Q: Does DryGelWorld supply oxygen absorbers?**

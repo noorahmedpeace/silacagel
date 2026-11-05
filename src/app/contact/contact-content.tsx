@@ -57,7 +57,7 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
           <span className={styles.heroOrb} aria-hidden="true" />
           <span className={styles.kicker}>Karachi Export Desk</span>
           <h1>Talk to the factory directly.</h1>
-          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 190+ countries.</p>
+          <p>ISO 9001:2015 · manufacturing since 1983 · shipped to 190+ countries (company figure).</p>
           <div className={styles.heroActions}>
             <Link href={rfqHref} className={styles.primaryAction}>
               Request a quote
@@ -78,7 +78,7 @@ export function ContactContent({ rfqHref }: { rfqHref: string }) {
           <span className={styles.trustLabel}>Manufacturing</span>
           <div className={styles.trustDivider} />
           <span className={styles.trustNumber}>190+</span>
-          <span className={styles.trustLabel}>Export markets</span>
+          <span className={styles.trustLabel}>Export markets (company figure)</span>
           <div className={styles.trustDivider} />
           <span className={styles.trustNumber}>ISO</span>
           <span className={styles.trustLabel}>9001:2015</span>

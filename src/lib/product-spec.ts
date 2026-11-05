@@ -6,8 +6,11 @@
  * HONESTY DISCIPLINE (matches /llms.txt and the certifications page): DryGelWorld
  * holds ONLY ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225) + a DMF-free statement.
  * FDA, food-grade (FSSC 22000 / EU 1935), pharma GMP, Halal, and REACH are NOT
- * held and must never be listed as certifications. Commercial values (MOQ, exact
- * lead time/price) are quoted per order, so they read "on request", not invented.
+ * held and must never be listed as certifications. There is no MOQ on any
+ * standard format (owner-confirmed, see moqShort in product-data.ts); exact lead
+ * time and price are quoted per order, so they read "on request", not invented.
+ * Clay, calcium chloride, PPE and indicator cards are SOURCED: the ISO scope
+ * (packaging and supply of silica desiccant) does not cover them.
  */
 
 export const SPEC_BRAND = "DryGelWorld";
@@ -53,7 +56,7 @@ const SILICA_BASE: ProductSpec = {
   // is comparing against, whose MOQs start high — and "what is your MOQ" is
   // the first question most B2B buyers ask, so leaving it vague loses them
   // before they ever send an RFQ.
-  moq: "No minimum order quantity — trial and sample quantities supplied; pricing scales with volume",
+  moq: "No minimum order quantity. Trial and sample quantities supplied; pricing scales with volume",
   certifications:
     "ISO 9001:2015 (QMEC/IAS-CB, cert. 9101225). SDS, TDS and DMF-free statement are published for download; a batch-level COA is issued per order. Food-grade and pharma certifications are not held and must be confirmed against the buyer's application before commercial terms.",
   // The silica gel SDS is a published PDF, so "on request" invented a wait
@@ -120,7 +123,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     industries: "Export logistics, ocean freight, textiles, furniture, wood, paper, general cargo",
     adsorptionCapacity: "High moisture uptake in humid containers; exact capacity confirmed by lot and strip construction",
     shelfLife: "Typically 12-24 months in sealed factory packaging; confirm by supplied lot",
-    moq: "Quoted by strip weight, strip count, route, and container plan",
+    moq: "No minimum order quantity",
     certifications:
       "SDS and COA on request. Certifications, REACH/RoHS, or market-specific test reports must be confirmed against the selected lot before commercial claims.",
     sds: "Available on request",
@@ -144,7 +147,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     industries: "Export logistics, warehousing, textiles, furniture, paper, wood, general cargo",
     adsorptionCapacity: "High moisture uptake in humid storage/container conditions; exact capacity confirmed by lot",
     shelfLife: "Typically 12-24 months in sealed factory packaging; confirm by supplied lot",
-    moq: "Quoted by bag size, carton volume, and dispatch program",
+    moq: "No minimum order quantity",
     certifications:
       "SDS and COA on request. Certifications, REACH/RoHS, or market-specific test reports must be confirmed against the selected lot before commercial claims.",
     sds: "Available on request",
@@ -168,9 +171,9 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     industries: "Electronics/PCB, pharma, optics, precision goods, export logistics",
     adsorptionCapacity: "Not applicable; an indicator, not a desiccant; pair with silica gel or clay",
     shelfLife: "Typically 12-24 months in sealed factory packaging; confirm by supplied lot",
-    moq: "Quoted by spot layout, chemistry, pack count, and dispatch program",
+    moq: "No minimum order quantity",
     certifications:
-      "Sourced / private-label item. MIL-STD-3464, JEDEC J-STD-033, or REACH-related test reports must be confirmed against the selected lot before commercial claims. Not held by DryGelWorld.",
+      "Sourced / private-label item. JEDEC J-STD-033 or REACH-related test reports must be confirmed against the selected lot before commercial claims. Not held by DryGelWorld.",
     sds: "Available on request",
     coa: "Batch-level, on request",
     countryOfOrigin: "Confirmed per supplied lot",
@@ -181,6 +184,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     exportMarkets: "Worldwide B2B export, subject to destination documentation requirements",
   },
   "dry-clay-desiccant": {
+    countryOfOrigin: "Confirmed per supplied lot",
     productType: "Activated clay (bentonite/montmorillonite) desiccant",
     material: "Activated bentonite / montmorillonite clay",
     color: "Grey / brown granules",
@@ -190,6 +194,9 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     application: "Cost-tier industrial and container moisture control",
     industries: "Durable goods, machinery, bulk export cargo",
     adsorptionCapacity: "Up to ~25% of own weight in water vapour",
+    certifications:
+      "Sourced product. SDS and COA supplied with the order; DMF-free statement on request. DryGelWorld's ISO 9001:2015 scope (packaging and supply of silica desiccant) does not cover clay.",
+    sds: "Available on request",
     hsCode: "2508.10 / 3802.90, activated clay (confirm with your customs broker)",
   },
   "powder-free-blue-nitrile-gloves": {
@@ -204,9 +211,9 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     industries: "Medical, laboratory, food handling, industrial assembly, cleaning, inspection",
     adsorptionCapacity: "N/A (not a desiccant)",
     shelfLife: "Typically 3-5 years when stored cool and dry; confirm on the selected lot",
-    moq: "Quoted by carton volume, size mix, and recurring supply program",
+    moq: "No minimum order quantity",
     certifications:
-      "ISO support available. CE, FDA, EN 455, ASTM D6319, or other medical glove documents must be confirmed against the selected lot before advertising as held.",
+      "Sourced product. No CE, FDA, EN 455 or ASTM D6319 documents are on file, and DryGelWorld's ISO 9001 scope does not cover gloves.",
     sds: "N/A for finished glove in normal use; material/spec sheet on request",
     coa: "Lot-level COA / inspection certificate on request where available",
     countryOfOrigin: "Confirmed per supplied lot",
@@ -228,9 +235,9 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     industries: "Medical, laboratory, food handling, industrial assembly, cleaning, inspection",
     adsorptionCapacity: "N/A (not a desiccant)",
     shelfLife: "Typically 3-5 years when stored cool and dry; confirm on the selected lot",
-    moq: "Quoted by carton volume, size mix, and recurring supply program",
+    moq: "No minimum order quantity",
     certifications:
-      "ISO support available. CE, FDA, EN 455, ASTM D6319, or other medical glove documents must be confirmed against the selected lot before advertising as held.",
+      "Sourced product. No CE, FDA, EN 455 or ASTM D6319 documents are on file, and DryGelWorld's ISO 9001 scope does not cover gloves.",
     sds: "N/A for finished glove in normal use; material/spec sheet on request",
     coa: "Lot-level COA / inspection certificate on request where available",
     countryOfOrigin: "Confirmed per supplied lot",
@@ -241,6 +248,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     exportMarkets: "Worldwide B2B export, subject to destination medical/PPE documentation requirements",
   },
   "hair-nets": {
+    countryOfOrigin: "Confirmed per supplied lot",
     productType: "Bouffant hair net (disposable PPE)",
     material: "Non-woven polypropylene (PP) with elasticated edge",
     color: "Green, white (stocked)",
@@ -260,6 +268,7 @@ const OVERRIDES: Record<string, Partial<ProductSpec>> = {
     privateLabel: "Yes, carton and print branding",
   },
   "beard-covers": {
+    countryOfOrigin: "Confirmed per supplied lot",
     productType: "Disposable beard cover / beard net (PPE)",
     material: "Non-woven polypropylene (PP) with elasticated edge",
     color: "Standard (white); others on request",
@@ -335,7 +344,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     name: "Worldwide silica gel export supply",
     spec: {
       productType: "Manufacturer-direct silica gel and desiccant export supply",
-      sizes: "0.5 g-500 g sachets and packs; 25 kg bead bags; 1-5 kg container strips",
+      sizes: "0.5 g-20 g sachets and 25 g-500 g packs; 25 kg bead bags; 1-5 kg container strips",
       packaging: "Paper, technical-fibre and non-woven sachets; 25 kg bags; drums; hanging strips; export cartons",
       application: "International B2B supply for packaging, distribution, private label, and export cargo protection",
       industries: "Importers, distributors, packagers, exporters, OEM and private-label brands worldwide",
@@ -390,7 +399,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     name: "Manufacturer-direct silica gel supply",
     spec: {
       productType: "Manufacturer-direct silica gel desiccant supply",
-      sizes: "0.5 g-500 g sachets and bags; 1-25 kg bulk formats; 1-5 kg cargo strips",
+      sizes: "0.5 g-20 g sachets and 25 g-500 g packs; 1-25 kg bulk formats; 1-5 kg cargo strips",
       packaging: "Paper and non-woven sachets, industrial bags, drums, sacks, cartons, and hanging strips",
       application: "B2B product packaging, warehousing, repacking, private label, and export cargo",
       industries: "Packaging, electronics, leather, textiles, logistics, food and pharma secondary packaging",
@@ -411,7 +420,7 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
     spec: {
       productType: "White silica gel (non-indicating)",
       color: "Translucent white / clear",
-      sizes: "Beads 1–3 mm & 2–5 mm; sachets 0.5 g–500 g; bulk bags",
+      sizes: "Beads 1–3 mm & 2–5 mm; 0.5 g–20 g sachets and 25 g–500 g packs; bulk bags",
       packaging: "Sachets, 25 kg bags, drums, jumbo bags",
       application: "General-purpose moisture control in packaging and containers",
     },
@@ -566,12 +575,16 @@ const LANDING_SPECS: Record<string, { name: string; spec: Partial<ProductSpec> }
   "bentonite-clay": {
     name: "Bentonite clay desiccant",
     spec: {
+      countryOfOrigin: "Confirmed per supplied lot",
       productType: "Activated bentonite clay desiccant",
       material: "Activated bentonite / montmorillonite clay",
       color: "Grey / brown granules",
       adsorptionCapacity: "Up to ~25% of own weight in water vapour",
       application: "Cost-tier industrial and container moisture control",
       industries: "Durable goods, machinery, bulk export cargo",
+      certifications:
+        "Sourced product. SDS and COA supplied with the order; DMF-free statement on request. DryGelWorld's ISO 9001:2015 scope (packaging and supply of silica desiccant) does not cover clay.",
+      sds: "Available on request",
       hsCode: "2508.10 / 3802.90, activated clay (confirm with your customs broker)",
     },
   },

@@ -111,12 +111,12 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Procurement specifications: what B2B buyers must specify in an RFQ",
-        body: "When requesting pricing for clay desiccant from an export manufacturer like DryGelWorld, specifying only 'clay desiccant' results in vague quotes. A professional procurement RFQ should explicitly define unit size (grams or DIN Desiccant Units), sachet wrapping substrate (breathable FSC Kraft paper vs non-woven), packaging atmosphere, barrier specifications, and document requirements (SDS, COA, ISO 9001:2015, and FSC Chain of Custody certificate).",
+        body: "When requesting pricing for clay desiccant from an export supplier like DryGelWorld, specifying only 'clay desiccant' results in vague quotes. A professional procurement RFQ should explicitly define unit size (grams or DIN Desiccant Units), sachet wrapping substrate (breathable Kraft paper vs non-woven), packaging atmosphere, barrier specifications, and document requirements (SDS and COA, plus any certificate your program needs, checked against the scope the supplier actually holds).",
         bullets: [
           "Specify fill size: Either gram weight (e.g. 2g, 5g, 10g, 25g, 50g, 100g) or DIN 55473 Units (e.g. 1/3 U, 1 U, 4 U, 16 U).",
-          "Specify sachet material: Porous unbleached FSC-certified Kraft paper (recommended for ESG compliance) or non-woven fiber.",
+          "Specify sachet material: Porous unbleached Kraft paper (FSC-certified if your ESG program requires it; confirm the supplier holds FSC Chain of Custody) or non-woven fiber.",
           "Specify barrier packing: Factory hermetic master polybags inside heavy-duty corrugated export cartons to prevent pre-saturation during transit.",
-          "Required compliance documents: Material Safety Data Sheet (SDS), Certificate of Analysis (COA), ISO 9001:2015, and FSC Chain of Custody declaration.",
+          "Required compliance documents: Material Safety Data Sheet (SDS) and Certificate of Analysis (COA). Ask for ISO 9001 or FSC Chain of Custody certificates only where the supplier's certificate scope actually covers the clay or the paper.",
         ],
       },
     ],
@@ -159,22 +159,22 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "DIN 55473 — Desiccant bags for packaging: testing and delivery specifications",
+        label: "DIN 55473: Desiccant bags for packaging: testing and delivery specifications",
         href: "https://www.din.de/en",
         publisher: "Deutsches Institut für Normung (DIN)",
       },
       {
-        label: "MIL-D-3464E — Desiccants, Activated, Bagged, Packaging Use",
+        label: "MIL-D-3464E: Desiccants, Activated, Bagged, Packaging Use",
         href: "https://quicksearch.dla.mil",
         publisher: "US Department of Defense (Defense Logistics Agency)",
       },
       {
-        label: "FSC-STD-40-004 V3-1 — Chain of Custody Certification",
+        label: "FSC-STD-40-004 V3-1: Chain of Custody Certification",
         href: "https://fsc.org",
         publisher: "Forest Stewardship Council (FSC)",
       },
       {
-        label: "PubChem Hazardous Substances Data Bank — Bentonite (CAS 1302-78-9)",
+        label: "PubChem Hazardous Substances Data Bank: Bentonite (CAS 1302-78-9)",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Bentonite",
         publisher: "National Library of Medicine (NIH)",
       },
@@ -217,7 +217,7 @@ export const blogArticles: BlogArticle[] = [
           "Tier 2, Interra Global (USA) - desiccants, molecular sieve, and activated alumina. Best for buyers who want several adsorbents from one distributor.",
           "Tier 2, WiseSorbent Technology (USA/China) - six desiccant segments plus a humidity-monitoring app. Best for buyers wanting container and packaging desiccants in one program.",
           "Tier 3, Sorbchem India (India) - silica gel beads, packets, and breathers; Zeochem group. Best for South Asian buyers wanting regional cost with a broad catalog.",
-          "Tier 3, DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); own SDS, batch COA, and DMF-free statement; sachets 0.5g-500g, loose beads, silica / clay / calcium chloride container strips, private label; quoted in USD on EXW, FOB Karachi, CIF, DAP; company-reported shipments to 190+ countries. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia. Not the supplier for FDA, food-contact, pharma GMP, Halal, or REACH-registered material.",
+          "Tier 3, DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); own SDS, batch COA, and DMF-free statement; 0.5g-20g sachets and 25g-500g packs, loose beads, silica / clay / calcium chloride container strips, private label; quoted in USD on EXW, FOB Karachi, CIF, DAP; company-reported shipments to 190+ countries. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia. Not the supplier for FDA, food-contact, pharma GMP, Halal, or REACH-registered material.",
           "Tier 3, GeeJay Chemicals (UK) - desiccant sachets and packaging with a UK stockholding. Best for UK and EU buyers who need a domestic supplier with UK REACH awareness.",
         ],
       },
@@ -237,7 +237,7 @@ export const blogArticles: BlogArticle[] = [
       {
         heading: "Silica gel sachet manufacturers vs raw silica producers: which half of the list you need",
         body:
-          "The ten names above split into two different businesses, and buyers waste weeks emailing the wrong half. Raw silica producers (Grace, Evonik, BASF, Fuji Silysia) make the amorphous silicon dioxide beads themselves at chemical-plant scale and sell by the tonne, mostly to converters, catalyst makers, and large packagers. Sachet manufacturers and converters (Clariant's desiccant unit, Multisorb, Desiccare, WiseSorbent, Sorbchem, DryGelWorld) buy or make bead and turn it into finished desiccant formats: 1g to 500g sachets, printed private-label packets, canisters, and container strips. If your RFQ is in pieces, cartons, or 'per 1,000 sachets', you need a converter. If it is in tonnes of bead by grade and particle size, you need a producer or a distributor of one.",
+          "The ten names above split into two different businesses, and buyers waste weeks emailing the wrong half. Raw silica producers (Grace, Evonik, BASF, Fuji Silysia) make the amorphous silicon dioxide beads themselves at chemical-plant scale and sell by the tonne, mostly to converters, catalyst makers, and large packagers. Sachet manufacturers and converters (Clariant's desiccant unit, Multisorb, Desiccare, WiseSorbent, Sorbchem, DryGelWorld) buy or make bead and turn it into finished desiccant formats: small sachets and larger packs up to about 500g, printed private-label packets, canisters, and container strips. If your RFQ is in pieces, cartons, or 'per 1,000 sachets', you need a converter. If it is in tonnes of bead by grade and particle size, you need a producer or a distributor of one.",
         bullets: [
           "Ask for finished sachets (1g, 2g, 5g, 10g), printed packets, or container strips: contact a sachet manufacturer or converter.",
           "Ask for loose beads by the tonne with a particle-size and moisture spec: contact a silica producer or its regional distributor.",
@@ -264,7 +264,7 @@ export const blogArticles: BlogArticle[] = [
         bullets: [
           "Sorbchem India (India) - broad catalogue including silica gel, molecular sieves, and breathers; part of the Zeochem group; named client references published. Best for South Asian buyers who want several adsorbents from one supplier.",
           "WiseSorbent Technology (China / USA) - six product segments and a humidity-monitoring app; strong for buyers who want container desiccants and packaging desiccants in one program.",
-          "DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); SDS, batch COA, and DMF-free statement issued in-house; quotes in USD on EXW, FOB Karachi, CIF, and DAP; sachets 0.5g-500g, loose beads, silica / clay / calcium chloride container strips, private label. Does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia.",
+          "DryGelWorld (Pakistan) - Kamran Enterprises, Karachi, manufacturing since 1983; ISO 9001:2015 certificate 9101225 (QMEC Group Intl, valid to December 2028); SDS, batch COA, and DMF-free statement issued in-house; quotes in USD on EXW, FOB Karachi, CIF, and DAP; 0.5g-20g sachets and 25g-500g packs, loose beads, silica / clay / calcium chloride container strips, private label. Does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration. Best for export-carton, footwear, leather, textile, and private-label programs sourced from South Asia.",
           "GeeJay Chemicals (UK) - desiccant sachets and packaging for UK and EU buyers who need a domestic stockholder with UK REACH awareness.",
           "Desiccare (USA) - domestic North American stock, JEDEC and MIL-spec classified formats, cobalt-free indicating products; the right call for US buyers in regulated lanes.",
           "Criteria applied to every Tier 3 name: manufactures (not resells); ISO 9001 certificate number available; own SDS and COA; named Incoterm and location. Companies that could not be checked against all four this pass were left off rather than guessed at.",
@@ -458,7 +458,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        label: "DIN 55474:2015-03: Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
         href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -478,7 +478,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "International Safe Transit Association (ISTA)",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -532,7 +532,7 @@ export const blogArticles: BlogArticle[] = [
         heading: "Format compatibility: which packs into what",
         body: "Both materials are available as sachets, bags, and bulk fill - but the format range is not symmetric. Silica gel comes in cleaner small-format sachets (0.5g, 1g, 2g, 3g, 5g, 10g) which fit inside individual product packs and pharma-style bottles; that small-sachet range is genuinely silica-gel territory. Clay is more commonly supplied in larger formats (5g and above) because the bead structure of clay makes very small sachets harder to manufacture cleanly. At the container level, both are available as 1kg-5kg cargo strips, and either material works for hanging-strip placement on a container ceiling. For private-label sachet programs - printed sachets with carton labeling - silica gel is the cleaner choice because the breathable paper sachet stays neater and the printing prints crisper on a low-dust filling.",
         bullets: [
-          "Silica gel sachets: 0.5g, 1g, 2g, 3g, 5g, 10g, 25g, 50g, 100g, 250g, 500g.",
+          "Silica gel sachets: 0.5g, 1g, 2g, 3g, 5g, 10g; packs: 25g, 50g, 100g, 250g, 500g.",
           "Silica gel container strips: 1kg, 2kg, 3kg, 5kg.",
           "Clay sachets: typically 5g and above, less common at the unit-pack level.",
           "Clay container strips: yes, comparable kg formats.",
@@ -542,9 +542,9 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Documentation and compliance: where buyers get burned",
-        body: "Documentation is where the silica-gel-vs-clay decision turns from a price question into a regulatory one. Silica gel has a well-established document trail in international export; reputable manufacturers can usually supply ISO 9001:2015 quality references, batch COAs, SDS sheets, and DMF-free product statements. Clay desiccant has the same document categories on paper, but document quality varies more by supplier. For buyers exporting to regulated markets, silica gel typically has the cleaner paperwork story. DryGelWorld supports ISO 9001:2015, SDS, COA, and DMF-free statements on request. Formal FDA, REACH, Halal, and food-grade certifications are not credentials currently held by DryGelWorld, so buyers should confirm those requirements before commercial terms.",
+        body: "Documentation is where the silica-gel-vs-clay decision turns from a price question into a regulatory one. Silica gel has a well-established document trail in international export; reputable manufacturers can usually supply ISO 9001:2015 quality references, batch COAs, SDS sheets, and DMF-free product statements. Clay desiccant has the same document categories on paper, but document quality varies more by supplier. For buyers exporting to regulated markets, silica gel typically has the cleaner paperwork story. DryGelWorld supports ISO 9001:2015 (for its silica gel), SDS, COA, and DMF-free statements on request. Formal FDA, REACH, Halal, and food-grade certifications are not credentials currently held by DryGelWorld, so buyers should confirm those requirements before commercial terms.",
         bullets: [
-          "ISO 9001:2015: held for the silica gel manufacturing line.",
+          "ISO 9001:2015: held for packaging and supply of silica desiccant; it does not cover clay, which is sourced.",
           "SDS, COA: available for both silica gel and clay on request.",
           "DMF-free statement: product-level claim for the silica gel.",
           "FDA, REACH, Halal, food-grade certification: buyer-specific compliance review - confirm before commercial terms, do not assume coverage.",
@@ -618,22 +618,22 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Bentonite — compound summary, CID 71586775",
+        label: "Bentonite: compound summary, CID 71586775",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Bentonite",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
-        label: "MIL-D-3464 — Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
+        label: "MIL-D-3464: Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
         href: "https://quicksearch.dla.mil/",
         publisher: "U.S. Defense Logistics Agency",
       },
@@ -921,32 +921,32 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        label: "IPC/JEDEC J-STD-033D: Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
         href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
         publisher: "IPC (Global Electronics Association) / JEDEC",
       },
       {
-        label: "IPC/JEDEC J-STD-020F — Moisture/Reflow Sensitivity Classification for Non-Hermetic Surface Mount Devices (table of contents)",
+        label: "IPC/JEDEC J-STD-020F: Moisture/Reflow Sensitivity Classification for Non-Hermetic Surface Mount Devices (table of contents)",
         href: "https://www.electronics.org/TOC/J-STD-020F_TOC.pdf",
         publisher: "IPC (Global Electronics Association) / JEDEC",
       },
       {
-        label: "Directive 2011/65/EU (RoHS 2) — restriction of hazardous substances in electrical and electronic equipment",
+        label: "Directive 2011/65/EU (RoHS 2): restriction of hazardous substances in electrical and electronic equipment",
         href: "https://eur-lex.europa.eu/eli/dir/2011/65/oj/eng",
         publisher: "EUR-Lex, Publications Office of the European Union",
       },
       {
-        label: "MIL-D-3464 — Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
+        label: "MIL-D-3464: Desiccants, activated, bagged, packaging use (ASSIST Quick Search)",
         href: "https://quicksearch.dla.mil/",
         publisher: "U.S. Defense Logistics Agency",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -1070,7 +1070,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -1085,12 +1085,12 @@ export const blogArticles: BlogArticle[] = [
         publisher: "UF/IFAS Extension, University of Florida",
       },
       {
-        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        label: "Cobalt chloride (CoCl2): compound summary, CID 3032536",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -1202,12 +1202,12 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Silica — ToxFAQs",
+        label: "Silica: ToxFAQs",
         href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
         publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
       },
@@ -1217,12 +1217,12 @@ export const blogArticles: BlogArticle[] = [
         publisher: "Chemistry LibreTexts",
       },
       {
-        label: "NWS Glossary — Relative humidity",
+        label: "NWS Glossary: Relative humidity",
         href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
         publisher: "NOAA National Weather Service",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -1361,12 +1361,12 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Zeolites — substance summary",
+        label: "Zeolites: substance summary",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Zeolite",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -1376,7 +1376,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "International Zeolite Association, Structure Commission",
       },
       {
-        label: "Alumina (aluminium oxide, Al2O3) — compound summary, CID 9989226",
+        label: "Alumina (aluminium oxide, Al2O3): compound summary, CID 9989226",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Aluminum-oxide",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -1534,7 +1534,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "West of England P&I Club",
       },
       {
-        label: "TT Talk — Protecting cargo from wet damage",
+        label: "TT Talk: Protecting cargo from wet damage",
         href: "https://www.ttclub.com/news-and-resources/news/article/tt-talk-protecting-cargo-from-wet-damage/",
         publisher: "TT Club",
       },
@@ -1794,12 +1794,12 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
-        label: "Silica — ToxFAQs",
+        label: "Silica: ToxFAQs",
         href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
         publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
       },
@@ -1809,7 +1809,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "EUR-Lex, Publications Office of the European Union",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -1941,12 +1941,12 @@ export const blogArticles: BlogArticle[] = [
         publisher: "World Customs Organization",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -2011,7 +2011,7 @@ export const blogArticles: BlogArticle[] = [
         heading: "Documentation: what to expect, what NOT to expect",
         body: "Industrial-safety hair nets and beard covers are typically supplied as PPE without formal food-grade certification by default - even though they are widely used in food production. Formal food-grade certification (FDA compliance, FSSC 22000, EU Regulation 1935/2004) is a separate certification track that depends on the manufacturer's facility audit, not just the product itself. A reputable supplier should be able to confirm: ISO 9001:2015 (or equivalent quality system), material datasheet identifying non-woven polypropylene, and any specific destination compliance discussions. What buyers should NOT expect from generic industrial-safety PPE: assumed FDA approval, assumed Halal certification, or assumed REACH registration. Confirm those discussions per buyer market before commercial terms - do not assume coverage.",
         bullets: [
-          "Expect: ISO 9001:2015 or equivalent quality reference.",
+          "Expect: the supplier's quality-system reference, checked for scope (DryGelWorld's ISO 9001:2015 covers silica desiccant, not PPE).",
           "Expect: material datasheet identifying non-woven polypropylene or specified material.",
           "Expect: discussion of compliance per buyer market.",
           "Do NOT assume: FDA approval, FSSC 22000 alignment, EU 1935/2004 compliance, Halal certification, REACH registration - confirm explicitly per shipment.",
@@ -2245,9 +2245,9 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Document expectations vary by market",
-        body: "PPE documentation expectations vary substantially by destination market. ISO 9001:2015 is the most universally recognized baseline, and DryGelWorld holds this. Beyond that, EU markets often expect EN 14126 or similar PPE-specific compliance, US food markets expect FDA / FSSC 22000 alignment, GCC markets may expect SASO or ESMA alignment, and pharma cleanroom programs may expect ISO 13485. These market-specific credentials are not currently held for the DryGelWorld PPE line. Buyers requiring stamped market-specific compliance should confirm the documentation set at RFQ stage so the supplier and the buyer's compliance team can align before sample dispatch.",
+        body: "PPE documentation expectations vary substantially by destination market. ISO 9001:2015 is the most universally recognized baseline; DryGelWorld holds it for silica desiccant, but its scope does not cover PPE, which DryGelWorld sources. Beyond that, EU markets often expect EN 14126 or similar PPE-specific compliance, US food markets expect FDA / FSSC 22000 alignment, GCC markets may expect SASO or ESMA alignment, and pharma cleanroom programs may expect ISO 13485. These market-specific credentials are not currently held for the DryGelWorld PPE line. Buyers requiring stamped market-specific compliance should confirm the documentation set at RFQ stage so the supplier and the buyer's compliance team can align before sample dispatch.",
         bullets: [
-          "ISO 9001:2015 - held; baseline quality system reference.",
+          "ISO 9001:2015 - held for silica desiccant only; the scope does not cover PPE.",
           "EN 14126 (EU PPE compliance) - not currently held.",
           "FDA / FSSC 22000 (US food) - not currently held.",
           "SASO / ESMA (GCC) - not currently held.",
@@ -2375,9 +2375,9 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Documentation and compliance framing",
-        body: "Beard cover documentation requirements vary by destination market and use case. ISO 9001:2015 is the universal baseline, and DryGelWorld holds this. Market-specific certifications such as EN 14126 for EU PPE, FDA / FSSC 22000 for US/EU food, SASO for Saudi, and ESMA for UAE are not currently held for the DryGelWorld PPE line. Buyers requiring formal market-specific stamps should confirm the document set at RFQ stage so the supplier and the buyer's compliance team can align before sample dispatch. Honest framing on certifications prevents shipment rejection at customs and avoids the legal exposure of claiming credentials that are not documented.",
+        body: "Beard cover documentation requirements vary by destination market and use case. ISO 9001:2015 is the universal baseline; DryGelWorld holds it for silica desiccant, but beard covers are sourced PPE and outside that scope. Market-specific certifications such as EN 14126 for EU PPE, FDA / FSSC 22000 for US/EU food, SASO for Saudi, and ESMA for UAE are not currently held for the DryGelWorld PPE line. Buyers requiring formal market-specific stamps should confirm the document set at RFQ stage so the supplier and the buyer's compliance team can align before sample dispatch. Honest framing on certifications prevents shipment rejection at customs and avoids the legal exposure of claiming credentials that are not documented.",
         bullets: [
-          "ISO 9001:2015 - held; baseline quality system reference.",
+          "ISO 9001:2015 - held for silica desiccant only; the scope does not cover PPE.",
           "EN 14126 (EU PPE) - not currently held.",
           "FDA, FSSC 22000 (US/EU food) - not currently held.",
           "SASO, ESMA (GCC) - not currently held.",
@@ -2410,7 +2410,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Are beard covers food-grade certified?",
         answer:
-          "DryGelWorld supplies beard covers as industrial-safety PPE with ISO 9001:2015 as the held quality reference. Formal food-grade certifications (FDA, FSSC 22000, EU 1935/2004) are not currently held and must be confirmed against the destination market before commercial terms.",
+          "Beard covers are sourced PPE; DryGelWorld's ISO 9001:2015 scope covers silica desiccant, not PPE. Formal food-grade certifications (FDA, FSSC 22000, EU 1935/2004) are not currently held and must be confirmed against the destination market before commercial terms.",
       },
       {
         question: "Can I order beard covers and hair nets in one shipment?",
@@ -2627,11 +2627,11 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Documentation - the glue that holds the system together",
-        body: "Each protection layer has a documentation requirement. Desiccant: SDS, COA, ISO 9001:2015 reference. Corrosion control: VCI product specification and material safety information. Physical protection: pallet certification (ISPM-15 for international wood pallets), packaging specification per cargo unit. PPE: ISO 9001:2015 quality reference, market-specific compliance evidence (confirmed per market). Seal integrity: seal number record. Insurance: combined evidence pack including all of the above. When a damage claim happens, the underwriter looks for evidence that the shipper implemented appropriate controls - missing documentation is often the reason claims fail.",
+        body: "Each protection layer has a documentation requirement. Desiccant: SDS, COA, ISO 9001:2015 reference. Corrosion control: VCI product specification and material safety information. Physical protection: pallet certification (ISPM-15 for international wood pallets), packaging specification per cargo unit. PPE: market-specific compliance evidence (confirmed per market); DryGelWorld's PPE is sourced, and its ISO 9001:2015 scope covers silica desiccant, not PPE. Seal integrity: seal number record. Insurance: combined evidence pack including all of the above. When a damage claim happens, the underwriter looks for evidence that the shipper implemented appropriate controls - missing documentation is often the reason claims fail.",
         bullets: [
           "Desiccant docs: SDS, COA, ISO 9001:2015 reference, DMF-free statement (where applicable).",
           "Pallet docs: ISPM-15 stamp for international wood pallets.",
-          "PPE docs: ISO 9001:2015 reference; market-specific compliance per buyer requirement.",
+          "PPE docs: market-specific compliance per buyer requirement; DryGelWorld's PPE is sourced and outside its ISO 9001:2015 scope.",
           "Seal docs: numbered seal records, dispatch-to-destination correlation.",
           "Combined evidence pack: SDS + COA + pallet cert + loading photos + seal number + packing list.",
         ],
@@ -2720,9 +2720,9 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Sachet-format silica gel - the other side of the protection layer",
-        body: "Silica gel is also sold in sachet format - 0.5g, 1g, 2g, 3g, 5g, 10g, 25g, 50g, 100g, 250g, 500g - designed to fit inside product packs, master cartons, and unit packaging. Sachets protect the cargo at the box level; strips protect the container at the ceiling level. A complete program uses BOTH: sachets in each carton + strips at the container ceiling. They solve different problems and are NOT alternatives.",
+        body: "Silica gel is also sold as 0.5g-20g sachets and 25g-500g packs, designed to fit inside product packs, master cartons, and unit packaging. Sachets protect the cargo at the box level; strips protect the container at the ceiling level. A complete program uses BOTH: sachets in each carton + strips at the container ceiling. They solve different problems and are NOT alternatives.",
         bullets: [
-          "Silica gel sachets: 0.5g-500g, for product packs and cartons.",
+          "Silica gel: 0.5g-20g sachets and 25g-500g packs, for product packs and cartons.",
           "Silica gel strips: 1kg-5kg, for container ceiling.",
           "Sachets protect cargo INSIDE cartons; strips protect container AIR.",
           "Complete program uses both - they layer rather than compete.",
@@ -2768,17 +2768,17 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Bentonite — compound summary, CID 71586775",
+        label: "Bentonite: compound summary, CID 71586775",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Bentonite",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Calcium chloride — compound summary, CID 5284359",
+        label: "Calcium chloride: compound summary, CID 5284359",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Calcium-chloride",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -2975,17 +2975,17 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
-        label: "NWS Glossary — Relative humidity",
+        label: "NWS Glossary: Relative humidity",
         href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
         publisher: "NOAA National Weather Service",
       },
@@ -3174,10 +3174,10 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Working with DryGelWorld on pharma packaging programs",
-        body: "DryGelWorld serves pharma packaging buyers in the secondary-packaging and non-direct-contact category. The current supply matrix: breathable paper and non-woven sachets from 0.5g to 100g, plus bulk silica gel beads (Type A and Type B) for buyers who package their own desiccant into pharmacy-side dispensing. ISO 9001:2015 manufacturer certification, per-shipment COA, SDS in English (translations on request), and DMF-free statement are standard. Tyvek-format direct-contact desiccant and FDA Drug Master File registration are not currently held - buyers in those categories should source from specialized US/EU manufacturers and treat DryGelWorld as a parallel option for their non-DMF packaging requirement. Honest scope conversations upfront save quarterly auditing pain later.",
+        body: "DryGelWorld serves pharma packaging buyers in the secondary-packaging and non-direct-contact category. The current supply matrix: breathable paper and non-woven 0.5g-20g sachets and 25g-500g packs, plus bulk silica gel beads (Type A and Type B) for buyers who package their own desiccant into pharmacy-side dispensing. ISO 9001:2015 certification for silica desiccant, per-shipment COA, SDS in English (translations on request), and DMF-free statement are standard. Tyvek-format direct-contact desiccant and FDA Drug Master File registration are not currently held - buyers in those categories should source from specialized US/EU manufacturers and treat DryGelWorld as a parallel option for their non-DMF packaging requirement. Honest scope conversations upfront save quarterly auditing pain later.",
         bullets: [
           "DryGelWorld serves: secondary packaging, non-direct-contact pharma.",
-          "Catalog: paper + non-woven sachets 0.5g-100g, bulk Type A and Type B beads.",
+          "Catalog: paper + non-woven 0.5g-20g sachets and 25g-500g packs, bulk Type A and Type B beads.",
           "Standard docs: ISO 9001:2015, COA per shipment, SDS, DMF-free statement.",
           "Not currently held: Tyvek format, FDA DMF, region-specific pharmacopoeia compliance.",
           "Direct-contact pharma buyers: use specialized DMF-grade suppliers in parallel.",
@@ -3213,17 +3213,17 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Q1A(R2) — Stability Testing of New Drug Substances and Products",
+        label: "Q1A(R2): Stability Testing of New Drug Substances and Products",
         href: "https://database.ich.org/sites/default/files/Q1A%28R2%29%20Guideline.pdf",
         publisher: "International Council for Harmonisation (ICH)",
       },
       {
-        label: "ICH Q1A (R2) Stability testing of new drug substances and drug products — Scientific guideline",
+        label: "ICH Q1A (R2) Stability testing of new drug substances and drug products: Scientific guideline",
         href: "https://www.ema.europa.eu/en/ich-q1a-r2-stability-testing-new-drug-substances-drug-products-scientific-guideline",
         publisher: "European Medicines Agency",
       },
       {
-        label: "〈671〉 Containers—Performance Testing",
+        label: "〈671〉 Containers: Performance Testing",
         href: "https://doi.usp.org/USPNF/USPNF_M99430_03_01.html",
         publisher: "United States Pharmacopeia (USP-NF)",
       },
@@ -3233,7 +3233,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "EUR-Lex, Publications Office of the European Union",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -3268,11 +3268,11 @@ export const blogArticles: BlogArticle[] = [
         ],
       },
       {
-        heading: "Orange indicating silica gel: methyl-violet-free, the modern standard",
-        body: "Orange indicating silica gel uses a non-toxic dye that shifts from orange (dry) to colorless or pale green (saturated). It's the modern standard because it replaces the older blue indicating silica gel formulation that contained cobalt chloride - a substance that has been classified as a carcinogen by EU REACH and other regulators since the early 2010s. Orange indicating silica gel is REACH-compliant and is the appropriate choice for buyers exporting to the EU, UK, and any market that follows REACH-equivalent regulations. The color change is sharp enough for reliable visual QC but the contrast is slightly less dramatic than the old blue-to-pink formulation, which is the only reason any buyer still asks about blue.",
+        heading: "Orange indicating silica gel: the cobalt-free modern standard",
+        body: "Orange indicating silica gel uses a non-toxic dye that shifts from orange (dry) to colorless or pale green (saturated). It's the modern standard because it replaces the older blue indicating silica gel formulation that contained cobalt chloride - a substance that has been classified as a carcinogen by EU REACH and other regulators since the early 2010s. Orange indicating silica gel is REACH-friendly (no cobalt chloride) and is the appropriate choice for buyers exporting to the EU, UK, and any market that follows REACH-equivalent regulations. The color change is sharp enough for reliable visual QC but the contrast is slightly less dramatic than the old blue-to-pink formulation, which is the only reason any buyer still asks about blue.",
         bullets: [
           "Orange (dry) → colorless/pale green (saturated).",
-          "Non-toxic, REACH-compliant.",
+          "Non-toxic, REACH-friendly (no cobalt chloride).",
           "Modern standard for EU/UK and REACH-equivalent markets.",
           "Color change is reliable; contrast slightly less dramatic than legacy blue.",
         ],
@@ -3310,7 +3310,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Buying indicating silica gel from DryGelWorld",
-        body: "DryGelWorld supplies orange indicating silica gel in 2-5mm bead format for buyers in REACH-compliant markets and reusable / closed-loop industrial applications. Standard formats: bulk paper bags (25kg, 50kg), drums (200kg), and jumbo bags (1000kg). Sachet formats with indicating gel are available on request for specialty packaging programs. Blue indicating silica gel is also stocked for the limited remaining markets where it's still permitted, but DryGelWorld actively recommends orange for any new program. Quote stage: confirm market, intended use (single-use export vs reusable program vs warehouse QC), and required volume - orange vs blue selection follows from those answers.",
+        body: "DryGelWorld supplies orange indicating silica gel in 2-5mm bead format for buyers in REACH-regulated markets and reusable / closed-loop industrial applications. Standard formats: bulk paper bags (25kg, 50kg), drums (200kg), and jumbo bags (1000kg). Sachet formats with indicating gel are available on request for specialty packaging programs. Blue indicating silica gel is also stocked for the limited remaining markets where it's still permitted, but DryGelWorld actively recommends orange for any new program. Quote stage: confirm market, intended use (single-use export vs reusable program vs warehouse QC), and required volume - orange vs blue selection follows from those answers.",
         bullets: [
           "DryGelWorld supplies orange indicating gel 2-5mm beads.",
           "Bulk formats: 25kg/50kg bags, 200kg drums, 1000kg jumbo bags.",
@@ -3324,7 +3324,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is orange indicating silica gel safe for food packaging?",
         answer:
-          "Orange indicating silica gel uses a non-toxic dye and is REACH-compliant. For direct food contact, however, buyers should also verify regional food-grade certification (FDA food-contact, EU 1935/2004, or equivalent). DryGelWorld supplies industrial-grade orange indicating silica gel; FDA food-contact certification is not currently held. Buyers needing food-direct-contact certified material should specify the requirement at quote stage.",
+          "Orange indicating silica gel uses a non-toxic dye and is REACH-friendly (no cobalt chloride). For direct food contact, however, buyers should also verify regional food-grade certification (FDA food-contact, EU 1935/2004, or equivalent). DryGelWorld supplies industrial-grade orange indicating silica gel; FDA food-contact certification is not currently held. Buyers needing food-direct-contact certified material should specify the requirement at quote stage.",
       },
       {
         question: "Why is blue indicating silica gel still sold if cobalt chloride is a carcinogen?",
@@ -3344,7 +3344,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is the dye in orange indicating silica gel REACH-registered?",
         answer:
-          "DryGelWorld's orange indicating silica gel uses a non-toxic dye that does not contain cobalt chloride and is compliant with REACH restrictions on indicator dyes. Specific REACH registration documentation for the dye itself can be requested at quote stage if required for the buyer's regulatory submission.",
+          "No. DryGelWorld does not hold a REACH registration. The orange indicator contains no cobalt chloride, which makes it the REACH-friendly choice; under REACH the registration duty usually falls on the EU importer.",
       },
     ],
   },
@@ -3523,7 +3523,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "DryGelWorld scope and honest disclosure",
-        body: "An honest scope statement: DryGelWorld currently holds ISO 9001:2015 manufacturer certification and supplies industrial-grade silica gel, dry clay desiccant, and industrial PPE. FDA food-contact certification, EU 1935/2004 Declaration of Compliance, and equivalent food-grade regulatory documentation are not currently held. Buyers requiring direct food-contact silica gel in regulated markets (USA, EU, UK, Japan, GCC) should source from manufacturers who specifically hold the relevant food-contact certifications. DryGelWorld is appropriate for incidental-contact food packaging (silica gel in retail boxes where the food is in a sealed inner pack) and for non-food-direct industrial applications. Buyers in the direct-contact food category should use DryGelWorld in parallel with a food-contact certified supplier rather than as a replacement.",
+        body: "An honest scope statement: DryGelWorld currently holds ISO 9001:2015 for packaging and supply of silica desiccant, and also supplies sourced dry clay desiccant and industrial PPE. FDA food-contact certification, EU 1935/2004 Declaration of Compliance, and equivalent food-grade regulatory documentation are not currently held. Buyers requiring direct food-contact silica gel in regulated markets (USA, EU, UK, Japan, GCC) should source from manufacturers who specifically hold the relevant food-contact certifications. DryGelWorld is appropriate for incidental-contact food packaging (silica gel in retail boxes where the food is in a sealed inner pack) and for non-food-direct industrial applications. Buyers in the direct-contact food category should use DryGelWorld in parallel with a food-contact certified supplier rather than as a replacement.",
         bullets: [
           "DryGelWorld holds: ISO 9001:2015 + DMF-free statement.",
           "Not currently held: FDA food-contact, EU 1935/2004 DoC, equivalent food-grade certs.",
@@ -3550,7 +3550,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is DryGelWorld silica gel FDA food-contact certified?",
         answer:
-          "No - DryGelWorld is ISO 9001:2015 manufacturer-certified but does not currently hold FDA food-contact (FCN or GRAS) certification. Buyers requiring direct food-contact silica gel for US-market applications should source from manufacturers who specifically hold an FDA FCN for silica gel. DryGelWorld is appropriate for incidental-contact food packaging and non-food-direct industrial applications.",
+          "No - DryGelWorld is ISO 9001:2015 certified for packaging and supply of silica desiccant but does not currently hold FDA food-contact (FCN or GRAS) certification. Buyers requiring direct food-contact silica gel for US-market applications should source from manufacturers who specifically hold an FDA FCN for silica gel. DryGelWorld is appropriate for incidental-contact food packaging and non-food-direct industrial applications.",
       },
       {
         question: "What is the difference between food-grade and industrial-grade silica gel?",
@@ -4196,17 +4196,17 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "DIN 55473:2021-07 — Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
+        label: "DIN 55473:2021-07: Auxiliary means of packaging - Desiccant in bag - Technical delivery conditions",
         href: "https://www.dinmedia.de/en/standard/din-55473/339665057",
         publisher: "DIN Media (German Institute for Standardization)",
       },
       {
-        label: "NWS Glossary — Relative humidity",
+        label: "NWS Glossary: Relative humidity",
         href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
         publisher: "NOAA National Weather Service",
       },
@@ -4513,10 +4513,10 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Indicating gel and final conversion",
-        body: "Standard non-indicating silica gel is clear/white at this point. Indicating gel is made by impregnating the beads with a moisture-sensitive dye: modern orange indicating gel uses a non-cobalt dye (REACH-compliant), while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. The graded beads are then converted into finished formats - filled into breathable paper sachets, woven or non-woven bead bags, or multi-chamber cargo strips - and sealed in moisture-barrier outer packaging so they reach the buyer fully active. The shelf life of a sealed sachet (24-36 months in its outer pouch) depends on that final barrier packaging being intact.",
+        body: "Standard non-indicating silica gel is clear/white at this point. Indicating gel is made by impregnating the beads with a moisture-sensitive dye: modern orange indicating gel uses a non-cobalt, REACH-friendly dye, while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. The graded beads are then converted into finished formats - filled into breathable paper sachets, woven or non-woven bead bags, or multi-chamber cargo strips - and sealed in moisture-barrier outer packaging so they reach the buyer fully active. The shelf life of a sealed sachet (24-36 months in its outer pouch) depends on that final barrier packaging being intact.",
         bullets: [
           "Non-indicating gel is clear/white; indicating gel is dye-impregnated.",
-          "Orange indicating dye: non-cobalt, REACH-compliant.",
+          "Orange indicating dye: non-cobalt, REACH-friendly.",
           "Blue indicating dye: cobalt chloride, restricted in EU/UK/AU/CA.",
           "Beads are filled into sachets, bags, or strips and sealed in moisture-barrier packaging.",
           "Sealed-sachet shelf life (24-36 months) depends on intact barrier packaging.",
@@ -4558,27 +4558,27 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Is the manufacturing process different for indicating (orange/blue) silica gel?",
         answer:
-          "The base beads are made the same way; indicating gel adds a dye-impregnation step. Orange indicating gel uses a modern non-cobalt dye that is REACH-compliant, while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. Non-indicating gel skips this step and stays clear/white.",
+          "The base beads are made the same way; indicating gel adds a dye-impregnation step. Orange indicating gel uses a modern non-cobalt, REACH-friendly dye, while legacy blue gel uses cobalt chloride, which is restricted in the EU, UK, Australia, and Canada. Non-indicating gel skips this step and stays clear/white.",
       },
     ],
     sources: [
       {
-        label: "US1297724A — Silica gel and process of making same (W. A. Patrick, 1919)",
+        label: "US1297724A: Silica gel and process of making same (W. A. Patrick, 1919)",
         href: "https://patents.google.com/patent/US1297724A/en",
         publisher: "Google Patents (U.S. Patent and Trademark Office)",
       },
       {
-        label: "Sodium silicate — compound summary, CID 23266",
+        label: "Sodium silicate: compound summary, CID 23266",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Sodium-metasilicate",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Sulfuric acid — compound summary, CID 1118",
+        label: "Sulfuric acid: compound summary, CID 1118",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Sulfuric-acid",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -4588,7 +4588,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "Chemistry LibreTexts",
       },
       {
-        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        label: "Cobalt chloride (CoCl2): compound summary, CID 3032536",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -4687,7 +4687,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "NWS Glossary — Relative humidity",
+        label: "NWS Glossary: Relative humidity",
         href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
         publisher: "NOAA National Weather Service",
       },
@@ -4712,7 +4712,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "Chemistry LibreTexts",
       },
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -4767,7 +4767,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         heading: "Converting units to silica gel grams and sachets",
-        body: "For silica gel, the working conversion is: 1 unit ≈ 33 g. So a spec calling for 1/6 unit ≈ 5.5 g, 1/3 unit ≈ 11 g, 1/2 unit ≈ 16.5 g, 1 unit ≈ 33 g, 2 units ≈ 66 g, 10 units ≈ 330 g. DryGelWorld's sachet ladder (0.5 g up to 500 g) maps onto this cleanly: a 5 g sachet ≈ 1/6 unit, a 25-33 g sachet ≈ ~1 unit, a 250 g bag ≈ ~7.5 units. When a buyer hands over a unit-based spec, convert to grams using the ~33 g/unit factor, then pick the nearest standard sachet size at or above the requirement. Always round up - under-rounding a unit spec means under-protecting the cargo.",
+        body: "For silica gel, the working conversion is: 1 unit ≈ 33 g. So a spec calling for 1/6 unit ≈ 5.5 g, 1/3 unit ≈ 11 g, 1/2 unit ≈ 16.5 g, 1 unit ≈ 33 g, 2 units ≈ 66 g, 10 units ≈ 330 g. DryGelWorld's size ladder (0.5 g-20 g sachets and 25 g-500 g packs) maps onto this cleanly: a 5 g sachet ≈ 1/6 unit, a 25-33 g pack ≈ ~1 unit, a 250 g bag ≈ ~7.5 units. When a buyer hands over a unit-based spec, convert to grams using the ~33 g/unit factor, then pick the nearest standard size at or above the requirement. Always round up - under-rounding a unit spec means under-protecting the cargo.",
         bullets: [
           "Working factor: 1 unit ≈ 33 g of silica gel.",
           "1/6 unit ≈ 5.5 g · 1/3 ≈ 11 g · 1/2 ≈ 16.5 g · 1 unit ≈ 33 g.",
@@ -4918,7 +4918,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        label: "DIN 55474:2015-03: Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
         href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -4928,7 +4928,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "DryGelWorld",
       },
       {
-        label: "NWS Glossary — Relative humidity",
+        label: "NWS Glossary: Relative humidity",
         href: "https://forecast.weather.gov/glossary.php?word=relative%20humidity",
         publisher: "NOAA National Weather Service",
       },
@@ -4938,7 +4938,7 @@ export const blogArticles: BlogArticle[] = [
         publisher: "International Safe Transit Association (ISTA)",
       },
       {
-        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        label: "IPC/JEDEC J-STD-033D: Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
         href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
         publisher: "IPC (Global Electronics Association) / JEDEC",
       },
@@ -5045,12 +5045,12 @@ export const blogArticles: BlogArticle[] = [
         publisher: "International Maritime Organization",
       },
       {
-        label: "IPC/JEDEC J-STD-033D — Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
+        label: "IPC/JEDEC J-STD-033D: Handling, Packing, Shipping and Use of Moisture, Reflow, and Process Sensitive Devices (table of contents)",
         href: "https://www.electronics.org/TOC/J-STD-033D-TOC.pdf",
         publisher: "IPC (Global Electronics Association) / JEDEC",
       },
       {
-        label: "DIN 55474:2015-03 — Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
+        label: "DIN 55474:2015-03: Auxiliary means of packaging - Desiccants in bag - Application, calculation of the required number of desiccant units",
         href: "https://www.dinmedia.de/en/standard/din-55474/228004598",
         publisher: "DIN Media (German Institute for Standardization)",
       },
@@ -5170,7 +5170,7 @@ export const blogArticles: BlogArticle[] = [
     ],
     sources: [
       {
-        label: "Silica (silicon dioxide, SiO2) — compound summary, CID 24261",
+        label: "Silica (silicon dioxide, SiO2): compound summary, CID 24261",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/24261",
         publisher: "National Institutes of Health (PubChem)",
       },
@@ -5185,12 +5185,12 @@ export const blogArticles: BlogArticle[] = [
         publisher: "UF/IFAS Extension, University of Florida",
       },
       {
-        label: "Cobalt chloride (CoCl2) — compound summary, CID 3032536",
+        label: "Cobalt chloride (CoCl2): compound summary, CID 3032536",
         href: "https://pubchem.ncbi.nlm.nih.gov/compound/Cobalt-chloride",
         publisher: "National Institutes of Health (PubChem)",
       },
       {
-        label: "Silica — ToxFAQs",
+        label: "Silica: ToxFAQs",
         href: "https://wwwn.cdc.gov/TSP/ToxFAQs/ToxFAQsDetails.aspx?faqid=1483&toxid=290",
         publisher: "Agency for Toxic Substances and Disease Registry (CDC)",
       },
@@ -5919,7 +5919,7 @@ export const blogArticles: BlogArticle[] = [
           "Silica gel sachet manufacturers, also called converters, take silica gel beads and fill them into breathable outers: paper, technical fibre, non-woven, or film-laminate. The value they add is in the sachet, not the chemistry: consistent fill weight, a dust-free outer that survives automated insertion, legible warning print, carton packing that keeps the sachets dry until the packing line opens them, and the documents an importer needs. Some converters make their own bead; most, including regional manufacturers, buy bead to a specification and convert it. Neither model is better; what matters is whether the converter controls fill weight, sachet integrity, and moisture content at the point of packing.",
         bullets: [
           "Inputs: silica gel beads (white non-indicating as standard; cobalt-free orange indicating where a colour check is needed).",
-          "Outputs: 0.5g to 500g sachets, printed private-label packets, container strips, and sometimes loose bead in 25kg bags for repackers.",
+          "Outputs: 0.5g-20g sachets and 25g-500g packs, printed private-label packets, container strips, and sometimes loose bead in 25kg bags for repackers.",
           "The converter's quality system covers fill accuracy, seal strength, dust, moisture content at packing, and lot traceability.",
         ],
       },
@@ -5961,7 +5961,7 @@ export const blogArticles: BlogArticle[] = [
       {
         heading: "Where DryGelWorld fits, honestly",
         body:
-          "DryGelWorld is a sachet manufacturer in Karachi, Pakistan, operating since 1983 and ISO 9001:2015 certified (certificate 9101225). It fills 0.5g to 500g sachets in paper, technical fibre, and non-woven outers, prints private-label packets, and makes container strips. It issues an SDS, batch COA, and DMF-free statement, and its dry clay ships in FSC-certified packaging. It does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration, so direct-contact pharma and food programs should go to a converter that does. Where it fits is finished sachets for packaging, footwear, leather, textile, and electronics exporters, and mid-size private-label programs quoted in USD on FOB Karachi, CIF, or DAP terms.",
+          "DryGelWorld is a sachet manufacturer in Karachi, Pakistan, operating since 1983 and ISO 9001:2015 certified (certificate 9101225). It fills 0.5g-20g sachets and 25g-500g packs in paper, technical fibre, and non-woven outers, prints private-label packets, and makes container strips. It issues an SDS, batch COA, and DMF-free statement. It does not hold FDA, food-contact, pharma GMP, Halal, or REACH registration, so direct-contact pharma and food programs should go to a converter that does. Where it fits is finished sachets for packaging, footwear, leather, textile, and electronics exporters, and mid-size private-label programs quoted in USD on FOB Karachi, CIF, or DAP terms.",
         bullets: [
           "Dedicated size pages: 1g, 2g, 5g, and 10g silica gel sachets, each with dosage, materials, MOQ, and export notes.",
           "Indicative per-size USD references are published on the pricing page; firm prices are quoted per order.",
@@ -5993,7 +5993,7 @@ export const blogArticles: BlogArticle[] = [
       {
         question: "Does DryGelWorld manufacture silica gel sachets?",
         answer:
-          "Yes. DryGelWorld manufactures silica gel sachets from 0.5g to 500g at its Karachi, Pakistan facility, in paper, technical fibre, and non-woven outers, plain or custom printed, and exports them worldwide with SDS, COA, and a DMF-free statement. It holds ISO 9001:2015 (certificate 9101225) and does not hold FDA, food-contact, pharma GMP, Halal, or REACH certifications.",
+          "Yes. DryGelWorld fills 0.5g-20g silica gel sachets and 25g-500g packs at its Karachi, Pakistan facility, in paper, technical fibre, and non-woven outers, plain or custom printed, and exports them worldwide with SDS, COA, and a DMF-free statement. It holds ISO 9001:2015 (certificate 9101225) and does not hold FDA, food-contact, pharma GMP, Halal, or REACH certifications.",
       },
     ],
     sources: [
@@ -6154,7 +6154,7 @@ export const blogArticles: BlogArticle[] = [
       },
       {
         question: "Which DryGelWorld formats fit air freight?",
-        answer: "Carton-level paper sachets and packets (0.5 g to 500 g), sized to carton volume and expected ground-dwell days. Send the route, season, and carton count in an RFQ and the export desk sizes it - there is no minimum order quantity to trial a format.",
+        answer: "Carton-level paper sachets (0.5 g-20 g) and packs (25 g-500 g), sized to carton volume and expected ground-dwell days. Send the route, season, and carton count in an RFQ and the export desk sizes it - there is no minimum order quantity to trial a format.",
       },
     ],
   },

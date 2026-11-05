@@ -515,7 +515,7 @@ export default function DesiccantQuantityGuidePage() {
           <Link className={styles.card} href="/request-a-quote">
             <span>RFQ</span>
             <h3>Request a quote</h3>
-            <p>Send the checklist above for a confirmed dosage and price - samples are free.</p>
+            <p>Send the checklist above for a confirmed dosage and price - sample material is free (200-300 g; you pay the courier).</p>
           </Link>
         </div>
       </section>

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "How fast will I receive my quotation?",
-    a: "Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day otherwise, with pricing, lead time, and shipping options for your destination. There is no minimum order quantity, and samples are free.",
+    a: "Most RFQs are answered within 1 hour during Karachi business hours (PKT), and same day otherwise, with pricing, lead time, and shipping options for your destination. There is no minimum order quantity, and sample material is free (200-300 g, courier charged to the buyer).",
   },
   {
     q: "What information makes a quote faster?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: "Which trade terms do you quote?",
-    a: "EXW, FOB Karachi, CIF, and DAP. Every shipment includes SDS, COA, and a DMF-free statement on request, backed by ISO 9001:2015 manufacturing.",
+    a: "EXW, FOB Karachi, CIF, and DAP. Every shipment includes SDS, COA, and a DMF-free statement on request, backed by an ISO 9001:2015 quality system for silica desiccant.",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function RequestQuotePage() {
           {[
             { label: "Response", title: "Usually within 1 hour", text: "Karachi business hours (PKT), same day otherwise. Pricing, MOQ, lead time, and shipping options in the first reply." },
             { label: "Factory-direct", title: "Manufacturer since 1983", text: "ISO 9001:2015 production in Karachi with SDS, COA, and DMF-free documentation." },
-            { label: "Worldwide", title: "190+ export markets", text: "EXW, FOB Karachi, CIF, and DAP terms with route-based dosage guidance." },
+            { label: "Worldwide", title: "190+ export markets (company figure)", text: "EXW, FOB Karachi, CIF, and DAP terms with route-based dosage guidance." },
           ].map((item) => (
             <article className={styles.card} key={item.title}>
               <span>{item.label}</span>

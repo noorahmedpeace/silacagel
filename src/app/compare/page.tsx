@@ -145,7 +145,7 @@ export default function CompareHub() {
         <p>
           The {siteName} export desk reviews buyer-specific cargo profiles and recommends
           format, sizing, and documentation scope before quote stage. ISO 9001:2015
-          manufacturer certification and per-shipment SDS + COA are standard.
+          certification for silica desiccant and per-shipment SDS + COA are standard.
         </p>
         <div className={styles.ctaRow}>
           <Link href="/request-a-quote" className={styles.primaryCta}>

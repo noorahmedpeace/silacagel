@@ -9,8 +9,10 @@
  * HONESTY DISCIPLINE (same as product-spec.ts and /certifications): only
  * ISO 9001:2015 (cert. 9101225) and a DMF-free statement are claimed. FDA,
  * food-contact, pharma GMP, Halal and REACH are NOT held and must never be
- * implied. Commercial figures (MOQ, exact price, sachet dimensions, count per
- * carton) are quoted per order, so they read "confirmed at quote". The only
+ * implied. There is no minimum order on plain sachets (owner-confirmed; printed
+ * private label is the only exception). Commercial figures (exact price, sachet
+ * dimensions, count per carton) are quoted per order, so they read "confirmed
+ * at quote". The only
  * price figures cited are the indicative USD references already published on
  * /pricing (src/lib/product-data.ts priceGroups).
  *
@@ -197,7 +199,7 @@ export const gramSizeLandingInputs = {
       parts: [
         { text: "DryGelWorld publishes indicative ex-factory USD references for every sachet size on the " },
         { href: "/pricing", label: "silica gel pricing page" },
-        { text: "; the 1g reference there is a few tenths of a US cent per piece before freight, with the exact figure set by material, print, quantity, and Incoterm. MOQ is negotiable: trial orders are supported and volume pricing applies at recurring monthly quantities, with the figure confirmed at quote. Plain 1g sachets ship from stock in about 3-7 days; printed private-label runs add 5-10 days after artwork approval. Bulk buyers who fill their own sachets can compare against " },
+        { text: "; the 1g reference there is a few tenths of a US cent per piece before freight, with the exact figure set by material, print, quantity, and Incoterm. There is no minimum order: trial orders are supported and volume pricing applies at recurring monthly quantities. Plain 1g sachets ship from stock in about 3-7 days; printed private-label runs add 5-10 days after artwork approval. Bulk buyers who fill their own sachets can compare against " },
         { href: "/silica-gel-beads", label: "loose silica gel beads" },
         { text: ", and distributors can review the " },
         { href: "/private-label-desiccant-packets", label: "private-label desiccant packet program" },
@@ -346,7 +348,7 @@ export const gramSizeLandingInputs = {
       parts: [
         { text: "Indicative ex-factory USD references for the 2g size are published on the " },
         { href: "/pricing", label: "pricing page" },
-        { text: ". MOQ is negotiable with trial orders supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. If the pack is smaller, see " },
+        { text: ". There is no minimum order and trial orders are supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. If the pack is smaller, see " },
         { href: "/1g-silica-gel-sachets", label: "1g silica gel sachets" },
         { text: "; if it is a master carton, see " },
         { href: "/5g-silica-gel-sachets", label: "5g" },
@@ -382,7 +384,7 @@ export const gramSizeLandingInputs = {
       {
         question: "What is the MOQ and lead time for 2g sachets?",
         answer:
-          "MOQ is negotiable and confirmed at quote, with trial orders supported. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
+          "There is no minimum order quantity, and trial orders are supported; only printed private-label runs carry a minimum. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
       },
       ...exportFaqs,
     ],
@@ -463,7 +465,7 @@ export const gramSizeLandingInputs = {
       parts: [
         { text: "Indicative ex-factory USD references for the 5g size are published on the " },
         { href: "/pricing", label: "pricing page" },
-        { text: ". MOQ is negotiable with trial orders supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. Footwear and leather buyers should read the " },
+        { text: ". There is no minimum order and trial orders are supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. Footwear and leather buyers should read the " },
         { href: "/blog/silica-gel-for-leather-and-footwear-export", label: "leather and footwear export guide" },
         { text: " and the " },
         { href: "/industries/leather-footwear-export", label: "leather and footwear industry page" },
@@ -499,7 +501,7 @@ export const gramSizeLandingInputs = {
       {
         question: "What is the MOQ and lead time for 5g sachets?",
         answer:
-          "MOQ is negotiable and confirmed at quote, with trial orders supported. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
+          "There is no minimum order quantity, and trial orders are supported; only printed private-label runs carry a minimum. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
       },
       ...exportFaqs,
     ],
@@ -580,7 +582,7 @@ export const gramSizeLandingInputs = {
       parts: [
         { text: "Indicative ex-factory USD references for the 10g size are published on the " },
         { href: "/pricing", label: "pricing page" },
-        { text: ". MOQ is negotiable with trial orders supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. For larger packs see " },
+        { text: ". There is no minimum order and trial orders are supported; plain sachets ship in about 3-7 days from stock and printed runs add 5-10 days after artwork approval. For larger packs see " },
         { href: "/bulk-silica-gel-desiccant", label: "25g-500g bulk silica gel packs" },
         { text: ", and for the container itself see " },
         { href: "/container-desiccant-strips", label: "container desiccant strips" },
@@ -616,7 +618,7 @@ export const gramSizeLandingInputs = {
       {
         question: "What is the MOQ and lead time for 10g sachets?",
         answer:
-          "MOQ is negotiable and confirmed at quote, with trial orders supported. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
+          "There is no minimum order quantity, and trial orders are supported; only printed private-label runs carry a minimum. Plain sachets typically ship from stock in 3-7 days; printed private-label runs add about 5-10 days after artwork approval.",
       },
       ...exportFaqs,
     ],

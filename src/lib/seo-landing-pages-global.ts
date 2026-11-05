@@ -8,10 +8,11 @@
  * search intent (a buyer comparing international sources) from the plain
  * "silica gel supplier" page (a buyer who wants a quote).
  *
- * HONESTY DISCIPLINE: only ISO 9001:2015 (cert. 9101225), the DMF-free
- * statement and FSC packaging for dry clay are claimed. FDA, food-contact,
- * pharma GMP, Halal and REACH are NOT held. The "190+ countries" figure is the
- * company's stated figure (owner-confirmed 2026-09-02) and is labelled as such.
+ * HONESTY DISCIPLINE: only ISO 9001:2015 (cert. 9101225) and the DMF-free
+ * statement are claimed. FDA, food-contact, pharma GMP, Halal and REACH are NOT
+ * held, and no FSC certificate is published, so FSC packaging is not claimed.
+ * The "190+ countries" figure is the company's stated figure (owner-confirmed
+ * 2026-09-02) and is labelled as such.
  */
 
 import type { KeywordClusterInput } from "./seo-landing-pages";
@@ -81,7 +82,7 @@ export const globalSupplierLandingInput = {
       {
         label: "Quality system",
         title: "ISO 9001:2015, verifiable by number",
-        text: "Certificate 9101225 for packaging and supply of silica desiccant, issued by QMEC Group Intl (Essex, UK), valid to 09 December 2028. Every shipment can carry a safety data sheet and a batch certificate of analysis. Dry clay ships in FSC-certified kraft and corrugated packaging.",
+        text: "Certificate 9101225 for packaging and supply of silica desiccant, issued by QMEC Group Intl (Essex, UK), valid to 09 December 2028. Every shipment can carry a safety data sheet and a batch certificate of analysis.",
       },
       {
         label: "Scope",
@@ -238,7 +239,7 @@ export const globalSupplierLandingInput = {
     {
       question: "Does DryGelWorld hold FDA, REACH, or food-contact certification?",
       answer:
-        "No. DryGelWorld holds ISO 9001:2015 (certificate 9101225) and issues a DMF-free statement; dry clay ships in FSC-certified packaging. FDA, food-contact, pharma GMP, Halal, and REACH registration are not held, and the certifications page says so. Buyers in those regulated lanes should confirm the requirement before ordering.",
+        "No. DryGelWorld holds ISO 9001:2015 (certificate 9101225) and issues a DMF-free statement. FDA, food-contact, pharma GMP, Halal, and REACH registration are not held, and the certifications page says so. Buyers in those regulated lanes should confirm the requirement before ordering.",
     },
   ],
 } satisfies KeywordClusterInput;

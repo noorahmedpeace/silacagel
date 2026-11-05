@@ -224,7 +224,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Ho Chi Minh", "CIF Hai Phong", "DAP Vietnam"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Vietnam import tariff for HS 2811.22 and any applicable preferential rate on the official customs tariff before costing:",
       tariffLookup: { label: "Vietnam Customs", href: "https://www.customs.gov.vn/" },
@@ -293,7 +293,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Chittagong", "DAP Bangladesh"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Bangladesh customs duty and supplementary charges for HS 2811.22 on the official National Board of Revenue tariff before costing:",
       tariffLookup: { label: "National Board of Revenue (NBR) Bangladesh", href: "https://nbr.gov.bd/" },
@@ -336,7 +336,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Jakarta", "CIF Surabaya", "DAP Indonesia"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Indonesian import duty and any import-licensing requirement for HS 2811.22 on the official Indonesia National Single Window before costing:",
       tariffLookup: { label: "Indonesia National Single Window (INSW)", href: "https://www.insw.go.id/" },
@@ -465,7 +465,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Mersin", "CIF Istanbul (Ambarli)", "DAP Turkey"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Turkish customs tariff for HS 2811.22 and any applicable preference or additional duty on the official Ministry of Trade resources before costing:",
       tariffLookup: { label: "Türkiye Ministry of Trade", href: "https://www.ticaret.gov.tr/" },
@@ -549,7 +549,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Santos", "DAP Brazil"],
     customs: {
-      hsCode: "NCM 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "NCM 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Brazil applies the Mercosur Common External Tariff (TEC). Check the live import duty and federal taxes for NCM 2811.22 through the official Siscomex resources before costing:",
       tariffLookup: { label: "Siscomex (Brazil foreign trade portal)", href: "https://www.gov.br/siscomex/pt-br" },
@@ -592,7 +592,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (local currency on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Port Klang", "CIF Penang", "DAP Malaysia"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Malaysian import duty and sales tax treatment for HS 2811.22 on the official Royal Malaysian Customs tariff before costing:",
       tariffLookup: { label: "Royal Malaysian Customs Department", href: "https://www.customs.gov.my/" },
@@ -775,7 +775,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (CAD on request)",
     incoterms: ["EXW Karachi", "FOB Karachi", "CIF Vancouver", "CIF Montreal", "DAP Canada"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Canadian Customs Tariff rate for 2811.22 and any preferential tariff treatment available to Pakistan-origin goods in the official CBSA tariff before costing:",
       tariffLookup: { label: "CBSA Canadian Customs Tariff", href: "https://www.cbsa-asfc.gc.ca/trade-commerce/tariff-tarif/menu-eng.html" },
@@ -818,7 +818,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (AUD on request)",
     incoterms: ["FOB Karachi", "CIF Sydney", "CIF Melbourne", "CIF Fremantle", "DAP Australia"],
     customs: {
-      hsCode: "HS 2811.22 (silicon dioxide) — silica gel desiccant",
+      hsCode: "HS 2811.22 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "Check the live Australian tariff rate for 2811.22 and any developing-country preference for Pakistan-origin goods on the official schedule before costing:",
       tariffLookup: { label: "Australian Border Force tariff", href: "https://www.abf.gov.au/importing-exporting-and-manufacturing/tariff-classification" },
@@ -859,7 +859,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (EUR on request)",
     incoterms: ["FOB Karachi", "CIF Le Havre", "CIF Marseille-Fos", "DAP France"],
     customs: {
-      hsCode: "CN 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      hsCode: "CN 2811 22 00 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "France applies the EU common tariff. Check the live conventional rate and the GSP+ preference for Pakistan-origin goods in TARIC before costing:",
       tariffLookup: {
@@ -874,7 +874,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS / FDS on request",
       ],
       regulatoryNotes: [
-        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel — specify cobalt-free orange indicating gel for France-bound orders.",
+        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel, so specify cobalt-free orange indicating gel for France-bound orders.",
         "Leather and footwear programs shipping to France require the DMF-free statement (EU dimethyl fumarate ban); it is issued on manufacturer letterhead with the order.",
       ],
     },
@@ -931,7 +931,7 @@ export const exportMarkets: ExportMarket[] = [
     currency: "Quoted in USD (EUR on request)",
     incoterms: ["FOB Karachi", "CIF Rotterdam", "CIF Antwerp", "CIF Hamburg", "CIF Le Havre", "DAP EU"],
     customs: {
-      hsCode: "CN 2811 22 00 (silicon dioxide) — silica gel desiccant",
+      hsCode: "CN 2811 22 00 (silicon dioxide), silica gel desiccant",
       dutyNote:
         "One EU tariff applies at every member-state port. Check the live conventional rate and the GSP+ preference for Pakistan-origin goods in TARIC before costing:",
       tariffLookup: {
@@ -946,7 +946,7 @@ export const exportMarkets: ExportMarket[] = [
         "SDS on request (local-language SDS where required)",
       ],
       regulatoryNotes: [
-        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel — specify cobalt-free orange indicating gel for EU-bound orders.",
+        "EU REACH Annex XVII restricts cobalt-chloride blue indicating gel, so specify cobalt-free orange indicating gel for EU-bound orders.",
         "REACH registration is not currently held by DryGelWorld; confirm the buyer's compliance requirement before commercial terms.",
       ],
     },

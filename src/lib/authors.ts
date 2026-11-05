@@ -29,11 +29,11 @@ export const authors: Author[] = [
     shortBio:
       "Noor Ahmed Khan owns and runs DryGelWorld, the Karachi silica gel and desiccant manufacturer operating as Kamran Enterprises since 1983, and personally leads its B2B export desk.",
     bio:
-      "Noor Ahmed Khan is the owner and managing director of DryGelWorld (legal entity: Kamran Enterprises), the Karachi-based silica gel and desiccant manufacturer operating since 1983. He personally handles international RFQs, MOQ and pricing decisions, documentation (ISO 9001:2015 references, SDS, COA, DMF-free statements), and dispatch planning for buyers across 190+ markets - and reviews the buyer guides published on this site against what actually happens in production and export shipments. Editorial scope is limited to products, packaging, and export logistics the company handles directly; regulatory claims are limited to certifications actually held (ISO 9001:2015 and a DMF-free statement).",
+      "Noor Ahmed Khan is the owner and managing director of DryGelWorld (legal entity: Kamran Enterprises), the Karachi-based silica gel and desiccant manufacturer operating since 1983. He personally handles international RFQs, MOQ and pricing decisions, documentation (ISO 9001:2015 references, SDS, COA, DMF-free statements), and dispatch planning for buyers across 190+ markets (company figure) - and reviews the buyer guides published on this site against what actually happens in production and export shipments. Editorial scope is limited to products, packaging, and export logistics the company handles directly; regulatory claims are limited to certifications actually held (ISO 9001:2015 and a DMF-free statement).",
     credentials: [
       "Owner & Managing Director, DryGelWorld / Kamran Enterprises (manufacturing since 1983)",
-      "Runs the B2B export desk serving buyers in 190+ markets",
-      "Operates an ISO 9001:2015-certified manufacturing programme",
+      "Runs the B2B export desk serving buyers in 190+ markets (company figure)",
+      "Operates an ISO 9001:2015-certified silica desiccant packaging and supply programme",
       "Direct responsibility for SDS, COA, and DMF-free documentation on every shipment",
     ],
     topics: [
@@ -53,13 +53,13 @@ export const authors: Author[] = [
     name: "DryGelWorld Export Desk",
     role: "B2B Export Procurement Team, DryGelWorld",
     shortBio:
-      "DryGelWorld's export procurement team handles RFQ qualification, format/MOQ sizing, and documentation for industrial silica gel buyers across 190+ markets.",
+      "DryGelWorld's export procurement team handles RFQ qualification, format/MOQ sizing, and documentation for industrial silica gel buyers across 190+ markets (company figure).",
     bio:
-      "The DryGelWorld Export Desk is the buyer-facing team at DryGelWorld, the Karachi-based silica gel and desiccant manufacturer operating since 1983. The team handles RFQ qualification, format and MOQ sizing for international buyers, documentation routing (ISO 9001:2015, SDS, COA, DMF-free statements), and shipment planning across silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE lines. The desk publishes buyer-intent guides for procurement teams in 190+ countries that import from Karachi. Editorial scope is strictly limited to product, packaging, and export logistics that the desk handles directly. Regulatory claims are limited to certifications actually held, currently ISO 9001:2015 and a DMF-free statement. FDA, REACH-specific food-contact, JEDEC, and pharma DMF certifications are not currently held and are never claimed.",
+      "The DryGelWorld Export Desk is the buyer-facing team at DryGelWorld, the Karachi-based silica gel and desiccant manufacturer operating since 1983. The team handles RFQ qualification, format and MOQ sizing for international buyers, documentation routing (ISO 9001:2015, SDS, COA, DMF-free statements), and shipment planning across silica gel sachets, container desiccants, bulk silica gel beads, dry clay desiccant, and industrial PPE lines. The desk publishes buyer-intent guides for procurement teams in 190+ countries (company figure) that import from Karachi. Editorial scope is strictly limited to product, packaging, and export logistics that the desk handles directly. Regulatory claims are limited to certifications actually held, currently ISO 9001:2015 and a DMF-free statement. FDA, REACH-specific food-contact, JEDEC, and pharma DMF certifications are not currently held and are never claimed.",
     credentials: [
       "ISO 9001:2015 certified manufacturer",
       "Manufacturing since 1983, with over four decades of silica gel production",
-      "Active export to 190+ countries across Middle East, EU, USA, Africa, and Asia-Pacific",
+      "Active export to 190+ countries (company figure) across Middle East, EU, USA, Africa, and Asia-Pacific",
       "DMF-free statement available per shipment",
       "SDS and COA documentation per export shipment",
     ],
