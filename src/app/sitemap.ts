@@ -17,13 +17,15 @@ import { supplierComparisons } from "@/lib/supplier-compare-data";
 import { caseStudies } from "@/lib/case-study-data";
 
 // Industry slugs are mirrored from src/app/industries/[industry]/page.tsx - keep both in sync.
+// Exception: "container-shipping" still has page data there but is a 301
+// source since 5 Nov 2026 (-> /shipping-container-desiccant-supplier), so it
+// is deliberately left out of this list.
 const INDUSTRY_SLUGS = [
   "electronics-packaging",
   "pharma-packaging",
   "leather-footwear-export",
   "food-packaging",
   "textile-garment-export",
-  "container-shipping",
   "automotive-parts",
   "defense-and-ammunition-packaging",
 ] as const;
@@ -65,6 +67,21 @@ const REDIRECTED_SLUGS = new Set<string>([
   "desiccant-bags",
   "desiccants-for-pharma-industry",
   "hair-nets-for-food-industry",
+  // Duplicate-cluster consolidation, 5 Nov 2026 (see next.config.ts).
+  // "drygelworld" and "private-label-desiccant-packets" have their own app
+  // routes but are also landing keys, so the landing loop below would emit
+  // them (drygelworld only stayed out because it was a STATIC_ROUTES entry).
+  "private-label-silica-gel-supplier",
+  "private-label-desiccant-packets",
+  "oem-silica-gel-manufacturer",
+  "silica-gel-supplier-uk",
+  "global-silica-gel-supplier",
+  "silica-gel-manufacturer-china-alternative",
+  "hair-net-supplier",
+  "food-grade-hair-nets",
+  "disposable-hair-nets",
+  "beard-cover-supplier",
+  "drygelworld",
 ]);
 
 const STATIC_ROUTES = [
@@ -84,14 +101,14 @@ const STATIC_ROUTES = [
   "/documentation",
   "/certifications",
   "/dispensers",
-  "/bulk-sales",
+  // "/bulk-sales" and "/drygelworld" left this list on 5 Nov 2026: both are
+  // 301 sources now (see next.config.ts).
   "/private-label",
   "/videos",
   "/contract-packaging-services",
   "/soap-packing-services",
   "/flow-wrap-packing-services",
   "/export",
-  "/drygelworld",
   "/compare",
   "/compare/suppliers",
   "/guides",
@@ -121,7 +138,6 @@ const staticRouteImages: Partial<Record<(typeof STATIC_ROUTES)[number], string[]
   "/guides/silica-gel-buyer-guide": [seoImages.buyerGuideProcess.src],
   "/guides/desiccant-quantity-guide": [seoImages.containerHumidityDamage.src],
   "/case-studies": [seoImages.moistureProtection.src],
-  "/bulk-sales": [seoImages.industrialBulk.src],
   "/private-label": [seoImages.privateLabelPackaging.src],
   "/documentation": [seoImages.pharmaDesiccant.src],
 };

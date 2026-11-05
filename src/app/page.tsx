@@ -165,7 +165,7 @@ const scrollyIndustries = [
     overline: "Container Moisture Control",
     image: seoImages.containerDesiccant.src,
     description: "Container-scale desiccant support for export shipments exposed to condensation, humid routes, and long ocean transit.",
-    href: "/industries/container-shipping",
+    href: "/shipping-container-desiccant-supplier",
   },
 ];
 

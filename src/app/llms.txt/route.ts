@@ -140,7 +140,7 @@ indicator cards are documented per supplied lot.
 
 ## Core resources
 
-- [Global silica gel supplier](${absoluteUrl("/global-silica-gel-supplier")}): entity facts, worldwide supply map, sourcing FAQs
+- [Silica gel supplier](${absoluteUrl("/silica-gel-supplier")}): packets, bulk beads, cargo strips, and private label from one supplier, no minimum order
 - [Indicative price list](${absoluteUrl("/pricing")}): USD ranges per size, no minimum order quantity, Incoterms
 - [1g silica gel sachets](${absoluteUrl("/1g-silica-gel-sachets")}): dosage, materials, custom print, MOQ, export terms for the 1 g size
 - [2g](${absoluteUrl("/2g-silica-gel-sachets")}), [5g](${absoluteUrl("/5g-silica-gel-sachets")}) and [10g](${absoluteUrl("/10g-silica-gel-sachets")}) silica gel sachets: per-size dosage and applications

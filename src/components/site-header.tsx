@@ -93,7 +93,7 @@ const navGroups: NavGroup[] = [
       { label: "Food packaging", href: "/industries/food-packaging", icon: Apple, desc: "Dry goods & food cartons" },
       { label: "Leather & footwear", href: "/industries/leather-footwear-export", icon: Footprints, desc: "Mould risk on long hauls" },
       { label: "Textile & garment", href: "/industries/textile-garment-export", icon: Shirt, desc: "Mildew & dye-migration control" },
-      { label: "Container shipping", href: "/industries/container-shipping", icon: Ship, desc: "Container rain & condensation" },
+      { label: "Container shipping", href: "/shipping-container-desiccant-supplier", icon: Ship, desc: "Container rain & condensation" },
       { label: "Automotive parts", href: "/industries/automotive-parts", icon: Car, desc: "Rust on exported metal parts" },
       { label: "Defense & ammunition", href: "/industries/defense-and-ammunition-packaging", icon: Target, desc: "Corrosion control to MIL/DIN spec" },
     ],
@@ -105,7 +105,7 @@ const navGroups: NavGroup[] = [
     href: "/export",
     children: [
       { label: "Export hub", href: "/export", icon: Globe, desc: "Incoterms, MOQ & markets" },
-      { label: "Global silica gel supplier", href: "/global-silica-gel-supplier", icon: Globe, desc: "Worldwide supply map & entity facts" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier", icon: Globe, desc: "All formats, worldwide delivery" },
       { label: "USA", href: "/export/usa", icon: MapPin },
       { label: "United Kingdom", href: "/export/uk", icon: MapPin },
       { label: "Germany", href: "/export/germany", icon: MapPin },

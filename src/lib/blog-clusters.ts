@@ -50,7 +50,9 @@ const IND_ELECTRONICS: ClusterLink = { label: "Electronics packaging", href: "/i
 const IND_LEATHER: ClusterLink = { label: "Leather and footwear export", href: "/industries/leather-footwear-export" };
 const IND_FOOD: ClusterLink = { label: "Food packaging", href: "/industries/food-packaging" };
 const IND_TEXTILE: ClusterLink = { label: "Textile and garment export", href: "/industries/textile-garment-export" };
-const IND_SHIPPING: ClusterLink = { label: "Container shipping", href: "/industries/container-shipping" };
+// No IND_SHIPPING: /industries/container-shipping 301s to the supplier page
+// since 5 Nov 2026, so container articles carry COMMERCIAL_CONTAINER instead
+// of linking the same page twice from one column.
 
 // Commercial supplier landing pages (converting RFQ pages), linked from the
 // topically-matched informational blogs that previously had no path to them.
@@ -114,7 +116,6 @@ export const blogClusters: Record<string, BlogCluster> = {
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
     compare: COMPARE_CLAY,
-    industry: IND_SHIPPING,
     tool: TOOL_CONTAINER,
     commercial: COMMERCIAL_CONTAINER,
   },
@@ -126,7 +127,6 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("moisture-protection-for-international-shipping", "Moisture protection for international shipping"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
-    industry: IND_SHIPPING,
     tool: TOOL_CONTAINER,
     commercial: COMMERCIAL_CONTAINER,
   },
@@ -269,7 +269,6 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("container-desiccant-vs-silica-gel", "Container desiccant vs silica gel"),
     ],
     products: [PRODUCT_CONTAINER, PRODUCT_BULK],
-    industry: IND_SHIPPING,
     commercial: COMMERCIAL_CONTAINER,
   },
   "ppe-products-for-factories": {
@@ -451,7 +450,7 @@ export const blogClusters: Record<string, BlogCluster> = {
       guide("how-to-prevent-moisture-in-export-cartons", "Preventing moisture in export cartons"),
     ],
     products: [PRODUCT_PAPER, PRODUCT_CONTAINER],
-    industry: IND_SHIPPING,
+    commercial: COMMERCIAL_CONTAINER,
   },
   "how-to-regenerate-silica-gel-oven-temperature-guide": {
     guides: [

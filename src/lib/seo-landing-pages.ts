@@ -596,7 +596,6 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Global silica gel supplier (worldwide map)", href: "/global-silica-gel-supplier" },
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
       { label: "Export markets", href: "/export" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
@@ -719,7 +718,6 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Global silica gel supplier (worldwide map)", href: "/global-silica-gel-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Export markets", href: "/export" },
@@ -932,7 +930,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Packet size, material, quantity, print scope, carton packing, destination, documents",
     relatedLinks: [
       { label: "Silica gel packets", href: "/silica-gel-packets" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Private label program", href: "/private-label" },
     ],
     faqs: [
       { question: "What sizes can silica gel packet buyers request?", answer: "Common sizes include 0.5g, 1g, 2g, 3g, 5g, 10g, and 20g, with custom options discussed by MOQ." },
@@ -970,7 +968,7 @@ const highIntentSeoLandingPages = {
     quoteBasis: "Packet size, units per carton, cartons per shipment, destination, documents, repeat schedule",
     relatedLinks: [
       { label: "Packet manufacturer", href: "/silica-gel-packets" },
-      { label: "Private label silica gel", href: "/private-label-silica-gel-supplier" },
+      { label: "Private label silica gel", href: "/private-label" },
       { label: "Bulk silica gel", href: "/bulk-silica-gel-desiccant" },
     ],
     faqs: [
@@ -1124,7 +1122,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "Export markets", href: "/export" },
       { label: "Pakistan manufacturer", href: "/silica-gel-manufacturer-pakistan" },
-      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
+      { label: "Private label and OEM", href: "/private-label" },
     ],
     faqs: [
       { question: "Why search for a China alternative silica gel manufacturer?", answer: "Buyers may want supplier diversification, different communication paths, private-label support, or alternate export routes." },
@@ -1253,8 +1251,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Starting print or label work without confirming MOQ, material, copy, and compliance wording",
     quoteBasis: "Packet size, artwork, text, quantity, carton labels, destination, documents",
     relatedLinks: [
-      { label: "Private-label silica gel", href: "/private-label-silica-gel-supplier" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Private-label silica gel", href: "/private-label" },
       { label: "Silica gel packets manufacturer", href: "/silica-gel-packets" },
     ],
     faqs: [
@@ -1274,8 +1271,8 @@ const highIntentSeoLandingPages = {
       "Use this page to plan buyer-specific silica gel packets with correct text, gram size, material, carton labels, MOQ, and document requirements.",
     searchIntent: "For brands and distributors comparing printed packet MOQ, artwork, materials, documents, and repeat supply",
     primaryCta: "Request Private Label Quote",
-    secondaryCta: "OEM Silica Gel",
-    secondaryHref: "/oem-silica-gel-manufacturer",
+    secondaryCta: "Private Label Program",
+    secondaryHref: "/private-label",
     proofPoints: ["Printed packets", "Buyer labels", "OEM programs", "SDS / COA support"],
     image: "/products/procurement-checks-silica-sachets.webp",
     imageAlt: "Private label silica gel packet RFQ and packaging program",
@@ -1327,8 +1324,7 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Private label and OEM", href: "/private-label" },
       { label: "Documents hub", href: "/documentation" },
       { label: "Silica gel packet sizes", href: "/silica-gel-packets" },
       { label: "Pricing process", href: "/pricing" },
@@ -1405,8 +1401,6 @@ const highIntentSeoLandingPages = {
       ],
     },
     relatedLinks: [
-      { label: "Private-label silica gel supplier", href: "/private-label-silica-gel-supplier" },
-      { label: "OEM silica gel manufacturer", href: "/oem-silica-gel-manufacturer" },
       { label: "Silica gel packets", href: "/silica-gel-packets" },
       { label: "Documents hub", href: "/documentation" },
       { label: "Pricing process", href: "/pricing" },
@@ -1945,7 +1939,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Choosing a supplier without confirmed sizing, color zoning, or carton count alignment",
     quoteBasis: "Diameter, color, carton count, monthly volume, destination",
     relatedLinks: [
-      { label: "Beard cover supplier", href: "/beard-cover-supplier" },
+      { label: "Beard covers product page", href: "/products/beard-covers" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
       { label: "Request quote", href: "/request-a-quote" },
     ],
@@ -1989,7 +1983,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Mismatched PPE programs (hair net without beard cover) or wrong carton count for production-line use",
     quoteBasis: "Carton count, monthly volume, destination, packaging",
     relatedLinks: [
-      { label: "Hair net supplier", href: "/hair-net-supplier" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
       { label: "Request quote", href: "/request-a-quote" },
     ],
@@ -2033,8 +2027,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Confusing industrial-safety PPE with formally certified food-grade product without confirming destination compliance requirements",
     quoteBasis: "Diameter, color zone, carton count, monthly volume, compliance requirement, destination",
     relatedLinks: [
-      { label: "Hair net supplier", href: "/hair-net-supplier" },
-      { label: "Beard cover supplier", href: "/beard-cover-supplier" },
+      { label: "Beard covers product page", href: "/products/beard-covers" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
@@ -2079,7 +2072,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Sourcing hair nets without confirmed sizing, color zoning, or destination labeling alignment",
     quoteBasis: "Diameter, color, carton count, monthly volume, destination emirate, labeling language",
     relatedLinks: [
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
       { label: "UAE export market", href: "/export/uae" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
@@ -2167,7 +2159,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Assuming FDA or FSSC compliance from generic industrial-safety PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, US port (East / West), Incoterms, private-label requirement",
     relatedLinks: [
-      { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
       { label: "USA export market", href: "/export/usa" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
@@ -2299,7 +2290,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Sourcing PPE without confirmed sizing, color zoning, or SASO documentation alignment",
     quoteBasis: "Diameter, color, carton count, monthly volume, destination port, labeling language",
     relatedLinks: [
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
       { label: "Saudi export market", href: "/export/saudi-arabia" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
@@ -2345,7 +2335,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "20 inch hair nets", href: "/20-inch-hair-nets" },
       { label: "22 inch hair nets", href: "/22-inch-hair-nets" },
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
       { question: "Who uses 18 inch hair nets?", answer: "Workers with smaller head sizes, snug-fit zones in food production, or programs that need closer-fitting PPE. Pairs well with 20\"-22\" inventory for full workforce coverage." },
@@ -2389,7 +2379,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "18 inch hair nets", href: "/18-inch-hair-nets" },
       { label: "20 inch hair nets", href: "/20-inch-hair-nets" },
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
       { question: "Why pick 22 inch over 20 inch?", answer: "22 inch is the workhorse size for most adult workforces and accommodates tied-back long hair. 20 inch is a mid-range option; 22\" gives more coverage margin." },
@@ -2433,7 +2423,7 @@ const highIntentSeoLandingPages = {
     relatedLinks: [
       { label: "18 inch hair nets", href: "/18-inch-hair-nets" },
       { label: "22 inch hair nets", href: "/22-inch-hair-nets" },
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
     faqs: [
       { question: "Is 20 inch the most common hair net size?", answer: "Yes - 20 inch covers the majority of adult head sizes and is the default starting stock for most B2B PPE programs." },
@@ -2475,8 +2465,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Switching to reusable nets at a workforce scale where disposable is still cheaper (typically <50-100 employees)",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
-      { label: "Food-grade hair nets", href: "/food-grade-hair-nets" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
       { label: "PPE for factories blog", href: "/blog/ppe-products-for-factories" },
     ],
     faqs: [
@@ -2751,8 +2740,8 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Under-ordering beard covers relative to male workforce headcount - plan ~30-50% of male shift coverage",
     quoteBasis: "Carton count, monthly volume, destination, labeling, private-label requirement",
     relatedLinks: [
-      { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
-      { label: "Hair net supplier", href: "/hair-net-supplier" },
+      { label: "Beard covers product page", href: "/products/beard-covers" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
       { label: "PPE for factories blog", href: "/blog/ppe-products-for-factories" },
     ],
     faqs: [
@@ -2795,7 +2784,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Assuming EN 14126 or FSSC compliance from generic industrial PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, UK port, Incoterms, private-label requirement, post-Brexit documentation",
     relatedLinks: [
-      { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
       { label: "UK export market", href: "/export/uk" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
@@ -2883,9 +2871,8 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Specifying Tyvek when non-woven PP would meet the program requirement at lower cost",
     quoteBasis: "Carton count, monthly volume, color, destination, labeling",
     relatedLinks: [
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
-      { label: "Disposable hair nets", href: "/disposable-hair-nets" },
-      { label: "Food-grade hair nets", href: "/food-grade-hair-nets" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
+      { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
     faqs: [
       { question: "Non-woven polypropylene vs Tyvek for hair nets?", answer: "Non-woven PP is the cost-effective B2B default. Tyvek is preferred for cleanroom-grade pharma and electronics programs because of its low-shed profile. DryGelWorld currently supplies non-woven PP; Tyvek format is on the expansion roadmap." },
@@ -2927,7 +2914,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Assuming FDA / FSSC compliance from generic industrial-safety PPE without explicit certification confirmation",
     quoteBasis: "Diameter, color, carton count, monthly volume, US port (East / West), Incoterms",
     relatedLinks: [
-      { label: "Hair net supplier (general)", href: "/hair-net-supplier" },
       { label: "USA export market", href: "/export/usa" },
       { label: "Hair nets product page", href: "/products/hair-nets" },
     ],
@@ -2971,7 +2957,6 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Assuming SASO or Halal coverage from industrial PPE without explicit certification confirmation",
     quoteBasis: "Carton count, monthly volume, destination port (Jeddah vs Dammam), Incoterms, labeling",
     relatedLinks: [
-      { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
       { label: "Saudi export market", href: "/export/saudi-arabia" },
       { label: "Beard covers product page", href: "/products/beard-covers" },
     ],
@@ -3059,7 +3044,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Specifying Tyvek when non-woven PP would meet the program requirement at significantly lower cost",
     quoteBasis: "Carton count, monthly volume, destination, labeling, private-label requirement",
     relatedLinks: [
-      { label: "Beard cover supplier (general)", href: "/beard-cover-supplier" },
+      { label: "Beard covers product page", href: "/products/beard-covers" },
       { label: "Non-woven hair nets", href: "/non-woven-hair-nets" },
       { label: "Disposable beard covers", href: "/disposable-beard-covers" },
     ],
@@ -3147,7 +3132,7 @@ const highIntentSeoLandingPages = {
     buyerRisk: "Skipping color zoning - single-color PPE programs lose the visual cross-contamination prevention that color zoning provides",
     quoteBasis: "Diameter mix, color split (green/white), carton count, monthly volume, destination, labeling",
     relatedLinks: [
-      { label: "Food-grade hair nets", href: "/food-grade-hair-nets" },
+      { label: "Hair nets product page", href: "/products/hair-nets" },
       { label: "Food packaging industry page", href: "/industries/food-packaging" },
       { label: "Hair nets food export blog", href: "/blog/why-hair-nets-matter-in-food-export" },
     ],
@@ -3497,7 +3482,7 @@ export const seoLandingPages = {
       // only footer boilerplate connecting them.
       { label: "Silica gel manufacturer in Pakistan", href: "/silica-gel-manufacturer-pakistan" },
       { label: "Small sachet product page", href: "/products/retail-sachets" },
-      { label: "Private label packets", href: "/private-label-desiccant-packets" },
+      { label: "Private label program", href: "/private-label" },
       { label: "Silica gel vs oxygen absorber", href: "/compare/silica-gel-vs-oxygen-absorber" },
       { label: "Packet sizing guide", href: "/blog/how-to-choose-silica-gel-packet-size" },
       { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
@@ -3540,7 +3525,7 @@ export const seoLandingPages = {
       "For distributors, repackers, warehouses, and industrial buyers comparing loose kg, finished bags, pallets, documents, and repeat supply.",
     primaryCta: "Request Bulk Quote",
     secondaryCta: "Use Calculator",
-    secondaryHref: "/bulk-sales",
+    secondaryHref: "/tools/silica-gel-calculator",
     proofPoints: ["1kg-25kg bulk formats", "250g / 500g packs", "Pallet planning", "Recurring supply quotes"],
     heroImage: {
       src: "/products/premium-bulk-supply.webp",
@@ -3702,8 +3687,8 @@ export const seoLandingPages = {
       heading: "Plan your bulk order before you request a quote",
       parts: [
         { text: "Estimate format, quantity, and weight with our " },
-        { href: "/bulk-sales", label: "bulk silica gel sales planning" },
-        { text: " tools, review the " },
+        { href: "/tools/silica-gel-calculator", label: "silica gel calculator" },
+        { text: ", review the " },
         { href: "/pricing", label: "indicative export price ranges" },
         { text: ", and check the " },
         { href: "/documentation", label: "available SDS and COA documents" },
@@ -3715,7 +3700,7 @@ export const seoLandingPages = {
       { label: "0.5kg bags instead of loose gel", href: "/silica-gel-bags-0-5kg" },
       { label: "Bulk product page", href: "/products/bulk-industrial" },
       { label: "Bulk silica gel vs packets", href: "/compare/bulk-silica-gel-vs-packets" },
-      { label: "Bulk sales calculator", href: "/bulk-sales" },
+      { label: "Silica gel calculator", href: "/tools/silica-gel-calculator" },
       { label: "Export support", href: "/export" },
       { label: "Indicative pricing", href: "/pricing" },
       { label: "Bulk supplier checklist", href: "/blog/bulk-silica-gel-supplier-checklist" },
@@ -6526,7 +6511,6 @@ export const seoLandingPages = {
       { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
       { label: "Silica gel vs calcium chloride for containers", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
       { label: "Container desiccant calculator", href: "/tools/container-desiccant-calculator" },
-      { label: "Container shipping industry", href: "/industries/container-shipping" },
     ],
     faqs: [
       {
@@ -7041,7 +7025,7 @@ export const seoLandingPages = {
       heading: "Where to go from the brand page",
       parts: [
         { text: "For the worldwide picture, see " },
-        { href: "/global-silica-gel-supplier", label: "DryGelWorld as a global silica gel supplier" },
+        { href: "/silica-gel-supplier", label: "DryGelWorld as a silica gel supplier" },
         { text: "; for how the product is made and documented, the " },
         { href: "/silica-gel-manufacturer", label: "silica gel manufacturer page" },
         { text: "; for company history and the honest-scope list, " },
@@ -7072,7 +7056,7 @@ export const seoLandingPages = {
     ],
     relatedLinks: [
       { label: "Official homepage", href: "/" },
-      { label: "Global silica gel supplier", href: "/global-silica-gel-supplier" },
+      { label: "Silica gel supplier", href: "/silica-gel-supplier" },
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "About DryGelWorld", href: "/about" },
       { label: "Certifications", href: "/certifications" },
@@ -7127,8 +7111,10 @@ export function getSeoLandingPage(slug: SeoLandingSlug) {
 // shared template, mostly orphaned and reachable only via the sitemap). They
 // stay LIVE for direct and paid traffic, but are noindexed and dropped from
 // the sitemap so a mass of thin doorway variants stops dragging the whole
-// domain's site-wide quality signal. Category-head pages (e.g.
-// "hair-net-supplier", "food-grade-hair-nets") deliberately stay indexed. The
+// domain's site-wide quality signal. The category-head pages that used to
+// stay indexed ("hair-net-supplier", "food-grade-hair-nets",
+// "disposable-hair-nets", "beard-cover-supplier") are 301 sources since
+// 5 Nov 2026, pointing at /products/hair-nets and /products/beard-covers. The
 // `satisfies` clause makes an invalid slug a build error.
 const NOINDEX_LANDING_SLUGS = [
   "hair-net-supplier-uae",

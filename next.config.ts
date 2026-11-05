@@ -297,9 +297,102 @@ const nextConfig: NextConfig = {
         destination: "/pharmaceutical-desiccant",
         permanent: true,
       },
+      // Pointed straight at the hair-nets product page on 5 Nov 2026, when its
+      // old destination /food-grade-hair-nets became a redirect source too
+      // (see below). One hop, not a chain.
       {
         source: "/hair-nets-for-food-industry",
-        destination: "/food-grade-hair-nets",
+        destination: "/products/hair-nets",
+        permanent: true,
+      },
+      // Duplicate-cluster consolidation, 5 Nov 2026.
+      //
+      // Search Console audit, 90 days per source. Each page below competed with
+      // a stronger page for the same queries and earned little or nothing on
+      // its own. The survivor keeps the URL; the source page files and data
+      // entries stay in the repo (this redirect runs before the route), and
+      // every source is out of the sitemap (REDIRECTED_SLUGS / STATIC_ROUTES /
+      // INDUSTRY_SLUGS in src/app/sitemap.ts).
+      //
+      // /bulk-sales: 489 impr at pos 48.9, 1 click, and "USA" in a title for a
+      // page that is not US-specific. The bulk landing page is the survivor.
+      {
+        source: "/bulk-sales",
+        destination: "/bulk-silica-gel-desiccant",
+        permanent: true,
+      },
+      // Private-label / OEM family -> /private-label. Google already prefers
+      // it: /private-label 633 impr at 12.6 vs /private-label-desiccant-packets
+      // at 44.8. /oem-silica-gel-manufacturer 181 impr at 55.6, 0 clicks;
+      // /private-label-silica-gel-supplier 21 impr.
+      {
+        source: "/private-label-silica-gel-supplier",
+        destination: "/private-label",
+        permanent: true,
+      },
+      {
+        source: "/private-label-desiccant-packets",
+        destination: "/private-label",
+        permanent: true,
+      },
+      {
+        source: "/oem-silica-gel-manufacturer",
+        destination: "/private-label",
+        permanent: true,
+      },
+      // UK landing twin -> the UK market page. Its one unique block (the
+      // Felixstowe / Southampton / London Gateway / Liverpool port note) was
+      // moved into the uk entry of src/app/export/markets.ts first.
+      {
+        source: "/silica-gel-supplier-uk",
+        destination: "/export/uk",
+        permanent: true,
+      },
+      // 230 impr, 0 clicks: the generic supplier page is the survivor.
+      {
+        source: "/global-silica-gel-supplier",
+        destination: "/silica-gel-supplier",
+        permanent: true,
+      },
+      // Orphan, 33 impr, 0 clicks.
+      {
+        source: "/silica-gel-manufacturer-china-alternative",
+        destination: "/silica-gel-manufacturer",
+        permanent: true,
+      },
+      // 480 impr at pos 47.3, 0 clicks, absorbing container-desiccant queries
+      // the supplier page ranks 4.8 for. The /industries card now links the
+      // supplier page directly.
+      {
+        source: "/industries/container-shipping",
+        destination: "/shipping-container-desiccant-supplier",
+        permanent: true,
+      },
+      // PPE landing pages -> the product pages that carry the specs.
+      {
+        source: "/hair-net-supplier",
+        destination: "/products/hair-nets",
+        permanent: true,
+      },
+      {
+        source: "/food-grade-hair-nets",
+        destination: "/products/hair-nets",
+        permanent: true,
+      },
+      {
+        source: "/disposable-hair-nets",
+        destination: "/products/hair-nets",
+        permanent: true,
+      },
+      {
+        source: "/beard-cover-supplier",
+        destination: "/products/beard-covers",
+        permanent: true,
+      },
+      // Brand page duplicated the homepage brand title: 201 impr, 1 click.
+      {
+        source: "/drygelworld",
+        destination: "/about",
         permanent: true,
       },
     ];

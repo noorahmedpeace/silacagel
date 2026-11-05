@@ -320,7 +320,7 @@ export default function ContractPackagingPage() {
           spec page. Or
           for our own products: <Link href="/private-label">private-label desiccant packets</Link>,{" "}
           <Link href="/products">the product range</Link>, and{" "}
-          <Link href="/bulk-sales">bulk supply</Link>.
+          <Link href="/bulk-silica-gel-desiccant">bulk supply</Link>.
         </p>
       </section>
     </main>

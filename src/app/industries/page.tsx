@@ -7,9 +7,14 @@ import styles from "../strategy-pages.module.css";
 
 // Hub index for the /industries/[industry] cluster. Mirrors the slugs in
 // industries/[industry]/page.tsx - keep both in sync if industries are added.
-const industries = [
+// `slug` picks the card image; `href` overrides the link where the industry
+// page itself is a 301 source. /industries/container-shipping redirects to the
+// supplier page since 5 Nov 2026, so its card links there directly instead of
+// sending every click (and the ItemList below) through a redirect.
+const industries: ReadonlyArray<{ slug: string; title: string; blurb: string; href?: string }> = [
   {
     slug: "container-shipping",
+    href: "/shipping-container-desiccant-supplier",
     title: "Container Shipping & Ocean Freight",
     blurb:
       "Container desiccant strips and bulk silica gel for sealed 20ft/40ft ocean freight and condensation cycling.",
@@ -56,7 +61,11 @@ const industries = [
     blurb:
       "Corrosion and condensation control for defense components, ammunition, and military spare parts - MIL/DIN unit counts quoted to buyer spec.",
   },
-] as const;
+];
+
+function industryHref(industry: (typeof industries)[number]) {
+  return industry.href ?? `/industries/${industry.slug}`;
+}
 
 const pageTitle = "Industries We Serve - Silica Gel & Desiccant Applications";
 const pageDescription =
@@ -102,7 +111,7 @@ export default function IndustriesHubPage() {
           "@type": "ListItem",
           position: index + 1,
           name: industry.title,
-          url: absoluteUrl(`/industries/${industry.slug}`),
+          url: absoluteUrl(industryHref(industry)),
         })),
       },
       { "@type": breadcrumb["@type"], itemListElement: breadcrumb.itemListElement },
@@ -139,7 +148,7 @@ export default function IndustriesHubPage() {
             return (
               <Link
                 className={styles.articleCard}
-                href={`/industries/${industry.slug}`}
+                href={industryHref(industry)}
                 key={industry.slug}
               >
                 <figure className={styles.articleCardVisual}>

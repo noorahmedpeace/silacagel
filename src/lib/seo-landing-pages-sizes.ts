@@ -202,7 +202,7 @@ export const gramSizeLandingInputs = {
         { text: "; the 1g reference there is a few tenths of a US cent per piece before freight, with the exact figure set by material, print, quantity, and Incoterm. There is no minimum order: trial orders are supported and volume pricing applies at recurring monthly quantities. Plain 1g sachets ship from stock in about 3-7 days; printed private-label runs add 5-10 days after artwork approval. Bulk buyers who fill their own sachets can compare against " },
         { href: "/silica-gel-beads", label: "loose silica gel beads" },
         { text: ", and distributors can review the " },
-        { href: "/private-label-desiccant-packets", label: "private-label desiccant packet program" },
+        { href: "/private-label", label: "private-label desiccant packet program" },
         { text: ". For import duty and paperwork by country, see the " },
         { href: "/blog/silica-gel-import-customs-hs-code-guide", label: "silica gel HS code and customs guide" },
         { text: "." },

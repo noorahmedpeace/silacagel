@@ -53,7 +53,6 @@ export const caseStudies: CaseStudy[] = [
       { label: "Dosage calculator", href: "/tools/container-desiccant-calculator" },
     ],
     nextLinks: [
-      { label: "Container shipping industry", href: "/industries/container-shipping" },
       { label: "Container rain prevention", href: "/blog/container-rain-prevention" },
       { label: "Request UAE container quote", href: "/request-a-quote" },
     ],
@@ -159,7 +158,6 @@ export const caseStudies: CaseStudy[] = [
     ],
     nextLinks: [
       { label: "Container rain guide", href: "/blog/container-rain-prevention" },
-      { label: "Container shipping industry", href: "/industries/container-shipping" },
       { label: "Request cargo quote", href: "/request-a-quote" },
     ],
     faqs: [

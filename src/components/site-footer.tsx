@@ -173,7 +173,8 @@ const footerColumns: FooterColumn[] = [
         href: "/industries/leather-footwear-export",
       },
       { label: "Food packaging", href: "/industries/food-packaging" },
-      { label: "Container shipping", href: "/industries/container-shipping" },
+      // The industry page 301s here since 5 Nov 2026 (next.config.ts).
+      { label: "Container shipping", href: "/shipping-container-desiccant-supplier" },
       {
         label: "Textile and garment export",
         href: "/industries/textile-garment-export",
@@ -197,7 +198,6 @@ const footerColumns: FooterColumn[] = [
       { label: "UK supplier", href: "/export/uk" },
       { label: "Germany supplier", href: "/export/germany" },
       { label: "India supplier", href: "/export/india" },
-      { label: "Silica gel supplier UK", href: "/silica-gel-supplier-uk" },
     ],
     viewAll: { label: "All export markets", href: "/export" },
   },
@@ -235,17 +235,14 @@ const footerColumns: FooterColumn[] = [
     links: [
       { label: "Silica gel manufacturer", href: "/silica-gel-manufacturer" },
       { label: "Silica gel supplier", href: "/silica-gel-supplier" },
-      { label: "OEM silica gel", href: "/oem-silica-gel-manufacturer" },
-      { label: "Private label program", href: "/private-label" },
-      {
-        label: "Private label packets",
-        href: "/private-label-desiccant-packets",
-      },
+      // OEM and private-label packets 301 to /private-label since 5 Nov 2026,
+      // so one link carries all three.
+      { label: "Private label and OEM", href: "/private-label" },
       {
         label: "Contract packaging services",
         href: "/contract-packaging-services",
       },
-      { label: "Bulk & wholesale sales", href: "/bulk-sales" },
+      { label: "Bulk & wholesale supply", href: "/bulk-silica-gel-desiccant" },
       { label: "Soap packing services", href: "/soap-packing-services" },
     ],
   },
@@ -262,7 +259,6 @@ const footerColumns: FooterColumn[] = [
       { label: "Customers we supply", href: "/reviews" },
       { label: "Certifications", href: "/certifications" },
       { label: "Contact", href: "/contact" },
-      { label: "DryGelWorld official site", href: "/drygelworld" },
       { label: "Media kit", href: "/media-kit" },
       { label: "Factory videos", href: "/videos" },
     ],

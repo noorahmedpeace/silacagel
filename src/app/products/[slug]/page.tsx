@@ -87,7 +87,7 @@ const procurementDetails = {
     related: [
       { label: "FOB Karachi", href: "/export/fob-karachi" },
       { label: "Documents", href: "/documentation" },
-      { label: "Bulk sales", href: "/bulk-sales" },
+      { label: "Bulk silica gel supply", href: "/bulk-silica-gel-desiccant" },
     ],
   },
   "container-strips": {
@@ -119,7 +119,7 @@ const procurementDetails = {
     related: [
       { label: "Calcium chloride bulk bags", href: "/products/calcium-chloride-container-bulk" },
       { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
-      { label: "Container shipping", href: "/industries/container-shipping" },
+      { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
     ],
   },
   "calcium-chloride-container-bulk": {
@@ -279,7 +279,7 @@ const productClusters: Record<string, ProductCluster> = {
       { label: "How exporters protect cargo from humidity", href: "/blog/how-exporters-protect-cargo-from-humidity" },
     ],
     compare: { label: "Silica gel vs clay desiccant", href: "/compare/silica-gel-vs-clay-desiccant" },
-    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+    industry: { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
   },
   "calcium-chloride-container-strip": {
     guides: [
@@ -288,7 +288,7 @@ const productClusters: Record<string, ProductCluster> = {
       { label: "How exporters protect cargo from humidity", href: "/blog/how-exporters-protect-cargo-from-humidity" },
     ],
     compare: { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
-    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+    industry: { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
   },
   "calcium-chloride-container-bulk": {
     guides: [
@@ -297,7 +297,7 @@ const productClusters: Record<string, ProductCluster> = {
       { label: "Industrial packaging protection solutions", href: "/blog/industrial-packaging-protection-solutions" },
     ],
     compare: { label: "Silica gel vs calcium chloride", href: "/compare/silica-gel-vs-calcium-chloride-container-desiccant" },
-    industry: { label: "Container shipping", href: "/industries/container-shipping" },
+    industry: { label: "Shipping container desiccant supplier", href: "/shipping-container-desiccant-supplier" },
   },
   "dry-clay-desiccant": {
     guides: [

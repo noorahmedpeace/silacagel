@@ -410,7 +410,7 @@ export const exportMarkets: ExportMarket[] = [
       {
         label: "Private label",
         description: "Review custom packet printing, artwork, and distributor packaging options.",
-        href: "/private-label-desiccant-packets",
+        href: "/private-label",
       },
       {
         label: "Container cargo",
@@ -670,7 +670,7 @@ export const exportMarkets: ExportMarket[] = [
   },
   {
     slug: "uk",
-    updatedAt: "2026-09-02",
+    updatedAt: "2026-11-05",
     country: "United Kingdom",
     title: "Silica gel desiccant supplier for UK importers and packaging buyers.",
     description:
@@ -709,6 +709,16 @@ export const exportMarkets: ExportMarket[] = [
         "UK REACH applies post-Brexit: cobalt-chloride blue indicating gel is restricted, specify cobalt-free orange indicating gel for UK-bound orders.",
       ],
     },
+    // Moved here from the /silica-gel-supplier-uk landing page when it was
+    // 301'd to this page (5 Nov 2026): the multi-port routing note was the one
+    // block that page carried and this one did not.
+    procurementNotes: [
+      {
+        label: "Port selection",
+        title: "Felixstowe, Southampton, London Gateway, or Liverpool",
+        text: "Karachi to the UK is a standard ocean freight lane, with Felixstowe, Southampton, London Gateway, and Liverpool all supported. Name the target port and Incoterms in the RFQ, and align the UK-specific post-Brexit customs forms with your import broker before dispatch.",
+      },
+    ],
   },
   {
     slug: "germany",
