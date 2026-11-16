@@ -7196,3 +7196,92 @@
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+ * HERO FILM (Nov 2026, part of the taste pass). The hero splits: copy on the
+ * left, the product film on the right in a glass bezel, the three facts as
+ * one spec line under both columns. The film replaced the full-bleed bead
+ * macro behind the copy. Phones stack copy, film, facts.
+ * ═══════════════════════════════════════════════════════════════════════════ */
+.heroXSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 28px;
+}
+
+.heroXSplit .heroXCopy {
+  max-width: none;
+}
+
+.heroXSplit .heroXActions {
+  margin-bottom: 0;
+}
+
+.heroXFilm {
+  width: 100%;
+  max-width: 760px;
+}
+
+.heroXSplit .heroXSignals {
+  width: 100%;
+  margin-top: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .heroXFilm {
+    animation: heroXFilmIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+  }
+}
+
+/* Transform only: the poster is the desktop LCP, so it must paint at once. */
+@keyframes heroXFilmIn {
+  from { transform: translateY(22px) scale(0.975); }
+  to   { transform: none; }
+}
+
+@media (min-width: 1024px) {
+  .heroXSplit {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    grid-template-areas:
+      "copy film"
+      "signals signals";
+    align-items: center;
+    column-gap: clamp(36px, 4.2vw, 68px);
+    row-gap: clamp(30px, 3.2vw, 44px);
+  }
+
+  .heroXSplit .heroXCopy {
+    grid-area: copy;
+  }
+
+  .heroXFilm {
+    grid-area: film;
+    max-width: none;
+  }
+
+  .heroXSplit .heroXSignals {
+    grid-area: signals;
+  }
+
+  /* Half the width it had: three lines at a slightly lower cap read better
+     next to the film than two lines squeezed small. */
+  .heroXSplit .heroXTitle {
+    max-width: 16ch;
+    font-size: clamp(2.6rem, 0.9rem + 3.2vw, 4rem);
+  }
+
+  .heroXSplit .heroXLead {
+    max-width: 47ch;
+    font-size: clamp(1rem, 0.9rem + 0.35vw, 1.16rem);
+  }
+}
+
+@media (max-width: 760px) {
+  .heroXSplit {
+    row-gap: 22px;
+  }
+
+  .heroXSplit .heroXSignals {
+    margin-top: 0;
+  }
+}

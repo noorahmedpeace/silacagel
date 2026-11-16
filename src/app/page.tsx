@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image, { getImageProps } from "next/image";
+import Image from "next/image";
 
 import Link from "next/link";
 import { totalCustomersSupplied } from "@/lib/customer-references";
@@ -13,6 +13,7 @@ import { FormatShowcase } from "@/components/format-showcase";
 import { CustomerReferenceMarquee } from "@/components/customer-reference-marquee";
 import { DeferredQuoteForm } from "@/components/deferred-home-widgets";
 import { HomeQuoteEstimator } from "@/components/home-quote-estimator";
+import { HeroFilm } from "@/components/hero-film";
 
 const splitTextToSpans = (text: string) => {
   return text.split(" ").map((word, wordIndex) => (
@@ -169,62 +170,30 @@ const scrollyIndustries = [
   },
 ];
 
-const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
-// No `priority` here: a blanket priority on both art-directed variants makes Next
-// emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
-// downloads the desktop crop (and vice-versa), starving the real LCP resources
-// (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
-// our own media-scoped preloads below, exactly one hero image per viewport.
-const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
-const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
-const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
-
 export default function Home() {
   return (
     <div className={styles.page}>
       <div className={styles.shell}>
         <main id="top" className={styles.main}>
           <section className={styles.heroX} id="hero">
-            {/* Dark cinematic hero (2026 redesign). The art-directed product
-                macro (mobile/desktop <picture>, preloaded LCP) sits behind a
-                near-black cobalt field with a drifting aurora and a fine
-                perspective grid - moody, engineered, premium. */}
-            {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
-                desktop only the desktop crop, React 19 hoists these to <head>. */}
+            {/* Dark cobalt hero, split (Nov 2026): the copy on the left, the
+                product film on the right in a glass bezel. The film replaced
+                the full-bleed bead macro that used to sit behind the copy. On
+                desktop its poster is the largest paint, so it is preloaded
+                there only; on phones the film sits below the buttons. */}
             <link
               rel="preload"
               as="image"
-              media="(max-width: 768px)"
-              imageSrcSet={heroMobileProps.srcSet}
-              imageSizes={heroMobileProps.sizes}
+              href="/film/drygelworld-range-loop.webp"
+              media="(min-width: 1024px)"
               fetchPriority="high"
             />
-            <link
-              rel="preload"
-              as="image"
-              media="(min-width: 769px)"
-              imageSrcSet={heroDesktopProps.srcSet}
-              imageSizes={heroDesktopProps.sizes}
-              fetchPriority="high"
-            />
-            <picture>
-              <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
-              <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
-              <img
-                {...heroDesktopProps}
-                id="hero-product-image"
-                className={styles.heroXImage}
-                loading="eager"
-                fetchPriority="high"
-                alt={HERO_ALT}
-              />
-            </picture>
             <div className={styles.heroXShade} aria-hidden="true" />
             <div className={styles.heroXAurora} aria-hidden="true" />
             {/* Soft headline glow (pure CSS layer). */}
             <div className={styles.heroXGlow} aria-hidden="true" />
 
-            <div className={styles.heroXContainer}>
+            <div className={`${styles.heroXContainer} ${styles.heroXSplit}`}>
             <div className={styles.heroXCopy}>
               <span className={`${styles.heroXEyebrow} gsap-hero-fade`}>
                 ISO 9001:2015 · Manufacturer since 1983
@@ -245,21 +214,24 @@ export default function Home() {
                   Get free samples
                 </Link>
               </div>
+            </div>
 
-              <div className={`${styles.heroXSignals} gsap-hero-fade`}>
-                {trustSignalsArray.map((signal) => {
-                  const Icon = signal.icon;
-                  return (
-                    <Link key={signal.href} href={signal.href} className={styles.heroXSignal}>
-                      <Icon className={styles.heroXSignalIcon} size={18} strokeWidth={1.8} aria-hidden="true" />
-                      <span className={styles.heroXSignalText}>
-                        <strong>{signal.title}</strong>
-                        <span>{signal.detail}</span>
-                      </span>
-                    </Link>
-                  );
-                })}
-              </div>
+            <HeroFilm className={styles.heroXFilm} />
+
+            {/* The three facts now run under both columns as one spec line. */}
+            <div className={`${styles.heroXSignals} gsap-hero-fade`}>
+              {trustSignalsArray.map((signal) => {
+                const Icon = signal.icon;
+                return (
+                  <Link key={signal.href} href={signal.href} className={styles.heroXSignal}>
+                    <Icon className={styles.heroXSignalIcon} size={18} strokeWidth={1.8} aria-hidden="true" />
+                    <span className={styles.heroXSignalText}>
+                      <strong>{signal.title}</strong>
+                      <span>{signal.detail}</span>
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
             </div>
           </section>
