@@ -184,7 +184,7 @@ export default function Home() {
             <link
               rel="preload"
               as="image"
-              href="/film/drygelworld-range-loop.webp"
+              href="/film/drygelworld-range-loop-v2.webp"
               media="(min-width: 1024px)"
               fetchPriority="high"
             />

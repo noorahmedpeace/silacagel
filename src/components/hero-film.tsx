@@ -56,8 +56,8 @@ export function HeroFilm({ className }: { className?: string }) {
       <video
         ref={videoRef}
         className={styles.video}
-        src="/film/drygelworld-range-loop.mp4"
-        poster="/film/drygelworld-range-loop.webp"
+        src="/film/drygelworld-range-loop-v2.mp4"
+        poster="/film/drygelworld-range-loop-v2.webp"
         width={1280}
         height={720}
         muted
