@@ -144,7 +144,7 @@ const industryPages: Record<string, IndustryPage> = {
   },
   "leather-footwear-export": {
     title: "Silica Gel for Leather and Footwear Export",
-    h1: "Reduce humidity risk in footwear, garments, leather goods, and export cartons.",
+    h1: "Keep leather and footwear dry in export cartons.",
     description:
       "Silica gel sachets for leather export, footwear cartons, garments, textiles, mold prevention, and long-haul logistics.",
     metaTitle: "Silica Gel for Leather & Footwear Export | Mold Prevention",
@@ -692,10 +692,11 @@ export default async function IndustryPage({
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>Request a quote for {page.title}.</h2>
+          <h2>Get a quote for this cargo.</h2>
           <p>
             Tell us your packaging specifications, required quantity, and destination - the factory
-            export desk returns a documented quote with pricing, lead time, and shipping options.
+            export desk returns a documented quote for {page.title.toLowerCase()} with pricing, lead
+            time, and shipping options.
           </p>
         </div>
         <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>

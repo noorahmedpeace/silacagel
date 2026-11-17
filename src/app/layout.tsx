@@ -55,9 +55,10 @@ const body = Inter({
 
 // Display face for the redesign - a clean, geometric premium sans with none
 // of Space Grotesk's quirky letterforms. Drives every heading via
-// --font-display (see globals.css h1-h6).
+// --font-display, which globals.css builds as "DGW Stop" (a tighter full
+// stop) followed by this face.
 const display = Plus_Jakarta_Sans({
-  variable: "--font-display",
+  variable: "--font-jakarta",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   display: "swap",

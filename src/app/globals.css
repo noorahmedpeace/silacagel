@@ -1,4 +1,25 @@
+/* "DGW Stop": Plus Jakarta Sans' own . , : ; (OFL, renamed because it is
+ * modified), with 60 units cut from their left side and 30 from their right
+ * (40 and 20 for the comma). Jakarta gives these marks ~0.13em of air on each
+ * side, so at heading sizes with tight tracking a closing full stop read as
+ * a typo, "visit ." (owner, 17 Nov 2026), and commas as "sachets ,". It
+ * covers those four code points only and sits first in --font-display, so
+ * every display heading gets it and every other character stays Jakarta.
+ * Inlined (932 bytes) so it never swaps in late and reflows a heading. */
+@font-face {
+  font-family: "DGW Stop";
+  src: url("data:font/woff2;base64,d09GMgABAAAAAAOkABIAAAAAB+QAAAM9AAISLQAAAAAAAAAAAAAAAAAAAAAAAAAAGyAcKj9IVkFSPT9NVkFSPAZgP1NUQVRgAEQvPBEICoFkgTcwgSwBNgIkAxQLDAAEIAWEWgcgG3UGYJ4FTpk9GfESbz8RGc4XR6yJfI2H/1+rvO9X1Wx185mtRVTAPctgiSikIgHlHh/wxJJVohO3Krr+nHtfPqEaqF3kMO0IISVKL0kHDqWfRSV2c1/+8oIkZtzHFliiO599v7b63x3adTrbIISGJ7Mm1my6pRtCpMQLCZXuUq8EhhKp6FbjgrPXwUBU15LopAJNk3VAW7ZtHUFBDnUNCDTN1SlFEFe7clJG0E77FAJUwPLi39MWGAsJNpgDGQKr1kJyKZIApWTy7TucAfDgbAkgVGRpRFbI0yCdyZLeDDRgt5g4pjOWAQFSt2ebu/Bpnsm8Vs8ERT8MICBNSQ1MlxZCKaGSwWyp++cdidJcfBqgslCqYL0QRJkOgASN9Dlvb2bTgUxI0QYBEjJU0gKVjEVAqZQwDzFZ14xNrFD/Vf9e/yIABPpSQsRVDhhPnQHXJZsOiCzKQjwaDBWIZvNJIepaDxSgiSYGwFYAcpALIUk5XK07dzzq7mz5tXGtaNmbj6+mlVDLK3/kdQ7VSMnqFyvlyiiv+Gtu7DXxmsFbo/mpwfI4sXdvkV7eWx81TEfeGsrfDkbUZNprgUAITJcFMwFapiKWC8+h1EHR6SxaZPrV56iqN4wm57V7veGJU71jCaZPN/Fq+mWWpVfzqhqdN98eprFcwybAhtKaRUGg2awf7Y+dsAOLpvLc6Zcnll4tpSx05l2k4fm/7nz7eG/q/zLL/oN/PuttB/w7w99G6qtpKTUwJIHgD3WnV9oqUw0gcBStDtYEsiIqRgJDizFfoNCXAQGzuj6WibyB70kQ+n6RdP0hzBrCfKGwyj+GdGOysWsQ3WaRaccJlPoRoKGMJ2gajne0tOO91dqa8cJmTOwJ57I5JGyA6iLYUYnM5fcEEgK2gfJRnERhh6iIIK2AYzwmnYTNS0gOhhO8neTHSjFhgkJhc51dExpCx4QUEuNjpCcxk/L6arNbaZclq06HkZbExA6YbIkAxZ0wcYKLiWADCNWofpNsFolhAsIlFTGOGKS6FrZa7fFvJ+g4V0wSCMEVIBjOpti1Yssp89MuOmQKuRYwASMoX/ZI4mjpB62TqIBLd4AJUZE0UJ/VCQA=") format("woff2");
+  font-weight: 600 800;
+  font-style: normal;
+  font-display: block;
+  unicode-range: U+002C, U+002E, U+003A, U+003B;
+}
+
 :root {
+  /* Display stack: the tightened full stop first, then Jakarta (next/font
+   * sets --font-jakarta on <html>, see layout.tsx). */
+  --font-display: "DGW Stop", var(--font-jakarta);
+
   /* ── Precision Dry palette (redesign) ──────────────────────────────────
    * Cool-clean canvas, deep blue-black ink, electric cobalt as the brand
    * anchor, and a warm coral used sparingly for energy (nods to indicating

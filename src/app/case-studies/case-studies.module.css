@@ -267,15 +267,16 @@
   text-transform: uppercase;
 }
 
-.caseCopy h2 {
-  max-width: 15ch;
-  margin-bottom: 26px;
+/* The challenge is a two-line paragraph, so it reads as a lead paragraph,
+ * not a display heading (it used to be a 3.4rem h2 of up to 31 words). */
+.caseChallenge {
+  max-width: 38ch;
+  margin: 0 0 26px;
   color: var(--ds-text);
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 3.2vw, 3.4rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.2rem, 1rem + 0.7vw, 1.55rem);
+  font-weight: 500;
+  line-height: 1.42;
+  letter-spacing: -0.005em;
 }
 
 .caseDetails {

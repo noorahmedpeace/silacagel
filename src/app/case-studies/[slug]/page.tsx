@@ -98,7 +98,7 @@ export default async function CaseStudyDetailPage({ params }: CaseStudyPageProps
       <article className={styles.caseCard}>
         <div className={styles.caseCopy}>
           <span>Challenge</span>
-          <h2>{study.challenge}</h2>
+          <p className={styles.caseChallenge}>{study.challenge}</p>
         </div>
         <div className={styles.caseCopy}>
           <div className={styles.caseDetails}>

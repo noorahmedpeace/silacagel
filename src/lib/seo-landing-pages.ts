@@ -310,7 +310,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel explained: what it is, how it works, white vs indicating (orange/blue) types, uses, and how to buy industrial silica gel in packets, beads, and bulk from DryGelWorld.",
     kicker: "Silica gel",
-    h1: "Silica gel: what it is, how it works, and how to buy it for industry and export.",
+    h1: "Silica gel: what it is and how to buy it.",
     lead:
       "Silica gel is the most widely used industrial desiccant for moisture control in packaging, shipping, and storage. This is the DryGelWorld hub for silica gel types, uses, and buyer-ready supply in packets, beads, and bulk.",
     searchIntent: "Pillar / head term: silica gel (what it is, types, uses, where to buy)",
@@ -392,7 +392,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Buy silica gel in bulk direct from the manufacturer. Wholesale desiccant packets, beads, and container strips with no minimum order, SDS/COA, and worldwide shipping. Get a price today.",
     kicker: "Buy silica gel",
-    h1: "Buy silica gel in bulk - direct from the manufacturer, shipped worldwide.",
+    h1: "Buy silica gel in bulk, direct from the manufacturer.",
     lead:
       "Buy silica gel desiccant at wholesale, manufacturer-direct prices: packets, loose beads, 25kg bulk bags, and container strips. No minimum order, fast quotes, SDS and COA on request, and export shipping to 190+ countries (company figure). Tell us the format and quantity and get an indicative price the same day.",
     searchIntent: "Transactional: buy silica gel online, purchase silica gel, order silica gel, and request bulk pricing",
@@ -618,7 +618,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel supplier with packets, bulk beads, and cargo strips in reliable B2B supply. No minimum order, fast RFQ turnaround, SDS/COA, worldwide delivery.",
     kicker: "Silica gel supplier",
-    h1: "Silica gel supplier with packet, bulk, and cargo formats in reliable B2B supply.",
+    h1: "Silica gel supplier for packets, bulk and cargo.",
     lead:
       "One supplier for every silica gel format - packets, bulk beads, cargo strips, and private label - with no minimum order, dependable repeat supply, and fast quote turnaround.",
     searchIntent:
@@ -1055,7 +1055,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Container desiccant page for shipping cargo moisture control, container rain prevention, sea-freight desiccant strips, 20ft/40ft planning, SDS, COA, and RFQs.",
     kicker: "Container desiccant",
-    h1: "Container desiccant planning for sea-freight cargo and export moisture risk.",
+    h1: "Container desiccant planning for sea freight.",
     lead:
       "Use this page to decide whether your shipment needs cargo strips, container desiccant bags, carton packets, or a combined moisture control plan.",
     searchIntent: "Product keyword: container desiccant, cargo desiccant, container moisture absorber",
@@ -1095,7 +1095,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel manufacturer China alternative for buyers comparing export suppliers, bulk silica gel, packets, container desiccants, private label, SDS, COA, and RFQs.",
     kicker: "China alternative supplier",
-    h1: "Silica gel manufacturer China alternative for export buyers.",
+    h1: "Silica gel manufacturer: a China alternative for export buyers.",
     lead:
       "Use this page if you are comparing silica gel suppliers outside China and need packets, bulk desiccants, container strips, OEM sachets, documents, and export support.",
     searchIntent: "Export comparison keyword: silica gel manufacturer China alternative",
@@ -1419,7 +1419,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "White silica gel packets and bulk beads - clean, odorless, non-toxic moisture control for packaging, storage, and product cartons. SDS, COA, B2B RFQ.",
     kicker: "White silica gel",
-    h1: "White silica gel packets and bulk beads for clean, odorless moisture control.",
+    h1: "White silica gel packets and bulk beads.",
     lead:
       "Choose white silica gel for clean, odorless, non-toxic moisture protection in packets and bulk beads - ideal for product packaging, cartons, and storage where appearance and safety matter.",
     searchIntent: "Product keyword: white silica gel, white desiccant, white silica gel packets",
@@ -1911,7 +1911,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Hair net supplier for food processing, healthcare, and industrial PPE. Bouffant non-woven polypropylene, 18-22 inch, green and white, carton-packed.",
     kicker: "Hair Net Supplier",
-    h1: "Hair net supplier for food, manufacturing, and healthcare PPE programs.",
+    h1: "Hair net supplier for food and manufacturing lines.",
     lead:
       "Bouffant hair nets in non-woven polypropylene, supplied in 18, 20, 21, and 22 inch diameters across green and white. Use this page when sourcing hair-containment PPE for food handling lines, manufacturing floors, healthcare cleanrooms, or export-compliant production.",
     searchIntent: "B2B buyer keyword: hair net supplier, bouffant hair net, hair net for food industry",
@@ -1955,7 +1955,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Beard cover supplier (beard nets) for food handling, manufacturing, healthcare, and PPE programs. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier",
-    h1: "Beard cover supplier for food handling, manufacturing, and healthcare PPE.",
+    h1: "Beard cover supplier for food and manufacturing lines.",
     lead:
       "Disposable beard covers - also called beard nets or beard guards - for facial-hair containment in food, manufacturing, and healthcare environments. Non-woven polypropylene with elasticated edge, supplied by the carton for production-line distribution.",
     searchIntent: "B2B buyer keyword: beard cover supplier, beard net, disposable beard guard",
@@ -2044,7 +2044,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Hair net supplier for UAE food processing, manufacturing, and healthcare PPE programs. Karachi-to-Jebel Ali shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier UAE",
-    h1: "Hair net supplier for UAE food, manufacturing, and PPE buyers.",
+    h1: "Hair net supplier for the UAE.",
     lead:
       "Bouffant hair nets shipped Karachi-to-Jebel Ali for UAE food processors, manufacturers, healthcare procurement, and distributor PPE programs. Non-woven polypropylene in 18, 20, 21, and 22 inch diameters across green and white color options.",
     searchIntent: "UAE buyer keyword: hair net supplier uae, bouffant hair net dubai, food industry PPE uae",
@@ -2087,7 +2087,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Dry clay desiccant supplier for Saudi industrial cargo, packaging, and warehouse moisture control. Karachi-to-Jeddah / Dammam shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier Saudi Arabia",
-    h1: "Dry clay desiccant supplier for Saudi industrial and packaging buyers.",
+    h1: "Dry clay desiccant supplier for Saudi Arabia.",
     lead:
       "Activated clay desiccant packs supplied to Saudi importers and packaging buyers - Karachi-to-Jeddah and Karachi-to-Dammam routing for industrial cargo, durable goods packaging, and warehouse moisture control programs.",
     searchIntent: "Saudi buyer keyword: dry clay desiccant supplier saudi arabia, bentonite clay desiccant jeddah, industrial clay packs ksa",
@@ -2131,7 +2131,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Beard cover supplier for US food processing, manufacturing, and healthcare PPE programs. Karachi-to-US-coast shipping, disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier USA",
-    h1: "Beard cover supplier for US food, manufacturing, and PPE distributors.",
+    h1: "Beard cover supplier for the USA.",
     lead:
       "Disposable beard covers (beard nets) shipped Karachi-to-USA for food processors, manufacturers, healthcare procurement, and PPE distribution networks. Non-woven polypropylene with elasticated edge, carton-packed for production-line distribution.",
     searchIntent: "US buyer keyword: beard cover supplier usa, beard net manufacturer, disposable beard guard wholesale",
@@ -2174,7 +2174,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel desiccant supplier for UK importers, electronics distributors, leather and footwear buyers, and pharma procurement. Karachi-to-Felixstowe / Southampton / London Gateway routing with SDS, COA, and ISO 9001:2015 documentation.",
     kicker: "Silica Gel Supplier UK",
-    h1: "Silica gel desiccant supplier for UK B2B importers and packaging buyers.",
+    h1: "Silica gel desiccant supplier for UK importers.",
     lead:
       "Karachi-to-UK silica gel desiccant supply for electronics distributors, footwear and leather importers, pharma procurement, and industrial packaging programs. Multi-port UK routing (Felixstowe, Southampton, London Gateway, Liverpool) with full SDS, COA, ISO 9001:2015 reference, and DMF-free product statement on request.",
     searchIntent: "B2B UK buyer keyword: silica gel supplier uk, desiccant supplier uk, silica gel manufacturer britain",
@@ -2218,7 +2218,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Dry clay desiccant supplier for UAE industrial cargo, packaging, warehouse, and freight buyers. Karachi-to-Jebel Ali / Khalifa Port shipping with activated bentonite or montmorillonite clay packs.",
     kicker: "Dry Clay Supplier UAE",
-    h1: "Dry clay desiccant supplier for UAE industrial cargo and packaging buyers.",
+    h1: "Dry clay desiccant supplier for the UAE.",
     lead:
       "Activated clay desiccant packs supplied to UAE distributors, packaging companies, and industrial buyers. Karachi-to-Jebel Ali, Karachi-to-Khalifa Port, and Karachi-to-Port Khalid routing for industrial cargo, durable goods packaging, and warehouse moisture control programs.",
     searchIntent: "UAE buyer keyword: dry clay desiccant supplier uae, bentonite clay desiccant dubai, industrial clay packs uae",
@@ -2262,7 +2262,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Hair net supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping, bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier Saudi Arabia",
-    h1: "Hair net supplier for Saudi food, manufacturing, and healthcare PPE buyers.",
+    h1: "Hair net supplier for Saudi Arabia.",
     lead:
       "Bouffant hair nets shipped Karachi-to-Jeddah and Karachi-to-Dammam for Saudi food processors, manufacturers, healthcare procurement, and distributor PPE programs. Non-woven polypropylene in 18, 20, 21, and 22 inch diameters across green and white.",
     searchIntent: "Saudi buyer keyword: hair net supplier saudi arabia, bouffant hair net jeddah, food industry PPE riyadh",
@@ -2393,7 +2393,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "20 inch bouffant hair nets for food, manufacturing, and healthcare PPE. Mid-range diameter that covers most production-line use cases. Non-woven polypropylene, green and white, carton-packed.",
     kicker: "20 Inch Hair Nets",
-    h1: "20 inch bouffant hair nets - the most common production size.",
+    h1: "20 inch bouffant hair nets, the most common size.",
     lead:
       "20 inch diameter is the most-stocked size in B2B bouffant hair net programs - fits most adult head sizes and is the default for food, manufacturing, and healthcare production lines. Non-woven polypropylene, elasticated, supplied in cartons of 100 or 1000.",
     searchIntent: "B2B buyer keyword: 20 inch hair nets, standard bouffant hair net, food industry hair net 20 inch",
@@ -2484,7 +2484,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Activated clay desiccant from a Karachi supplier: bentonite packs 1g to 50g and bulk, ~25% adsorption, no minimum order. Grey granule clay for industrial cargo, machinery, and cost-tier moisture control.",
     kicker: "Activated clay desiccant",
-    h1: "Clay desiccant supplier: activated bentonite packs for industrial and cargo moisture control.",
+    h1: "Clay desiccant supplier: activated bentonite packs.",
     lead:
       "Activated bentonite clay desiccant in 1g to 50g packs and bulk, for industrial cargo, machinery parts, and carton-level protection where cost per kilogram matters more than peak capacity. Grey mineral granules, up to about 25 percent of their own weight in water vapour, packed in Karachi and quoted with no minimum order.",
     searchIntent: "B2B buyer keyword: clay desiccant, activated clay desiccant, clay desiccant supplier, industrial clay desiccant, bentonite clay",
@@ -2756,7 +2756,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Beard cover supplier for UK food processors, manufacturers, and healthcare PPE programs. Karachi-to-Felixstowe / Southampton / London Gateway shipping. Disposable non-woven polypropylene with elasticated edge.",
     kicker: "Beard Cover Supplier UK",
-    h1: "Beard cover supplier for UK food, manufacturing, and PPE distributors.",
+    h1: "Beard cover supplier for the UK.",
     lead:
       "Disposable beard covers (beard nets) shipped Karachi-to-UK for food processors, manufacturers, healthcare procurement, and PPE distribution programs. Non-woven polypropylene with elasticated edge, carton-packed for production-line distribution.",
     searchIntent: "UK buyer keyword: beard cover supplier uk, beard net manufacturer uk, disposable beard guard uk wholesale",
@@ -2799,7 +2799,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "21 inch bouffant hair nets for food processing, manufacturing, and healthcare PPE. Mid-range diameter between snug 18\" and full-coverage 22\" sizes. Non-woven polypropylene, green and white, carton-packed.",
     kicker: "21 Inch Hair Nets",
-    h1: "21 inch bouffant hair nets - mid-range size between 20\" and 22\".",
+    h1: "21 inch bouffant hair nets, between 20 and 22 inch.",
     lead:
       "21 inch diameter sits between the standard 20\" and the full-coverage 22\" sizes - used by production lines that want a middle-ground fit or workers who find 20\" slightly snug and 22\" slightly loose. Non-woven polypropylene with elasticated edge, supplied in cartons of 100 or 1000.",
     searchIntent: "B2B buyer keyword: 21 inch hair nets, mid-size bouffant hair net, food industry hair net 21 inch",
@@ -2886,7 +2886,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Hair net supplier for US food processors, manufacturers, healthcare procurement, and PPE distributors. Karachi-to-US East/West Coast shipping. Bouffant non-woven polypropylene in 18-22 inch diameters, green and white.",
     kicker: "Hair Net Supplier USA",
-    h1: "Hair net supplier for US food, manufacturing, and PPE distribution programs.",
+    h1: "Hair net supplier for the USA.",
     lead:
       "Bouffant hair nets shipped Karachi-to-USA for US food processors, manufacturers, healthcare procurement, and PPE distribution networks. Non-woven polypropylene with elasticated edge in 18, 20, 21, and 22 inch diameters across green and white stock colors.",
     searchIntent: "B2B US buyer keyword: hair net supplier usa, bouffant hair net wholesale us, food industry PPE united states",
@@ -2929,7 +2929,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Beard cover supplier for Saudi food processors, manufacturers, and healthcare PPE programs. Karachi-to-Jeddah / Dammam shipping. Disposable non-woven polypropylene with elasticated edge, carton-packed.",
     kicker: "Beard Cover Supplier Saudi Arabia",
-    h1: "Beard cover supplier for Saudi food, manufacturing, and PPE buyers.",
+    h1: "Beard cover supplier for Saudi Arabia.",
     lead:
       "Disposable beard covers shipped Karachi-to-Saudi Arabia for food processors, manufacturers, healthcare procurement, and distributor PPE programs. Non-woven polypropylene with elasticated edge, carton-packed for production-line distribution.",
     searchIntent: "Saudi buyer keyword: beard cover supplier saudi arabia, beard net jeddah, disposable beard guard ksa",
@@ -2972,7 +2972,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Dry clay desiccant exporter for European importers, packaging companies, industrial buyers, and distributor networks. Karachi-to-Hamburg / Rotterdam / Antwerp / Le Havre routing with activated bentonite and montmorillonite clay packs.",
     kicker: "Dry Clay Exporter Europe",
-    h1: "Dry clay desiccant exporter for European industrial and packaging buyers.",
+    h1: "Dry clay desiccant exporter for Europe.",
     lead:
       "Activated clay desiccant exported Karachi-to-Europe for industrial cargo packaging, warehouse moisture programs, and distributor supply networks. Multi-port routing (Hamburg, Rotterdam, Antwerp, Le Havre, Felixstowe) with bentonite or montmorillonite clay packs.",
     searchIntent: "European B2B buyer keyword: dry clay desiccant exporter europe, bentonite clay supplier eu, industrial clay packs europe",
@@ -3104,7 +3104,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Hair nets for food industry - bouffant PPE for food processing, packaging, bakery, dairy, and meat operations. Non-woven polypropylene in 18-22 inch diameters, green and white color zoning, B2B export supply.",
     kicker: "Food Industry Hair Nets",
-    h1: "Hair nets for food industry processing, packaging, and export programs.",
+    h1: "Hair nets for the food industry.",
     lead:
       "Bouffant hair nets sized and color-coded for food industry PPE programs - food processing lines, packaging halls, bakery operations, dairy plants, meat processing, and hospitality kitchens. Non-woven polypropylene with elasticated edge in 18, 20, 21, and 22 inch diameters, supplied in green (raw zones) and white (packaging/finished zones).",
     searchIntent: "Food industry buyer keyword: hair nets for food industry, food processing hair nets, bouffant cap food",
@@ -3191,7 +3191,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel for leather and footwear export. Stop mould, finish damage, and odour on long ocean routes, with DMF-free material for EU-bound cargo.",
     kicker: "Silica Gel for Leather Export",
-    h1: "Silica gel for leather, footwear, and leather goods export programs.",
+    h1: "Silica gel for leather and footwear export.",
     lead:
       "Silica gel desiccants sized for leather export programs - protecting footwear, leather garments, leather accessories, and finished leather goods from mold, finish damage, and odor during long-haul ocean freight. DMF-free statement is essential for EU-bound leather cargo following the 2009 DMF ban.",
     searchIntent: "Leather exporter buyer keyword: silica gel leather export, footwear moisture control, leather goods desiccant",
@@ -3235,7 +3235,7 @@ const highIntentSeoLandingPages = {
     metaDescription:
       "Silica gel beads for industrial re-packers, distributors, and high-volume packaging operations. Bulk 25kg bags of loose amorphous silicon dioxide beads, 1-3mm uniform size, B2B export supply from Karachi.",
     kicker: "Silica Gel Beads",
-    h1: "Silica gel beads for industrial re-packers and bulk wholesale supply.",
+    h1: "Silica gel beads for re-packers and bulk wholesale.",
     lead:
       "Loose silica gel beads in 25kg bulk bags - amorphous silicon dioxide with uniform 1-3mm bead size, designed for industrial re-packers, distributors, and high-volume packaging operations that fill their own sachets and sell to downstream customers.",
     searchIntent: "B2B buyer keyword: silica gel beads, bulk silica gel beads, silica gel bead supplier, loose silica beads",
@@ -3518,7 +3518,7 @@ export const seoLandingPages = {
     metaDescription:
       "Bulk silica gel desiccant factory-direct, loose beads by the kilogram, 25kg bags, and large packs for warehouses, distributors, and exporters. Quick PKR quotes, worldwide shipping or factory pickup, SDS/COA support.",
     kicker: "Bulk silica gel desiccant",
-    h1: "Bulk silica gel desiccant for warehouses, distributors, and industrial buyers.",
+    h1: "Bulk silica gel desiccant for warehouses and distributors.",
     lead:
       "Buy bulk silica gel desiccant factory-direct, loose beads by the kilogram, 25kg bags, and large desiccant packs for warehouses, distributors, and production lines. Get a quick PKR price for buyers in Pakistan, worldwide shipping or factory pickup, with SDS and COA for export.",
     searchIntent:
@@ -3735,7 +3735,7 @@ export const seoLandingPages = {
     metaDescription:
       "Container desiccant strips for 20ft and 40ft export shipments, cargo moisture control, container rain risk, pallet protection, SDS/COA support, and route planning.",
     kicker: "Container desiccant strips",
-    h1: "Container desiccant strips for long-haul cargo and export moisture risk.",
+    h1: "Container desiccant strips for long-haul cargo.",
     lead:
       "Container desiccant strips are high-capacity absorbent strips hung from a container's lashing points to soak up the airborne moisture that would otherwise condense on the cold steel ceiling and drip back onto cargo as container rain. Plan strips by route, container size, transit time, commodity type, and humidity exposure before final freight and desiccant pricing.",
     searchIntent:
@@ -3910,7 +3910,7 @@ export const seoLandingPages = {
     metaDescription:
       "Private label desiccant packets and OEM silica gel sachets with buyer-specific text, carton labels, warning copy, SDS/COA support, and export supply.",
     kicker: "Private label desiccant packets",
-    h1: "Private label desiccant packets for brands, distributors, and packaging buyers.",
+    h1: "Private label desiccant packets for brands and distributors.",
     lead:
       "Turn silica gel sachets into a controlled OEM supply program with correct warning text, gram size, carton labeling, documentation, and repeat export planning.",
     searchIntent: "OEM intent: private label desiccant packets, OEM silica gel sachets, printed silica gel packets",
@@ -5258,7 +5258,7 @@ export const seoLandingPages = {
     metaDescription:
       "Silica gel supplier in Karachi, factory-direct, packets and bulk desiccants for packaging lines, warehouses, and export cartons. Quick PKR quotes, factory pickup, plus SDS, COA, and export RFQs.",
     kicker: "Karachi silica gel supplier",
-    h1: "Silica gel supplier in Karachi for packaging, warehouse, and export buyers.",
+    h1: "Silica gel supplier in Karachi.",
     lead:
       "Silica gel packets and bulk desiccants supplied factory-direct in Karachi, for packaging lines, warehouse stock, and export cartons. Get a quick PKR price by phone, WhatsApp, or email, or collect from the factory; export RFQs with SDS, COA, and Incoterms handled too.",
     searchIntent: "Local buyer intent: silica gel supplier in Karachi, silica gel Karachi, desiccant supplier Karachi",
@@ -6560,7 +6560,7 @@ export const seoLandingPages = {
     metaDescription:
       "0.5kg silica gel bags factory-direct from Karachi. White or indicating gel, non-woven or paper bags, no minimum order, SDS and batch COA with every order.",
     kicker: "0.5kg silica gel bags",
-    h1: "0.5 kg silica gel bags, quoted by the bag and shipped by the carton.",
+    h1: "0.5 kg silica gel bags, shipped by the carton.",
     lead:
       "Half-kilo silica gel bags for warehouse, crate, and heavy-carton moisture control. Choose white non-indicating gel or colour-changing indicating gel, in a breathable non-woven or paper bag, and take 100 bags or a pallet - there is no minimum order.",
     searchIntent:
@@ -6783,7 +6783,7 @@ export const seoLandingPages = {
     metaDescription:
       "Hanging silica gel and calcium chloride strips plus bulk floor bags for 20ft and 40ft sea freight, sized to your route and transit days. Factory-direct from Karachi, no minimum order, ISO 9001:2015, FOB or CIF.",
     kicker: "VoyaSorb container system",
-    h1: "Shipping container desiccant supplier for sea freight: hanging strips and bulk bags (VoyaSorb).",
+    h1: "Shipping container desiccant supplier for sea freight.",
     lead:
       "Hanging silica gel or calcium chloride strips plus bulk floor bags, sized to your container, route humidity, and transit days. We quote strip count and Incoterms, with no minimum order. ISO 9001:2015 and DMF-free for the silica gel; calcium chloride strips are sourced.",
     searchIntent: "Export logistics intent: shipping container desiccant supplier, container desiccant system, cargo desiccant, silica gel for shipping containers, calcium chloride container desiccant",

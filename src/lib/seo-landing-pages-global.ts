@@ -23,7 +23,7 @@ export const globalSupplierLandingInput = {
   metaDescription:
     "DryGelWorld is a Pakistan-based silica gel manufacturer and global exporter operating since 1983. Sachets, bulk beads, and container desiccants shipped worldwide with ISO 9001:2015, SDS, COA, and DMF-free documentation.",
   kicker: "Global silica gel supplier",
-  h1: "Global silica gel supplier: manufacturer-direct desiccants exported from Karachi worldwide.",
+  h1: "Global silica gel supplier, exporting from Karachi.",
   lead:
     "DryGelWorld is a Pakistan-based silica gel manufacturer and global exporter, manufacturing since 1983 as Kamran Enterprises in Karachi. It supplies silica gel sachets, loose beads, bulk desiccants, and container desiccants to importers, distributors, and packagers across the Gulf, Europe, the UK, North America, Asia, Africa, and Australia. This page is the map: what is made, who it is for, where it ships, and how to buy.",
   searchIntent:

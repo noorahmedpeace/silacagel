@@ -71,7 +71,7 @@ export const gramSizeLandingInputs = {
     metaDescription:
       "1g silica gel sachets from a Karachi manufacturer: dosage per pack, paper and non-woven materials, custom printing, MOQ, indicative USD pricing, and worldwide export. ISO 9001:2015. Request a quote.",
     kicker: "1g silica gel sachets",
-    h1: "1g silica gel sachets: manufacturer-direct supply for unit packaging, wholesale, and export.",
+    h1: "1g silica gel sachets, direct from the manufacturer.",
     lead:
       "DryGelWorld manufactures 1 gram silica gel sachets in Karachi, Pakistan and supplies them wholesale to packagers, distributors, and exporters worldwide. This page covers what a 1g sachet protects, how many to use, sachet materials, custom printing, MOQ, indicative pricing, and how to request a quote.",
     searchIntent:
@@ -279,7 +279,7 @@ export const gramSizeLandingInputs = {
     metaDescription:
       "2g silica gel sachets manufactured in Karachi for medium retail boxes, accessories, and small leather goods. Paper or non-woven, custom print, MOQ and indicative USD pricing, worldwide export.",
     kicker: "2g silica gel sachets",
-    h1: "2g silica gel sachets for medium retail packs, accessories, and export cartons.",
+    h1: "2g silica gel sachets for retail packs and cartons.",
     lead:
       "DryGelWorld manufactures 2 gram silica gel sachets in Karachi, Pakistan for packagers who need more capacity than a 1g sachet without stepping up to a 5g packet. Typical uses, dosage, materials, MOQ, and export terms are below.",
     searchIntent:
@@ -396,7 +396,7 @@ export const gramSizeLandingInputs = {
     metaDescription:
       "5g silica gel sachets from a Karachi manufacturer for shoe boxes, garment cartons, instruments, and electronics packaging. Low-dust outers, custom print, MOQ, USD pricing, worldwide export.",
     kicker: "5g silica gel sachets",
-    h1: "5g silica gel sachets for footwear boxes, garment cartons, and larger product packs.",
+    h1: "5g silica gel sachets for footwear and garment cartons.",
     lead:
       "DryGelWorld manufactures 5 gram silica gel sachets in Karachi, Pakistan for carton-level protection: one packet per shoe box, garment carton, instrument case, or larger electronics pack. Dosage, materials, MOQ, and export terms are below.",
     searchIntent:
@@ -513,7 +513,7 @@ export const gramSizeLandingInputs = {
     metaDescription:
       "10g silica gel sachets manufactured in Karachi for master cartons, instrument cases, and larger electronics and textile packs. Paper or non-woven, custom print, MOQ, USD pricing, worldwide export.",
     kicker: "10g silica gel sachets",
-    h1: "10g silica gel sachets for master cartons, instrument cases, and larger export packs.",
+    h1: "10g silica gel sachets for master cartons.",
     lead:
       "DryGelWorld manufactures 10 gram silica gel sachets in Karachi, Pakistan for carton-level moisture control where 5g is not enough: master cartons, instrument and equipment cases, textile bales, and larger electronics packs. Dosage, materials, MOQ, and export terms are below.",
     searchIntent:
@@ -632,7 +632,7 @@ export const gramSizeLandingInputs = {
     metaDescription:
       "Buy silica gel by the kilogram from a Karachi manufacturer: 1, 5, 10, and 25 kg bags, drums and jumbo bags, indicative USD per kg, PKR quotes for Pakistan, MOQ, regeneration, and export terms.",
     kicker: "Silica gel per kg",
-    h1: "Silica gel by the kilogram: bags, bulk price basis, and how to order.",
+    h1: "Silica gel by the kilogram, in bags and bulk.",
     lead:
       "DryGelWorld manufactures silica gel in Karachi and sells it by weight as well as in sachets: 1 kg, 5 kg, 10 kg, and 25 kg bags, drums, and jumbo bags of loose white beads. This page explains how per-kg pricing is built, what the indicative USD and PKR references are, who buys by the kilo, and what to send for a firm quote.",
     searchIntent:

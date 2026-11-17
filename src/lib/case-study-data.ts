@@ -66,7 +66,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "saudi-bulk-silica-gel-supply",
     label: "GCC Case",
     industry: "Saudi Bulk Supply",
-    title: "Structuring a recurring bulk silica gel program for a Saudi distributor.",
+    title: "Recurring bulk silica gel supply for a Saudi distributor.",
     metaDescription:
       "Saudi bulk silica gel case study: recurring distributor supply with MOQ, lead time, Jeddah/Dammam routing, Incoterms, SDS, and COA.",
     image: "/applications/warehouse-inventory.webp",

@@ -94,6 +94,10 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
   }
 
   const rfqHref = `/request-a-quote?destination=${encodeURIComponent(market.country)}`;
+  // Country names that take "the" in running English ("for the UAE").
+  const place = ["UAE", "USA", "United Kingdom", "Philippines"].includes(market.country)
+    ? `the ${market.country}`
+    : market.country;
 
   // Deterministic rotation (not random - keeps static generation stable):
   // 5 siblings starting right after this market's position in the list,
@@ -385,7 +389,7 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
       {market.procurementNotes?.length ? (
         <section className={styles.section}>
           <div className={styles.sectionHead}>
-            <h2>Buying silica gel for {market.country}.</h2>
+            <h2>Buying silica gel for {place}.</h2>
             <p>
               Match the desiccant format to the packed product, labeling plan, destination port,
               and inland handover before comparing landed quotations.
@@ -458,7 +462,9 @@ export default async function ExportMarketPage({ params }: ExportMarketPageProps
 
       <section className={styles.section}>
         <div className={styles.sectionHead}>
-          <h2>Request a {market.country} export quote.</h2>
+          <h2>
+            {market.slug === "fob-karachi" ? "Request a FOB Karachi quote." : `Request an export quote for ${place}.`}
+          </h2>
           <p>
             Send your format, quantity, destination port or city, and Incoterms - and the factory export
             desk returns a documented quote with MOQ, lead time, and shipping options.

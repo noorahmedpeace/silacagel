@@ -493,7 +493,7 @@ export const exportMarkets: ExportMarket[] = [
     slug: "india",
     updatedAt: "2026-09-02",
     country: "India",
-    title: "Silica gel supplier for India packaging, pharma, electronics, and export buyers.",
+    title: "Silica gel supplier for buyers in India.",
     description:
       "Silica gel sachets, bulk beads, container strips, and private-label desiccant support for Indian distributors, exporters, pharma packaging, and electronics buyers.",
     buyerTypes: ["Packaging distributors", "Pharma and healthcare packagers", "Electronics packaging teams", "Leather and textile exporters"],
@@ -534,7 +534,7 @@ export const exportMarkets: ExportMarket[] = [
     slug: "brazil",
     updatedAt: "2026-09-02",
     country: "Brazil",
-    title: "Silica gel export supply for Brazil importers and industrial packaging buyers.",
+    title: "Silica gel export supply for Brazil importers.",
     description:
       "Industrial silica gel sachets, bulk desiccants, and cargo moisture control formats for Brazil distributors, packaging buyers, warehouses, and import teams.",
     buyerTypes: ["Brazilian distributors", "Industrial packaging buyers", "Warehouse and logistics teams", "Private-label importers"],
@@ -620,7 +620,7 @@ export const exportMarkets: ExportMarket[] = [
     slug: "pakistan",
     updatedAt: "2026-09-02",
     country: "Pakistan",
-    title: "Silica gel manufacturer in Pakistan for local and export packaging buyers.",
+    title: "Silica gel manufacturer in Pakistan, since 1983.",
     description:
       "Karachi-origin silica gel sachets, bulk beads, cargo strips, and private-label desiccant support for Pakistan manufacturers, warehouses, exporters, and distributors.",
     buyerTypes: ["Karachi manufacturers", "Lahore and Faisalabad exporters", "Packaging distributors", "Warehouse and textile buyers"],

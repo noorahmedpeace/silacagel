@@ -38,7 +38,7 @@ export default function CompareHub() {
     <main className={styles.page}>
       <header className={styles.hero}>
         <span className={styles.kicker}>Comparison Hub</span>
-        <h1>Desiccant buyer comparisons - pick the right product per cargo type.</h1>
+        <h1>Compare desiccants before you order.</h1>
         <p className={styles.description}>
           Industrial moisture control is a decision problem before it&apos;s a purchase. These
           side-by-side guides cover the comparisons procurement teams ask about most:

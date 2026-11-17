@@ -248,7 +248,7 @@ export const productCatalog: ProductItem[] = [
     slug: "bulk-industrial",
     name: "Enterprise Bulk Logistics Supply",
     shortName: "Enterprise Bulk",
-    heroTitle: "Bulk silica gel beads and packs, 25g to 500g and loose 25kg, by the kg",
+    heroTitle: "Bulk silica gel beads and packs, by the kg",
     rfqLabel: "Bulk silica gel beads and packs, 25g–25kg (by the kg)",
     metaTitle: "Bulk Silica Gel Beads | Drums, Sacks & Jumbo Bags",
     eyebrow: "Bulk formats · 25g packs to 25kg bags",

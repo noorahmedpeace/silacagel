@@ -1005,7 +1005,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <section className={styles.faqSection} aria-labelledby="product-faq-heading">
                 <div className={styles.sectionHead}>
                   <p className={styles.eyebrow}>Buyer FAQ</p>
-                  <h2 id="product-faq-heading">{product.shortName} questions buyers ask before quote.</h2>
+                  <h2 id="product-faq-heading">Questions buyers ask about {product.shortName}.</h2>
                 </div>
                 <div className={styles.faqList}>
                   {faqs.map((item) => (
