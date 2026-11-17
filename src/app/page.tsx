@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 
 import Link from "next/link";
 import { totalCustomersSupplied } from "@/lib/customer-references";
@@ -170,6 +170,16 @@ const scrollyIndustries = [
   },
 ];
 
+const HERO_ALT = "Silica gel beads spilling from a desiccant sachet";
+// No `priority` here: a blanket priority on both art-directed variants makes Next
+// emit two UNCONDITIONAL <link rel=preload> for the hero, so a phone wastefully
+// downloads the desktop crop (and vice-versa), starving the real LCP resources
+// (the hero web-font text) of bandwidth. Instead we keep the <img> eager and emit
+// our own media-scoped preloads below, exactly one hero image per viewport.
+const heroImageBase = { alt: HERO_ALT, fill: true, sizes: "100vw", quality: 72 } as const;
+const heroDesktopProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft.webp" }).props;
+const heroMobileProps = getImageProps({ ...heroImageBase, src: "/hero-macro-kraft-mobile.webp" }).props;
+
 export default function Home() {
   return (
     <div className={styles.page}>
@@ -177,10 +187,28 @@ export default function Home() {
         <main id="top" className={styles.main}>
           <section className={styles.heroX} id="hero">
             {/* Dark cobalt hero, split (Nov 2026): the copy on the left, the
-                product film on the right in a glass bezel. The film replaced
-                the full-bleed bead macro that used to sit behind the copy. On
-                desktop its poster is the largest paint, so it is preloaded
-                there only; on phones the film sits below the buttons. */}
+                product film on the right in a glass bezel, and the bead macro
+                full-bleed behind both under the cobalt shade (the owner asked
+                for it back, 17 Nov). On phones the film sits below the
+                buttons, so its poster is preloaded on desktop only. */}
+            {/* Media-scoped LCP preloads: a phone preloads only the mobile crop,
+                desktop only the desktop crop, React 19 hoists these to <head>. */}
+            <link
+              rel="preload"
+              as="image"
+              media="(max-width: 768px)"
+              imageSrcSet={heroMobileProps.srcSet}
+              imageSizes={heroMobileProps.sizes}
+              fetchPriority="high"
+            />
+            <link
+              rel="preload"
+              as="image"
+              media="(min-width: 769px)"
+              imageSrcSet={heroDesktopProps.srcSet}
+              imageSizes={heroDesktopProps.sizes}
+              fetchPriority="high"
+            />
             <link
               rel="preload"
               as="image"
@@ -188,6 +216,18 @@ export default function Home() {
               media="(min-width: 1024px)"
               fetchPriority="high"
             />
+            <picture>
+              <source media="(max-width: 768px)" srcSet={heroMobileProps.srcSet} sizes={heroMobileProps.sizes} />
+              <source media="(min-width: 769px)" srcSet={heroDesktopProps.srcSet} sizes={heroDesktopProps.sizes} />
+              <img
+                {...heroDesktopProps}
+                id="hero-product-image"
+                className={styles.heroXImage}
+                loading="eager"
+                fetchPriority="high"
+                alt={HERO_ALT}
+              />
+            </picture>
             <div className={styles.heroXShade} aria-hidden="true" />
             <div className={styles.heroXAurora} aria-hidden="true" />
             {/* Soft headline glow (pure CSS layer). */}
@@ -277,10 +317,14 @@ export default function Home() {
               <div className={styles.factoryBandShade} aria-hidden="true" />
               <div className={styles.factoryBandCopy}>
                 <Factory size={28} strokeWidth={1.5} className={styles.factoryBandIcon} aria-hidden="true" />
-                <h2 id="factory-band-title">Not a trader. A plant in North Karachi you can visit.</h2>
+                <h2 id="factory-band-title">
+                  Not a trader.{" "}
+                  <br />
+                  A plant in North Karachi.
+                </h2>
                 <p>
-                  Beads are filled, sealed and packed on our own line. SDS, lot COA and a DMF-free statement leave with
-                  every shipment.
+                  Beads are filled, sealed and packed on our own line, and buyers are welcome to visit. SDS, lot COA and
+                  a DMF-free statement leave with every shipment.
                 </p>
                 <Link href="/documentation" className={styles.factoryBandLink}>
                   See the documents

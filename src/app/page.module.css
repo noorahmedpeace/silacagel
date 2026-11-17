@@ -7200,8 +7200,8 @@
 /* ═══════════════════════════════════════════════════════════════════════════
  * HERO FILM (Nov 2026, part of the taste pass). The hero splits: copy on the
  * left, the product film on the right in a glass bezel, the three facts as
- * one spec line under both columns. The film replaced the full-bleed bead
- * macro behind the copy. Phones stack copy, film, facts.
+ * one spec line under both columns. The full-bleed bead macro stays behind
+ * everything under the cobalt shade. Phones stack copy, film, facts.
  * ═══════════════════════════════════════════════════════════════════════════ */
 .heroXSplit {
   display: grid;
